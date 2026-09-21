@@ -5,12 +5,6 @@ export const coreLight = create({
 	brandTitle: "Core",
 	brandUrl: "https://core.com",
 	brandTarget: "_self",
-	// Relative on purpose. The hosted build serves the manager under a subpath
-	// (SB_BASE=/storybook/, see .storybook/main.ts) where a root-absolute "/core-large.svg"
-	// escapes Storybook and hits the auth-gated app root, so the logo renders broken.
-	// Relative resolves against the manager document: "/core-large.svg" locally,
-	// "/storybook/core-large.svg" hosted — both served from ../public.
-	brandImage: "core-large.svg",
 
 	// Typography
 	fontBase: '"Figtree", ui-sans-serif, sans-serif, system-ui',
