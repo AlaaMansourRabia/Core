@@ -38,17 +38,17 @@ export function WelcomePage() {
 				}}
 			/>
 			<h1 className="wwc:text-4xl wwc:md:text-6xl wwc:font-light wwc:mb-6 animate-fade-in-up">
-				<span className="wwc:whitespace-nowrap">Wakecore design framework</span>
+				<span className="wwc:whitespace-nowrap">Core design framework</span>
 				<br />
 				<span className="wwc:whitespace-nowrap">
 					by{" "}
 					<a
-						href="https://wakecap.com"
+						href="https://core.com"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="wwc:hover:text-muted-foreground wwc:transition-colors"
 					>
-						wakecap.com
+						core.com
 					</a>
 				</span>
 			</h1>
@@ -56,7 +56,7 @@ export function WelcomePage() {
 				A comprehensive design system built for consistency, accessibility, and developer experience.
 			</p>
 			<Button variant="ghost" asChild className="animate-fade-in-up animation-delay-200 gradient-border rounded-full">
-				<a href="https://github.com/wakecap/Design-Agent" target="_blank" rel="noopener noreferrer">
+				<a href="https://github.com/core/Design-Agent" target="_blank" rel="noopener noreferrer">
 					<Github />
 					Build with Design Agent
 				</a>

@@ -25,7 +25,7 @@ export function ObjectDrawingToolbarPage() {
 				<p className="wwc:text-muted-foreground wwc:mt-2 wwc:max-w-2xl">
 					A single-line horizontal toolbar for a 2D canvas drawing tool, with divider-separated groups: a mode toggle, a
 					drawing-tool group (select, line, circle, rectangle, polygon), fill/stroke color pickers, an opacity slider, a
-					90° snap toggle, and unlink / import actions. Composed entirely from WakeCore components.
+					90° snap toggle, and unlink / import actions. Composed entirely from Core components.
 				</p>
 			</div>
 

@@ -8,9 +8,9 @@ import type {
 	WidgetProps,
 } from "@rjsf/utils";
 
-// A custom RJSF (react-jsonschema-form v5) theme that renders Wakecore design-system components.
-// It maps RJSF's widget/template slots onto Wakecore Input/Select/Textarea/Checkbox/Label/Button so a
-// JSON-Schema-driven form looks and behaves like a hand-built Wakecore form. Consumed by FormWidgetRJSF.
+// A custom RJSF (react-jsonschema-form v5) theme that renders Core design-system components.
+// It maps RJSF's widget/template slots onto Core Input/Select/Textarea/Checkbox/Label/Button so a
+// JSON-Schema-driven form looks and behaves like a hand-built Core form. Consumed by FormWidgetRJSF.
 import {withTheme} from "@rjsf/core";
 import {getSubmitButtonOptions} from "@rjsf/utils";
 
@@ -21,10 +21,10 @@ import {Label} from "../../label";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "../../select";
 import {Textarea} from "../../textarea";
 
-// ── BaseInputTemplate / TextWidget → Wakecore Input ───────────────────────────
+// ── BaseInputTemplate / TextWidget → Core Input ───────────────────────────
 // RJSF routes plain string/number widgets through BaseInputTemplate. We honour the `type`/`inputmode`
 // RJSF supplies (e.g. type="number" for integer fields) and parse numeric inputs back to numbers.
-function WakecoreBaseInput(props: BaseInputTemplateProps) {
+function CoreBaseInput(props: BaseInputTemplateProps) {
 	const {
 		id,
 		value,
@@ -66,8 +66,8 @@ function WakecoreBaseInput(props: BaseInputTemplateProps) {
 	);
 }
 
-// ── SelectWidget → Wakecore Select ────────────────────────────────────────────
-function WakecoreSelectWidget(props: WidgetProps) {
+// ── SelectWidget → Core Select ────────────────────────────────────────────
+function CoreSelectWidget(props: WidgetProps) {
 	const {id, value, disabled, readonly, onChange, onBlur, onFocus, options, placeholder, rawErrors} = props;
 	const enumOptions = options.enumOptions ?? [];
 
@@ -96,8 +96,8 @@ function WakecoreSelectWidget(props: WidgetProps) {
 	);
 }
 
-// ── TextareaWidget → Wakecore Textarea ────────────────────────────────────────
-function WakecoreTextareaWidget(props: WidgetProps) {
+// ── TextareaWidget → Core Textarea ────────────────────────────────────────
+function CoreTextareaWidget(props: WidgetProps) {
 	const {id, value, placeholder, disabled, readonly, autofocus, onChange, onBlur, onFocus, options, rawErrors} = props;
 
 	return (
@@ -116,8 +116,8 @@ function WakecoreTextareaWidget(props: WidgetProps) {
 	);
 }
 
-// ── CheckboxWidget → Wakecore Checkbox (renders its own inline label) ──────────
-function WakecoreCheckboxWidget(props: WidgetProps) {
+// ── CheckboxWidget → Core Checkbox (renders its own inline label) ──────────
+function CoreCheckboxWidget(props: WidgetProps) {
 	const {id, value, disabled, readonly, onChange, onBlur, onFocus, label} = props;
 
 	return (
@@ -140,14 +140,14 @@ function WakecoreCheckboxWidget(props: WidgetProps) {
 }
 
 const widgets: RegistryWidgetsType = {
-	TextWidget: WakecoreBaseInput,
-	SelectWidget: WakecoreSelectWidget,
-	TextareaWidget: WakecoreTextareaWidget,
-	CheckboxWidget: WakecoreCheckboxWidget,
+	TextWidget: CoreBaseInput,
+	SelectWidget: CoreSelectWidget,
+	TextareaWidget: CoreTextareaWidget,
+	CheckboxWidget: CoreCheckboxWidget,
 };
 
 // ── FieldTemplate → Label + widget + description + destructive errors ──────────
-function WakecoreFieldTemplate(props: FieldTemplateProps) {
+function CoreFieldTemplate(props: FieldTemplateProps) {
 	const {id, label, required, children, description, rawErrors, schema} = props;
 	// The checkbox widget renders its own inline label, so skip the top Label for booleans.
 	const isBoolean = schema.type === "boolean";
@@ -176,12 +176,12 @@ function WakecoreFieldTemplate(props: FieldTemplateProps) {
 
 // ── ObjectFieldTemplate → stack the fields ────────────────────────────────────
 // The widget file owns the title/heading, so we only render the field rows here.
-function WakecoreObjectFieldTemplate(props: ObjectFieldTemplateProps) {
+function CoreObjectFieldTemplate(props: ObjectFieldTemplateProps) {
 	return <div className="wwc:flex wwc:flex-col wwc:gap-5">{props.properties.map((prop) => prop.content)}</div>;
 }
 
-// ── SubmitButton → Wakecore Button ────────────────────────────────────────────
-function WakecoreSubmitButton(props: SubmitButtonProps) {
+// ── SubmitButton → Core Button ────────────────────────────────────────────
+function CoreSubmitButton(props: SubmitButtonProps) {
 	const options = getSubmitButtonOptions(props.uiSchema);
 	if (options.norender) return null;
 
@@ -192,15 +192,15 @@ function WakecoreSubmitButton(props: SubmitButtonProps) {
 	);
 }
 
-const wakecoreTheme: ThemeProps = {
+const coreTheme: ThemeProps = {
 	widgets,
 	templates: {
-		FieldTemplate: WakecoreFieldTemplate,
-		ObjectFieldTemplate: WakecoreObjectFieldTemplate,
-		ButtonTemplates: {SubmitButton: WakecoreSubmitButton},
-		// Route the base text/number input path through our Wakecore Input.
-		BaseInputTemplate: WakecoreBaseInput,
+		FieldTemplate: CoreFieldTemplate,
+		ObjectFieldTemplate: CoreObjectFieldTemplate,
+		ButtonTemplates: {SubmitButton: CoreSubmitButton},
+		// Route the base text/number input path through our Core Input.
+		BaseInputTemplate: CoreBaseInput,
 	},
 };
 
-export const WakecoreForm = withTheme(wakecoreTheme);
+export const CoreForm = withTheme(coreTheme);

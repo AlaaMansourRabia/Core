@@ -1,2 +1,2 @@
-export {WalkthroughModal} from "@wakecap/core-ui/walkthrough-modal";
-export type {WalkthroughModalProps} from "@wakecap/core-ui/walkthrough-modal";
+export {WalkthroughModal} from "@core/core-ui/walkthrough-modal";
+export type {WalkthroughModalProps} from "@core/core-ui/walkthrough-modal";

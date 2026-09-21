@@ -7,7 +7,7 @@ import type {NormalizedRecord} from "../model/record";
 import type {StoreMeta} from "../store/store";
 
 /** Date-based capability version. Additive changes keep it; breaking changes bump it. */
-export const API_VERSION = "wakecore-knowledge/2026-07";
+export const API_VERSION = "core-knowledge/2026-07";
 
 export interface Warning {
 	code: string;

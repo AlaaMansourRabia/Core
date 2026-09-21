@@ -1,6 +1,6 @@
 {
-	"name": "@wakecap/core-utils",
-	"version": "0.0.1",
+	"name": "@core/core-utils",
+	"version": "1.0.0",
 	"bin": {
 		"intent": "./bin/intent.js"
 	},
@@ -19,9 +19,6 @@
 			"types": "./dist/index.d.mts",
 			"import": "./dist/index.mjs"
 		}
-	},
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com"
 	},
 	"scripts": {
 		"build": "tsdown",

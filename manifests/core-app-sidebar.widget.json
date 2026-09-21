@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/navigation/core-app-sidebar.tsx",
-		"import": "@wakecap/core-ui/navigation/core-app-sidebar"
+		"import": "@core/core-ui/navigation/core-app-sidebar"
 	},
 	"tags": [
 		"navigation",
@@ -24,9 +24,9 @@
 		"list": "Default — flat groups, ruled apart, all open. Every existing consumer.",
 		"tree": "Grouped sections — icon groups render as a tree, rules drop, sections open folded."
 	},
-	"intent": "The standard WakeCap product sidebar: branded shell with a pinned block of shell surfaces (Search, a `pinnedTop` entry, Home, Notifications) over grouped nav, plus profile, density, and collapse to an icon rail with sub-tab flyouts. Search is a ROW that hands off to a search surface of the consumer's choosing, not an inline filter. Groups are navigable in their own right: give a group an `icon` and it renders as a tree — parent-sized header, a spine down to the last item, an elbow into each — and folds in the collapsed rail to that one icon, whose flyout lists its items using the same flyout an `expandable` item's `subMenu` gets. `collapsible` makes the WHOLE header fold the group — name, icon and chevron are one control, so no group name is a link and none underlines — while `activeGroupId` marks a group (and its rail icon) as the active surface and `onGroupSelect` fires only from the collapsed rail's flyout title. `variant` names the two shapes — `\"list\"` (default) for the flat, ruled, all-open list and `\"tree\"` for grouped sections that fold to their icon — and supplies the defaults for `showGroupDividers` and `groupsCollapsedByDefault`, both of which still override it. `brandName`, `showHomeDivider`, `dividerBefore` and `showSearch` tune the chrome independently of the variant; expanding and folding animate.",
+	"intent": "The standard Core product sidebar: branded shell with a pinned block of shell surfaces (Search, a `pinnedTop` entry, Home, Notifications) over grouped nav, plus profile, density, and collapse to an icon rail with sub-tab flyouts. Search is a ROW that hands off to a search surface of the consumer's choosing, not an inline filter. Groups are navigable in their own right: give a group an `icon` and it renders as a tree — parent-sized header, a spine down to the last item, an elbow into each — and folds in the collapsed rail to that one icon, whose flyout lists its items using the same flyout an `expandable` item's `subMenu` gets. `collapsible` makes the WHOLE header fold the group — name, icon and chevron are one control, so no group name is a link and none underlines — while `activeGroupId` marks a group (and its rail icon) as the active surface and `onGroupSelect` fires only from the collapsed rail's flyout title. `variant` names the two shapes — `\"list\"` (default) for the flat, ruled, all-open list and `\"tree\"` for grouped sections that fold to their icon — and supplies the defaults for `showGroupDividers` and `groupsCollapsedByDefault`, both of which still override it. `brandName`, `showHomeDivider`, `dividerBefore` and `showSearch` tune the chrome independently of the variant; expanding and folding animate.",
 	"when": [
-		"Any standard WakeCap product app shell",
+		"Any standard Core product app shell",
 		"A sidebar whose GROUPS are destinations too, not just headings over a list",
 		"A nav that must stay legible collapsed — one icon per section, its items in a flyout",
 		"A long nav that should open as a short list of section headers and expand on demand"

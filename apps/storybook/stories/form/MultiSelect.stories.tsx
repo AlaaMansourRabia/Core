@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {MultiSelect} from "@wakecap/core-ui/multi-select";
+import {MultiSelect} from "@core/core-ui/multi-select";
 import * as React from "react";
 import {expect, screen, userEvent, waitFor, within} from "storybook/test";
 

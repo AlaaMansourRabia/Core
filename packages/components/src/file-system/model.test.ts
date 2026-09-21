@@ -25,7 +25,7 @@ import {
 // address. These are the invariants the surfaces assume; break one and a Location column starts
 // naming the wrong folder, quietly.
 
-const WAKECAP = "WakeCap Construction";
+const CORE = "Core Construction";
 
 /** The fixture, indexed. Tests that create rebuild it, so nothing leaks between cases. */
 let nodes: FileSystemNode[] = [];
@@ -79,7 +79,7 @@ describe("fsPath", () => {
 		expect(bim).toBeDefined();
 		expect(fsPath(ix, bim!.id)).toBe("/Falcon Heights Medical Tower/Data pipelines/BIM intake — IFC → WC3 elements");
 		expect(fsPath(ix, bim!.id, {withRoot: true})).toBe(
-			"/WakeCap Construction/Falcon Heights Medical Tower/Data pipelines/BIM intake — IFC → WC3 elements",
+			"/Core Construction/Falcon Heights Medical Tower/Data pipelines/BIM intake — IFC → WC3 elements",
 		);
 	});
 
@@ -89,7 +89,7 @@ describe("fsPath", () => {
 	});
 
 	it("returns the root for a node with no folders above it", () => {
-		const org = rootByName(WAKECAP)!;
+		const org = rootByName(CORE)!;
 		const project = fsChildren(ix, org.id)[0];
 		expect(fsFolderPath(ix, project.id)).toBe("/");
 	});
@@ -115,7 +115,7 @@ describe("the round trip", () => {
 });
 
 describe("fsQuery", () => {
-	const root = () => rootByName(WAKECAP)!.id;
+	const root = () => rootByName(CORE)!.id;
 
 	it("returns projects and files, never plain folders", () => {
 		const rows = fsQuery(ix, {rootId: root()});
@@ -153,7 +153,7 @@ describe("fsQuery", () => {
 	});
 
 	it("narrows to a folder's whole subtree, not just its direct children", () => {
-		const org = rootByName(WAKECAP)!;
+		const org = rootByName(CORE)!;
 		const falcon = fsChildren(ix, org.id).find((n) => n.name === "Falcon Heights Medical Tower")!;
 		const rows = fsQuery(ix, {rootId: org.id, folderId: falcon.id});
 		// Falcon has no files of its own — every one of these sits in a folder below it.
@@ -208,7 +208,7 @@ describe("fsQuery", () => {
 
 describe("creating a node", () => {
 	it("puts a new project in the listing and in the Projects facet", () => {
-		const org = rootByName(WAKECAP)!;
+		const org = rootByName(CORE)!;
 		const before = fsQuery(ix, {rootId: org.id}).length;
 		const node = create({name: "Jeddah Waterfront", kind: "project", parentId: org.id});
 
@@ -219,7 +219,7 @@ describe("creating a node", () => {
 	});
 
 	it("puts a new file in its project, with a location that resolves", () => {
-		const org = rootByName(WAKECAP)!;
+		const org = rootByName(CORE)!;
 		const uptown = fsChildren(ix, org.id).find((n) => n.name === "Uptown Tower")!;
 		const node = create({
 			name: "Permit backlog",
@@ -234,20 +234,20 @@ describe("creating a node", () => {
 	});
 
 	it("counts a new file in its type facet", () => {
-		const org = rootByName(WAKECAP)!;
+		const org = rootByName(CORE)!;
 		const before = fsTypeCounts(ix, org.id).find((c) => c.type === "dataset")?.count ?? 0;
 		create({name: "Site readings", kind: "file", parentId: org.id, fileType: "dataset"});
 		expect(fsTypeCounts(ix, org.id).find((c) => c.type === "dataset")?.count).toBe(before + 1);
 	});
 
 	it("gives a created node no record, so nothing claims to open it", () => {
-		const org = rootByName(WAKECAP)!;
+		const org = rootByName(CORE)!;
 		const node = create({name: "Notes", kind: "file", parentId: org.id, fileType: "doc"});
 		expect(node.ref).toBeUndefined();
 	});
 
 	it("keeps ids unique even when two nodes are named the same", () => {
-		const org = rootByName(WAKECAP)!;
+		const org = rootByName(CORE)!;
 		const a = create({name: "Same", kind: "file", parentId: org.id, fileType: "doc"});
 		const b = create({name: "Same", kind: "file", parentId: org.id, fileType: "doc"});
 		expect(a.id).not.toBe(b.id);
@@ -256,7 +256,7 @@ describe("creating a node", () => {
 
 describe("folders", () => {
 	it("lists a folder's direct children, folders before files", () => {
-		const org = rootByName(WAKECAP)!;
+		const org = rootByName(CORE)!;
 		const uptown = fsChildren(ix, org.id).find((n) => n.name === "Uptown Tower")!;
 		const rows = fsFolderListing(ix, uptown.id);
 		expect(rows.length).toBeGreaterThan(0);
@@ -266,7 +266,7 @@ describe("folders", () => {
 	});
 
 	it("opens a created folder and files into it", () => {
-		const org = rootByName(WAKECAP)!;
+		const org = rootByName(CORE)!;
 		const uptown = fsChildren(ix, org.id).find((n) => n.name === "Uptown Tower")!;
 		const folder = create({name: "Commissioning", kind: "folder", parentId: uptown.id});
 		expect(fsFolderListing(ix, uptown.id).some((n) => n.id === folder.id)).toBe(true);
@@ -281,7 +281,7 @@ describe("folders", () => {
 	});
 
 	it("never lists a folder on the All files page", () => {
-		const org = rootByName(WAKECAP)!;
+		const org = rootByName(CORE)!;
 		create({name: "Commissioning", kind: "folder", parentId: org.id});
 		expect(fsQuery(ix, {rootId: org.id}).every((n) => n.kind !== "folder")).toBe(true);
 	});
@@ -315,7 +315,7 @@ describe("wc3 file types", () => {
 });
 
 describe("facet counts", () => {
-	const root = () => rootByName(WAKECAP)!.id;
+	const root = () => rootByName(CORE)!.id;
 
 	it("counts types without counting retired files", () => {
 		const docs = fsTypeCounts(ix, root()).find((c) => c.type === "doc");

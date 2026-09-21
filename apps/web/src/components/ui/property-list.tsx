@@ -4,4 +4,4 @@ export {
 	PropertyRow,
 	type PropertyListProps,
 	type PropertyRowProps,
-} from "@wakecap/core-ui/property-list";
+} from "@core/core-ui/property-list";

@@ -1,7 +1,7 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {Calendar, Check, ChevronLeft, ChevronRight, FileText, GanttChart, Plane, Play, X} from "lucide-react";
 /**
- * ProgressSheet — a self-contained, CONTROLLED Wakecore widget for the bottom
+ * ProgressSheet — a self-contained, CONTROLLED Core widget for the bottom
  * toolbar (Progress Overview + Timeline + draggable week scrubber) and the
  * slide-up Reports sheet (milestone-progression waffle hero + plan-vs-reality
  * milestone-timing band).
@@ -821,7 +821,7 @@ export function ProgressSheet({
               dark map, light text for dark mode. 80% of screen. */}
 					<div className="wwc:relative wwc:flex wwc:min-h-[80%] wwc:flex-col wwc:px-16 wwc:pb-4 wwc:pt-6 wwc:text-white">
 						{/* Section header — eyebrow · display heading · subtitle on the left, section actions on the
-                right (layout from the PROGRESS · ALL VILLAS reference; Wakecore styling in dark mode). */}
+                right (layout from the PROGRESS · ALL VILLAS reference; Core styling in dark mode). */}
 						<div className="wwc:mb-4 wwc:flex wwc:shrink-0 wwc:items-start wwc:justify-between wwc:gap-4">
 							<div className="wwc:min-w-0">
 								<div className="wwc:flex wwc:items-center wwc:gap-2 wwc:text-[11px] wwc:font-bold wwc:uppercase wwc:tracking-[0.18em]">

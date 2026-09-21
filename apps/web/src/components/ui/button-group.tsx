@@ -1,1 +1,1 @@
-export {ButtonGroup, ButtonGroupItem} from "@wakecap/core-ui/button-group";
+export {ButtonGroup, ButtonGroupItem} from "@core/core-ui/button-group";

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {AspectRatio} from "@wakecap/core-ui/aspect-ratio";
+import {AspectRatio} from "@core/core-ui/aspect-ratio";
 
 const meta = {
 	title: "Components/Layout/AspectRatio",

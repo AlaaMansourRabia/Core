@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Chip} from "@wakecap/core-ui/chip";
+import {Chip} from "@core/core-ui/chip";
 import {AtSign, Calendar, FileSpreadsheet, FileText, MapPin, Star, Tag, X} from "lucide-react";
 import {useState} from "react";
 import {expect, userEvent, within} from "storybook/test";

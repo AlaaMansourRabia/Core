@@ -1,6 +1,6 @@
 import type {ComponentType, ReactNode} from "react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 
 import {HoverTooltip, TooltipProvider} from "./tooltip";
 import {WeekSelector, type WeekSelectorProps} from "./week-selector";
@@ -172,8 +172,8 @@ export function ViewTabBar<T extends string>({
 	return (
 		<TooltipProvider>
 			<div
-				data-wakecore-artifact="view-tab-bar"
-				data-wakecore-surface={surface}
+				data-core-artifact="view-tab-bar"
+				data-core-surface={surface}
 				className={cn(
 					"wwc:relative wwc:z-20 wwc:shrink-0",
 					fill && "wwc:flex wwc:self-stretch",

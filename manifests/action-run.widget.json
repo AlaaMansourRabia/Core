@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/wc3-action-type-run-dialog.tsx",
-		"import": "@wakecap/core-ui/pages/run-action-dialog",
+		"import": "@core/core-ui/pages/run-action-dialog",
 		"export": "RunActionDialog"
 	},
 	"tags": [
@@ -101,7 +101,7 @@
 	"forbiddenPlacement": [
 		"inside another dialog"
 	],
-	"minimalExample": "import {RunActionDialog} from \"@wakecap/core-ui/pages/run-action-dialog\";\n\n<RunActionDialog open={open} onOpenChange={setOpen} actionType={actionType} />",
+	"minimalExample": "import {RunActionDialog} from \"@core/core-ui/pages/run-action-dialog\";\n\n<RunActionDialog open={open} onOpenChange={setOpen} actionType={actionType} />",
 	"evaluationCriteria": [
 		"A user outside the permitted groups cannot run.",
 		"fromObjectProperty defaults refill when their source changes."

@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {ChevronDown, ChevronUp, GripVertical, Plus, Trash2} from "lucide-react";
 import * as React from "react";
 
@@ -71,7 +71,7 @@ const RuleRow = React.forwardRef<HTMLDivElement, RuleRowProps>(
 	) => (
 		<div
 			ref={ref}
-			data-wakecore-artifact="rule-row"
+			data-core-artifact="rule-row"
 			className={cn("wwc:flex wwc:flex-wrap wwc:items-center wwc:gap-3 wwc:rounded-lg wwc:border wwc:p-3", className)}
 			{...props}
 		>

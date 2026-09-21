@@ -352,7 +352,7 @@ export const WC3_ACTION_RUNS: Wc3ActionRun[] = [
 			"Created link “Zone”: OBS-405 ↔ ZN-005",
 			"Created link “Reported by”: OBS-405 ↔ WK-2010",
 			"[bell] Notification sent to Safety Team: “Medium observation logged”",
-			"[globe] Webhook POST https://hooks.wakecap.example/safety-intake (simulated)",
+			"[globe] Webhook POST https://hooks.core.example/safety-intake (simulated)",
 		],
 	},
 	{
@@ -372,7 +372,7 @@ export const WC3_ACTION_RUNS: Wc3ActionRun[] = [
 		effects: [
 			"Modified Work Permit “Hot work — rebar cutting L11 core” (permit_status, valid_from, valid_to)",
 			"[bell] Notification sent to receiver: “Permit PT-704 issued”",
-			"[globe] Webhook POST https://hooks.wakecap.example/dwp-issued (simulated)",
+			"[globe] Webhook POST https://hooks.core.example/dwp-issued (simulated)",
 		],
 	},
 ];

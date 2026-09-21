@@ -1,14 +1,14 @@
-// Studio's window into WakeCore. A Vite dev-middleware that exposes the real WakeCore catalog (the
+// Studio's window into Core. A Vite dev-middleware that exposes the real Core catalog (the
 // "installed software" of the OS) to the browser: templates, and the widget/component library. Reads it
 // through the canonical layer — the single source of truth — and returns a `version` token so the client
-// can reflect approved changes (see server/canonical.ts). The home surface IS WakeCore, live.
+// can reflect approved changes (see server/canonical.ts). The home surface IS Core, live.
 import type {Plugin} from "vite";
 
 import {canonicalVersion, getCatalog} from "./canonical";
 
 export function studioCatalog(): Plugin {
 	return {
-		name: "wakecore-studio-catalog",
+		name: "core-studio-catalog",
 		configureServer(server) {
 			server.middlewares.use("/api/catalog", (_req, res) => {
 				try {

@@ -9,14 +9,14 @@
 	"version": "0.1.0",
 	"manifestStatus": "complete",
 	"product": {
-		"name": "WakeCap Connect",
+		"name": "Core Connect",
 		"release": "V1",
 		"role": "Admin Portal",
 		"pairedWith": ["app-installer"]
 	},
 	"source": {
 		"path": "packages/components/src/pages/core-wc3-workspace.tsx",
-		"import": "@wakecap/core-ui/pages/core-wc3-workspace",
+		"import": "@core/core-ui/pages/core-wc3-workspace",
 		"export": "WC3Workspace"
 	},
 	"tags": [
@@ -34,7 +34,7 @@
 	"when": [
 		"Standing up an admin workspace whose sidebar switches perspectives and whose top tabs switch sections within one",
 		"Demonstrating an ontology-backed admin: object/link/action types, lineage, products, pipelines, processes and analysis in one shell",
-		"Comparing the Wakecore rendering of the unified-workspace IA against the HTML prototype"
+		"Comparing the Core rendering of the unified-workspace IA against the HTML prototype"
 	],
 	"whenNot": [
 		"A single content page rendered inside an existing app shell -> use a content-only template",
@@ -68,12 +68,12 @@
 		"inside another CoreAppSidebar/CoreAppTopBar shell",
 		"inside a Card or Dialog"
 	],
-	"minimalExample": "// CoreWC3Workspace is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@wakecap/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@wakecap/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@wakecap/core-ui/page-content-header\";\nimport {SideMenu} from \"@wakecap/core-ui/side-menu\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"minimalExample": "// CoreWC3Workspace is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@core/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@core/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@core/core-ui/page-content-header\";\nimport {SideMenu} from \"@core/core-ui/side-menu\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 	"lineage": {
 		"origin": "derived",
 		"authoredBy": "WC3 Workspace skeleton (2026-08-02)",
 		"derivedFrom": {
-			"source": "wakecap/wc3-platform @ claude/wc3-ontology-prototypes-wvv4nf — apps/wc3-platform-web/prototypes/ontology-manager/06-unified-workspace.html",
+			"source": "core/wc3-platform @ claude/wc3-ontology-prototypes-wvv4nf — apps/wc3-platform-web/prototypes/ontology-manager/06-unified-workspace.html",
 			"extracted": [
 				"the 10 perspectives and their rail order from the prototype's PERSPECTIVES array",
 				"per-perspective section names from the prototype's own tab arrays (Lineage, Analysis, Products), rail (Ontology), and mode lists (Twin TW_MODES)",

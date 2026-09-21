@@ -253,7 +253,7 @@ type Worker = {
 	complianceScore: number;
 };
 
-/** How many compliance checks make up a full score (Background Check, SST Card, Apex ID Badge, WakeCap Asset). */
+/** How many compliance checks make up a full score (Background Check, SST Card, Apex ID Badge, Core Asset). */
 const COMPLIANCE_TOTAL = 4;
 
 const WORKERS: Worker[] = [
@@ -835,8 +835,8 @@ function workerCompliance(
 				onUploadDocument: () => onUpload("apex-id-badge"),
 			},
 			{
-				id: "wakecap-asset",
-				title: "WakeCap Asset",
+				id: "core-asset",
+				title: "Core Asset",
 				auto: true,
 				status: (
 					<Badge variant="successSoft" className="wwc:h-5 wwc:text-xs">

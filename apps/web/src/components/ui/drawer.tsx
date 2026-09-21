@@ -9,4 +9,4 @@ export {
 	DrawerFooter,
 	DrawerTitle,
 	DrawerDescription,
-} from "@wakecap/core-ui/drawer";
+} from "@core/core-ui/drawer";

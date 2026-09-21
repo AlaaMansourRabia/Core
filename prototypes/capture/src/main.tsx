@@ -1,7 +1,7 @@
 import {StrictMode} from "react";
 import {createRoot} from "react-dom/client";
 
-import {TooltipProvider} from "@wakecap/core-ui/tooltip";
+import {TooltipProvider} from "@core/core-ui/tooltip";
 
 import "./index.css";
 import {Capture} from "./Capture";

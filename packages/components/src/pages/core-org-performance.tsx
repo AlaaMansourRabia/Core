@@ -32,7 +32,7 @@ interface OrgPerformanceProps {
 	addedWidgets?: DashboardWidget[];
 }
 
-// Wakecore Chart Colors (orange/amber palette from theme)
+// Core Chart Colors (orange/amber palette from theme)
 // These correspond to --chart-1 through --chart-5 in oklch format
 const CHART_COLORS = {
 	chart1: "#f5d4a8", // oklch(0.92 0.07 75) - lightest amber
@@ -952,7 +952,7 @@ export function OrgPerformance({selectedOrg, addedWidgets = []}: OrgPerformanceP
 
 				{/* Footer */}
 				<div className="wwc:flex wwc:items-center wwc:justify-between wwc:text-xs wwc:text-muted-foreground wwc:pt-4 wwc:border-t">
-					<span>Data sources: P6 (Schedule) • Unifier (Cost) • WakeCap (Safety & Workforce)</span>
+					<span>Data sources: P6 (Schedule) • Unifier (Cost) • Core (Safety & Workforce)</span>
 					<span>Auto-refresh: 30s</span>
 				</div>
 			</div>

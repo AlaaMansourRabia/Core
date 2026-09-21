@@ -1,14 +1,14 @@
 {
-  "name": "wakecore",
+  "name": "core",
   "interface": {
-    "displayName": "WakeCore Team Plugins"
+    "displayName": "Core Team Plugins"
   },
   "plugins": [
     {
-      "name": "wakecore",
+      "name": "core",
       "source": {
         "source": "local",
-        "path": "./plugins/wakecore"
+        "path": "./plugins/core"
       },
       "policy": {
         "installation": "AVAILABLE",

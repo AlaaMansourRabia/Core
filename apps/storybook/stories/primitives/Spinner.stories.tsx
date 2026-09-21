@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Spinner} from "@wakecap/core-ui/spinner";
+import {Spinner} from "@core/core-ui/spinner";
 
 const meta = {
 	title: "Components/Primitives/Spinner",

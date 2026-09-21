@@ -1,5 +1,5 @@
 // GET /api/auth/callback?code&state — finish GitHub OAuth (DEVELOPER_HANDOFF.md §3.2).
-// 1) verify CSRF state, 2) exchange code→token (server-side, Client Secret), 3) check wakecap org
+// 1) verify CSRF state, 2) exchange code→token (server-side, Client Secret), 3) check core org
 // membership, 4) mint the signed wc_session cookie, 5) redirect to return_to (or /).
 
 import {
@@ -13,9 +13,9 @@ import {
 	signSession,
 } from "./_session.mjs";
 
-const GITHUB_ORG = "wakecap";
+const GITHUB_ORG = "core";
 // Exact copy — ops verification test #4 asserts this string (DEVELOPER_HANDOFF.md §2, §7).
-const DENIAL = "Access denied. You must be a member of the wakecap organization.";
+const DENIAL = "Access denied. You must be a member of the core organization.";
 
 export default async function handler(req, res) {
 	const code = req.query?.code;
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
 	const accessToken = tokenData.access_token;
 	const ghHeaders = {
 		Authorization: `Bearer ${accessToken}`,
-		"User-Agent": "wakecore-auth",
+		"User-Agent": "core-auth",
 		Accept: "application/vnd.github+json",
 	};
 

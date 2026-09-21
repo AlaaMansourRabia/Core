@@ -10,7 +10,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/core-admin-panel.tsx",
-		"import": "@wakecap/core-ui/pages/core-admin-panel",
+		"import": "@core/core-ui/pages/core-admin-panel",
 		"export": "AdminPanel"
 	},
 	"tags": ["admin", "app-shell", "sidebar", "top-bar", "projects", "permissions", "users", "settings"],
@@ -36,7 +36,7 @@
 	"composedOf": ["CoreAppSidebar", "CoreAppTopBar", "DataTable", "PermissionMatrix", "Card", "Badge", "Checkbox"],
 	"allowedPlacement": ["route-level admin / settings surface that owns the full window"],
 	"forbiddenPlacement": ["inside another CoreAppSidebar/CoreAppTopBar shell", "inside a Card or Dialog"],
-	"minimalExample": "// CoreAdminPanel is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@wakecap/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@wakecap/core-ui/navigation/core-app-top-bar\";\nimport {DataTable} from \"@wakecap/core-ui/data-table\";\nimport {PermissionMatrix} from \"@wakecap/core-ui/permission-matrix\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"minimalExample": "// CoreAdminPanel is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@core/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@core/core-ui/navigation/core-app-top-bar\";\nimport {DataTable} from \"@core/core-ui/data-table\";\nimport {PermissionMatrix} from \"@core/core-ui/permission-matrix\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Admin Panel template (2026-07-13)",

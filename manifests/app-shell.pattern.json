@@ -5,7 +5,7 @@
 	"name": "app-shell",
 	"version": "1.0.0",
 	"manifestStatus": "complete",
-	"intent": "Standard WakeCap product shell with collapsible sidebar and top bar.",
+	"intent": "Standard Core product shell with collapsible sidebar and top bar.",
 	"when": "Any authenticated full-page product screen.",
 	"components": [
 		"SidebarProvider",

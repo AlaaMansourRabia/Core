@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Toolbar, ToolbarButton, ToolbarSeparator} from "@wakecap/core-ui/toolbar";
-import {VerticalZoomTools} from "@wakecap/core-ui/vertical-zoom-tools";
+import {Toolbar, ToolbarButton, ToolbarSeparator} from "@core/core-ui/toolbar";
+import {VerticalZoomTools} from "@core/core-ui/vertical-zoom-tools";
 import {Compass, Layers, Maximize} from "lucide-react";
 import {useState} from "react";
 

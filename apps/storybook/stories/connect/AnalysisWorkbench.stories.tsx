@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {AnalysisWorkbench} from "@wakecap/core-ui/pages/analysis-workbench";
-import {ObjectAnalysisView} from "@wakecap/core-ui/pages/wc3-analysis-object-view";
-import {seedAnalysisSession, type Wc3AnalysisSession} from "@wakecap/core-ui/pages/wc3-analysis-views";
+import {AnalysisWorkbench} from "@core/core-ui/pages/analysis-workbench";
+import {ObjectAnalysisView} from "@core/core-ui/pages/wc3-analysis-object-view";
+import {seedAnalysisSession, type Wc3AnalysisSession} from "@core/core-ui/pages/wc3-analysis-views";
 import {useState} from "react";
 
 const meta = {

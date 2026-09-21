@@ -1,4 +1,4 @@
-import {DataTable} from "@wakecap/core-ui/data-table";
+import {DataTable} from "@core/core-ui/data-table";
 
 const columns = [
 	{accessorKey: "name", header: "Name"},

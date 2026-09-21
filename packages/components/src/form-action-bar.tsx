@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import * as React from "react";
 
 export interface FormActionBarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -32,8 +32,8 @@ const FormActionBar = React.forwardRef<HTMLDivElement, FormActionBarProps>(
 	({status, sticky = true, maxWidth = "1200px", className, children, ...props}, ref) => (
 		<div
 			ref={ref}
-			data-wakecore-artifact="form-action-bar"
-			data-wakecore-surface-owner="artifact"
+			data-core-artifact="form-action-bar"
+			data-core-surface-owner="artifact"
 			className={cn(
 				"wwc:flex wwc:h-[53px] wwc:w-full wwc:shrink-0 wwc:items-center wwc:border-t wwc:border-border wwc:bg-card wwc:px-6",
 				"wwc:shadow-[0_-4px_16px_rgba(0,0,0,0.06)]",

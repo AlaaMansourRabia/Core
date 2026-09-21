@@ -1,5 +1,5 @@
 /**
- * SiteToolbar — top-centre canvas toolbar (CONTROLLED Wakecore widget).
+ * SiteToolbar — top-centre canvas toolbar (CONTROLLED Core widget).
  *
  * Extracted verbatim from `pages/capture-ui-enhanced.tsx` (the "Canvas toolbar
  * (top-centre)" block, source lines ~3118–3251). Renders ONLY the two floating
@@ -41,7 +41,7 @@
  */
 import type {ComponentType} from "react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {Check, Home} from "lucide-react";
 import {useState} from "react";
 

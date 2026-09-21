@@ -6,4 +6,4 @@ export {
 	StepperLabel,
 	StepperDescription,
 	StepperSeparator,
-} from "@wakecap/core-ui/stepper";
+} from "@core/core-ui/stepper";

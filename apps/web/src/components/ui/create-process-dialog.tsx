@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/pages/create-process-dialog";
+export * from "@core/core-ui/pages/create-process-dialog";

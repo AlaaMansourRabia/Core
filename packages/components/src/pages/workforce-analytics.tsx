@@ -1,6 +1,6 @@
 import type {EChartsOption} from "echarts";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {
 	Activity,
 	ChevronRight,
@@ -122,7 +122,7 @@ const COMPLIANCE_ELEMENTS: {name: string; pct: number; tone: ProgressTone}[] = [
 	{name: "Background Check", pct: 94, tone: "success"},
 	{name: "SST Card", pct: 88, tone: "success"},
 	{name: "Apex ID Badge", pct: 91, tone: "success"},
-	{name: "WakeCap Asset", pct: 82, tone: "warning"},
+	{name: "Core Asset", pct: 82, tone: "warning"},
 ];
 
 const OBS_STATS = [
@@ -163,7 +163,7 @@ const BADGE_TONE: Record<ProgressTone, string> = {
 	danger: "wwc:bg-red-100 wwc:text-red-700",
 };
 
-/** A ranked breakdown as a themed Wakecore horizontal bar chart (ChartContainer / ECharts). */
+/** A ranked breakdown as a themed Core horizontal bar chart (ChartContainer / ECharts). */
 function BarBreakdown({items, tone}: {items: {label: string; value: number}[]; tone: ChartSemanticTone}) {
 	// ECharts category axis runs bottom→top, so reverse to keep the largest value on top.
 	const labels = items.map((i) => i.label).reverse();

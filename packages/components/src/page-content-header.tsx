@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {ChevronDown, MoreHorizontal} from "lucide-react";
 import * as React from "react";
 
@@ -56,8 +56,8 @@ function HeaderActionButton({action, instrumentationId}: {action: PageContentHea
 			onClick={action.onSelect}
 			disabled={action.disabled}
 			aria-label={action.label}
-			data-wakecore-affordance-purpose={`${instrumentationId}-${action.id}`}
-			data-wakecore-interaction={`${instrumentationId}-${action.id}`}
+			data-core-affordance-purpose={`${instrumentationId}-${action.id}`}
+			data-core-interaction={`${instrumentationId}-${action.id}`}
 			className={cn(!iconOnly && "wwc:gap-1.5")}
 		>
 			{action.icon}
@@ -109,8 +109,8 @@ function HeaderActions({
 							variant={splitAction.tone === "destructive" ? "destructive" : "default"}
 							onClick={splitAction.onSelect}
 							disabled={splitAction.disabled}
-							data-wakecore-affordance-purpose={`${instrumentationId}-${splitAction.id}`}
-							data-wakecore-interaction={`${instrumentationId}-${splitAction.id}`}
+							data-core-affordance-purpose={`${instrumentationId}-${splitAction.id}`}
+							data-core-interaction={`${instrumentationId}-${splitAction.id}`}
 							className="wwc:gap-1.5 wwc:rounded-r-none"
 						>
 							{splitAction.icon}
@@ -124,8 +124,8 @@ function HeaderActions({
 									icon
 									variant={splitAction.tone === "destructive" ? "destructive" : "default"}
 									aria-label={`${splitAction.label} options`}
-									data-wakecore-affordance-purpose={`${instrumentationId}-${splitAction.id}-options`}
-									data-wakecore-interaction={`${instrumentationId}-${splitAction.id}-options`}
+									data-core-affordance-purpose={`${instrumentationId}-${splitAction.id}-options`}
+									data-core-interaction={`${instrumentationId}-${splitAction.id}-options`}
 									className="wwc:rounded-l-none wwc:border-l wwc:border-primary-foreground/20"
 								>
 									<ChevronDown />
@@ -137,7 +137,7 @@ function HeaderActions({
 										key={option.id}
 										onSelect={option.onSelect}
 										disabled={option.disabled}
-										data-wakecore-interaction={`${instrumentationId}-${option.id}`}
+										data-core-interaction={`${instrumentationId}-${option.id}`}
 										className="wwc:gap-2"
 									>
 										{option.icon}
@@ -156,8 +156,8 @@ function HeaderActions({
 								variant="outline"
 								icon
 								aria-label={menuLabel}
-								data-wakecore-affordance-purpose={`${instrumentationId}-overflow`}
-								data-wakecore-interaction={`${instrumentationId}-overflow`}
+								data-core-affordance-purpose={`${instrumentationId}-overflow`}
+								data-core-interaction={`${instrumentationId}-overflow`}
 								className={cn(explicitOverflow.length === 0 && "wwc:@3xl:hidden")}
 							>
 								<MoreHorizontal />
@@ -169,7 +169,7 @@ function HeaderActions({
 									key={action.id}
 									onSelect={action.onSelect}
 									disabled={action.disabled}
-									data-wakecore-interaction={`${instrumentationId}-${action.id}-overflow`}
+									data-core-interaction={`${instrumentationId}-${action.id}-overflow`}
 									className={cn("wwc:gap-2", action.tone === "destructive" && "wwc:text-destructive")}
 								>
 									{action.icon}
@@ -186,7 +186,7 @@ function HeaderActions({
 
 /**
  * Route-content header for entity identity, peer navigation, and workflow actions.
- * All controls and states are composed from WakeCore artifacts.
+ * All controls and states are composed from Core artifacts.
  */
 export const PageContentHeader = React.forwardRef<HTMLDivElement, PageContentHeaderProps>(
 	(
@@ -216,9 +216,9 @@ export const PageContentHeader = React.forwardRef<HTMLDivElement, PageContentHea
 		const Heading = headingLevel === 1 ? "h1" : headingLevel === 2 ? "h2" : "h3";
 		const navigation = hasTabs ? (
 			<div
-				data-wakecore-region="page-content-header-navigation"
-				data-wakecore-navigation-purpose="peer-section-navigation"
-				data-wakecore-navigation-relationship="peer"
+				data-core-region="page-content-header-navigation"
+				data-core-navigation-purpose="peer-section-navigation"
+				data-core-navigation-relationship="peer"
 				className="wwc:hidden wwc:min-w-0 wwc:@2xl:flex"
 			>
 				{/* Labels collapse to icon-only as the header narrows (below @5xl); the row itself drops to a
@@ -230,16 +230,16 @@ export const PageContentHeader = React.forwardRef<HTMLDivElement, PageContentHea
 		return (
 			<div
 				ref={ref}
-				data-wakecore-artifact="page-content-header"
-				data-wakecore-density={density}
-				data-wakecore-instance={instrumentationId}
-				data-wakecore-surface-owner="artifact"
-				data-wakecore-region="page-content-header"
+				data-core-artifact="page-content-header"
+				data-core-density={density}
+				data-core-instance={instrumentationId}
+				data-core-surface-owner="artifact"
+				data-core-region="page-content-header"
 				className={cn("wwc:@container wwc:w-full wwc:min-w-0", className)}
 				{...props}
 			>
 				<header
-					data-wakecore-responsive-header
+					data-core-responsive-header
 					className={cn(
 						"wwc:flex wwc:w-full wwc:min-w-0 wwc:justify-between wwc:overflow-hidden wwc:bg-card",
 						hasTabs ? "wwc:items-stretch" : "wwc:items-center",
@@ -249,9 +249,9 @@ export const PageContentHeader = React.forwardRef<HTMLDivElement, PageContentHea
 					)}
 				>
 					<div
-						data-wakecore-responsive-group="identity"
-						data-wakecore-responsive-priority="1"
-						data-wakecore-responsive-atomic
+						data-core-responsive-group="identity"
+						data-core-responsive-priority="1"
+						data-core-responsive-atomic
 						className="wwc:flex wwc:min-w-0 wwc:flex-1 wwc:items-center wwc:gap-3"
 					>
 						{avatar ? <div className="wwc:shrink-0">{avatar}</div> : null}
@@ -302,9 +302,9 @@ export const PageContentHeader = React.forwardRef<HTMLDivElement, PageContentHea
 						{navigation ? <div className="wwc:flex wwc:shrink-0 wwc:self-stretch">{navigation}</div> : null}
 					</div>
 					<div
-						data-wakecore-responsive-group="actions"
-						data-wakecore-responsive-priority="2"
-						data-wakecore-responsive-atomic
+						data-core-responsive-group="actions"
+						data-core-responsive-priority="2"
+						data-core-responsive-atomic
 						className="wwc:flex wwc:shrink-0 wwc:items-center wwc:gap-1"
 					>
 						<HeaderActions
@@ -317,9 +317,9 @@ export const PageContentHeader = React.forwardRef<HTMLDivElement, PageContentHea
 				</header>
 				{hasTabs ? (
 					<div
-						data-wakecore-region="page-content-header-navigation-mobile"
-						data-wakecore-navigation-purpose="peer-section-navigation"
-						data-wakecore-navigation-relationship="peer"
+						data-core-region="page-content-header-navigation-mobile"
+						data-core-navigation-purpose="peer-section-navigation"
+						data-core-navigation-relationship="peer"
 						className="wwc:border-b wwc:bg-card wwc:px-3 wwc:@2xl:hidden"
 					>
 						{/* Second row (mobile): icon-only tabs that wrap instead of scrolling. */}

@@ -57,7 +57,7 @@ const preview: Preview = {
 		},
 		options: {
 			storySort: {
-				// Top-level IA reflects what WakeCore is becoming: a knowledge platform, not just a
+				// Top-level IA reflects what Core is becoming: a knowledge platform, not just a
 				// component library. Component categories nest under "Components/"; Widgets, Templates,
 				// Knowledge, Evaluation, and Visual Proof are first-class sections (placeholders today).
 				// See docs/STORYBOOK-IA.md.

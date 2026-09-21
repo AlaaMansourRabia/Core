@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/toast.tsx",
-		"import": "@wakecap/core-ui/toast",
+		"import": "@core/core-ui/toast",
 		"export": "Toast"
 	},
 	"tags": [

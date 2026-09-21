@@ -1,4 +1,4 @@
-# CaptureUiEnhanced → 4 Controlled Wakecore Widgets
+# CaptureUiEnhanced → 4 Controlled Core Widgets
 
 **Source:** `packages/components/src/pages/capture-ui-enhanced.tsx` (component body 1851–3917).
 **Goal:** split the monolith into 4 reusable, composable, testable widgets, each a **controlled component**.
@@ -439,7 +439,7 @@ After each extraction, run the existing Storybook story for the page plus a new 
   }
 }
 ```
-Mirror each in the build entry list (tsup/vite `entry`) and re-export the shared prop/types (`ViewId`, `ViewMode`, `LevelId`, `MapMode`, the four `*Props`) from the package root. Because Storybook loads built `dist/*.mjs`, every extraction needs a full `pnpm --filter @wakecap/core-ui build` — a typecheck/HMR pass is not enough.
+Mirror each in the build entry list (tsup/vite `entry`) and re-export the shared prop/types (`ViewId`, `ViewMode`, `LevelId`, `MapMode`, the four `*Props`) from the package root. Because Storybook loads built `dist/*.mjs`, every extraction needs a full `pnpm --filter @core/core-ui build` — a typecheck/HMR pass is not enough.
 
 ### Guardrails
 - No widget imports another widget. All cross-widget data flows host→widget (prop) or widget→host (callback).

@@ -1,8 +1,8 @@
-import type {ChangeEntry, NotificationItem} from "@wakecap/core-ui/notification-center";
+import type {ChangeEntry, NotificationItem} from "@core/core-ui/notification-center";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ActivitySheet, type ActivityView} from "@wakecap/core-ui/activity-sheet";
-import {Button} from "@wakecap/core-ui/button";
+import {ActivitySheet, type ActivityView} from "@core/core-ui/activity-sheet";
+import {Button} from "@core/core-ui/button";
 import {useState} from "react";
 
 const SEED_NOTIFICATIONS: NotificationItem[] = [

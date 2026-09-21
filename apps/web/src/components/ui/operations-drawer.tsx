@@ -1,2 +1,2 @@
-export {OperationsDrawer} from "@wakecap/core-ui/operations-drawer";
-export type {OperationRow, OperationsDrawerProps} from "@wakecap/core-ui/operations-drawer";
+export {OperationsDrawer} from "@core/core-ui/operations-drawer";
+export type {OperationRow, OperationsDrawerProps} from "@core/core-ui/operations-drawer";

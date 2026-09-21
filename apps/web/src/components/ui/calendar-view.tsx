@@ -3,4 +3,4 @@ export {
 	type CalendarEvent,
 	type CalendarEventTone,
 	type CalendarViewProps,
-} from "@wakecap/core-ui/calendar-view";
+} from "@core/core-ui/calendar-view";

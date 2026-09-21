@@ -17,7 +17,7 @@ const RULES = {
 	shadow: {property: /^(?:box-shadow|text-shadow)$/i, literal: /(?:^|\s)-?\d*\.?\d+(?:px|rem|em)\b/gi},
 };
 
-const EXCEPTION_RE = /\/\*\s*wakecore-token-exception\s*:\s*([^*]+?)\s*\*\//i;
+const EXCEPTION_RE = /\/\*\s*core-token-exception\s*:\s*([^*]+?)\s*\*\//i;
 
 export function analyzeTokenCompliance(files) {
 	const provenance = analyzeTokenProvenance(files);
@@ -45,11 +45,11 @@ export function analyzeTokenCompliance(files) {
 					const usages = provenance.usages.filter(
 						(item) => item.path === file.path && item.line === index + 1 && item.property === property,
 					);
-					if (usages.length && usages.every((usage) => usage.status === "wakecore-token")) {
+					if (usages.length && usages.every((usage) => usage.status === "core-token")) {
 						tokenized[category] += 1;
 						continue;
 					}
-					const invalidUsages = usages.filter((usage) => usage.status !== "wakecore-token");
+					const invalidUsages = usages.filter((usage) => usage.status !== "core-token");
 					invalidVariables.push(...invalidUsages.map((usage) => ({...usage, category})));
 					const literals = [...value.matchAll(rule.literal)].map((match) => match[0].trim()).filter(Boolean);
 					if (!literals.length && !invalidUsages.length) continue;
@@ -74,7 +74,7 @@ export function analyzeTokenCompliance(files) {
 				pendingException &&
 				index + 1 > pendingException.line &&
 				line.trim() &&
-				!line.includes("wakecore-token-exception")
+				!line.includes("core-token-exception")
 			)
 				pendingException = null;
 		}

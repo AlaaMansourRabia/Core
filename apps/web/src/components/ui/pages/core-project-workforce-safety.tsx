@@ -1,1 +1,1 @@
-export {ProjectWorkforceSafety} from "@wakecap/core-ui/pages/core-project-workforce-safety";
+export {ProjectWorkforceSafety} from "@core/core-ui/pages/core-project-workforce-safety";

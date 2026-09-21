@@ -1,5 +1,5 @@
-// Drive Open Design end-to-end via its daemon API, forcing the wakecore-compose skill so the run is
-// constrained to WakeCore. Creates a project, starts a run on the local `claude` agent, polls to
+// Drive Open Design end-to-end via its daemon API, forcing the core-compose skill so the run is
+// constrained to Core. Creates a project, starts a run on the local `claude` agent, polls to
 // completion, and reports the artifacts produced.
 import {randomUUID} from "node:crypto";
 
@@ -23,7 +23,7 @@ const projId = randomUUID();
 const create = await j("/api/projects", {
 	method: "POST",
 	headers: {"content-type": "application/json"},
-	body: JSON.stringify({id: projId, name: "WakeCore × Open Design", designSystemId: null}),
+	body: JSON.stringify({id: projId, name: "Core × Open Design", designSystemId: null}),
 });
 console.log("create project:", create.status, typeof create.body === "object" ? JSON.stringify(Object.keys(create.body)) : create.body);
 if (create.status >= 400) process.exit(1);
@@ -31,7 +31,7 @@ const project = create.body.project ?? create.body;
 const conversationId = create.body.conversationId ?? null;
 console.log("projectId:", project.id, "conversationId:", conversationId);
 
-// 2) start a run, forcing the WakeCore skill + local claude agent
+// 2) start a run, forcing the Core skill + local claude agent
 const run = await j("/api/runs", {
 	method: "POST",
 	headers: {"content-type": "application/json", "X-OD-Client": "web"},
@@ -40,8 +40,8 @@ const run = await j("/api/runs", {
 		conversationId,
 		agentId: "claude",
 		message: PROMPT,
-		skillId: "wakecore-compose",
-		skillIds: ["wakecore-compose"],
+		skillId: "core-compose",
+		skillIds: ["core-compose"],
 		designSystemId: null,
 	}),
 });

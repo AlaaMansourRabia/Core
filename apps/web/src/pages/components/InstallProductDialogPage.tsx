@@ -1,6 +1,6 @@
-import {WC3_INSTALLS} from "@wakecap/core-ui/pages/wc3-lineage-data";
-import {WC3_PRODUCTS} from "@wakecap/core-ui/pages/wc3-product-data";
-import {WC3_PERSONAS} from "@wakecap/core-ui/pages/wc3-product-shared";
+import {WC3_INSTALLS} from "@core/core-ui/pages/wc3-lineage-data";
+import {WC3_PRODUCTS} from "@core/core-ui/pages/wc3-product-data";
+import {WC3_PERSONAS} from "@core/core-ui/pages/wc3-product-shared";
 import * as React from "react";
 
 import {Button} from "@/components/ui/button";

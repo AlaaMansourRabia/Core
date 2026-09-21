@@ -12,7 +12,7 @@ import {
 	TypographyMuted,
 	TypographyP,
 	TypographySmall,
-} from "@wakecap/core-ui/typography";
+} from "@core/core-ui/typography";
 
 const meta = {
 	title: "Components/Data Display/Typography",
@@ -119,7 +119,7 @@ export const AllVariants: Story = {
 	),
 };
 
-// Visual regression for the SELF-HOSTED typefaces (#208). WakeCore declares Figtree / IBM Plex Mono /
+// Visual regression for the SELF-HOSTED typefaces (#208). Core declares Figtree / IBM Plex Mono /
 // Lora as tokens; before these shipped as bundled WOFF2 they came from a CDN @import, so an offline or
 // CSP-restricted host silently rendered a system fallback while still looking token-compliant. This
 // story pins representative headings, body copy, table text, tabular numerals and compact nav text so
@@ -129,7 +129,7 @@ export const FontResources: Story = {
 		docs: {
 			description: {
 				story:
-					"Every declared family, rendered from the WOFF2 files bundled in `@wakecap/core-tokens` — no runtime request to a third-party host. If the fonts ever stop resolving, this story falls back to a system stack and the diff shows it.",
+					"Every declared family, rendered from the WOFF2 files bundled in `@core/core-tokens` — no runtime request to a third-party host. If the fonts ever stop resolving, this story falls back to a system stack and the diff shows it.",
 			},
 		},
 	},

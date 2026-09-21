@@ -6,7 +6,7 @@
 //   api/_bundle/index.json       { meta, records }          — the normalized knowledge index
 //   api/_bundle/validators.json  { catalog fields as arrays } — the code-validator catalog
 //
-// Run after @wakecap/knowledge is built. Wired into the Vercel buildCommand; also `pnpm mcp:bundle`.
+// Run after @core/knowledge is built. Wired into the Vercel buildCommand; also `pnpm mcp:bundle`.
 
 import {mkdirSync, writeFileSync} from "node:fs";
 import {dirname, join} from "node:path";

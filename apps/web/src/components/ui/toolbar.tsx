@@ -1,8 +1,8 @@
-export {Toolbar, ToolbarButton, ToolbarGroup, ToolbarMenuButton, ToolbarSeparator} from "@wakecap/core-ui/toolbar";
+export {Toolbar, ToolbarButton, ToolbarGroup, ToolbarMenuButton, ToolbarSeparator} from "@core/core-ui/toolbar";
 export type {
 	ToolbarButtonProps,
 	ToolbarGroupProps,
 	ToolbarMenuButtonProps,
 	ToolbarMenuOption,
 	ToolbarProps,
-} from "@wakecap/core-ui/toolbar";
+} from "@core/core-ui/toolbar";

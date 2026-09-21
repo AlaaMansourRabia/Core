@@ -9,12 +9,12 @@
 // near-black text on a near-black pill. TSX has no markdown layer, and <Unstyled> keeps the docs
 // stylesheet off this subtree entirely.
 //
-// It also *is* Wakecore: the badges and the CTA are the real Badge and Button from @wakecap/core-ui,
+// It also *is* Core: the badges and the CTA are the real Badge and Button from @core/core-ui,
 // and every colour is a token, so the block follows the light/dark toolbar toggle.
 
 import {Unstyled} from "@storybook/addon-docs/blocks";
-import {Badge} from "@wakecap/core-ui/badge";
-import {Button} from "@wakecap/core-ui/button";
+import {Badge} from "@core/core-ui/badge";
+import {Button} from "@core/core-ui/button";
 
 // Docs pages render inside Storybook's own chrome, so this block sets its own type scale instead of
 // inheriting one. Tokens (not hex) so the light/dark toolbar toggle carries the whole page.
@@ -134,11 +134,11 @@ export function WelcomeIntro() {
 			<div style={root}>
 				{/* ── Hero ── */}
 				<header style={{paddingBottom: 28, borderBottom: "1px solid var(--border)"}}>
-					<p style={eyebrow}>WakeCap Design System</p>
-					<h1 style={h1}>Wakecore Design Framework</h1>
+					<p style={eyebrow}>Core Design System</p>
+					<h1 style={h1}>Core Design Framework</h1>
 					<p style={lead}>
 						One artifact library — tokens, components, widgets and templates — purpose-built for construction technology
-						interfaces, and shared by every WakeCap product.
+						interfaces, and shared by every Core product.
 					</p>
 					<div style={{display: "flex", flexWrap: "wrap", gap: 10, marginTop: 22}}>
 						{/* target="_top" + a relative href: the manager lives one level up from iframe.html, so this
@@ -154,8 +154,8 @@ export function WelcomeIntro() {
 							</a>
 						</Button>
 						<Button asChild variant="ghost">
-							<a href="https://wakecap.com" target="_blank" rel="noreferrer">
-								wakecap.com ↗
+							<a href="https://core.com" target="_blank" rel="noreferrer">
+								core.com ↗
 							</a>
 						</Button>
 					</div>
@@ -165,7 +165,7 @@ export function WelcomeIntro() {
 				<section style={{marginTop: 32}}>
 					<h2 style={sectionTitle}>Components, Widgets and Templates — know the difference</h2>
 					<p style={{...body, margin: "10px 0 0", maxWidth: "72ch"}}>
-						Wakecore ships these as <span style={strong}>distinct kinds of building material</span>. The single most
+						Core ships these as <span style={strong}>distinct kinds of building material</span>. The single most
 						common mistake is treating a Template like a Component you can import.
 					</p>
 
@@ -251,11 +251,11 @@ export function WelcomeIntro() {
 					</div>
 					<Button asChild>
 						<a
-							href="https://github.com/wakecap/Wakecore/issues/new?template=component-widget-gap.yml"
+							href="https://github.com/core/Core/issues/new?template=component-widget-gap.yml"
 							target="_blank"
 							rel="noreferrer"
 						>
-							Open a Wakecore issue
+							Open a Core issue
 						</a>
 					</Button>
 				</section>

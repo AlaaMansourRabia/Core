@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {
 	Ban,
 	CircleCheck,
@@ -50,7 +50,7 @@ export interface ProductPackage {
 	id: string;
 	/** Display name. */
 	name: string;
-	/** Machine name shown beside the display name, e.g. `wakecap.attendance`. */
+	/** Machine name shown beside the display name, e.g. `core.attendance`. */
 	apiName?: string;
 	/** The version this page is about — the one an install would apply. */
 	version: string;

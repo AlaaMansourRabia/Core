@@ -25,8 +25,8 @@ export function StorybookPreviewPage({title, storyId}: StorybookPreviewPageProps
 
 	return (
 		<section
-			data-wakecore-region="storybook-catalog-preview"
-			data-wakecore-surface-owner="route"
+			data-core-region="storybook-catalog-preview"
+			data-core-surface-owner="route"
 			className="wwc:space-y-4"
 		>
 			<Card>

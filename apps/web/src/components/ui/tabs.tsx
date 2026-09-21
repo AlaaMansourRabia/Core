@@ -1,1 +1,1 @@
-export {Tabs, TabsList, TabsTrigger, TabsContent} from "@wakecap/core-ui/tabs";
+export {Tabs, TabsList, TabsTrigger, TabsContent} from "@core/core-ui/tabs";

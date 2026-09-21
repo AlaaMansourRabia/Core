@@ -10764,7 +10764,7 @@ Error generating stack: ` +
 		return a;
 	}
 	var Bi;
-	window.WakeCore = {
+	window.Core = {
 		renderModule(l, t) {
 			try {
 				let u = ro(l);

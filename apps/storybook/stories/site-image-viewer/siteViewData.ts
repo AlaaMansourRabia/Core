@@ -1,4 +1,4 @@
-import type {LegendItem} from "@wakecap/core-ui/legend";
+import type {LegendItem} from "@core/core-ui/legend";
 
 import {MILESTONE_COLOR_RAMP, MISSING_STYLE, OVERLAY_OPACITY, UNLINKED_STYLE, VARIANCE_STYLES} from "./milestone-ramp";
 import villasRaw from "./villas.json";

@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {Toaster, toast} from "@wakecap/core-ui/sonner";
+import {Button} from "@core/core-ui/button";
+import {Toaster, toast} from "@core/core-ui/sonner";
 
 const meta = {
 	title: "Components/Feedback/Toast",

@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import * as React from "react";
 
 // AppCard — a marketplace / app-store listing card: a branded icon, an optional top-right status badge, a

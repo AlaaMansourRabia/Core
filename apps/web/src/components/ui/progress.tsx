@@ -1,1 +1,1 @@
-export {Progress} from "@wakecap/core-ui/progress";
+export {Progress} from "@core/core-ui/progress";

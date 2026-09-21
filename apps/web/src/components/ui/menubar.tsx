@@ -15,4 +15,4 @@ export {
 	MenubarGroup,
 	MenubarSub,
 	MenubarShortcut,
-} from "@wakecap/core-ui/menubar";
+} from "@core/core-ui/menubar";

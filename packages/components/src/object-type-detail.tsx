@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {AlertTriangle, ArrowLeft, ChevronDown, ChevronRight, Plus, Trash2} from "lucide-react";
 import * as React from "react";
 
@@ -20,7 +20,7 @@ import {ViewTabBar} from "./view-tab-bar";
 
 // ObjectTypeDetailSheet — the full object-type editor shown as a 3/4-width sheet when a row in the
 // Object types table is clicked. Five tabs (Overview / Properties / Datasources / Instances /
-// Metadata & lifecycle), composed entirely from Wakecore primitives. Any edit reveals a sticky
+// Metadata & lifecycle), composed entirely from Core primitives. Any edit reveals a sticky
 // "unsaved changes" footer; Save keeps the edits and toasts, Discard reverts.
 
 const SEGMENT_ON =
@@ -475,7 +475,7 @@ export function ObjectTypeDetailSheet({open, onOpenChange, objectType, onDelete}
 		setPlural(o.plural);
 		setApiName(o.apiName);
 		setDescription(
-			"A badged individual working on a WakeCap-instrumented site. One record per person across all rosters (HR sync).",
+			"A badged individual working on a Core-instrumented site. One record per person across all rosters (HR sync).",
 		);
 		setStatus(o.status);
 		setVisibility(o.visibility);
@@ -609,7 +609,7 @@ export function ObjectTypeDetailSheet({open, onOpenChange, objectType, onDelete}
 							<span>· module wc3.core</span>
 						</div>
 
-						{/* Tabs — Wakecore ViewTabBar (underline). */}
+						{/* Tabs — Core ViewTabBar (underline). */}
 						<div className="wwc:mt-3 wwc:overflow-x-auto">
 							<ViewTabBar
 								tabs={TABS.map((t) => ({id: t, label: tabLabel(t)}))}

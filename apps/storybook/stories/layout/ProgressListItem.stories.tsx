@@ -1,7 +1,7 @@
 import type * as React from "react";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ProgressListItem, type ProgressMetric} from "@wakecap/core-ui/progress-list-item";
+import {ProgressListItem, type ProgressMetric} from "@core/core-ui/progress-list-item";
 
 const evMetrics: ProgressMetric[] = [
 	{label: "BAC", value: "181.6K"},

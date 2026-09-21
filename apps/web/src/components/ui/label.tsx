@@ -1,1 +1,1 @@
-export {Label} from "@wakecap/core-ui/label";
+export {Label} from "@core/core-ui/label";

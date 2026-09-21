@@ -1,5 +1,5 @@
 // Fill-time renderer for `data_source_select`: looks up a named mock data source and offers its
-// records as a Wakecore Select (or SearchableSelect when the list is long). The stored value is the
+// records as a Core Select (or SearchableSelect when the list is long). The stored value is the
 // selected record id. Standalone + frozen prop contract so the RJSF widget can wrap it.
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SearchableSelect} from "../../select";
 import {dataSourceByKey} from "./dataSources";

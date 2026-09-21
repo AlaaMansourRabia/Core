@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/navigation/core-context-tabs.tsx",
-		"import": "@wakecap/core-ui/navigation/core-context-tabs"
+		"import": "@core/core-ui/navigation/core-context-tabs"
 	},
 	"tags": [
 		"tabs",

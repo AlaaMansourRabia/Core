@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import type {FloorStatus} from "./types";
 
 // Small pill/chip that labels a construction floor's status with Figma-derived colors.

@@ -1,26 +1,26 @@
 {
 	"schemaVersion": "artifact-manifest/0.2",
-	"id": "wakecap-connect",
+	"id": "core-connect",
 	"tier": "template",
 	"consumption": "compose",
-	"name": "WakeCapConnect",
+	"name": "CoreConnect",
 	"archetype": "Workspace",
 	"category": "platform",
 	"version": "0.1.0",
 	"manifestStatus": "draft",
 	"product": {
-		"name": "WakeCap Connect",
+		"name": "Core Connect",
 		"release": "V2",
 		"role": "Unified Portal",
 		"supersedes": ["wc3-workspace", "app-installer"]
 	},
 	"source": {
-		"path": "packages/components/src/pages/core-wakecap-connect.tsx",
-		"import": "@wakecap/core-ui/pages/core-wakecap-connect",
-		"export": "WakeCapConnect"
+		"path": "packages/components/src/pages/core-core-connect.tsx",
+		"import": "@core/core-ui/pages/core-core-connect",
+		"export": "CoreConnect"
 	},
 	"tags": [
-		"wakecap-connect",
+		"core-connect",
 		"app-shell",
 		"sidebar",
 		"top-bar",
@@ -34,9 +34,9 @@
 		"admin",
 		"unified"
 	],
-	"intent": "WakeCap Connect V2: the WC3 admin workspace and the app marketplace merged into one app. A single CoreAppSidebar, branded \"WakeCap Connect\", stacks a pinned Home with the installed apps directly beneath it (no divider — Home lands on those apps), then the admin perspectives under a \"Studio\" label, then a pinned Marketplace entry — separated by the dividers CoreAppSidebar draws between nav groups, in the expanded sidebar and the collapsed rail alike. Home is always present and behaves like the standalone installer's: an install CTA while nothing is installed, an app launcher once apps exist. Installing an app from the Marketplace adds it straight to the apps section, so the end-user and admin journeys share one shell instead of the two portals V1 shipped.",
+	"intent": "Core Connect V2: the WC3 admin workspace and the app marketplace merged into one app. A single CoreAppSidebar, branded \"Core Connect\", stacks a pinned Home with the installed apps directly beneath it (no divider — Home lands on those apps), then the admin perspectives under a \"Studio\" label, then a pinned Marketplace entry — separated by the dividers CoreAppSidebar draws between nav groups, in the expanded sidebar and the collapsed rail alike. Home is always present and behaves like the standalone installer's: an install CTA while nothing is installed, an app launcher once apps exist. Installing an app from the Marketplace adds it straight to the apps section, so the end-user and admin journeys share one shell instead of the two portals V1 shipped.",
 	"when": [
-		"Showing WakeCap Connect as one product rather than a separate admin portal and end-user portal",
+		"Showing Core Connect as one product rather than a separate admin portal and end-user portal",
 		"A workspace whose sidebar must carry a Home, installed apps, its own admin nav, and a marketplace entry at once",
 		"Demonstrating install-to-sidebar: an app installed from the store appears in the nav without leaving the app",
 		"A sidebar whose section boundaries must stay legible when collapsed to an icon rail"
@@ -49,11 +49,11 @@
 	"chooseOver": [
 		{
 			"component": "WC3 Workspace",
-			"because": "WC3 Workspace is the V1 admin portal alone. WakeCap Connect adds the installed-apps section and the Marketplace surface to the same rail, so admin and end-user journeys live in one app."
+			"because": "WC3 Workspace is the V1 admin portal alone. Core Connect adds the installed-apps section and the Marketplace surface to the same rail, so admin and end-user journeys live in one app."
 		},
 		{
 			"component": "AppInstaller",
-			"because": "AppInstaller is the V1 end-user portal, where the store is the entire app. WakeCap Connect keeps the same store as one surface beside the admin perspectives."
+			"because": "AppInstaller is the V1 end-user portal, where the store is the entire app. Core Connect keeps the same store as one surface beside the admin perspectives."
 		}
 	],
 	"pairsWith": ["CoreAppSidebar", "CoreAppTopBar", "PageContentHeader", "SideMenu", "AppCard", "ToggleGroup", "Dialog"],
@@ -75,10 +75,10 @@
 	],
 	"allowedPlacement": ["route-level workspace surface that owns the full window"],
 	"forbiddenPlacement": ["inside another CoreAppSidebar/CoreAppTopBar shell", "inside a Card or Dialog"],
-	"minimalExample": "// WakeCapConnect is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@wakecap/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@wakecap/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@wakecap/core-ui/page-content-header\";\nimport {SideMenu} from \"@wakecap/core-ui/side-menu\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"minimalExample": "// CoreConnect is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@core/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@core/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@core/core-ui/page-content-header\";\nimport {SideMenu} from \"@core/core-ui/side-menu\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 	"lineage": {
 		"origin": "derived",
-		"authoredBy": "WakeCap Connect V2 merge (2026-08-23)",
+		"authoredBy": "Core Connect V2 merge (2026-08-23)",
 		"derivedFrom": {
 			"source": "CoreWC3Workspace + AppInstaller",
 			"extracted": [

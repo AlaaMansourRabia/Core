@@ -1,5 +1,5 @@
 import * as TogglePrimitive from "@radix-ui/react-toggle";
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {type VariantProps, cva} from "class-variance-authority";
 import {Check, FileText, X} from "lucide-react";
 import * as React from "react";

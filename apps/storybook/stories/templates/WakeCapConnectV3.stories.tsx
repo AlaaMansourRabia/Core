@@ -1,17 +1,17 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {WakeCapConnectV3} from "@wakecap/core-ui/pages/core-wakecap-connect-v3";
+import {CoreConnectV3} from "@core/core-ui/pages/core-core-connect-v3";
 
-import manifest from "../../../../manifests/wakecap-connect-v3.template.json";
+import manifest from "../../../../manifests/core-connect-v3.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";
 
-// WakeCap Connect V3 — V2 re-cut around the project lifecycle: apps grouped Design / Plan / Capture /
+// Core Connect V3 — V2 re-cut around the project lifecycle: apps grouped Design / Plan / Capture /
 // Pay instead of one "Your apps" list, and Marketplace folded into Studio.
 const meta = {
 	// Leaf name must differ from V2's: the Designer Hub parity check keys templates on the last title
-	// segment alone, so two leaves both called "WakeCap Connect" would collide.
-	title: "Templates/WakeCap Connect/V3/WakeCap Connect V3",
-	component: WakeCapConnectV3,
+	// segment alone, so two leaves both called "Core Connect" would collide.
+	title: "Templates/Core Connect/V3/Core Connect V3",
+	component: CoreConnectV3,
 	tags: ["autodocs"],
 	parameters: {
 		layout: "fullscreen",
@@ -21,7 +21,7 @@ const meta = {
 					manifest={manifest}
 					family={
 						<>
-							WakeCap Connect V3, unified portal. Canonical: <code>wakecap-connect-v3</code>. The same merged app as V2
+							Core Connect V3, unified portal. Canonical: <code>core-connect-v3</code>. The same merged app as V2
 							— same surfaces, same install lifecycle — with the rail re-cut around the project lifecycle. V2's single
 							"Your apps" heading gives way to four labelled groups in project order: <code>Design</code>,{" "}
 							<code>Plan</code>, <code>Capture</code>, <code>Pay</code>. Each carries an icon, shown beside its label
@@ -62,7 +62,7 @@ const meta = {
 			),
 			description: {
 				component:
-					"WakeCap Connect V3 — V2's merged workspace, re-cut around the project lifecycle. The sidebar stacks " +
+					"Core Connect V3 — V2's merged workspace, re-cut around the project lifecycle. The sidebar stacks " +
 					"Home with the installed apps directly beneath it, grouped into Design, Plan, Capture and Pay — each with " +
 					"its own icon, which becomes the whole section when the sidebar is collapsed, its apps moving into a " +
 					"flyout, and each header offering two targets — the name opens that stage's page, the chevron folds " +
@@ -78,7 +78,7 @@ const meta = {
 			},
 		},
 	},
-} satisfies Meta<typeof WakeCapConnectV3>;
+} satisfies Meta<typeof CoreConnectV3>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -86,7 +86,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	render: () => (
 		<div className="wwc:h-screen wwc:w-full">
-			<WakeCapConnectV3 />
+			<CoreConnectV3 />
 		</div>
 	),
 };

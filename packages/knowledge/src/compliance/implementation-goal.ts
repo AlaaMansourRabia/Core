@@ -1,6 +1,6 @@
 export const IMPLEMENTATION_GOALS = [
 	"product-ui",
-	"wakecore-showcase",
+	"core-showcase",
 	"component-evaluation",
 	"visual-reproduction",
 ] as const;
@@ -9,7 +9,7 @@ export type ImplementationGoal = (typeof IMPLEMENTATION_GOALS)[number];
 
 const GOAL_SIGNALS: Array<{goal: ImplementationGoal; patterns: RegExp[]}> = [
 	{
-		goal: "wakecore-showcase",
+		goal: "core-showcase",
 		patterns: [
 			/\bwake\s*core\b.{0,32}\b(?:showcase|demo|demonstrat|test|try|explor|evaluat)/i,
 			/\b(?:showcase|demo|demonstrat|test|try|explor|evaluat)\w*\b.{0,32}\bwake\s*core\b/i,

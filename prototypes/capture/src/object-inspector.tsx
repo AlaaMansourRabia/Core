@@ -1,5 +1,5 @@
 import * as OBC from "@thatopen/components";
-import {useFragmentViewer} from "@wakecap/core-ui/fragment-viewer";
+import {useFragmentViewer} from "@core/core-ui/fragment-viewer";
 import {X} from "lucide-react";
 import {type CSSProperties, useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three";

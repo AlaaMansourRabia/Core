@@ -1,7 +1,7 @@
-import type {Message} from "@wakecap/core-ui/types/chat";
+import type {Message} from "@core/core-ui/types/chat";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {FloatingAssistant} from "@wakecap/core-ui/floating-assistant";
+import {FloatingAssistant} from "@core/core-ui/floating-assistant";
 import {Bot, Sparkles} from "lucide-react";
 import {useState} from "react";
 
@@ -19,7 +19,7 @@ const meta = {
 					"content as `children` and it narrows to make room (built on `PushPanel`). The panel stretches to the row, " +
 					"caps at the viewport and sticks, so the composer stays reachable on a long page. The " +
 					"conversation is **controlled by the consumer** (`messages` + `onSendMessage` + `isLoading`), so any domain " +
-					"logic can drive the replies. The trigger is the bare **WakeCap brand mark** with no chrome behind it — it " +
+					"logic can drive the replies. The trigger is the bare **Core brand mark** with no chrome behind it — it " +
 					"takes `currentColor` from `foreground`, so it inverts with the theme. Pass `icon` to swap in any other " +
 					"glyph. Related: `ChatWidget` (self-contained, bundled message service), `AIChat` (the inline panel).",
 			},
@@ -88,7 +88,7 @@ function Demo({icon}: {icon?: React.ReactNode}) {
 	);
 }
 
-/** Default trigger — the bare WakeCap brand mark, no chrome behind it. */
+/** Default trigger — the bare Core brand mark, no chrome behind it. */
 export const Default: Story = {
 	render: () => <Demo />,
 };

@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/pages/analysis-workbench";
+export * from "@core/core-ui/pages/analysis-workbench";

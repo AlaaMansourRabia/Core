@@ -16,7 +16,7 @@ import {
 	MenubarSubContent,
 	MenubarSubTrigger,
 	MenubarTrigger,
-} from "@wakecap/core-ui/menubar";
+} from "@core/core-ui/menubar";
 import {useState} from "react";
 
 const meta = {

@@ -1,7 +1,7 @@
-# WakeCore Showcase — making the value *visually* obvious
+# Core Showcase — making the value *visually* obvious
 
 > Goal: complement the statistical evidence (`eval/EVIDENCE.md`) with **side‑by‑side visuals** that
-> a non‑statistician can read in two seconds — "package‑only baseline" (A1) vs "with WakeCore
+> a non‑statistician can read in two seconds — "package‑only baseline" (A1) vs "with Core
 > knowledge" (A4). Design only; no paid evals run here.
 
 ## What "A1 vs A4" means for a viewer
@@ -48,7 +48,7 @@ One repeatable **comparison card**, used identically in README, docs, and slides
 ┌─ Task: "Build a panel that slides in from the edge to edit filters,
 │         keeping the page visible behind it."                          ← the user goal (no component named)
 ├───────────────────────────────┬───────────────────────────────────┐
-│  A1 · package only            │  A4 · with WakeCore knowledge      │
+│  A1 · package only            │  A4 · with Core knowledge      │
 │  [screenshot: centered modal] │  [screenshot: right‑edge sheet]    │
 ├───────────────────────────────┴───────────────────────────────────┤
 │  ✗ Centered Dialog blocks the page   ✓ Sheet keeps context visible │  ← 1–3 visible deltas
@@ -61,7 +61,7 @@ One repeatable **comparison card**, used identically in README, docs, and slides
 - **Same prompt, same viewport, same theme** for both arms — the *only* variable is the knowledge layer.
 - **Real generated output**, never hand‑drawn mockups. Link each panel to its captured `.tsx` and the
   run dir (`eval/results/runs/...`), so anyone can reproduce.
-- **State the decision** in WakeCore's own vocabulary (`chooseOver`, `requires`, a `pattern`), tying the
+- **State the decision** in Core's own vocabulary (`chooseOver`, `requires`, a `pattern`), tying the
   picture back to the knowledge that caused it.
 - **Honesty footer:** model, date, "1 sample shown — selection effects are reproducible; see
   `eval/EVIDENCE.md` for rates and CIs." No cherry‑picking claims beyond what the stats support.

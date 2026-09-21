@@ -1,6 +1,6 @@
-# WakeCore — evidence & validation (engineer-facing)
+# Core — evidence & validation (engineer-facing)
 
-> Purpose: answer, honestly, how we validate that agents learn from WakeCore, what is
+> Purpose: answer, honestly, how we validate that agents learn from Core, what is
 > proven today, and what is not. Pairs with `eval/V2-PLAN.md` (roadmap) and `eval/AUDIT.md`
 > (suite critique). **No enforcement is proposed here** — measurement only.
 
@@ -9,26 +9,26 @@
 A short, current-state summary for leadership and engineers, after a **grader correction**.
 
 **Grader correction:** the `tsc` compile grader had a bug — in this monorepo it resolved
-react-hook-form to two different paths (the test snippet vs `@wakecap/core-ui`'s types), creating
+react-hook-form to two different paths (the test snippet vs `@core/core-ui`'s types), creating
 duplicate type identities and **false** `<Form {...form}>` compile errors that a real consumer app
 (one react-hook-form) never hits. Fixed by deduping react-hook-form in `eval/graders/compile.mjs`.
 All offline re-grades below use the corrected grader. **No paid evals were run.**
 
-**Bottom line:** WakeCore's measurable value is **composition knowledge → fewer failure modes**
+**Bottom line:** Core's measurable value is **composition knowledge → fewer failure modes**
 (large, proven); **component selection** improves modestly (positive, not yet statistically
 conclusive); and it adds **nothing on import/provider conventions** (a fair baseline already
 handles those). Generated code's real **compile** rate, once measured correctly, is **~60% (simple)
 to ~76% (full knowledge)** — below the structural "100%", but materially higher than the buggy
-grader first showed, and **there is no WakeCore Form/type bug**.
+grader first showed, and **there is no Core Form/type bug**.
 
 | Conclusion | Status |
 |---|---|
-| Conventions (imports/providers) are *not* WakeCore's value — fair baseline = 100% across arms | ✅ **still valid** |
+| Conventions (imports/providers) are *not* Core's value — fair baseline = 100% across arms | ✅ **still valid** |
 | Composition skill is the largest measurable contributor (failure-mode 23%→97%, +73, CI-separated) | ✅ **still valid** |
 | Component selection improves (+13) but not yet conclusive (needs k≥10, harder tasks) | ✅ **still valid** |
 | Structure (100%) overstates real correctness | ✅ **still valid, but smaller gap** (compile 60–76%, not 50%) |
 | "with-skills compiles ~50%" | 🟡 **changed → ~60%** (single-component) / **76%** (full-knowledge contracts arm) |
-| "Form / react-hook-form is the #1 compile blocker (~6/21), a WakeCore typing/packaging bug" | ❌ **disproven** — a grader artifact; Form is fine for real consumers |
+| "Form / react-hook-form is the #1 compile blocker (~6/21), a Core typing/packaging bug" | ❌ **disproven** — a grader artifact; Form is fine for real consumers |
 | The one-line `typeof FormProvider` source fix | ❌ **disproven / reverted** — the dts bundler expands it; no-op |
 | V3 pilot compile figures (0–17%, uncommitted) for form-bearing tasks | ⚠️ **superseded** — measured pre-correction; unreliable for forms |
 
@@ -43,7 +43,7 @@ Two design choices make the signal trustworthy:
 - **Fair baseline (A1).** The control is *not* information-starved. A1 gets the README, the
   package `exports` map, and the structural component API (names, deep-path imports,
   variants) — exactly what a developer reading the package sees. So we measure the value of
-  *WakeCore's judgment*, not of a withheld convention. (The old A0 baseline was told to use
+  *Core's judgment*, not of a withheld convention. (The old A0 baseline was told to use
   the barrel, which manufactured a fake +100 imports lift — see `AUDIT.md`.)
 - **Statistics.** k repetitions per arm, pass-rates reported with **Wilson 95% CIs**. A claim
   is only allowed when the lift's CI lower bound clears 0.
@@ -87,7 +87,7 @@ per-agent memory, no retraining, no drift between teammates.
   checks, not compile/render."
 - **The imports lift was an artifact (disconfirmed, n=30).** Tier 2 ladder (A1–A4, k=3, 10
   tasks, 2026-06-22): `imports` and `provider-wiring` sit at **100% across all four arms**. The
-  fair baseline (A1) already nails them from the public package metadata — WakeCore's
+  fair baseline (A1) already nails them from the public package metadata — Core's
   semantic/composition/failure layers add **zero** on conventions. The V1 "+100 imports lift"
   is confirmed a rigged-baseline artifact. (Full scorecard: `eval/results/ablation.md`.)
 - **Composition knowledge is the largest measurable contributor (proven).** The **A2→A3** step
@@ -125,7 +125,7 @@ per-agent memory, no retraining, no drift between teammates.
 - **Generalization.** Single model (`claude-opus-4-8`), single k=3 run; no multi-model; tasks
   authored by the catalog authors (no held-out set).
 
-**Honest one-liner:** the layers are separated (Tier 2, n=30): WakeCore's value is **composition
+**Honest one-liner:** the layers are separated (Tier 2, n=30): Core's value is **composition
 knowledge → fewer failure modes (+73, proven)**, a **smaller, not-yet-significant selection bump
 (+13)**, and **zero on import/provider conventions** (the fair baseline already handles them).
 Behavioral compile is now measured (≈60% single-component / 76% full-knowledge, after the grader
@@ -150,5 +150,5 @@ knowledge (enablement)
 
 Principles: (1) prove before enforce; (2) promote individual checks, never a blanket gate;
 (3) enforcement is a floor for *proven* defects, not a syntax cage (not Orbit-style); (4)
-`@wakecap/validate` extraction is deferred until a behavioral grader has survived the full
+`@core/validate` extraction is deferred until a behavioral grader has survived the full
 ladder. None of this proceeds until §5's missing evidence exists.

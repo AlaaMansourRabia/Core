@@ -1,8 +1,8 @@
-import type {BuildingFloor} from "@wakecap/core-ui/building-progress";
+import type {BuildingFloor} from "@core/core-ui/building-progress";
 
-import {CanvasNavigator, type CanvasNavigatorNode} from "@wakecap/core-ui/canvas-navigator";
-import {useFragmentViewer} from "@wakecap/core-ui/fragment-viewer";
-import {cn} from "@wakecap/core-utils";
+import {CanvasNavigator, type CanvasNavigatorNode} from "@core/core-ui/canvas-navigator";
+import {useFragmentViewer} from "@core/core-ui/fragment-viewer";
+import {cn} from "@core/core-utils";
 import {Calendar, ChevronDown, ChevronLeft, ChevronRight, Play} from "lucide-react";
 import {useEffect, useMemo, useRef, useState} from "react";
 
@@ -585,7 +585,7 @@ function ScheduleWeekBar({onPlay}: {onPlay?: (day: number) => void}) {
  * floor list (or any inner scroll) never moves it — the tabs stay fixed. The panel is width-fit to its
  * widest child; the tab bar is full-width, so the panel is never narrower than the tabs but can grow.
  * Presentational: selection is owned by the parent so the same choice drives the 3D storey highlight
- * and Floor Inspector. Data-compatible with `@wakecap/core-ui/building-progress`.
+ * and Floor Inspector. Data-compatible with `@core/core-ui/building-progress`.
  */
 export function FloorPanel({
 	floors = FLOORS,

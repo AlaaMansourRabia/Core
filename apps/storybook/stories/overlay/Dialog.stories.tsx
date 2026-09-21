@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@wakecap/core-ui/badge";
-import {Button} from "@wakecap/core-ui/button";
-import {Card} from "@wakecap/core-ui/card";
-import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@wakecap/core-ui/collapsible";
+import {Badge} from "@core/core-ui/badge";
+import {Button} from "@core/core-ui/button";
+import {Card} from "@core/core-ui/card";
+import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@core/core-ui/collapsible";
 import {
 	Dialog,
 	DialogClose,
@@ -13,12 +13,12 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-} from "@wakecap/core-ui/dialog";
-import {RadioGroup, RadioGroupItem} from "@wakecap/core-ui/radio-group";
-import {ScrollArea} from "@wakecap/core-ui/scroll-area";
-import {SearchFilterBar} from "@wakecap/core-ui/search-filter-bar";
-import {Separator} from "@wakecap/core-ui/separator";
-import {cn} from "@wakecap/core-utils";
+} from "@core/core-ui/dialog";
+import {RadioGroup, RadioGroupItem} from "@core/core-ui/radio-group";
+import {ScrollArea} from "@core/core-ui/scroll-area";
+import {SearchFilterBar} from "@core/core-ui/search-filter-bar";
+import {Separator} from "@core/core-ui/separator";
+import {cn} from "@core/core-utils";
 import {ArrowLeft, ArrowUpRight, ChevronDown, ChevronRight} from "lucide-react";
 import {useMemo, useState} from "react";
 import {expect, screen, userEvent, waitFor, within} from "storybook/test";
@@ -61,7 +61,7 @@ export const Default: Story = {
 
 /**
  * `variant="stacked"` — the pre-0.3 header, restored as a choice rather than a consumer override
- * ([#248](https://github.com/wakecap/Wakecore/issues/248)).
+ * ([#248](https://github.com/core/Core/issues/248)).
  *
  * Title over description, no band and no rule; the close button insets, the footer drops its strip
  * and keeps full-size buttons, and the content is padded as one block. Right for a short dialog that

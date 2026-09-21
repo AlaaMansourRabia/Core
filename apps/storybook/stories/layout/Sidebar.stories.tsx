@@ -4,8 +4,8 @@ import {
 	CoreAppSidebar,
 	DEFAULT_PROJECT_GROUPS,
 	type SidebarNavGroup,
-} from "@wakecap/core-ui/navigation/core-app-sidebar";
-import {toneFor} from "@wakecap/core-ui/tones";
+} from "@core/core-ui/navigation/core-app-sidebar";
+import {toneFor} from "@core/core-ui/tones";
 import {
 	Blocks,
 	Building2,
@@ -98,7 +98,7 @@ export const AppSidebarCompact: Story = {
 		docs: {
 			description: {
 				story:
-					'The compact App Sidebar next to its collapsed icon-only rail. `density="compact"` shrinks padding, text, and icons; the rail follows the compact identity (WakeCap mark instead of the org avatar, no notifications). The nav includes a **Settings** item with sub-tabs — click it on the collapsed rail to open the sub-tab flyout (General / Members / Billing / Integrations). `platformStatus` is wired on the expanded sidebar to show the current branch + commit under the footer dropdowns.',
+					'The compact App Sidebar next to its collapsed icon-only rail. `density="compact"` shrinks padding, text, and icons; the rail follows the compact identity (Core mark instead of the org avatar, no notifications). The nav includes a **Settings** item with sub-tabs — click it on the collapsed rail to open the sub-tab flyout (General / Members / Billing / Integrations). `platformStatus` is wired on the expanded sidebar to show the current branch + commit under the footer dropdowns.',
 			},
 		},
 	},
@@ -188,7 +188,7 @@ export const ControlledSelection: Story = {
 // Collapsed, that same icon stands for the whole section and its items move into a flyout — the same
 // flyout an `expandable` item's `subMenu` uses. `id` makes the header name a link, `collapsible` adds
 // the fold chevron.
-// Tones come from the library's one palette (`@wakecap/core-ui/tones`) rather than being written out
+// Tones come from the library's one palette (`@core/core-ui/tones`) rather than being written out
 // here. `toneFor(index, offset)` walks it in hand-out order, which is a golden-angle walk around the
 // hue wheel — so consecutive items in a section are never neighbouring hues, and the `offset` keeps
 // two sections from opening on the same one.
@@ -299,7 +299,7 @@ export const GroupedSections: Story = {
 
 // The two nav shapes over IDENTICAL groups, so the only difference on screen is the variant.
 //
-// Rail contents mirror WakeCap Connect V3's — the Files entry pinned above Home, the four lifecycle
+// Rail contents mirror Core Connect V3's — the Files entry pinned above Home, the four lifecycle
 // stages, Studio — because that is where the tree shape is actually used, and a comparison against a
 // made-up nav would not tell you whether it holds up under the real one. Files is `pinnedTop` rather
 // than a group: it sits OUTSIDE the app hierarchy (it addresses records belonging to every app below
@@ -334,7 +334,7 @@ export const Variants: Story = {
 		docs: {
 			description: {
 				story:
-					'The nav\'s two shapes, over the same groups. `variant="list"` (the default, and what every existing consumer gets) is the flat shape: groups are headings over a run of rows, ruled apart, all open on first paint. `variant="tree"` is the grouped-sections shape: groups carrying an `icon` render as a tree — parent-sized header, a spine to the last item, an elbow into each — the rules drop away because the headers and spines already mark every boundary, and the rail opens as a short list of section headers that expand on demand. The variant only supplies DEFAULTS for `showGroupDividers` and `groupsCollapsedByDefault`, so pass either explicitly to override it (tree shape, rules kept). Search is deliberately NOT part of the variant — set `showSearch` yourself in both shapes. The rail here is WakeCap Connect V3\'s, Files included, since that is where the tree shape is used; Files is `pinnedTop` (it sits outside the app hierarchy and addresses records belonging to every app below it), is not owned by the variant, and is held constant on both sides so the only visible difference is the shape itself.',
+					'The nav\'s two shapes, over the same groups. `variant="list"` (the default, and what every existing consumer gets) is the flat shape: groups are headings over a run of rows, ruled apart, all open on first paint. `variant="tree"` is the grouped-sections shape: groups carrying an `icon` render as a tree — parent-sized header, a spine to the last item, an elbow into each — the rules drop away because the headers and spines already mark every boundary, and the rail opens as a short list of section headers that expand on demand. The variant only supplies DEFAULTS for `showGroupDividers` and `groupsCollapsedByDefault`, so pass either explicitly to override it (tree shape, rules kept). Search is deliberately NOT part of the variant — set `showSearch` yourself in both shapes. The rail here is Core Connect V3\'s, Files included, since that is where the tree shape is used; Files is `pinnedTop` (it sits outside the app hierarchy and addresses records belonging to every app below it), is not owned by the variant, and is held constant on both sides so the only visible difference is the shape itself.',
 			},
 		},
 	},

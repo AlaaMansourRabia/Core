@@ -8,11 +8,11 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/chart.tsx",
-		"import": "@wakecap/core-ui/chart",
+		"import": "@core/core-ui/chart",
 		"export": "ChartContainer"
 	},
 	"tags": ["display", "chart", "visualization", "data"],
-	"intent": "ECharts-backed chart widget that owns the chart instance lifecycle, responsive resizing, and canvas-safe translation of WakeCore semantic tokens.",
+	"intent": "ECharts-backed chart widget that owns the chart instance lifecycle, responsive resizing, and canvas-safe translation of Core semantic tokens.",
 	"when": ["Build a theme-aware data visualization", "Render any of the chart-family examples"],
 	"chooseOver": [
 		{
@@ -42,7 +42,7 @@
 	},
 	"lineage": {
 		"origin": "migrated",
-		"authoredBy": "WakeCore UI/UX classification review (2026-07)",
+		"authoredBy": "Core UI/UX classification review (2026-07)",
 		"derivedFrom": {
 			"source": "packages/components/src/chart.tsx",
 			"extracted": ["ECharts instance lifecycle", "ResizeObserver integration", "semantic theme translation"]

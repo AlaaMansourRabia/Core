@@ -1,1 +1,1 @@
-export {ProjectScheduleCost} from "@wakecap/core-ui/pages/core-project-schedule-cost";
+export {ProjectScheduleCost} from "@core/core-ui/pages/core-project-schedule-cost";

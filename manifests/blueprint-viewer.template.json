@@ -10,7 +10,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/core-blueprint-viewer.tsx",
-		"import": "@wakecap/core-ui/pages/core-blueprint-viewer",
+		"import": "@core/core-ui/pages/core-blueprint-viewer",
 		"export": "BlueprintViewer"
 	},
 
@@ -44,7 +44,7 @@
 		{
 			"id": "navigator",
 			"role": "Searchable floor navigator (top-left) — one branch per building, each floor a leaf; selects the active floor",
-			"source": "CanvasNavigator widget (@wakecap/core-ui/canvas-navigator)",
+			"source": "CanvasNavigator widget (@core/core-ui/canvas-navigator)",
 			"required": true,
 			"recommended": ["CanvasNavigator"]
 		},
@@ -58,7 +58,7 @@
 		{
 			"id": "progress-panel",
 			"role": "Full-height right side panel: per-floor progress list, approved-vs-planned hero comparison, and a walk-through CTA",
-			"source": "BuildingProgress widget (@wakecap/core-ui/building-progress) + local markup",
+			"source": "BuildingProgress widget (@core/core-ui/building-progress) + local markup",
 			"required": false,
 			"recommended": ["BuildingProgress"],
 			"note": "Closable via its X and reopened via the top-right 'Show details' button."
@@ -220,7 +220,7 @@
 		}
 	],
 
-	"minimalExample": "// BlueprintViewer is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CanvasNavigator} from \"@wakecap/core-ui/canvas-navigator\";\nimport {VerticalZoomTools} from \"@wakecap/core-ui/vertical-zoom-tools\";\nimport {BuildingProgress} from \"@wakecap/core-ui/building-progress\";\nimport {Toggle} from \"@wakecap/core-ui/toggle\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"minimalExample": "// BlueprintViewer is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CanvasNavigator} from \"@core/core-ui/canvas-navigator\";\nimport {VerticalZoomTools} from \"@core/core-ui/vertical-zoom-tools\";\nimport {BuildingProgress} from \"@core/core-ui/building-progress\";\nimport {Toggle} from \"@core/core-ui/toggle\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 
 	"evaluationCriteria": [
 		{

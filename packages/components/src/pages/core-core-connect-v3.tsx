@@ -1,7 +1,7 @@
 import {CONNECT_STARTER_APPS} from "./app-marketplace-shared";
 import {WC3Workspace} from "./core-wc3-workspace";
 
-// WakeCap Connect V3 — V2's single merged app, re-cut around the project lifecycle.
+// Core Connect V3 — V2's single merged app, re-cut around the project lifecycle.
 //
 // V2 listed every installed app under one "Your apps" heading and pinned Marketplace at the very
 // bottom of the shell. V3 keeps the same surfaces and the same install lifecycle, and changes only
@@ -33,7 +33,7 @@ import {WC3Workspace} from "./core-wc3-workspace";
 // three releases share one implementation and cannot drift.
 
 /**
- * WakeCap Connect V3 template: the merged workspace with its installed apps grouped by project
+ * Core Connect V3 template: the merged workspace with its installed apps grouped by project
  * lifecycle stage (Design / Plan / Capture / Pay) instead of a single "Your apps" list, the
  * Marketplace carried inside the Studio group rather than pinned to the shell, the top-bar switcher
  * scoped to organizations instead of projects, and a Files entry at the head of the rail that browses
@@ -41,10 +41,10 @@ import {WC3Workspace} from "./core-wc3-workspace";
  *
  * @deprecated Preview/demo prototype — renders built-in sample data and mock handlers. Not a
  * supported production import: compose your page from the widgets this template uses, wired to your
- * own data (see the WakeCapConnectV3 template docs in Storybook). Slated for removal from the public
+ * own data (see the CoreConnectV3 template docs in Storybook). Slated for removal from the public
  * API in a future major.
  */
-export function WakeCapConnectV3() {
+export function CoreConnectV3() {
 	return (
 		<WC3Workspace
 			withMarketplace

@@ -10,5 +10,5 @@ export {
 	GanttMilestone,
 	useGantt,
 	getDatePosition,
-} from "@wakecap/core-ui/gantt";
-export type {GanttTask, GanttResource, GanttHeaderProps} from "@wakecap/core-ui/gantt";
+} from "@core/core-ui/gantt";
+export type {GanttTask, GanttResource, GanttHeaderProps} from "@core/core-ui/gantt";

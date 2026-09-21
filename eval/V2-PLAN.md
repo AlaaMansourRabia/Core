@@ -1,4 +1,4 @@
-# WakeCore Eval V2 — plan
+# Core Eval V2 — plan
 
 > Status: V1 is a throwaway baseline. This document is the working spec for V2+.
 > **Optimize for evidence a skeptical senior engineer would trust — never for bigger numbers.**
@@ -11,7 +11,7 @@ increasingly mean "it works."
 
 Separate and measure independently:
 
-1. **WakeCore-specific implementation knowledge** — deep-path imports, `wwc:` prefix, provider wiring.
+1. **Core-specific implementation knowledge** — deep-path imports, `wwc:` prefix, provider wiring.
 2. **Component-selection judgment** — picking the right component for a need.
 3. **Screen-composition ability** — assembling components into a correct screen.
 4. **Real implementation correctness** — does it compile / render / pass a11y.
@@ -66,7 +66,7 @@ attributes value to that layer alone.
 
 ## 2. Fair baseline (A1)
 
-The smoking gun: `baselineSystem()` says *"Components are imported from @wakecap/core-ui"* —
+The smoking gun: `baselineSystem()` says *"Components are imported from @core/core-ui"* —
 which **induces** the barrel import the `imports` metric then penalizes. The V1 imports lift
 is largely a prompt-wording artifact.
 
@@ -122,7 +122,7 @@ and axe graders reuse it, no new stack.
 
 | Grader | Mechanism | Catches | Effort |
 | --- | --- | --- | --- |
-| tsc-compile | snippet → typed harness project depending on real `@wakecap/core-ui`; `tsc --noEmit` | wrong props, bad imports, fm-dt-1, fm-form-3, fm-chat-2 (free) | M |
+| tsc-compile | snippet → typed harness project depending on real `@core/core-ui`; `tsc --noEmit` | wrong props, bad imports, fm-dt-1, fm-form-3, fm-chat-2 (free) | M |
 | import-resolution | actual module resolution against `exports` | unexported subpaths, barrel-undefined-at-runtime | S |
 | provider-runtime | render in browser; assert no "must be used within Provider" throw | fm-prim-2/3, fm-form-2 as runtime facts | M |
 | render-smoke | mount; assert no throw, non-empty DOM | broken composition, missing required children | M |
@@ -132,7 +132,7 @@ and axe graders reuse it, no new stack.
 render-smoke pass; structural checks become *explanations* of failures, not the verdict.
 
 **Status — tsc-compile grader BUILT (`eval/graders/compile.mjs`), validated on the real run.**
-Type-checks snippets against the *built* `@wakecap/core-ui` types via the compiler API
+Type-checks snippets against the *built* `@core/core-ui` types via the compiler API
 (`moduleResolution: bundler`, so the `exports` map resolves as a real build does). Two signals:
 `resolves` (imports + named exports valid) and `compiles` (full type-check clean).
 Reproduce: `node eval/graders/run-compile.mjs eval/results/runs/2026-06-18T11-47-48-077Z`.
@@ -145,7 +145,7 @@ Reproduce: `node eval/graders/run-compile.mjs eval/results/runs/2026-06-18T11-47
 | compiles (full type-check) | 0% | **50%** | half the "passing" with-skills snippets don't type-check |
 
 Concrete defects tsc caught that the structural graders passed:
-- `app-sidebar.with` — imported a non-existent member from `@wakecap/core-ui/pages/core-content-area` (structural imports grader only checked the subpath existed, not the named import).
+- `app-sidebar.with` — imported a non-existent member from `@core/core-ui/pages/core-content-area` (structural imports grader only checked the subpath existed, not the named import).
 - `icon-button-hint.with` — `size="icon"` on Button (valid sizes: `default|sm|lg`).
 - `template-gallery.with` / `validated-form.with` — wrong props to SearchFilterBar / Form.
 - All 10 baseline snippets fail `resolves` via *real* module resolution (the barrel has no `Button` export) — behaviorally confirming fm-prim-1.
@@ -204,7 +204,7 @@ If a CI straddles 0, report "no measurable effect at current power." Willingness
 | **V2 — credible benchmark** | Honest, de-confounded, attributed lift (structural graders) | §1 (done); ablation arms A0–A4; §2 fair baseline; §6 multi-run + CIs | M (1–2 wks) | Kills false confidence; gives a smaller, defensible per-layer number; answers "is the lift real, and where." |
 | **V3 — behavioral benchmark** | "Correct" = compiles + renders + a11y; close fm gaps | §4 graders (tsc → render → axe on existing Vitest/Chromium); §3 nine tasks; §5 to ≥22/27 | L (3–4 wks) | Validates real correctness; subsumes runtime-only fm; the 100%-with ceiling stops being suspicious because the bar is hard. |
 | **V4 — regression gating** | Protect the metric over time | nightly k≥10 multi-model; variance-aware McNemar gate; CI warn→block once stable; per-PR fast subset | M | Drift protection — trustworthy *only because* V2/V3 made the metric mean something. |
-| **V5 — publishable `@wakecap/validate`** | Ship surviving graders as a consumer-CI product | extract the behavioral graders that passed V3; docs; the eval becomes its own test suite | M | Independent/external validation; the proof survives outside contact. |
+| **V5 — publishable `@core/validate`** | Ship surviving graders as a consumer-CI product | extract the behavioral graders that passed V3; docs; the eval becomes its own test suite | M | Independent/external validation; the proof survives outside contact. |
 
 **Sequencing rule:** no phase ships its claim until the prior phase's evidence bar (§6) is
 met. V4 gating is forbidden until V2+V3 produce a metric whose CI you would stake a release

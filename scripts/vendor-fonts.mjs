@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Vendors the WakeCore typefaces into the repo as self-hosted WOFF2, and regenerates
+ * Vendors the Core typefaces into the repo as self-hosted WOFF2, and regenerates
  * packages/tokens/src/fonts.css to point at them.
  *
  * The declared typography used to be an `@import` from the Google Fonts CDN, which made it a RUNTIME
@@ -82,12 +82,12 @@ async function main() {
 			a.unicodeRange.localeCompare(b.unicodeRange),
 	);
 
-	const header = `/* Self-hosted WakeCore typefaces.
+	const header = `/* Self-hosted Core typefaces.
  *
  * These used to be an @import from the Google Fonts CDN. That made the declared typography a RUNTIME
  * dependency on a third-party host: offline builds, air-gapped installs and CSP-restricted apps
  * silently fell back to a system stack while still looking token-compliant. The WOFF2 files now ship
- * inside @wakecap/core-tokens, so \`--font-sans\` / \`--font-serif\` / \`--font-mono\` resolve to the same
+ * inside @core/core-tokens, so \`--font-sans\` / \`--font-serif\` / \`--font-mono\` resolve to the same
  * computed family everywhere, with no external request.
  *
  * Figtree and Lora are variable fonts (one file spans the whole weight range); IBM Plex Mono ships a

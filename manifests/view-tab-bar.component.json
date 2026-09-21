@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/view-tab-bar.tsx",
-		"import": "@wakecap/core-ui/view-tab-bar",
+		"import": "@core/core-ui/view-tab-bar",
 		"export": "ViewTabBar"
 	},
 	"tags": [

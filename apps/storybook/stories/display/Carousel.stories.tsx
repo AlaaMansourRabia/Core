@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Card, CardContent} from "@wakecap/core-ui/card";
-import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@wakecap/core-ui/carousel";
+import {Card, CardContent} from "@core/core-ui/card";
+import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@core/core-ui/carousel";
 import {expect, userEvent, waitFor, within} from "storybook/test";
 
 const meta = {

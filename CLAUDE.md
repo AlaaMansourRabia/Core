@@ -1,14 +1,14 @@
-# CLAUDE.md — Wakecore Project Rules
+# CLAUDE.md — Core Project Rules
 
 ## Monorepo Overview
 
-Wakecore is WakeCap's design system and component library. It's a pnpm monorepo with Nx build orchestration.
+Core is Core's design system and component library. It's a pnpm monorepo with Nx build orchestration.
 
 ```
 packages/
-  components/   @wakecap/core-ui         tsdown library build
-  tokens/       @wakecap/core-tokens     CSS + TW3 preset (copy build)
-  utils/        @wakecap/core-utils      tsdown library build
+  components/   @core/core-ui         tsdown library build
+  tokens/       @core/core-tokens     CSS + TW3 preset (copy build)
+  utils/        @core/core-utils      tsdown library build
 apps/
   web/          Demo/docs app            Vite + React Router
 playground/
@@ -31,18 +31,18 @@ The core-ui build produces two pre-built CSS files via `scripts/flatten-css.mjs`
 
 ### Consumer Token Exports
 
-`@wakecap/core-tokens` provides theme configuration for each consumer type:
+`@core/core-tokens` provides theme configuration for each consumer type:
 
-- `@wakecap/core-tokens/theme` — TW4 consumers (`@theme` + `:root` + `.dark`)
-- `@wakecap/core-tokens/tailwind3-preset` — TW3 consumers (`.cjs` preset)
-- `@wakecap/core-tokens` — monorepo internal (includes `@import "tailwindcss" prefix(wwc)`)
+- `@core/core-tokens/theme` — TW4 consumers (`@theme` + `:root` + `.dark`)
+- `@core/core-tokens/tailwind3-preset` — TW3 consumers (`.cjs` preset)
+- `@core/core-tokens` — monorepo internal (includes `@import "tailwindcss" prefix(wwc)`)
 
 **Tooling:** pnpm 10, Nx, Oxlint (linting), Oxfmt (formatting), TypeScript 5.9, React 19, Tailwind CSS 4
 
 ## Agent Skills (TanStack Intent)
 
 This repo ships agent skills with each published package. After `pnpm install`,
-load the skills so your agent knows how to use Wakecore correctly:
+load the skills so your agent knows how to use Core correctly:
 
 ```bash
 npx @tanstack/intent@latest install
@@ -51,9 +51,9 @@ npx @tanstack/intent@latest install
 Skills are co-located with their packages:
 
 ```
-packages/components/skills/   →  @wakecap/core-ui skills
-packages/tokens/skills/       →  @wakecap/core-tokens skills
-packages/utils/skills/        →  @wakecap/core-utils skills
+packages/components/skills/   →  @core/core-ui skills
+packages/tokens/skills/       →  @core/core-tokens skills
+packages/utils/skills/        →  @core/core-utils skills
 skills/_artifacts/            →  domain_map.yaml, skill_spec.md, skill_tree.yaml
 ```
 
@@ -96,7 +96,7 @@ type(scope): description
 
 This repo uses [Changesets](https://github.com/changesets/changesets) for versioning stable releases.
 
-**When to add a changeset:** Any PR that changes public API, fixes a bug, or adds a feature in a published package (`@wakecap/core-ui`, `@wakecap/core-tokens`, `@wakecap/core-utils`).
+**When to add a changeset:** Any PR that changes public API, fixes a bug, or adds a feature in a published package (`@core/core-ui`, `@core/core-tokens`, `@core/core-utils`).
 
 **How:**
 
@@ -150,8 +150,8 @@ pnpm format:check  # Oxfmt (check only)
 
 ```bash
 pnpm test                              # Run all tests
-pnpm --filter @wakecap/core-ui test        # Run UI tests only
-pnpm --filter @wakecap/core-ui test:update # Update screenshot baselines
+pnpm --filter @core/core-ui test        # Run UI tests only
+pnpm --filter @core/core-ui test:update # Update screenshot baselines
 ```
 
 Key patterns:
@@ -166,7 +166,7 @@ Key patterns:
 **On push / PR to `main` or `develop` (CI):**
 
 1. Install dependencies
-2. Build all `@wakecap/core-*` packages
+2. Build all `@core/core-*` packages
 3. Typecheck
 4. Lint (Oxlint)
 5. Format check (Oxfmt)

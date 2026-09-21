@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
-import {Badge} from "@wakecap/core-ui/badge";
-import {Card, CardContent, CardDescription, CardHeader} from "@wakecap/core-ui/card";
-import {KPISummary} from "@wakecap/core-ui/kpi-summary";
+import {Badge} from "@core/core-ui/badge";
+import {Card, CardContent, CardDescription, CardHeader} from "@core/core-ui/card";
+import {KPISummary} from "@core/core-ui/kpi-summary";
 import {AlertTriangle, HardHat, Shield, Users} from "lucide-react";
 
 import kpiSummaryManifest from "../../../../manifests/kpi-summary.widget.json";
@@ -26,7 +26,7 @@ function KPISummaryDocsPage() {
 }
 
 const meta = {
-	// A grid of MetricCards (see manifests/kpi-summary.widget.json). Composes @wakecap/core-ui/metric-card.
+	// A grid of MetricCards (see manifests/kpi-summary.widget.json). Composes @core/core-ui/metric-card.
 	title: "Widgets/Analytics/KPISummary",
 	component: KPISummary,
 	tags: ["autodocs"],

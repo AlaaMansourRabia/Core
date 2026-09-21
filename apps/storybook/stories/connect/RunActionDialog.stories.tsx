@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {RunActionDialog} from "@wakecap/core-ui/pages/run-action-dialog";
-import {WC3_ACTION_TYPES} from "@wakecap/core-ui/pages/wc3-ontology-data";
+import {Button} from "@core/core-ui/button";
+import {RunActionDialog} from "@core/core-ui/pages/run-action-dialog";
+import {WC3_ACTION_TYPES} from "@core/core-ui/pages/wc3-ontology-data";
 import {useState} from "react";
 
 const ACTION = WC3_ACTION_TYPES[0] ?? null;

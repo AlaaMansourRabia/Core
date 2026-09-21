@@ -1,8 +1,8 @@
-# WakeCore eval V3 — composition & workflow benchmark (design)
+# Core eval V3 — composition & workflow benchmark (design)
 
 > V1/V2 measured single-component decisions. V3 measures whether an agent can **assemble a
 > whole screen / workflow correctly**, and grades on **behavior** (compiles, renders, a11y),
-> not string presence. Design only — no enforcement, no CI gates, no `@wakecap/validate`.
+> not string presence. Design only — no enforcement, no CI gates, no `@core/validate`.
 
 ## Why V3
 
@@ -20,7 +20,7 @@ Each task is graded on three tiers; a task "passes" only when all three hold.
    correct ordering/nesting, providers wired, shared state threaded. Expressed as assertions,
    e.g. `kpiCards.every(c => above(c, charts))`, `sidebar.requires(SidebarProvider)`.
 2. **Behavior — `tsc` compile** (exists: `eval/graders/compile.mjs`): type-checks against the
-   real built `@wakecap/core-ui` types. `resolves` (imports/exports valid) and `compiles`
+   real built `@core/core-ui` types. `resolves` (imports/exports valid) and `compiles`
    (full type-check).
 3. **Behavior — render + a11y** (new graders, reuse the repo's Vitest 4 + Playwright/Chromium):
    `render-smoke` (mounts, no throw, non-empty DOM) and `axe` (no critical/serious violations).
@@ -126,6 +126,6 @@ Each: **prompt** (goal-framed), **success criteria**, **measurable rules**, **fm
 
 ## What V3 does NOT do
 
-No new CI gates, no blocking checks, no Orbit-style restrictions, no `@wakecap/validate`
-extraction. V3 is purely a stronger *measurement* of where WakeCore creates value. Enforcement
+No new CI gates, no blocking checks, no Orbit-style restrictions, no `@core/validate`
+extraction. V3 is purely a stronger *measurement* of where Core creates value. Enforcement
 decisions wait for credible evidence from the full ladder + these composition results.

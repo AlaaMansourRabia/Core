@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {StageContent} from "@wakecap/core-ui/stage-content";
+import {StageContent} from "@core/core-ui/stage-content";
 
 const meta = {
 	title: "Components/Data Display/StageContent",

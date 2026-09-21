@@ -14,7 +14,7 @@ import type {
 import {getSubmitButtonOptions} from "@rjsf/utils";
 // FillerRJSF — the react-jsonschema-form (RJSF v5) implementation of the shared preview filler. It
 // renders the user-built FormSchema by first compiling it to JSON Schema + uiSchema (schemaToJsonSchema)
-// and letting RJSF drive the form via the Wakecore RJSF theme (WakecoreForm). It validates on submit and
+// and letting RJSF drive the form via the Core RJSF theme (CoreForm). It validates on submit and
 // shows the shared result summary (FillerEnding). Its RHF sibling (FillerRHF) renders the SAME FormSchema
 // via react-hook-form, so the two are swappable behind the identical FillerProps interface.
 import validator from "@rjsf/validator-ajv8";
@@ -36,7 +36,7 @@ import {RatingInput} from "./RatingInput";
 import {schemaToJsonSchema} from "./schemaToJsonSchema";
 import {SignaturePad} from "./SignaturePad";
 import {TableInput} from "./TableInput";
-import {WakecoreForm} from "./wakecoreRjsfTheme";
+import {CoreForm} from "./coreRjsfTheme";
 
 // ── Conditional logic → JSON Schema ───────────────────────────────────────────
 // RJSF renders whatever JSON Schema it's given, so we make it logic-aware by rebuilding the schema on
@@ -109,11 +109,11 @@ export interface FillerProps {
 	onComplete?: (values: Record<string, unknown>) => void;
 }
 
-// ── CheckboxesWidget → Wakecore Checkbox list (multi-choice) ───────────────────
+// ── CheckboxesWidget → Core Checkbox list (multi-choice) ───────────────────
 // The base theme themes single Checkbox/Select/Text/Textarea but not the multi-select CheckboxesWidget
-// that RJSF picks for `ui:widget: "checkboxes"` (multiple_choice + allowMultiple). Provide a Wakecore
+// that RJSF picks for `ui:widget: "checkboxes"` (multiple_choice + allowMultiple). Provide a Core
 // one so multi-choice questions render as a styled list. Value is string[]; toggle add/remove.
-function WakecoreCheckboxesWidget(props: WidgetProps) {
+function CoreCheckboxesWidget(props: WidgetProps) {
 	const {id, value, disabled, readonly, onChange, options} = props;
 	const enumOptions = options.enumOptions ?? [];
 	const selected: unknown[] = Array.isArray(value) ? value : [];
@@ -146,10 +146,10 @@ function WakecoreCheckboxesWidget(props: WidgetProps) {
 	);
 }
 
-// ── rating → Wakecore star RatingInput ────────────────────────────────────────
+// ── rating → Core star RatingInput ────────────────────────────────────────
 // The builder authors ratings as stars, so the preview should match. schemaToJsonSchema tags rating
 // fields with `ui:widget: "rating"`; RJSF then renders them with this widget instead of a number input.
-function WakecoreRatingWidget(props: WidgetProps) {
+function CoreRatingWidget(props: WidgetProps) {
 	const {id, value, disabled, readonly, onChange, schema, rawErrors} = props;
 	const min = typeof schema.minimum === "number" ? schema.minimum : 1;
 	const max = typeof schema.maximum === "number" ? schema.maximum : 5;
@@ -167,8 +167,8 @@ function WakecoreRatingWidget(props: WidgetProps) {
 }
 
 const extraWidgets: RegistryWidgetsType = {
-	CheckboxesWidget: WakecoreCheckboxesWidget,
-	rating: WakecoreRatingWidget,
+	CheckboxesWidget: CoreCheckboxesWidget,
+	rating: CoreRatingWidget,
 };
 
 // ── Rich question types → RJSF custom FIELDS ──────────────────────────────────
@@ -262,7 +262,7 @@ const extraFields: RegistryFieldsType = {
 
 // ── Per-question Card container ───────────────────────────────────────────────
 // Match the template's full-form preview (FormListView), which wraps every question in a Card. Applied
-// only in this filler via the Form's `templates` prop, so the shared Wakecore RJSF theme (and the
+// only in this filler via the Form's `templates` prop, so the shared Core RJSF theme (and the
 // static FormWidgetRJSF) keep their plain layout. The root object renders its stacked cards as-is.
 function CardFieldTemplate(props: FieldTemplateProps) {
 	const {id, label, required, children, description, rawErrors, schema} = props;
@@ -393,7 +393,7 @@ export function FillerRJSF({schema, onExit, onComplete}: FillerProps): JSX.Eleme
 					{schema.description && <p className="wwc:text-base wwc:text-muted-foreground">{schema.description}</p>}
 				</div>
 
-				<WakecoreForm
+				<CoreForm
 					schema={jsonSchema}
 					uiSchema={uiSchema}
 					validator={validator}

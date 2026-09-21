@@ -1,6 +1,6 @@
 import type {LucideIcon} from "lucide-react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 // The BUILDER half of the Typeform-style form tool: a three-column editor (question rail /
 // canvas preview / inspector). The parent supplies the outer Shell + topbar; this fills the
 // main area. All mutations route through the `FormBuilder` hook — this file is pure UI.

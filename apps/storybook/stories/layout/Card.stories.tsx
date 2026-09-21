@@ -1,12 +1,12 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@wakecap/core-ui/badge";
-import {Button} from "@wakecap/core-ui/button";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@wakecap/core-ui/card";
-import {Input} from "@wakecap/core-ui/input";
-import {Label} from "@wakecap/core-ui/label";
-import {Progress} from "@wakecap/core-ui/progress";
-import {cn} from "@wakecap/core-utils";
+import {Badge} from "@core/core-ui/badge";
+import {Button} from "@core/core-ui/button";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@core/core-ui/card";
+import {Input} from "@core/core-ui/input";
+import {Label} from "@core/core-ui/label";
+import {Progress} from "@core/core-ui/progress";
+import {cn} from "@core/core-utils";
 import {
 	Activity,
 	AlertTriangle,

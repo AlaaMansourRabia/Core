@@ -690,7 +690,7 @@ test("the collapsed rail's flyout carries the same tints", async () => {
 // Toggling the sidebar used to resize the brand: h-5 expanded, the nav icon size collapsed — and the
 // collapsed rule also pinned an explicit width, squashing a mark that is wider than it is tall. One
 // size now, `w-auto` in both, so the logo holds still while everything around it moves.
-test("the WakeCap mark keeps one size and its aspect across collapse", async () => {
+test("the Core mark keeps one size and its aspect across collapse", async () => {
 	const markIn = (root: Element) => {
 		const svg = [...root.querySelectorAll("svg")].find((el) => /h-\[18px\]/.test(el.getAttribute("class") ?? ""));
 		return svg?.getAttribute("class") ?? "";

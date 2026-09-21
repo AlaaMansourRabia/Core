@@ -6,7 +6,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import Underline from "@tiptap/extension-underline";
 import {EditorContent, useEditor, type Editor} from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {
 	AlignCenter,
 	AlignLeft,

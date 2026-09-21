@@ -1,8 +1,8 @@
-# WakeCore — Final Architecture (pre-implementation)
+# Core — Final Architecture (pre-implementation)
 
 > The last architecture document before implementation. It **refines, consolidates, and clarifies** —
 > it does not expand. It incorporates the lessons from every pilot (Button manifest, builder
-> walkthrough, and the working flywheel slice). Read alongside `WAKECORE-ARCHITECTURE.md` (the full
+> walkthrough, and the working flywheel slice). Read alongside `CORE-ARCHITECTURE.md` (the full
 > blueprint); **where this doc refines the blueprint, this wins.**
 >
 > **Rule honored throughout:** no new systems were invented here. Two of these four refinements
@@ -21,7 +21,7 @@ The blueprint's "two axes" actually mixed two different kinds of thing. Separate
 Tokens → Components → Widgets → Templates → Flows
 ```
 A containment/composition hierarchy. Static. Each tier is composed of the tier below it. This is the
-**vocabulary** WakeCore offers. (Defined per-tier in the blueprint §IV; unchanged.)
+**vocabulary** Core offers. (Defined per-tier in the blueprint §IV; unchanged.)
 
 ### B. Runtime Architecture — *what happens* (the execution lifecycle)
 ```
@@ -32,7 +32,7 @@ A loop. Dynamic. It runs *over* the artifact hierarchy to produce a page and imp
 flywheel slice executed exactly this lifecycle, once, top to bottom, and closed it.
 
 **Why separate them:** they change for different reasons and at different speeds. The artifact
-hierarchy grows when WakeCap needs new building blocks; the runtime lifecycle is fixed and reused at
+hierarchy grows when Core needs new building blocks; the runtime lifecycle is fixed and reused at
 every tier. Conflating them (as "four layers" or "two axes") hid that the lifecycle is the *same* whether
 you're selecting a component, a widget, or a flow. **The Artifact Architecture is the data model; the
 Runtime Architecture is the control flow. Document and version them independently.**
@@ -93,7 +93,7 @@ graph.** It also means the manifest family (§2) *is* the retrieval graph — an
 
 ## 4. Knowledge Lineage — a first-class concept (that absorbs three others)
 
-**Yes — this belongs in WakeCore, and it's the governance backbone the flywheel needs.** Every piece of
+**Yes — this belongs in Core, and it's the governance backbone the flywheel needs.** Every piece of
 knowledge must be traceable: *why do we know this, where did it come from, which evaluation proved it,
 which run discovered it, when was it last validated, is it still trusted?*
 

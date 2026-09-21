@@ -16,7 +16,7 @@ export interface TrendChartProps {
 	header?: React.ReactNode;
 	/** ECharts option for the chart (series / axes / tooltip / ...). */
 	option: EChartsOption;
-	/** WakeCore semantic tones or chart palette indexes applied to series in order. */
+	/** Core semantic tones or chart palette indexes applied to series in order. */
 	seriesThemes?: ChartSeriesTheme[];
 	/** Chart height in px (or any CSS size). Default 240. */
 	height?: number | string;
@@ -32,8 +32,8 @@ const TrendChart = React.forwardRef<HTMLDivElement, TrendChartProps>(
 			<WidgetCard
 				ref={ref}
 				className={className}
-				data-wakecore-artifact="trend-chart"
-				data-wakecore-surface-owner="artifact"
+				data-core-artifact="trend-chart"
+				data-core-surface-owner="artifact"
 			>
 				{(title || actions) && (
 					<WidgetCardHeader>

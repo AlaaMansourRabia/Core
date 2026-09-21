@@ -1,4 +1,4 @@
-// Phase 6 prototype — catalog loader. Reads the REAL WakeCore artifacts (manifests/*.json +
+// Phase 6 prototype — catalog loader. Reads the REAL Core artifacts (manifests/*.json +
 // library-index.json) into an in-memory catalog the SDK resolves/validates against. Zero dependencies.
 
 import {readFileSync, readdirSync} from "node:fs";

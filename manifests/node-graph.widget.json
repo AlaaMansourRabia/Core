@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/node-graph.tsx",
-		"import": "@wakecap/core-ui/node-graph",
+		"import": "@core/core-ui/node-graph",
 		"export": "NodeGraph"
 	},
 	"tags": ["graph", "nodes", "edges", "pipeline", "process", "lineage", "analysis", "canvas", "dag"],
@@ -162,7 +162,7 @@
 		"a container with no resolved height — the canvas collapses to a 0px strip",
 		"inside a table cell"
 	],
-	"minimalExample": "import {NodeGraph} from \"@wakecap/core-ui/node-graph\";\n\n<NodeGraph\n\tnodes={[{id: \"src\", label: \"Site telemetry\", kind: \"Datasource\", position: {x: 0, y: 0}}]}\n\tedges={[{id: \"e1\", source: \"src\", target: \"clean\"}]}\n\tonSelectNode={setSelected}\n/>",
+	"minimalExample": "import {NodeGraph} from \"@core/core-ui/node-graph\";\n\n<NodeGraph\n\tnodes={[{id: \"src\", label: \"Site telemetry\", kind: \"Datasource\", position: {x: 0, y: 0}}]}\n\tedges={[{id: \"e1\", source: \"src\", target: \"clean\"}]}\n\tonSelectNode={setSelected}\n/>",
 	"evaluationCriteria": [
 		"A node's status reads through `tone`, not a colour class at the call site.",
 		"A tab-gated or lazy graph fetch passes `loading` / `error` rather than an empty node list.",
@@ -171,7 +171,7 @@
 	],
 	"lineage": {
 		"origin": "authored",
-		"authoredBy": "Wakecore #204 — the catalogue gap found by the Connect product-contract migration (2026-09-09)",
+		"authoredBy": "Core #204 — the catalogue gap found by the Connect product-contract migration (2026-09-09)",
 		"derivedFrom": {
 			"source": "The four Connect graph journeys that each rebuilt this on a raw engine: pipeline builder, process lifecycle, analysis readiness, product/evidence lineage",
 			"extracted": [

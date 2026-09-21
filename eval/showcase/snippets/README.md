@@ -4,7 +4,7 @@ Drop `.tsx` snippets here to populate either column of the showcase, named:
 
 ```
 <task>.A1.tsx   # fair baseline (package knowledge only)
-<task>.A4.tsx   # full WakeCore knowledge
+<task>.A4.tsx   # full Core knowledge
 ```
 
 Tasks (core-5): `side-panel`, `data-grid`, `transient-feedback`, `multi-step-form`, `destructive-action`.

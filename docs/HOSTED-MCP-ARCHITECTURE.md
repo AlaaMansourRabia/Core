@@ -1,14 +1,14 @@
-# WakeCore Hosted MCP — Architecture (Phase 1)
+# Core Hosted MCP — Architecture (Phase 1)
 
 > The MCP protocol is just one transport; the **knowledge model and API are the product.**
 
-WakeCore is the source of truth for UI authoring. Editors (Claude Code, Codex, Cursor, Windsurf,
+Core is the source of truth for UI authoring. Editors (Claude Code, Codex, Cursor, Windsurf,
 Gemini, …) should never need to understand our repository or search our codebase — they ask **one
 knowledge API** which template fits an intent, which widgets compose a screen, which component to
 use, what the correct import is, whether generated code is valid, and why an artifact exists.
 
 This document describes the Phase-1 implementation: a versioned, editor-agnostic **knowledge
-platform** (`@wakecap/knowledge`) exposed over MCP (`wakecore-hosted-mcp`) via Streamable HTTP and
+platform** (`@core/knowledge`) exposed over MCP (`core-hosted-mcp`) via Streamable HTTP and
 stdio. No auth, database, or deployment yet — but the seams are in place so a database can replace the
 filesystem **without changing the API**.
 
@@ -22,7 +22,7 @@ filesystem **without changing the API**.
         │
         │  indexing pipeline  (buildIndex — boot-time; optional knowledge-index.json artifact)
         ▼
- @wakecap/knowledge   ── the Knowledge Platform (TypeScript, built with tsdown)
+ @core/knowledge   ── the Knowledge Platform (TypeScript, built with tsdown)
    • NormalizedRecord      one unified shape across all tiers
    • KnowledgeStore        the DB-swap seam (FileSystemStore now → DbStore later)
    • SearchProvider        pluggable ranking (LexicalSearchProvider now → embeddings later)
@@ -32,7 +32,7 @@ filesystem **without changing the API**.
         │
         │  capabilities are pure, transport-agnostic, JSON, versioned
         ▼
- wakecore-hosted-mcp  ── the Hosted MCP server (TypeScript)
+ core-hosted-mcp  ── the Hosted MCP server (TypeScript)
    • MCP over Streamable HTTP  (POST /mcp, stateless)     ← hosted editors
    • MCP over stdio                                        ← local editors
    • GET /health · /ready · /schemas · /metrics
@@ -43,12 +43,12 @@ filesystem **without changing the API**.
 
 ### Why two units (and not one)
 
-- `@wakecap/knowledge` owns *knowledge*; `wakecore-hosted-mcp` owns *transport*. That is the whole
+- `@core/knowledge` owns *knowledge*; `core-hosted-mcp` owns *transport*. That is the whole
   thesis — the knowledge model must be importable by CI, evals, the SDK, and any number of transports
   without dragging in an HTTP stack. MCP is one client of the knowledge API, not its definition.
-- The existing `@wakecap/sdk` (deterministic page-composition/PageInstance engine) and `@wakecap/mcp`
+- The existing `@core/sdk` (deterministic page-composition/PageInstance engine) and `@core/mcp`
   (its stdio wrapper) are **untouched** in Phase 1. Phase 2 converges them onto this platform (the SDK
-  becomes a client of `@wakecap/knowledge`; today there are three separate `loadCatalog` readers).
+  becomes a client of `@core/knowledge`; today there are three separate `loadCatalog` readers).
 
 ---
 
@@ -77,12 +77,12 @@ the migration guarantee.
 
 ---
 
-## The capability API (`wakecore-knowledge/2026-07`)
+## The capability API (`core-knowledge/2026-07`)
 
 Every response is the same **versioned envelope** (errors are values, never thrown across the wire):
 
 ```jsonc
-{ "apiVersion": "wakecore-knowledge/2026-07",
+{ "apiVersion": "core-knowledge/2026-07",
   "capability": "resolve_template",
   "requestId": "req_…",
   "ok": true,
@@ -103,7 +103,7 @@ Every response is the same **versioned envelope** (errors are values, never thro
 | `validate(code)` | **authoritative** (deterministic) | pass/fail + per-metric findings (imports, component-choice, provider-wiring, anti-patterns) |
 | `explain(id)` | reference | purpose, when/when-not, chooseOver, alternatives, commonMistakes, related templates/widgets |
 
-Two invariants from the WakeCore knowledge model are enforced here:
+Two invariants from the Core knowledge model are enforced here:
 
 1. **Two-operation retrieval.** `resolve_template`/`search` do the *fuzzy* intent match; everything
    reachable is resolved by a *deterministic structural graph-walk* (`resolve_widgets`, `explain`
@@ -145,7 +145,7 @@ all three at once **with no API change**. `confidence` is derived from the score
 
 - **Streamable HTTP** (`POST /mcp`, stateless): a fresh server+transport per request — the simplest
   thing that scales horizontally; `sessionIdGenerator`/auth seams are left for later.
-- **stdio**: parity with `@wakecap/mcp` for local editors. stdout is the MCP channel; **all logs go to
+- **stdio**: parity with `@core/mcp` for local editors. stdout is the MCP channel; **all logs go to
   stderr.**
 - **Operational**: `GET /health` (liveness), `/ready` (index built + tier counts), `/schemas`
   (self-describing — JSON Schema per tool), `/metrics` (in-memory per-capability counters).
@@ -156,19 +156,19 @@ all three at once **with no API change**. `confidence` is derived from the score
 
 ## Versioning
 
-- `apiVersion` is date-based (`wakecore-knowledge/2026-07`): additive changes keep it, breaking
+- `apiVersion` is date-based (`core-knowledge/2026-07`): additive changes keep it, breaking
   changes bump it (the server can serve multiple later).
 - Independent schema versions travel in `provenance` (`manifestSchema`, `indexVersion`).
 - Tool input schemas are the checked-in **zod** schemas (served as JSON Schema at `/schemas`) — a
-  reviewed, versioned change, never ad-hoc. `@wakecap/knowledge` carries its own semver (`0.1.0`).
+  reviewed, versioned change, never ad-hoc. `@core/knowledge` carries its own semver (`0.1.0`).
 
 ---
 
 ## Running it
 
 ```bash
-pnpm --filter @wakecap/knowledge build      # build the knowledge core
-pnpm --filter wakecore-hosted-mcp build      # build the server
+pnpm --filter @core/knowledge build      # build the knowledge core
+pnpm --filter core-hosted-mcp build      # build the server
 
 # hosted (HTTP) — default
 PORT=4100 node apps/hosted-mcp/dist/main.mjs
@@ -179,13 +179,13 @@ curl localhost:4100/schemas
 node apps/hosted-mcp/dist/main.mjs --stdio
 ```
 
-Tests: `pnpm --filter @wakecap/knowledge test` (capabilities) and
-`pnpm --filter wakecore-hosted-mcp test` (both transports via the real MCP client).
+Tests: `pnpm --filter @core/knowledge test` (capabilities) and
+`pnpm --filter core-hosted-mcp test` (both transports via the real MCP client).
 
 Editor config (Streamable HTTP), e.g.:
 
 ```jsonc
-{ "mcpServers": { "wakecore": { "url": "http://localhost:4100/mcp" } } }
+{ "mcpServers": { "core": { "url": "http://localhost:4100/mcp" } } }
 ```
 
 ---
@@ -197,8 +197,8 @@ Editor config (Streamable HTTP), e.g.:
 - **Embedding re-rank** — an `EmbeddingSearchProvider` behind the existing `SearchProvider` seam.
 - **DbStore** — Postgres/pgvector implementing `KnowledgeStore`; index becomes warm-start from a
   generated `knowledge-index.json` rather than a boot-time rebuild.
-- **SDK convergence** — re-express `@wakecap/sdk` as a client of `@wakecap/knowledge`; point
-  `@wakecap/mcp` at the shared tool surface (one definition, one loader).
+- **SDK convergence** — re-express `@core/sdk` as a client of `@core/knowledge`; point
+  `@core/mcp` at the shared tool surface (one definition, one loader).
 - **Auth, caching, observability** — fill the seams (`ctx.auth`, response cache, OTel exporter).
 - **More tools** — `generate_page_instance`, `promote_artifact`, `compare_templates`,
   `generate_pattern`, `lint_workspace`, `generate_story`, `evaluate_quality`.

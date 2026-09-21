@@ -15,7 +15,7 @@ import {
 import {WC3_FS_NODES} from "./wc3-fs-data";
 import {isWc3Ref} from "./wc3-fs-types";
 
-// WakeCap Connect's node array, live for the session.
+// Core Connect's node array, live for the session.
 //
 // The FileSystem widget owns no data — nodes go in as a prop — so something has to hold them. This is
 // that something, and it sits at module scope rather than in the workspace's state, which is where the

@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/pages/health-view";
+export * from "@core/core-ui/pages/health-view";

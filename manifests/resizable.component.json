@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/resizable.tsx",
-		"import": "@wakecap/core-ui/resizable",
+		"import": "@core/core-ui/resizable",
 		"export": "Resizable"
 	},
 	"tags": [

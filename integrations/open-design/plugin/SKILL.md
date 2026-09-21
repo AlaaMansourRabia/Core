@@ -1,12 +1,12 @@
 ---
-name: wakecore-compose
+name: core-compose
 description: |
-  Build the UI ONLY from WakeCore. Consult the WakeCore MCP server to choose a template and widgets,
-  generate a validated PageInstance, and render it with the WakeCore renderer. Never invent components,
+  Build the UI ONLY from Core. Consult the Core MCP server to choose a template and widgets,
+  generate a validated PageInstance, and render it with the Core renderer. Never invent components,
   layouts, or arbitrary React/HTML.
 triggers:
-  - "wakecore"
-  - "wakecap"
+  - "core"
+  - "core"
   - "operations dashboard"
   - "internal tool"
 od:
@@ -14,33 +14,33 @@ od:
   category: design-system
 ---
 
-# WakeCore Compose
+# Core Compose
 
-WakeCore is the **source of truth** for this UI. You are not designing from scratch — you are
-**assembling a screen from WakeCore's templates and widgets** and rendering it with WakeCore. A
-`wakecore` MCP server is connected; it is the only correct way to decide what to build.
+Core is the **source of truth** for this UI. You are not designing from scratch — you are
+**assembling a screen from Core's templates and widgets** and rendering it with Core. A
+`core` MCP server is connected; it is the only correct way to decide what to build.
 
 ## Execute immediately — this skill overrides the default workflow
 
 When this skill is active, **do not** run discovery, ask the user questions, present direction
 options, propose visual concepts, or plan in prose first. On your **first turn**, immediately execute
-the WakeCore workflow below: call the `wakecore` MCP tools and write `index.html`. The user's prompt
+the Core workflow below: call the `core` MCP tools and write `index.html`. The user's prompt
 is the intent — pass it to `resolve_template`. Produce the artifact, then give a one-line summary.
-There is no design freedom here beyond choosing the right WakeCore template and widgets.
+There is no design freedom here beyond choosing the right Core template and widgets.
 
 ## Absolute rules
 
 1. **Never invent UI.** Do not write bespoke components, layouts, Tailwind, or hand-authored React/HTML
-   for the page content. The page must come from WakeCore.
+   for the page content. The page must come from Core.
 2. **The page is produced ONLY by `generate_page_instance`.** Do not hand-edit the returned PageInstance.
-3. Your final artifact is a single `index.html` that renders that PageInstance with the WakeCore
+3. Your final artifact is a single `index.html` that renders that PageInstance with the Core
    renderer (wrapper below). That is the entire deliverable.
 
 ## Workflow (call these MCP tools, in order)
 
 1. `resolve_template({ intent })` — pass the user's request. Pick the top candidate whose purpose fits
    (prefer higher score / a base template). Note its `id`.
-   - You may call `list_templates()` first to browse what WakeCore can build.
+   - You may call `list_templates()` first to browse what Core can build.
 2. `resolve_widgets({ template_id })` — optional; see which widgets each region declares.
 3. `generate_page_instance({ template_id, fill: "recommended" })` — returns `{ page, validation, unresolved, rationale }`.
    `page` is a `page-instance/0.1` object.
@@ -61,23 +61,23 @@ Write `index.html` with this content. Replace the `PAGE` value with the `page` o
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="http://localhost:8787/wakecore-render.css" />
+    <link rel="stylesheet" href="http://localhost:8787/core-render.css" />
     <style>html,body{margin:0;height:100%;background:#fff}#root{min-height:100%}</style>
   </head>
   <body>
     <div id="root"></div>
-    <script src="http://localhost:8787/wakecore-render.js"></script>
+    <script src="http://localhost:8787/core-render.js"></script>
     <script>
       const PAGE = /* paste the `page` object from generate_page_instance here */;
-      window.WakeCore.render(PAGE, document.getElementById("root"));
+      window.Core.render(PAGE, document.getElementById("root"));
     </script>
   </body>
 </html>
 ```
 
-## Also write `wakecore.json` (the decision record)
+## Also write `core.json` (the decision record)
 
-Alongside `index.html`, write a file named `wakecore.json` capturing what WakeCore decided, so Studio's
+Alongside `index.html`, write a file named `core.json` capturing what Core decided, so Studio's
 info panel can explain the screen. Fill it from the tool results (do not invent fields):
 
 ```json
@@ -97,12 +97,12 @@ info panel can explain the screen. Fill it from the tool results (do not invent 
 ```
 
 - `template`, `widgets` come from `generate_page_instance`; `validation` is its `validation` field; `trace`
-  is the ordered list of WakeCore tools you called with a one-line summary each.
+  is the ordered list of Core tools you called with a one-line summary each.
 
 ## What "done" looks like
 
 - You called `resolve_template` and `generate_page_instance`.
-- `index.html` renders the returned PageInstance via `window.WakeCore.render`.
-- `wakecore.json` records the template, widgets, validation, and decision trace.
+- `index.html` renders the returned PageInstance via `window.Core.render`.
+- `core.json` records the template, widgets, validation, and decision trace.
 - In your summary, state the template id and the widgets that were placed, and surface any validation
-  warnings honestly (do not pretend the page is complete if WakeCore says a region is empty).
+  warnings honestly (do not pretend the page is complete if Core says a region is empty).

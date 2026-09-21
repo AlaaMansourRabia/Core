@@ -1,7 +1,7 @@
 // A1 — illustrative fair-baseline (hand-authored, NOT model-captured).
-// Package-only knowledge: a plain default Button — nothing signals danger. WakeCore guidance
+// Package-only knowledge: a plain default Button — nothing signals danger. Core guidance
 // (A4) would use variant="destructive" (the red, dangerous-action treatment).
-import {Button} from "@wakecap/core-ui/button";
+import {Button} from "@core/core-ui/button";
 
 export default function DeleteRecord() {
 	return (

@@ -1,8 +1,8 @@
 // The ONE widget impl for the vertical slice. Composes real core-ui components per its manifest
 // (composedOf: Card + Typography + Badge). Not a package; the slice's reference implementation.
-import { Card, CardContent, CardHeader } from "@wakecap/core-ui/card";
-import { TypographyH3, TypographyMuted } from "@wakecap/core-ui/typography";
-import { Badge } from "@wakecap/core-ui/badge";
+import { Card, CardContent, CardHeader } from "@core/core-ui/card";
+import { TypographyH3, TypographyMuted } from "@core/core-ui/typography";
+import { Badge } from "@core/core-ui/badge";
 
 type Delta = { direction: "up" | "down" | "flat"; pct: number };
 

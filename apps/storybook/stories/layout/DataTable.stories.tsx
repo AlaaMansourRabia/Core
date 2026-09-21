@@ -2,9 +2,9 @@ import type {ColumnDef, Row, SortingState} from "@tanstack/react-table";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
-import {Badge} from "@wakecap/core-ui/badge";
-import {Button} from "@wakecap/core-ui/button";
-import {Checkbox} from "@wakecap/core-ui/checkbox";
+import {Badge} from "@core/core-ui/badge";
+import {Button} from "@core/core-ui/button";
+import {Checkbox} from "@core/core-ui/checkbox";
 import {
 	DataTable,
 	DataTableColumnHeader,
@@ -12,14 +12,14 @@ import {
 	DataTableExpandButton,
 	DataTableTreeCell,
 	type BulkAction,
-} from "@wakecap/core-ui/data-table";
+} from "@core/core-ui/data-table";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@wakecap/core-ui/dropdown-menu";
+} from "@core/core-ui/dropdown-menu";
 import {
 	Filter,
 	FilterCategory,
@@ -27,10 +27,10 @@ import {
 	FilterOption,
 	FilterTrigger,
 	type FilterValue,
-} from "@wakecap/core-ui/filter";
-import {Separator} from "@wakecap/core-ui/separator";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@wakecap/core-ui/table";
-import {cn} from "@wakecap/core-utils";
+} from "@core/core-ui/filter";
+import {Separator} from "@core/core-ui/separator";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@core/core-ui/table";
+import {cn} from "@core/core-utils";
 import {Copy, Download, Edit, FileCode, FileImage, FileText, Folder, MoreHorizontal, Trash2} from "lucide-react";
 import * as React from "react";
 
@@ -58,7 +58,7 @@ function DataTableDocsPage() {
 
 const meta = {
 	// First promoted WIDGET (see docs/ARTIFACT-CLASSIFICATION.md + manifests/data-table.widget.json).
-	// File and export are unchanged (@wakecap/core-ui/data-table); only the story title moved to Widgets/.
+	// File and export are unchanged (@core/core-ui/data-table); only the story title moved to Widgets/.
 	title: "Widgets/Data/DataTable",
 	component: DataTable,
 	tags: ["autodocs"],
@@ -394,7 +394,7 @@ function DataTableToolbarActionsExample() {
 		: payments;
 
 	return (
-		<div data-wakecore-region="data-table-toolbar-example">
+		<div data-core-region="data-table-toolbar-example">
 			<DataTable
 				columns={paymentColumns}
 				data={filteredPayments}
@@ -408,7 +408,7 @@ function DataTableToolbarActionsExample() {
 							<FilterTrigger
 								className="wwc:h-9 wwc:w-9"
 								aria-label="Filter payments"
-								data-wakecore-interaction="apply-status-filter"
+								data-core-interaction="apply-status-filter"
 							/>
 							<FilterContent heading="Filter payments">
 								<FilterCategory value="status" label="Status">
@@ -420,7 +420,7 @@ function DataTableToolbarActionsExample() {
 								</FilterCategory>
 							</FilterContent>
 						</Filter>
-						<Button variant="outline" data-wakecore-interaction="export">
+						<Button variant="outline" data-core-interaction="export">
 							<Download className="wwc:h-4 wwc:w-4" />
 							Export
 						</Button>
@@ -869,7 +869,7 @@ export const ServerDriven: Story = {
 			const start = pagination.pageIndex * pagination.pageSize;
 			return Array.from({length: pagination.pageSize}, (_, i) => ({
 				id: `u${start + i + 1}`,
-				email: `user${start + i + 1}@wakecap.com`,
+				email: `user${start + i + 1}@core.com`,
 				amount: 100 + start + i,
 				status: "success" as const,
 			}));

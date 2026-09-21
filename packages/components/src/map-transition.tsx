@@ -17,7 +17,7 @@
  */
 import type {ReactNode} from "react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {useState} from "react";
 
 import {Spinner} from "./spinner";

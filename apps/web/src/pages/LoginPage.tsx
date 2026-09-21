@@ -1,4 +1,4 @@
-import {Button} from "@wakecap/core-ui/button";
+import {Button} from "@core/core-ui/button";
 import {Github, ShieldAlert} from "lucide-react";
 import {useEffect, useState} from "react";
 
@@ -14,7 +14,7 @@ function safeReturnTo(p: string | null): string {
 }
 
 const ERRORS: Record<string, string> = {
-	not_a_member: "That GitHub account isn't a member of the wakecap organization.",
+	not_a_member: "That GitHub account isn't a member of the core organization.",
 	bad_state: "Your sign-in session expired. Please try again.",
 };
 
@@ -52,14 +52,14 @@ export function LoginPage() {
 		<div className="wwc:flex wwc:h-screen wwc:items-center wwc:justify-center wwc:bg-background wwc:p-6 wwc:text-foreground">
 			<div className="wwc:flex wwc:w-full wwc:max-w-sm wwc:flex-col wwc:items-center wwc:text-center">
 				<img
-					src="/wakecore-large.svg"
-					alt="WakeCore"
+					src="/core-large.svg"
+					alt="Core"
 					className="wwc:mb-8 wwc:h-6 wwc:w-auto wwc:invert wwc:dark:invert-0"
 				/>
 
-				<h1 className="wwc:text-lg wwc:font-semibold">Sign in to WakeCore</h1>
+				<h1 className="wwc:text-lg wwc:font-semibold">Sign in to Core</h1>
 				<p className="wwc:mt-2 wwc:text-sm wwc:text-muted-foreground">
-					Access is restricted to members of the <span className="wwc:font-medium wwc:text-foreground">wakecap</span>{" "}
+					Access is restricted to members of the <span className="wwc:font-medium wwc:text-foreground">core</span>{" "}
 					GitHub organization.
 				</p>
 

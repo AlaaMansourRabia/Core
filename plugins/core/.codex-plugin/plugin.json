@@ -1,0 +1,42 @@
+{
+  "name": "core",
+  "version": "0.1.0+codex.20260718101957",
+  "description": "Build React interfaces with Core templates, adaptable components, and mandatory validation.",
+  "author": {
+    "name": "Core",
+    "url": "https://www.core.com"
+  },
+  "homepage": "https://core.core.com",
+  "repository": "https://github.com/core/Core",
+  "keywords": [
+    "core",
+    "design-system",
+    "react",
+    "ui",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Core",
+    "shortDescription": "Build flexible Core React interfaces",
+    "longDescription": "Connects Codex to the hosted Core knowledge server. It uses exact templates when available, otherwise adapts nearby templates or composes Core-aligned UI, with Core-only validation before completion.",
+    "developerName": "Core",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Validate"
+    ],
+    "websiteURL": "https://core.core.com",
+    "defaultPrompt": [
+      "Create the React app if needed, then build this UI using an exact Core template or the automatic adaptation and composition fallback.",
+      "Refactor this screen to use Core and validate it.",
+      "Plan a Core-only implementation for this interface."
+    ],
+    "brandColor": "#F36F45",
+    "composerIcon": "./assets/core-mark.svg",
+    "logo": "./assets/core-logo.svg",
+    "logoDark": "./assets/core-logo-dark.svg"
+  }
+}

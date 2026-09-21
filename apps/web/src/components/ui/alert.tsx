@@ -1,1 +1,1 @@
-export {Alert, AlertTitle, AlertDescription} from "@wakecap/core-ui/alert";
+export {Alert, AlertTitle, AlertDescription} from "@core/core-ui/alert";

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {CopyButton} from "@wakecap/core-ui/copy-button";
+import {CopyButton} from "@core/core-ui/copy-button";
 
 const meta = {
 	title: "Components/Primitives/Copy Button",
@@ -10,7 +10,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					"Ghost icon button that writes a string to the clipboard. Swaps to a green check on success for 1.5s (configurable). Used in Wakecore's component demo pages next to titles and variant headers — pair it with a `wwc:group` parent and `wwc:opacity-0 wwc:group-hover:opacity-100` on the button to get a hover-reveal pattern.",
+					"Ghost icon button that writes a string to the clipboard. Swaps to a green check on success for 1.5s (configurable). Used in Core's component demo pages next to titles and variant headers — pair it with a `wwc:group` parent and `wwc:opacity-0 wwc:group-hover:opacity-100` on the button to get a hover-reveal pattern.",
 			},
 		},
 	},

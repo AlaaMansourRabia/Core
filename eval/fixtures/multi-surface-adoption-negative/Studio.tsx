@@ -1,4 +1,4 @@
-import {Sidebar, SidebarContent, SidebarHeader, Toolbar, ZoomTools} from "@wakecap/core-ui";
+import {Sidebar, SidebarContent, SidebarHeader, Toolbar, ZoomTools} from "@core/core-ui";
 
 export const Studio = () => (
 	<div className="studio-shell">
@@ -6,7 +6,7 @@ export const Studio = () => (
 			<SidebarHeader />
 			<SidebarContent />
 		</Sidebar>
-		<main className="canvas" data-wakecore-region="canvas">
+		<main className="canvas" data-core-region="canvas">
 			<Toolbar />
 			<div className="absolute-canvas-tools">
 				<ZoomTools />

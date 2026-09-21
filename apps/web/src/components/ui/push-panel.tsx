@@ -13,4 +13,4 @@ export {
 	PushPanelTrigger,
 	PushPanelClose,
 	usePushPanel,
-} from "@wakecap/core-ui/push-panel";
+} from "@core/core-ui/push-panel";

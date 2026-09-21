@@ -1,12 +1,12 @@
 // A4 — CORRECTED example (hand-authored). The captured A4 generation mixed the two toast
-// systems: it mounted the Radix <Toaster/> from "@wakecap/core-ui/toaster" but called toast()
-// from "@wakecap/core-ui/sonner" — two unconnected stores, so nothing rendered. The correct
-// WakeCore pairing is Toaster AND toast both from "@wakecap/core-ui/sonner". (See the original
+// systems: it mounted the Radix <Toaster/> from "@core/core-ui/toaster" but called toast()
+// from "@core/core-ui/sonner" — two unconnected stores, so nothing rendered. The correct
+// Core pairing is Toaster AND toast both from "@core/core-ui/sonner". (See the original
 // captured snippet at eval/results/runs/2026-06-18T11-47-48-077Z/transient-feedback.with.tsx —
 // kept as an honest record of the model's wiring mistake.)
 import * as React from "react";
-import {Button} from "@wakecap/core-ui/button";
-import {Toaster, toast} from "@wakecap/core-ui/sonner";
+import {Button} from "@core/core-ui/button";
+import {Toaster, toast} from "@core/core-ui/sonner";
 
 export default function SettingsPage() {
 	const handleSave = React.useCallback(() => {

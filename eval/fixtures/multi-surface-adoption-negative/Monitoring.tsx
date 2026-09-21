@@ -1,10 +1,10 @@
-import {Card, ChartContainer} from "@wakecap/core-ui";
+import {Card, ChartContainer} from "@core/core-ui";
 
 import {AppShell} from "./AppShell";
 
 export const Monitoring = () => (
 	<AppShell>
-		<main data-wakecore-region="monitoring">
+		<main data-core-region="monitoring">
 			<Card>
 				<ChartContainer config={{throughput: {color: "#0f6fc6"}}} />
 				<svg aria-label="Trend">

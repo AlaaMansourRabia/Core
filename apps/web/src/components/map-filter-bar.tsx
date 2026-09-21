@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {SlidersHorizontal} from "lucide-react";
 import * as React from "react";
 
@@ -34,7 +34,7 @@ export interface MapFilterBarProps extends Omit<React.HTMLAttributes<HTMLDivElem
 }
 
 /**
- * A horizontal, Airbnb-style filter bar for a map, composed from stock WakeCore components: a `Button`
+ * A horizontal, Airbnb-style filter bar for a map, composed from stock Core components: a `Button`
  * (the Filters trigger) with a `Badge` active-count, a `ToolbarSeparator` divider, and a scrollable
  * row of `Chip` (variant `filter`) toggles — inside the bare `Toolbar` shell used by the Object
  * Drawing Toolbar. Each part is used as-is (no restyling); only layout classes are applied.

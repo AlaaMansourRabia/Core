@@ -1,5 +1,5 @@
-import {DEMO_ACTIONS, DEMO_EFFECTS, demoInstancesFor} from "@wakecap/core-ui/pages/state-machine-fixtures";
-import {seedProcesses} from "@wakecap/core-ui/pages/wc3-process-views";
+import {DEMO_ACTIONS, DEMO_EFFECTS, demoInstancesFor} from "@core/core-ui/pages/state-machine-fixtures";
+import {seedProcesses} from "@core/core-ui/pages/wc3-process-views";
 import {useState} from "react";
 
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
@@ -30,7 +30,7 @@ export function StateMachinePage() {
 				<CardHeader>
 					<CardTitle>connect</CardTitle>
 					<CardDescription>
-						WakeCap Connect V3&apos;s process page — header band, section rail, canvas and editing panel. This is what{" "}
+						Core Connect V3&apos;s process page — header band, section rail, canvas and editing panel. This is what{" "}
 						<code>ProcessDetail</code> mounts. Drag between two states to draw a transition: a legal drop creates it
 						there and then, dashed and unbound, and opens its inspector on the one field a drag cannot supply. An
 						illegal one is refused during the drag itself, and the reason reaches the banner verbatim from the rule that

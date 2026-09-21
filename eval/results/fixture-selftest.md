@@ -1,4 +1,4 @@
-# WakeCore agent eval — with vs without the knowledge layer
+# Core agent eval — with vs without the knowledge layer
 
 > ⚠️ **Fixture self-test** — graded against stored snippets in `eval/fixtures/`, NOT a live agent. Numbers here exercise the pipeline only; they are NOT evidence about agent behavior. Run `pnpm eval` with an API key for real numbers.
 

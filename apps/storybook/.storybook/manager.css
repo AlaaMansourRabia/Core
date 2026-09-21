@@ -1,4 +1,4 @@
-/* ─── Wakecore Manager Theme ─── */
+/* ─── Core Manager Theme ─── */
 
 /* Self-hosted, same as the preview canvas — so the manager chrome and the stories render the same
    family, and Storybook works offline. */
@@ -67,14 +67,14 @@ pre,
 	mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%2022a2%202%200%200%201-2-2V4a2%202%200%200%201%202-2h8a2.4%202.4%200%200%201%201.704.706l3.588%203.588A2.4%202.4%200%200%201%2020%208v12a2%202%200%200%201-2%202z%22%2F%3E%3Cpath%20d%3D%22M14%202v5a1%201%200%200%200%201%201h5%22%2F%3E%3Cpath%20d%3D%22M10%209H8%22%2F%3E%3Cpath%20d%3D%22M16%2013H8%22%2F%3E%3Cpath%20d%3D%22M16%2017H8%22%2F%3E%3C%2Fsvg%3E") !important;
 }
 
-/* ─── Sidebar items → Wakecore shadcn Tabs (default variant) ───
+/* ─── Sidebar items → Core shadcn Tabs (default variant) ───
    The full row is the `.sidebar-item` wrapper; inside it sit the clickable
    <a>/<button> (label) AND a hover-revealed action <button> ("…" menu).
    Storybook paints its OWN backgrounds on hover (wrapper → light blue, action
    button → blue) and on select (wrapper → #57534e). We override those: paint
    the *wrapper* like a shadcn TabsTrigger (muted hover fill, elevated white pill
    when active) and force every inner element transparent so nothing layers on
-   top. Mirrors @wakecap/core-ui Tabs: rounded, transition-all,
+   top. Mirrors @core/core-ui Tabs: rounded, transition-all,
    data-[state=active]:bg-background + shadow. */
 
 /* The full-row pill lives on the wrapper */
@@ -215,7 +215,7 @@ table[class*="args"] th {
    Storybook paints a 5px blue glow *behind* this button (box-shadow: #dbecff 0 0 5px 5px) to fade
    the label out from underneath it. Against our neutral rows it reads as a stray blur — light blue
    on a hovered row, a dark smudge on the selected white pill — so it goes. The button gets the same
-   muted-fill treatment as any Wakecore icon button instead. */
+   muted-fill treatment as any Core icon button instead. */
 .sidebar-item button[aria-label="Open context menu"] {
 	box-shadow: none !important;
 	background-color: transparent !important;
@@ -238,7 +238,7 @@ table[class*="args"] th {
 }
 
 /* ─── "Create a new story" (+) ───
-   Storybook's dev-only scaffolder next to the search field. Wakecore components are authored in
+   Storybook's dev-only scaffolder next to the search field. Core components are authored in
    packages/components and documented from real story files (see the Contributing page), so a
    one-click generated story is a path we don't want offered. */
 button[aria-label="Create a new story"] {

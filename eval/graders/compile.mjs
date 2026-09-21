@@ -1,8 +1,8 @@
 // Behavioral grader (V3): does the snippet actually type-check against the REAL built
-// @wakecap/core-ui types? This is the first grader where "correct" means "compiles," not
+// @core/core-ui types? This is the first grader where "correct" means "compiles," not
 // "matches a string." It uses the TypeScript compiler API with `moduleResolution: bundler`
 // so the package `exports` map + `types` condition resolve exactly as a real consumer build
-// would — meaning a barrel `import { Button } from "@wakecap/core-ui"` fails for the real
+// would — meaning a barrel `import { Button } from "@core/core-ui"` fails for the real
 // reason (the barrel d.ts has no `Button` export), not because a regex said so.
 //
 // Two signals, because they answer different questions:
@@ -24,7 +24,7 @@ const SNIPPET_PATH = join(repoRoot, "__eval_snippet__.tsx");
 const DIST = join(repoRoot, "packages", "components", "dist", "index.d.mts");
 
 // A real consumer app has ONE copy of react / react-dom / react-hook-form, so its code and
-// @wakecap/core-ui's types resolve them to the same module identity. In this monorepo the
+// @core/core-ui's types resolve them to the same module identity. In this monorepo the
 // snippet (at repo root) and core-ui's bundled .d.ts resolve those packages to DIFFERENT paths
 // (symlink vs .pnpm realpath) → TS sees duplicate type identities → false cross-module errors
 // (e.g. `<Form {...useForm()}>`). Pin each to a single canonical dir — the one core-ui is built
@@ -136,7 +136,7 @@ export function gradeCompile(code) {
 		compiles: r.compiles, // stricter: full type-check clean
 		reason: r.resolves
 			? r.compiles
-				? "Type-checks clean against @wakecap/core-ui."
+				? "Type-checks clean against @core/core-ui."
 				: `Imports resolve, but ${r.diagnostics.length} type error(s) remain.`
 			: `${blocking.length} import/export error(s): ${blocking.map((d) => d.message).join("; ").slice(0, 200)}`,
 		suggestedFix: r.resolves ? "" : "Fix import paths / named imports so they resolve against the package exports.",

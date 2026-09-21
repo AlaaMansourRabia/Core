@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {type VariantProps, cva} from "class-variance-authority";
 import {Maximize2, Pause, Play} from "lucide-react";
 import * as React from "react";

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // Entry point. Builds the knowledge index once (the "Build/Index" stage), then starts the requested
-// transport. HTTP is the hosted default; `--stdio` (or WAKECORE_MCP_TRANSPORT=stdio) runs the local
+// transport. HTTP is the hosted default; `--stdio` (or CORE_MCP_TRANSPORT=stdio) runs the local
 // editor path. The index is built BEFORE any transport accepts traffic, so /ready is meaningful.
 
-import {createKnowledge} from "@wakecap/knowledge";
+import {createKnowledge} from "@core/knowledge";
 
 import {loadConfig} from "./config";
 import {createLogger} from "./obs/logger";

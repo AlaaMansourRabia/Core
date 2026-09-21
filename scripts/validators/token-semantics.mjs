@@ -1,4 +1,4 @@
-import {isKnownWakeCoreToken, tokenColorRole, wakecoreTokenType} from "./token-catalog.mjs";
+import {isKnownCoreToken, tokenColorRole, coreTokenType} from "./token-catalog.mjs";
 
 const SOURCE_RE = /\.(?:[cm]?[jt]sx?)$/i;
 const REFERENCE_ALIAS_RE = /^--(?:ref|reference)-color-/i;
@@ -80,7 +80,7 @@ export function analyzeTokenSemantics(files, provenance) {
 			const usage = provenance.usages.find((item) => item.name === match[2]);
 			const terminals = usage?.terminalTokens?.length ? usage.terminalTokens : [match[2]];
 			if (
-				terminals.some((terminal) => isKnownWakeCoreToken(terminal) && wakecoreTokenType(terminal) === "complete-color")
+				terminals.some((terminal) => isKnownCoreToken(terminal) && coreTokenType(terminal) === "complete-color")
 			)
 				syntaxIssues.push({
 					wrapper: match[1].toLowerCase(),

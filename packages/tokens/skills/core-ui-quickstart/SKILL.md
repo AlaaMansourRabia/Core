@@ -1,34 +1,34 @@
 ---
 name: core-ui-quickstart
 description: >
-  First-time installation and setup for Wakecore (@wakecap/core-ui,
-  @wakecap/core-tokens, @wakecap/core-utils). GitHub Packages .npmrc
+  First-time installation and setup for Core (@core/core-ui,
+  @core/core-tokens, @core/core-utils). GitHub Packages .npmrc
   authentication, three CSS setup paths (pre-built, Tailwind 4, Tailwind 3),
   the wwc: Tailwind class prefix, correct import order, self-hosted fonts,
-  and rendering a first component. Load this skill before any other Wakecore
+  and rendering a first component. Load this skill before any other Core
   skill.
 metadata:
   type: lifecycle
-  library: wakecore
+  library: core
   library_version: "0.0.1"
 sources:
-  - "wakecap/Wakecore:README.md"
-  - "wakecap/Wakecore:packages/tokens/src/index.css"
-  - "wakecap/Wakecore:packages/tokens/src/fonts.css"
-  - "wakecap/Wakecore:packages/components/package.json"
+  - "core/Core:README.md"
+  - "core/Core:packages/tokens/src/index.css"
+  - "core/Core:packages/tokens/src/fonts.css"
+  - "core/Core:packages/components/package.json"
 ---
 
-# Wakecore — Quickstart
+# Core — Quickstart
 
 ## Setup
 
 ### 1. Configure GitHub Packages registry
 
-Wakecore is published to GitHub Packages, not the public npm registry.
+Core is published to GitHub Packages, not the public npm registry.
 Add to the project's `.npmrc` (or `~/.npmrc` for global):
 
 ```ini
-@wakecap:registry=https://npm.pkg.github.com
+@core:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
 ```
 
@@ -37,25 +37,25 @@ Token requires `read:packages` scope.
 Automated setup (requires `gh` CLI, authenticated):
 
 ```bash
-gh api /repos/wakecap/frontend-helpers/contents/scripts/setup-gh-registry.sh \
+gh api /repos/core/frontend-helpers/contents/scripts/setup-gh-registry.sh \
   --jq '.content' | base64 -d | bash
 ```
 
 ### 2. Install packages
 
 ```bash
-pnpm add @wakecap/core-ui @wakecap/core-tokens @wakecap/core-utils
+pnpm add @core/core-ui @core/core-tokens @core/core-utils
 ```
 
 Pre-release (latest from `develop` branch):
 
 ```bash
-pnpm add @wakecap/core-ui@next @wakecap/core-tokens@next @wakecap/core-utils@next
+pnpm add @core/core-ui@next @core/core-tokens@next @core/core-utils@next
 ```
 
 ### 3. CSS class prefix (internal)
 
-All Tailwind utility classes **inside** Wakecore components use the **`wwc:`**
+All Tailwind utility classes **inside** Core components use the **`wwc:`**
 prefix to prevent collisions with your app's own styles. This is an internal
 implementation detail — **you never use `wwc:` in your own code**. Components
 are self-styled; you just import and use them.
@@ -65,14 +65,14 @@ are self-styled; you just import and use them.
 Import them — the WOFF2 files ship inside the package:
 
 ```tsx
-import "@wakecap/core-tokens/fonts";
+import "@core/core-tokens/fonts";
 ```
 
 That declares `@font-face` for Figtree (`--font-sans`), IBM Plex Mono (`--font-mono`) and Lora
 (`--font-serif`), all served from your own origin. No CDN link, no runtime request to a third party,
 and `font-src 'self'` is enough for CSP.
 
-If you use the pre-built `@wakecap/core-ui/styles.css`, the faces are already inlined and the WOFF2
+If you use the pre-built `@core/core-ui/styles.css`, the faces are already inlined and the WOFF2
 files sit beside it in `dist/fonts/` — nothing extra to import, but do keep them when you copy the
 CSS somewhere else.
 
@@ -87,7 +87,7 @@ your project. Also works alongside Tailwind 3 or 4 without conflicts.
 
 ```tsx
 // your-app/src/main.tsx
-import "@wakecap/core-ui/styles.css";
+import "@core/core-ui/styles.css";
 ```
 
 This single import includes all design tokens, dark mode support, and every
@@ -98,12 +98,12 @@ utility class used by the components. **~80 KB total.**
 For projects already on **Tailwind CSS 4**. Uses a dedicated pre-built CSS for
 component styles (no reset conflicts) plus a theme import for design tokens.
 
-**1.** Configure your CSS with Tailwind and the Wakecore theme:
+**1.** Configure your CSS with Tailwind and the Core theme:
 
 ```css
 /* your-app/src/index.css */
 @import "tailwindcss";
-@import "@wakecap/core-tokens/theme";
+@import "@core/core-tokens/theme";
 ```
 
 **2.** Import component styles in your app entry. Your CSS first,
@@ -112,7 +112,7 @@ component styles **after**:
 ```tsx
 // your-app/src/main.tsx
 import "./index.css";                      // your TW4 CSS first
-import "@wakecap/core-ui/styles.tw4.css";  // component styles after
+import "@core/core-ui/styles.tw4.css";  // component styles after
 ```
 
 `styles.tw4.css` provides `wwc:` prefixed component styles without a duplicate
@@ -123,22 +123,22 @@ reset. The import order ensures correct `@layer` cascade priority.
 For projects on **Tailwind CSS 3**. Uses the pre-built CSS for component styles,
 plus a Tailwind preset so you can use the design tokens as standard TW3 classes.
 
-**1.** Import Wakecore CSS in your app entry, **before** your own CSS:
+**1.** Import Core CSS in your app entry, **before** your own CSS:
 
 ```tsx
 // your-app/src/main.tsx
-import "@wakecap/core-ui/styles.css";
+import "@core/core-ui/styles.css";
 import "./index.css"; // your TW3 styles (@tailwind base/components/utilities)
 ```
 
-**2.** Add the Wakecore preset to your Tailwind config:
+**2.** Add the Core preset to your Tailwind config:
 
 ```js
 // tailwind.config.cjs
-const wakecorePreset = require("@wakecap/core-tokens/tailwind3-preset");
+const corePreset = require("@core/core-tokens/tailwind3-preset");
 
 module.exports = {
-  presets: [wakecorePreset],
+  presets: [corePreset],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 };
 ```
@@ -152,14 +152,14 @@ CSS custom properties used by the components.
 All components use deep-path imports — never import from the package root.
 
 ```tsx
-import {Button} from "@wakecap/core-ui/button";
-import {Card, CardHeader, CardTitle, CardContent} from "@wakecap/core-ui/card";
+import {Button} from "@core/core-ui/button";
+import {Card, CardHeader, CardTitle, CardContent} from "@core/core-ui/card";
 
 export function Example() {
 	return (
 		<Card className="wwc:w-64">
 			<CardHeader>
-				<CardTitle>Hello Wakecore</CardTitle>
+				<CardTitle>Hello Core</CardTitle>
 			</CardHeader>
 			<CardContent>
 				<Button>Click me</Button>
@@ -173,24 +173,24 @@ export function Example() {
 
 ### Deep-path imports for all components
 
-Every component has its own export path. The barrel (`@wakecap/core-ui`) only
+Every component has its own export path. The barrel (`@core/core-ui`) only
 exports types, mock-data, and chatService — not components.
 
 ```tsx
-import {Button} from "@wakecap/core-ui/button";
-import {Input} from "@wakecap/core-ui/input";
-import {Dialog, DialogContent, DialogHeader, DialogTitle} from "@wakecap/core-ui/dialog";
-import {DataTable} from "@wakecap/core-ui/data-table";
-import {ChartContainer} from "@wakecap/core-ui/chart";
-import {Combobox} from "@wakecap/core-ui/combobox";
-import {Map} from "@wakecap/core-ui/map";
-import {Gantt} from "@wakecap/core-ui/gantt";
-import {Banner} from "@wakecap/core-ui/banner";
-import {Empty} from "@wakecap/core-ui/empty";
-import {ErrorPage} from "@wakecap/core-ui/error-page";
-import {Field} from "@wakecap/core-ui/field";
-import {InputGroup} from "@wakecap/core-ui/input-group";
-import {Kbd} from "@wakecap/core-ui/kbd";
+import {Button} from "@core/core-ui/button";
+import {Input} from "@core/core-ui/input";
+import {Dialog, DialogContent, DialogHeader, DialogTitle} from "@core/core-ui/dialog";
+import {DataTable} from "@core/core-ui/data-table";
+import {ChartContainer} from "@core/core-ui/chart";
+import {Combobox} from "@core/core-ui/combobox";
+import {Map} from "@core/core-ui/map";
+import {Gantt} from "@core/core-ui/gantt";
+import {Banner} from "@core/core-ui/banner";
+import {Empty} from "@core/core-ui/empty";
+import {ErrorPage} from "@core/core-ui/error-page";
+import {Field} from "@core/core-ui/field";
+import {InputGroup} from "@core/core-ui/input-group";
+import {Kbd} from "@core/core-ui/kbd";
 ```
 
 ### Type imports from the barrel
@@ -198,8 +198,8 @@ import {Kbd} from "@wakecap/core-ui/kbd";
 Types and domain types are exported from the barrel:
 
 ```tsx
-import type {Organization, Project, OrgTab, ProjectTab} from "@wakecap/core-ui/types";
-import type {Message, ChartData, DashboardWidget} from "@wakecap/core-ui/types/chat";
+import type {Organization, Project, OrgTab, ProjectTab} from "@core/core-ui/types";
+import type {Message, ChartData, DashboardWidget} from "@core/core-ui/types/chat";
 ```
 
 ### Dark mode toggle
@@ -219,15 +219,15 @@ document.documentElement.classList.toggle("dark", isDark);
 Wrong:
 
 ```tsx
-import {Button, Card, Input} from "@wakecap/core-ui";
+import {Button, Card, Input} from "@core/core-ui";
 ```
 
 Correct:
 
 ```tsx
-import {Button} from "@wakecap/core-ui/button";
-import {Card, CardHeader, CardContent} from "@wakecap/core-ui/card";
-import {Input} from "@wakecap/core-ui/input";
+import {Button} from "@core/core-ui/button";
+import {Card, CardHeader, CardContent} from "@core/core-ui/card";
+import {Input} from "@core/core-ui/input";
 ```
 
 The barrel index only re-exports types, mock-data, and chatService. Component
@@ -237,7 +237,7 @@ Source: `packages/components/src/index.ts`
 
 ---
 
-### HIGH Using unprefixed Tailwind utilities with Wakecore components
+### HIGH Using unprefixed Tailwind utilities with Core components
 
 Wrong:
 
@@ -253,7 +253,7 @@ Correct:
 <Button className={cn("wwc:w-full", isActive && "wwc:ring-2 wwc:ring-primary")}>Submit</Button>
 ```
 
-All Wakecore components use `wwc:`-prefixed Tailwind classes internally. The
+All Core components use `wwc:`-prefixed Tailwind classes internally. The
 `cn()` utility is configured with `extendTailwindMerge({ prefix: "wwc" })`.
 Passing unprefixed classes means tailwind-merge cannot detect conflicts between
 your overrides and the component's default classes — both values stay in the
@@ -277,18 +277,18 @@ Correct (pre-built CSS):
 
 ```css
 /* index.css */
-@import "@wakecap/core-ui/styles.css";
+@import "@core/core-ui/styles.css";
 ```
 
 Correct (Tailwind 4):
 
 ```tsx
-import "@wakecap/core-tokens"; // must come first
+import "@core/core-tokens"; // must come first
 import App from "./App";
 createRoot(document.getElementById("root")!).render(<App />);
 ```
 
-Without `@wakecap/core-tokens` or `@wakecap/core-ui/styles.css`, the
+Without `@core/core-tokens` or `@core/core-ui/styles.css`, the
 `@theme inline` bridge and CSS custom properties are not defined. Tailwind
 utilities like `wwc:bg-primary`, `wwc:text-foreground` emit no styles and
 components render with broken or transparent colours.
@@ -302,7 +302,7 @@ Source: `packages/tokens/src/index.css:1`
 Wrong:
 
 ```bash
-cp node_modules/@wakecap/core-ui/dist/styles.css public/wakecore.css   # fonts left behind
+cp node_modules/@core/core-ui/dist/styles.css public/core.css   # fonts left behind
 ```
 
 The `@font-face` rules inside `styles.css` point at `fonts/*.woff2` relative to the file. Move the CSS
@@ -312,7 +312,7 @@ compliant, so this fails quietly.
 Correct:
 
 ```bash
-cp -R node_modules/@wakecap/core-ui/dist/styles.css node_modules/@wakecap/core-ui/dist/fonts public/
+cp -R node_modules/@core/core-ui/dist/styles.css node_modules/@core/core-ui/dist/fonts public/
 ```
 
 The fonts are self-hosted, so this works air-gapped and under `font-src 'self'`. There is no CDN

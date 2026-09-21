@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/violation-list.tsx",
-		"import": "@wakecap/core-ui/violation-list",
+		"import": "@core/core-ui/violation-list",
 		"export": "ViolationList"
 	},
 	"tags": [

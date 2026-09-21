@@ -20,19 +20,19 @@ const outFile = join(repoRoot, "eval", "contracts", "component-api.json");
 
 // family file → components to extract, and their import subpath.
 const TARGETS = [
-	{file: "button", import: "@wakecap/core-ui/button", components: ["Button"]},
-	{file: "form", import: "@wakecap/core-ui/form", components: ["Form", "FormField", "FormItem", "FormControl", "FormLabel", "FormMessage"]},
-	{file: "data-table", import: "@wakecap/core-ui/data-table", components: ["DataTable"]},
-	{file: "stepper", import: "@wakecap/core-ui/stepper", components: ["Stepper", "StepperItem", "StepperIndicator"]},
-	{file: "chart", import: "@wakecap/core-ui/chart", components: ["ChartContainer"], catalogNames: {ChartContainer: "Chart"}},
-	{file: "sheet", import: "@wakecap/core-ui/sheet", components: ["Sheet", "SheetContent"]},
-	{file: "dialog", import: "@wakecap/core-ui/dialog", components: ["Dialog", "DialogContent"]},
-	{file: "view-tab-bar", import: "@wakecap/core-ui/view-tab-bar", components: ["ViewTabBar"]},
-	{file: "trend-chart", import: "@wakecap/core-ui/trend-chart", components: ["TrendChart"]},
-	{file: "page-content-header", import: "@wakecap/core-ui/page-content-header", components: ["PageContentHeader"]},
-	{file: "context-toolbar", import: "@wakecap/core-ui/context-toolbar", components: ["ContextToolbar"]},
-	{file: "navigation/core-app-top-bar", import: "@wakecap/core-ui/navigation/core-app-top-bar", components: ["CoreAppTopBar"]},
-	{file: "navigation/core-dashboard-header", import: "@wakecap/core-ui/navigation/core-dashboard-header", components: ["CoreDashboardHeader"]},
+	{file: "button", import: "@core/core-ui/button", components: ["Button"]},
+	{file: "form", import: "@core/core-ui/form", components: ["Form", "FormField", "FormItem", "FormControl", "FormLabel", "FormMessage"]},
+	{file: "data-table", import: "@core/core-ui/data-table", components: ["DataTable"]},
+	{file: "stepper", import: "@core/core-ui/stepper", components: ["Stepper", "StepperItem", "StepperIndicator"]},
+	{file: "chart", import: "@core/core-ui/chart", components: ["ChartContainer"], catalogNames: {ChartContainer: "Chart"}},
+	{file: "sheet", import: "@core/core-ui/sheet", components: ["Sheet", "SheetContent"]},
+	{file: "dialog", import: "@core/core-ui/dialog", components: ["Dialog", "DialogContent"]},
+	{file: "view-tab-bar", import: "@core/core-ui/view-tab-bar", components: ["ViewTabBar"]},
+	{file: "trend-chart", import: "@core/core-ui/trend-chart", components: ["TrendChart"]},
+	{file: "page-content-header", import: "@core/core-ui/page-content-header", components: ["PageContentHeader"]},
+	{file: "context-toolbar", import: "@core/core-ui/context-toolbar", components: ["ContextToolbar"]},
+	{file: "navigation/core-app-top-bar", import: "@core/core-ui/navigation/core-app-top-bar", components: ["CoreAppTopBar"]},
+	{file: "navigation/core-dashboard-header", import: "@core/core-ui/navigation/core-dashboard-header", components: ["CoreDashboardHeader"]},
 ];
 
 const dtsPath = (f) => join(distDir, `${f}.d.mts`);

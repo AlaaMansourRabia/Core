@@ -1,4 +1,4 @@
-import {Button} from "@wakecap/core-ui";
+import {Button} from "@core/core-ui";
 import {useNavigate} from "react-router-dom";
 
 export function ReportsCta() {

@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 
 /** A placeholder animation shown while content is loading. */
 function Skeleton({className, ...props}: React.HTMLAttributes<HTMLDivElement>) {

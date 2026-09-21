@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {OTPInput, OTPInputContext} from "input-otp";
 import {Dot} from "lucide-react";
 import * as React from "react";

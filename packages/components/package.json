@@ -1,6 +1,6 @@
 {
-	"name": "@wakecap/core-ui",
-	"version": "0.18.1",
+	"name": "@core/core-ui",
+	"version": "1.0.0",
 	"bin": {
 		"intent": "./bin/intent.js"
 	},
@@ -1085,15 +1085,15 @@
 			"types": "./dist/pages/core-wc3-workspace.d.mts",
 			"import": "./dist/pages/core-wc3-workspace.mjs"
 		},
-		"./pages/core-wakecap-connect": {
-			"source": "./src/pages/core-wakecap-connect.tsx",
-			"types": "./dist/pages/core-wakecap-connect.d.mts",
-			"import": "./dist/pages/core-wakecap-connect.mjs"
+		"./pages/core-core-connect": {
+			"source": "./src/pages/core-core-connect.tsx",
+			"types": "./dist/pages/core-core-connect.d.mts",
+			"import": "./dist/pages/core-core-connect.mjs"
 		},
-		"./pages/core-wakecap-connect-v3": {
-			"source": "./src/pages/core-wakecap-connect-v3.tsx",
-			"types": "./dist/pages/core-wakecap-connect-v3.d.mts",
-			"import": "./dist/pages/core-wakecap-connect-v3.mjs"
+		"./pages/core-core-connect-v3": {
+			"source": "./src/pages/core-core-connect-v3.tsx",
+			"types": "./dist/pages/core-core-connect-v3.d.mts",
+			"import": "./dist/pages/core-core-connect-v3.mjs"
 		},
 		"./pages/wc3-object-type-detail": {
 			"source": "./src/pages/wc3-object-type-detail.tsx",
@@ -1416,9 +1416,6 @@
 			"import": "./dist/pages/core-clinic.mjs"
 		}
 	},
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com"
-	},
 	"scripts": {
 		"build": "tsdown && pnpm build:css",
 		"build:css": "tailwindcss -i src/styles.css -o dist/styles.css && node scripts/flatten-css.mjs && cp -R ../tokens/src/fonts dist/fonts",
@@ -1471,8 +1468,8 @@
 		"@tiptap/pm": "^3.23.1",
 		"@tiptap/react": "^3.23.1",
 		"@tiptap/starter-kit": "^3.23.1",
-		"@wakecap/core-tokens": "workspace:*",
-		"@wakecap/core-utils": "workspace:*",
+		"@core/core-tokens": "workspace:*",
+		"@core/core-utils": "workspace:*",
 		"@xyflow/react": "^12.11.2",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",

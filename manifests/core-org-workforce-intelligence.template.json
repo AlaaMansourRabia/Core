@@ -14,7 +14,7 @@
 	},
 	"source": {
 		"path": "packages/components/src/pages/core-org-workforce-intelligence.tsx",
-		"import": "@wakecap/core-ui/pages/core-org-workforce-intelligence",
+		"import": "@core/core-ui/pages/core-org-workforce-intelligence",
 		"export": "OrgWorkforceIntelligence"
 	},
 	"tags": ["workforce", "intelligence", "analytics", "dashboard"],
@@ -22,7 +22,7 @@
 	"when": ["An org workforce-intelligence screen"],
 	"pairsWith": ["CoreAppSidebar", "CoreAppTopBar", "CoreContentArea"],
 	"requiredProviders": [],
-	"minimalExample": "import {OrgWorkforceIntelligence} from \"@wakecap/core-ui/pages/core-org-workforce-intelligence\";\n\n<OrgWorkforceIntelligence selectedOrg={org} />",
+	"minimalExample": "import {OrgWorkforceIntelligence} from \"@core/core-ui/pages/core-org-workforce-intelligence\";\n\n<OrgWorkforceIntelligence selectedOrg={org} />",
 	"lineage": {
 		"origin": "migrated",
 		"authoredBy": "A1 template-variant migration (2026-07)",

@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {ChevronLeft, ChevronRight, Video, X} from "lucide-react";
 import {useRef} from "react";
 
@@ -54,7 +54,7 @@ const numericCell = "wwc:px-1.5 wwc:text-center wwc:text-xs wwc:text-foreground"
  * A drawer for reviewing and editing the operations under a single object: a header (identifier, WBS
  * path, overall progress, and a walkthrough button), a compact per-operation table with an editable
  * progress field, and a discard / save footer (Save is disabled until a progress value changes).
- * Composed from Wakecore Table, Progress, Input, and Button.
+ * Composed from Core Table, Progress, Input, and Button.
  */
 export function OperationsDrawer({
 	title,

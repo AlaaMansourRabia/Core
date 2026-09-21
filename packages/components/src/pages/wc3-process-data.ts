@@ -45,7 +45,7 @@ export type Wc3ProcessState = {
 	color: string;
 	/** Present on terminal states only. */
 	outcome?: Wc3ProcessStateOutcome;
-	/** State added on top of the vendor default graph (not in wakecap-standard-v1). */
+	/** State added on top of the vendor default graph (not in core-standard-v1). */
 	custom?: boolean;
 	/** State that does not exist in the as-built product yet — a proposed extension. */
 	proposed?: boolean;
@@ -209,7 +209,7 @@ export const WC3_PROCESSES: Wc3Process[] = [
 		statusProp: "permit_status",
 		alsoTouches: ["ot_zone", "ot_worker", "ot_cert"],
 		evidenceNote:
-			"Lifecycle mirrors wakecap-standard-v1 (frontend-2.0-digital-work-permit). “Suspended” is a labeled custom state added to enable the occupancy gate; custom graphs may add such states.",
+			"Lifecycle mirrors core-standard-v1 (frontend-2.0-digital-work-permit). “Suspended” is a labeled custom state added to enable the occupancy gate; custom graphs may add such states.",
 		slaBySeverity: null,
 		slaNote:
 			"State SLAs are a PROPOSED governance layer (the DWP engine exposes start_sla_timer effects; defaults define none).",

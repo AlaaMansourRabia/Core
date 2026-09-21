@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {LoginPage} from "@wakecap/core-ui/pages/core-login-page";
+import {LoginPage} from "@core/core-ui/pages/core-login-page";
 
 import manifest from "../../../../manifests/login-page.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

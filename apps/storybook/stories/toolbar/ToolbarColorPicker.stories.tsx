@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Toolbar, ToolbarButton, ToolbarSeparator} from "@wakecap/core-ui/toolbar";
-import {ToolbarColorPicker} from "@wakecap/core-ui/toolbar-color-picker";
+import {Toolbar, ToolbarButton, ToolbarSeparator} from "@core/core-ui/toolbar";
+import {ToolbarColorPicker} from "@core/core-ui/toolbar-color-picker";
 import {Baseline, PaintBucket, PencilLine} from "lucide-react";
 import {useState} from "react";
 

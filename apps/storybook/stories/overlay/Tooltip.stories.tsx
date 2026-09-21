@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@wakecap/core-ui/tooltip";
+import {Button} from "@core/core-ui/button";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@core/core-ui/tooltip";
 import {expect, screen, userEvent, waitFor, within} from "storybook/test";
 
 const meta = {

@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {WalkthroughModal} from "@wakecap/core-ui/walkthrough-modal";
+import {Button} from "@core/core-ui/button";
+import {WalkthroughModal} from "@core/core-ui/walkthrough-modal";
 import {useState} from "react";
 
 const meta = {

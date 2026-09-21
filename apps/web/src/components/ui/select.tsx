@@ -11,10 +11,10 @@ export {
 	SelectScrollDownButton,
 	SearchableSelect,
 	MultiSelect,
-} from "@wakecap/core-ui/select";
+} from "@core/core-ui/select";
 export type {
 	SearchableSelectProps,
 	SearchableSelectOption,
 	MultiSelectProps,
 	MultiSelectOption,
-} from "@wakecap/core-ui/select";
+} from "@core/core-ui/select";

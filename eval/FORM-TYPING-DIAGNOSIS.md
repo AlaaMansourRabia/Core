@@ -4,20 +4,20 @@
 > After restoring the build tooling and rebuilding, the `typeof FormProvider` source annotation
 > made **no difference** — the dts bundler emits the same arrow signature regardless. The real
 > cause was a **react-hook-form duplicate type identity in the eval grader**: the snippet (at repo
-> root) and `@wakecap/core-ui`'s bundled `.d.ts` resolved react-hook-form to *different paths*
+> root) and `@core/core-ui`'s bundled `.d.ts` resolved react-hook-form to *different paths*
 > (symlink vs `.pnpm` realpath), which a real consumer app (one RHF) never hits. Deduping
 > react-hook-form in the grader (`eval/graders/compile.mjs`, `paths` mapping) makes the Form
 > generations compile **with the current arrow type** — 8 flips, 0 regressions, A5 52% → 76%.
-> So: WakeCore's `Form` type is **fine for real consumers**; this was a **measurement artifact**,
+> So: Core's `Form` type is **fine for real consumers**; this was a **measurement artifact**,
 > not a library bug. The source annotation was reverted (no-op). The narrative below is retained
-> for the record but its "WakeCore Form typing" verdict is superseded by this correction.
+> for the record but its "Core Form typing" verdict is superseded by this correction.
 
 > Diagnosis + options only. No implementation. Question: would fixing this materially increase
 > compile success? (Original estimate; see correction above.)
 
 ## Verdict
 
-`<Form {...form}>` fails `tsc` because **WakeCore's build re-emits react-hook-form's `FormProvider`
+`<Form {...form}>` fails `tsc` because **Core's build re-emits react-hook-form's `FormProvider`
 with a degraded type signature**, not because of a version mismatch or duplicate package. The
 source is a direct re-assignment (`const Form = FormProvider`), but the `.d.mts` bundler inlined
 it as a generic *arrow signature*, which TS infers worse in JSX than the original generic
@@ -45,8 +45,8 @@ contravariantly, the concrete `{name:string}` form object is rejected. Same erro
 |---|---|---|
 | react-hook-form **version mismatch** | ❌ ruled out | Exactly one RHF installed: **7.71.1**. |
 | **duplicate type instances** | ❌ ruled out | `react-hook-form` resolves to the **same physical package** from both repo root and `packages/components`. |
-| **WakeCore Form typing** | ✅ **confirmed (root cause)** | Raw `<FormProvider {...form}>` from the *same* RHF **compiles**; WakeCore's `<Form {...form}>` **fails**. Source is `const Form = FormProvider`, but the emitted `.d.mts` is `declare const Form: <TFieldValues, TContext=any, TTransformedValues=TFieldValues>(props: FormProviderProps<…>) => JSX.Element` — an inlined **arrow** generic, where RHF's original is a generic **function declaration**. TS JSX inference is weaker on the arrow form → infers the partial field-values type. |
-| **missing exports** | ⚠️ contributing | `@wakecap/core-ui/form` exports `useFormField` but **not `useForm`**, so consumers must `import { useForm } from "react-hook-form"` — outside the core-ui surface. It does not *cause* the type error (same RHF), but removes any chance for WakeCore to ship a matching `useForm`. |
+| **Core Form typing** | ✅ **confirmed (root cause)** | Raw `<FormProvider {...form}>` from the *same* RHF **compiles**; Core's `<Form {...form}>` **fails**. Source is `const Form = FormProvider`, but the emitted `.d.mts` is `declare const Form: <TFieldValues, TContext=any, TTransformedValues=TFieldValues>(props: FormProviderProps<…>) => JSX.Element` — an inlined **arrow** generic, where RHF's original is a generic **function declaration**. TS JSX inference is weaker on the arrow form → infers the partial field-values type. |
+| **missing exports** | ⚠️ contributing | `@core/core-ui/form` exports `useFormField` but **not `useForm`**, so consumers must `import { useForm } from "react-hook-form"` — outside the core-ui surface. It does not *cause* the type error (same RHF), but removes any chance for Core to ship a matching `useForm`. |
 | other packaging (React 18.3.1 vs 19 split) | ❌ not this error | Real, but orthogonal — this failure is purely RHF generics, no React types involved. |
 
 **Mechanism:** the dts bundler (tsdown / rollup-plugin-dts) flattened `FormProvider` into a
@@ -62,7 +62,7 @@ From the captured A5 pilot run (n=21, fully auditable):
 - A5 compile today **11/21 (52%)** → with Form fixed, **≈ 16/21 (76%)** — a **+24-point** single-fix lift.
 
 This is larger than the entire contracts layer's effect (+10) and is the dominant remaining
-compile blocker on form-bearing screens (forms are common in real WakeCap product UIs).
+compile blocker on form-bearing screens (forms are common in real Core product UIs).
 
 ## 4. Fix options (smallest first)
 
@@ -70,7 +70,7 @@ compile blocker on form-bearing screens (forms are common in real WakeCap produc
 |---|---|---|---|---|
 | **A (recommended)** | Annotate the source so the emitted type is preserved: `const Form: typeof FormProvider = FormProvider;` (or `export { FormProvider as Form }`). Rebuild, re-run the repro. | **1 line + rebuild** | very low | Forces the `.d.mts` to emit `typeof FormProvider` instead of the degraded arrow signature. Directly targets the root cause; no API/behavior change. |
 | B | Configure the dts bundler to not inline external (`react-hook-form`) types — keep them as imports. | config | low | Fixes the class of problem (any re-exported external generic), but broader/риskier than A. |
-| C | Also export a typed `useForm` from `@wakecap/core-ui/form`. | small | low | Ergonomics + keeps agents on the core-ui import surface; complements A, doesn't replace it. |
+| C | Also export a typed `useForm` from `@core/core-ui/form`. | small | low | Ergonomics + keeps agents on the core-ui import surface; complements A, doesn't replace it. |
 | D | Loosen `Form`'s prop type to `FormProviderProps<any>`. | small | **high** | Removes the type error by removing type safety. Not recommended. |
 
 **Recommended: A (+ C for ergonomics).** A is the smallest change that addresses the actual

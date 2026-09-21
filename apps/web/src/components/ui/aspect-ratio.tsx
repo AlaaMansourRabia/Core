@@ -1,1 +1,1 @@
-export {AspectRatio} from "@wakecap/core-ui/aspect-ratio";
+export {AspectRatio} from "@core/core-ui/aspect-ratio";

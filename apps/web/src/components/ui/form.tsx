@@ -7,4 +7,4 @@ export {
 	FormDescription,
 	FormMessage,
 	FormField,
-} from "@wakecap/core-ui/form";
+} from "@core/core-ui/form";

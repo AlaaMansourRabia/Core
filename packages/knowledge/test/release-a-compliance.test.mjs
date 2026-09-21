@@ -7,13 +7,13 @@ const kb = createKnowledge();
 
 test("resolve_template infers showcase intent and honors an explicit goal", async () => {
 	const inferred = await kb.callTool("resolve_template", {
-		intent: "Build a page to evaluate and showcase WakeCore components",
+		intent: "Build a page to evaluate and showcase Core components",
 	});
 	assert.equal(inferred.ok, true);
-	assert.equal(inferred.data.goal, "wakecore-showcase");
+	assert.equal(inferred.data.goal, "core-showcase");
 	assert.deepEqual(inferred.data.query, {
-		intent: "Build a page to evaluate and showcase WakeCore components",
-		goal: "wakecore-showcase",
+		intent: "Build a page to evaluate and showcase Core components",
+		goal: "core-showcase",
 		goalSource: "inferred",
 	});
 
@@ -28,17 +28,17 @@ test("resolve_template infers showcase intent and honors an explicit goal", asyn
 test("implementation plans expose a deterministic, catalog-derived artifact contract", async () => {
 	const input = {
 		template: "analytics-overview",
-		intent: "Build a WakeCore showcase for analytics",
+		intent: "Build a Core showcase for analytics",
 		strategy: "adapt-template",
 	};
 	const first = await kb.callTool("create_implementation_plan", input);
 	const second = await kb.callTool("create_implementation_plan", input);
 
 	assert.equal(first.ok, true);
-	assert.equal(first.data.goal, "wakecore-showcase");
+	assert.equal(first.data.goal, "core-showcase");
 	assert.match(first.data.planId, /^plan_[0-9a-f]{8}$/);
 	assert.equal(first.data.planId, second.data.planId);
-	assert.equal(first.data.contractVersion, "wakecore-artifact-contract/1");
+	assert.equal(first.data.contractVersion, "core-artifact-contract/1");
 	assert.equal(first.data.artifactContract.contractVersion, first.data.contractVersion);
 	assert.ok(first.data.artifactContract.required.length > 0);
 	assert.ok(first.data.artifactContract.recommended.length > 0);
@@ -76,7 +76,7 @@ test("generated ownership contracts pass validate input parsing unchanged", asyn
 
 	const parsed = INPUT_SCHEMAS.validate.safeParse({
 		files: [{path: "src/App.tsx", language: "tsx", content: "export default function App() { return null; }"}],
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan: {
 			planId: result.data.planId,
 			contractVersion: result.data.contractVersion,
@@ -109,7 +109,7 @@ test("every catalog ownership value is accepted by validate input parsing", () =
 		implementationPlan: {
 			implementationMode: "compose",
 			artifactContract: {
-				contractVersion: "wakecore-artifact-contract/1",
+				contractVersion: "core-artifact-contract/1",
 				required: [],
 				recommended,
 				allowedPrimitives: [],

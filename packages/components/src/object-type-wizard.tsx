@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {
 	AlertTriangle,
 	Award,
@@ -35,7 +35,7 @@ import {Textarea} from "./textarea";
 import {ToggleGroup, ToggleGroupItem} from "./toggle-group";
 
 // NewObjectTypeDialog — a four-step wizard (Metadata → Datasource → Properties → Review) for authoring
-// an ontology object type, shown in a Dialog. Composed entirely from existing Wakecore primitives:
+// an ontology object type, shown in a Dialog. Composed entirely from existing Core primitives:
 // the built-in Stepper for the step header, plus Input, ToggleGroup, Select, Switch, Badge, and Button.
 // Required Metadata fields validate inline (Next is never disabled). Data is caller-supplied; on the
 // final step it emits a NewObjectTypeDraft via onCreate.
@@ -217,7 +217,7 @@ const SEGMENT_ON =
 
 // ─── Step header ─────────────────────────────────────────────────────────────
 
-/** Wakecore's built-in Stepper, laid out horizontally across the four wizard steps. */
+/** Core's built-in Stepper, laid out horizontally across the four wizard steps. */
 function WizardSteps({step}: {step: number}) {
 	return (
 		<Stepper value={step + 1} orientation="horizontal" className="wwc:w-full">

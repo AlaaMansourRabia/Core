@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Progress} from "@wakecap/core-ui/progress";
+import {Progress} from "@core/core-ui/progress";
 import * as React from "react";
 
 const meta = {

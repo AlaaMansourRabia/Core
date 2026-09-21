@@ -12,11 +12,11 @@ const BASE: ProductPackageDetailProps = {
 	package: {
 		id: "attendance",
 		name: "Attendance",
-		apiName: "wakecap.attendance",
+		apiName: "core.attendance",
 		version: "2.1.0",
 		description: "Shift attendance from badge reads.",
 		kind: "Data product",
-		publisher: "WakeCap Platform",
+		publisher: "Core Platform",
 	},
 	dependencies: [
 		{id: "d1", name: "Workforce core", version: "1.4.0", status: "satisfied"},

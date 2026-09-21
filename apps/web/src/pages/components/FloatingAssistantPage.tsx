@@ -1,4 +1,4 @@
-import type {Message} from "@wakecap/core-ui/types/chat";
+import type {Message} from "@core/core-ui/types/chat";
 
 import {Bot, Sparkles} from "lucide-react";
 import {useState} from "react";
@@ -127,7 +127,7 @@ export function FloatingAssistantPage() {
 				</CardHeader>
 				<CardContent>
 					<pre className="wwc:overflow-x-auto wwc:rounded-lg wwc:bg-muted wwc:p-4 wwc:text-sm">
-						{`import {FloatingAssistant} from "@wakecap/core-ui/floating-assistant";
+						{`import {FloatingAssistant} from "@core/core-ui/floating-assistant";
 
 const [messages, setMessages] = useState([]);
 const [loading, setLoading] = useState(false);

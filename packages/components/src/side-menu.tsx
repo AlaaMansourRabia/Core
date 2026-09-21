@@ -1,6 +1,6 @@
 import type {ComponentType, ReactNode} from "react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {ArrowLeft, Check, ChevronDown, Search} from "lucide-react";
 
 import {Badge} from "./badge";
@@ -146,7 +146,7 @@ export function SideMenu({
 
 			{/* Desktop: the vertical left column. */}
 			<div
-				data-wakecore-artifact="side-menu"
+				data-core-artifact="side-menu"
 				className={cn(
 					"wwc:hidden wwc:h-full wwc:min-h-0 wwc:w-64 wwc:shrink-0 wwc:flex-col wwc:border-r wwc:border-border wwc:bg-card wwc:md:flex",
 					className,

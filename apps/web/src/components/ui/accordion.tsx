@@ -1,1 +1,1 @@
-export {Accordion, AccordionItem, AccordionTrigger, AccordionContent} from "@wakecap/core-ui/accordion";
+export {Accordion, AccordionItem, AccordionTrigger, AccordionContent} from "@core/core-ui/accordion";

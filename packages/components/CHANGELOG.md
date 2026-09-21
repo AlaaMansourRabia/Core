@@ -1,4 +1,4 @@
-# @wakecap/core-ui
+# @core/core-ui
 
 ## 0.18.1
 
@@ -32,7 +32,7 @@
 
   A surface whose stage may or may not be a FragmentViewer — Workforce Map View renders a placeholder plan when it is not — had no null-tolerant way to read the viewer, so it wrapped `useFragmentViewer()` in a `try/catch`. That reads as a conditional hook call, and it swallows every other error the hook might raise, not just the missing-provider one.
 
-  `useOptionalFragmentViewer()` reads the context directly and returns `null` outside a provider. `useFragmentViewer()` is unchanged and still throws, so nothing is loosened. Exported from `@wakecap/core-ui/fragment-viewer` beside its strict twin.
+  `useOptionalFragmentViewer()` reads the context directly and returns `null` outside a provider. `useFragmentViewer()` is unchanged and still throws, so nothing is loosened. Exported from `@core/core-ui/fragment-viewer` beside its strict twin.
 
 - 37f0d6c: Keep popover-based controls usable inside a `Dialog`, and bring the compliance document to parity with the certificate one.
 
@@ -43,7 +43,7 @@
   - `Combobox` gains `open`, `onOpenChange`, `modal` and `container`.
   - Every `DatePicker` variant gains `container` and `modal`.
   - `PopoverContent` and `SelectContent` gain `container` (pass `null` to force `document.body`).
-  - New `useDialogContainer()` from `@wakecap/core-ui/dialog`, for handing the container to an overlay that is not built on our `Popover`.
+  - New `useDialogContainer()` from `@core/core-ui/dialog`, for handing the container to an overlay that is not built on our `Popover`.
 
   **WorkerProfile compliance document (#295).** A compliance check's `document` was `{name, attached?}` only, so a host with a presigned URL could name a file but never open it, leaving a dead "View document" label beside a hand-injected link.
 
@@ -52,7 +52,7 @@
   - The document line follows the certificate's precedence: handler, then `url`, then plain text. `attached: false` still reads "No document" and offers nothing, so a stale `url` cannot become a live link.
   - Fixed the compliance status chip being cut off at a narrow panel's right edge: the header row now wraps, so the chip drops to its own line instead of overflowing.
 
-- 37f0d6c: Add the `SiteImageViewer` widget (`@wakecap/core-ui/site-image-viewer`)
+- 37f0d6c: Add the `SiteImageViewer` widget (`@core/core-ui/site-image-viewer`)
 
   The Site Image Viewer, promoted out of the storybook `site-image-viewer` story into the design system: a
   background site-plan image (aerial / blueprint) with a villa polygon overlay coloured by construction
@@ -68,12 +68,12 @@
     `MILESTONE_COLOR_RAMP`, `PROGRESS_LEGEND_ITEMS`, `VARIANCE_LEGEND_ITEMS`) and the `Villa` / `MapMode` /
     `SiteMeta` types are exported alongside the component.
   - `villas` is a prop (not bundled). The real ROSHN Almanar set (602 footprints, 4096×4096) ships as the
-    separate `@wakecap/core-ui/site-image-viewer-fixtures` entry (`ALMANAR_VILLAS`, `ALMANAR_SITE_META`) so
+    separate `@core/core-ui/site-image-viewer-fixtures` entry (`ALMANAR_VILLAS`, `ALMANAR_SITE_META`) so
     the widget stays lean.
 
   The `CaptureUiEnhanced` template now composes this widget for its map region.
 
-- 37f0d6c: Add the `CaptureUiEnhanced` template (`@wakecap/core-ui/pages/capture-ui-enhanced`)
+- 37f0d6c: Add the `CaptureUiEnhanced` template (`@core/core-ui/pages/capture-ui-enhanced`)
 
   A reality-capture progress workspace for a construction zone, promoted from a wakedex flow rebuild. A
   `CanvasHeader` (breadcrumb + built-in `WeekSelector` for the weekly capture timeline + refresh &
@@ -101,7 +101,7 @@
 
 ### Minor Changes
 
-- fb43898: Charts follow a theme switch instead of freezing on the theme they were first painted in ([#266](https://github.com/wakecap/Wakecore/issues/266))
+- fb43898: Charts follow a theme switch instead of freezing on the theme they were first painted in ([#266](https://github.com/core/Core/issues/266))
 
   `useChartTheme()` resolved every colour from `getComputedStyle(document.documentElement)` inside a
   `useMemo` with empty deps, so it returned concrete RGB strings for whichever theme was live at first
@@ -125,7 +125,7 @@
   `createThemedChartOption` is unchanged and still resolves at call time; prefer the `seriesThemes`
   prop, or key your memo on `useThemeVersion()`.
 
-- fb43898: a11y: `FormDialogField` labels are associated with their controls ([#265](https://github.com/wakecap/Wakecore/issues/265))
+- fb43898: a11y: `FormDialogField` labels are associated with their controls ([#265](https://github.com/core/Core/issues/265))
 
   The caption was a plain `<span>`, which cannot carry `for`, so every field inside every `FormDialog`
   was unlabelled to assistive technology — a screen reader announced "edit, blank" for an `Input` and a
@@ -144,7 +144,7 @@
 - fb43898: Three catalogue gaps found by the Connect product-contract migration and the WorkerProfile adoption
 
   **`ProductPackageDetail`** — a route-injectable product package surface
-  ([#206](https://github.com/wakecap/Wakecore/issues/206)). Identity, version, dependencies, outputs,
+  ([#206](https://github.com/core/Core/issues/206)). Identity, version, dependencies, outputs,
   permission gates, evidence and install state, over a governed install: a plan, a confirmation, and a
   receipt carrying package, version, project and actor. It owns no shell and no router, so it mounts
   inside a workspace route that already has a sidebar and a top bar. Authorisation is the host's
@@ -153,7 +153,7 @@
   Button composition the Connect prototype kept in application state.
 
   **`NodeGraph`** — a domain-neutral functional node graph
-  ([#204](https://github.com/wakecap/Wakecore/issues/204)). Typed nodes and edges with semantic tone,
+  ([#204](https://github.com/core/Core/issues/204)). Typed nodes and edges with semantic tone,
   the ZoomTools row (zoom in/out, an editable percentage, fit and reset), selection by click or
   keyboard, node movement, optional edge creation, empty/loading/error states, and an inspector
   handoff. Four Connect journeys — pipeline, process, analysis readiness, lineage — had each rebuilt
@@ -163,17 +163,17 @@
   types.
 
   **`WorkerProfile` per-tab loading and error state**
-  ([#267](https://github.com/wakecap/Wakecore/issues/267)). The typed tabs rendered data-or-empty only,
+  ([#267](https://github.com/core/Core/issues/267)). The typed tabs rendered data-or-empty only,
   so a tab-gated fetch in flight and a failed one both read as "No certificates found." The new
   optional `tabStates` gives any tab a `{status: "loading"}` skeleton or a `{status: "error", message?,
 onRetry?}` state that takes precedence over the empty text. Omit it and behaviour is unchanged.
 
-- fb43898: feat(ui): add a FileSystem widget, and a file system to WakeCap Connect V3
+- fb43898: feat(ui): add a FileSystem widget, and a file system to Core Connect V3
 
   `FileSystem` is a new widget: a file system over records that live somewhere else. Nodes are a flat
   array with `parentId`, each file carrying an opaque `ref` the host reads back, and file types — their
   labels, marks, tints and owning apps — are declared by the host, so the widget knows no product's
-  vocabulary and holds none of its data. Exported from `@wakecap/core-ui/file-system`.
+  vocabulary and holds none of its data. Exported from `@core/core-ui/file-system`.
 
   `CoreWC3Workspace` gains `showFiles`, which the V3 template turns on. It adds a Files entry at the
   head of the rail — pinned under the nav search and ruled off from Home and the app stages — and a
@@ -224,7 +224,7 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
   - Fixed middle-truncated labels dropping a space at the truncation boundary: `TreeRowContent` and
     `CanvasFilePicker` rendered "Built assets" as "Builtassets".
 
-- fb43898: `WorkerProfile` closes the four gaps that blocked adopting it as the product worker profile ([#257](https://github.com/wakecap/Wakecore/issues/257), [#258](https://github.com/wakecap/Wakecore/issues/258), [#259](https://github.com/wakecap/Wakecore/issues/259), [#262](https://github.com/wakecap/Wakecore/issues/262))
+- fb43898: `WorkerProfile` closes the four gaps that blocked adopting it as the product worker profile ([#257](https://github.com/core/Core/issues/257), [#258](https://github.com/core/Core/issues/258), [#259](https://github.com/core/Core/issues/259), [#262](https://github.com/core/Core/issues/262))
 
   The widget rendered the Certificates, Compliance and Device tabs itself, off fixed-shape data, with
   no slot a consumer could reach — so the product could not add a certificate, assign a device, show a
@@ -243,7 +243,7 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
 
   Every addition is optional — callers on the current API render exactly as before.
 
-- fb43898: `WorkerProfile`'s typed compliance checks report their decisions to the host ([#280](https://github.com/wakecap/Wakecore/issues/280))
+- fb43898: `WorkerProfile`'s typed compliance checks report their decisions to the host ([#280](https://github.com/core/Core/issues/280))
 
   The typed `compliance` model rendered interactive controls — segmented status choices and an
   "Upload / replace document" button — that emitted nothing, so the model was display-only in practice and a
@@ -265,7 +265,7 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
   Every addition is optional; callers on the current API render exactly as before — without a handler the
   choices still toggle locally and the upload action still renders, exactly as they do today.
 
-- fb43898: `WorkerProfile` opens its built-in text and its certificate rows to the host ([#275](https://github.com/wakecap/Wakecore/issues/275), [#276](https://github.com/wakecap/Wakecore/issues/276), [#277](https://github.com/wakecap/Wakecore/issues/277))
+- fb43898: `WorkerProfile` opens its built-in text and its certificate rows to the host ([#275](https://github.com/core/Core/issues/275), [#276](https://github.com/core/Core/issues/276), [#277](https://github.com/core/Core/issues/277))
 
   Three gaps left from the product adoption of the widget, all in what the host cannot reach.
 
@@ -285,7 +285,7 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
 
   Every addition is optional; callers on the current API render exactly as before.
 
-- fb43898: `WorkerProfile` takes a `tabs` allow-list, so a host can drop tabs it will never populate ([#273](https://github.com/wakecap/Wakecore/issues/273))
+- fb43898: `WorkerProfile` takes a `tabs` allow-list, so a host can drop tabs it will never populate ([#273](https://github.com/core/Core/issues/273))
 
   The widget always rendered all seven triggers. Omitting `visits` did not hide the Visits tab; it
   showed the tab with "No visit records." forever. For a product with no Visits concept that reads as
@@ -299,7 +299,7 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
 ### Patch Changes
 
 - fb43898: Form builder refinements: the question inspector now exposes editable **Label** and **Description** fields (previously these were only editable on the canvas, so the label read as static text in the settings panel); the canvas now shows every question in the active section stacked together, with the selected card outlined by a darkened stroke (click a card to select it) rather than just the selected one; the preview now renders each section's name as a heading above its questions; the builder-only embed (e.g. the Work Permit template) now opens on the build-method chooser — the three starting cards — instead of dropping straight into a pre-filled form; questions and sections both reorder by dragging a 6-dot grip handle (revealed on hover) rather than up/down arrow buttons, a dragged question inserts at the drop position (no swapping) and can move into a different section (including empty ones), each section ends with a dotted "+" affordance that both adds a question and accepts a drop, and hovering a section header reveals a "+" too. When a `formSlot` is supplied, the StateMachine's Form section runs full-bleed (like the canvas) so the embedded builder fills the whole area.
-- fb43898: Public JSDoc no longer tells consumers to write `wwc:` classes ([#268](https://github.com/wakecap/Wakecore/issues/268))
+- fb43898: Public JSDoc no longer tells consumers to write `wwc:` classes ([#268](https://github.com/core/Core/issues/268))
 
   Eight examples recommended a `wwc:`-prefixed utility, and one of them — `sheet.tsx`'s
   `className="wwc:top-14"` for the scrim — was in neither shipped stylesheet, so following it produced
@@ -314,19 +314,19 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
   documented as `overlayProps={{style: {top: 56}}}`, which beats its `inset-0`. `pnpm
 validate:doc-classes` enforces it in CI.
 
-- fb43898: Menu items get a highlight you can actually see, and a pointer cursor ([#279](https://github.com/wakecap/Wakecore/issues/279))
+- fb43898: Menu items get a highlight you can actually see, and a pointer cursor ([#279](https://github.com/core/Core/issues/279))
 
   Hovering a menu item gave no feedback at all. Radix focuses an item on pointer-over, so `focus:bg-accent`
   was the highlight — but light `--accent` is `oklch(0.975 0 0)` against a white `--popover`, a 0.025 L step
   that measures 1.07:1 and reads as nothing. The items also carried `cursor-default`, so there was no pointer
   either. Menu rows looked inert.
 
-  - **`@wakecap/core-tokens`** adds `--menu-highlight` / `--menu-highlight-foreground` — `oklch(0.94 0 0)` in
+  - **`@core/core-tokens`** adds `--menu-highlight` / `--menu-highlight-foreground` — `oklch(0.94 0 0)` in
     light, `oklch(0.28 0.007 70)` in dark. `--accent` could not simply be darkened: it is also the
     selected-state fill for Calendar's day and Toggle's on-state, so a value dark enough for a menu row
     repaints those. No existing token changes value, so nothing else in the system moves a pixel. Dark mode
     was already at the edge of perceptible and its step widens slightly.
-  - **`@wakecap/core-ui`** repoints DropdownMenu, ContextMenu, Menubar, Select, Command and
+  - **`@core/core-ui`** repoints DropdownMenu, ContextMenu, Menubar, Select, Command and
     NavigationMenu at the new token and swaps `cursor-default` for `cursor-pointer`, covering submenu
     triggers, checkbox and radio items, and the hand-rolled SearchableSelect / MultiSelect option rows.
     The menubar and submenu triggers carry no `data-[disabled]` rule of their own, so they take an
@@ -339,7 +339,7 @@ validate:doc-classes` enforces it in CI.
   previously had no test, lint or typecheck target at all, which is why this shipped unnoticed.
 
 - Updated dependencies [fb43898]
-  - @wakecap/core-tokens@0.8.0
+  - @core/core-tokens@0.8.0
 
 ## 0.16.0
 
@@ -348,7 +348,7 @@ validate:doc-classes` enforces it in CI.
 - cba8286: Three catalogue gaps found by the Connect product-contract migration and the WorkerProfile adoption
 
   **`ProductPackageDetail`** — a route-injectable product package surface
-  ([#206](https://github.com/wakecap/Wakecore/issues/206)). Identity, version, dependencies, outputs,
+  ([#206](https://github.com/core/Core/issues/206)). Identity, version, dependencies, outputs,
   permission gates, evidence and install state, over a governed install: a plan, a confirmation, and a
   receipt carrying package, version, project and actor. It owns no shell and no router, so it mounts
   inside a workspace route that already has a sidebar and a top bar. Authorisation is the host's
@@ -357,7 +357,7 @@ validate:doc-classes` enforces it in CI.
   Button composition the Connect prototype kept in application state.
 
   **`NodeGraph`** — a domain-neutral functional node graph
-  ([#204](https://github.com/wakecap/Wakecore/issues/204)). Typed nodes and edges with semantic tone,
+  ([#204](https://github.com/core/Core/issues/204)). Typed nodes and edges with semantic tone,
   the ZoomTools row (zoom in/out, an editable percentage, fit and reset), selection by click or
   keyboard, node movement, optional edge creation, empty/loading/error states, and an inspector
   handoff. Four Connect journeys — pipeline, process, analysis readiness, lineage — had each rebuilt
@@ -367,12 +367,12 @@ validate:doc-classes` enforces it in CI.
   types.
 
   **`WorkerProfile` per-tab loading and error state**
-  ([#267](https://github.com/wakecap/Wakecore/issues/267)). The typed tabs rendered data-or-empty only,
+  ([#267](https://github.com/core/Core/issues/267)). The typed tabs rendered data-or-empty only,
   so a tab-gated fetch in flight and a failed one both read as "No certificates found." The new
   optional `tabStates` gives any tab a `{status: "loading"}` skeleton or a `{status: "error", message?,
 onRetry?}` state that takes precedence over the empty text. Omit it and behaviour is unchanged.
 
-- cba8286: `WorkerProfile` closes the four gaps that blocked adopting it as the product worker profile ([#257](https://github.com/wakecap/Wakecore/issues/257), [#258](https://github.com/wakecap/Wakecore/issues/258), [#259](https://github.com/wakecap/Wakecore/issues/259), [#262](https://github.com/wakecap/Wakecore/issues/262))
+- cba8286: `WorkerProfile` closes the four gaps that blocked adopting it as the product worker profile ([#257](https://github.com/core/Core/issues/257), [#258](https://github.com/core/Core/issues/258), [#259](https://github.com/core/Core/issues/259), [#262](https://github.com/core/Core/issues/262))
 
   The widget rendered the Certificates, Compliance and Device tabs itself, off fixed-shape data, with
   no slot a consumer could reach — so the product could not add a certificate, assign a device, show a
@@ -395,7 +395,7 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
 
 ### Minor Changes
 
-- 7e9e491: `StateMachine` takes its domain through props ([#251](https://github.com/wakecap/Wakecore/issues/251))
+- 7e9e491: `StateMachine` takes its domain through props ([#251](https://github.com/core/Core/issues/251))
 
   The widget was parameterised on presentation and hardcoded on domain: seven props for how it looks,
   none for what it shows. Every vocabulary came from a demo fixture compiled into the package, so a
@@ -438,7 +438,7 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
   layout. The closest thing before was `shell={false}`, which stripped the header and rail and still
   committed a `moveState` on every nudge.
 
-  **Smaller bundles.** The demo vocabularies moved to `@wakecap/core-ui/pages/state-machine-fixtures`,
+  **Smaller bundles.** The demo vocabularies moved to `@core/core-ui/pages/state-machine-fixtures`,
   which only stories and demo surfaces import. Measured with esbuild, the fixture payload a consumer
   pulls drops from **23.4 KB gz to 11.6 KB gz**. The remainder is `WC3_OBJECT_TYPES`, still reached
   through `getObjectType` for the backing-type glyph.
@@ -479,7 +479,7 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
 
   `DetailPanelShell` closes on Escape whenever `onClose` is given, so both detail panels dismiss with the keyboard. A dropdown or popover open over the panel owns Escape first — the first press closes it, a second closes the panel.
 
-- 5d9f2bf: `Dialog` gains a `stacked` variant, restoring the pre-0.3 header as a choice ([#248](https://github.com/wakecap/Wakecore/issues/248))
+- 5d9f2bf: `Dialog` gains a `stacked` variant, restoring the pre-0.3 header as a choice ([#248](https://github.com/core/Core/issues/248))
 
   The header went from stacked in 0.2 to a banded 40px `bg-muted` strip in 0.13 with no opt-out, and a
   consumer's only route back was overriding core-ui's shipped classes — which is how per-app drift
@@ -523,13 +523,13 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
 
   `SheetContent` stops hardcoding its own composition: `portalProps` retargets where the sheet mounts, `overlayProps` restyles the scrim (a scrim that starts below an app topbar rather than at `inset-0`), `overlay` replaces it or removes it with `null`, and `showCloseButton={false}` suppresses the close button for a panel whose own header already carries one. `sheetVariants` and the `SheetContentProps` type are exported, so the skin can be taken without the composition.
 
-  Add `useDebouncedValue` — the small hook behind the searchable controls' debounced term, exported at `@wakecap/core-ui/use-debounced-value`.
+  Add `useDebouncedValue` — the small hook behind the searchable controls' debounced term, exported at `@core/core-ui/use-debounced-value`.
 
 - 5d9f2bf: Add `MapControlPanel` — a collapsible floating control card for map surfaces. Declarative `selects` (single-choice `Select`, or the searchable `MultiSelect` with its removable pills) over `toggles`, on the standard card surface so it stays legible over imagery. It owns no map state; every row is controlled.
 
   `ObservationsMap` gains a `controls` slot that pins it to the top-left corner, mirroring how `timeline` pins the `TimeScrubber` to the bottom.
 
-  `MultiSelect` (`@wakecap/core-ui/multi-select`) now accepts an `id`, forwarded to its trigger, so a `<Label htmlFor>` can address the field.
+  `MultiSelect` (`@core/core-ui/multi-select`) now accepts an `id`, forwarded to its trigger, so a `<Label htmlFor>` can address the field.
 
   Add `onClear`, which renders a Clear control in the header for resetting every filter at once, plus `width` (default `340`) and `maxHeight` (default `60vh`). The card caps its own height and the body scrolls beneath it, so a panel carrying several filters and their pills cannot outgrow the map it floats over — and the defaults match the floating detail panels, so the two agree on width and height.
 
@@ -539,7 +539,7 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
 
   The header collapse control uses the pane icons (`PanelLeftClose` / `PanelLeft`), matching the pane toggle in the AI chat header, instead of a rotating chevron. Its label reads Hide / Show map controls.
 
-  `MultiSelect` (`@wakecap/core-ui/multi-select`) gains `maxPills` (default `4`). Beyond the cap the remaining selections collapse into a `+N` chip that opens them in a popover, each still removable — so a long selection no longer grows the field's height without bound. Pass `0` to keep the old always-show-everything behaviour. Every panel dropdown inherits it.
+  `MultiSelect` (`@core/core-ui/multi-select`) gains `maxPills` (default `4`). Beyond the cap the remaining selections collapse into a `+N` chip that opens them in a popover, each still removable — so a long selection no longer grows the field's height without bound. Pass `0` to keep the old always-show-everything behaviour. Every panel dropdown inherits it.
 
   Add `collapsedWidth` (default `160`). A collapsed panel carries only its title and toggle, so it narrows as well as shortens, with the width animating.
 
@@ -615,7 +615,7 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
 
 - 5d9f2bf: feat(ui): add the Work Permit template
 
-  `WorkPermit`, exported from `@wakecap/core-ui/pages/core-work-permit`: the
+  `WorkPermit`, exported from `@core/core-ui/pages/core-work-permit`: the
   permit-management scaffold. Same shell as `CoreWorkforce` — CoreAppSidebar +
   CoreAppTopBar with a single "Work Permits" entry — and a route header carrying six tabs:
   Dashboard, Work Permits, Templates, Map, AI Agent (badged `SOON`) and Settings.
@@ -645,13 +645,13 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
 
   A run where the responder never moved is drawn as a disc rather than a corridor, outlined only when no corridor accompanies it — beside a band, a dashed circle reads as a separate object rather than the same coverage — a line has nothing to stroke, and mapbox drops one shorter than about a metre as too small to tile. A focused responder is also exempt from the camera de-collision nudge, so its coverage centres on the badge rather than on the camera it was moved away from.
 
-- 5d9f2bf: Add `ObservationsMapView` (`@wakecap/core-ui/pages/core-observations-map-view`) — the Observations Map as a whole working view: a day of observations over the RNGLF site with the cameras that caught them and the responders who work them, a five-minute timeline, filter and display panels, an unlocated queue, a key, and the ticket / camera / responder panels a marker opens. Everything it draws is generated inside it, so it runs with no data wiring, and it fills whatever height its parent gives it.
+- 5d9f2bf: Add `ObservationsMapView` (`@core/core-ui/pages/core-observations-map-view`) — the Observations Map as a whole working view: a day of observations over the RNGLF site with the cameras that caught them and the responders who work them, a five-minute timeline, filter and display panels, an unlocated queue, a key, and the ticket / camera / responder panels a marker opens. Everything it draws is generated inside it, so it runs with no data wiring, and it fills whatever height its parent gives it.
 
   Safety Manager's Map View renders that view, replacing the placeholder basemap centred on Riyadh, which showed nothing at all.
 
   The view was the `ObservationsMap` story's own scene. Moving it into the package means the story and the template show the same map rather than two copies of one demo — the story now renders `ObservationsMapView` inside a full-height wrapper and keeps only its docs.
 
-  The RNGLF zone fixture moved into the package too, as `@wakecap/core-ui/data/rnglf-zones`, since the view needs it from inside the package.
+  The RNGLF zone fixture moved into the package too, as `@core/core-ui/data/rnglf-zones`, since the view needs it from inside the package.
 
   Remove a duplicate `MapZone` interface declaration in `observations-map` — identical, so it merged rather than erroring, but only one is the definition.
 
@@ -661,10 +661,10 @@ onRetry?}` state that takes precedence over the empty text. Omit it and behaviou
   validity footer — is a single widget that both products mount, rather than a "process builder" one
   product had and another borrowed. What it authors is a state machine whatever the record is called.
 
-  - `@wakecap/core-ui/pages/process-builder` → `@wakecap/core-ui/pages/state-machine`
+  - `@core/core-ui/pages/process-builder` → `@core/core-ui/pages/state-machine`
   - `ProcessBuilder` → `StateMachine`; `ProcessBuilderVariant` / `ProcessBuilderSection` /
     `ProcessBuilderProps` → `StateMachineVariant` / `StateMachineSection` / `StateMachineProps`
-  - `variant="full"` → `variant="connect"` (WakeCap Connect V3's process page, what `ProcessDetail`
+  - `variant="full"` → `variant="connect"` (Core Connect V3's process page, what `ProcessDetail`
     mounts). `variant="work-permit"` is unchanged. The variant axis is now the PRODUCT CUT, and today
     the two cuts differ in the left rail alone — sections, order, labels, and whether General carries
     the permit fields. That is a traits table, not a branch, so a canvas that needs to diverge later
@@ -724,7 +724,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
     publish unbound moved from `checkTransition` to lint rule L7.
   - The canvas is full-bleed between the section rail and the editing panel, which is now a panel
     mirroring the shell's left one. The validity footer is centred, and shimmers while it rechecks
-    (`--animate-text-shimmer`, new in `@wakecap/core-tokens`).
+    (`--animate-text-shimmer`, new in `@core/core-tokens`).
   - `GraphCanvas` follows the host's `dark` class through React Flow's `colorMode`.
 
 - 5d9f2bf: Add `size` to `Switch` — `sm` (16×28 track, 12px thumb) alongside the existing default (20×36, 16px thumb), for dense surfaces like floating panels and toolbars. The thumb's travel is derived from the size, so it can't be produced by a class override on the root alone. Existing usage is unchanged.
@@ -735,7 +735,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
   The state-machine editor lived inside the Connect V3 process page and could not be
   mounted anywhere else. It is now `ProcessBuilder`, exported from
-  `@wakecap/core-ui/pages/process-builder`, with a `variant` axis (`full` | `canvas` |
+  `@core/core-ui/pages/process-builder`, with a `variant` axis (`full` | `canvas` |
   `work-permit`) as the declared extension point. `ProcessDetail` mounts it in its
   `full` variant, so the page and the widget share one implementation and cannot drift.
 
@@ -760,7 +760,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 ### Patch Changes
 
 - Updated dependencies [5d9f2bf]
-  - @wakecap/core-tokens@0.7.1
+  - @core/core-tokens@0.7.1
 
 ## 0.13.1
 
@@ -771,7 +771,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
   Reproduced against 0.13.0 with a consumer pinning `react-hook-form@7.46.1`:
 
   ```
-  └─┬ @wakecap/core-ui 0.13.0
+  └─┬ @core/core-ui 0.13.0
     └─┬ @hookform/resolvers 5.9.1
       └── ✕ unmet peer react-hook-form@^7.55.0: found 7.46.1
   ```
@@ -813,13 +813,13 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
   `SheetContent` stops hardcoding its own composition: `portalProps` retargets where the sheet mounts, `overlayProps` restyles the scrim (a scrim that starts below an app topbar rather than at `inset-0`), `overlay` replaces it or removes it with `null`, and `showCloseButton={false}` suppresses the close button for a panel whose own header already carries one. `sheetVariants` and the `SheetContentProps` type are exported, so the skin can be taken without the composition.
 
-  Add `useDebouncedValue` — the small hook behind the searchable controls' debounced term, exported at `@wakecap/core-ui/use-debounced-value`.
+  Add `useDebouncedValue` — the small hook behind the searchable controls' debounced term, exported at `@core/core-ui/use-debounced-value`.
 
 - 3507bb3: Add `MapControlPanel` — a collapsible floating control card for map surfaces. Declarative `selects` (single-choice `Select`, or the searchable `MultiSelect` with its removable pills) over `toggles`, on the standard card surface so it stays legible over imagery. It owns no map state; every row is controlled.
 
   `ObservationsMap` gains a `controls` slot that pins it to the top-left corner, mirroring how `timeline` pins the `TimeScrubber` to the bottom.
 
-  `MultiSelect` (`@wakecap/core-ui/multi-select`) now accepts an `id`, forwarded to its trigger, so a `<Label htmlFor>` can address the field.
+  `MultiSelect` (`@core/core-ui/multi-select`) now accepts an `id`, forwarded to its trigger, so a `<Label htmlFor>` can address the field.
 
   Add `onClear`, which renders a Clear control in the header for resetting every filter at once, plus `width` (default `340`) and `maxHeight` (default `60vh`). The card caps its own height and the body scrolls beneath it, so a panel carrying several filters and their pills cannot outgrow the map it floats over — and the defaults match the floating detail panels, so the two agree on width and height.
 
@@ -829,7 +829,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
   The header collapse control uses the pane icons (`PanelLeftClose` / `PanelLeft`), matching the pane toggle in the AI chat header, instead of a rotating chevron. Its label reads Hide / Show map controls.
 
-  `MultiSelect` (`@wakecap/core-ui/multi-select`) gains `maxPills` (default `4`). Beyond the cap the remaining selections collapse into a `+N` chip that opens them in a popover, each still removable — so a long selection no longer grows the field's height without bound. Pass `0` to keep the old always-show-everything behaviour. Every panel dropdown inherits it.
+  `MultiSelect` (`@core/core-ui/multi-select`) gains `maxPills` (default `4`). Beyond the cap the remaining selections collapse into a `+N` chip that opens them in a popover, each still removable — so a long selection no longer grows the field's height without bound. Pass `0` to keep the old always-show-everything behaviour. Every panel dropdown inherits it.
 
   Add `collapsedWidth` (default `160`). A collapsed panel carries only its title and toggle, so it narrows as well as shortens, with the width animating.
 
@@ -905,7 +905,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - 3507bb3: feat(ui): add the Work Permit template
 
-  `WorkPermit`, exported from `@wakecap/core-ui/pages/core-work-permit`: the
+  `WorkPermit`, exported from `@core/core-ui/pages/core-work-permit`: the
   permit-management scaffold. Same shell as `CoreWorkforce` — CoreAppSidebar +
   CoreAppTopBar with a single "Work Permits" entry — and a route header carrying six tabs:
   Dashboard, Work Permits, Templates, Map, AI Agent (badged `SOON`) and Settings.
@@ -935,13 +935,13 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
   A run where the responder never moved is drawn as a disc rather than a corridor, outlined only when no corridor accompanies it — beside a band, a dashed circle reads as a separate object rather than the same coverage — a line has nothing to stroke, and mapbox drops one shorter than about a metre as too small to tile. A focused responder is also exempt from the camera de-collision nudge, so its coverage centres on the badge rather than on the camera it was moved away from.
 
-- 3507bb3: Add `ObservationsMapView` (`@wakecap/core-ui/pages/core-observations-map-view`) — the Observations Map as a whole working view: a day of observations over the RNGLF site with the cameras that caught them and the responders who work them, a five-minute timeline, filter and display panels, an unlocated queue, a key, and the ticket / camera / responder panels a marker opens. Everything it draws is generated inside it, so it runs with no data wiring, and it fills whatever height its parent gives it.
+- 3507bb3: Add `ObservationsMapView` (`@core/core-ui/pages/core-observations-map-view`) — the Observations Map as a whole working view: a day of observations over the RNGLF site with the cameras that caught them and the responders who work them, a five-minute timeline, filter and display panels, an unlocated queue, a key, and the ticket / camera / responder panels a marker opens. Everything it draws is generated inside it, so it runs with no data wiring, and it fills whatever height its parent gives it.
 
   Safety Manager's Map View renders that view, replacing the placeholder basemap centred on Riyadh, which showed nothing at all.
 
   The view was the `ObservationsMap` story's own scene. Moving it into the package means the story and the template show the same map rather than two copies of one demo — the story now renders `ObservationsMapView` inside a full-height wrapper and keeps only its docs.
 
-  The RNGLF zone fixture moved into the package too, as `@wakecap/core-ui/data/rnglf-zones`, since the view needs it from inside the package.
+  The RNGLF zone fixture moved into the package too, as `@core/core-ui/data/rnglf-zones`, since the view needs it from inside the package.
 
   Remove a duplicate `MapZone` interface declaration in `observations-map` — identical, so it merged rather than erroring, but only one is the definition.
 
@@ -953,7 +953,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
   The state-machine editor lived inside the Connect V3 process page and could not be
   mounted anywhere else. It is now `ProcessBuilder`, exported from
-  `@wakecap/core-ui/pages/process-builder`, with a `variant` axis (`full` | `canvas` |
+  `@core/core-ui/pages/process-builder`, with a `variant` axis (`full` | `canvas` |
   `work-permit`) as the declared extension point. `ProcessDetail` mounts it in its
   `full` variant, so the page and the widget share one implementation and cannot drift.
 
@@ -992,7 +992,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
   - **WC-GAP-01 (RTL):** The nav list is wrapped in a Radix `ScrollArea`, which stamps an explicit `dir` on its root and falls back to `"ltr"` when it finds neither a `dir` prop nor a `DirectionProvider`. That hard `"ltr"` halted inheritance of an RTL host's direction, pinning the nav list left-to-right while the rest of the shell mirrored. The sidebar now reads the document direction and threads it through the nav `ScrollArea`s, and nav-row labels use the logical `text-start` instead of physical `text-left`, so the nav follows the ambient direction.
   - **WC-GAP-02 (contrast):** The nav group-label caption rendered at `text-muted-foreground/40` — roughly `1.69:1` against the sidebar at 10px, below the `4.5:1` that WCAG 2.1 SC 1.4.3 (AA) requires for small text. It now uses full-opacity `--muted-foreground` (~`4.7:1` in light, ~`5.0:1` in dark).
-  - **New hook:** the ambient-direction reader is now a reusable `useDocumentDir()` hook, exported at `@wakecap/core-ui/use-document-dir`, so any component can become RTL-aware the same way.
+  - **New hook:** the ambient-direction reader is now a reusable `useDocumentDir()` hook, exported at `@core/core-ui/use-document-dir`, so any component can become RTL-aware the same way.
 
 ## 0.10.0
 
@@ -1003,7 +1003,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
   `FormDialog` is a single-step create/edit modal that owns the house required-field contract: a submit that is never disabled, per-field errors that appear only once a submit has actually been refused, and a reset that runs on close as well as on success. Fields declare plain validity via `FormDialogField invalid`; the dialog owns the timing. `WizardDialog` carries the same rule across steps, owning the Stepper rail, the "Step N of M" counter, and Back/Next/submit, with only the current step mounted.
 
-  `NewProcessDialog` and `NewPipelineDialog` in the WakeCap Connect templates now build on `FormDialog` rather than re-deriving it.
+  `NewProcessDialog` and `NewPipelineDialog` in the Core Connect templates now build on `FormDialog` rather than re-deriving it.
 
 - be661fd: Add `CatalogueViewToggle`, `RecordDetailShell`, `GraphCanvas` and `AssetListItem` — the four remaining duplicated surfaces from the template review.
 
@@ -1061,13 +1061,13 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
   `NewObjectTypeDialog`, `NewLinkTypeDialog`, `NewActionTypeDialog`, `NewInterfaceDialog`, `NewTypeGroupDialog` and `NewSharedPropertyDialog` were already exported components with typed props and no fixture coupling — they were simply absent from the package `exports` map, so nothing outside the monorepo could reach them. They now have flow-shaped import paths, complete manifests, Storybook stories and Designer Hub pages.
 
-  Separately, 41 modules that `@wakecap/core-ui` publicly exports had no manifest at all, which meant they did not exist to the builder, to `library-index.json`, or to any agent selecting components — the discoverability gap that makes an author write their own copy. Each now carries a manifest whose intent is taken verbatim from the module's own doc comment. They are marked `stub`: the intent is accurate, the data contract is not yet authored.
+  Separately, 41 modules that `@core/core-ui` publicly exports had no manifest at all, which meant they did not exist to the builder, to `library-index.json`, or to any agent selecting components — the discoverability gap that makes an author write their own copy. Each now carries a manifest whose intent is taken verbatim from the module's own doc comment. They are marked `stub`: the intent is accurate, the data contract is not yet authored.
 
-- be661fd: Promote seven WakeCap Connect flows out of the templates and into the design system.
+- be661fd: Promote seven Core Connect flows out of the templates and into the design system.
 
   Each was reachable only by rendering the whole Connect workspace: `CreateProcessDialog` (extracted from the process list view, where it was a private function), `InstallProductDialog` with its `computeInstallPlan` planner, `RunActionDialog`, `AnalysisWorkbench`, `AppMarketplace`, `LineageImpactView` and `HealthView`. All seven now have a flow-shaped import path, a complete manifest, a catalog entry, a Storybook story and a Designer Hub page, so they can be used on their own or built on.
 
-  The import subpaths name the flow rather than the file — `@wakecap/core-ui/pages/create-process-dialog`, `.../install-product-dialog`, `.../run-action-dialog`, `.../analysis-workbench`, `.../app-marketplace`, `.../lineage-impact-view`, `.../health-view` — and the fixture modules their props reference are exported alongside them.
+  The import subpaths name the flow rather than the file — `@core/core-ui/pages/create-process-dialog`, `.../install-product-dialog`, `.../run-action-dialog`, `.../analysis-workbench`, `.../app-marketplace`, `.../lineage-impact-view`, `.../health-view` — and the fixture modules their props reference are exported alongside them.
 
 - fca7311: Add a Responder List (Verify Response) tab to the Safety Manager template: responder/controller
   rosters with a KPI band, a slide-over responder profile panel, responder assignment on observation
@@ -1079,7 +1079,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
   and the same guard so clicks on nested buttons, links and menu items keep working. Two props for one
   gesture would have been the worse outcome, so the roster uses the one that already exists.
 
-- 37c3f65: Self-host the WakeCore typefaces (#208).
+- 37c3f65: Self-host the Core typefaces (#208).
 
   The tokens declared `Figtree` / `IBM Plex Mono` / `Lora`, but the only thing that loaded them was an
   `@import` from the Google Fonts CDN. That made the declared typography a **runtime dependency on a
@@ -1087,8 +1087,8 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
   system fallback while still looking token-compliant, and screenshots varied by whether the host
   happened to have the font installed.
 
-  All three families now ship as WOFF2 inside `@wakecap/core-tokens` (latin + latin-ext, ~290 KB), and
-  `@wakecap/core-ui` copies them beside its pre-built CSS so `styles.css` resolves them relative to
+  All three families now ship as WOFF2 inside `@core/core-tokens` (latin + latin-ext, ~290 KB), and
+  `@core/core-ui` copies them beside its pre-built CSS so `styles.css` resolves them relative to
   itself. No external request, and `font-src 'self'` is sufficient.
 
   - `node scripts/vendor-fonts.mjs` re-vendors the files and regenerates `fonts.css`.
@@ -1121,11 +1121,11 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
   Verified at 1200 / 820 / 768 / 520 / 375px with a five-segment route and a 56-character project name:
   no overlap, no overflow, every control still named. Compact density is unchanged (44px / 36px).
 
-- 39cf6c7: WakeCap Connect V1–V3, and the sidebar capabilities they needed.
+- 39cf6c7: Core Connect V1–V3, and the sidebar capabilities they needed.
 
-  **Templates.** WC3 Workspace and AppInstaller are grouped as WakeCap Connect **V1** (admin portal +
-  end-user portal). **V2** (`pages/core-wakecap-connect`) merges them into one app. **V3**
-  (`pages/core-wakecap-connect-v3`) re-cuts V2 around the project lifecycle: installed apps grouped
+  **Templates.** WC3 Workspace and AppInstaller are grouped as Core Connect **V1** (admin portal +
+  end-user portal). **V2** (`pages/core-core-connect`) merges them into one app. **V3**
+  (`pages/core-core-connect-v3`) re-cuts V2 around the project lifecycle: installed apps grouped
   Design / Plan / Capture / Pay, and the Marketplace carried inside Studio. V2 and V3 are thin aliases
   over `CoreWC3Workspace` — the whole difference is props — so the three releases share one
   implementation and cannot drift.
@@ -1218,7 +1218,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - Updated dependencies [37c3f65]
 - Updated dependencies [d752edd]
-  - @wakecap/core-tokens@0.7.0
+  - @core/core-tokens@0.7.0
 
 ## 0.9.0
 
@@ -1256,7 +1256,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
   Both default to `undefined`, so every existing table renders exactly as before.
 
-- 3788864: Self-host the WakeCore typefaces (#208).
+- 3788864: Self-host the Core typefaces (#208).
 
   The tokens declared `Figtree` / `IBM Plex Mono` / `Lora`, but the only thing that loaded them was an
   `@import` from the Google Fonts CDN. That made the declared typography a **runtime dependency on a
@@ -1264,8 +1264,8 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
   system fallback while still looking token-compliant, and screenshots varied by whether the host
   happened to have the font installed.
 
-  All three families now ship as WOFF2 inside `@wakecap/core-tokens` (latin + latin-ext, ~290 KB), and
-  `@wakecap/core-ui` copies them beside its pre-built CSS so `styles.css` resolves them relative to
+  All three families now ship as WOFF2 inside `@core/core-tokens` (latin + latin-ext, ~290 KB), and
+  `@core/core-ui` copies them beside its pre-built CSS so `styles.css` resolves them relative to
   itself. No external request, and `font-src 'self'` is sufficient.
 
   - `node scripts/vendor-fonts.mjs` re-vendors the files and regenerates `fonts.css`.
@@ -1298,11 +1298,11 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
   Verified at 1200 / 820 / 768 / 520 / 375px with a five-segment route and a 56-character project name:
   no overlap, no overflow, every control still named. Compact density is unchanged (44px / 36px).
 
-- 3788864: WakeCap Connect V1–V3, and the sidebar capabilities they needed.
+- 3788864: Core Connect V1–V3, and the sidebar capabilities they needed.
 
-  **Templates.** WC3 Workspace and AppInstaller are grouped as WakeCap Connect **V1** (admin portal +
-  end-user portal). **V2** (`pages/core-wakecap-connect`) merges them into one app. **V3**
-  (`pages/core-wakecap-connect-v3`) re-cuts V2 around the project lifecycle: installed apps grouped
+  **Templates.** WC3 Workspace and AppInstaller are grouped as Core Connect **V1** (admin portal +
+  end-user portal). **V2** (`pages/core-core-connect`) merges them into one app. **V3**
+  (`pages/core-core-connect-v3`) re-cuts V2 around the project lifecycle: installed apps grouped
   Design / Plan / Capture / Pay, and the Marketplace carried inside Studio. V2 and V3 are thin aliases
   over `CoreWC3Workspace` — the whole difference is props — so the three releases share one
   implementation and cannot drift.
@@ -1395,7 +1395,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - Updated dependencies [3788864]
 - Updated dependencies [3788864]
-  - @wakecap/core-tokens@0.6.0
+  - @core/core-tokens@0.6.0
 
 ## 0.8.0
 
@@ -1445,14 +1445,14 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 ### Patch Changes
 
 - Updated dependencies [03098b0]
-  - @wakecap/core-tokens@0.5.0
+  - @core/core-tokens@0.5.0
 
 ## 0.7.0
 
 ### Minor Changes
 
 - 517bf13: Add `BlueprintSegment` — one cell of a multi-floor blueprint split: a framed blueprint (or a “No blueprint” placeholder), a floor label + % chip, and an optional walk-through button (`onWalkthrough`). Tile several to build a split canvas.
-- 517bf13: Add the `BlueprintViewer3` page template (`@wakecap/core-ui/pages/core-blueprint-viewer-3`) — a v3 blueprint-viewer layout variant: a fixed multi-floor split canvas (drag to pan), a collapsed drill-down canvas navigator (compound → zone → house → floor) top-left, and a scrollable full-height details panel (approved-vs-planned progress, a collapsible milestones table, and a Building Progress floor list), framed by a breadcrumb + week-selector metric bar with a full-screen toggle.
+- 517bf13: Add the `BlueprintViewer3` page template (`@core/core-ui/pages/core-blueprint-viewer-3`) — a v3 blueprint-viewer layout variant: a fixed multi-floor split canvas (drag to pan), a collapsed drill-down canvas navigator (compound → zone → house → floor) top-left, and a scrollable full-height details panel (approved-vs-planned progress, a collapsible milestones table, and a Building Progress floor list), framed by a breadcrumb + week-selector metric bar with a full-screen toggle.
 - 517bf13: Add `BuildingModelPlaceholder` — a dependency-free CSS-3D building placeholder (one extruded box per floor, drag-to-orbit, click-to-select) to show a building's floors when a real BIM / 3D model isn't available yet.
 - 517bf13: Add `BuildingProgress` component — a building elevation progress stack. One row per floor (ordered top → bottom) shows a completion bar and percentage, tapering wider toward the base like a building silhouette. The `activeId` floor is highlighted; pass `onFloorSelect` to make the rows interactive. Supports `default` / `compact` sizes and a configurable `taperStep`.
 - 517bf13: Add `CanvasHeader` — the canvas-level header bar: a `left` (breadcrumb, single-line + truncating), optional `center`, and a `right` cluster with an optional built-in `weekSelector` + your actions. Heads a single workspace canvas (distinct from the platform `CoreAppTopBar`); pairs with `ViewTabBar` / `CanvasToolbar`.
@@ -1461,12 +1461,12 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 - 517bf13: Add `CompareBars` — the dual-bar comparison primitive (two hero percentages + variance pill + legend + stacked bars). `ProgressComparison` now composes it for its hero block (unchanged output), so the bars can be used standalone.
 - 517bf13: Add `MilestoneTable` — a collapsible milestones table (swatch + id, actual date or “—”, planned date) with zebra striping. Complements `ProgressComparison`'s milestone stepper when the exact dates matter.
 - 517bf13: Add `OperationsDrawer` — a drawer for reviewing and editing the operations under a single object. The header carries the object identifier, its WBS path, an overall progress bar, and a walkthrough link; a compact table lists each operation with its WT / PREV / BAC / EV metrics and an editable progress field; the footer discards or saves the changes. Composed from Table, Progress, Input, and Button.
-- 517bf13: Add the `ProgressDetails` page template (`@wakecap/core-ui/pages/core-progress-details`) — a period-based progress-details workspace over a WBS: a three-bar header (tab switcher + week/period selector; period status + approval counters + Import / Close-Period; search + sort + filter), a searchable WBS Navigator sidebar, and a content list that drills zone → category → division → task → object. Rows are `ProgressListItem`; clicking an object opens the `OperationsDrawer` to edit its operations' progress. The breadcrumb collapses responsively.
+- 517bf13: Add the `ProgressDetails` page template (`@core/core-ui/pages/core-progress-details`) — a period-based progress-details workspace over a WBS: a three-bar header (tab switcher + week/period selector; period status + approval counters + Import / Close-Period; search + sort + filter), a searchable WBS Navigator sidebar, and a content list that drills zone → category → division → task → object. Rows are `ProgressListItem`; clicking an object opens the `OperationsDrawer` to edit its operations' progress. The breadcrumb collapses responsively.
 - 517bf13: Add `ProgressListItem` — the shared row for a progress-details list. One component covers every WBS level via the `variant` prop: `generic` (a zone/category/division grouping — an EV rollup + tool count, no progress bar), `task` (a work item — name/code + schedule badge, EV strip, and a progress bar), and `object` (a physical object under a task — name/code + metrics + a progress bar). Every variant stacks the name over its code; the props you pass (badge, metrics, progress, tools) decide what renders. Rows with an `onOpen` handler render as buttons that drill into the next level. Built on Badge and Progress.
 - 517bf13: Add `WalkthroughModal` — a large, edge-to-edge `MapCompareLayout` (with the session timeline) shown in a dialog with a single compact 14px title and no subtitle. Opened from a capture point or a blueprint walk-through button to compare that capture against another session.
-- 517bf13: Add three workspace page templates: `@wakecap/core-ui/pages/core-blueprint-viewer` (BlueprintViewer), `@wakecap/core-ui/pages/core-blueprint-navigator` (BlueprintNavigator), and `@wakecap/core-ui/pages/core-map-compare-layout` (MapCompareLayout), each with a template manifest and a Storybook Templates story.
+- 517bf13: Add three workspace page templates: `@core/core-ui/pages/core-blueprint-viewer` (BlueprintViewer), `@core/core-ui/pages/core-blueprint-navigator` (BlueprintNavigator), and `@core/core-ui/pages/core-map-compare-layout` (MapCompareLayout), each with a template manifest and a Storybook Templates story.
 
-  Remove the `CanvasWorkspaceLayout` component (`@wakecap/core-ui/canvas-workspace-layout`) — it was an outdated layout shell and is superseded by the self-contained Blueprint Navigator template.
+  Remove the `CanvasWorkspaceLayout` component (`@core/core-ui/canvas-workspace-layout`) — it was an outdated layout shell and is superseded by the self-contained Blueprint Navigator template.
 
 - 517bf13: Unify analytics surfaces and control sizing.
 
@@ -1534,7 +1534,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 - 517bf13: add Clinic template — occupational-health app shell with Overview and Worker Fitness tabs plus a Settings sub-surface
 - 517bf13: feat(ui): add CompareView
 
-  A component for comparing two geo-aligned sources (e.g. as-planned vs. as-built, or yesterday vs. today). `mode="swipe"` (default) stacks the two and reveals more of one as you drag a center divider — grab the handle, click anywhere on the divider, or focus it and use ←/→ (keyboard-accessible via `role="slider"`); `mode="side-by-side"` splits the box into two panes showing both in full. Takes any nodes (images, maps, canvases) for `before`/`after`, supports controlled/uncontrolled divider `position`, `onPositionChange`, and optional `beforeLabel`/`afterLabel` chips. Exported as `@wakecap/core-ui/compare-view`.
+  A component for comparing two geo-aligned sources (e.g. as-planned vs. as-built, or yesterday vs. today). `mode="swipe"` (default) stacks the two and reveals more of one as you drag a center divider — grab the handle, click anywhere on the divider, or focus it and use ←/→ (keyboard-accessible via `role="slider"`); `mode="side-by-side"` splits the box into two panes showing both in full. Takes any nodes (images, maps, canvases) for `before`/`after`, supports controlled/uncontrolled divider `position`, `onPositionChange`, and optional `beforeLabel`/`afterLabel` chips. Exported as `@core/core-ui/compare-view`.
 
   With `interactive`, the content pans (drag) and zooms (wheel) — the two sources stay geo-aligned — and in side-by-side a **lock** on the dividing line keeps both panes in the same coordinates (drag/zoom together); unlock to move them independently. Tune with `defaultScale`, `minScale`/`maxScale`, and controlled `locked`/`onLockedChange`.
 
@@ -1557,7 +1557,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 - 517bf13: add TimePicker (replaces native `<input type="time">`); dialogs now validate on submit instead of disabling the action, drop header descriptions, adopt the widget-card header band, and use a blurred rather than dark modal scrim
 - 517bf13: feat(ui): add FormActionBar — sticky page-level form footer
 
-  New `@wakecap/core-ui/form-action-bar` export. Left-aligned `status` slot, right-aligned actions as
+  New `@core/core-ui/form-action-bar` export. Left-aligned `status` slot, right-aligned actions as
   children, and it owns its own full-bleed background, top border, and upward shadow. Render it as a
   sibling of the padded content container rather than a child, so it never needs negative margins to
   cancel shell padding. `sticky={false}` opts into normal flow.
@@ -1566,13 +1566,13 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - 517bf13: feat(ui): add FragmentViewer and a stage slot on the Site Reality template
 
-  `FragmentViewer` (`@wakecap/core-ui/fragment-viewer`) renders a That Open Fragments (`.frag`) model
+  `FragmentViewer` (`@core/core-ui/fragment-viewer`) renders a That Open Fragments (`.frag`) model
   with orbit, zoom and click-to-select, reporting the picked element back to React. It wraps `three` +
   `@thatopen/fragments` — the same runtime the WC3 engineering viewers use — behind the effect-mounted
   pattern already used by `Map`.
 
   Both libraries are declared as **optional** `peerDependencies`, so only apps that import the widget
-  install them (~900 KB). Add them to your app alongside `@wakecap/core-ui`:
+  install them (~900 KB). Add them to your app alongside `@core/core-ui`:
 
   ```bash
   pnpm add three@^0.182.0 @thatopen/fragments@~3.4.6
@@ -1593,9 +1593,9 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - 517bf13: feat(ui): add Legend component
 
-  A compact, generic key that maps swatch colors to labels. Floats over a canvas/map (`placement` bottom-right by default) or embeds inline (`placement="static"`), and can minimize to a small reopen button (controlled/uncontrolled `collapsed`). Supports square or circle swatches, 1–3 columns, per-item `color`/`borderColor`/`opacity` (arbitrary CSS colors), optional `status` text, per-item `description`, and a `footnote`. Exported as `@wakecap/core-ui/legend`.
+  A compact, generic key that maps swatch colors to labels. Floats over a canvas/map (`placement` bottom-right by default) or embeds inline (`placement="static"`), and can minimize to a small reopen button (controlled/uncontrolled `collapsed`). Supports square or circle swatches, 1–3 columns, per-item `color`/`borderColor`/`opacity` (arbitrary CSS colors), optional `status` text, per-item `description`, and a `footnote`. Exported as `@core/core-ui/legend`.
 
-  Also adds a `TabbedLegend` variant from the same entry: a collapsible header ("view mode") over WakeCore `Tabs`, where each tab (`LegendTab`) swaps in its own colors and rows to re-key the legend based on what's selected. Tab content caps at `maxRows` (default 4) and overflows into extra columns, so it grows horizontally instead of getting tall.
+  Also adds a `TabbedLegend` variant from the same entry: a collapsible header ("view mode") over Core `Tabs`, where each tab (`LegendTab`) swaps in its own colors and rows to re-key the legend based on what's selected. Tab content caps at `maxRows` (default 4) and overflows into extra columns, so it grows horizontally instead of getting tall.
 
 - 517bf13: feat(ui): per-pane minimaps and toolbars when the compare divider is unlocked
 
@@ -1622,13 +1622,13 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - 517bf13: feat(ui): add MapCompareLayout — a map workspace composing the map features
 
-  `MapCompareLayout` assembles the map building blocks into one floating-control workspace: a pannable/zoomable `CompareView` surface with an optional as-planned/as-built compare, a vertical `MapToolbar` (compare modes, locate, zoom, compass) top-right, an overview `MapMinimap` bottom-right that tracks and drives the view, and optional `legend` / `title` slots. It manages the shared state (compare mode, view, bearing) internally; pass `map` (and optional `compareMap`) plus slots. Exported as `@wakecap/core-ui/map-compare-layout`.
+  `MapCompareLayout` assembles the map building blocks into one floating-control workspace: a pannable/zoomable `CompareView` surface with an optional as-planned/as-built compare, a vertical `MapToolbar` (compare modes, locate, zoom, compass) top-right, an overview `MapMinimap` bottom-right that tracks and drives the view, and optional `legend` / `title` slots. It manages the shared state (compare mode, view, bearing) internally; pass `map` (and optional `compareMap`) plus slots. Exported as `@core/core-ui/map-compare-layout`.
 
   Supporting changes to `CompareView`: `after` is now optional (omit it for a single pan/zoom map), and the `viewControllerRef` gains `zoomBy(factor)` so the toolbar's ± buttons drive the map zoom.
 
 - 517bf13: feat(ui): add MapMinimap + CompareView view reporting/navigation
 
-  `MapMinimap` is an overview control: a header (`label` above, optional `minimizable` toggle on the right that collapses it to just the header) over a thumbnail of the whole map with a box marking the region the main view is currently showing (the area outside the box is dimmed). Pass the current `viewport` as fractions (0–1) of the full map; with `onNavigate`, dragging or clicking the preview recenters the view. Exported as `@wakecap/core-ui/map-minimap`.
+  `MapMinimap` is an overview control: a header (`label` above, optional `minimizable` toggle on the right that collapses it to just the header) over a thumbnail of the whole map with a box marking the region the main view is currently showing (the area outside the box is dimmed). Pass the current `viewport` as fractions (0–1) of the full map; with `onNavigate`, dragging or clicking the preview recenters the view. Exported as `@core/core-ui/map-minimap`.
 
   `CompareView` now reports its visible region via `onViewChange` and accepts an imperative `viewControllerRef` (`.setCenter(x, y)`), so a `MapMinimap` can track the compare view **and** drive it — drag the minimap to pan the underlying map.
 
@@ -1636,16 +1636,16 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
   `MapToolbar` is a vertical floating toolbar for a map: a split-view toggle, a "my location" button, zoom (via `VerticalZoomTools`), and a compass — each rendered as its own pill in the shared vertical-zoom-tools style, with the compass a **separate pill below** the zoom control. Every section is optional and appears only when its handler is provided (`onSplitViewChange`, `onLocate`, `onZoomIn`/`onZoomOut`, `onResetNorth`), so the toolbar grows with the features you wire up.
 
-  `MapCompass` is the standalone compass-realignment control it uses: a two-tone needle (red north / slate south) that counter-rotates with the map `bearing` to keep pointing north and calls `onResetNorth` when pressed. Like `VerticalZoomTools` it takes a `variant` (`"default"` | `"bare"`) so it can float on its own or nest inside a larger vertical toolbar. Exported as `@wakecap/core-ui/map-toolbar` and `@wakecap/core-ui/map-compass`.
+  `MapCompass` is the standalone compass-realignment control it uses: a two-tone needle (red north / slate south) that counter-rotates with the map `bearing` to keep pointing north and calls `onResetNorth` when pressed. Like `VerticalZoomTools` it takes a `variant` (`"default"` | `"bare"`) so it can float on its own or nest inside a larger vertical toolbar. Exported as `@core/core-ui/map-toolbar` and `@core/core-ui/map-compass`.
 
   Every button in `MapToolbar`, `VerticalZoomTools`, and `MapCompass` shows a `Tooltip` on hover/focus (positioned to the left) naming what it does.
 
   The split-view control is a compare-mode picker: hovering its button opens a `HoverCard` menu of the two modes — **Side-by-side** (two panes at once) and **Swipe** (a draggable reveal divider) — each with a short description. Driven by `splitMode` (`"side-by-side" | "swipe" | null`) and `onSplitModeChange`; the exported `SplitMode` type replaces the previous boolean `splitView`/`onSplitViewChange` API. The hover menu is self-describing, so this button has no tooltip.
 
-- 517bf13: Add MapViewNav — two individual floating previous / next buttons (the same pill + `ToolbarButton` as the rest of the map toolbar) for stepping between map views. Intended to sit at the bottom-center of a map to page along a path, cycle layers, or switch sheets. Exported from `@wakecap/core-ui/map-toolbar` alongside `MapToolbar`.
+- 517bf13: Add MapViewNav — two individual floating previous / next buttons (the same pill + `ToolbarButton` as the rest of the map toolbar) for stepping between map views. Intended to sit at the bottom-center of a map to page along a path, cycle layers, or switch sheets. Exported from `@core/core-ui/map-toolbar` alongside `MapToolbar`.
 - 517bf13: feat(ui): add MultiSelect — a searchable multi-select form field
 
-  New `@wakecap/core-ui/multi-select` export. Combines Popover + Command + Checkbox with the
+  New `@core/core-ui/multi-select` export. Combines Popover + Command + Checkbox with the
   selected options rendered as removable Badge pills below the field. Returns `string[]`, keeps the
   dropdown open while picking, supports an `invalid` state (`aria-invalid` + destructive border) for
   form validation, and filters on the option `label` so opaque ids can be used as values.
@@ -1654,7 +1654,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - 517bf13: feat(ui): add ObjectDrawingToolbar
 
-  A single-line horizontal toolbar for a 2D canvas drawing tool, composed entirely from WakeCore components: a mode toggle and drawing-tool group (select / line / circle / rectangle / polygon) built from `ToolbarButton`, fill and stroke color pickers (`ToolbarColorPicker`), an opacity `Slider`, a 90°-snap toggle, and unlink / import actions — divider-separated with `ToolbarSeparator`. Self-manages state with `onChange` callbacks (`onToolChange`, `onEditingChange`, `onFillColorChange`, `onStrokeColorChange`, `onOpacityChange`, `onAngleSnapChange`, `onUnlink`, `onImport`). Exported as `@wakecap/core-ui/object-drawing-toolbar`.
+  A single-line horizontal toolbar for a 2D canvas drawing tool, composed entirely from Core components: a mode toggle and drawing-tool group (select / line / circle / rectangle / polygon) built from `ToolbarButton`, fill and stroke color pickers (`ToolbarColorPicker`), an opacity `Slider`, a 90°-snap toggle, and unlink / import actions — divider-separated with `ToolbarSeparator`. Self-manages state with `onChange` callbacks (`onToolChange`, `onEditingChange`, `onFillColorChange`, `onStrokeColorChange`, `onOpacityChange`, `onAngleSnapChange`, `onUnlink`, `onImport`). Exported as `@core/core-ui/object-drawing-toolbar`.
 
 - 517bf13: add SectionHeader and AttentionList/AttentionListItem; give Progress semantic tone variants (primary/success/warning/danger)
 - 517bf13: `ProgressComparison`: add a `collapsedSummary` prop that keeps a summary row (status chip + primary value) beneath the header when collapsed, plus a `defaultCollapsed` prop to start collapsed. The default width is now a fixed 288px card (`w-72`); pass a width class such as `wwc:w-full` to override.
@@ -1696,11 +1696,11 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - 517bf13: feat(ui): add TimestampPicker component
 
-  A pill-shaped selector for choosing a captured timestamp. The trigger shows the selected date + time (primary) and a subtitle (secondary) with a chevron. Clicking opens the standard calendar, where dates that have captured data are marked with a dot and dates without data are disabled. Selecting a date reveals a scrollable list of the times captured on that day, each with an optional label. Takes `entries: TimestampEntry[]` (`{ time: Date; label?: string }`), `value`, and `onChange`. Exported as `@wakecap/core-ui/timestamp-picker`.
+  A pill-shaped selector for choosing a captured timestamp. The trigger shows the selected date + time (primary) and a subtitle (secondary) with a chevron. Clicking opens the standard calendar, where dates that have captured data are marked with a dot and dates without data are disabled. Selecting a date reveals a scrollable list of the times captured on that day, each with an optional label. Takes `entries: TimestampEntry[]` (`{ time: Date; label?: string }`), `value`, and `onChange`. Exported as `@core/core-ui/timestamp-picker`.
 
 - 517bf13: feat(ui): add ToolbarColorPicker
 
-  A PowerPoint-style color control for toolbars: a `ToolbarButton` trigger that previews the current color (as a swatch, or as a bar beneath a passed `icon`) and opens a `Popover` with grouped swatches, a **No fill** option (value `""`), a Recent row that fills as custom colors are picked, and an OS color picker via **More colors…**. Controlled/uncontrolled `value`, configurable `groups`, `columns`, `allowNoColor`/`noColorLabel`, `allowCustom`/`customLabel`, and `recentColors`. A `preview` prop chooses how the color shows next to `icon`: `"bar"` (default, beneath the icon) or `"swatch"` (a square to the right). A `compact` prop drops all labels and text so the popover is just the swatch grid — no-fill is the first swatch and the OS picker is a color-wheel swatch at the end. On supporting (Chromium) browsers an eyedropper button (native `EyeDropper` API) lets you sample any pixel on screen; it's feature-detected and hidden where unavailable. Exported as `@wakecap/core-ui/toolbar-color-picker`.
+  A PowerPoint-style color control for toolbars: a `ToolbarButton` trigger that previews the current color (as a swatch, or as a bar beneath a passed `icon`) and opens a `Popover` with grouped swatches, a **No fill** option (value `""`), a Recent row that fills as custom colors are picked, and an OS color picker via **More colors…**. Controlled/uncontrolled `value`, configurable `groups`, `columns`, `allowNoColor`/`noColorLabel`, `allowCustom`/`customLabel`, and `recentColors`. A `preview` prop chooses how the color shows next to `icon`: `"bar"` (default, beneath the icon) or `"swatch"` (a square to the right). A `compact` prop drops all labels and text so the popover is just the swatch grid — no-fill is the first swatch and the OS picker is a color-wheel swatch at the end. On supporting (Chromium) browsers an eyedropper button (native `EyeDropper` API) lets you sample any pixel on screen; it's feature-detected and hidden where unavailable. Exported as `@core/core-ui/toolbar-color-picker`.
 
 - 517bf13: feat(ui): add Toolbar primitives and break CanvasToolbar into composable parts
 
@@ -1716,7 +1716,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - 517bf13: feat(ui): add VerticalZoomTools and make Toolbar orientation-aware
 
-  A compact vertical zoom control (Zoom In over Zoom Out) intended to float over a map or canvas — the vertical counterpart to `ZoomTools`. Controlled/uncontrolled via `zoomLevel`/`onZoomIn`/`onZoomOut` with auto-derived enabled state (`minZoom`/`maxZoom`, overridable with `canZoomIn`/`canZoomOut`), and a `variant` (`"default"` | `"bare"`) so it can be the first section of a larger vertical floating toolbar. Exported as `@wakecap/core-ui/vertical-zoom-tools`.
+  A compact vertical zoom control (Zoom In over Zoom Out) intended to float over a map or canvas — the vertical counterpart to `ZoomTools`. Controlled/uncontrolled via `zoomLevel`/`onZoomIn`/`onZoomOut` with auto-derived enabled state (`minZoom`/`maxZoom`, overridable with `canZoomIn`/`canZoomOut`), and a `variant` (`"default"` | `"bare"`) so it can be the first section of a larger vertical floating toolbar. Exported as `@core/core-ui/vertical-zoom-tools`.
 
   The `Toolbar` primitive gains an `orientation` prop (`"horizontal"` default | `"vertical"`) — a vertical toolbar lays items in a column and sets `aria-orientation` — and `ToolbarSeparator` gains a matching `orientation` prop (`"vertical"` default | `"horizontal"`) to render a rule across a vertical toolbar. Existing horizontal usage is unchanged.
 
@@ -1780,7 +1780,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 - Updated dependencies [517bf13]
 - Updated dependencies [517bf13]
 - Updated dependencies [517bf13]
-  - @wakecap/core-tokens@0.4.0
+  - @core/core-tokens@0.4.0
 
 ## 0.6.0
 
@@ -1819,7 +1819,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - baf14ee: feat(ui): add FormActionBar — sticky page-level form footer
 
-  New `@wakecap/core-ui/form-action-bar` export. Left-aligned `status` slot, right-aligned actions as
+  New `@core/core-ui/form-action-bar` export. Left-aligned `status` slot, right-aligned actions as
   children, and it owns its own full-bleed background, top border, and upward shadow. Render it as a
   sibling of the padded content container rather than a child, so it never needs negative margins to
   cancel shell padding. `sticky={false}` opts into normal flow.
@@ -1828,7 +1828,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - baf14ee: feat(ui): add MultiSelect — a searchable multi-select form field
 
-  New `@wakecap/core-ui/multi-select` export. Combines Popover + Command + Checkbox with the
+  New `@core/core-ui/multi-select` export. Combines Popover + Command + Checkbox with the
   selected options rendered as removable Badge pills below the field. Returns `string[]`, keeps the
   dropdown open while picking, supports an `invalid` state (`aria-invalid` + destructive border) for
   form validation, and filters on the option `label` so opaque ids can be used as values.
@@ -1846,11 +1846,11 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - cf5c258: Add `AddObservationDialog`, a shared `MAPBOX_TOKEN` module, and a hover-only `HoverTooltip`.
 
-  - `@wakecap/core-ui/add-observation-dialog` — dialog form for logging a safety observation
+  - `@core/core-ui/add-observation-dialog` — dialog form for logging a safety observation
     (zone, category, description, attachments, worker, permit, date, stop-work notice).
-  - `@wakecap/core-ui/mapbox-token` — single source of truth for the Mapbox access token, replacing
+  - `@core/core-ui/mapbox-token` — single source of truth for the Mapbox access token, replacing
     five hardcoded copies across `map`, `map-controls`, and the org page templates.
-  - `HoverTooltip` (from `@wakecap/core-ui/tooltip`) — tooltip driven by hover and `:focus-visible`
+  - `HoverTooltip` (from `@core/core-ui/tooltip`) — tooltip driven by hover and `:focus-visible`
     only. The default Radix trigger also opens on programmatic focus, so hints reappeared and stuck
     when a Dialog or Popover restored focus to the icon button that opened it. Every icon-button
     surface now routes through it. `TooltipContent` also gained a `max-w-[220px]` cap so long labels
@@ -1859,7 +1859,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 ### Patch Changes
 
 - Updated dependencies [baf14ee]
-  - @wakecap/core-tokens@0.3.0
+  - @core/core-tokens@0.3.0
 
 ## 0.5.0
 
@@ -1877,9 +1877,9 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 ### Minor Changes
 
 - b7d6bac: Add `BuildingProgress` component — a building elevation progress stack. One row per floor (ordered top → bottom) shows a completion bar and percentage, tapering wider toward the base like a building silhouette. The `activeId` floor is highlighted; pass `onFloorSelect` to make the rows interactive. Supports `default` / `compact` sizes and a configurable `taperStep`.
-- b7d6bac: Add three workspace page templates: `@wakecap/core-ui/pages/core-blueprint-viewer` (BlueprintViewer), `@wakecap/core-ui/pages/core-blueprint-navigator` (BlueprintNavigator), and `@wakecap/core-ui/pages/core-map-compare-layout` (MapCompareLayout), each with a template manifest and a Storybook Templates story.
+- b7d6bac: Add three workspace page templates: `@core/core-ui/pages/core-blueprint-viewer` (BlueprintViewer), `@core/core-ui/pages/core-blueprint-navigator` (BlueprintNavigator), and `@core/core-ui/pages/core-map-compare-layout` (MapCompareLayout), each with a template manifest and a Storybook Templates story.
 
-  Remove the `CanvasWorkspaceLayout` component (`@wakecap/core-ui/canvas-workspace-layout`) — it was an outdated layout shell and is superseded by the self-contained Blueprint Navigator template.
+  Remove the `CanvasWorkspaceLayout` component (`@core/core-ui/canvas-workspace-layout`) — it was an outdated layout shell and is superseded by the self-contained Blueprint Navigator template.
 
 - b7d6bac: feat(ui): make BreadcrumbEllipsis an interactive dropdown
 
@@ -1921,7 +1921,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - b7d6bac: feat(ui): add CompareView
 
-  A component for comparing two geo-aligned sources (e.g. as-planned vs. as-built, or yesterday vs. today). `mode="swipe"` (default) stacks the two and reveals more of one as you drag a center divider — grab the handle, click anywhere on the divider, or focus it and use ←/→ (keyboard-accessible via `role="slider"`); `mode="side-by-side"` splits the box into two panes showing both in full. Takes any nodes (images, maps, canvases) for `before`/`after`, supports controlled/uncontrolled divider `position`, `onPositionChange`, and optional `beforeLabel`/`afterLabel` chips. Exported as `@wakecap/core-ui/compare-view`.
+  A component for comparing two geo-aligned sources (e.g. as-planned vs. as-built, or yesterday vs. today). `mode="swipe"` (default) stacks the two and reveals more of one as you drag a center divider — grab the handle, click anywhere on the divider, or focus it and use ←/→ (keyboard-accessible via `role="slider"`); `mode="side-by-side"` splits the box into two panes showing both in full. Takes any nodes (images, maps, canvases) for `before`/`after`, supports controlled/uncontrolled divider `position`, `onPositionChange`, and optional `beforeLabel`/`afterLabel` chips. Exported as `@core/core-ui/compare-view`.
 
   With `interactive`, the content pans (drag) and zooms (wheel) — the two sources stay geo-aligned — and in side-by-side a **lock** on the dividing line keeps both panes in the same coordinates (drag/zoom together); unlock to move them independently. Tune with `defaultScale`, `minScale`/`maxScale`, and controlled `locked`/`onLockedChange`.
 
@@ -1929,9 +1929,9 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - b7d6bac: feat(ui): add Legend component
 
-  A compact, generic key that maps swatch colors to labels. Floats over a canvas/map (`placement` bottom-right by default) or embeds inline (`placement="static"`), and can minimize to a small reopen button (controlled/uncontrolled `collapsed`). Supports square or circle swatches, 1–3 columns, per-item `color`/`borderColor`/`opacity` (arbitrary CSS colors), optional `status` text, per-item `description`, and a `footnote`. Exported as `@wakecap/core-ui/legend`.
+  A compact, generic key that maps swatch colors to labels. Floats over a canvas/map (`placement` bottom-right by default) or embeds inline (`placement="static"`), and can minimize to a small reopen button (controlled/uncontrolled `collapsed`). Supports square or circle swatches, 1–3 columns, per-item `color`/`borderColor`/`opacity` (arbitrary CSS colors), optional `status` text, per-item `description`, and a `footnote`. Exported as `@core/core-ui/legend`.
 
-  Also adds a `TabbedLegend` variant from the same entry: a collapsible header ("view mode") over WakeCore `Tabs`, where each tab (`LegendTab`) swaps in its own colors and rows to re-key the legend based on what's selected. Tab content caps at `maxRows` (default 4) and overflows into extra columns, so it grows horizontally instead of getting tall.
+  Also adds a `TabbedLegend` variant from the same entry: a collapsible header ("view mode") over Core `Tabs`, where each tab (`LegendTab`) swaps in its own colors and rows to re-key the legend based on what's selected. Tab content caps at `maxRows` (default 4) and overflows into extra columns, so it grows horizontally instead of getting tall.
 
 - b7d6bac: feat(ui): per-pane minimaps and toolbars when the compare divider is unlocked
 
@@ -1954,13 +1954,13 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - b7d6bac: feat(ui): add MapCompareLayout — a map workspace composing the map features
 
-  `MapCompareLayout` assembles the map building blocks into one floating-control workspace: a pannable/zoomable `CompareView` surface with an optional as-planned/as-built compare, a vertical `MapToolbar` (compare modes, locate, zoom, compass) top-right, an overview `MapMinimap` bottom-right that tracks and drives the view, and optional `legend` / `title` slots. It manages the shared state (compare mode, view, bearing) internally; pass `map` (and optional `compareMap`) plus slots. Exported as `@wakecap/core-ui/map-compare-layout`.
+  `MapCompareLayout` assembles the map building blocks into one floating-control workspace: a pannable/zoomable `CompareView` surface with an optional as-planned/as-built compare, a vertical `MapToolbar` (compare modes, locate, zoom, compass) top-right, an overview `MapMinimap` bottom-right that tracks and drives the view, and optional `legend` / `title` slots. It manages the shared state (compare mode, view, bearing) internally; pass `map` (and optional `compareMap`) plus slots. Exported as `@core/core-ui/map-compare-layout`.
 
   Supporting changes to `CompareView`: `after` is now optional (omit it for a single pan/zoom map), and the `viewControllerRef` gains `zoomBy(factor)` so the toolbar's ± buttons drive the map zoom.
 
 - b7d6bac: feat(ui): add MapMinimap + CompareView view reporting/navigation
 
-  `MapMinimap` is an overview control: a header (`label` above, optional `minimizable` toggle on the right that collapses it to just the header) over a thumbnail of the whole map with a box marking the region the main view is currently showing (the area outside the box is dimmed). Pass the current `viewport` as fractions (0–1) of the full map; with `onNavigate`, dragging or clicking the preview recenters the view. Exported as `@wakecap/core-ui/map-minimap`.
+  `MapMinimap` is an overview control: a header (`label` above, optional `minimizable` toggle on the right that collapses it to just the header) over a thumbnail of the whole map with a box marking the region the main view is currently showing (the area outside the box is dimmed). Pass the current `viewport` as fractions (0–1) of the full map; with `onNavigate`, dragging or clicking the preview recenters the view. Exported as `@core/core-ui/map-minimap`.
 
   `CompareView` now reports its visible region via `onViewChange` and accepts an imperative `viewControllerRef` (`.setCenter(x, y)`), so a `MapMinimap` can track the compare view **and** drive it — drag the minimap to pan the underlying map.
 
@@ -1968,16 +1968,16 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
   `MapToolbar` is a vertical floating toolbar for a map: a split-view toggle, a "my location" button, zoom (via `VerticalZoomTools`), and a compass — each rendered as its own pill in the shared vertical-zoom-tools style, with the compass a **separate pill below** the zoom control. Every section is optional and appears only when its handler is provided (`onSplitViewChange`, `onLocate`, `onZoomIn`/`onZoomOut`, `onResetNorth`), so the toolbar grows with the features you wire up.
 
-  `MapCompass` is the standalone compass-realignment control it uses: a two-tone needle (red north / slate south) that counter-rotates with the map `bearing` to keep pointing north and calls `onResetNorth` when pressed. Like `VerticalZoomTools` it takes a `variant` (`"default"` | `"bare"`) so it can float on its own or nest inside a larger vertical toolbar. Exported as `@wakecap/core-ui/map-toolbar` and `@wakecap/core-ui/map-compass`.
+  `MapCompass` is the standalone compass-realignment control it uses: a two-tone needle (red north / slate south) that counter-rotates with the map `bearing` to keep pointing north and calls `onResetNorth` when pressed. Like `VerticalZoomTools` it takes a `variant` (`"default"` | `"bare"`) so it can float on its own or nest inside a larger vertical toolbar. Exported as `@core/core-ui/map-toolbar` and `@core/core-ui/map-compass`.
 
   Every button in `MapToolbar`, `VerticalZoomTools`, and `MapCompass` shows a `Tooltip` on hover/focus (positioned to the left) naming what it does.
 
   The split-view control is a compare-mode picker: hovering its button opens a `HoverCard` menu of the two modes — **Side-by-side** (two panes at once) and **Swipe** (a draggable reveal divider) — each with a short description. Driven by `splitMode` (`"side-by-side" | "swipe" | null`) and `onSplitModeChange`; the exported `SplitMode` type replaces the previous boolean `splitView`/`onSplitViewChange` API. The hover menu is self-describing, so this button has no tooltip.
 
-- b7d6bac: Add MapViewNav — two individual floating previous / next buttons (the same pill + `ToolbarButton` as the rest of the map toolbar) for stepping between map views. Intended to sit at the bottom-center of a map to page along a path, cycle layers, or switch sheets. Exported from `@wakecap/core-ui/map-toolbar` alongside `MapToolbar`.
+- b7d6bac: Add MapViewNav — two individual floating previous / next buttons (the same pill + `ToolbarButton` as the rest of the map toolbar) for stepping between map views. Intended to sit at the bottom-center of a map to page along a path, cycle layers, or switch sheets. Exported from `@core/core-ui/map-toolbar` alongside `MapToolbar`.
 - b7d6bac: feat(ui): add ObjectDrawingToolbar
 
-  A single-line horizontal toolbar for a 2D canvas drawing tool, composed entirely from WakeCore components: a mode toggle and drawing-tool group (select / line / circle / rectangle / polygon) built from `ToolbarButton`, fill and stroke color pickers (`ToolbarColorPicker`), an opacity `Slider`, a 90°-snap toggle, and unlink / import actions — divider-separated with `ToolbarSeparator`. Self-manages state with `onChange` callbacks (`onToolChange`, `onEditingChange`, `onFillColorChange`, `onStrokeColorChange`, `onOpacityChange`, `onAngleSnapChange`, `onUnlink`, `onImport`). Exported as `@wakecap/core-ui/object-drawing-toolbar`.
+  A single-line horizontal toolbar for a 2D canvas drawing tool, composed entirely from Core components: a mode toggle and drawing-tool group (select / line / circle / rectangle / polygon) built from `ToolbarButton`, fill and stroke color pickers (`ToolbarColorPicker`), an opacity `Slider`, a 90°-snap toggle, and unlink / import actions — divider-separated with `ToolbarSeparator`. Self-manages state with `onChange` callbacks (`onToolChange`, `onEditingChange`, `onFillColorChange`, `onStrokeColorChange`, `onOpacityChange`, `onAngleSnapChange`, `onUnlink`, `onImport`). Exported as `@core/core-ui/object-drawing-toolbar`.
 
 - b7d6bac: `ProgressComparison`: add a `collapsedSummary` prop that keeps a summary row (status chip + primary value) beneath the header when collapsed, plus a `defaultCollapsed` prop to start collapsed. The default width is now a fixed 288px card (`w-72`); pass a width class such as `wwc:w-full` to override.
 - b7d6bac: Add ProgressComparison component — a panel comparing two progress sources (e.g. actual vs. planned) with hero percentages, a variance pill, a combined bar, and an expandable stats grid. Variants: `progress` (status chip), `milestone` (stepper timeline), and `preview` (image preview + action button). Renders at a single compact density and fills its container (pass a width class such as `wwc:w-72` to fix it). Has a self-managing `collapsible` header button (or wire `onClose` to close a modal). `title` is optional — omit it to hide the title line when the name is already shown elsewhere. Designed to sit inside a modal.
@@ -2007,11 +2007,11 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - b7d6bac: feat(ui): add TimestampPicker component
 
-  A pill-shaped selector for choosing a captured timestamp. The trigger shows the selected date + time (primary) and a subtitle (secondary) with a chevron. Clicking opens the standard calendar, where dates that have captured data are marked with a dot and dates without data are disabled. Selecting a date reveals a scrollable list of the times captured on that day, each with an optional label. Takes `entries: TimestampEntry[]` (`{ time: Date; label?: string }`), `value`, and `onChange`. Exported as `@wakecap/core-ui/timestamp-picker`.
+  A pill-shaped selector for choosing a captured timestamp. The trigger shows the selected date + time (primary) and a subtitle (secondary) with a chevron. Clicking opens the standard calendar, where dates that have captured data are marked with a dot and dates without data are disabled. Selecting a date reveals a scrollable list of the times captured on that day, each with an optional label. Takes `entries: TimestampEntry[]` (`{ time: Date; label?: string }`), `value`, and `onChange`. Exported as `@core/core-ui/timestamp-picker`.
 
 - b7d6bac: feat(ui): add ToolbarColorPicker
 
-  A PowerPoint-style color control for toolbars: a `ToolbarButton` trigger that previews the current color (as a swatch, or as a bar beneath a passed `icon`) and opens a `Popover` with grouped swatches, a **No fill** option (value `""`), a Recent row that fills as custom colors are picked, and an OS color picker via **More colors…**. Controlled/uncontrolled `value`, configurable `groups`, `columns`, `allowNoColor`/`noColorLabel`, `allowCustom`/`customLabel`, and `recentColors`. A `preview` prop chooses how the color shows next to `icon`: `"bar"` (default, beneath the icon) or `"swatch"` (a square to the right). A `compact` prop drops all labels and text so the popover is just the swatch grid — no-fill is the first swatch and the OS picker is a color-wheel swatch at the end. On supporting (Chromium) browsers an eyedropper button (native `EyeDropper` API) lets you sample any pixel on screen; it's feature-detected and hidden where unavailable. Exported as `@wakecap/core-ui/toolbar-color-picker`.
+  A PowerPoint-style color control for toolbars: a `ToolbarButton` trigger that previews the current color (as a swatch, or as a bar beneath a passed `icon`) and opens a `Popover` with grouped swatches, a **No fill** option (value `""`), a Recent row that fills as custom colors are picked, and an OS color picker via **More colors…**. Controlled/uncontrolled `value`, configurable `groups`, `columns`, `allowNoColor`/`noColorLabel`, `allowCustom`/`customLabel`, and `recentColors`. A `preview` prop chooses how the color shows next to `icon`: `"bar"` (default, beneath the icon) or `"swatch"` (a square to the right). A `compact` prop drops all labels and text so the popover is just the swatch grid — no-fill is the first swatch and the OS picker is a color-wheel swatch at the end. On supporting (Chromium) browsers an eyedropper button (native `EyeDropper` API) lets you sample any pixel on screen; it's feature-detected and hidden where unavailable. Exported as `@core/core-ui/toolbar-color-picker`.
 
 - b7d6bac: feat(ui): add Toolbar primitives and break CanvasToolbar into composable parts
 
@@ -2027,7 +2027,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - b7d6bac: feat(ui): add VerticalZoomTools and make Toolbar orientation-aware
 
-  A compact vertical zoom control (Zoom In over Zoom Out) intended to float over a map or canvas — the vertical counterpart to `ZoomTools`. Controlled/uncontrolled via `zoomLevel`/`onZoomIn`/`onZoomOut` with auto-derived enabled state (`minZoom`/`maxZoom`, overridable with `canZoomIn`/`canZoomOut`), and a `variant` (`"default"` | `"bare"`) so it can be the first section of a larger vertical floating toolbar. Exported as `@wakecap/core-ui/vertical-zoom-tools`.
+  A compact vertical zoom control (Zoom In over Zoom Out) intended to float over a map or canvas — the vertical counterpart to `ZoomTools`. Controlled/uncontrolled via `zoomLevel`/`onZoomIn`/`onZoomOut` with auto-derived enabled state (`minZoom`/`maxZoom`, overridable with `canZoomIn`/`canZoomOut`), and a `variant` (`"default"` | `"bare"`) so it can be the first section of a larger vertical floating toolbar. Exported as `@core/core-ui/vertical-zoom-tools`.
 
   The `Toolbar` primitive gains an `orientation` prop (`"horizontal"` default | `"vertical"`) — a vertical toolbar lays items in a column and sets `aria-orientation` — and `ToolbarSeparator` gains a matching `orientation` prop (`"vertical"` default | `"horizontal"`) to render a rule across a vertical toolbar. Existing horizontal usage is unchanged.
 
@@ -2084,7 +2084,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 ### Minor Changes
 
-- 032bd76: Add Stepper component (`@wakecap/core-ui/stepper`) with composable parts:
+- 032bd76: Add Stepper component (`@core/core-ui/stepper`) with composable parts:
   `Stepper`, `StepperList`, `StepperItem`, `StepperIndicator`, `StepperLabel`,
   `StepperDescription`, `StepperSeparator`. Supports `vertical` and `horizontal`
   orientations and exposes per-item state (`completed` | `current` | `upcoming`)
@@ -2096,7 +2096,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
   - New `density?: "comfortable" | "compact"` prop. Compact shrinks nav-row
     padding, text, icons, group labels, separators, item spacing, the org
     switcher header, the find bar, the find button, and the footer.
-  - In compact, the org switcher reduces to the WakeCap "W" mark + a "WC3"
+  - In compact, the org switcher reduces to the Core "W" mark + a "WC3"
     label (uses `currentColor` so it adapts to light/dark themes).
   - In compact, the find bar becomes a transparent inline live filter that
     searches the nav groups + items, with an `X` clear button and a
@@ -2154,13 +2154,13 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
   **New components:**
 
-  - `Chip` — toggleable filter chip and static attachment chip variants (`@wakecap/core-ui/chip`)
-  - `PromptInput` — chat-style input with attachments and context items (`@wakecap/core-ui/prompt-input`)
-  - `ThinkingPill` — assistant "thinking" indicator (`@wakecap/core-ui/thinking-pill`)
-  - `TurnTimer` — running/done turn duration display (`@wakecap/core-ui/turn-timer`)
-  - `TreeRow` — shared row primitive for tree/hierarchy tables (`@wakecap/core-ui/tree-row`)
-  - `AIChat`, `AIChatHeader`, `AIChatMessage` — composable inline chat surface (`@wakecap/core-ui/chat/core-ai-chat*`)
-  - `CoreAppSidebar`, `CoreAppTopBar` — application shell navigation (`@wakecap/core-ui/navigation/core-app-*`)
+  - `Chip` — toggleable filter chip and static attachment chip variants (`@core/core-ui/chip`)
+  - `PromptInput` — chat-style input with attachments and context items (`@core/core-ui/prompt-input`)
+  - `ThinkingPill` — assistant "thinking" indicator (`@core/core-ui/thinking-pill`)
+  - `TurnTimer` — running/done turn duration display (`@core/core-ui/turn-timer`)
+  - `TreeRow` — shared row primitive for tree/hierarchy tables (`@core/core-ui/tree-row`)
+  - `AIChat`, `AIChatHeader`, `AIChatMessage` — composable inline chat surface (`@core/core-ui/chat/core-ai-chat*`)
+  - `CoreAppSidebar`, `CoreAppTopBar` — application shell navigation (`@core/core-ui/navigation/core-app-*`)
 
 ## 0.1.0
 
@@ -2168,29 +2168,29 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - 5816c1b: Add consumer CSS compatibility for Tailwind 3 and Tailwind 4 projects.
 
-  **@wakecap/core-tokens:**
+  **@core/core-tokens:**
 
   - Restructure: extract `theme.css` as single source of truth for design tokens
-  - Add `@wakecap/core-tokens/theme` export for TW4 consumers (no Tailwind import, no prefix)
-  - Add `@wakecap/core-tokens/tailwind3-preset` export for TW3 consumers
+  - Add `@core/core-tokens/theme` export for TW4 consumers (no Tailwind import, no prefix)
+  - Add `@core/core-tokens/tailwind3-preset` export for TW3 consumers
   - `index.css` now imports `theme.css` internally (monorepo use unchanged)
 
-  **@wakecap/core-ui:**
+  **@core/core-ui:**
 
   - Add `flatten-css.mjs` build script (PostCSS + cssnano) producing two CSS outputs:
     - `styles.css` — for no-Tailwind and TW3 consumers (flattened, includes reset)
     - `styles.tw4.css` — for TW4 consumers (keeps @layer, no reset)
-  - Add `@wakecap/core-ui/styles.tw4.css` export
+  - Add `@core/core-ui/styles.tw4.css` export
   - Add `postcss` and `cssnano` as devDependencies
 
 ### Patch Changes
 
 - Updated dependencies [5816c1b]
-  - @wakecap/core-tokens@0.2.0
+  - @core/core-tokens@0.2.0
 
 ## 0.0.2
 
 ### Patch Changes
 
 - Updated dependencies [ea8a1d2]
-  - @wakecap/core-tokens@0.1.0
+  - @core/core-tokens@0.1.0

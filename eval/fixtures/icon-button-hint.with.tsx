@@ -1,5 +1,5 @@
-import {Button} from "@wakecap/core-ui/button";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@wakecap/core-ui/tooltip";
+import {Button} from "@core/core-ui/button";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@core/core-ui/tooltip";
 
 export function RefreshButton() {
 	return (

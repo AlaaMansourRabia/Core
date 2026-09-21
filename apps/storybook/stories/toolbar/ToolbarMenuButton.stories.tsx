@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Toolbar, ToolbarMenuButton, type ToolbarMenuOption, ToolbarSeparator} from "@wakecap/core-ui/toolbar";
+import {Toolbar, ToolbarMenuButton, type ToolbarMenuOption, ToolbarSeparator} from "@core/core-ui/toolbar";
 import {Circle, Copy, Download, Hexagon, MoreHorizontal, Share2, Slash, Spline, Square, Trash2} from "lucide-react";
 import {useState} from "react";
 

@@ -48,7 +48,7 @@ test("RecordDetailShell switches sections from the rail", async () => {
 
 test("RecordDetailShell scrolls the content column, not the page", async () => {
 	const {container} = await render(<Host />);
-	const row = container.querySelector("[data-wakecore-artifact='record-detail-shell']");
+	const row = container.querySelector("[data-core-artifact='record-detail-shell']");
 	// min-h-0 on the row is what lets the inner column scroll instead of growing the page.
 	expect(row?.className).toContain("wwc:min-h-0");
 	const scroller = row?.querySelector(".wwc\\:overflow-auto");
@@ -64,7 +64,7 @@ test("RecordDetailShell places a flush section outside the padded well", async (
 
 	const canvas = container.querySelector("[data-canvas]");
 	// Direct flex child of the row — no scrolling well between them.
-	expect(canvas?.parentElement?.getAttribute("data-wakecore-artifact")).toBe("record-detail-shell");
+	expect(canvas?.parentElement?.getAttribute("data-core-artifact")).toBe("record-detail-shell");
 });
 
 test("RecordDetailShell keeps a non-flush section inside the padded well", async () => {

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ThinkingPill} from "@wakecap/core-ui/thinking-pill";
+import {ThinkingPill} from "@core/core-ui/thinking-pill";
 import {LineChart, Search, Sparkles} from "lucide-react";
 
 const meta = {

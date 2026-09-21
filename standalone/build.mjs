@@ -80,10 +80,10 @@ for (const target of TARGETS) {
 		.replace("</head>", () => `${css ? `<style>${css}</style>` : ""}</head>`)
 		.replace("</body>", () => `<script type="module">${safeJs}</script></body>`);
 
-	const file = resolve(OUT, `wakecap-${target.name}.html`);
+	const file = resolve(OUT, `core-${target.name}.html`);
 	writeFileSync(file, html);
 	rmSync(stage, {recursive: true, force: true});
 
 	const kb = (Buffer.byteLength(html) / 1024).toFixed(0);
-	console.log(`${target.title.padEnd(14)} → standalone/dist/wakecap-${target.name}.html  (${kb} KB)`);
+	console.log(`${target.title.padEnd(14)} → standalone/dist/core-${target.name}.html  (${kb} KB)`);
 }

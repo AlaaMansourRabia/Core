@@ -1,13 +1,13 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {DropdownMenu, DropdownMenuContent, DropdownMenuTrigger} from "@wakecap/core-ui/dropdown-menu";
-import {Label} from "@wakecap/core-ui/label";
-import {Map} from "@wakecap/core-ui/map";
-import {MapControls} from "@wakecap/core-ui/map-controls";
-import {MAPBOX_TOKEN} from "@wakecap/core-ui/mapbox-token";
-import {Separator} from "@wakecap/core-ui/separator";
-import {Switch} from "@wakecap/core-ui/switch";
+import {Button} from "@core/core-ui/button";
+import {DropdownMenu, DropdownMenuContent, DropdownMenuTrigger} from "@core/core-ui/dropdown-menu";
+import {Label} from "@core/core-ui/label";
+import {Map} from "@core/core-ui/map";
+import {MapControls} from "@core/core-ui/map-controls";
+import {MAPBOX_TOKEN} from "@core/core-ui/mapbox-token";
+import {Separator} from "@core/core-ui/separator";
+import {Switch} from "@core/core-ui/switch";
 import {AlertTriangle, Circle, Info, Layers, MapPin, Square, Triangle} from "lucide-react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";

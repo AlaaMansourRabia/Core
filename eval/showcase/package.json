@@ -1,5 +1,5 @@
 {
-	"name": "wakecore-showcase",
+	"name": "core-showcase",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
@@ -10,8 +10,8 @@
 	},
 	"dependencies": {
 		"@tanstack/react-table": "^8.21.3",
-		"@wakecap/core-tokens": "^0.1.0",
-		"@wakecap/core-ui": "^0.0.2",
+		"@core/core-tokens": "^0.1.0",
+		"@core/core-ui": "^0.0.2",
 		"lucide-react": "^1.8.0",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",

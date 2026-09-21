@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@wakecap/core-ui/badge";
-import {TreeRow, TreeRowContent} from "@wakecap/core-ui/tree-row";
+import {Badge} from "@core/core-ui/badge";
+import {TreeRow, TreeRowContent} from "@core/core-ui/tree-row";
 import {File, Folder, Globe, MapPin} from "lucide-react";
 import {useState} from "react";
 

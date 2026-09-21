@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import * as React from "react";
 
 import {Checkbox} from "./checkbox";
@@ -103,14 +103,14 @@ const PermissionMatrix = React.forwardRef<HTMLDivElement, PermissionMatrixProps>
 		const matrix = (
 			<div
 				className="wwc:overflow-x-auto wwc:overscroll-x-contain"
-				data-wakecore-responsive-group="permission-matrix-columns"
+				data-core-responsive-group="permission-matrix-columns"
 			>
 				<div
 					className="wwc:grid wwc:min-w-[45rem] wwc:grid-cols-3 wwc:divide-x wwc:divide-border"
 					role="group"
 					aria-label="Permission hierarchy"
 				>
-					<div className="wwc:divide-y wwc:divide-border" data-wakecore-region="permission-level-one">
+					<div className="wwc:divide-y wwc:divide-border" data-core-region="permission-level-one">
 						<label className="wwc:flex wwc:h-12 wwc:cursor-pointer wwc:items-center wwc:gap-3 wwc:px-4">
 							<Checkbox
 								checked={checkedState(allIds, value)}
@@ -164,7 +164,7 @@ const PermissionMatrix = React.forwardRef<HTMLDivElement, PermissionMatrixProps>
 								>
 									<label
 										className="wwc:flex wwc:min-h-12 wwc:min-w-0 wwc:cursor-pointer wwc:items-start wwc:gap-3 wwc:px-4 wwc:py-4 wwc:transition-colors wwc:hover:bg-muted/50"
-										data-wakecore-region="permission-level-two"
+										data-core-region="permission-level-two"
 									>
 										<Checkbox
 											checked={checkedState(ids, value)}
@@ -177,7 +177,7 @@ const PermissionMatrix = React.forwardRef<HTMLDivElement, PermissionMatrixProps>
 										</span>
 									</label>
 
-									<div className="wwc:divide-y wwc:divide-border" data-wakecore-region="permission-level-three">
+									<div className="wwc:divide-y wwc:divide-border" data-core-region="permission-level-three">
 										{group.permissions.map((permission) => (
 											<label
 												key={permission.id}
@@ -208,7 +208,7 @@ const PermissionMatrix = React.forwardRef<HTMLDivElement, PermissionMatrixProps>
 		);
 
 		return (
-			<div ref={ref} className={cn("wwc:min-w-0", className)} data-wakecore-artifact="permission-matrix" {...rest}>
+			<div ref={ref} className={cn("wwc:min-w-0", className)} data-core-artifact="permission-matrix" {...rest}>
 				{showHeader ? (
 					<SectionPanel title={title} count={`${selectedCount}/${allIds.length}`} bodyClassName="wwc:px-0 wwc:pb-0">
 						{matrix}

@@ -9,4 +9,4 @@ export {
 	DialogFooter,
 	DialogTitle,
 	DialogDescription,
-} from "@wakecap/core-ui/dialog";
+} from "@core/core-ui/dialog";

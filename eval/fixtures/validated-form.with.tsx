@@ -1,6 +1,6 @@
-import {Button} from "@wakecap/core-ui/button";
-import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@wakecap/core-ui/form";
-import {Input} from "@wakecap/core-ui/input";
+import {Button} from "@core/core-ui/button";
+import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@core/core-ui/form";
+import {Input} from "@core/core-ui/input";
 import {useForm} from "react-hook-form";
 
 export function CreateProjectForm() {

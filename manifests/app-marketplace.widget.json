@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/app-marketplace-shared.tsx",
-		"import": "@wakecap/core-ui/pages/app-marketplace",
+		"import": "@core/core-ui/pages/app-marketplace",
 		"export": "useAppInstallation"
 	},
 	"subcomponents": [
@@ -99,7 +99,7 @@
 	"forbiddenPlacement": [
 		"a record detail page"
 	],
-	"minimalExample": "import {useAppInstallation, installedAppsGroup} from \"@wakecap/core-ui/pages/app-marketplace\";\n\nconst install = useAppInstallation({initialInstalled: [\"safety\", \"workforce\"]});",
+	"minimalExample": "import {useAppInstallation, installedAppsGroup} from \"@core/core-ui/pages/app-marketplace\";\n\nconst install = useAppInstallation({initialInstalled: [\"safety\", \"workforce\"]});",
 	"evaluationCriteria": [
 		"The nav group is derived from install state, never declared twice.",
 		"Lifecycle stage is treated as nav metadata, not behaviour."
@@ -122,7 +122,7 @@
 		"supersedes": null,
 		"lastValidated": "2026-08-26",
 		"notes": [
-			"Already the repo's best-behaved shared module — imported by core-app-installer, core-wakecap-connect, core-wakecap-connect-v3 and core-wc3-workspace. It had earned widget tier by use and simply had not been given it.",
+			"Already the repo's best-behaved shared module — imported by core-app-installer, core-core-connect, core-core-connect-v3 and core-wc3-workspace. It had earned widget tier by use and simply had not been given it.",
 			"Promoted in group B of the missing-widgets template review.",
 			"pilot: true"
 		]

@@ -1,4 +1,4 @@
-import type {DrawingTool} from "@wakecap/core-ui/object-drawing-toolbar";
+import type {DrawingTool} from "@core/core-ui/object-drawing-toolbar";
 import type {PanelImperativeHandle} from "react-resizable-panels";
 
 import {

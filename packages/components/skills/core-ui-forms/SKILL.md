@@ -1,25 +1,25 @@
 ---
 name: core-ui-forms
 description: >
-  Building validated forms with @wakecap/core-ui/form, react-hook-form, zod,
+  Building validated forms with @core/core-ui/form, react-hook-form, zod,
   and @hookform/resolvers/zod. Form/FormField/FormItem/FormLabel/FormControl/
   FormDescription/FormMessage composition. useForm with zodResolver wiring.
   Field registration via render prop. Inline error display. Load when building
   any form that requires validation with react-hook-form.
 metadata:
   type: core
-  library: wakecore
+  library: core
   library_version: "0.0.1"
 sources:
-  - "wakecap/Wakecore:packages/components/src/form.tsx"
-  - "wakecap/Wakecore:packages/components/package.json"
+  - "core/Core:packages/components/src/form.tsx"
+  - "core/Core:packages/components/package.json"
 ---
 
-# @wakecap/core-ui — Forms & Validation
+# @core/core-ui — Forms & Validation
 
 ## Install
 
-`react-hook-form` is an optional **peer** of `@wakecap/core-ui`, not a dependency —
+`react-hook-form` is an optional **peer** of `@core/core-ui`, not a dependency —
 `Form` and `FormField` read your form state through React context, so they have to bind
 to _your_ copy of the library. `@hookform/resolvers` is yours too; core-ui never imports it.
 
@@ -38,9 +38,9 @@ disagree, your package manager says so at install time.
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {z} from "zod";
-import {Form, FormField, FormItem, FormLabel, FormControl, FormDescription, FormMessage} from "@wakecap/core-ui/form";
-import {Input} from "@wakecap/core-ui/input";
-import {Button} from "@wakecap/core-ui/button";
+import {Form, FormField, FormItem, FormLabel, FormControl, FormDescription, FormMessage} from "@core/core-ui/form";
+import {Input} from "@core/core-ui/input";
+import {Button} from "@core/core-ui/button";
 
 const schema = z.object({
 	email: z.string().email("Invalid email address"),
@@ -103,7 +103,7 @@ export function ProfileForm() {
 ### Select field with FormControl
 
 ```tsx
-import {Select, SelectTrigger, SelectValue, SelectContent, SelectItem} from "@wakecap/core-ui/select";
+import {Select, SelectTrigger, SelectValue, SelectContent, SelectItem} from "@core/core-ui/select";
 
 <FormField
 	control={form.control}
@@ -131,7 +131,7 @@ import {Select, SelectTrigger, SelectValue, SelectContent, SelectItem} from "@wa
 ### Checkbox field
 
 ```tsx
-import {Checkbox} from "@wakecap/core-ui/checkbox";
+import {Checkbox} from "@core/core-ui/checkbox";
 
 <FormField
 	control={form.control}
@@ -151,7 +151,7 @@ import {Checkbox} from "@wakecap/core-ui/checkbox";
 ### Accessing field state for conditional UI
 
 ```tsx
-import {useFormField} from "@wakecap/core-ui/form";
+import {useFormField} from "@core/core-ui/form";
 
 // Inside a custom field component rendered within FormItem
 function CustomInput() {
@@ -246,10 +246,10 @@ import {FormProvider, Controller} from "react-hook-form";
 Correct:
 
 ```tsx
-import {Form, FormField, FormItem, FormLabel, FormControl, FormDescription, FormMessage} from "@wakecap/core-ui/form";
+import {Form, FormField, FormItem, FormLabel, FormControl, FormDescription, FormMessage} from "@core/core-ui/form";
 ```
 
-`@wakecap/core-ui/form` wraps react-hook-form with styled components and
+`@core/core-ui/form` wraps react-hook-form with styled components and
 context plumbing. Using the raw react-hook-form primitives bypasses label
 styling, error class injection (`text-destructive`), and `aria-invalid` wiring.
 
@@ -286,4 +286,4 @@ Source: `packages/components/src/form.tsx`
 
 ---
 
-See also: `@wakecap/core-ui/field` — a simpler `Field` component for cases that do not need full react-hook-form validation
+See also: `@core/core-ui/field` — a simpler `Field` component for cases that do not need full react-hook-form validation

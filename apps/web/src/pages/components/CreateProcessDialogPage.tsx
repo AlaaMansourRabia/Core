@@ -1,4 +1,4 @@
-import {seedProcesses} from "@wakecap/core-ui/pages/wc3-process-views";
+import {seedProcesses} from "@core/core-ui/pages/wc3-process-views";
 import * as React from "react";
 
 import {Button} from "@/components/ui/button";

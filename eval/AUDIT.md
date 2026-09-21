@@ -1,4 +1,4 @@
-# WakeCore eval suite — audit (V2)
+# Core eval suite — audit (V2)
 
 > Critique of the *current* 10-task / 4-metric suite. Goal: find where it misleads, where it's
 > too easy, and what to fix — ranked by impact. No enforcement changes proposed.

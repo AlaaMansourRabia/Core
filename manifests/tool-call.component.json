@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/tool-call.tsx",
-		"import": "@wakecap/core-ui/tool-call",
+		"import": "@core/core-ui/tool-call",
 		"export": "ToolCall"
 	},
 	"tags": [

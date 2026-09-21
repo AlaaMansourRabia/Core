@@ -1,1 +1,1 @@
-export {Toaster} from "@wakecap/core-ui/toaster";
+export {Toaster} from "@core/core-ui/toaster";

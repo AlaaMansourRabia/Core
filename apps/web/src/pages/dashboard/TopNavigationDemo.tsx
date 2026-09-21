@@ -62,7 +62,7 @@ interface Project {
 }
 
 const organizations: Organization[] = [
-	{id: "1", name: "WakeCap Construction", plan: "enterprise"},
+	{id: "1", name: "Core Construction", plan: "enterprise"},
 	{id: "2", name: "BuildRight Inc", plan: "pro"},
 	{id: "3", name: "Metro Developers", plan: "free"},
 ];
@@ -343,7 +343,7 @@ export function TopNavigationDemo() {
 										<DropdownMenuLabel>
 											<div className="wwc:flex wwc:flex-col wwc:space-y-1">
 												<p className="wwc:text-sm wwc:font-medium">Alaa Rabia</p>
-												<p className="wwc:text-xs wwc:text-muted-foreground">alaa@wakecap.com</p>
+												<p className="wwc:text-xs wwc:text-muted-foreground">alaa@core.com</p>
 											</div>
 										</DropdownMenuLabel>
 										<DropdownMenuSeparator />

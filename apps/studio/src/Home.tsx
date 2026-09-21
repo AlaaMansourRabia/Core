@@ -1,4 +1,4 @@
-import {Input} from "@wakecap/core-ui/input";
+import {Input} from "@core/core-ui/input";
 import {Layers, RefreshCw, Search} from "lucide-react";
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 
@@ -6,8 +6,8 @@ import {formatTemplateName, loadCatalog, type Catalog} from "./lib/catalog";
 import {clearPreviewCache} from "./lib/preview";
 import {TemplateThumb} from "./TemplateThumb";
 
-// Home is the read-only front door: search and browse the canonical WakeCore catalog. There is no
-// prompt composer, no model picker, no attachments, no chat — Studio previews official WakeCore only.
+// Home is the read-only front door: search and browse the canonical Core catalog. There is no
+// prompt composer, no model picker, no attachments, no chat — Studio previews official Core only.
 export function Home({onOpen}: {onOpen: (templateId: string) => void}) {
 	const [catalog, setCatalog] = useState<Catalog | null>(null);
 	const [error, setError] = useState<string | null>(null);
@@ -67,21 +67,21 @@ export function Home({onOpen}: {onOpen: (templateId: string) => void}) {
 	return (
 		<div className="wwc:min-h-full wwc:bg-background wwc:text-foreground">
 			<div className="wwc:mx-auto wwc:max-w-5xl wwc:px-6 wwc:pb-24 wwc:pt-6">
-				{/* Header — the read-only front door to WakeCore */}
+				{/* Header — the read-only front door to Core */}
 				<div className="wwc:pt-10 wwc:text-center">
 					<div className="wwc:mb-4 wwc:flex wwc:items-center wwc:justify-center wwc:gap-2">
 						<img
-							src="/wakecore-small.svg"
-							alt="WakeCore"
+							src="/core-small.svg"
+							alt="Core"
 							className="wwc:h-12 wwc:w-auto wwc:invert wwc:dark:invert-0"
 						/>
 						<span className="wwc:rounded-full wwc:border wwc:border-border wwc:px-2 wwc:py-0.5 wwc:text-[10px] wwc:font-semibold wwc:uppercase wwc:tracking-wide wwc:text-muted-foreground">
 							Beta
 						</span>
 					</div>
-					<h1 className="wwc:text-2xl wwc:font-semibold">Browse official WakeCore.</h1>
+					<h1 className="wwc:text-2xl wwc:font-semibold">Browse official Core.</h1>
 					<p className="wwc:mt-2 wwc:text-sm wwc:text-muted-foreground">
-						Search and preview the canonical WakeCore catalog — templates, widgets, and components.
+						Search and preview the canonical Core catalog — templates, widgets, and components.
 					</p>
 				</div>
 
@@ -91,15 +91,15 @@ export function Home({onOpen}: {onOpen: (templateId: string) => void}) {
 					<Input
 						value={query}
 						onChange={(e) => setQuery(e.target.value)}
-						placeholder="Search WakeCore templates…"
+						placeholder="Search Core templates…"
 						className="wwc:h-11 wwc:pl-9"
-						aria-label="Search WakeCore templates"
+						aria-label="Search Core templates"
 					/>
 				</div>
 
 				{error && (
 					<div className="wwc:mt-8 wwc:text-center wwc:text-sm wwc:text-destructive">
-						Couldn't load WakeCore: {error}
+						Couldn't load Core: {error}
 					</div>
 				)}
 
@@ -118,7 +118,7 @@ export function Home({onOpen}: {onOpen: (templateId: string) => void}) {
 							<button
 								onClick={refresh}
 								disabled={refreshing}
-								title="Re-read canonical WakeCore (approved changes appear after merge)"
+								title="Re-read canonical Core (approved changes appear after merge)"
 								className="wwc:inline-flex wwc:items-center wwc:gap-1 wwc:rounded-md wwc:border wwc:border-border wwc:px-1.5 wwc:py-0.5 wwc:text-xs wwc:text-muted-foreground wwc:hover:bg-muted wwc:disabled:opacity-50"
 							>
 								<RefreshCw className={`wwc:size-3 ${refreshing ? "wwc:animate-spin" : ""}`} />

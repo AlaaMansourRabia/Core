@@ -1,7 +1,7 @@
-import type {Message} from "@wakecap/core-ui/types/chat";
+import type {Message} from "@core/core-ui/types/chat";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {AIChat} from "@wakecap/core-ui/chat/core-ai-chat";
+import {AIChat} from "@core/core-ui/chat/core-ai-chat";
 import {
 	AlertTriangle,
 	Bookmark,

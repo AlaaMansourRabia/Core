@@ -52,7 +52,7 @@ export function OperationsDrawerPage() {
 					A drawer for reviewing and updating the operations under a single object. The header carries the object
 					identifier, its WBS path, an overall progress bar, and a walkthrough button; a compact table lists each
 					operation with its WT / PREV / BAC / EV metrics and an editable progress field; the footer discards or saves
-					the changes (Save stays disabled until a progress value changes). Composed from Wakecore <code>Table</code>,{" "}
+					the changes (Save stays disabled until a progress value changes). Composed from Core <code>Table</code>,{" "}
 					<code>Progress</code>, <code>Input</code>, and <code>Button</code>.
 				</p>
 			</div>

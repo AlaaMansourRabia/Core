@@ -10,8 +10,8 @@ import {
 	AlertDialogHeader,
 	AlertDialogTitle,
 	AlertDialogTrigger,
-} from "@wakecap/core-ui/alert-dialog";
-import {Button} from "@wakecap/core-ui/button";
+} from "@core/core-ui/alert-dialog";
+import {Button} from "@core/core-ui/button";
 import {expect, fn, screen, userEvent, waitFor, within} from "storybook/test";
 
 const meta = {

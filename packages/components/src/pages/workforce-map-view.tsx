@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {
 	AlertTriangle,
 	Box,
@@ -39,7 +39,7 @@ const MARKER_INACTIVE = "#f59e0b";
 // Workforce Map View — the 3D/map stage plus a collapsible left menu of who's in the building. The
 // menu is designed to fit without scrolling: a compact headcount strip, then Level / Trade / Crew as
 // tabs so only one breakdown shows at a time. The stage engine is injected via `stage` (the template
-// can't resolve its worker URL itself). Composed from existing Wakecore primitives — Tabs, Badge,
+// can't resolve its worker URL itself). Composed from existing Core primitives — Tabs, Badge,
 // Button. Figures are placeholder fixtures.
 
 // The 35 IFC storeys of the `uptown` model, verbatim (the same names the viewer's Levels menu lists).

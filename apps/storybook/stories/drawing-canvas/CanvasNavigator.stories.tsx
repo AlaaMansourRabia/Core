@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {CanvasNavigator, type CanvasNavigatorNode, type CanvasNavigatorSize} from "@wakecap/core-ui/canvas-navigator";
+import {CanvasNavigator, type CanvasNavigatorNode, type CanvasNavigatorSize} from "@core/core-ui/canvas-navigator";
 import {Building2, Layers, MapPin, Map as MapIcon, PanelLeft} from "lucide-react";
 import {useState} from "react";
 

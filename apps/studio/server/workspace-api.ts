@@ -22,7 +22,7 @@ import {getEditor, listEditors} from "./editors";
 import {killAllSessions, launchSession, launchTerminalSession} from "./remote-control";
 import {addRecent, listRecent, materializeWorkspace, touchRecent} from "./workspace";
 
-// The local WakeCore repository — the source of truth an editing session starts from.
+// The local Core repository — the source of truth an editing session starts from.
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
 
 // Open a URL in the default browser (macOS). Best-effort; the URL is always returned for manual opening.
@@ -48,9 +48,9 @@ function sendJson(res: import("node:http").ServerResponse, status: number, body:
 	res.end(JSON.stringify(body));
 }
 
-// A sensible default workspace location: ~/wakecore-workspaces/<templateId>, suffixed if it already exists.
+// A sensible default workspace location: ~/core-workspaces/<templateId>, suffixed if it already exists.
 function suggestLocation(templateId: string): string {
-	const base = join(homedir(), "wakecore-workspaces");
+	const base = join(homedir(), "core-workspaces");
 	const slug = templateId.replace(/[^\w.-]+/g, "-");
 	let candidate = join(base, slug);
 	for (let i = 2; existsSync(candidate); i++) candidate = join(base, `${slug}-${i}`);
@@ -66,22 +66,22 @@ function promoteSteps(path: string, name?: string): {hasGit: boolean; steps: str
 	const steps = [
 		`cd "${path}"`,
 		...(hasGit ? [] : ["git init"]),
-		`git checkout -b wakecore/${label}`,
+		`git checkout -b core/${label}`,
 		"git add -A",
-		`git commit -m "feat: ${label} — edited from WakeCore Studio"`,
+		`git commit -m "feat: ${label} — edited from Core Studio"`,
 		"git push -u <your-fork-remote> HEAD",
-		"gh pr create --repo wakecap/Wakecore --fill",
+		"gh pr create --repo core/Core --fill",
 	];
 	return {
 		hasGit,
 		steps,
-		note: "Push to your fork of wakecap/Wakecore, then open a PR. Your changes reach Studio only after they're reviewed and merged.",
+		note: "Push to your fork of core/Core, then open a PR. Your changes reach Studio only after they're reviewed and merged.",
 	};
 }
 
 export function studioWorkspace(): Plugin {
 	return {
-		name: "wakecore-studio-workspace",
+		name: "core-studio-workspace",
 		configureServer(server) {
 			// Tear down Remote Control servers when Studio's dev server stops or the process exits.
 			server.httpServer?.once("close", killAllSessions);
@@ -100,7 +100,7 @@ export function studioWorkspace(): Plugin {
 				sendJson(res, 200, {location: suggestLocation(templateId)});
 			});
 
-			// Launch a Claude Code session bound to an ISOLATED worktree of the local WakeCore repo. Two modes:
+			// Launch a Claude Code session bound to an ISOLATED worktree of the local Core repo. Two modes:
 			//   "browser"  — Remote Control inside the worktree → a claude.ai/code URL we open in the browser.
 			//   "terminal" — interactive `claude` in the worktree → a Terminal.app window (macOS) + a copyable
 			//                 `cd <worktree> && claude` command that runs in ANY terminal (incl. VS Code).
@@ -115,10 +115,10 @@ export function studioWorkspace(): Plugin {
 						blank?: boolean;
 						mode?: "browser" | "terminal";
 					};
-					const name = body.blank ? "WakeCore · new interface" : `WakeCore · ${body.templateId ?? "template"}`;
+					const name = body.blank ? "Core · new interface" : `Core · ${body.templateId ?? "template"}`;
 					const brief = body.blank
-						? "You are creating a brand-new WakeCore interface in an isolated worktree. Before creating UI, inspect templates, widgets, components, the SDK and the WakeCore MCP (resolve_template → resolve_widgets → validate_page). Reuse WakeCore first; only generate custom UI as a last resort. Your edits stay on this session's branch."
-						: `You are editing WakeCore starting from the "${body.templateId ?? "template"}" template, in an isolated worktree. Start by inspecting the template source + its manifest and the related widgets/components via the WakeCore MCP; reuse WakeCore first, only generate custom UI when nothing fits. Your edits stay on this session's branch and never touch the original template.`;
+						? "You are creating a brand-new Core interface in an isolated worktree. Before creating UI, inspect templates, widgets, components, the SDK and the Core MCP (resolve_template → resolve_widgets → validate_page). Reuse Core first; only generate custom UI as a last resort. Your edits stay on this session's branch."
+						: `You are editing Core starting from the "${body.templateId ?? "template"}" template, in an isolated worktree. Start by inspecting the template source + its manifest and the related widgets/components via the Core MCP; reuse Core first, only generate custom UI when nothing fits. Your edits stay on this session's branch and never touch the original template.`;
 					const shared = {
 						repoRoot: REPO_ROOT,
 						key: body.blank ? `new-${Date.now()}` : (body.templateId ?? "template"),
@@ -183,7 +183,7 @@ export function studioWorkspace(): Plugin {
 
 					const workspace = materializeWorkspace({templateId: body.templateId, location});
 					const editor = getEditor(body.editorId);
-					editor.prepare(location); // project .wakecore/ into this editor's config
+					editor.prepare(location); // project .core/ into this editor's config
 					const launch = editor.launch(location, body.prompt);
 					addRecent({
 						id: workspace.id,

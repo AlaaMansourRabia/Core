@@ -17,13 +17,13 @@ test("chart semantic tones resolve CSS Color 4 tokens to canvas-safe RGB", () =>
 test("ViewTabBar is transparent by default and supports an explicit card surface", async () => {
 	const props = {tabs: [{id: "overview", label: "Overview"}], activeTab: "overview", onTabChange: () => undefined};
 	const {container, rerender} = await render(<ViewTabBar {...props} />);
-	expect(container.querySelector('[data-wakecore-artifact="view-tab-bar"]')).toHaveAttribute(
-		"data-wakecore-surface",
+	expect(container.querySelector('[data-core-artifact="view-tab-bar"]')).toHaveAttribute(
+		"data-core-surface",
 		"transparent",
 	);
 	await rerender(<ViewTabBar {...props} surface="card" />);
-	expect(container.querySelector('[data-wakecore-artifact="view-tab-bar"]')).toHaveAttribute(
-		"data-wakecore-surface",
+	expect(container.querySelector('[data-core-artifact="view-tab-bar"]')).toHaveAttribute(
+		"data-core-surface",
 		"card",
 	);
 });
@@ -41,7 +41,7 @@ test("ContextToolbar keeps actions accessible and moves excess actions to overfl
 	);
 	await expect.element(page.getByRole("button", {name: "Filter"})).toBeVisible();
 	await expect.element(page.getByRole("button", {name: "More actions"})).toBeVisible();
-	expect(document.querySelector('[data-wakecore-responsive-group="context-title"]')).not.toBeNull();
+	expect(document.querySelector('[data-core-responsive-group="context-title"]')).not.toBeNull();
 });
 
 test("PageContentHeader composes navigation, action overflow, and split-primary controls", async () => {
@@ -69,7 +69,7 @@ test("PageContentHeader composes navigation, action overflow, and split-primary 
 	await expect.element(page.getByRole("button", {name: "New"})).toBeVisible();
 	await expect.element(page.getByRole("button", {name: "Start options"})).toBeVisible();
 	await expect.element(page.getByRole("button", {name: "More actions"})).toBeVisible();
-	expect(document.querySelector('[data-wakecore-artifact="page-content-header"]')).not.toBeNull();
-	expect(document.querySelector('[data-wakecore-responsive-group="identity"]')).not.toBeNull();
-	expect(document.querySelector('[data-wakecore-responsive-group="actions"]')).not.toBeNull();
+	expect(document.querySelector('[data-core-artifact="page-content-header"]')).not.toBeNull();
+	expect(document.querySelector('[data-core-responsive-group="identity"]')).not.toBeNull();
+	expect(document.querySelector('[data-core-responsive-group="actions"]')).not.toBeNull();
 });

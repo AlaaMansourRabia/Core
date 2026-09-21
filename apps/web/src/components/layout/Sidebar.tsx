@@ -33,7 +33,7 @@ export interface ComponentCategory {
 	items: NavItem[];
 }
 
-// Nav grouped by WakeCore TIER (Components / Widgets / Templates) to mirror Storybook + the manifests,
+// Nav grouped by Core TIER (Components / Widgets / Templates) to mirror Storybook + the manifests,
 // with the functional sub-labels kept inside each tier.
 export const componentCategories: ComponentCategory[] = [
 	{
@@ -363,7 +363,7 @@ export const widgetItems: NavItem[] = [{name: "Profile", path: "/components/prof
 
 export const templateItems: NavItem[] = TEMPLATES.map((t) => ({name: t.name, path: `/templates/${t.id}`}));
 
-/** The Templates nav, with a heading above each product release (WakeCap Connect / V1, …) and its
+/** The Templates nav, with a heading above each product release (Core Connect / V1, …) and its
  *  members indented under it. `templateItems` stays link-only so counts and the Overview grid are
  *  unaffected. */
 export const templateNavItems: NavItem[] = TEMPLATES.flatMap((t, i) => {
@@ -398,8 +398,8 @@ function NavItems({items, pathname}: {items: NavItem[]; pathname: string}) {
 						to={item.path}
 						className={({isActive}) => cn(linkClass(isActive), item.depth && "wwc:ml-3")}
 						data-active={pathname === item.path}
-						data-wakecore-route-link
-						data-wakecore-interaction={item.path === "/components/button" ? "open-artifact-preview" : undefined}
+						data-core-route-link
+						data-core-interaction={item.path === "/components/button" ? "open-artifact-preview" : undefined}
 					>
 						{item.name}
 					</NavLink>
@@ -430,7 +430,7 @@ function Subgroups({
 							type="button"
 							onClick={() => setExpanded((c) => ({...c, [cat.name]: !c[cat.name]}))}
 							aria-expanded={open}
-							data-wakecore-interaction={cat.name === "primitives" ? "browse-by-tier" : undefined}
+							data-core-interaction={cat.name === "primitives" ? "browse-by-tier" : undefined}
 							className="wwc:flex wwc:w-full wwc:items-center wwc:justify-between wwc:gap-2 wwc:px-2 wwc:py-1 wwc:text-[11px] wwc:font-medium wwc:uppercase wwc:tracking-wider wwc:text-muted-foreground/70 wwc:hover:text-foreground wwc:transition-colors"
 						>
 							<span className="wwc:flex wwc:items-center wwc:gap-1.5">
@@ -524,12 +524,12 @@ export function CatalogSidebar({collapsed = false}: SidebarProps) {
 
 	return (
 		<div
-			data-wakecore-sidebar="designers-hub-sidebar"
-			data-wakecore-region="catalog-navigation"
-			data-wakecore-surface-owner="shell"
-			data-wakecore-artifact="designers-hub-sidebar"
-			data-wakecore-density="comfortable"
-			data-wakecore-navigation-fingerprint="designers-hub-catalog-navigation"
+			data-core-sidebar="designers-hub-sidebar"
+			data-core-region="catalog-navigation"
+			data-core-surface-owner="shell"
+			data-core-artifact="designers-hub-sidebar"
+			data-core-density="comfortable"
+			data-core-navigation-fingerprint="designers-hub-catalog-navigation"
 			className={cn(
 				"wwc:h-screen wwc:border-r wwc:bg-sidebar wwc:transition-all wwc:duration-300 wwc:ease-in-out wwc:overflow-hidden",
 				collapsed ? "wwc:w-0 wwc:border-r-0" : "wwc:w-64",
@@ -537,7 +537,7 @@ export function CatalogSidebar({collapsed = false}: SidebarProps) {
 		>
 			<div className="wwc:flex wwc:h-full wwc:w-64 wwc:min-w-64 wwc:flex-col">
 				<div className="wwc:px-3 wwc:py-3 wwc:border-b">
-					<div className="wwc:relative" data-wakecore-responsive-group="catalog-search" data-wakecore-responsive-atomic>
+					<div className="wwc:relative" data-core-responsive-group="catalog-search" data-core-responsive-atomic>
 						<Search className="wwc:absolute wwc:left-2.5 wwc:top-1/2 wwc:-translate-y-1/2 wwc:h-4 wwc:w-4 wwc:text-muted-foreground" />
 						<Input
 							ref={searchInputRef}
@@ -545,8 +545,8 @@ export function CatalogSidebar({collapsed = false}: SidebarProps) {
 							value={search}
 							onChange={(e) => setSearch(e.target.value)}
 							className="wwc:pl-8 wwc:pr-8 wwc:h-8 wwc:text-sm"
-							data-wakecore-interaction="search-artifacts"
-							data-wakecore-affordance-purpose="catalog-search"
+							data-core-interaction="search-artifacts"
+							data-core-affordance-purpose="catalog-search"
 						/>
 						{search ? (
 							<Button

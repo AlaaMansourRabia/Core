@@ -116,7 +116,7 @@ export function MultiSelectPage() {
 				</CardHeader>
 				<CardContent>
 					<pre className="wwc:bg-muted wwc:rounded-lg wwc:p-4 wwc:text-sm wwc:overflow-x-auto">
-						{`import {MultiSelect} from "@wakecap/core-ui/multi-select";
+						{`import {MultiSelect} from "@core/core-ui/multi-select";
 
 const [projectIds, setProjectIds] = React.useState<string[]>([]);
 

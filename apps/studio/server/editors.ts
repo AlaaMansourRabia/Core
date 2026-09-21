@@ -1,5 +1,5 @@
 // The Editor abstraction (Phase 4, extended in Phase 6). Studio never names an editor in its core — it
-// depends on this interface. `.wakecore/` is the single canonical source; each Editor.prepare() PROJECTS
+// depends on this interface. `.core/` is the single canonical source; each Editor.prepare() PROJECTS
 // it into that editor's expected config, and launch() opens the editor on the workspace (optionally with a
 // starting prompt). New editors are added here without changing the workspace schema. All OS-specific
 // terminal handling lives inside the Editor implementation. isAvailable() gates the launch button; when the
@@ -16,38 +16,38 @@ export interface Editor {
 	id: string;
 	label: string;
 	isAvailable(): boolean;
-	prepare(location: string): void; // project .wakecore/ into THIS editor's config (idempotent)
+	prepare(location: string): void; // project .core/ into THIS editor's config (idempotent)
 	launch(location: string, prompt?: string): LaunchResult; // open the editor on the workspace
 }
 
-// The read-only WakeCore MCP editors consult before editing. It runs as a stdio server FROM THE MONOREPO
+// The read-only Core MCP editors consult before editing. It runs as a stdio server FROM THE MONOREPO
 // but exposes only advisory + validation tools — it can never write into the workspace.
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
-const WAKECORE_MCP_SERVER = join(REPO_ROOT, "packages", "mcp", "src", "server.mjs");
-const WAKECORE_MCP_TOOLS = [
-	"mcp__wakecore__list_templates",
-	"mcp__wakecore__resolve_template",
-	"mcp__wakecore__resolve_widgets",
-	"mcp__wakecore__generate_page_instance",
-	"mcp__wakecore__validate_page",
+const CORE_MCP_SERVER = join(REPO_ROOT, "packages", "mcp", "src", "server.mjs");
+const CORE_MCP_TOOLS = [
+	"mcp__core__list_templates",
+	"mcp__core__resolve_template",
+	"mcp__core__resolve_widgets",
+	"mcp__core__generate_page_instance",
+	"mcp__core__validate_page",
 ];
-const MCP_CONFIG = {mcpServers: {wakecore: {command: "node", args: [WAKECORE_MCP_SERVER]}}};
+const MCP_CONFIG = {mcpServers: {core: {command: "node", args: [CORE_MCP_SERVER]}}};
 
-// Small & STABLE policy shared across editors. The DATA lives in .wakecore/; these INSTRUCTIONS stay
+// Small & STABLE policy shared across editors. The DATA lives in .core/; these INSTRUCTIONS stay
 // generic and are never regenerated. Each editor writes it into its own expected file/format.
-const WAKECORE_POLICY = `This is a single-page app materialized from a canonical WakeCore template. WakeCore is the source of
+const CORE_POLICY = `This is a single-page app materialized from a canonical Core template. Core is the source of
 truth — **reuse before you build.**
 
 - The editable page is \`src/page.tsx\` (keep a \`export default function Page()\`). You own it.
-- \`.wakecore/\` is your WakeCore context: \`template.json\` (the source manifest), \`page-instance.json\`
+- \`.core/\` is your Core context: \`template.json\` (the source manifest), \`page-instance.json\`
   (the composition seed + validation target), \`workspace.json\` (envelope). Treat it as advisory — it may
   drift from the code; never hand-edit it.
-- Consult WakeCore via the **wakecore MCP** before adding UI: \`resolve_template\`, then \`resolve_widgets\`
+- Consult Core via the **core MCP** before adding UI: \`resolve_template\`, then \`resolve_widgets\`
   for the region, then \`validate_page\`. Only write custom code when nothing fits — and say so.
-- Import every WakeCore artifact from \`@wakecap/core-ui/<kebab-name>\` (e.g. \`@wakecap/core-ui/data-table\`).
+- Import every Core artifact from \`@core/core-ui/<kebab-name>\` (e.g. \`@core/core-ui/data-table\`).
   Derive the path from the name; never search node_modules.
 
-Editing happens here, in your editor. It reaches WakeCore Studio only after it is reviewed and merged.`;
+Editing happens here, in your editor. It reaches Core Studio only after it is reviewed and merged.`;
 
 // --- helpers ------------------------------------------------------------------------------------------
 
@@ -95,7 +95,7 @@ function terminalLaunch(editor: Editor, cli: string, location: string, prompt?: 
 	const invocation = cliInvocation(cli, prompt);
 	const command = `cd "${location}" && ${invocation}`; // copyable fallback (always returned)
 	const target = "terminal" as const;
-	if (process.env.WAKECORE_STUDIO_DRY_LAUNCH) return {launched: false, command, target};
+	if (process.env.CORE_STUDIO_DRY_LAUNCH) return {launched: false, command, target};
 	if (!editor.isAvailable()) return {launched: false, command, target};
 	if (process.platform === "darwin") return {launched: openTerminalMac(location, invocation), command, target};
 	return {launched: false, command, target}; // other platforms: hand back the copyable command
@@ -105,7 +105,7 @@ function terminalLaunch(editor: Editor, cli: string, location: string, prompt?: 
 function appLaunch(editor: Editor, bin: string, location: string): LaunchResult {
 	const command = `${bin} "${location}"`;
 	const target = "app" as const;
-	if (process.env.WAKECORE_STUDIO_DRY_LAUNCH) return {launched: false, command, target};
+	if (process.env.CORE_STUDIO_DRY_LAUNCH) return {launched: false, command, target};
 	if (!editor.isAvailable()) return {launched: false, command, target};
 	try {
 		spawn(bin, [location], {detached: true, stdio: "ignore"}).unref();
@@ -130,7 +130,7 @@ function openBrowserMac(url: string): boolean {
 // them so `cd <ws> && <cli>` works if the user prefers running the CLI locally.
 function browserLaunch(url: string): LaunchResult {
 	const target = "browser" as const;
-	if (process.env.WAKECORE_STUDIO_DRY_LAUNCH) return {launched: false, command: url, target};
+	if (process.env.CORE_STUDIO_DRY_LAUNCH) return {launched: false, command: url, target};
 	if (process.platform === "darwin") return {launched: openBrowserMac(url), command: url, target};
 	return {launched: false, command: url, target};
 }
@@ -147,11 +147,11 @@ const claudeEditor: Editor = {
 		return true;
 	},
 	prepare(location) {
-		writeFileSync(join(location, "CLAUDE.md"), `# WakeCore workspace\n\n${WAKECORE_POLICY}\n`, "utf8");
+		writeFileSync(join(location, "CLAUDE.md"), `# Core workspace\n\n${CORE_POLICY}\n`, "utf8");
 		writeJson(join(location, ".mcp.json"), MCP_CONFIG);
 		mkdirSync(join(location, ".claude"), {recursive: true});
 		writeJson(join(location, ".claude", "settings.json"), {
-			permissions: {allow: ["Read", "Edit", "Write", "Glob", "Grep", ...WAKECORE_MCP_TOOLS], deny: ["Bash", "Task"]},
+			permissions: {allow: ["Read", "Edit", "Write", "Glob", "Grep", ...CORE_MCP_TOOLS], deny: ["Bash", "Task"]},
 		});
 	},
 	launch() {
@@ -169,8 +169,8 @@ const cursorEditor: Editor = {
 		const rulesDir = join(location, ".cursor", "rules");
 		mkdirSync(rulesDir, {recursive: true});
 		writeFileSync(
-			join(rulesDir, "wakecore.mdc"),
-			`---\ndescription: WakeCore workspace rules\nalwaysApply: true\n---\n\n${WAKECORE_POLICY}\n`,
+			join(rulesDir, "core.mdc"),
+			`---\ndescription: Core workspace rules\nalwaysApply: true\n---\n\n${CORE_POLICY}\n`,
 			"utf8",
 		);
 		writeJson(join(location, ".cursor", "mcp.json"), MCP_CONFIG);
@@ -201,7 +201,7 @@ const geminiEditor: Editor = {
 		return onPath("gemini") !== null;
 	},
 	prepare(location) {
-		writeFileSync(join(location, "GEMINI.md"), `# WakeCore workspace\n\n${WAKECORE_POLICY}\n`, "utf8");
+		writeFileSync(join(location, "GEMINI.md"), `# Core workspace\n\n${CORE_POLICY}\n`, "utf8");
 		mkdirSync(join(location, ".gemini"), {recursive: true});
 		writeJson(join(location, ".gemini", "settings.json"), {mcpServers: MCP_CONFIG.mcpServers});
 	},

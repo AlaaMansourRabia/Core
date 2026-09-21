@@ -16,16 +16,16 @@ type Device = keyof typeof DEVICES;
 function shellDoc(origin: string): string {
 	return `<!doctype html><html><head><meta charset="utf-8">
 <base href="${origin}/">
-<link rel="stylesheet" href="/vendor/wakecore-render.css">
+<link rel="stylesheet" href="/vendor/core-render.css">
 <style>html,body{margin:0;height:100%;background:var(--background,#fff)}#r{min-height:100%}</style></head>
 <body><div id="r"></div>
-<script src="/vendor/wakecore-render.js"></script>
+<script src="/vendor/core-render.js"></script>
 <script>
 var root=document.getElementById("r");
 window.addEventListener("message",function(e){
   if(!e||!e.data) return;
   if(e.data.type==="wc-render"){
-    try{ window.WakeCore.renderModule(e.data.code, root); }
+    try{ window.Core.renderModule(e.data.code, root); }
     catch(err){ root.innerHTML="<pre style='padding:16px;color:#b91c1c;white-space:pre-wrap'>"+String(err)+"</pre>"; }
   } else if(e.data.type==="wc-set-theme"){
     document.documentElement.classList.toggle("dark", !!e.data.dark);
@@ -34,7 +34,7 @@ window.addEventListener("message",function(e){
 </script></body></html>`;
 }
 
-// Canonical Preview — renders one approved WakeCore template near full-screen with the real WakeCore
+// Canonical Preview — renders one approved Core template near full-screen with the real Core
 // renderer. Read-only: no chat, no agent, no session. The "Edit in Claude Code" action is a placeholder;
 // editing happens externally and appears here only after review + merge.
 export function Preview({templateId, onHome}: {templateId: string; onHome: () => void}) {
@@ -68,7 +68,7 @@ export function Preview({templateId, onHome}: {templateId: string; onHome: () =>
 			iframeRef.current?.contentWindow?.postMessage({type: "wc-render", code: result.compiled}, "*");
 	}, [shellReady, result]);
 
-	// Preview each template in its light or dark version (the class the WakeCore renderer themes on).
+	// Preview each template in its light or dark version (the class the Core renderer themes on).
 	useEffect(() => {
 		if (shellReady) iframeRef.current?.contentWindow?.postMessage({type: "wc-set-theme", dark: theme === "dark"}, "*");
 	}, [shellReady, theme]);
@@ -156,7 +156,7 @@ export function Preview({templateId, onHome}: {templateId: string; onHome: () =>
 			{/* Canonical note */}
 			<div className="wwc:flex wwc:items-center wwc:gap-2 wwc:border-b wwc:border-border wwc:bg-muted/40 wwc:px-4 wwc:py-1.5 wwc:text-xs wwc:text-muted-foreground">
 				<Code2 className="wwc:size-3.5 wwc:shrink-0" />
-				Studio previews official WakeCore. Editing happens externally and appears here only after review and merge.
+				Studio previews official Core. Editing happens externally and appears here only after review and merge.
 			</div>
 
 			{/* The canonical app is the hero */}
@@ -164,7 +164,7 @@ export function Preview({templateId, onHome}: {templateId: string; onHome: () =>
 				{busy && (
 					<div className="wwc:flex wwc:items-center wwc:gap-2 wwc:self-center wwc:text-sm wwc:text-muted-foreground">
 						<Loader2 className="wwc:size-4 wwc:animate-spin wwc:text-primary" />
-						Rendering canonical WakeCore…
+						Rendering canonical Core…
 					</div>
 				)}
 				{error && (
@@ -176,7 +176,7 @@ export function Preview({templateId, onHome}: {templateId: string; onHome: () =>
 				{!error && (
 					<iframe
 						ref={iframeRef}
-						title="WakeCore"
+						title="Core"
 						srcDoc={shell}
 						onLoad={() => setShellReady(true)}
 						sandbox="allow-scripts allow-same-origin"

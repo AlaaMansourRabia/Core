@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {HoverCard, HoverCardContent, HoverCardTrigger} from "@wakecap/core-ui/hover-card";
+import {Button} from "@core/core-ui/button";
+import {HoverCard, HoverCardContent, HoverCardTrigger} from "@core/core-ui/hover-card";
 
 const meta = {
 	title: "Components/Overlay/HoverCard",
@@ -16,13 +16,13 @@ export const Default: Story = {
 	render: () => (
 		<HoverCard>
 			<HoverCardTrigger asChild>
-				<Button variant="link">@wakecap</Button>
+				<Button variant="link">@core</Button>
 			</HoverCardTrigger>
 			<HoverCardContent>
 				<div className="wwc:flex wwc:justify-between wwc:space-x-4">
 					<div className="wwc:space-y-1">
-						<h4 className="wwc:text-sm wwc:font-semibold">@wakecap</h4>
-						<p className="wwc:text-sm">WakeCap Technologies - Smart construction safety solutions.</p>
+						<h4 className="wwc:text-sm wwc:font-semibold">@core</h4>
+						<p className="wwc:text-sm">Core Technologies - Smart construction safety solutions.</p>
 						<div className="wwc:flex wwc:items-center wwc:pt-2">
 							<span className="wwc:text-xs wwc:text-muted-foreground">Joined December 2021</span>
 						</div>
@@ -46,7 +46,7 @@ export const WithAvatar: Story = {
 					</div>
 					<div className="wwc:space-y-1">
 						<h4 className="wwc:text-sm wwc:font-semibold">John Doe</h4>
-						<p className="wwc:text-sm wwc:text-muted-foreground">Software Engineer at WakeCap</p>
+						<p className="wwc:text-sm wwc:text-muted-foreground">Software Engineer at Core</p>
 						<div className="wwc:flex wwc:items-center wwc:gap-2 wwc:pt-2">
 							<span className="wwc:text-xs wwc:text-muted-foreground">12 projects</span>
 							<span className="wwc:text-xs wwc:text-muted-foreground">48 contributions</span>

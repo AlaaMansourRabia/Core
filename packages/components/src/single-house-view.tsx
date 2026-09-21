@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import * as React from "react";
 
 import {Badge} from "./badge";
@@ -119,7 +119,7 @@ function FragmentViewerProvider({
 }
 
 /* ------------------------------------------------------------------ */
-/* Icons (inline so the file has no non-Wakecore imports)              */
+/* Icons (inline so the file has no non-Core imports)              */
 /* ------------------------------------------------------------------ */
 
 function IconHouse({className}: {className?: string}) {

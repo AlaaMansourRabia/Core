@@ -2,12 +2,12 @@
 
 > **Architecture-validation pilot. Design-only, zero-cost.** No generators, no `library-index.json`
 > changes, no package code, no widgets/templates, no evals. The deliverable is a strawman manifest
-> (`button.manifest.json`) + this analysis. Question it answers: **can WakeCore move to a single
+> (`button.manifest.json`) + this analysis. Question it answers: **can Core move to a single
 > unified artifact-manifest model — before we build widgets/templates?**
 
 ## 1. Goal & why Button
 
-**Goal:** prove that the three things WakeCore currently knows about a component — its *generated
+**Goal:** prove that the three things Core currently knows about a component — its *generated
 structure*, its *authored semantics*, and its *prop/type contract* — can collapse into **one
 source-of-truth manifest** from which today's `library-index.json` entry is a lossless *projection*,
 and whose skeleton **aligns with the widget/template manifest family**. If that holds for one
@@ -117,7 +117,7 @@ definition of the component↔widget boundary the blueprint asked for: **a data 
 
 ## 5. Recommendation
 
-**1. Should WakeCore move to one unified artifact-manifest model? — Yes.** The Button case shows the
+**1. Should Core move to one unified artifact-manifest model? — Yes.** The Button case shows the
 three current sources collapse with zero loss, the model *removes* an existing 5-way duplication
 (variant axes), and the skeleton is genuinely the same family as widgets/templates. The unification
 isn't cosmetic — it's what makes retrieval, tier expansion, and the learning store tractable later.

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/drawer.tsx",
-		"import": "@wakecap/core-ui/drawer",
+		"import": "@core/core-ui/drawer",
 		"export": "Drawer"
 	},
 	"tags": [

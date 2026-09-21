@@ -32,7 +32,7 @@ function safeFilename(value) {
 		value
 			.toLowerCase()
 			.replace(/[^a-z0-9]+/g, "-")
-			.replace(/^-+|-+$/g, "") || "wakecore-story"
+			.replace(/^-+|-+$/g, "") || "core-story"
 	);
 }
 
@@ -98,8 +98,8 @@ function generatedEntry({storyFile, exportName, storyId, title, theme}) {
 import React from "react";
 import {createRoot} from "react-dom/client";
 import {composeStory} from "@storybook/react";
-import * as storyModule from "wakecore:story-module";
-import "wakecore:preview-css";
+import * as storyModule from "core:story-module";
+import "core:preview-css";
 
 const storyExport = storyModule[${JSON.stringify(exportName)}];
 if (!storyExport) throw new Error(${JSON.stringify(`Story export ${exportName} was not found in ${storyFile}`)});
@@ -125,8 +125,8 @@ const Story = composeStory(storyExport, storyModule.default, projectAnnotations,
 const root = document.getElementById("root");
 const layout = Story.parameters?.layout ?? "padded";
 root.dataset.layout = layout;
-root.dataset.wakecoreRegion = "exported-story";
-root.dataset.wakecoreArtifact = ${JSON.stringify(storyId)};
+root.dataset.coreRegion = "exported-story";
+root.dataset.coreArtifact = ${JSON.stringify(storyId)};
 createRoot(root).render(React.createElement(Story));
 `;
 }
@@ -140,7 +140,7 @@ function generatedHtml(title, storyId) {
 		<title>${title.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")}</title>
 	</head>
 	<body>
-		<div id="root" data-wakecore-region="exported-story" data-wakecore-artifact="${storyId}"></div>
+		<div id="root" data-core-region="exported-story" data-core-artifact="${storyId}"></div>
 		<script type="module" src="/entry.tsx"></script>
 	</body>
 </html>`;
@@ -172,7 +172,7 @@ export async function buildStoryHtml({storyId, entry, theme = "light"}) {
 	}
 
 	const title = `${entry.title} — ${entry.name}`;
-	const stage = realpathSync(mkdtempSync(resolve(tmpdir(), "wakecore-story-html-")));
+	const stage = realpathSync(mkdtempSync(resolve(tmpdir(), "core-story-html-")));
 	const output = resolve(stage, "output");
 	writeFileSync(resolve(stage, "index.html"), generatedHtml(title, storyId));
 	writeFileSync(
@@ -196,8 +196,8 @@ export async function buildStoryHtml({storyId, entry, theme = "light"}) {
 			plugins: [react(), tailwindcss()],
 			resolve: {
 				alias: [
-					{find: "wakecore:story-module", replacement: storyFile},
-					{find: "wakecore:preview-css", replacement: PREVIEW_CSS},
+					{find: "core:story-module", replacement: storyFile},
+					{find: "core:preview-css", replacement: PREVIEW_CSS},
 					{find: "@storybook/react", replacement: storybookReactEntry},
 					{find: /^react(?=\/|$)/, replacement: reactDirectory},
 					{find: /^react-dom(?=\/|$)/, replacement: reactDomDirectory},

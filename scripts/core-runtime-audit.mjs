@@ -47,10 +47,10 @@ function plannedInteractions(route) {
 async function exerciseInteraction(page, interaction) {
 	if (!interaction?.id) return undefined;
 	try {
-		const selector = interaction.selector ?? `[data-wakecore-interaction=${JSON.stringify(interaction.id)}]`;
+		const selector = interaction.selector ?? `[data-core-interaction=${JSON.stringify(interaction.id)}]`;
 		const target = page.locator(selector).first();
 		await target.waitFor({state: "visible", timeout: 3_000});
-		if (interaction.action === "fill") await target.fill(interaction.value ?? "WakeCore audit");
+		if (interaction.action === "fill") await target.fill(interaction.value ?? "Core audit");
 		else if (interaction.action === "check") await target.check();
 		else if (interaction.action === "press") await target.press(interaction.value ?? "Enter");
 		else await target.click();
@@ -66,14 +66,14 @@ async function pageMetadata(page, domPersistent) {
 			const node = document.querySelector(selector);
 			return node?.getAttribute(attribute) ?? node?.textContent?.trim() ?? undefined;
 		};
-		const shell = document.querySelector("[data-wakecore-shell]");
-		const sidebar = document.querySelector('[data-wakecore-sidebar], [data-wakecore-artifact="core-app-sidebar"]');
-		const topBar = document.querySelector('[data-wakecore-top-bar], [data-wakecore-artifact="core-app-top-bar"]');
-		const footer = shell?.querySelector("[data-wakecore-shell-footer]");
+		const shell = document.querySelector("[data-core-shell]");
+		const sidebar = document.querySelector('[data-core-sidebar], [data-core-artifact="core-app-sidebar"]');
+		const topBar = document.querySelector('[data-core-top-bar], [data-core-artifact="core-app-top-bar"]');
+		const footer = shell?.querySelector("[data-core-shell-footer]");
 		const density = (node) =>
-			node?.getAttribute("data-wakecore-density") ?? node?.getAttribute("data-density") ?? undefined;
+			node?.getAttribute("data-core-density") ?? node?.getAttribute("data-density") ?? undefined;
 		const artifactId = (node, fallback) =>
-			node?.getAttribute("data-wakecore-artifact") ?? (node ? fallback : undefined);
+			node?.getAttribute("data-core-artifact") ?? (node ? fallback : undefined);
 		const styleProperties = (node) => {
 			if (!node) return undefined;
 			const style = getComputedStyle(node);
@@ -88,8 +88,8 @@ async function pageMetadata(page, domPersistent) {
 				fontSize: style.fontSize,
 			};
 		};
-		const regions = [...document.querySelectorAll("[data-wakecore-region]")]
-			.map((node) => node.getAttribute("data-wakecore-region"))
+		const regions = [...document.querySelectorAll("[data-core-region]")]
+			.map((node) => node.getAttribute("data-core-region"))
 			.filter(Boolean);
 		const accessibilityErrors = [...document.querySelectorAll("img:not([alt]), button:not([aria-label]):empty")].map(
 			(node) => `${node.tagName.toLowerCase()} is missing an accessible label`,
@@ -101,15 +101,15 @@ async function pageMetadata(page, domPersistent) {
 		};
 		const artifactNodes = [
 			...document.querySelectorAll(
-				'[data-wakecore-artifact="core-app-top-bar"], [data-wakecore-artifact="data-table"], [data-wakecore-artifact*="chart"], [data-wakecore-artifact*="tab"]',
+				'[data-core-artifact="core-app-top-bar"], [data-core-artifact="data-table"], [data-core-artifact*="chart"], [data-core-artifact*="tab"]',
 			),
 		];
 		if (topBar && !artifactNodes.includes(topBar)) artifactNodes.push(topBar);
 		const purposeCounts = new Map();
-		for (const node of document.querySelectorAll("[data-wakecore-affordance-purpose], input, textarea")) {
+		for (const node of document.querySelectorAll("[data-core-affordance-purpose], input, textarea")) {
 			if (!visible(node)) continue;
 			const purpose =
-				node.getAttribute("data-wakecore-affordance-purpose") ??
+				node.getAttribute("data-core-affordance-purpose") ??
 				node.getAttribute("placeholder") ??
 				node.getAttribute("aria-label") ??
 				node.getAttribute("name");
@@ -128,21 +128,21 @@ async function pageMetadata(page, domPersistent) {
 				duplicateSurfaceBoundaries.push({artifactId: "core-app-top-bar", owner: "next-sibling", edge: "top"});
 		}
 		return {
-			shellId: shell?.getAttribute("data-wakecore-shell") ?? "missing",
-			sidebar: value("[data-wakecore-sidebar]", "data-wakecore-sidebar"),
-			topBar: value("[data-wakecore-top-bar]", "data-wakecore-top-bar"),
+			shellId: shell?.getAttribute("data-core-shell") ?? "missing",
+			sidebar: value("[data-core-sidebar]", "data-core-sidebar"),
+			topBar: value("[data-core-top-bar]", "data-core-top-bar"),
 			shellFingerprint: {
-				shellId: shell?.getAttribute("data-wakecore-shell") ?? "missing",
+				shellId: shell?.getAttribute("data-core-shell") ?? "missing",
 				sidebarArtifactId: artifactId(sidebar, "core-app-sidebar"),
 				topBarArtifactId: artifactId(topBar, "core-app-top-bar"),
-				density: shell?.getAttribute("data-wakecore-density") ?? undefined,
+				density: shell?.getAttribute("data-core-density") ?? undefined,
 				sidebarDensity: density(sidebar),
 				topBarDensity: density(topBar),
 				brandKey:
-					shell?.getAttribute("data-wakecore-brand") ?? sidebar?.getAttribute("data-wakecore-brand") ?? undefined,
-				navigationFingerprint: sidebar?.getAttribute("data-wakecore-navigation-fingerprint") ?? undefined,
-				footerFingerprint: footer?.getAttribute("data-wakecore-footer-fingerprint") ?? undefined,
-				providerOwner: shell?.getAttribute("data-wakecore-provider-owner") ?? undefined,
+					shell?.getAttribute("data-core-brand") ?? sidebar?.getAttribute("data-core-brand") ?? undefined,
+				navigationFingerprint: sidebar?.getAttribute("data-core-navigation-fingerprint") ?? undefined,
+				footerFingerprint: footer?.getAttribute("data-core-footer-fingerprint") ?? undefined,
+				providerOwner: shell?.getAttribute("data-core-provider-owner") ?? undefined,
 				domPersistent: persistent,
 			},
 			navigationMaterial: sidebar
@@ -154,41 +154,41 @@ async function pageMetadata(page, domPersistent) {
 			footerMaterial: footer?.textContent?.trim() ?? "",
 			ownedStyles: artifactNodes.map((node) => ({
 				artifactId: artifactId(node, node === topBar ? "core-app-top-bar" : "unknown"),
-				region: node.getAttribute("data-wakecore-region") ?? (node === topBar ? "shell.top-bar" : undefined),
-				variant: node.getAttribute("data-wakecore-variant") ?? undefined,
-				surface: node.getAttribute("data-wakecore-surface") ?? undefined,
+				region: node.getAttribute("data-core-region") ?? (node === topBar ? "shell.top-bar" : undefined),
+				variant: node.getAttribute("data-core-variant") ?? undefined,
+				surface: node.getAttribute("data-core-surface") ?? undefined,
 				properties: styleProperties(node),
 			})),
 			duplicateAffordances: [...purposeCounts].map(([purpose, count]) => ({purpose, count})),
 			duplicateSurfaceBoundaries,
-			canvasCapabilities: [...document.querySelectorAll("[data-wakecore-canvas-capabilities]")].map((node) => ({
-				region: node.closest("[data-wakecore-region]")?.getAttribute("data-wakecore-region") ?? "canvas",
-				capabilities: (node.getAttribute("data-wakecore-canvas-capabilities") ?? "")
+			canvasCapabilities: [...document.querySelectorAll("[data-core-canvas-capabilities]")].map((node) => ({
+				region: node.closest("[data-core-region]")?.getAttribute("data-core-region") ?? "canvas",
+				capabilities: (node.getAttribute("data-core-canvas-capabilities") ?? "")
 					.split(",")
 					.map((value) => value.trim())
 					.filter(Boolean),
-				observableStateChanged: node.getAttribute("data-wakecore-observable-state-changed") === "true",
+				observableStateChanged: node.getAttribute("data-core-observable-state-changed") === "true",
 			})),
-			navigationAffordances: [...document.querySelectorAll("[data-wakecore-navigation-purpose]")]
+			navigationAffordances: [...document.querySelectorAll("[data-core-navigation-purpose]")]
 				.filter(visible)
 				.map((node) => ({
-					purpose: node.getAttribute("data-wakecore-navigation-purpose") ?? "unknown",
-					relationship: node.getAttribute("data-wakecore-navigation-relationship") ?? "unknown",
+					purpose: node.getAttribute("data-core-navigation-purpose") ?? "unknown",
+					relationship: node.getAttribute("data-core-navigation-relationship") ?? "unknown",
 					destination:
-						node.getAttribute("href") ?? node.getAttribute("data-wakecore-navigation-destination") ?? undefined,
+						node.getAttribute("href") ?? node.getAttribute("data-core-navigation-destination") ?? undefined,
 				})),
-			title: value("[data-wakecore-title], main h1", "data-wakecore-title"),
-			mainAction: value("[data-wakecore-main-action]", "data-wakecore-main-action"),
+			title: value("[data-core-title], main h1", "data-core-title"),
+			mainAction: value("[data-core-main-action]", "data-core-main-action"),
 			regions,
 			accessibilityErrors,
 		};
 	}, domPersistent);
 	metadata.shellGeometry = await page.evaluate(async () => {
-		const shell = document.querySelector("[data-wakecore-shell]");
-		const sidebar = document.querySelector('[data-wakecore-sidebar], [data-wakecore-artifact="core-app-sidebar"]');
-		const topBar = document.querySelector('[data-wakecore-top-bar], [data-wakecore-artifact="core-app-top-bar"]');
+		const shell = document.querySelector("[data-core-shell]");
+		const sidebar = document.querySelector('[data-core-sidebar], [data-core-artifact="core-app-sidebar"]');
+		const topBar = document.querySelector('[data-core-top-bar], [data-core-artifact="core-app-top-bar"]');
 		const content = document.querySelector(
-			'[data-wakecore-content-scroll], [data-wakecore-scroll-owner="route-content"]',
+			'[data-core-content-scroll], [data-core-scroll-owner="route-content"]',
 		);
 		const shellRect = shell?.getBoundingClientRect();
 		const sidebarBefore = sidebar?.getBoundingClientRect();
@@ -246,11 +246,11 @@ async function auditResponsiveViewports(page) {
 				const rect = node.getBoundingClientRect();
 				return {left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom, width: rect.width, height: rect.height};
 			};
-			const groups = [...document.querySelectorAll("[data-wakecore-responsive-group]")]
+			const groups = [...document.querySelectorAll("[data-core-responsive-group]")]
 				.filter(visible)
 				.map((node) => ({
-					id: node.getAttribute("data-wakecore-responsive-group") ?? "unknown",
-					priority: node.getAttribute("data-wakecore-responsive-priority") ?? undefined,
+					id: node.getAttribute("data-core-responsive-group") ?? "unknown",
+					priority: node.getAttribute("data-core-responsive-priority") ?? undefined,
 					...rectOf(node),
 				}));
 			const overlaps = [];
@@ -261,7 +261,7 @@ async function auditResponsiveViewports(page) {
 					const intersects = a.left < b.right - 1 && a.right > b.left + 1 && a.top < b.bottom - 1 && a.bottom > b.top + 1;
 					if (intersects) overlaps.push({first: a.id, second: b.id});
 				}
-			const splitGroups = [...document.querySelectorAll("[data-wakecore-responsive-atomic]")]
+			const splitGroups = [...document.querySelectorAll("[data-core-responsive-atomic]")]
 				.filter(visible)
 				.flatMap((node) => {
 					const children = [...node.children].filter(visible);
@@ -271,7 +271,7 @@ async function auditResponsiveViewports(page) {
 					});
 					const split = centers.length > 1 && Math.max(...centers) - Math.min(...centers) > 3;
 					return split
-						? [node.getAttribute("data-wakecore-responsive-group") ?? "unnamed-atomic-group"]
+						? [node.getAttribute("data-core-responsive-group") ?? "unnamed-atomic-group"]
 						: [];
 				});
 			const unlabeledIconActions = [...document.querySelectorAll("button")]
@@ -317,7 +317,7 @@ export async function auditRuntime({baseUrl, plan, chromium}) {
 			page.on("request", navigation);
 			const target = new URL(routePath(route), baseUrl).href;
 			const previousShell = await page
-				.locator("[data-wakecore-shell]")
+				.locator("[data-core-shell]")
 				.elementHandle()
 				.catch(() => null);
 			if (page.url() === "about:blank") {
@@ -325,7 +325,7 @@ export async function auditRuntime({baseUrl, plan, chromium}) {
 				reloadDetected = false;
 			} else {
 				const path = new URL(target).pathname;
-				const routeLink = page.locator(`[data-wakecore-route-link][href=${JSON.stringify(path)}]`).first();
+				const routeLink = page.locator(`[data-core-route-link][href=${JSON.stringify(path)}]`).first();
 				if ((await routeLink.count()) > 0) {
 					await routeLink.click();
 					await page.waitForURL(target, {timeout: 5_000}).catch(() => undefined);
@@ -337,7 +337,7 @@ export async function auditRuntime({baseUrl, plan, chromium}) {
 			}
 			const domPersistent = previousShell
 				? await previousShell
-						.evaluate((node) => node === document.querySelector("[data-wakecore-shell]"))
+						.evaluate((node) => node === document.querySelector("[data-core-shell]"))
 						.catch(() => false)
 				: true;
 			const responsiveAudits = await auditResponsiveViewports(page);
@@ -348,7 +348,7 @@ export async function auditRuntime({baseUrl, plan, chromium}) {
 				if (result) interactions.push(result);
 			}
 			let historyBackPassed = true;
-			const historyProbeSelector = route.historyProbeSelector ?? "[data-wakecore-route-link]";
+			const historyProbeSelector = route.historyProbeSelector ?? "[data-core-route-link]";
 			if ((await page.locator(historyProbeSelector).count()) > 0) {
 				const before = page.url();
 				try {
@@ -383,7 +383,7 @@ async function main() {
 	const routes = await auditRuntime({baseUrl: args.url, plan, chromium});
 	const generatedAt = new Date().toISOString();
 	const evidence = {
-		producer: "wakecore-runtime-audit/4",
+		producer: "core-runtime-audit/4",
 		version: "4",
 		planId: plan.planId,
 		generatedAt,

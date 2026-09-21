@@ -38,10 +38,10 @@ import {ToggleGroup, ToggleGroupItem} from "../toggle-group";
 import {toneFor} from "../tones";
 import type {ViewTabItem} from "../view-tab-bar";
 
-// The marketplace half of WakeCap Connect, shared by both product releases so there is exactly one
+// The marketplace half of Core Connect, shared by both product releases so there is exactly one
 // app catalogue, one install lifecycle and one store surface:
 //   • V1 (AppInstaller) — the standalone end-user portal, where the store IS the app.
-//   • V2 (WakeCapConnect) — the store merged into the admin workspace as one more surface.
+//   • V2 (CoreConnect) — the store merged into the admin workspace as one more surface.
 // Everything here is release-agnostic: the catalogue, the install state machine, and the surfaces.
 // Which shell they hang in, and what else sits beside them, is the template's business.
 
@@ -285,7 +285,7 @@ export function HomeSurface({
 					className="wwc:min-h-[70vh]"
 					icon={<LayoutGrid className="wwc:h-8 wwc:w-8" />}
 					title={`Welcome, ${userName}`}
-					description="WakeCap — the first construction operating system. You don't have any apps yet. Head to the App Store to install your first app, or tap the + in the sidebar anytime."
+					description="Core — the first construction operating system. You don't have any apps yet. Head to the App Store to install your first app, or tap the + in the sidebar anytime."
 					action={
 						<Button size="lg" className="wwc:gap-2" onClick={onBrowse}>
 							<Store className="wwc:h-4 wwc:w-4" />
@@ -304,7 +304,7 @@ export function HomeSurface({
 					<div>
 						<h1 className="wwc:text-2xl wwc:font-semibold wwc:tracking-tight">Welcome, {userName}</h1>
 						<p className="wwc:mt-1 wwc:text-sm wwc:text-muted-foreground">
-							WakeCap — the first construction operating system. Jump into an app, or add more from the App Store.
+							Core — the first construction operating system. Jump into an app, or add more from the App Store.
 						</p>
 					</div>
 					<Button variant="outline" className="wwc:shrink-0 wwc:gap-1.5" onClick={onBrowse}>

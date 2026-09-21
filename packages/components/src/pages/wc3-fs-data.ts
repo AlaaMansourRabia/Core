@@ -1,6 +1,6 @@
 import type {FileSystemNode} from "../file-system";
 
-// The WakeCap Connect file system — the address space, and nothing else.
+// The Core Connect file system — the address space, and nothing else.
 //
 // Every surface in this workspace already owns its records: WC3_PIPELINES, WC3_PROCESSES,
 // WC3_OBJECT_TYPES, WC3_ACTION_TYPES, WC3_PRODUCTS. What none of them had was an ADDRESS. This module
@@ -19,7 +19,7 @@ import type {FileSystemNode} from "../file-system";
  * tree, so two lists would mean a selectable org with no files.
  */
 export const WC3_ORGANIZATIONS = [
-	"WakeCap Construction",
+	"Core Construction",
 	"BuildRight Inc",
 	"Metro Developers",
 	"Nesma United Industries",
@@ -27,7 +27,7 @@ export const WC3_ORGANIZATIONS = [
 
 // ─── The tree ────────────────────────────────────────────────────────────────
 //
-// WakeCap Construction carries the real tree: every one of the sixteen object types, all three
+// Core Construction carries the real tree: every one of the sixteen object types, all three
 // pipelines, both processes, five action types and the Capture product, each addressed EXACTLY ONCE.
 // One address per record is what keeps the reverse lookup a plain map — a record in two folders has no
 // single answer to "where does this live?", which is the question every app listing asks.
@@ -37,15 +37,15 @@ export const WC3_ORGANIZATIONS = [
 // org switcher visibly change the tree without a record needing two homes.
 
 export const WC3_FS_NODES: FileSystemNode[] = [
-	// ── WakeCap Construction ──────────────────────────────────────────────────
-	{id: "org-wakecap", name: "WakeCap Construction", kind: "root", parentId: null, updatedAt: "Today", updatedTs: 900},
+	// ── Core Construction ──────────────────────────────────────────────────
+	{id: "org-core", name: "Core Construction", kind: "root", parentId: null, updatedAt: "Today", updatedTs: 900},
 
 	{
 		id: "prj-falcon",
 		name: "Falcon Heights Medical Tower",
 		description: "42-storey medical tower in Riyadh. BIM intake, schedule sync and the built-asset ontology live here.",
 		kind: "project",
-		parentId: "org-wakecap",
+		parentId: "org-core",
 		updatedAt: "Tue, Sep 8, 2026, 9:14 AM",
 		updatedTs: 890,
 		tags: ["healthcare", "riyadh"],
@@ -193,7 +193,7 @@ export const WC3_FS_NODES: FileSystemNode[] = [
 		name: "Uptown Tower",
 		description: "Commercial tower running the safety and permitting processes end to end.",
 		kind: "project",
-		parentId: "org-wakecap",
+		parentId: "org-core",
 		updatedAt: "Mon, Sep 7, 2026, 2:45 PM",
 		updatedTs: 868,
 		tags: ["commercial"],
@@ -282,7 +282,7 @@ export const WC3_FS_NODES: FileSystemNode[] = [
 		name: "Marina Heights",
 		description: "Residential development. Workforce and zone-access records for the site.",
 		kind: "project",
-		parentId: "org-wakecap",
+		parentId: "org-core",
 		updatedAt: "Fri, Sep 4, 2026, 3:22 PM",
 		updatedTs: 836,
 		tags: ["residential"],
@@ -380,7 +380,7 @@ export const WC3_FS_NODES: FileSystemNode[] = [
 		description:
 			"Infrastructure package. Equipment, sensors and logistics, plus the platform products installed on it.",
 		kind: "project",
-		parentId: "org-wakecap",
+		parentId: "org-core",
 		updatedAt: "Wed, Sep 2, 2026, 7:30 AM",
 		updatedTs: 818,
 		tags: ["infrastructure", "neom"],

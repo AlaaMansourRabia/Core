@@ -1,8 +1,8 @@
 import * as React from "react";
 
 /**
- * The WakeCap bot mark. A single glyph with no tile of its own, so it takes `currentColor`:
- * on a light surface it renders as the Wakecap-Bot-Black export, on a dark one as Wakecap-Bot-White.
+ * The Core bot mark. A single glyph with no tile of its own, so it takes `currentColor`:
+ * on a light surface it renders as the Core-Bot-Black export, on a dark one as Core-Bot-White.
  *
  * The eyes blink twice: every 5s each one collapses toward its own middle and reopens, twice in
  * quick succession (100ms a lid), then holds open for the rest of the cycle. They are cut out of
@@ -12,14 +12,14 @@ import * as React from "react";
  * resolve against each eye's own box, so it closes from both edges instead of sliding upward.
  *
  * The keyframes ride inside the SVG rather than in the Tailwind layer: the two hand-maintained
- * `wakecore-render.css` sheets have no generator, so a utility-based animation would have to be
+ * `core-render.css` sheets have no generator, so a utility-based animation would have to be
  * patched into both by hand or silently vanish in Studio and open-design.
  *
  * Internal — shared by `FloatingAssistant` (its trigger) and `AIChat` (its empty state). It lives
  * in its own module because `FloatingAssistant` already imports `AIChat`, so re-exporting it from
  * there would make the two files circular.
  */
-export function WakecapMark({className}: {className?: string}) {
+export function CoreMark({className}: {className?: string}) {
 	const uid = React.useId().replace(/:/g, "");
 	const maskId = `${uid}-eyes`;
 

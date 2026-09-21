@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Card, CardContent} from "@wakecap/core-ui/card";
-import {RecordDetailShell} from "@wakecap/core-ui/record-detail-shell";
+import {Card, CardContent} from "@core/core-ui/card";
+import {RecordDetailShell} from "@core/core-ui/record-detail-shell";
 import {useState} from "react";
 
 const SECTIONS = [

@@ -1,1 +1,1 @@
-export {Checkbox} from "@wakecap/core-ui/checkbox";
+export {Checkbox} from "@core/core-ui/checkbox";

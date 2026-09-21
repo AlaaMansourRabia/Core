@@ -58,7 +58,7 @@ export function PublishScreen({
 		.toLowerCase()
 		.replace(/[^a-z0-9]+/g, "-")
 		.replace(/(^-|-$)/g, "");
-	const shareUrl = `https://forms.wakecap.com/${slug || "my-form"}`;
+	const shareUrl = `https://forms.core.com/${slug || "my-form"}`;
 
 	function copy() {
 		try {

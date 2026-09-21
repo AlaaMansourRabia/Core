@@ -9,14 +9,14 @@
 	"version": "1.0.0",
 	"manifestStatus": "draft",
 	"product": {
-		"name": "WakeCap Connect",
+		"name": "Core Connect",
 		"release": "V1",
 		"role": "User Portal",
 		"pairedWith": ["wc3-workspace"]
 	},
 	"source": {
 		"path": "packages/components/src/pages/core-app-installer.tsx",
-		"import": "@wakecap/core-ui/pages/core-app-installer",
+		"import": "@core/core-ui/pages/core-app-installer",
 		"export": "AppInstaller"
 	},
 	"tags": [
@@ -35,7 +35,7 @@
 	],
 	"intent": "Marketplace / app-installer scaffold: a full app shell (CoreAppSidebar + CoreAppTopBar) with a single \"Home\" sidebar entry plus the shared \"App Store\" plus below it. Home is the landing surface — a welcome hero greeting the user with a Browse App Store CTA while nothing is installed, and an app launcher grid once apps exist. The App Store surface is a PageContentHeader with two tabs (App Store / Installed Apps), a scrollable category pill filter, search with match highlighting, and a responsive grid of app cards (icon, category, blurb, Installed badge) each carrying a Details dialog and an Install / Uninstall action.",
 	"when": [
-		"Building the marketplace / app-installer surface where users browse and install WakeCap apps",
+		"Building the marketplace / app-installer surface where users browse and install Core apps",
 		"A catalog surface that owns its own app shell and organizes content by a peer tab set in the header"
 	],
 	"whenNot": [
@@ -75,7 +75,7 @@
 	],
 	"allowedPlacement": ["route-level marketplace / app-installer surface that owns the full window"],
 	"forbiddenPlacement": ["inside another CoreAppSidebar/CoreAppTopBar shell", "inside a Card or Dialog"],
-	"minimalExample": "// AppInstaller is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@wakecap/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@wakecap/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@wakecap/core-ui/page-content-header\";\nimport {ViewTabBar} from \"@wakecap/core-ui/view-tab-bar\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"minimalExample": "// AppInstaller is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@core/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@core/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@core/core-ui/page-content-header\";\nimport {ViewTabBar} from \"@core/core-ui/view-tab-bar\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Round 3 branch (2026-07-28)",

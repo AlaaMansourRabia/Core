@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/navigation-menu.tsx",
-		"import": "@wakecap/core-ui/navigation-menu",
+		"import": "@core/core-ui/navigation-menu",
 		"export": "NavigationMenu"
 	},
 	"tags": [
@@ -31,7 +31,7 @@
 		},
 		{
 			"component": "CoreContextTabs",
-			"because": "CoreContextTabs inside the WakeCap shell"
+			"because": "CoreContextTabs inside the Core shell"
 		}
 	],
 	"pairsWith": [],

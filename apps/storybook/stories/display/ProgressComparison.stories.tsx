@@ -4,7 +4,7 @@ import {
 	ProgressComparison,
 	type ProgressComparisonMilestone,
 	type ProgressComparisonStat,
-} from "@wakecap/core-ui/progress-comparison";
+} from "@core/core-ui/progress-comparison";
 
 const STATS: ProgressComparisonStat[] = [
 	{label: "PV", value: "$160,604"},

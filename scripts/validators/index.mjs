@@ -3,7 +3,7 @@
 // These pure graders are written ONCE and reused three ways:
 //   - eval graders        (P1b — score with/without-skills agent output)
 //   - CI integrity gates  (P2  — validate-catalog.mjs)
-//   - shippable validator (P3  — extract to @wakecap/validate)
+//   - shippable validator (P3  — extract to @core/validate)
 //
 // gradeSnippet() runs all four metric validators and returns a flat Finding[] plus a
 // per-metric pass/fail roll-up.
@@ -89,7 +89,7 @@ export function gradeFileSet(files, task = {}, catalog = loadCatalog()) {
 				? `${failures.length} hard-coded ${category} value(s) found.`
 				: `No hard-coded ${category} values found.`,
 			suggestedFix: failures.length
-				? "Replace authored literals with WakeCore CSS variables, or document a narrow wakecore-token-exception."
+				? "Replace authored literals with Core CSS variables, or document a narrow core-token-exception."
 				: "",
 			source: failures[0] ? `${failures[0].path}:${failures[0].line}` : "file-set",
 		});
@@ -98,10 +98,10 @@ export function gradeFileSet(files, task = {}, catalog = loadCatalog()) {
 		metric: "token-provenance",
 		pass: tokenProvenance.issues.length === 0,
 		reason: tokenProvenance.issues.length
-			? `${tokenProvenance.issues.length} CSS variable usage(s) do not terminate in a recognized WakeCore token.`
-			: "All CSS variable usages terminate in recognized WakeCore tokens.",
+			? `${tokenProvenance.issues.length} CSS variable usage(s) do not terminate in a recognized Core token.`
+			: "All CSS variable usages terminate in recognized Core tokens.",
 		suggestedFix: tokenProvenance.issues.length
-			? "Replace literal-backed, unresolved, or cyclic variables with aliases that terminate in @wakecap/core-tokens variables."
+			? "Replace literal-backed, unresolved, or cyclic variables with aliases that terminate in @core/core-tokens variables."
 			: "",
 		source: tokenProvenance.issues[0]
 			? `${tokenProvenance.issues[0].path}:${tokenProvenance.issues[0].line}`
@@ -121,11 +121,11 @@ export function gradeFileSet(files, task = {}, catalog = loadCatalog()) {
 		metric: "token-semantics",
 		pass: tokenSemantics.pass,
 		reason: tokenSemantics.pass
-			? "All WakeCore token references exist, preserve semantic roles, and use compatible CSS syntax."
+			? "All Core token references exist, preserve semantic roles, and use compatible CSS syntax."
 			: `${semanticIssueCount} token semantic/syntax issue(s) found.`,
 		suggestedFix: tokenSemantics.pass
 			? ""
-			: "Use existing semantic WakeCore tokens by purpose, remove reference-palette aliases, and do not wrap complete color tokens in hsl()/rgb().",
+			: "Use existing semantic Core tokens by purpose, remove reference-palette aliases, and do not wrap complete color tokens in hsl()/rgb().",
 		source: firstSemanticIssue ? `${firstSemanticIssue.path}:${firstSemanticIssue.line}` : "file-set",
 	});
 	findings.push({
@@ -135,7 +135,7 @@ export function gradeFileSet(files, task = {}, catalog = loadCatalog()) {
 			? `${tokenSemantics.sourceColors.length} raw color literal(s) found in TS/TSX/JS configuration or SVG props.`
 			: "No raw color literals found in TS/TSX/JS configuration or SVG props.",
 		suggestedFix: tokenSemantics.sourceColors.length
-			? "Replace chart, inline-style, and SVG color literals with existing WakeCore semantic or chart tokens."
+			? "Replace chart, inline-style, and SVG color literals with existing Core semantic or chart tokens."
 			: "",
 		source: tokenSemantics.sourceColors[0]
 			? `${tokenSemantics.sourceColors[0].path}:${tokenSemantics.sourceColors[0].line}`
@@ -145,11 +145,11 @@ export function gradeFileSet(files, task = {}, catalog = loadCatalog()) {
 		metric: "css-ownership",
 		pass: cssOwnership.pass,
 		reason: cssOwnership.pass
-			? "No excessive application-owned widget anatomy or internal WakeCore overrides found."
+			? "No excessive application-owned widget anatomy or internal Core overrides found."
 			: `${cssOwnership.issues.length} CSS ownership risk(s) found: ${cssOwnership.issues.map((issue) => issue.kind).join(", ")}.`,
 		suggestedFix: cssOwnership.pass
 			? ""
-			: "Use WakeCore-owned regions and public styling APIs; remove internal selector overrides and broad custom visual systems.",
+			: "Use Core-owned regions and public styling APIs; remove internal selector overrides and broad custom visual systems.",
 		source: cssOwnership.internalOverrides[0]
 			? `${cssOwnership.internalOverrides[0].path}:${cssOwnership.internalOverrides[0].line}`
 			: "file-set",

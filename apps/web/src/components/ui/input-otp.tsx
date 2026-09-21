@@ -1,1 +1,1 @@
-export {InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator} from "@wakecap/core-ui/input-otp";
+export {InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator} from "@core/core-ui/input-otp";

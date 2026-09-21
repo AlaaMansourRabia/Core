@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// The Vercel build for core.wakecap.com. Kept in a script because vercel.json's `buildCommand` is
-// capped at 256 chars. The unified app IS apps/web: its App.tsx is the WakeCore Hub shell
+// The Vercel build for core.core.com. Kept in a script because vercel.json's `buildCommand` is
+// capped at 256 chars. The unified app IS apps/web: its App.tsx is the Core Hub shell
 // (CoreAppSidebar + CoreAppTopBar) with four tabs — Designers Hub (mounted natively, no iframe),
 // Storybook (new-tab link), Studio (runs-locally card), Developer Access (hosted MCP). We build:
 //
@@ -23,7 +23,7 @@ function run(cmd, env = {}) {
 run("node scripts/validate-hosted-assets.mjs");
 
 // Shared libraries + the knowledge core (their consumers below resolve the built dist).
-run("pnpm exec nx run-many -t build -p @wakecap/core-ui @wakecap/core-tokens @wakecap/core-utils @wakecap/knowledge");
+run("pnpm exec nx run-many -t build -p @core/core-ui @core/core-tokens @core/core-utils @core/knowledge");
 
 // The app (served at "/") and Storybook (served at "/storybook/", opened in a new tab).
 run("pnpm --filter apps-web build");

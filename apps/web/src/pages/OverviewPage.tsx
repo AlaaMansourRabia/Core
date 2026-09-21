@@ -43,11 +43,11 @@ function CategoryGrid({categories}: {categories: ComponentCategory[]}) {
 
 export function OverviewPage() {
 	return (
-		<div className="wwc:space-y-8" data-wakecore-region="catalog-content" data-wakecore-surface-owner="route">
+		<div className="wwc:space-y-8" data-core-region="catalog-content" data-core-surface-owner="route">
 			{/* Hero banner */}
 			<img
 				src={`${import.meta.env.BASE_URL}designers-hub-hero.png`}
-				alt="Wakecore — One Artifact Library: Tokens → Components → Widgets → Templates → Knowledge → AI"
+				alt="Core — One Artifact Library: Tokens → Components → Widgets → Templates → Knowledge → AI"
 				className="wwc:w-full wwc:rounded-xl wwc:border wwc:border-border"
 			/>
 
@@ -55,7 +55,7 @@ export function OverviewPage() {
 			<div>
 				<h1 className="wwc:text-3xl wwc:font-bold">Overview</h1>
 				<p className="wwc:text-muted-foreground wwc:mt-2">
-					Every theme token, component, widget, and template in the Wakecore design system — grouped exactly as they
+					Every theme token, component, widget, and template in the Core design system — grouped exactly as they
 					appear in the sidebar.
 				</p>
 			</div>

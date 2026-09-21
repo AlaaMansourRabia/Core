@@ -1,1 +1,1 @@
-export {Tooltip, TooltipTrigger, TooltipContent, TooltipProvider} from "@wakecap/core-ui/tooltip";
+export {Tooltip, TooltipTrigger, TooltipContent, TooltipProvider} from "@core/core-ui/tooltip";

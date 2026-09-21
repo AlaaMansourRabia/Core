@@ -1,18 +1,18 @@
-# WakeCore — Execution Roadmap
+# Core — Execution Roadmap
 
-> **What this is.** The canonical execution roadmap for WakeCore. It operationalizes the architecture in
-> [`WAKECORE-ARCHITECTURE.md`](./WAKECORE-ARCHITECTURE.md) and [`WAKECORE-NEXT.md`](./WAKECORE-NEXT.md)
+> **What this is.** The canonical execution roadmap for Core. It operationalizes the architecture in
+> [`CORE-ARCHITECTURE.md`](./CORE-ARCHITECTURE.md) and [`CORE-NEXT.md`](./CORE-NEXT.md)
 > into concrete workstreams, deliverables, and acceptance criteria, grounded in the **current** state of
 > the repo (post-#128). It is organized around **two parallel tracks** (below).
 >
 > **What this is not.** The architecture itself. The vision, the artifact/runtime model, the manifest
-> schema, and the "why" live in [`WAKECORE-ARCHITECTURE.md`](./WAKECORE-ARCHITECTURE.md),
-> [`WAKECORE-NEXT.md`](./WAKECORE-NEXT.md), [`TIER-ARCHITECTURE.md`](./TIER-ARCHITECTURE.md),
+> schema, and the "why" live in [`CORE-ARCHITECTURE.md`](./CORE-ARCHITECTURE.md),
+> [`CORE-NEXT.md`](./CORE-NEXT.md), [`TIER-ARCHITECTURE.md`](./TIER-ARCHITECTURE.md),
 > [`ARTIFACT-CLASSIFICATION.md`](./ARTIFACT-CLASSIFICATION.md), and
 > [`BUILDER-CONSUMPTION-WALKTHROUGH.md`](./BUILDER-CONSUMPTION-WALKTHROUGH.md). This doc sequences the
 > work to get there; it does not restate them.
 >
-> **Thesis.** WakeCore is a substrate and knowledge platform for agent-built UI. The design system is the
+> **Thesis.** Core is a substrate and knowledge platform for agent-built UI. The design system is the
 > **floor**; the product is the **flywheel** — knowledge that provably improves each time an agent
 > exercises it. This roadmap describes how to build the flywheel without it polluting itself, while the
 > design system underneath it keeps improving.
@@ -21,9 +21,9 @@
 
 ## The two-track model
 
-WakeCore evolves as **two products in parallel**, not one linear program of work.
+Core evolves as **two products in parallel**, not one linear program of work.
 
-**Track A — Platform Evolution (the brain).** Everything that makes WakeCore agent-native: the unified
+**Track A — Platform Evolution (the brain).** Everything that makes Core agent-native: the unified
 knowledge model, manifest generation, lineage, knowledge resolution, evaluation, the runtime/builder, the
 learning flywheel, and optimization. These stages have hard dependencies and **must remain sequential** —
 each builds on the last; skipping ahead builds on sand.
@@ -45,7 +45,7 @@ improve continuously, and in doing so they exercise and validate the platform.
 Neither track blocks the other. What Track A _does_ govern is the **depth of investment** Track B can bank
 before it would have to be re-done: an artifact reaches full manifest maturity as the platform stages that
 define that maturity land (see the sequencing note under Track B). This preserves the one real caution from
-`WAKECORE-ARCHITECTURE §X / §XI.4` — _don't mass-author artifact knowledge against an immature schema_ —
+`CORE-ARCHITECTURE §X / §XI.4` — _don't mass-author artifact knowledge against an immature schema_ —
 without pausing artifact evolution.
 
 > **ID convention.** Track A platform stages are `A1–A6`. Track B sections are named (Components, Widgets,
@@ -58,7 +58,7 @@ without pausing artifact evolution.
 
 | Layer                                | Track | State                        | Concrete                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------ | ----- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Foundation**                       | —     | ✅ done                      | `@wakecap/core-ui` (122 catalogued subpaths → 118 UI artifacts), `@wakecap/core-tokens`, `@wakecap/core-utils`; React + Tailwind 4 (`wwc:`), Storybook                                                                                                                                                               |
+| **Foundation**                       | —     | ✅ done                      | `@core/core-ui` (122 catalogued subpaths → 118 UI artifacts), `@core/core-tokens`, `@core/core-utils`; React + Tailwind 4 (`wwc:`), Storybook                                                                                                                                                               |
 | **Semantic knowledge**               | A     | ✅ shipped, **but 3 shapes** | `library-index.json` (118 entries, 51 full / 67 concise / 0 generated) · `patterns[]` · TanStack-Intent skills · `domain_map.yaml` (27 `fm-*`) — _hand-authored in parallel_                                                                                                                                         |
 | **Tier classification**              | A/B   | ✅ merged #128               | `tier` on all 122 → **73 components · 33 widgets · 13 templates · 3 utilities**; **8 template manifests** (complete) + **33 widget manifests** (5 complete, 28 stub); TaskMonitor reclassified widget→template                                                                                                       |
 | **Widgets promoted**                 | B     | ✅ ongoing                   | DataTable, MetricCard, KPISummary, KPIBar, TrendChart (5 complete widget manifests)                                                                                                                                                                                                                                  |
@@ -74,7 +74,7 @@ without pausing artifact evolution.
 skill lifts failure-mode avoidance **23% → 97% (+73 pts)** with separated 95% CIs. Selection helps but is
 not yet conclusive — the semantic catalog moved component-choice **83% → 97% (+13)**, CIs overlap
 (p≈0.19). The original "+100 imports lift" was disproven as a rigged-baseline artifact (imports and
-provider-wiring are **100% across all arms**), and a grader bug that had falsely blamed a "WakeCore Form
+provider-wiring are **100% across all arms**), and a grader bug that had falsely blamed a "Core Form
 typing bug" was corrected. Behavioral: structural checks hit 100% but real `tsc` **compile is ~60%**
 single-component (76% with full contracts). The harness disproves its own inflated claims — that
 discipline is a feature, not a bug.
@@ -192,7 +192,7 @@ relevant slice per task. Every tier above and every learning step depends on not
 **Workstreams**
 
 - **A2.1 Resolution index.** Generated from the A1 manifests. Two mechanisms, simplest-first (per
-  `WAKECORE-NEXT`): **intent matching** (fuzzy over `intent`/`when`/tags) + **structural resolution**
+  `CORE-NEXT`): **intent matching** (fuzzy over `intent`/`when`/tags) + **structural resolution**
   (graph-walk over `requires`/`pairsWith`/`composedOf`/`requiredWidgets`). No vector DB unless simple
   indexing demonstrably fails.
 - **A2.2 Resolution API.** `resolve(intent, context) → { artifacts, patterns, failureModes }` returning a
@@ -238,7 +238,7 @@ real browser + a11y, regression baselines. You cannot learn or optimize against 
 **Deliverables**
 
 - k≥10 harness + a harder composition/workflow task set.
-- Real-browser compile + render + axe graders against real `@wakecap/core-ui` types.
+- Real-browser compile + render + axe graders against real `@core/core-ui` types.
 - An isolated held-out corpus + a written held-out authoring process.
 - Nightly regression baselines + alerting (warn-only initially).
 
@@ -265,7 +265,7 @@ contract a third-party consumer must satisfy. This is also the render engine the
 - **A4.2 Instance model + binding grammar (G6/G5).** Persisted instance tree with `{{source.path}}`
   bindings — the runtime-side load-bearing gaps: **G6 page-instance model** (critical) and **G5
   data-binding grammar**, from `BUILDER-CONSUMPTION-WALKTHROUGH §10`. (Manifest-side G3/G4 land in A1.)
-- **A4.3 Conformance spec.** What a third-party builder/agent must support to consume WakeCore.
+- **A4.3 Conformance spec.** What a third-party builder/agent must support to consume Core.
 - **A4.4 Versioning & migration.** Token/component/manifest version → instance propagation; pin-vs-migrate
   policy (Open decision G7 in `TIER-ARCHITECTURE`).
 
@@ -297,7 +297,7 @@ decay stale entries. This is the product.
   didn't author confirms it (A3 corpus). Rejected candidates are logged, not merged.
 - **A5.3 Governed store + decay.** Freshness lifecycle; `accepted` entries are re-verified periodically or
   decay `stale`→`retired`; `confidence` recomputed.
-- **A5.4 The n=1 slice → N.** Scale the single proven flywheel slice (`WAKECORE-NEXT`: "the architecture
+- **A5.4 The n=1 slice → N.** Scale the single proven flywheel slice (`CORE-NEXT`: "the architecture
   phase is closed; scaling the n=1 slice is implementation").
 
 **Deliverables**
@@ -447,10 +447,10 @@ instance_, not a bespoke composition. That is the transition from documentation 
 ## Flows — orchestrations built from templates and widgets
 
 **Goal.** Introduce **Flows** as the next abstraction above Templates (the concept renamed from
-"Experiences" in `WAKECORE-ARCHITECTURE §XI.8`): multi-step, stateful **orchestrations** built from
+"Experiences" in `CORE-ARCHITECTURE §XI.8`): multi-step, stateful **orchestrations** built from
 templates and widgets — executable, not illustrative.
 
-**Candidate flows (from the WakeCap domain).** **Inspection · Incident Reporting · Reality Capture ·
+**Candidate flows (from the Core domain).** **Inspection · Incident Reporting · Reality Capture ·
 Compliance Review · AI Report Workflow.**
 
 **Shape.** A flow is an ordered graph of template instances with transitions, shared state/context, and

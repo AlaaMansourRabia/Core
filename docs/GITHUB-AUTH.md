@@ -1,6 +1,6 @@
-# GitHub-only Sign-in (wakecap org)
+# GitHub-only Sign-in (core org)
 
-The app is gated behind GitHub OAuth — only **members of the `wakecap` GitHub organization** can reach
+The app is gated behind GitHub OAuth — only **members of the `core` GitHub organization** can reach
 the UI. There is no password/email login. This implements the contract in
 [`DEVELOPER_HANDOFF.md`](../DEVELOPER_HANDOFF.md) so dev ⇄ ops stay aligned.
 
@@ -14,7 +14,7 @@ Request for any app route
 GitHub → /api/auth/callback?code&state
   → verify CSRF state cookie
   → exchange code + CLIENT_SECRET for a token   (secret never touches the browser)
-  → GET /user/memberships/orgs/wakecap → must be state:"active"
+  → GET /user/memberships/orgs/core → must be state:"active"
   → sign wc_session (HMAC-SHA256) → set HttpOnly cookie (7 days) → redirect to return_to (or /)
 ```
 
@@ -36,12 +36,12 @@ allowlists `/api/auth/*`, `/mcp`, `/health`, `/ready`, `/schemas`, plus static a
 
 ## 1. Register a GitHub OAuth App  *(ops — Ahmed)*
 
-GitHub → [github.com/organizations/wakecap/settings/applications/new](https://github.com/organizations/wakecap/settings/applications/new)
+GitHub → [github.com/organizations/core/settings/applications/new](https://github.com/organizations/core/settings/applications/new)
 
 | Field | Value (must match char-for-char) |
 |---|---|
-| Homepage URL | `https://core.wakecap.com` |
-| Authorization callback URL | `https://core.wakecap.com/api/auth/callback` |
+| Homepage URL | `https://core.core.com` |
+| Authorization callback URL | `https://core.core.com/api/auth/callback` |
 
 Copy the **Client ID** and generate a **Client Secret**.
 
@@ -53,8 +53,8 @@ Copy the **Client ID** and generate a **Client Secret**.
 | `GITHUB_CLIENT_SECRET` | From the OAuth App — server-side only |
 | `AUTH_SECRET` | 64-char hex (32-byte HMAC key). Generate: `openssl rand -hex 32` |
 
-The org is hard-coded to `wakecap` in `api/auth/callback.mjs` and the denial copy is the exact string
-ops verifies: **`Access denied. You must be a member of the wakecap organization.`**
+The org is hard-coded to `core` in `api/auth/callback.mjs` and the denial copy is the exact string
+ops verifies: **`Access denied. You must be a member of the core organization.`**
 
 ## 3. Local development
 
@@ -64,11 +64,11 @@ OAuth App whose callback is `http://localhost:3000/api/auth/callback`) to exerci
 
 ## 4. Acceptance tests (DEVELOPER_HANDOFF.md §7)
 
-1. Open `core.wakecap.com` in a private window → redirects to GitHub sign-in.
-2. Approve as a wakecap member → lands back on the app, signed in.
+1. Open `core.core.com` in a private window → redirects to GitHub sign-in.
+2. Approve as a core member → lands back on the app, signed in.
 3. Click **Sign out** → returns to GitHub login.
-4. Sign in as a non-member → shows exactly `Access denied. You must be a member of the wakecap organization.`
-5. `curl https://core.wakecap.com/health` → JSON, **no redirect** (MCP stays open).
+4. Sign in as a non-member → shows exactly `Access denied. You must be a member of the core organization.`
+5. `curl https://core.core.com/health` → JSON, **no redirect** (MCP stays open).
 
 ## Notes
 

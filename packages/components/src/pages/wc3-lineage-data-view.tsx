@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {Handle, Position, type Edge, type Node, type NodeProps, useEdgesState, useNodesState} from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import {ArrowRight, Box, Pencil} from "lucide-react";

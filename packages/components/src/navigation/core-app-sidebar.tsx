@@ -348,7 +348,7 @@ const SAMPLE_NOTIFICATIONS: SidebarNotification[] = [
 		unread: true,
 	},
 	{id: "n2", title: "Build failed", body: "modon-prototype build #42 failed", time: "1h ago", unread: true},
-	{id: "n3", title: "New team member", body: "ali@wakecap.com joined Organization Name", time: "3h ago", unread: false},
+	{id: "n3", title: "New team member", body: "ali@core.com joined Organization Name", time: "3h ago", unread: false},
 	{id: "n4", title: "Usage alert", body: "You've reached 80% of your monthly limit", time: "1d ago", unread: false},
 	{id: "n5", title: "Pipeline finished", body: "BIM intake processed 1,204 records", time: "1d ago", unread: false},
 	{id: "n6", title: "Permit approved", body: "Hot work permit HW-2291 was approved", time: "2d ago", unread: false},
@@ -359,7 +359,7 @@ const SAMPLE_NOTIFICATIONS: SidebarNotification[] = [
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
-function WakecapWLogo({className}: {className?: string}) {
+function CoreWLogo({className}: {className?: string}) {
 	return (
 		<svg
 			viewBox="0 0 278.78 176.15"
@@ -513,7 +513,7 @@ export interface CoreAppSidebarProps {
 	 */
 	logoCollapsed?: React.ReactNode;
 	/**
-	 * Turn the expanded header brand into an ORG SWITCHER. The header renders the WakeCap mark, a `/`
+	 * Turn the expanded header brand into an ORG SWITCHER. The header renders the Core mark, a `/`
 	 * separator, then a dropdown showing the selected org's logo + name + chevron that opens a searchable
 	 * list of organizations. Pass the org names; `activeOrg` is the current selection and `onOrgChange`
 	 * fires on pick. When omitted, the header shows the static brand. Ignored when a custom `logo` is provided.
@@ -681,7 +681,7 @@ const SIDEBAR_DENSITY = {
 		spacing: "wwc:space-y-0.5",
 		// The pinned block's rows are the taller ones, so they carry their own gap.
 		pinnedSpacing: "wwc:space-y-0.5",
-		// The WakeCap mark, ONE size for both states. It used to be h-5 expanded and the nav icon size
+		// The Core mark, ONE size for both states. It used to be h-5 expanded and the nav icon size
 		// collapsed, so toggling the sidebar resized the brand — and the collapsed rule set an explicit
 		// width, squashing a mark that is wider than it is tall. This sits between the two and keeps
 		// `w-auto`, so the mark holds its shape and its size whatever the sidebar is doing.
@@ -914,7 +914,7 @@ function SidebarShell({
 	// Footer profile — real user when provided, else the legacy placeholder (backward compatible).
 	const profileName = user?.name ?? "Abdullah Alzahrani";
 	// Placeholder email only in the no-user legacy case; a real user with no email shows no email line.
-	const profileEmail = user ? user.email : "abdullah@wakecap.com";
+	const profileEmail = user ? user.email : "abdullah@core.com";
 	const profileAvatar = user?.avatarUrl;
 	const profileInitials = user
 		? profileName
@@ -1297,7 +1297,7 @@ function SidebarShell({
 			return (
 				<a
 					href={item.href}
-					data-wakecore-route-link
+					data-core-route-link
 					onClick={(event) => {
 						event.preventDefault();
 						openSub(item);
@@ -1355,7 +1355,7 @@ function SidebarShell({
 					{href ? (
 						<a
 							href={href}
-							data-wakecore-route-link
+							data-core-route-link
 							onClick={(event) => {
 								event.preventDefault();
 								// `onClick` is now a real mouse handler (so Radix can compose onto it); the anchor
@@ -1654,7 +1654,7 @@ function SidebarShell({
 						<div
 							className={`wwc:flex wwc:items-center wwc:justify-center wwc:border-b wwc:w-full wwc:flex-shrink-0 ${railHeader}`}
 						>
-							{/* Collapsed brand: show the logo (custom `logoCollapsed`, or the WakeCap mark by default),
+							{/* Collapsed brand: show the logo (custom `logoCollapsed`, or the Core mark by default),
 							    and reveal the expand affordance on hover. */}
 							<button
 								type="button"
@@ -1663,7 +1663,7 @@ function SidebarShell({
 								className={`wwc:group wwc:relative wwc:flex wwc:items-center wwc:justify-center wwc:rounded-lg wwc:transition-colors wwc:hover:bg-muted/50 ${iconBtn}`}
 							>
 								<span className="wwc:flex wwc:items-center wwc:transition-opacity wwc:group-hover:opacity-0">
-									{logoCollapsed ?? <WakecapWLogo className={`${d.brandMark} wwc:text-primary`} />}
+									{logoCollapsed ?? <CoreWLogo className={`${d.brandMark} wwc:text-primary`} />}
 								</span>
 								<PanelLeftOpen
 									className={`${d.iconSize} wwc:absolute wwc:text-foreground wwc:opacity-0 wwc:transition-opacity wwc:group-hover:opacity-100`}
@@ -1809,8 +1809,8 @@ function SidebarShell({
 							<div className="wwc:flex wwc:min-w-0 wwc:items-center wwc:overflow-hidden">{logo}</div>
 						) : orgs && orgs.length > 0 ? (
 							<div className="wwc:flex wwc:min-w-0 wwc:items-center wwc:gap-1">
-								{/* WakeCap brand mark, separated from the org selector by a slash */}
-								<WakecapWLogo className={`${d.brandMark} wwc:shrink-0 wwc:text-foreground`} />
+								{/* Core brand mark, separated from the org selector by a slash */}
+								<CoreWLogo className={`${d.brandMark} wwc:shrink-0 wwc:text-foreground`} />
 								<span className="wwc:shrink-0 wwc:text-muted-foreground/50">/</span>
 								<Switcher
 									density={density}
@@ -1829,7 +1829,7 @@ function SidebarShell({
 							</div>
 						) : (
 							<div className="wwc:flex wwc:items-center wwc:gap-2 wwc:text-foreground wwc:min-w-0">
-								<WakecapWLogo className={d.brandMark} />
+								<CoreWLogo className={d.brandMark} />
 								<span
 									className={`wwc:font-semibold wwc:truncate ${density === "compact" ? "wwc:text-[13px]" : "wwc:text-[14px]"}`}
 								>

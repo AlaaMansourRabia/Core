@@ -146,7 +146,7 @@ function buildSummaryMd(tally, stamp) {
 				? `> ℹ️ **Regrade** — recomputed from the raw generations in \`${REGRADE_DIR}\` with the current graders (no new model calls). Provenance: a live ${MODEL} run.\n`
 				: "";
 	return [
-		"# WakeCore agent eval — with vs without the knowledge layer",
+		"# Core agent eval — with vs without the knowledge layer",
 		"",
 		banner,
 		`Run: ${stamp} · mode: ${MODE} · model: ${MODEL} · tasks: ${without.total}`,

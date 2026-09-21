@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {CaptureUiEnhanced} from "@wakecap/core-ui/pages/capture-ui-enhanced";
+import {CaptureUiEnhanced} from "@core/core-ui/pages/capture-ui-enhanced";
 
 import manifest from "../../../../manifests/capture-ui-enhanced.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

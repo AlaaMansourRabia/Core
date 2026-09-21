@@ -110,7 +110,7 @@ export function LegendPage() {
 				<div>
 					<h2 className="wwc:font-semibold">Tabbed (view mode)</h2>
 					<p className="wwc:text-sm wwc:text-muted-foreground">
-						A collapsible header sits above WakeCore <code className="wwc:text-xs">Tabs</code>. Each tab swaps in its
+						A collapsible header sits above Core <code className="wwc:text-xs">Tabs</code>. Each tab swaps in its
 						own colors and rows, so the legend re-keys itself based on what's selected. The list caps at four rows and
 						overflows into extra columns, so it grows sideways instead of getting tall. Click the minus to minimize —
 						the tab bar stays so you can switch views while collapsed, then hit the plus to expand and see the swatches.

@@ -6,7 +6,7 @@
 	"category": "canvas",
 	"source": {
 		"path": "packages/components/src/object-drawing-toolbar.tsx",
-		"import": "@wakecap/core-ui/object-drawing-toolbar"
+		"import": "@core/core-ui/object-drawing-toolbar"
 	},
 	"intent": "Single-line canvas drawing toolbar: an Edit/View mode toggle, shape tools (select/pan/line/circle/rectangle/polygon), fill & stroke color pickers, an opacity slider, a 90° angle-snap toggle, and unlink/import actions — composed from Toolbar primitives.",
 	"when": [

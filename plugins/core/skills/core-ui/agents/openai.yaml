@@ -1,0 +1,12 @@
+interface:
+  display_name: "Core UI"
+  short_description: "Bootstrap and build approved Core React UI"
+  brand_color: "#F36F45"
+  default_prompt: "Use $core-ui to create the React app if needed, build this interface from Core, and pass Core-only validation."
+policy:
+  allow_implicit_invocation: true
+dependencies:
+  tools:
+    - type: mcp
+      value: "core"
+      description: "Hosted Core template resolution, implementation planning, and validation tools."

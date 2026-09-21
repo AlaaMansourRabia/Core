@@ -1,12 +1,12 @@
 // Claude Code Remote Control launcher — the seam that makes "Edit in Claude Code" open a BROWSER session
-// bound to an ISOLATED checkout of the local WakeCore repository. Studio itself creates a dedicated git
+// bound to an ISOLATED checkout of the local Core repository. Studio itself creates a dedicated git
 // worktree (a new branch) and runs Remote Control INSIDE it:
 //
-//   git -C <repo> worktree add -b wakecore-session/<slug> <worktree> HEAD
+//   git -C <repo> worktree add -b core-session/<slug> <worktree> HEAD
 //   cd <worktree> && claude remote-control --name <name> --spawn same-dir --permission-mode acceptEdits
 //
 // Because the session's cwd is the worktree, every edit stays on the session's own branch and NEVER touches
-// the engineer's working copy of WakeCore. The worktree is a full checkout, so the session has the whole
+// the engineer's working copy of Core. The worktree is a full checkout, so the session has the whole
 // repo's context (CLAUDE.md, MCP, skills, SDK, manifests). A per-session brief (CLAUDE.local.md, gitignored)
 // tells the session where it came from. Studio opens the browser into it and steps out — it never watches,
 // mirrors, or reflects the session's edits back into Studio.
@@ -22,9 +22,9 @@ import {previewSpec, type PreviewSpec} from "./seeds";
 
 // Scaffold a minimal standalone Vite app that mounts ONLY the template — no navigation shell, no Designers
 // Hub — importing the page from SOURCE so the engineer's edits hot-reload. Styling mirrors the repo's proven
-// setup (apps/web): tailwind v4 + @wakecap/core-tokens + @source scanning the component source.
+// setup (apps/web): tailwind v4 + @core/core-tokens + @source scanning the component source.
 function writePreviewApp(worktree: string, spec: PreviewSpec, port: number): void {
-	const dir = join(worktree, ".wakecore-preview");
+	const dir = join(worktree, ".core-preview");
 	mkdirSync(dir, {recursive: true});
 	writeFileSync(
 		join(dir, "index.html"),
@@ -34,7 +34,7 @@ function writePreviewApp(worktree: string, spec: PreviewSpec, port: number): voi
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-		<title>WakeCore preview</title>
+		<title>Core preview</title>
 	</head>
 	<body>
 		<div id="root"></div>
@@ -82,7 +82,7 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import {defineConfig} from "vite";
 
-// Standalone preview of a single WakeCore template — no nav shell. root is pinned to this file's dir so it
+// Standalone preview of a single Core template — no nav shell. root is pinned to this file's dir so it
 // works no matter what cwd the runner uses (pnpm exec runs from the package root, not this folder).
 const here = dirname(fileURLToPath(import.meta.url));
 const repo = join(here, "..");
@@ -94,8 +94,8 @@ export default defineConfig({
 	server: {port: ${port}, strictPort: true},
 	plugins: [react(), tailwindcss()],
 	resolve: {
-		// Components import @wakecap/core-utils (→ dist); alias it to SOURCE so a fresh worktree needs no build.
-		alias: {"@wakecap/core-utils": join(repo, "packages", "utils", "src", "index.ts")},
+		// Components import @core/core-utils (→ dist); alias it to SOURCE so a fresh worktree needs no build.
+		alias: {"@core/core-utils": join(repo, "packages", "utils", "src", "index.ts")},
 		// Page SOURCE + any package copy can pull two React copies → "Invalid hook call". Force one.
 		dedupe: ["react", "react-dom"],
 	},
@@ -118,13 +118,13 @@ function writeSessionEnv(
 	mkdirSync(dotClaude, {recursive: true});
 	if (opts.spec) writePreviewApp(worktree, opts.spec, opts.port);
 
-	// Mount the WakeCore MCP so the session can actually resolve/reuse templates + widgets (resolve_template,
+	// Mount the Core MCP so the session can actually resolve/reuse templates + widgets (resolve_template,
 	// resolve_widgets, list_templates, generate_page_instance, validate_page). Without this the session has no
-	// way to reuse WakeCore and will reinvent UI. The worktree is a full checkout, so it has the server.
+	// way to reuse Core and will reinvent UI. The worktree is a full checkout, so it has the server.
 	writeFileSync(
 		join(worktree, ".mcp.json"),
 		JSON.stringify(
-			{mcpServers: {wakecore: {command: "node", args: [join(worktree, "packages", "mcp", "src", "server.mjs")]}}},
+			{mcpServers: {core: {command: "node", args: [join(worktree, "packages", "mcp", "src", "server.mjs")]}}},
 			null,
 			2,
 		) + "\n",
@@ -132,7 +132,7 @@ function writeSessionEnv(
 	);
 
 	writeFileSync(
-		join(dotClaude, "wakecore-session.json"),
+		join(dotClaude, "core-session.json"),
 		JSON.stringify(
 			{
 				hookSpecificOutput: {
@@ -150,34 +150,34 @@ function writeSessionEnv(
 	// so session start never blocks. Then emit the context JSON for Claude.
 	// Run vite with an explicit --config (pnpm exec runs from the package root, so a plain \`cd\` is ignored).
 	const startPreview = opts.spec
-		? `nohup bash -c 'pnpm install && pnpm exec vite --config .wakecore-preview/vite.config.ts' > .claude/wc-preview.log 2>&1 &`
+		? `nohup bash -c 'pnpm install && pnpm exec vite --config .core-preview/vite.config.ts' > .claude/wc-preview.log 2>&1 &`
 		: `nohup pnpm install > .claude/wc-install.log 2>&1 &`;
 	writeFileSync(
-		join(dotClaude, "wakecore-session-init.sh"),
-		`#!/usr/bin/env bash\n# WakeCore Studio session init — installs deps + starts the standalone preview, briefs the session.\n${startPreview}\ncat .claude/wakecore-session.json\n`,
+		join(dotClaude, "core-session-init.sh"),
+		`#!/usr/bin/env bash\n# Core Studio session init — installs deps + starts the standalone preview, briefs the session.\n${startPreview}\ncat .claude/core-session.json\n`,
 		"utf8",
 	);
-	// Auto-approve the project MCP + allow its tools (and the file tools) so the session can reuse WakeCore
+	// Auto-approve the project MCP + allow its tools (and the file tools) so the session can reuse Core
 	// without an approval prompt. settings.local.json is a gitignored local source; it never touches the branch.
-	const WAKECORE_MCP_TOOLS = [
-		"mcp__wakecore__list_templates",
-		"mcp__wakecore__resolve_template",
-		"mcp__wakecore__resolve_widgets",
-		"mcp__wakecore__generate_page_instance",
-		"mcp__wakecore__validate_page",
+	const CORE_MCP_TOOLS = [
+		"mcp__core__list_templates",
+		"mcp__core__resolve_template",
+		"mcp__core__resolve_widgets",
+		"mcp__core__generate_page_instance",
+		"mcp__core__validate_page",
 	];
 	writeFileSync(
 		join(dotClaude, "settings.local.json"),
 		JSON.stringify(
 			{
 				enableAllProjectMcpServers: true,
-				enabledMcpjsonServers: ["wakecore"],
-				permissions: {allow: ["Read", "Edit", "Write", "Glob", "Grep", ...WAKECORE_MCP_TOOLS]},
+				enabledMcpjsonServers: ["core"],
+				permissions: {allow: ["Read", "Edit", "Write", "Glob", "Grep", ...CORE_MCP_TOOLS]},
 				hooks: {
 					SessionStart: [
 						{
 							matcher: "startup",
-							hooks: [{type: "command", command: "bash .claude/wakecore-session-init.sh", timeout: 20}],
+							hooks: [{type: "command", command: "bash .claude/core-session-init.sh", timeout: 20}],
 						},
 					],
 				},
@@ -261,7 +261,7 @@ function setupWorktree(opts: {repoRoot: string; key: string; name: string; brief
 	const {repoRoot, key, name, brief} = opts;
 	const id = randomUUID().slice(0, 8);
 	const slug = slugify(key);
-	const branch = `wakecore-session/${slug}-${id}`;
+	const branch = `core-session/${slug}-${id}`;
 	const worktree = join(sessionsDir(repoRoot), `${slug}-${id}`);
 	const spec = opts.templateId ? previewSpec(opts.templateId) : null;
 	const port = previewPort(id);
@@ -287,23 +287,23 @@ ${brief}
 - Branch: \`${branch}\`
 
 You are in a dedicated git worktree. Every edit stays on this branch and must **never** touch the engineer's
-main checkout of WakeCore. Do not \`git checkout\` other branches, and do not edit files outside this worktree.
+main checkout of Core. Do not \`git checkout\` other branches, and do not edit files outside this worktree.
 
-## WakeCore is the source of truth — REUSE before you build (this is mandatory)
-This repo IS WakeCore. It has templates, widgets and components for most UI. **Never hand-write a new page or
-widget from scratch until you have checked WakeCore first via the \`wakecore\` MCP.** For ANY "add a X / build a
+## Core is the source of truth — REUSE before you build (this is mandatory)
+This repo IS Core. It has templates, widgets and components for most UI. **Never hand-write a new page or
+widget from scratch until you have checked Core first via the \`core\` MCP.** For ANY "add a X / build a
 Y" request:
-1. Call \`mcp__wakecore__resolve_template\` (e.g. intent "login page") — if a template fits, reuse it.
-2. Call \`mcp__wakecore__resolve_widgets\` for the region — reuse composed widgets (DataTable, App Sidebar, …).
-3. Otherwise reuse existing components from \`@wakecap/core-ui/<kebab-name>\` (templates live in
+1. Call \`mcp__core__resolve_template\` (e.g. intent "login page") — if a template fits, reuse it.
+2. Call \`mcp__core__resolve_widgets\` for the region — reuse composed widgets (DataTable, App Sidebar, …).
+3. Otherwise reuse existing components from \`@core/core-ui/<kebab-name>\` (templates live in
    \`packages/components/src/pages/\`, widgets/components alongside).
-4. Only write custom UI when WakeCore genuinely has nothing — and say so in one line, calling it out as new.
-Concretely: if asked to "add a login page", first \`resolve_template\` for it and reuse the WakeCore login page
+4. Only write custom UI when Core genuinely has nothing — and say so in one line, calling it out as new.
+Concretely: if asked to "add a login page", first \`resolve_template\` for it and reuse the Core login page
 (\`core-login-page\`) — do NOT invent a new one.
 
 ## Start here
 Confirm your context first: run \`pwd\` and \`git branch --show-current\`, then say one line —
-"I'm in an isolated worktree on \`${branch}\`, starting from ${name}." Then use the wakecore MCP as above before editing.
+"I'm in an isolated worktree on \`${branch}\`, starting from ${name}." Then use the core MCP as above before editing.
 `;
 	try {
 		writeFileSync(join(worktree, "CLAUDE.local.md"), claudeLocal, "utf8");
@@ -318,7 +318,7 @@ Confirm your context first: run \`pwd\` and \`git branch --show-current\`, then 
 		: "the template source under packages/components/src/pages/";
 	const hookContext = `${brief}
 
-You are in an isolated git worktree — directory \`${worktree}\`, branch \`${branch}\`. Every edit stays on this branch and must NEVER touch the engineer's main WakeCore checkout.
+You are in an isolated git worktree — directory \`${worktree}\`, branch \`${branch}\`. Every edit stays on this branch and must NEVER touch the engineer's main Core checkout.
 
 ${
 	spec
@@ -326,7 +326,7 @@ ${
 		: `Dependencies are installing in the background (usually well under a minute; progress in .claude/wc-install.log).`
 }
 
-WakeCore is the source of truth — REUSE before you build. This repo has templates/widgets/components for most UI. For ANY "add/build a X" request, FIRST use the wakecore MCP (\`mcp__wakecore__resolve_template\`, then \`resolve_widgets\`) to find and reuse an existing WakeCore artifact; only write custom UI when nothing fits, and say so. E.g. if asked to add a login page, resolve_template for it and reuse WakeCore's core-login-page — do NOT invent a new one.
+Core is the source of truth — REUSE before you build. This repo has templates/widgets/components for most UI. For ANY "add/build a X" request, FIRST use the core MCP (\`mcp__core__resolve_template\`, then \`resolve_widgets\`) to find and reuse an existing Core artifact; only write custom UI when nothing fits, and say so. E.g. if asked to add a login page, resolve_template for it and reuse Core's core-login-page — do NOT invent a new one.
 
 Begin by telling the user where you are (worktree + branch), that you're starting from ${name}, and that the standalone preview is coming up${previewUrl ? ` at ${previewUrl}` : ""}.`;
 	try {
@@ -363,7 +363,7 @@ export function launchTerminalSession(opts: {
 	const command = terminalCommand(worktree);
 
 	// A macOS Terminal.app window running `cd <worktree> && claude`. The osascript-escaped shell command.
-	if (process.env.WAKECORE_STUDIO_DRY_LAUNCH || process.platform !== "darwin") {
+	if (process.env.CORE_STUDIO_DRY_LAUNCH || process.platform !== "darwin") {
 		return {launched: false, command, worktree, branch, previewUrl};
 	}
 	const shellCmd = `cd ${JSON.stringify(worktree)} && claude`;

@@ -1,28 +1,28 @@
 ---
 name: core-utils
 description: >
-  @wakecap/core-utils exports: cn() (clsx + tailwind-merge with wwc: prefix,
+  @core/core-utils exports: cn() (clsx + tailwind-merge with wwc: prefix,
   resolves conflicting wwc:-prefixed Tailwind utilities for safe className
   composition), cva and VariantProps (re-exported from class-variance-authority
   for authoring components with variants), cssColorToRgb/getChartColors/
   getCssVarAsRgb (SSR-safe OKLCH-to-RGB converters for ECharts or canvas).
 metadata:
   type: core
-  library: wakecore
+  library: core
   library_version: "0.0.1"
 sources:
-  - "wakecap/Wakecore:packages/utils/src/index.ts"
-  - "wakecap/Wakecore:packages/utils/package.json"
+  - "core/Core:packages/utils/src/index.ts"
+  - "core/Core:packages/utils/package.json"
 ---
 
-# @wakecap/core-utils — Utilities
+# @core/core-utils — Utilities
 
 ## Setup
 
 ```tsx
-import {cn, cva, type VariantProps} from "@wakecap/core-utils";
+import {cn, cva, type VariantProps} from "@core/core-utils";
 
-import {cssColorToRgb, getChartColors, getCssVarAsRgb} from "@wakecap/core-utils";
+import {cssColorToRgb, getChartColors, getCssVarAsRgb} from "@core/core-utils";
 ```
 
 ## Core Patterns
@@ -35,7 +35,7 @@ with `extendTailwindMerge({ prefix: "wwc" })` — all Tailwind utility classes
 must use the `wwc:` prefix for conflict resolution to work:
 
 ```tsx
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 
 // Conditional classes — all utilities use wwc: prefix
 <div className={cn("wwc:p-4 wwc:rounded-lg", isActive && "wwc:ring-2 wwc:ring-primary")} />;
@@ -59,8 +59,8 @@ function Card({className}: {className?: string}) {
 All utility classes in `cva()` definitions must use the `wwc:` prefix:
 
 ```tsx
-import { cva, type VariantProps } from "@wakecap/core-utils";
-import { cn } from "@wakecap/core-utils";
+import { cva, type VariantProps } from "@core/core-utils";
+import { cn } from "@core/core-utils";
 
 const alertVariants = cva(
   "wwc:flex wwc:items-start wwc:gap-3 wwc:rounded-lg wwc:border wwc:p-4 wwc:text-sm",
@@ -97,7 +97,7 @@ Uses the browser's colour engine to convert OKLCH, HSL, named colours, etc. to
 `rgb(r, g, b)` format. During SSR it safely returns the original CSS color:
 
 ```tsx
-import {cssColorToRgb} from "@wakecap/core-utils";
+import {cssColorToRgb} from "@core/core-utils";
 
 // Only call inside useEffect, event handlers, or browser-only modules
 useEffect(() => {
@@ -110,7 +110,7 @@ useEffect(() => {
 ### getChartColors — all 5 chart token values as RGB
 
 ```tsx
-import {getChartColors} from "@wakecap/core-utils";
+import {getChartColors} from "@core/core-utils";
 
 // Returns ["rgb(...)", "rgb(...)", ...] for --chart-1 through --chart-5
 // Reflects the current mode (light or dark) at call time
@@ -124,7 +124,7 @@ useEffect(() => {
 ### getCssVarAsRgb — single CSS variable to RGB
 
 ```tsx
-import {getCssVarAsRgb} from "@wakecap/core-utils";
+import {getCssVarAsRgb} from "@core/core-utils";
 
 useEffect(() => {
 	const primaryRgb = getCssVarAsRgb("--primary");
@@ -223,7 +223,7 @@ Source: `packages/utils/src/index.ts:4`
 
 ---
 
-### MEDIUM Importing cva from class-variance-authority directly instead of @wakecap/core-utils
+### MEDIUM Importing cva from class-variance-authority directly instead of @core/core-utils
 
 Wrong:
 
@@ -234,11 +234,11 @@ import {cva, type VariantProps} from "class-variance-authority";
 Correct:
 
 ```tsx
-import {cva, type VariantProps} from "@wakecap/core-utils";
+import {cva, type VariantProps} from "@core/core-utils";
 ```
 
-Both resolve to the same package but `@wakecap/core-utils` re-exports them
-as the canonical import path for Wakecore consumers. Using `class-variance-authority`
+Both resolve to the same package but `@core/core-utils` re-exports them
+as the canonical import path for Core consumers. Using `class-variance-authority`
 directly requires adding it as a separate dependency and risks version drift.
 
 Source: `packages/utils/src/index.ts:43`

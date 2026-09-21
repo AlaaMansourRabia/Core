@@ -1,8 +1,8 @@
-# WakeCore agent evals
+# Core agent evals
 
-Measures whether the WakeCore knowledge layer (semantic catalog + composition/domain
+Measures whether the Core knowledge layer (semantic catalog + composition/domain
 skills + failure-mode knowledge) changes what an AI agent builds — specifically, whether
-it adopts WakeCore's **import/provider conventions** and **documented component choices**.
+it adopts Core's **import/provider conventions** and **documented component choices**.
 
 > **Scope (be honest about what this proves):** the graders are deterministic *structural*
 > checks (import paths, provider presence, documented component choice). They do **not**
@@ -69,7 +69,7 @@ pnpm test:validators
 
 This is P1a; the A/B above is P1b. See the plan for the full maturity ladder
 (validators → evals → nightly measurement → CI gates → regression protection → shippable
-`@wakecap/validate`).
+`@core/validate`).
 
 ## Adding a task
 

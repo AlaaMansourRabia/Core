@@ -15,14 +15,14 @@ function requireCondition(condition, message, errors) {
 	if (!condition) errors.push(message);
 }
 
-export function validateWakeCorePlugin() {
+export function validateCorePlugin() {
 	const errors = [];
 	const manifest = readJson(join(PLUGIN_ROOT, ".codex-plugin", "plugin.json"));
 	const marketplace = readJson(join(REPO_ROOT, ".agents", "plugins", "marketplace.json"));
 	const mcp = readJson(join(PLUGIN_ROOT, ".mcp.json"));
-	const skill = readFileSync(join(PLUGIN_ROOT, "skills", "wakecore-ui", "SKILL.md"), "utf8");
+	const skill = readFileSync(join(PLUGIN_ROOT, "skills", "core-ui", "SKILL.md"), "utf8");
 	const pluginDocs = readFileSync(join(PLUGIN_ROOT, "README.md"), "utf8");
-	const migrationDocs = readFileSync(join(REPO_ROOT, "docs", "WAKECORE-COMPLIANCE-MIGRATION.md"), "utf8");
+	const migrationDocs = readFileSync(join(REPO_ROOT, "docs", "CORE-COMPLIANCE-MIGRATION.md"), "utf8");
 	const hostingDocs = readFileSync(join(REPO_ROOT, ".agents", "plugins", "README.md"), "utf8");
 	const hostedServer = readFileSync(join(REPO_ROOT, "api", "mcp.mjs"), "utf8");
 	const hostedPackageServer = readFileSync(join(REPO_ROOT, "apps", "hosted-mcp", "src", "server.ts"), "utf8");
@@ -36,7 +36,7 @@ export function validateWakeCorePlugin() {
 		readFileSync(join(REPO_ROOT, "apps", "hub", "src", "DeveloperAccess.tsx"), "utf8"),
 	];
 
-	requireCondition(manifest.name === "wakecore", "manifest name must be wakecore", errors);
+	requireCondition(manifest.name === "core", "manifest name must be core", errors);
 	requireCondition(manifest.skills === "./skills/", "manifest must wire ./skills/", errors);
 	requireCondition(manifest.mcpServers === "./.mcp.json", "manifest must wire ./.mcp.json", errors);
 	requireCondition(Array.isArray(manifest.interface?.defaultPrompt), "manifest must provide starter prompts", errors);
@@ -50,11 +50,11 @@ export function validateWakeCorePlugin() {
 		);
 	}
 
-	const server = mcp.mcpServers?.wakecore;
-	requireCondition(server?.type === "http", "WakeCore MCP must use HTTP transport", errors);
+	const server = mcp.mcpServers?.core;
+	requireCondition(server?.type === "http", "Core MCP must use HTTP transport", errors);
 	requireCondition(
-		server?.url === "https://core.wakecap.com/mcp",
-		"WakeCore MCP URL does not match production",
+		server?.url === "https://core.core.com/mcp",
+		"Core MCP URL does not match production",
 		errors,
 	);
 	const mcpText = JSON.stringify(mcp);
@@ -64,12 +64,12 @@ export function validateWakeCorePlugin() {
 		errors,
 	);
 
-	const entry = marketplace.plugins?.find((plugin) => plugin.name === "wakecore");
-	requireCondition(marketplace.name === "wakecore", "marketplace name must be wakecore", errors);
+	const entry = marketplace.plugins?.find((plugin) => plugin.name === "core");
+	requireCondition(marketplace.name === "core", "marketplace name must be core", errors);
 	requireCondition(entry?.source?.source === "local", "marketplace source must be local", errors);
 	requireCondition(
-		entry?.source?.path === "./plugins/wakecore",
-		"marketplace source path must be ./plugins/wakecore",
+		entry?.source?.path === "./plugins/core",
+		"marketplace source path must be ./plugins/core",
 		errors,
 	);
 	requireCondition(
@@ -114,7 +114,7 @@ export function validateWakeCorePlugin() {
 	for (const marker of [
 		"React",
 		"TSX",
-		"@wakecap/core-ui",
+		"@core/core-ui",
 		"Prepare the workspace",
 		"scaffold a React + TypeScript app",
 		"NODE_AUTH_TOKEN",
@@ -123,7 +123,7 @@ export function validateWakeCorePlugin() {
 		"exactly `true`",
 		"adapt-template",
 		"compose-widgets",
-		"create-with-wakecore",
+		"create-with-core",
 		"never ask for confirmation",
 		"artifact utilization map",
 		"substitution map",
@@ -132,12 +132,12 @@ export function validateWakeCorePlugin() {
 		"imported, rendered, and visibly exercised",
 		"detailed category scores",
 		"route/region map",
-		"stable WakeCore sidebar and top bar",
+		"stable Core sidebar and top bar",
 		"normative shell fingerprint",
 		"module boundary",
 		"same density",
-		"data-wakecore-shell",
-		"data-wakecore-artifact",
+		"data-core-shell",
+		"data-core-artifact",
 		"semantic tokens",
 		"[data-state]",
 		"CoreContextTabs",
@@ -148,10 +148,10 @@ export function validateWakeCorePlugin() {
 		"referenceAnalysis",
 		"Analyze reference images",
 		"height: 100dvh",
-		"data-wakecore-content-scroll",
+		"data-core-content-scroll",
 		"duplicate composers",
-		"functional WakeCore canvas",
-		"reference fidelity and WakeCore fidelity",
+		"functional Core canvas",
+		"reference fidelity and Core fidelity",
 		"machine-readable `ownership` contract",
 		"PageContentHeader",
 		"ContextToolbar",
@@ -161,14 +161,14 @@ export function validateWakeCorePlugin() {
 	]) {
 		requireCondition(skill.includes(marker), `skill is missing required instruction: ${marker}`, errors);
 	}
-	for (const mode of ["wakecore-imports", "wakecore-product", "wakecore-showcase", "wakecore-template-strict"]) {
+	for (const mode of ["core-imports", "core-product", "core-showcase", "core-template-strict"]) {
 		requireCondition(skill.includes(mode), `skill is missing validation mode: ${mode}`, errors);
 		requireCondition(pluginDocs.includes(mode), `plugin docs are missing validation mode: ${mode}`, errors);
 		requireCondition(migrationDocs.includes(mode), `migration docs are missing validation mode: ${mode}`, errors);
 	}
 	requireCondition(
-		skill.includes("wakecore-only") && skill.includes("deprecated alias"),
-		"skill must describe wakecore-only as a deprecated alias",
+		skill.includes("core-only") && skill.includes("deprecated alias"),
+		"skill must describe core-only as a deprecated alias",
 		errors,
 	);
 	requireCondition(
@@ -181,7 +181,7 @@ export function validateWakeCorePlugin() {
 		"resolve_template first",
 		"without asking for confirmation",
 		"adapt the nearest template",
-		"compose WakeCore widgets",
+		"compose Core widgets",
 		"create new application-level UI",
 		"create_implementation_plan before editing",
 		"prepare the workspace",
@@ -213,11 +213,11 @@ export function validateWakeCorePlugin() {
 		"adapt-template",
 		"files",
 		"implementationPlan",
-		"wakecore-imports",
-		"wakecore-product",
-		"wakecore-showcase",
-		"wakecore-template-strict",
-		"wakecore-only is a deprecated alias",
+		"core-imports",
+		"core-product",
+		"core-showcase",
+		"core-template-strict",
+		"core-only is a deprecated alias",
 		"tier and component coverage",
 		"token compliance",
 		"imported/rendered/exercised artifact inventory",
@@ -265,16 +265,16 @@ export function validateWakeCorePlugin() {
 		errors,
 	);
 	requireCondition(
-		hostingDocs.includes("https://<wakecore-host>/.agents/plugins/marketplace.json"),
+		hostingDocs.includes("https://<core-host>/.agents/plugins/marketplace.json"),
 		"hosting docs must include the portable marketplace URL",
 		errors,
 	);
-	for (const marker of ["https://github.com/wakecap/Wakecore.git", ".agents/plugins", "plugins/wakecore"]) {
+	for (const marker of ["https://github.com/core/Core.git", ".agents/plugins", "plugins/core"]) {
 		requireCondition(hostingDocs.includes(marker), `installation docs are missing Git source: ${marker}`, errors);
 	}
 	for (const content of developerAccess) {
 		requireCondition(
-			content.includes("https://github.com/wakecap/Wakecore.git"),
+			content.includes("https://github.com/core/Core.git"),
 			"Developer Access must provide the Git marketplace source",
 			errors,
 		);
@@ -299,11 +299,11 @@ export function validateWakeCorePlugin() {
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-	const errors = validateWakeCorePlugin();
+	const errors = validateCorePlugin();
 	if (errors.length) {
 		for (const error of errors) process.stderr.write(`- ${error}\n`);
 		process.exitCode = 1;
 	} else {
-		process.stdout.write("WakeCore Codex plugin validation passed.\n");
+		process.stdout.write("Core Codex plugin validation passed.\n");
 	}
 }

@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/comment-composer.tsx",
-		"import": "@wakecap/core-ui/comment-composer"
+		"import": "@core/core-ui/comment-composer"
 	},
 	"tags": [
 		"comments",

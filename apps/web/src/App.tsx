@@ -1,6 +1,6 @@
-import {Button} from "@wakecap/core-ui/button";
-import {CoreAppSidebar, type SidebarNavGroup} from "@wakecap/core-ui/navigation/core-app-sidebar";
-import {CoreAppTopBar} from "@wakecap/core-ui/navigation/core-app-top-bar";
+import {Button} from "@core/core-ui/button";
+import {CoreAppSidebar, type SidebarNavGroup} from "@core/core-ui/navigation/core-app-sidebar";
+import {CoreAppTopBar} from "@core/core-ui/navigation/core-app-top-bar";
 import {BookOpen, ExternalLink, Github, Moon, Palette, Sun, Terminal, Wand2} from "lucide-react";
 import {useEffect, useState} from "react";
 
@@ -8,9 +8,9 @@ import {DesignerApp} from "@/DesignerApp";
 import DeveloperAccessPage from "@/pages/DeveloperAccessPage";
 import {StudioPage} from "@/pages/StudioPage";
 
-// The WakeCore Hub shell. One app, built from WakeCore's own CoreAppSidebar + CoreAppTopBar, with four
+// The Core Hub shell. One app, built from Core's own CoreAppSidebar + CoreAppTopBar, with four
 // tabs that each swap the stage:
-//   - Studio         → the WakeCore Studio (runs locally; shows a card in the cloud)
+//   - Studio         → the Core Studio (runs locally; shows a card in the cloud)
 //   - Storybook      → a page linking to /storybook/, opened in a new tab
 //   - Designers Hub  → the component/widget/template/theme showcase, mounted NATIVELY (no iframe)
 //   - Developer Access → the hosted MCP connection details
@@ -158,19 +158,19 @@ export default function App() {
 					onLogout={postLogout}
 					logo={
 						<img
-							src="/wakecore-large.svg"
-							alt="WakeCore"
+							src="/core-large.svg"
+							alt="Core"
 							className="wwc:h-5 wwc:w-auto wwc:max-w-full wwc:invert wwc:dark:invert-0"
 						/>
 					}
 					logoCollapsed={
-						<img src="/wakecore-small.svg" alt="WakeCore" className="wwc:h-6 wwc:w-auto wwc:invert wwc:dark:invert-0" />
+						<img src="/core-small.svg" alt="Core" className="wwc:h-6 wwc:w-auto wwc:invert wwc:dark:invert-0" />
 					}
 					viewLevel="project"
 					projectGroups={NAV_GROUPS}
 					footerContent={
 						<div className="wwc:rounded-lg wwc:border wwc:border-border wwc:bg-muted/40 wwc:p-3">
-							<div className="wwc:text-xs wwc:font-semibold wwc:text-foreground">WakeCore</div>
+							<div className="wwc:text-xs wwc:font-semibold wwc:text-foreground">Core</div>
 							<p className="wwc:mt-1 wwc:text-[11px] wwc:leading-relaxed wwc:text-muted-foreground">
 								One artifact library — tokens, components, widgets, templates — behind Studio, Storybook, and the
 								Designers Hub.
@@ -190,14 +190,14 @@ export default function App() {
 
 			<div className="wwc:flex wwc:flex-1 wwc:flex-col wwc:overflow-hidden">
 				<CoreAppTopBar
-					activeLabel={`WakeCore / ${feature.label}`}
+					activeLabel={`Core / ${feature.label}`}
 					showProjectSwitcher={false}
 					rightContent={
 						<div className="wwc:ml-auto wwc:flex wwc:items-center wwc:gap-1">
 							<Button variant="outline" size="sm" asChild className="wwc:h-8 wwc:rounded-full">
-								<a href="https://github.com/wakecap/Wakecore" target="_blank" rel="noopener noreferrer">
+								<a href="https://github.com/core/Core" target="_blank" rel="noopener noreferrer">
 									<Github />
-									Wakecore
+									Core
 								</a>
 							</Button>
 							<Button
@@ -254,7 +254,7 @@ function StorybookLink() {
 				/>
 				<h3 className="wwc:mt-4 wwc:text-lg wwc:font-semibold">Storybook</h3>
 				<p className="wwc:mt-2 wwc:text-sm wwc:text-muted-foreground">
-					Browse every WakeCore component story in an isolated workbench — opens in a new tab.
+					Browse every Core component story in an isolated workbench — opens in a new tab.
 				</p>
 				<Button asChild className="wwc:mt-6">
 					<a href={STORYBOOK_URL} target="_blank" rel="noreferrer">

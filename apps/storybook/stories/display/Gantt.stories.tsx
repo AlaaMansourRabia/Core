@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@wakecap/core-ui/badge";
+import {Badge} from "@core/core-ui/badge";
 import {
 	Gantt,
 	GanttBar,
@@ -10,7 +10,7 @@ import {
 	GanttRow,
 	GanttSidebarCell,
 	GanttTimelineCell,
-} from "@wakecap/core-ui/gantt";
+} from "@core/core-ui/gantt";
 import {addDays} from "date-fns";
 
 const meta = {

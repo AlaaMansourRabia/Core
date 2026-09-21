@@ -1,5 +1,5 @@
 // @ts-expect-error — zero-dep .mjs SDK, typed loosely on purpose
-import {createSdk, loadCatalog} from "@wakecap/sdk";
+import {createSdk, loadCatalog} from "@core/sdk";
 // Canonical reflect (Phase 5). One place to read the repository's CANONICAL outputs — library-index.json,
 // manifests/, and the template sources — with stat-based cache invalidation. Both /api/catalog and
 // /api/preview read through here, so approved changes that have been merged and regenerated appear on the

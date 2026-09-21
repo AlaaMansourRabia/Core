@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {LineageImpactView} from "@wakecap/core-ui/pages/lineage-impact-view";
+import {LineageImpactView} from "@core/core-ui/pages/lineage-impact-view";
 
 const meta = {
 	title: "Widgets/Connect/Lineage Impact View",

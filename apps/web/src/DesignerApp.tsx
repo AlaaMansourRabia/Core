@@ -218,8 +218,8 @@ import {RadiusPage} from "@/pages/theme/RadiusPage";
 import {SpacingPage} from "@/pages/theme/SpacingPage";
 import {TypographyPage} from "@/pages/theme/TypographyPage";
 
-/** Machine-readable inventory for WakeCore showcase validation and catalog audits. */
-export const wakecoreInventory = {
+/** Machine-readable inventory for Core showcase validation and catalog audits. */
+export const coreInventory = {
 	templates: [
 		"admin-panel",
 		"app-installer",
@@ -241,7 +241,7 @@ export const wakecoreInventory = {
 	tokens: ["color.background.surface"],
 } as const;
 
-// The Designers Hub — the component/widget/template/theme showcase. It is one tab of the WakeCore Hub
+// The Designers Hub — the component/widget/template/theme showcase. It is one tab of the Core Hub
 // shell (see App.tsx): mounted natively (no iframe) under the "/designer" URL segment, so its router
 // owns "/designer/*" while the hub shell owns the top-level tab routing. The hub owns the theme, so this
 // takes `dark` as a prop and renders its own Layout in embedded mode (no duplicate GitHub/theme chrome).

@@ -1,4 +1,4 @@
-import {Button} from "@wakecap/core-ui/button";
+import {Button} from "@core/core-ui/button";
 
 export function DeleteRecordButton({onDelete}) {
 	return (

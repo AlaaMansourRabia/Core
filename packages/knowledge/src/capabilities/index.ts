@@ -32,7 +32,7 @@ function tool<I, D>(name: string, description: string, input: z.ZodType<I>, run:
 export const TOOLS: ToolDef[] = [
 	tool(
 		"resolve_template",
-		"Use this as the FIRST MCP planning tool for every UI task, after producing referenceAnalysis when screenshots are supplied. Ranks WakeCore page templates and returns an executable strategy: direct import for an exact match, adapt the nearest template, or compose from WakeCore artifacts. Low confidence and no-match results never require confirmation.",
+		"Use this as the FIRST MCP planning tool for every UI task, after producing referenceAnalysis when screenshots are supplied. Ranks Core page templates and returns an executable strategy: direct import for an exact match, adapt the nearest template, or compose from Core artifacts. Low confidence and no-match results never require confirmation.",
 		INPUT_SCHEMAS.resolve_template,
 		resolveTemplate,
 	),
@@ -44,13 +44,13 @@ export const TOOLS: ToolDef[] = [
 	),
 	tool(
 		"create_implementation_plan",
-		"Create an executable WakeCore implementation contract from a selected/nearest template or UI intent. Binds screenshot reference regions, a shared shell, and per-route regions to explicit WakeCore owners for a multi-surface contract v2. Returns the strategy, composition candidates, fallback order, workspace requirements, and mandatory validation gate. Use after resolve_template and before editing files.",
+		"Create an executable Core implementation contract from a selected/nearest template or UI intent. Binds screenshot reference regions, a shared shell, and per-route regions to explicit Core owners for a multi-surface contract v2. Returns the strategy, composition candidates, fallback order, workspace requirements, and mandatory validation gate. Use after resolve_template and before editing files.",
 		INPUT_SCHEMAS.create_implementation_plan,
 		createImplementationPlan,
 	),
 	tool(
 		"resolve_component",
-		"Rank components by intent (or fetch one by name). Returns imports, variants/sizes, selection guidance, examples, and props. Use after templates/widgets and before creating a new WakeCore-aligned application component.",
+		"Rank components by intent (or fetch one by name). Returns imports, variants/sizes, selection guidance, examples, and props. Use after templates/widgets and before creating a new Core-aligned application component.",
 		INPUT_SCHEMAS.resolve_component,
 		resolveComponent,
 	),
@@ -62,7 +62,7 @@ export const TOOLS: ToolDef[] = [
 	),
 	tool(
 		"validate",
-		"Authoritatively validate complete WakeCore implementation files against the implementation plan. Use wakecore-product for product UI, wakecore-showcase for evaluation/showcases, or wakecore-template-strict for direct templates; wakecore-only is a deprecated imports-only alias. Do not report completion unless compliant=true.",
+		"Authoritatively validate complete Core implementation files against the implementation plan. Use core-product for product UI, core-showcase for evaluation/showcases, or core-template-strict for direct templates; core-only is a deprecated imports-only alias. Do not report completion unless compliant=true.",
 		INPUT_SCHEMAS.validate,
 		validate,
 	),

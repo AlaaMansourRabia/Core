@@ -3,7 +3,7 @@
 // reuses the SAME catalog the eval graders use — one source of truth, checked three ways.
 //
 // Kept pure: filesystem access is injected as `fileExists` so this stays portable for the
-// future @wakecap/validate extraction. scripts/validate-catalog.mjs supplies the real fs.
+// future @core/validate extraction. scripts/validate-catalog.mjs supplies the real fs.
 //
 // Severity:
 //   error   → definitive drift (gating): a path that doesn't exist, an import not exported
@@ -34,7 +34,7 @@ export function validateCatalog(catalog, {fileExists}) {
 	const cataloguedImports = new Set(catalog.components.map((c) => c.import));
 	for (const spec of catalog.exportsSet) {
 		if (spec === catalog.coreUi) continue;
-		const sub = spec.slice(catalog.coreUi.length + 1); // after "@wakecap/core-ui/"
+		const sub = spec.slice(catalog.coreUi.length + 1); // after "@core/core-ui/"
 		const isInternal = sub.includes("/") || /^(styles|types|data|services)/.test(sub);
 		if (!isInternal && !cataloguedImports.has(spec)) {
 			warnings.push(`export "${spec}" has no library-index.json entry (catalog may be incomplete).`);

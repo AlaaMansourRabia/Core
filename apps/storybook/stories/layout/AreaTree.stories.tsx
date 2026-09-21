@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@wakecap/core-ui/badge";
-import {Button} from "@wakecap/core-ui/button";
-import {SearchFilterBar, type SearchFilterBarFilter} from "@wakecap/core-ui/search-filter-bar";
-import {TreeRow} from "@wakecap/core-ui/tree-row";
-import {cn} from "@wakecap/core-utils";
+import {Badge} from "@core/core-ui/badge";
+import {Button} from "@core/core-ui/button";
+import {SearchFilterBar, type SearchFilterBarFilter} from "@core/core-ui/search-filter-bar";
+import {TreeRow} from "@core/core-ui/tree-row";
+import {cn} from "@core/core-utils";
 import {ChevronsDown, ChevronsUp, Paperclip} from "lucide-react";
 import {useState} from "react";
 

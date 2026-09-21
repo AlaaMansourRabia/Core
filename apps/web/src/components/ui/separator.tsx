@@ -1,1 +1,1 @@
-export {Separator} from "@wakecap/core-ui/separator";
+export {Separator} from "@core/core-ui/separator";

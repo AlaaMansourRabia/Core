@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {PanelRight, PictureInPicture2, X} from "lucide-react";
 import * as React from "react";
 
@@ -7,7 +7,7 @@ import type {AIChatHeaderAction} from "./chat/core-ai-chat-header";
 import type {PromptContextItem} from "./prompt-input";
 import {PushPanel, PushPanelContainer, PushPanelMain, PushPanelProvider} from "./push-panel";
 import type {Message} from "./types/chat";
-import {WakecapMark} from "./wakecap-mark";
+import {CoreMark} from "./core-mark";
 
 export interface FloatingAssistantProps {
 	/** Conversation messages (controlled). */
@@ -23,7 +23,7 @@ export interface FloatingAssistantProps {
 	open?: boolean;
 	onOpenChange?: (open: boolean) => void;
 
-	/** Trigger icon, shown bare with no chrome. Defaults to the WakeCap brand mark. */
+	/** Trigger icon, shown bare with no chrome. Defaults to the Core brand mark. */
 	icon?: React.ReactNode;
 	/** Accessible label for the trigger. */
 	triggerLabel?: string;
@@ -77,7 +77,7 @@ export interface FloatingAssistantProps {
  * over it, so `children` — the page content — narrows to make room (built on `PushPanel`).
  *
  * The conversation is controlled by the consumer (`messages` + `onSendMessage`), so any domain logic can
- * drive the replies. The trigger is the bare WakeCap brand mark with no chrome behind it, taking
+ * drive the replies. The trigger is the bare Core brand mark with no chrome behind it, taking
  * `foreground` so it inverts with the theme; pass `icon` to swap in any other glyph.
  */
 export function FloatingAssistant({
@@ -139,7 +139,7 @@ export function FloatingAssistant({
 			// 48px box is hit target only. `rounded-full` is kept just to shape the focus ring.
 			className="wwc:fixed wwc:bottom-6 wwc:right-6 wwc:z-50 wwc:flex wwc:h-12 wwc:w-12 wwc:items-center wwc:justify-center wwc:rounded-full wwc:text-foreground wwc:transition-transform wwc:hover:scale-105 wwc:focus-visible:outline-none wwc:focus-visible:ring-2 wwc:focus-visible:ring-ring wwc:focus-visible:ring-offset-2"
 		>
-			{icon ?? <WakecapMark className="wwc:h-8 wwc:w-8 wwc:drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]" />}
+			{icon ?? <CoreMark className="wwc:h-8 wwc:w-8 wwc:drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]" />}
 		</button>
 	);
 
@@ -213,7 +213,7 @@ export function FloatingAssistant({
 					className="wwc:fixed wwc:z-50 wwc:flex wwc:flex-col wwc:overflow-hidden wwc:rounded-2xl wwc:border wwc:border-border wwc:bg-card wwc:text-card-foreground"
 					style={{
 						// Geometry and the transition are inline rather than utilities: the two hand-maintained
-						// wakecore-render.css sheets carry neither the arbitrary sizes nor the animation classes,
+						// core-render.css sheets carry neither the arbitrary sizes nor the animation classes,
 						// so utilities here would vanish in Studio and open-design.
 						right: 24,
 						bottom: 84,

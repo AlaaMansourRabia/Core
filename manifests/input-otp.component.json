@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/input-otp.tsx",
-		"import": "@wakecap/core-ui/input-otp",
+		"import": "@core/core-ui/input-otp",
 		"export": "InputOTP"
 	},
 	"tags": [

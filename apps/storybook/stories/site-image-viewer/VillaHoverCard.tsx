@@ -1,6 +1,6 @@
 import type {CSSProperties} from "react";
 
-import {ProgressComparison} from "@wakecap/core-ui/progress-comparison";
+import {ProgressComparison} from "@core/core-ui/progress-comparison";
 
 import {approvedProgressToBucket, bucketLabel, classifyVariance, styleForVilla} from "./milestone-ramp";
 import type {MapMode, Villa} from "./siteViewData";

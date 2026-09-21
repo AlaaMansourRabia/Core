@@ -38,8 +38,8 @@ function findEntry(component, title) {
 function buildPrompts({component, group, title, question}) {
 	const entry = findEntry(component, title);
 	const system =
-		"You are the WakeCore design-system assistant, embedded in the WakeCore Storybook. WakeCore is " +
-		"WakeCap's React component library (@wakecap/core-ui). Answer the developer's question about the " +
+		"You are the Core design-system assistant, embedded in the Core Storybook. Core is " +
+		"Core's React component library (@core/core-ui). Answer the developer's question about the " +
 		"component they are currently viewing. Be concise and specific: name real props, variants, and " +
 		"import paths, and give short code examples when useful. If you are unsure, say so briefly rather " +
 		"than inventing an API. Keep answers under ~200 words.";

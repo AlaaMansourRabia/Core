@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/new-action-type-dialog";
+export * from "@core/core-ui/new-action-type-dialog";

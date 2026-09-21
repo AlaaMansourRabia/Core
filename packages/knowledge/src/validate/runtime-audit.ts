@@ -241,9 +241,9 @@ export function validateRuntimeAudit(input: {
 	const contractVersion =
 		plan?.contractVersion ?? plan?.applicationContract?.contractVersion ?? plan?.artifactContract?.contractVersion;
 	const runtimeRequired =
-		contractVersion === "wakecore-artifact-contract/2" &&
+		contractVersion === "core-artifact-contract/2" &&
 		routes.length > 0 &&
-		(["wakecore-product", "wakecore-showcase"].includes(input.mode) || plan?.goal === "visual-reproduction");
+		(["core-product", "core-showcase"].includes(input.mode) || plan?.goal === "visual-reproduction");
 	const plannedRegionCount = routes.reduce(
 		(total, route) => total + (route.regions ?? []).filter((region) => region.id).length,
 		0,
@@ -290,7 +290,7 @@ export function validateRuntimeAudit(input: {
 			pass: false,
 			level: "error",
 			message: `${input.mode} requires a runtime audit for every planned route.`,
-			fix: "Run the WakeCore runtime audit command against the application and pass its evidence to validate.",
+			fix: "Run the Core runtime audit command against the application and pass its evidence to validate.",
 			source: "runtime-audit",
 		});
 		return {
@@ -327,15 +327,15 @@ export function validateRuntimeAudit(input: {
 		};
 	}
 
-	const producerValid = evidence.producer === "wakecore-runtime-audit/4" && evidence.version === "4";
+	const producerValid = evidence.producer === "core-runtime-audit/4" && evidence.version === "4";
 	findings.push({
 		metric: "runtime-audit-provenance",
 		pass: producerValid,
 		level: producerValid ? "info" : "error",
 		message: producerValid
 			? `Runtime evidence was produced by ${evidence.producer}.`
-			: "Runtime evidence was not produced by the current WakeCore audit harness (version 4).",
-		fix: producerValid ? undefined : "Generate evidence with the WakeCore runtime audit command.",
+			: "Runtime evidence was not produced by the current Core audit harness (version 4).",
+		fix: producerValid ? undefined : "Generate evidence with the Core runtime audit command.",
 		source: "runtime-audit",
 	});
 
@@ -395,7 +395,7 @@ export function validateRuntimeAudit(input: {
 					pass: false,
 					level: "error",
 					message: `Required region ${id}/${region.id} was not visible during the runtime audit.`,
-					fix: `Render and mark the region with data-wakecore-region="${region.id}".`,
+					fix: `Render and mark the region with data-core-region="${region.id}".`,
 					source: "runtime-audit",
 				});
 		}
@@ -515,7 +515,7 @@ export function validateRuntimeAudit(input: {
 				pass: false,
 				level: "error",
 				message: `Route ${id} adds a duplicate ${duplicate.edge} boundary around ${duplicate.artifactId} from its ${duplicate.owner}.`,
-				fix: "Remove the wrapper/sibling border; the WakeCore artifact owns this surface boundary.",
+				fix: "Remove the wrapper/sibling border; the Core artifact owns this surface boundary.",
 				source: "runtime-audit",
 			});
 		}
@@ -528,7 +528,7 @@ export function validateRuntimeAudit(input: {
 				pass: false,
 				level: "error",
 				message: `Route ${id} was audited at ${audited.responsiveAudits.length} viewport(s); at least desktop and 820px narrow evidence is required.`,
-				fix: "Generate runtime evidence with WakeCore runtime audit version 4.",
+				fix: "Generate runtime evidence with Core runtime audit version 4.",
 				source: "runtime-audit",
 			});
 		for (const viewport of audited.responsiveAudits) {

@@ -67,9 +67,9 @@ function jsxDensity(source: string, component: string): "compact" | "comfortable
 	return /\bdensity=["']compact["']/.test(match[1]) ? "compact" : "comfortable";
 }
 
-function importedWakeCoreNames(source: string): string[] {
+function importedCoreNames(source: string): string[] {
 	const names = [];
-	for (const match of source.matchAll(/import\s*\{([^}]*)\}\s*from\s*["']@wakecap\/core-ui[^"']*["']/g))
+	for (const match of source.matchAll(/import\s*\{([^}]*)\}\s*from\s*["']@core\/core-ui[^"']*["']/g))
 		for (const value of match[1].split(",")) {
 			const name = value.trim().split(/\s+as\s+/)[0];
 			if (name && !name.startsWith("type ")) names.push(name);
@@ -172,7 +172,7 @@ export function analyzeRouteAdoption(input: ValidateInput): RouteAdoptionResult 
 					pass: false,
 					level: "error",
 					message: `Route ${route.id} does not render CoreAppSidebar and CoreAppTopBar as a pair.`,
-					fix: "Use the paired WakeCore application shell at the declared shared layout boundary.",
+					fix: "Use the paired Core application shell at the declared shared layout boundary.",
 					source: route.id,
 				});
 			if (!topbar && /<(?:header|[A-Z][A-Za-z]*(?:Header|TopBar))(?=[\s/>])/.test(source))
@@ -181,7 +181,7 @@ export function analyzeRouteAdoption(input: ValidateInput): RouteAdoptionResult 
 					pass: false,
 					level: "error",
 					message: `Route ${route.id} uses a custom header/topbar instead of CoreAppTopBar.`,
-					fix: "Use CoreAppTopBar in the shared WakeCore shell.",
+					fix: "Use CoreAppTopBar in the shared Core shell.",
 					source: route.id,
 				});
 			const moduleBoundaries = Array.isArray(declaredShell?.moduleBoundaries) ? declaredShell.moduleBoundaries : [];
@@ -257,7 +257,7 @@ export function analyzeRouteAdoption(input: ValidateInput): RouteAdoptionResult 
 					pass: false,
 					level: "error",
 					message: `${route.id}/${region.id}: ${replacement}`,
-					fix: "Use the highest applicable contracted WakeCore artifact or document a structured catalog-gap substitution.",
+					fix: "Use the highest applicable contracted Core artifact or document a structured catalog-gap substitution.",
 					source: `${route.id}:${region.id}`,
 				});
 			if (
@@ -281,7 +281,7 @@ export function analyzeRouteAdoption(input: ValidateInput): RouteAdoptionResult 
 			route: route.id,
 			path: route.path,
 			files: routeFiles.map((file) => file.path),
-			imported: importedWakeCoreNames(source),
+			imported: importedCoreNames(source),
 			rendered: [...new Set(allContractedArtifacts.filter((artifact) => rendersArtifact(source, artifact)))],
 			shell: {sidebar: hasJsx(source, "CoreAppSidebar"), topBar: hasJsx(source, "CoreAppTopBar")},
 			moduleBoundaryId: route.moduleBoundaryId,

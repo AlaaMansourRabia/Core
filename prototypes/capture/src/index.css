@@ -2,8 +2,8 @@
    monorepo-internal tokens entry, which does `@import "tailwindcss" prefix(wwc)` plus the
    theme. `@source` scans the component-library source so every `wwc:` utility used by the
    imported components — and by the local Capture / blueprint-navigator files — is generated. */
-@import "@wakecap/core-tokens/fonts";
-@import "@wakecap/core-tokens";
+@import "@core/core-tokens/fonts";
+@import "@core/core-tokens";
 @source "../../../packages/components/src";
 
 /* The Capture shell is full-bleed (uses `h-full`), so the mount chain needs a height. */

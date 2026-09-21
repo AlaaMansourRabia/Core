@@ -4,8 +4,8 @@
 
 import type {TimelineState} from "./types";
 
-import {Badge} from "@wakecap/core-ui/badge";
-import {Progress} from "@wakecap/core-ui/progress";
+import {Badge} from "@core/core-ui/badge";
+import {Progress} from "@core/core-ui/progress";
 
 import {TRADE_BY_KEY} from "./trades";
 

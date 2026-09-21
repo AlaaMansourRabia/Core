@@ -1,5 +1,5 @@
 import * as ToastPrimitives from "@radix-ui/react-toast";
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {type VariantProps, cva} from "class-variance-authority";
 import {X} from "lucide-react";
 import * as React from "react";

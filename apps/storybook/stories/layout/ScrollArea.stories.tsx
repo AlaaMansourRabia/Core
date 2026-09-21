@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ScrollArea, ScrollBar} from "@wakecap/core-ui/scroll-area";
+import {ScrollArea, ScrollBar} from "@core/core-ui/scroll-area";
 
 const meta = {
 	title: "Components/Layout/ScrollArea",

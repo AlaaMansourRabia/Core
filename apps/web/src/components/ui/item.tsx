@@ -1,1 +1,1 @@
-export {Item, ItemContent, ItemTitle, ItemDescription} from "@wakecap/core-ui/item";
+export {Item, ItemContent, ItemTitle, ItemDescription} from "@core/core-ui/item";

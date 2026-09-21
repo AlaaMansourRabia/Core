@@ -205,7 +205,7 @@ const NOTIFICATIONS = [
 		unread: true,
 	},
 	{id: "n2", title: "Build failed", body: "modon-prototype build #42 failed", time: "1h ago", unread: true},
-	{id: "n3", title: "New team member", body: "ali@wakecap.com joined Organization Name", time: "3h ago", unread: false},
+	{id: "n3", title: "New team member", body: "ali@core.com joined Organization Name", time: "3h ago", unread: false},
 	{id: "n4", title: "Usage alert", body: "You've reached 80% of your monthly limit", time: "1d ago", unread: false},
 ];
 
@@ -617,7 +617,7 @@ export function AppSidebarDemo({
 										<div className="wwc:text-[13px] wwc:font-semibold wwc:text-foreground wwc:truncate">
 											Abdullah Alzahrani
 										</div>
-										<div className="wwc:text-[12px] wwc:text-muted-foreground wwc:truncate">abdullah@wakecap.com</div>
+										<div className="wwc:text-[12px] wwc:text-muted-foreground wwc:truncate">abdullah@core.com</div>
 									</div>
 									<Button variant="ghost" icon className="wwc:h-7 wwc:w-7 wwc:text-muted-foreground wwc:flex-shrink-0">
 										<Settings className="wwc:h-4 wwc:w-4" />
@@ -694,7 +694,7 @@ export function AppSidebarDemo({
 										<div className="wwc:text-[13px] wwc:font-semibold wwc:text-foreground wwc:truncate">
 											Abdullah Alzahrani
 										</div>
-										<div className="wwc:text-[12px] wwc:text-muted-foreground wwc:truncate">abdullah@wakecap.com</div>
+										<div className="wwc:text-[12px] wwc:text-muted-foreground wwc:truncate">abdullah@core.com</div>
 									</div>
 									<Button variant="ghost" icon className="wwc:h-7 wwc:w-7 wwc:text-muted-foreground wwc:flex-shrink-0">
 										<Settings className="wwc:h-4 wwc:w-4" />

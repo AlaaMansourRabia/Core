@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/date-picker.tsx",
-		"import": "@wakecap/core-ui/date-picker",
+		"import": "@core/core-ui/date-picker",
 		"export": "DatePicker"
 	},
 	"tags": [

@@ -1,4 +1,4 @@
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@wakecap/core-ui/table";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@core/core-ui/table";
 
 export function WorkersTable({data}) {
 	return (

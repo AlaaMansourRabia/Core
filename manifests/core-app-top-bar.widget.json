@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/navigation/core-app-top-bar.tsx",
-		"import": "@wakecap/core-ui/navigation/core-app-top-bar",
+		"import": "@core/core-ui/navigation/core-app-top-bar",
 		"export": "CoreAppTopBar"
 	},
 	"tags": [
@@ -18,7 +18,7 @@
 	],
 	"intent": "The product top bar: project/org switcher, breadcrumb/title, feedback and actions, with density matching CoreAppSidebar.",
 	"when": [
-		"The header row of the WakeCap app shell"
+		"The header row of the Core app shell"
 	],
 	"chooseOver": [
 		{

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Avatar, AvatarFallback, AvatarImage} from "@wakecap/core-ui/avatar";
+import {Avatar, AvatarFallback, AvatarImage} from "@core/core-ui/avatar";
 
 const meta = {
 	title: "Components/Primitives/Avatar",

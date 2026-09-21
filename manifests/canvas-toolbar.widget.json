@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/canvas-toolbar.tsx",
-		"import": "@wakecap/core-ui/canvas-toolbar"
+		"import": "@core/core-ui/canvas-toolbar"
 	},
 	"tags": [
 		"canvas",

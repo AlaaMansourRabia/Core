@@ -17,7 +17,7 @@ export function cssColorToRgb(cssColor: string): string {
 	if (typeof document === "undefined") return cssColor;
 	for (const match of cssColor.matchAll(/var\(\s*(--[\w-]+)/g)) {
 		if (!getComputedStyle(document.documentElement).getPropertyValue(match[1]).trim())
-			console.warn(`[WakeCore chart] Unresolved CSS color token ${match[1]}; falling back to currentColor.`);
+			console.warn(`[Core chart] Unresolved CSS color token ${match[1]}; falling back to currentColor.`);
 	}
 	const temp = document.createElement("div");
 	temp.style.color = cssColor;
@@ -58,7 +58,7 @@ export function getCssVarAsRgb(varName: string): string {
 	if (typeof document === "undefined") return `var(${varName})`;
 	const cssValue = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
 	if (!cssValue) {
-		console.warn(`[WakeCore chart] Unresolved CSS color token ${varName}; falling back to currentColor.`);
+		console.warn(`[Core chart] Unresolved CSS color token ${varName}; falling back to currentColor.`);
 		return cssColorToRgb("currentColor");
 	}
 	return cssColorToRgb(cssValue);

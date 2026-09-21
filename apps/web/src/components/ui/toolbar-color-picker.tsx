@@ -1,2 +1,2 @@
-export {ToolbarColorPicker} from "@wakecap/core-ui/toolbar-color-picker";
-export type {ColorGroup, ToolbarColorPickerProps} from "@wakecap/core-ui/toolbar-color-picker";
+export {ToolbarColorPicker} from "@core/core-ui/toolbar-color-picker";
+export type {ColorGroup, ToolbarColorPickerProps} from "@core/core-ui/toolbar-color-picker";

@@ -1,9 +1,9 @@
 import * as React from "react";
 
-// This dock lives in the Storybook *manager* iframe, which doesn't load @wakecap/core-ui's
+// This dock lives in the Storybook *manager* iframe, which doesn't load @core/core-ui's
 // stylesheet (and importing it here would apply its CSS reset to Storybook's own chrome). So the
-// visuals below mirror the design system's AIChat / PromptInput components by hand, using WakeCore's
-// actual design tokens as literal oklch() values (the manager runs in a modern browser). WakeCore is
+// visuals below mirror the design system's AIChat / PromptInput components by hand, using Core's
+// actual design tokens as literal oklch() values (the manager runs in a modern browser). Core is
 // a neutral/monochrome system — the primary is near-black, not a brand accent.
 
 const BRIDGE = "http://localhost:47600";
@@ -19,7 +19,7 @@ const IS_STATIC_BUILD = (globalThis as {CONFIG_TYPE?: string}).CONFIG_TYPE !== "
 const LOCAL_ONLY_HINT =
 	"Ask about this component runs only in local Storybook (pnpm --filter apps-storybook dev:chat) — it asks the Claude CLI through a bridge on your own machine, which the hosted build has no way to reach.";
 
-// WakeCore design tokens (light theme) — see packages/tokens/dist/theme.css.
+// Core design tokens (light theme) — see packages/tokens/dist/theme.css.
 const T = {
 	background: "oklch(1 0 0)",
 	foreground: "oklch(0.145 0 0)",

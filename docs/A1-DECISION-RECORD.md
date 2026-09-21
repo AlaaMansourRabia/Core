@@ -3,7 +3,7 @@
 > **Status:** **ACCEPTED — schema frozen 2026-07-05** (all Part 5 questions resolved). **Stage:** Track A / A1 (`docs/PLANNING.md`).
 > **Purpose:** eliminate every duplication and canonical-ownership ambiguity in the manifest model so the
 > remaining A1 migration (113 artifacts) is mechanical. No components migrated here; no APIs changed.
-> **Companion of:** [`PLANNING.md`](./PLANNING.md) (roadmap), [`WAKECORE-NEXT.md`](./WAKECORE-NEXT.md)
+> **Companion of:** [`PLANNING.md`](./PLANNING.md) (roadmap), [`CORE-NEXT.md`](./CORE-NEXT.md)
 > (one-manifest-family principle), [`TIER-ARCHITECTURE.md`](./TIER-ARCHITECTURE.md) (manifest schemas).
 
 ---
@@ -106,7 +106,7 @@ compatibility is required, and whether it is a **schema change** or a **temporar
 ### D5 — Lineage canonical for maturity; `knowledgeLevel` + `manifestStatus`-in-lineage generated/removed
 - **Problem.** `knowledgeLevel` (`full`/`concise`/`generated`/`needs-review`) conflates authoring-completeness with trust; `lineage.status` + derived `confidence` already model lifecycle + trust; `manifestStatus` is duplicated into `lineage.manifestStatus` on widgets.
 - **Recommendation.** `lineage.status` (candidate→verified→accepted→stale→retired) + derived `confidence` are canonical for trust. `manifestStatus` (`complete`/`stub`) stays **top-level only** — remove `lineage.manifestStatus`. `knowledgeLevel` becomes a **generated completeness marker** from `manifestStatus` + semantic-field richness (`full`/`concise`/`generated`), kept **distinct** from lineage trust (`status`/`confidence`) — the two are different axes (resolved Part 5 §9; no programmatic consumer breaks).
-- **Why.** One lifecycle source; `confidence` stays derived (never hand-set) per `WAKECORE-NEXT`.
+- **Why.** One lifecycle source; `confidence` stays derived (never hand-set) per `CORE-NEXT`.
 - **Migration impact.** Drop `lineage.manifestStatus`; generate `knowledgeLevel`. Author `lineage.status` on every manifest.
 - **Risks.** Low, pending Q9 (who reads `knowledgeLevel`).
 - **Future implications.** Feeds the A5 learning-flywheel gate (status transitions).
@@ -148,7 +148,7 @@ compatibility is required, and whether it is a **schema change** or a **temporar
 ### D9 — One `lineage` schema
 - **Problem.** `lineage` has 8/19/15 keys across tiers with ad-hoc fields (`composes`, `unblocks`, `notAdoptedBy`, `reclassificationNote`, `archetypeNote`, …).
 - **Recommendation.** Freeze `lineage = { origin, authoredBy, derivedFrom{source, extracted[]}, status, verifiedBy, confidence, supersedes, lastValidated, notes[] }`. Everything non-standard collapses into `notes[]` (freeform) or an existing field. `confidence` is derived, never authored.
-- **Why.** Lineage is the backbone of the A5 flywheel and Q-lineage in `WAKECORE-NEXT`; it must be uniform to be queryable.
+- **Why.** Lineage is the backbone of the A5 flywheel and Q-lineage in `CORE-NEXT`; it must be uniform to be queryable.
 - **Migration impact.** Normalize lineage in all existing manifests (8 template + 33 widget + 5 component); a schema validator enforces the key set.
 - **Risks.** Low — information preserved via `notes[]`.
 - **Change type.** Schema change (normalize).

@@ -1,6 +1,6 @@
 import type {ColumnDef} from "@tanstack/react-table";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {Plus} from "lucide-react";
 import {useEffect, useMemo, useState} from "react";
 

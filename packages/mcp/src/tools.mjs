@@ -1,15 +1,15 @@
-// The WakeCore tool surface — the tool-agnostic API any AI editor (Open Design first) calls to build
-// UI from WakeCore instead of inventing it. Advisory tools (resolve_*, list_templates) help the agent
+// The Core tool surface — the tool-agnostic API any AI editor (Open Design first) calls to build
+// UI from Core instead of inventing it. Advisory tools (resolve_*, list_templates) help the agent
 // choose; authoritative tools (generate_page_instance, validate_page) are the ONLY way a real, valid
-// page comes into being. Each tool is a thin wrapper over the deterministic @wakecap/sdk.
+// page comes into being. Each tool is a thin wrapper over the deterministic @core/sdk.
 
-/** @param {import("@wakecap/sdk").WakecoreSdk} sdk */
+/** @param {import("@core/sdk").CoreSdk} sdk */
 export function buildTools(sdk, catalog) {
 	return [
 		{
 			name: "list_templates",
 			description:
-				"List every WakeCore page template (id, name, intent, region count). Call this to see what WakeCore can build before choosing.",
+				"List every Core page template (id, name, intent, region count). Call this to see what Core can build before choosing.",
 			inputSchema: {type: "object", properties: {}},
 			run: () => ({
 				templates: catalog.templates.map((t) => ({
@@ -24,7 +24,7 @@ export function buildTools(sdk, catalog) {
 		{
 			name: "resolve_template",
 			description:
-				"Rank WakeCore templates by how well they match a natural-language intent. Returns candidates with id, name, score, rationale, and when/whenNot guidance. Use this to pick the right template for the user's request.",
+				"Rank Core templates by how well they match a natural-language intent. Returns candidates with id, name, score, rationale, and when/whenNot guidance. Use this to pick the right template for the user's request.",
 			inputSchema: {
 				type: "object",
 				properties: {
@@ -52,7 +52,7 @@ export function buildTools(sdk, catalog) {
 		{
 			name: "generate_page_instance",
 			description:
-				"Produce a validated WakeCore PageInstance (schema page-instance/0.1) for a template. This is the ONLY way to create a page — do not hand-write UI. Returns { page, validation, unresolved, rationale }. Emit `page` as the artifact; render it with the WakeCore renderer.",
+				"Produce a validated Core PageInstance (schema page-instance/0.1) for a template. This is the ONLY way to create a page — do not hand-write UI. Returns { page, validation, unresolved, rationale }. Emit `page` as the artifact; render it with the Core renderer.",
 			inputSchema: {
 				type: "object",
 				properties: {
@@ -91,7 +91,7 @@ export function buildTools(sdk, catalog) {
 		{
 			name: "validate_page",
 			description:
-				"Validate a WakeCore PageInstance and return its issues (authoritative, deterministic). Use to check a page before presenting it. Pass the full `page` object.",
+				"Validate a Core PageInstance and return its issues (authoritative, deterministic). Use to check a page before presenting it. Pass the full `page` object.",
 			inputSchema: {
 				type: "object",
 				properties: {

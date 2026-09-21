@@ -1,6 +1,6 @@
 import type {ECharts, EChartsOption} from "echarts";
 
-import {cssColorToRgb, getChartColors, getCssVarAsRgb} from "@wakecap/core-utils";
+import {cssColorToRgb, getChartColors, getCssVarAsRgb} from "@core/core-utils";
 import * as echarts from "echarts";
 import * as React from "react";
 
@@ -61,7 +61,7 @@ function normalizeColorValue(value: unknown, key?: string): unknown {
 
 /**
  * Returns an ECharts option whose CSS Color 4 values are converted to canvas-safe RGB strings.
- * Optional series themes let consumers use WakeCore semantic tones or palette indexes without
+ * Optional series themes let consumers use Core semantic tones or palette indexes without
  * reading CSS variables or introducing raw color literals.
  *
  * Colors are resolved against the theme that is live **at call time** — the returned option holds
@@ -214,7 +214,7 @@ interface ChartContainerProps {
 	config?: ChartConfig;
 	option: EChartsOption;
 	/**
-	 * WakeCore semantic tones or palette indexes applied to `option.series` in order. Prefer this over
+	 * Core semantic tones or palette indexes applied to `option.series` in order. Prefer this over
 	 * calling {@link createThemedChartOption} yourself: the colors are resolved here, on every theme
 	 * change, so the series survive a switch to dark mode.
 	 */

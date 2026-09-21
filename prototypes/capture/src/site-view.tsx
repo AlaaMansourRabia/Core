@@ -1,8 +1,8 @@
 import type {CSSProperties} from "react";
 
-import {cn} from "@wakecap/core-utils";
-import {Button} from "@wakecap/core-ui/button";
-import {WeekSelector, type WeekSelectorWeek} from "@wakecap/core-ui/week-selector";
+import {cn} from "@core/core-utils";
+import {Button} from "@core/core-ui/button";
+import {WeekSelector, type WeekSelectorWeek} from "@core/core-ui/week-selector";
 import {ArrowLeft, Expand, MonitorPlay, X} from "lucide-react";
 import {useEffect, useRef, useState} from "react";
 

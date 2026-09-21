@@ -5,4 +5,4 @@ export {
 	ActivityRef,
 	type ActivityItemProps,
 	type ActivityLogProps,
-} from "@wakecap/core-ui/activity-log";
+} from "@core/core-ui/activity-log";

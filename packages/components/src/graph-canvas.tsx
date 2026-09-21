@@ -7,11 +7,11 @@ import * as React from "react";
 // without importing anything itself — which is what lets the pages in this repo stop importing it.
 import "@xyflow/react/dist/style.css";
 
-// ─── The React Flow surface Wakecore owns ────────────────────────────────────
+// ─── The React Flow surface Core owns ────────────────────────────────────
 //
 // Everything a canvas page needs from `@xyflow/react` is re-exported here, so a page imports
-// Wakecore and nothing else. Nothing is renamed and nothing is wrapped: these ARE React Flow's
-// primitives, and pretending otherwise behind Wakecore-sounding aliases would only make the next
+// Core and nothing else. Nothing is renamed and nothing is wrapped: these ARE React Flow's
+// primitives, and pretending otherwise behind Core-sounding aliases would only make the next
 // person open two files to find the real documentation. What changes is the DOOR — one module owns
 // the dependency, its stylesheet and its version, so a page cannot quietly pick up a second copy of
 // React Flow's context or drift onto an API this canvas has not adopted.
@@ -66,7 +66,7 @@ export {useViewport} from "@xyflow/react";
 export {ReactFlowProvider} from "@xyflow/react";
 
 /**
- * The node-and-edge surface every Wakecore graph view had grown its own copy of.
+ * The node-and-edge surface every Core graph view had grown its own copy of.
  *
  * Four canvases — the process state machine, the pipeline wiring, the data lineage DAG and the
  * ontology graph explorer — each re-typed the same provider, the same dotted background, the same
@@ -119,7 +119,7 @@ export interface GraphCanvasProps extends Omit<ReactFlowProps, "children"> {
 }
 
 /**
- * The host's colour mode, read from the `dark` class Wakecore toggles on `<html>` and kept in sync as
+ * The host's colour mode, read from the `dark` class Core toggles on `<html>` and kept in sync as
  * it flips.
  *
  * React Flow scopes its own chrome — node fill and border, edge stroke, the Controls buttons, the

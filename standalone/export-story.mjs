@@ -28,6 +28,6 @@ try {
 	const result = await exportStoryToFile({storyId, entry, outDir, theme});
 	console.log(`${entry.title} / ${entry.name} → ${result.path} (${Math.round(result.bytes / 1024)} KB)`);
 } catch (error) {
-	console.error(`[wakecore-html] ${error instanceof Error ? error.message : error}`);
+	console.error(`[core-html] ${error instanceof Error ? error.message : error}`);
 	process.exit(1);
 }

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/context-toolbar.tsx",
-		"import": "@wakecap/core-ui/context-toolbar",
+		"import": "@core/core-ui/context-toolbar",
 		"export": "ContextToolbar"
 	},
 	"tags": ["toolbar", "context", "status", "actions", "responsive"],
@@ -24,7 +24,7 @@
 	"chooseOver": [
 		{
 			"component": "Toolbar",
-			"because": "ContextToolbar supplies WakeCore context/title/status semantics and responsive action overflow rather than only primitive toolbar behavior."
+			"because": "ContextToolbar supplies Core context/title/status semantics and responsive action overflow rather than only primitive toolbar behavior."
 		},
 		{
 			"component": "PageContentHeader",
@@ -88,7 +88,7 @@
 	},
 	"lineage": {
 		"origin": "experiment-feedback",
-		"authoredBy": "WakeCore UI feedback hardening (2026-07)",
+		"authoredBy": "Core UI feedback hardening (2026-07)",
 		"status": "candidate",
 		"confidence": "high — API and responsive ownership authored from held-out experiment",
 		"lastValidated": "2026-07-18"

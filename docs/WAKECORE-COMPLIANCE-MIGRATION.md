@@ -1,19 +1,19 @@
-# WakeCore compliance migration
+# Core compliance migration
 
-WakeCore compliance now describes the strength of the validated claim instead of treating any
-WakeCore import as full adoption. The migration preserves the legacy mode while clients move to
+Core compliance now describes the strength of the validated claim instead of treating any
+Core import as full adoption. The migration preserves the legacy mode while clients move to
 goal-specific, multi-file validation.
 
 ## Mode mapping
 
 | Previous request                                                         | New mode                   | Intended claim                                                                     |
 | ------------------------------------------------------------------------ | -------------------------- | ---------------------------------------------------------------------------------- |
-| `wakecore-only`                                                          | `wakecore-imports`         | WakeCore imports/component usage are present.                                      |
-| Product UI checked with `wakecore-only`                                  | `wakecore-product`         | A product interface meaningfully adopts the planned WakeCore artifacts and tokens. |
-| Showcase/evaluation checked with `wakecore-only`                         | `wakecore-showcase`        | The implementation visibly demonstrates meaningful WakeCore breadth.               |
-| Direct-template reproduction checked with `wakecore-only` and `template` | `wakecore-template-strict` | The selected template and its required structure are preserved.                    |
+| `core-only`                                                          | `core-imports`         | Core imports/component usage are present.                                      |
+| Product UI checked with `core-only`                                  | `core-product`         | A product interface meaningfully adopts the planned Core artifacts and tokens. |
+| Showcase/evaluation checked with `core-only`                         | `core-showcase`        | The implementation visibly demonstrates meaningful Core breadth.               |
+| Direct-template reproduction checked with `core-only` and `template` | `core-template-strict` | The selected template and its required structure are preserved.                    |
 
-`wakecore-only` is a deprecated alias for `wakecore-imports`. A successful legacy response must be
+`core-only` is a deprecated alias for `core-imports`. A successful legacy response must be
 reported as import-level compliance only. It cannot be promoted to product, showcase, or strict-template
 compliance.
 
@@ -21,10 +21,10 @@ compliance.
 
 New clients should choose an implementation goal during planning and use its matching validation mode:
 
-- `product-ui` → `wakecore-product`
-- `wakecore-showcase` → `wakecore-showcase`
-- `component-evaluation` → `wakecore-showcase` (the plan narrows coverage to the evaluated components)
-- `visual-reproduction` → `wakecore-template-strict`
+- `product-ui` → `core-product`
+- `core-showcase` → `core-showcase`
+- `component-evaluation` → `core-showcase` (the plan narrows coverage to the evaluated components)
+- `visual-reproduction` → `core-template-strict`
 
 Send the complete final implementation in `files`: application-authored TS/TSX files, relevant
 CSS/style files, route definitions, and the entry point. Use the single-string `code` input only with an older deployed
@@ -33,7 +33,7 @@ server that does not accept `files`. Carry forward `implementationPlan`, includi
 contract, route/region map, and substitutions supported by the installed schema:
 
 1. An artifact utilization map covering every required and recommended artifact.
-2. A final WakeCore inventory distinguishing imported, rendered, and visibly exercised artifacts.
+2. A final Core inventory distinguishing imported, rendered, and visibly exercised artifacts.
 3. For `adapt-template`, structured substitutions with route, region, attempted fallback artifacts,
    requested capability, replacement, rationale, and catalog-gap identity when no catalog artifact applies.
 4. The selected/reference template when required by the chosen mode.
@@ -53,13 +53,13 @@ Visual-reproduction clients must create `referenceAnalysis` before calling `reso
 unchanged into `create_implementation_plan` and `validate`. The analysis records the reference shell,
 navigation model, density, region hierarchy, scroll ownership, responsive implications, implied interactions,
 semantic relationships, and source-brand traits to replace. Every analyzed region must map to a named
-WakeCore owner or explicit catalog gap.
+Core owner or explicit catalog gap.
 
 Screenshot plans use runtime audit v4. Evidence must show a `100dvh` viewport-owned shell with hidden
 document overflow, route-owned content scrolling, stationary sidebar geometry, contiguous shell boundaries,
 artifact-owned DataTable/chart/tab visuals, no duplicate dividers or affordances, desktop and 820px responsive checks with no horizontal overflow/group overlap or split, accessible icon actions, supported navigation relationships,
 and observable state changes for required canvas capabilities. Completion reports two independent results:
-reference fidelity for the preserved information architecture and intent, and WakeCore fidelity for artifact,
+reference fidelity for the preserved information architecture and intent, and Core fidelity for artifact,
 token, shell, accessibility, and interaction ownership.
 
 Clients must not fabricate fields that an older server does not expose. During a mixed-version rollout,
@@ -72,7 +72,7 @@ Completion reporting should include the selected goal and mode, `compliant`, the
 per-category scores, tier and component coverage, recursive token provenance, CSS ownership, route/static
 adoption, runtime coverage, blocking findings, advisory findings, and the final artifact inventory. Treat
 `compliant=true` as scoped to the requested mode. For example,
-`wakecore-imports` success does not imply `wakecore-product` success.
+`core-imports` success does not imply `core-product` success.
 
 If a response omits a new detail because the deployed server predates that field, preserve the response
 as a legacy import-level result rather than filling the gap with a client-side assumption.
@@ -81,7 +81,7 @@ as a legacy import-level result rather than filling the gap with a client-side a
 
 ### Stage 1: compatibility and observation
 
-- Accept `wakecore-only` as an alias for `wakecore-imports` and emit a deprecation notice.
+- Accept `core-only` as an alias for `core-imports` and emit a deprecation notice.
 - Introduce implementation goals, artifact contracts, and goal-specific modes.
 - Collect goal-specific findings in advisory/shadow form where enforcement is not yet calibrated.
 - Update clients to report the requested mode and avoid stronger claims from legacy results.
@@ -102,8 +102,8 @@ as a legacy import-level result rather than filling the gap with a client-side a
 
 ### Stage 4: legacy retirement
 
-- Measure remaining `wakecore-only` traffic and publish a removal window before disabling the alias.
-- Migrate stored examples, prompts, and integrations to `wakecore-imports` or a stronger goal-specific mode.
+- Measure remaining `core-only` traffic and publish a removal window before disabling the alias.
+- Migrate stored examples, prompts, and integrations to `core-imports` or a stronger goal-specific mode.
 - Remove the alias only after supported clients no longer depend on it.
 
 The rollout order separates honest reporting from stricter enforcement: clients can stop overstating

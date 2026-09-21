@@ -1,28 +1,28 @@
 {
 	"schemaVersion": "artifact-manifest/0.2",
-	"id": "wakecap-connect-v3",
+	"id": "core-connect-v3",
 	"tier": "template",
 	"consumption": "compose",
-	"name": "WakeCapConnectV3",
+	"name": "CoreConnectV3",
 	"archetype": "Workspace",
 	"category": "platform",
 	"version": "0.1.0",
 	"manifestStatus": "draft",
 	"product": {
-		"name": "WakeCap Connect",
+		"name": "Core Connect",
 		"release": "V3",
 		"role": "Unified Portal",
 		"supersedes": [
-			"wakecap-connect"
+			"core-connect"
 		]
 	},
 	"source": {
-		"path": "packages/components/src/pages/core-wakecap-connect-v3.tsx",
-		"import": "@wakecap/core-ui/pages/core-wakecap-connect-v3",
-		"export": "WakeCapConnectV3"
+		"path": "packages/components/src/pages/core-core-connect-v3.tsx",
+		"import": "@core/core-ui/pages/core-core-connect-v3",
+		"export": "CoreConnectV3"
 	},
 	"tags": [
-		"wakecap-connect",
+		"core-connect",
 		"app-shell",
 		"sidebar",
 		"top-bar",
@@ -38,7 +38,7 @@
 		"admin",
 		"unified"
 	],
-	"intent": "WakeCap Connect V3: V2's merged workspace re-cut around the project lifecycle. The sidebar keeps a pinned Home with the installed apps directly beneath it, but replaces V2's single \"Your apps\" heading with one labelled group per lifecycle stage — Design, Plan, Capture, Pay — each carrying an icon that stands for the whole stage: collapsed, the rail shows the four group icons instead of every app, and clicking one opens a flyout of the apps under it, reusing the same drill-in an expandable nav item already has. Each stage header carries two distinct targets: its name opens a page about that stage (its purpose, the apps installed under it, and what else the Marketplace offers for it), and a chevron on the far right folds those apps away. The workspace opens as a project already kitted out, with nine of the thirteen catalogue apps installed across the four stages, and the rest available to add from the Marketplace, where anything can also be uninstalled. The Marketplace moves out of the shell's pinned slot and becomes the last item of the Studio group, so browsing and installing apps reads as studio work rather than a permanent fixture. The top-bar switcher moves up a rung with it: where V1 and V2 pick a project there, V3 picks the ORGANIZATION, since the rail beneath it is already cut by project lifecycle and the project is chosen further in. The project is chosen in Files, the other thing V3 adds: one flat list, reached from a Files entry pinned under the nav search and ruled off from Home and the app stages below it, of every record the workspace holds in the selected organization, each carrying its folder path. Facets down the left — type, project and tag, each with a count — narrow it; there is no folder tree, because the folder is already printed under every row and a facet answers “show me the pipelines” in one click where a tree cannot. Opening a file navigates to the app that owns it and drills to that record; every app listing shows, beside each record, the folder it lives in, and clicking that reopens Files narrowed to it. The file system is a reference layer with no records of its own. Every other surface, and the install lifecycle behind it, is unchanged from V2.",
+	"intent": "Core Connect V3: V2's merged workspace re-cut around the project lifecycle. The sidebar keeps a pinned Home with the installed apps directly beneath it, but replaces V2's single \"Your apps\" heading with one labelled group per lifecycle stage — Design, Plan, Capture, Pay — each carrying an icon that stands for the whole stage: collapsed, the rail shows the four group icons instead of every app, and clicking one opens a flyout of the apps under it, reusing the same drill-in an expandable nav item already has. Each stage header carries two distinct targets: its name opens a page about that stage (its purpose, the apps installed under it, and what else the Marketplace offers for it), and a chevron on the far right folds those apps away. The workspace opens as a project already kitted out, with nine of the thirteen catalogue apps installed across the four stages, and the rest available to add from the Marketplace, where anything can also be uninstalled. The Marketplace moves out of the shell's pinned slot and becomes the last item of the Studio group, so browsing and installing apps reads as studio work rather than a permanent fixture. The top-bar switcher moves up a rung with it: where V1 and V2 pick a project there, V3 picks the ORGANIZATION, since the rail beneath it is already cut by project lifecycle and the project is chosen further in. The project is chosen in Files, the other thing V3 adds: one flat list, reached from a Files entry pinned under the nav search and ruled off from Home and the app stages below it, of every record the workspace holds in the selected organization, each carrying its folder path. Facets down the left — type, project and tag, each with a count — narrow it; there is no folder tree, because the folder is already printed under every row and a facet answers “show me the pipelines” in one click where a tree cannot. Opening a file navigates to the app that owns it and drills to that record; every app listing shows, beside each record, the folder it lives in, and clicking that reopens Files narrowed to it. The file system is a reference layer with no records of its own. Every other surface, and the install lifecycle behind it, is unchanged from V2.",
 	"when": [
 		"Organising a Connect sidebar by project lifecycle stage rather than one undifferentiated app list",
 		"A shell where browsing the app catalogue belongs inside the admin studio rather than pinned to the frame",
@@ -48,14 +48,14 @@
 		"A workspace where every record needs an address — browsing pipelines, processes and ontology types by folder rather than only through the perspective that owns each one"
 	],
 	"whenNot": [
-		"The flat \"Your apps\" list with Marketplace pinned to the shell -> use WakeCapConnect (V2)",
+		"The flat \"Your apps\" list with Marketplace pinned to the shell -> use CoreConnect (V2)",
 		"The V1 two-portal split, where the admin side stands alone -> use WC3 Workspace",
 		"The V1 end-user portal, where the marketplace IS the whole app -> use AppInstaller"
 	],
 	"chooseOver": [
 		{
-			"component": "WakeCapConnect",
-			"because": "WakeCapConnect is the V2 cut: one \"Your apps\" list and a Marketplace pinned to the shell. V3 groups the same apps by lifecycle stage and folds Marketplace into Studio."
+			"component": "CoreConnect",
+			"because": "CoreConnect is the V2 cut: one \"Your apps\" list and a Marketplace pinned to the shell. V3 groups the same apps by lifecycle stage and folds Marketplace into Studio."
 		},
 		{
 			"component": "AppInstaller",
@@ -96,12 +96,12 @@
 		"inside another CoreAppSidebar/CoreAppTopBar shell",
 		"inside a Card or Dialog"
 	],
-	"minimalExample": "// WakeCapConnectV3 is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@wakecap/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@wakecap/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@wakecap/core-ui/page-content-header\";\nimport {SideMenu} from \"@wakecap/core-ui/side-menu\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"minimalExample": "// CoreConnectV3 is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@core/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@core/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@core/core-ui/page-content-header\";\nimport {SideMenu} from \"@core/core-ui/side-menu\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 	"lineage": {
 		"origin": "derived",
-		"authoredBy": "WakeCap Connect V3 lifecycle cut (2026-08-24)",
+		"authoredBy": "Core Connect V3 lifecycle cut (2026-08-24)",
 		"derivedFrom": {
-			"source": "WakeCapConnect (V2)",
+			"source": "CoreConnect (V2)",
 			"extracted": [
 				"every surface and the install lifecycle, unchanged — V3 differs only in how the rail is organised",
 				"the lifecycle stage per app from APP_LIFECYCLE in app-marketplace-shared.tsx",
@@ -130,7 +130,7 @@
 			"The sidebar find bar is enabled; a live query forces folded groups open so a match cannot hide behind a collapsed header",
 			"An expanded icon-group renders as a tree: the header is a parent row at item size (not the small uppercase caption), and its items hang off a vertical spine — aligned to the group icon's centre, starting below the icon, stopping at the last item — with an elbow branching into each item at its vertical middle. Items are indented so their own icons clear the spine",
 			"Groups without an icon are untouched by all of it: they keep the small uppercase caption and a plain item list, which is why V1, V2 and every other template on this sidebar look exactly as before",
-			"Files is the FileSystem WIDGET, not template code: the surface shipped here first and was lifted to packages/components/src/file-system once it was clear nothing in it was WakeCap-specific. The template supplies the nodes, declares its own file types, and reads the opaque `ref` a file carries; the widget holds no data and knows no product. What stays here is the adapter — wc3-fs-data.ts (the fixture), wc3-fs-store.ts (the live array and the reverse lookup five perspectives read for their Location column), wc3-fs-types.tsx (the type registry) and wc3-fs-records.ts (the record constructors)",
+			"Files is the FileSystem WIDGET, not template code: the surface shipped here first and was lifted to packages/components/src/file-system once it was clear nothing in it was Core-specific. The template supplies the nodes, declares its own file types, and reads the opaque `ref` a file carries; the widget holds no data and knows no product. What stays here is the adapter — wc3-fs-data.ts (the fixture), wc3-fs-store.ts (the live array and the reverse lookup five perspectives read for their Location column), wc3-fs-types.tsx (the type registry) and wc3-fs-records.ts (the record constructors)",
 			"The surface is FACETED, not hierarchical: one flat list of files with type / project / tag facets down the left. A folder tree was built first (on @headless-tree) and removed — it repeated the path already printed under every row, cost the widest column on the surface, and could not answer the question the list is actually asked. Rows are PROJECTS and files, and a row never navigates: clicking one selects it and a details panel answers “what is this?”, while the underlined NAME is the only thing that leaves — a file's name opens the app that owns it, a project's name swaps the layout for that project's own page (Overview / Files / Trash down the left). A plain folder is not a row — the folder a file is in is already printed under its name. Folders survive as `folderId`, which is what a Location link in another app applies; the tree dependency went with the tree",
 			"Tags INHERIT: a file matches its own tags plus every tag on the project and folders above it, so a project tagged “riyadh” makes its files findable under it. Facet counts and query matches come from the same function, so the rail can never offer a value that finds nothing",
 			"`openWorkspaceTarget`'s `recordId` stopped being decorative with this change: it is handed to the arriving view as `openRecordId` and consumed once, so a file opens its record rather than the tab that contains it. Pipelines, Processes, Products, object types and action types accept it; the remaining tabs ignore it harmlessly",

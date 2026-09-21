@@ -13,7 +13,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			"@": path.resolve(__dirname, "./src"),
-			"@/wakecore": path.resolve(__dirname, "./src/components"),
+			"@/core": path.resolve(__dirname, "./src/components"),
 		},
 	},
 });

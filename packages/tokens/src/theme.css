@@ -1,9 +1,9 @@
 /*
- * Wakecore Design Tokens — Theme
+ * Core Design Tokens — Theme
  *
  * Single source of truth for all design tokens. Used by:
  * - index.css (monorepo internal, imports this + adds prefix)
- * - TW4 consumers: @import "@wakecap/core-tokens/theme"
+ * - TW4 consumers: @import "@core/core-tokens/theme"
  * - TW3 consumers: via tailwind3-preset.cjs (maps the same CSS vars)
  */
 
@@ -242,7 +242,7 @@
  *
  * Both spellings are emitted on purpose: this file is compiled with `prefix(wwc)` inside the
  * monorepo, which names the variables `--wwc-color-*`, while TW4 consumers importing
- * `@wakecap/core-tokens/theme` unprefixed get `--color-*`. The unused half is inert.
+ * `@core/core-tokens/theme` unprefixed get `--color-*`. The unused half is inert.
  * Generated from the @theme block above — regenerate if that list changes. */
 .wwc-invert {
 	--color-background: var(--background);

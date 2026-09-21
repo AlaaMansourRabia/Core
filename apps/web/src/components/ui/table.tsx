@@ -7,4 +7,4 @@ export {
 	TableHead,
 	TableCell,
 	TableCaption,
-} from "@wakecap/core-ui/table";
+} from "@core/core-ui/table";

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/page-content-header.tsx",
-		"import": "@wakecap/core-ui/page-content-header",
+		"import": "@core/core-ui/page-content-header",
 		"export": "PageContentHeader"
 	},
 	"tags": ["header", "page", "content", "entity", "navigation", "actions", "responsive"],
@@ -105,8 +105,8 @@
 		},
 		{
 			"id": "composition",
-			"metric": "wakecore-composition",
-			"check": "All visible controls are rendered by WakeCore ViewTabBar, Button, ButtonGroup, DropdownMenu, and Tooltip artifacts."
+			"metric": "core-composition",
+			"check": "All visible controls are rendered by Core ViewTabBar, Button, ButtonGroup, DropdownMenu, and Tooltip artifacts."
 		},
 		{
 			"id": "responsive",
@@ -130,7 +130,7 @@
 	},
 	"lineage": {
 		"origin": "experiment-feedback",
-		"authoredBy": "WakeCore screenshot reproduction experiment (2026-07)",
+		"authoredBy": "Core screenshot reproduction experiment (2026-07)",
 		"derivedFrom": {
 			"source": "Three supplied header references",
 			"extracted": [
@@ -142,7 +142,7 @@
 			]
 		},
 		"status": "candidate",
-		"confidence": "high — three reference variants mapped to existing WakeCore artifacts",
+		"confidence": "high — three reference variants mapped to existing Core artifacts",
 		"lastValidated": "2026-07-18"
 	}
 }

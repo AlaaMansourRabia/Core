@@ -1,6 +1,6 @@
 import {WC3Workspace} from "./core-wc3-workspace";
 
-// WakeCap Connect V2 — the admin workspace and the app marketplace merged into ONE app.
+// Core Connect V2 — the admin workspace and the app marketplace merged into ONE app.
 //
 // V1 shipped Connect as two portals: WC3 Workspace for the admin, AppInstaller for the end user. V2
 // collapses that split. There is one shell and one sidebar, stacked:
@@ -21,16 +21,16 @@ import {WC3Workspace} from "./core-wc3-workspace";
 // app-marketplace-shared (shared with AppInstaller) — so V1 and V2 cannot drift apart.
 
 /**
- * WakeCap Connect V2 template: the WC3 admin workspace with the marketplace folded in, as a single
+ * Core Connect V2 template: the WC3 admin workspace with the marketplace folded in, as a single
  * app. One sidebar carries a pinned Home, the installed apps directly beneath it, the admin
  * perspectives under a Studio label, and a pinned Marketplace entry; installing an app from the store
  * adds it to the apps section without leaving the app.
  *
  * @deprecated Preview/demo prototype — renders built-in sample data and mock handlers. Not a
  * supported production import: compose your page from the widgets this template uses, wired to your
- * own data (see the WakeCapConnect template docs in Storybook). Slated for removal from the public API
+ * own data (see the CoreConnect template docs in Storybook). Slated for removal from the public API
  * in a future major.
  */
-export function WakeCapConnect() {
+export function CoreConnect() {
 	return <WC3Workspace withMarketplace />;
 }

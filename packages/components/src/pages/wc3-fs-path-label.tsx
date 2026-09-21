@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {Folder} from "lucide-react";
 
 import {FileSystemPathText} from "../file-system";

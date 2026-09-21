@@ -1,6 +1,6 @@
-# WakeCore vertical slice — the tracer bullet (working)
+# Core vertical slice — the tracer bullet (working)
 
-The smallest **real, runnable** end-to-end implementation of the WakeCore flywheel. It is not a page
+The smallest **real, runnable** end-to-end implementation of the Core flywheel. It is not a page
 builder and not a widget library — it is proof that the architecture connects as one system. Runs
 **offline, deterministically, with no Anthropic key and no cost.**
 
@@ -94,7 +94,7 @@ that learning, selects the template tier, uses the `metric-card` widget, and pas
    envisions (`selection`/`composition`/`config`/`data-contract`/behavioral per tier).
 
 ## The honest verdict
-The WakeCore architecture **works as one connected system** — a real failure became verified knowledge
+The Core architecture **works as one connected system** — a real failure became verified knowledge
 that measurably changed the next build, end to end, offline. The model didn't need to change; it needed
 **one refinement** (retrieval = intent-match + structural resolution) that building the slice surfaced.
 Everything else is scaling, not rethinking.

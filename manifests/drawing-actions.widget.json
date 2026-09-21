@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/drawing-actions.tsx",
-		"import": "@wakecap/core-ui/drawing-actions"
+		"import": "@core/core-ui/drawing-actions"
 	},
 	"tags": [
 		"canvas",

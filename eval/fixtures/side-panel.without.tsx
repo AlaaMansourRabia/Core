@@ -1,5 +1,5 @@
-import {Button} from "@wakecap/core-ui/button";
-import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@wakecap/core-ui/dialog";
+import {Button} from "@core/core-ui/button";
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@core/core-ui/dialog";
 
 export function FilterPanel() {
 	return (

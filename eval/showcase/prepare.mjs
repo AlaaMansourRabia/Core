@@ -85,7 +85,7 @@ for (const task of tasks) {
 		if (hit) {
 			const outName = `${task.id}.${arm}.tsx`;
 			materialize(hit.path, join(outDir, outName));
-			entry.arms[arm] = {file: outName, sourcePath: hit.path.replace(`${here}/`, "eval/showcase/").replace(/.*\/wakecore\//, ""), source: hit.source, meta: runMeta(hit.path)};
+			entry.arms[arm] = {file: outName, sourcePath: hit.path.replace(`${here}/`, "eval/showcase/").replace(/.*\/core\//, ""), source: hit.source, meta: runMeta(hit.path)};
 			resolved++;
 		} else {
 			entry.arms[arm] = {file: null, source: arm === "A1" ? "no A1 captured — drop a file in eval/showcase/snippets/" : "not found", meta: null};

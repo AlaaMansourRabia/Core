@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {ArrowLeft, Maximize2, Minimize2} from "lucide-react";
 import {useEffect, useMemo, useRef, useState} from "react";
 
@@ -9,13 +9,13 @@ import {
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
-} from "@wakecap/core-ui/breadcrumb";
-import {Button} from "@wakecap/core-ui/button";
-import {CanvasNavigator, type CanvasNavigatorNode, type CanvasNavigatorSize} from "@wakecap/core-ui/canvas-navigator";
-import {type LegendTab, TabbedLegend} from "@wakecap/core-ui/legend";
-import {ProgressComparison} from "@wakecap/core-ui/progress-comparison";
-import {VerticalZoomTools} from "@wakecap/core-ui/vertical-zoom-tools";
-import {WeekSelector, type WeekSelectorWeek} from "@wakecap/core-ui/week-selector";
+} from "@core/core-ui/breadcrumb";
+import {Button} from "@core/core-ui/button";
+import {CanvasNavigator, type CanvasNavigatorNode, type CanvasNavigatorSize} from "@core/core-ui/canvas-navigator";
+import {type LegendTab, TabbedLegend} from "@core/core-ui/legend";
+import {ProgressComparison} from "@core/core-ui/progress-comparison";
+import {VerticalZoomTools} from "@core/core-ui/vertical-zoom-tools";
+import {WeekSelector, type WeekSelectorWeek} from "@core/core-ui/week-selector";
 
 import {SingleHouseView} from "./house-view";
 

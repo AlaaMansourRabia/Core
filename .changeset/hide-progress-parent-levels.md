@@ -1,5 +1,5 @@
 ---
-"@wakecap/core-ui": minor
+"@core/core-ui": minor
 ---
 
 Hide SPA progress on the parent grouping levels (phase / zone / batch / block)

@@ -1,1 +1,1 @@
-export {DashboardHeader} from "@wakecap/core-ui/navigation/core-dashboard-header";
+export {DashboardHeader} from "@core/core-ui/navigation/core-dashboard-header";

@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {
 	Circle,
 	Hand,
@@ -86,7 +86,7 @@ export interface ObjectDrawingToolbarProps extends Omit<React.HTMLAttributes<HTM
 }
 
 /**
- * A single-line horizontal toolbar for a 2D canvas drawing tool, composed entirely from WakeCore
+ * A single-line horizontal toolbar for a 2D canvas drawing tool, composed entirely from Core
  * components: a mode pill and drawing-tool group (`ToolbarButton`), fill/stroke color pickers
  * (`ToolbarColorPicker`), an opacity `Slider`, a 90°-snap toggle, and unlink / import actions —
  * separated by `ToolbarSeparator`s. Renders bare (no border/background) so the host owns the chrome.

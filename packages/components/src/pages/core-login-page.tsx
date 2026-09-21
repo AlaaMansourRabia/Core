@@ -9,7 +9,7 @@ interface LoginPageProps {
 	onLogin?: (email: string, password: string) => void;
 }
 
-/** Authentication page with email/password form and WakeCap branding. */
+/** Authentication page with email/password form and Core branding. */
 export function LoginPage({onLogin}: LoginPageProps) {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");

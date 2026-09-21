@@ -1,8 +1,8 @@
-# Storybook 10 Integration — Wakecore Design System
+# Storybook 10 Integration — Core Design System
 
 ## Overview
 
-Storybook 10 has been integrated into the Wakecore monorepo as the canonical component documentation and testing tool. The existing demo app (`apps/web/`) remains as a playground.
+Storybook 10 has been integrated into the Core monorepo as the canonical component documentation and testing tool. The existing demo app (`apps/web/`) remains as a playground.
 
 - **Location:** `apps/storybook/`
 - **Framework:** `@storybook/react-vite` (Storybook 10.3.5)
@@ -10,7 +10,7 @@ Storybook 10 has been integrated into the Wakecore monorepo as the canonical com
 - **Story Format:** CSF with `satisfies Meta` pattern
 - **Dark Mode:** Toolbar toggle via `storybook-dark-mode`
 - **Addons:** a11y, docs, dark-mode (viewport, interactions, controls built into Storybook 10 core)
-- **Theme:** Custom WakeCap branding (navy/slate palette, Figtree font)
+- **Theme:** Custom Core branding (navy/slate palette, Figtree font)
 
 ---
 
@@ -28,7 +28,7 @@ pnpm storybook:build          # Production build to apps/storybook/dist
 
 | Phase                 | Files                    | Description                                                                                                                                                                                                           |
 | --------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Foundation**        | 8 config files           | `package.json`, `.storybook/main.ts`, `preview.ts`, `preview.css`, `manager.ts`, `wakecap-theme.ts`, `tsconfig.json`, `chromatic.config.json`                                                                         |
+| **Foundation**        | 8 config files           | `package.json`, `.storybook/main.ts`, `preview.ts`, `preview.css`, `manager.ts`, `core-theme.ts`, `tsconfig.json`, `chromatic.config.json`                                                                         |
 | **Stories**           | 79 story files           | 78 full stories + 1 placeholder stub across 9 categories                                                                                                                                                              |
 | **MDX Docs**          | 12 MDX files             | Introduction, DesignTokens, DarkMode, 9 category overviews                                                                                                                                                            |
 | **Interaction Tests** | 22 components            | Play functions for Button, Checkbox, Switch, Input, Textarea, Toggle, RadioGroup, Select, Slider, Dialog, AlertDialog, DropdownMenu, Tooltip, Accordion, Tabs, Combobox, Calendar, Form, Sidebar, Carousel, PushPanel |
@@ -94,7 +94,7 @@ These components have placeholder stubs and need manual implementation due to ex
 ```tsx
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {MyComponent} from "@wakecap/core-ui/my-component";
+import {MyComponent} from "@core/core-ui/my-component";
 
 const meta = {
 	title: "Category/MyComponent",
@@ -127,7 +127,7 @@ export const Secondary: Story = {
 ```tsx
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Parent, ChildA, ChildB} from "@wakecap/core-ui/my-component";
+import {Parent, ChildA, ChildB} from "@core/core-ui/my-component";
 
 const meta = {
 	title: "Category/MyComponent",
@@ -204,7 +204,7 @@ A dedicated Chromatic workflow runs on every PR to `main`/`develop`:
 | `apps/storybook/.storybook/main.ts`          | Framework, addons, story globs, Vite config with Tailwind CSS 4 |
 | `apps/storybook/.storybook/preview.ts`       | Global parameters, dark mode config                             |
 | `apps/storybook/.storybook/preview.css`      | Imports design tokens and Tailwind CSS                          |
-| `apps/storybook/.storybook/wakecap-theme.ts` | Custom WakeCap light/dark themes                                |
+| `apps/storybook/.storybook/core-theme.ts` | Custom Core light/dark themes                                |
 | `apps/storybook/.storybook/manager.ts`       | Storybook UI chrome theme                                       |
 | `apps/storybook/chromatic.config.json`       | TurboSnap externals for token/component changes                 |
 
@@ -217,13 +217,13 @@ The `preview.css` imports tokens directly from source:
 @import "../../../packages/tokens/src/index.css";
 ```
 
-The Tailwind CSS 4 Vite plugin is added via `viteFinal` in `main.ts`, processing the `@theme inline` directive from `@wakecap/core-tokens`.
+The Tailwind CSS 4 Vite plugin is added via `viteFinal` in `main.ts`, processing the `@theme inline` directive from `@core/core-tokens`.
 
 ### Dark Mode
 
-Dark mode uses the `.dark` class on `<html>`, matching the existing token system in `@wakecap/core-tokens`. The `storybook-dark-mode` addon toggles both:
+Dark mode uses the `.dark` class on `<html>`, matching the existing token system in `@core/core-tokens`. The `storybook-dark-mode` addon toggles both:
 
-- The Storybook UI chrome theme (navy WakeCap branding)
+- The Storybook UI chrome theme (navy Core branding)
 - The `.dark` class on the preview iframe's `<html>` element
 
 ---

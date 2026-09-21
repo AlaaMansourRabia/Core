@@ -1,14 +1,14 @@
 #!/usr/bin/env node
-// WakeCore MCP server (stdio). The tool-agnostic seam every AI editor consults to build UI from
-// WakeCore. Open Design is the first client — it mounts this as an MCP server and hands the tools to
-// its inner agent. Zero client coupling: this speaks plain MCP over stdio and wraps @wakecap/sdk.
+// Core MCP server (stdio). The tool-agnostic seam every AI editor consults to build UI from
+// Core. Open Design is the first client — it mounts this as an MCP server and hands the tools to
+// its inner agent. Zero client coupling: this speaks plain MCP over stdio and wraps @core/sdk.
 //
 // Pinned to @modelcontextprotocol/sdk@1.29.0 to match Open Design's client.
 
 import {Server} from "@modelcontextprotocol/sdk/server/index.js";
 import {StdioServerTransport} from "@modelcontextprotocol/sdk/server/stdio.js";
 import {CallToolRequestSchema, ListToolsRequestSchema} from "@modelcontextprotocol/sdk/types.js";
-import {createSdk, loadCatalog} from "@wakecap/sdk";
+import {createSdk, loadCatalog} from "@core/sdk";
 import {buildTools} from "./tools.mjs";
 
 const catalog = loadCatalog();
@@ -17,7 +17,7 @@ const tools = buildTools(sdk, catalog);
 const byName = new Map(tools.map((t) => [t.name, t]));
 
 const server = new Server(
-	{name: "wakecore", version: "0.1.0"},
+	{name: "core", version: "0.1.0"},
 	{capabilities: {tools: {}}},
 );
 
@@ -42,4 +42,4 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
 const transport = new StdioServerTransport();
 await server.connect(transport);
 // stderr is safe for logs; stdout is the MCP channel.
-console.error(`[wakecore-mcp] ready — ${tools.length} tools, ${catalog.counts.templates} templates / ${catalog.counts.widgets} widgets`);
+console.error(`[core-mcp] ready — ${tools.length} tools, ${catalog.counts.templates} templates / ${catalog.counts.widgets} widgets`);

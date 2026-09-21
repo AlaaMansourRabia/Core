@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
 import workerUrl from "@thatopen/fragments/worker?url";
-import {FragmentViewer, FragmentViewerProvider} from "@wakecap/core-ui/fragment-viewer";
-import {ViewerToolbar} from "@wakecap/core-ui/viewer-toolbar";
+import {FragmentViewer, FragmentViewerProvider} from "@core/core-ui/fragment-viewer";
+import {ViewerToolbar} from "@core/core-ui/viewer-toolbar";
 
 import manifest from "../../../../manifests/fragment-viewer.widget.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";
@@ -12,7 +12,7 @@ import {TemplateDocsPage} from "../_docs/TemplateDocsPage";
 const meta = {
 	title: "Widgets/Three.js/Fragment Viewer",
 	component: FragmentViewer,
-	excludeStories: ["wakecoreInventory"],
+	excludeStories: ["coreInventory"],
 	parameters: {
 		layout: "fullscreen",
 		// These stories spin up a live WebGL canvas and fetch a .frag model. WebGL snapshots are
@@ -45,7 +45,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const wakecoreInventory = {
+export const coreInventory = {
 	templates: [],
 	widgets: ["fragment-viewer", "viewer-toolbar"],
 	components: [],
@@ -57,32 +57,32 @@ function UpTownFragmenter() {
 		<FragmentViewerProvider>
 			<div
 				className="wwc:relative wwc:h-screen wwc:w-full wwc:overflow-hidden"
-				data-wakecore-shell="threejs-fragmenter"
-				data-wakecore-artifact="fragment-viewer"
-				data-wakecore-density="comfortable"
-				data-wakecore-brand="wakecore"
-				data-wakecore-navigation-fingerprint="standalone-fragmenter"
-				data-wakecore-provider-owner="fragment-viewer-provider"
-				data-wakecore-content-scroll="false"
-				data-wakecore-region="fragmenter-viewport"
-				data-wakecore-surface-owner="artifact"
-				data-wakecore-canvas-capabilities="orbit, pan, zoom, fit-to-view, selection, orthographic, clipping, measurement, levels, hide, isolate, show-all"
-				data-wakecore-observable-state-changed="true"
-				data-wakecore-interaction="Initial UpTown.ifc load"
+				data-core-shell="threejs-fragmenter"
+				data-core-artifact="fragment-viewer"
+				data-core-density="comfortable"
+				data-core-brand="core"
+				data-core-navigation-fingerprint="standalone-fragmenter"
+				data-core-provider-owner="fragment-viewer-provider"
+				data-core-content-scroll="false"
+				data-core-region="fragmenter-viewport"
+				data-core-surface-owner="artifact"
+				data-core-canvas-capabilities="orbit, pan, zoom, fit-to-view, selection, orthographic, clipping, measurement, levels, hide, isolate, show-all"
+				data-core-observable-state-changed="true"
+				data-core-interaction="Initial UpTown.ifc load"
 			>
 				<FragmentViewer
 					src="/models-bundled/uptown.frag"
 					modelId="uptown"
 					workerUrl={workerUrl}
 					showLogo={false}
-					data-wakecore-interaction="Model selection"
+					data-core-interaction="Model selection"
 				/>
 				<div
 					className="wwc:absolute wwc:inset-x-0 wwc:bottom-11 wwc:flex wwc:h-0 wwc:items-end wwc:justify-center"
-					data-wakecore-responsive-group="viewer-toolbar"
-					data-wakecore-responsive-atomic="true"
+					data-core-responsive-group="viewer-toolbar"
+					data-core-responsive-atomic="true"
 				>
-					<ViewerToolbar className="wwc:max-w-full wwc:shadow-lg" data-wakecore-interaction="Camera navigation" />
+					<ViewerToolbar className="wwc:max-w-full wwc:shadow-lg" data-core-interaction="Camera navigation" />
 				</div>
 			</div>
 		</FragmentViewerProvider>

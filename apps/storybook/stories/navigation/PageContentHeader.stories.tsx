@@ -1,9 +1,9 @@
-import type {ViewTabItem} from "@wakecap/core-ui/view-tab-bar";
+import type {ViewTabItem} from "@core/core-ui/view-tab-bar";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Avatar, AvatarFallback} from "@wakecap/core-ui/avatar";
-import {Badge} from "@wakecap/core-ui/badge";
-import {PageContentHeader, type PageContentHeaderAction} from "@wakecap/core-ui/page-content-header";
+import {Avatar, AvatarFallback} from "@core/core-ui/avatar";
+import {Badge} from "@core/core-ui/badge";
+import {PageContentHeader, type PageContentHeaderAction} from "@core/core-ui/page-content-header";
 import {
 	Bell,
 	BotMessageSquare,
@@ -26,13 +26,13 @@ const meta = {
 	title: "Widgets/Navigation/Page Content Header",
 	component: PageContentHeader,
 	tags: ["autodocs"],
-	excludeStories: ["wakecoreInventory"],
+	excludeStories: ["coreInventory"],
 	parameters: {
 		layout: "fullscreen",
 		docs: {
 			description: {
 				component:
-					"Responsive route-content header composed from WakeCore ViewTabBar, Button, ButtonGroup, DropdownMenu, Tooltip, Avatar, and Badge artifacts.",
+					"Responsive route-content header composed from Core ViewTabBar, Button, ButtonGroup, DropdownMenu, Tooltip, Avatar, and Badge artifacts.",
 			},
 		},
 	},
@@ -41,7 +41,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const wakecoreInventory = {
+export const coreInventory = {
 	templates: [],
 	widgets: [],
 	components: ["Avatar", "Badge", "Button", "ButtonGroup", "DropdownMenu", "Tooltip", "ViewTabBar"],
@@ -60,13 +60,13 @@ const NAVIGATION_TABS: readonly ViewTabItem<NavigationTab>[] = [
 function StorySurface({children}: {children: ReactNode}) {
 	return (
 		<div
-			data-wakecore-shell="storybook-component-evaluation"
-			data-wakecore-density="comfortable"
-			data-wakecore-brand="wakecore"
-			data-wakecore-provider-owner="storybook-preview"
+			data-core-shell="storybook-component-evaluation"
+			data-core-density="comfortable"
+			data-core-brand="core"
+			data-core-provider-owner="storybook-preview"
 			className="wwc:h-dvh wwc:overflow-hidden"
 		>
-			<main data-wakecore-content-scroll className="wwc:h-full wwc:min-h-0 wwc:overflow-auto">
+			<main data-core-content-scroll className="wwc:h-full wwc:min-h-0 wwc:overflow-auto">
 				{children}
 			</main>
 		</div>

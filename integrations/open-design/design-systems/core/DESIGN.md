@@ -1,24 +1,24 @@
-# WakeCore
+# Core
 
 > Category: Professional & Corporate
-> WakeCap's governed operations design system — restrained, near-monochrome, data-first. You COMPOSE from a governed catalog; you do not invent UI.
+> Core's governed operations design system — restrained, near-monochrome, data-first. You COMPOSE from a governed catalog; you do not invent UI.
 
 <!--
-  Phase 4 of the "WakeCore as the brain" mission. This is the Open Design design-system
-  contract for WakeCore (@wakecap/core-ui). It is injected verbatim into every generation.
+  Phase 4 of the "Core as the brain" mission. This is the Open Design design-system
+  contract for Core (@core/core-ui). It is injected verbatim into every generation.
   It is authoritative for color, typography, spacing, and component rules.
   Companion (Phase 6): tokens.css (this :root, split out), manifest.json, USAGE.md, components.html,
-  and the WakeCore MCP server (the live SDK: resolveTemplate / resolveWidgets / validateComposition).
+  and the Core MCP server (the live SDK: resolveTemplate / resolveWidgets / validateComposition).
   Optimized for an LLM: rules over prose, tables, imperatives.
 -->
 
 ## 1. Visual Theme & Atmosphere
 
-WakeCore is the design system of **WakeCap** — software for the physical worksite (construction, workforce, safety, operations). Its character: **calm, dense, precise, trustworthy.** A control-room aesthetic, not a marketing site. Neutral surfaces, near-black actions, one warm accent reserved for data. Restraint is the brand.
+Core is the design system of **Core** — software for the physical worksite (construction, workforce, safety, operations). Its character: **calm, dense, precise, trustworthy.** A control-room aesthetic, not a marketing site. Neutral surfaces, near-black actions, one warm accent reserved for data. Restraint is the brand.
 
 **This is a GOVERNED system. The single most important rule:**
 
-> **Compose from the WakeCore catalog. Do not invent.** Every screen is a **template** (a page layout of regions) filled with **widgets** (configurable domain units) built from **components** (primitives). You select and assemble these; you never design new components, new layouts, or off-catalog UI. When unsure what exists or what fits, **consult the WakeCore MCP** (`wakecore_resolve_template`, `wakecore_resolve_widgets`, `wakecore_resolve_component`) — it is the source of truth. Validate with `wakecore_validate_composition` before you consider anything done. The deliverable is a **PageInstance**, which is then rendered — not hand-written UI.
+> **Compose from the Core catalog. Do not invent.** Every screen is a **template** (a page layout of regions) filled with **widgets** (configurable domain units) built from **components** (primitives). You select and assemble these; you never design new components, new layouts, or off-catalog UI. When unsure what exists or what fits, **consult the Core MCP** (`core_resolve_template`, `core_resolve_widgets`, `core_resolve_component`) — it is the source of truth. Validate with `core_validate_composition` before you consider anything done. The deliverable is a **PageInstance**, which is then rendered — not hand-written UI.
 
 The tiers you compose with (low → high):
 
@@ -104,7 +104,7 @@ Palette philosophy: **90% neutral, dark near-black as the action color, ONE warm
 	--meta: #737373;
 	--border-soft: #efefef;
 
-	/* — C extensions (WakeCore-only; warm data accent + status dots + chart ramp) — */
+	/* — C extensions (Core-only; warm data accent + status dots + chart ramp) — */
 	--wc-warm: #b86010; /* the ONE warm accent — data emphasis ONLY, never chrome */
 	--wc-warm-soft: #f5ece1;
 	--wc-dot-success: #16a34a;
@@ -156,7 +156,7 @@ Mono:    IBM Plex Mono — "IBM Plex Mono", ui-monospace, monospace
 
 ## 4. Spacing
 
-An 4px base rhythm (`--space-1`=4 … `--space-12`=96). Density is the brand — WakeCore screens are information-dense but never cramped.
+An 4px base rhythm (`--space-1`=4 … `--space-12`=96). Density is the brand — Core screens are information-dense but never cramped.
 
 - Component padding: `--space-3`/`--space-4`. Card padding: `--space-4`/`--space-5`.
 - Between fields: `--space-4`. Between sections: `--space-7`/`--space-8`. Page vertical rhythm: `--section-y-*`.
@@ -166,7 +166,7 @@ An 4px base rhythm (`--space-1`=4 … `--space-12`=96). Density is the brand —
 
 ## 5. Layout & Composition
 
-**The template IS the layout. You do not invent layout — you fill a template's regions.** Ask the WakeCore MCP (`wakecore_resolve_template`) for the right template, then fill each region with the widgets it declares (`wakecore_resolve_widgets`).
+**The template IS the layout. You do not invent layout — you fill a template's regions.** Ask the Core MCP (`core_resolve_template`) for the right template, then fill each region with the widgets it declares (`core_resolve_widgets`).
 
 - **App shell:** most pages sit inside `CoreAppSidebar` + `CoreAppTopBar` + `CoreContentArea`. Sign-in/error pages are bare (no shell).
 - **Regions** are named slots with rules (required/optional, allowed widgets, cardinality). Fill required regions; respect min/max; place declared widgets first.
@@ -184,7 +184,7 @@ Representative template shapes (resolve the live set via the MCP):
 
 ## 6. Components
 
-The catalog is tiered. **Prefer catalog entries over inventing shapes.** Query the MCP for the authoritative inventory, variants, config, and data contracts (`wakecore_resolve_component`, `wakecore_resolve_widgets`, `wakecore_load_manifest`).
+The catalog is tiered. **Prefer catalog entries over inventing shapes.** Query the MCP for the authoritative inventory, variants, config, and data contracts (`core_resolve_component`, `core_resolve_widgets`, `core_load_manifest`).
 
 **Primitives (components):** Button, Input, Textarea, Select, Checkbox, RadioGroup, Switch, Toggle, Slider, Label, Badge, Avatar, Kbd, Spinner, Progress, Skeleton, Separator, Card, Table, DataTable, Tabs, Accordion, ScrollArea, Dialog, AlertDialog, Sheet, Drawer, Popover, Tooltip, DropdownMenu, Breadcrumb, Pagination, Command, Alert, Empty, Toast.
 
@@ -208,13 +208,13 @@ Motion is functional and quiet. `--motion-fast` (120ms) for hovers/toggles, `--m
 
 ## 8. Voice & Brand
 
-Professional, precise, operational. Copy is short and factual — labels, not marketing ("At risk", not "Uh-oh!"). Numbers lead; units are explicit ("342 on site", "72% complete"). Domain vocabulary: projects, zones, workforce, safety, schedule, NCRs, LTI. No emoji, no exclamation, no hype. Empty states state the fact + the next action. WakeCore sounds like a competent operator, not a chatbot.
+Professional, precise, operational. Copy is short and factual — labels, not marketing ("At risk", not "Uh-oh!"). Numbers lead; units are explicit ("342 on site", "72% complete"). Domain vocabulary: projects, zones, workforce, safety, schedule, NCRs, LTI. No emoji, no exclamation, no hype. Empty states state the fact + the next action. Core sounds like a competent operator, not a chatbot.
 
 ## 9. Anti-patterns (do NOT)
 
 - **Do NOT invent components, widgets, templates, or layouts.** Compose from the catalog; resolve via the MCP. If nothing fits, say so and ask.
 - **Do NOT emit arbitrary React/HTML from imagination.** The output is a validated **PageInstance**; rendering is downstream.
-- **Do NOT skip validation.** Run `wakecore_validate_composition`; a page is not done until it is `buildable`. Fix required-region/required-widget/placement/binding issues.
+- **Do NOT skip validation.** Run `core_validate_composition`; a page is not done until it is `buildable`. Fix required-region/required-widget/placement/binding issues.
 - **Do NOT invent tokens or write raw hex** outside the `:root`. No off-palette colors.
 - **Do NOT use amber (`--wc-warm`) for chrome** — data emphasis only, ≤2 per screen. **No indigo, no gradients, no AI-slop palettes.**
 - **Do NOT make numerics non-mono** or non-tabular. **Do NOT** center long body text or use more than one display face.

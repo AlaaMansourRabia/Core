@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/kpi-summary.tsx",
-		"import": "@wakecap/core-ui/kpi-summary",
+		"import": "@core/core-ui/kpi-summary",
 		"export": "KPISummary"
 	},
 	"tags": [
@@ -105,7 +105,7 @@
 			"fix": "Pass generic MetricCardProps; let each page map its domain data to metrics[]."
 		}
 	],
-	"minimalExample": "import {KPISummary} from \"@wakecap/core-ui/kpi-summary\";\nimport {Users, Shield} from \"lucide-react\";\n\n<KPISummary\n  metrics={[\n    {title: \"Live Headcount\", value: \"1,240\", trend: \"up\", trendLabel: \"+12\", icon: Users},\n    {title: \"Safety Score\", value: \"98%\", status: \"success\", subtitle: \"0 incidents this week\", icon: Shield},\n  ]}\n/>",
+	"minimalExample": "import {KPISummary} from \"@core/core-ui/kpi-summary\";\nimport {Users, Shield} from \"lucide-react\";\n\n<KPISummary\n  metrics={[\n    {title: \"Live Headcount\", value: \"1,240\", trend: \"up\", trendLabel: \"+12\", icon: Users},\n    {title: \"Safety Score\", value: \"98%\", status: \"success\", subtitle: \"0 incidents this week\", icon: Shield},\n  ]}\n/>",
 	"evaluationCriteria": [
 		{
 			"id": "tier-selection",
@@ -143,7 +143,7 @@
 		"notes": [
 			"promotedFrom: the repeated hand-rolled KPI-strip pattern (core-project-quality-issues, core-project-workforce-safety) — a grid of metric Cards.",
 			"pilot: true",
-			"composes: MetricCard (@wakecap/core-ui/metric-card)",
+			"composes: MetricCard (@core/core-ui/metric-card)",
 			"authoredFields: [\"intent\",\"when\",\"whenNot\",\"chooseOver\",\"dataContract\",\"configSchema\",\"states\",\"allowedPlacement\",\"forbiddenPlacement\",\"commonMistakes\",\"minimalExample\",\"evaluationCriteria\"]",
 			"refactored: [\"core-project-workforce-safety: KPI strip -> <KPISummary> container (3 metrics + the multi-badge 'Active Alerts' tile via the children trailing slot). Minor restyle: per-tile Progress bars dropped, their % retained in the subtitle.\",\"core-project-quality-issues: KPI strip -> <KPISummary> container (3 metrics + the multi-badge 'Open Issues' tile via the children slot — that tile reordered to last).\"]",
 			"notAdoptedBy: core-org-overview / Dashboard kpi-strip — that is a compact horizontal stat bar, a DIFFERENT shape; KPISummary (card grid) does not resolve it. A separate KPIBar widget would.",

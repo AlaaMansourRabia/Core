@@ -1,8 +1,8 @@
 {
-	"name": "@wakecap/knowledge",
-	"version": "0.1.0",
+	"name": "@core/knowledge",
+	"version": "1.0.0",
 	"private": true,
-	"description": "WakeCore Knowledge Platform — the versioned, transport-agnostic API over WakeCore knowledge (resolve/search/validate/explain). Built from the canonical manifests + library-index; MCP is just one transport over this.",
+	"description": "Core Knowledge Platform — the versioned, transport-agnostic API over Core knowledge (resolve/search/validate/explain). Built from the canonical manifests + library-index; MCP is just one transport over this.",
 	"files": [
 		"dist"
 	],

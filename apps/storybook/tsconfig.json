@@ -9,7 +9,7 @@
 		"erasableSyntaxOnly": true,
 		"baseUrl": "../..",
 		"paths": {
-			"@wakecap/core-ui/*": ["packages/components/src/*"]
+			"@core/core-ui/*": ["packages/components/src/*"]
 		}
 	},
 	"include": ["stories", ".storybook"]

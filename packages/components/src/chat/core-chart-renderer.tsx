@@ -2,7 +2,7 @@ import ReactECharts from "echarts-for-react";
 
 import type {ChartData} from "../types/chat";
 
-// Wakecore Chart Colors (orange/amber palette from theme)
+// Core Chart Colors (orange/amber palette from theme)
 // These correspond to --chart-1 through --chart-5 in oklch format
 const CHART_COLORS = {
 	chart1: "#f5d4a8", // oklch(0.92 0.07 75) - lightest amber
@@ -14,7 +14,7 @@ const CHART_COLORS = {
 
 const CHART_COLOR_LIST = Object.values(CHART_COLORS);
 
-// Tooltip style matching Wakecore design system
+// Tooltip style matching Core design system
 const tooltipConfig = {
 	trigger: "axis" as const,
 	backgroundColor: "hsl(var(--background))",

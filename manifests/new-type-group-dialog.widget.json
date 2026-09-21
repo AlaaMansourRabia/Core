@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/wc3-group-wizard.tsx",
-		"import": "@wakecap/core-ui/new-type-group-dialog",
+		"import": "@core/core-ui/new-type-group-dialog",
 		"export": "NewTypeGroupDialog"
 	},
 	"tags": [
@@ -98,7 +98,7 @@
 	"forbiddenPlacement": [
 		"inside another dialog"
 	],
-	"minimalExample": "import {NewTypeGroupDialog} from \"@wakecap/core-ui/new-type-group-dialog\";\n\n<NewTypeGroupDialog open={open} onOpenChange={setOpen} onCreate={addGroup} />",
+	"minimalExample": "import {NewTypeGroupDialog} from \"@core/core-ui/new-type-group-dialog\";\n\n<NewTypeGroupDialog open={open} onOpenChange={setOpen} onCreate={addGroup} />",
 	"evaluationCriteria": [
 		"Omitting objectTypes removes the Members block entirely rather than showing an empty one."
 	],

@@ -83,7 +83,7 @@ describe("imports validator", () => {
 	});
 
 	it("flags a non-existent core-ui subpath", () => {
-		const findings = validateImports('import { Wat } from "@wakecap/core-ui/not-a-real-thing";', catalog);
+		const findings = validateImports('import { Wat } from "@core/core-ui/not-a-real-thing";', catalog);
 		assert.ok(anyFail(findings));
 	});
 });
@@ -93,18 +93,18 @@ describe("component-choice validator (expected / acceptable / forbidden)", () =>
 
 	it("forbidden pick (Dialog) fails", () => {
 		const code =
-			'import { Dialog, DialogContent } from "@wakecap/core-ui/dialog";\n<Dialog><DialogContent>filters</DialogContent></Dialog>';
+			'import { Dialog, DialogContent } from "@core/core-ui/dialog";\n<Dialog><DialogContent>filters</DialogContent></Dialog>';
 		assert.ok(anyFail(validateComponentChoice(code, task, catalog)));
 	});
 
 	it("expected pick (Sheet) passes", () => {
 		const code =
-			'import { Sheet, SheetContent } from "@wakecap/core-ui/sheet";\n<Sheet><SheetContent>filters</SheetContent></Sheet>';
+			'import { Sheet, SheetContent } from "@core/core-ui/sheet";\n<Sheet><SheetContent>filters</SheetContent></Sheet>';
 		assert.ok(!anyFail(validateComponentChoice(code, task, catalog)));
 	});
 
 	it("acceptable alternative (Drawer) passes — no overfitting", () => {
-		const code = 'import { Drawer } from "@wakecap/core-ui/drawer";\n<Drawer>filters</Drawer>';
+		const code = 'import { Drawer } from "@core/core-ui/drawer";\n<Drawer>filters</Drawer>';
 		assert.ok(!anyFail(validateComponentChoice(code, task, catalog)));
 	});
 });

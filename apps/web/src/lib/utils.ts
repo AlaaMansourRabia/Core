@@ -1,2 +1,2 @@
-export {cn, cssColorToRgb, getChartColors, getCssVarAsRgb} from "@wakecap/core-utils";
-export {cva, type VariantProps} from "@wakecap/core-utils";
+export {cn, cssColorToRgb, getChartColors, getCssVarAsRgb} from "@core/core-utils";
+export {cva, type VariantProps} from "@core/core-utils";

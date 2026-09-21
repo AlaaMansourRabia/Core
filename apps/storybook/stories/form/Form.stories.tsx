@@ -1,12 +1,12 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
 import {zodResolver} from "@hookform/resolvers/zod";
-import {Button} from "@wakecap/core-ui/button";
-import {Checkbox} from "@wakecap/core-ui/checkbox";
-import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@wakecap/core-ui/form";
-import {Input} from "@wakecap/core-ui/input";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@wakecap/core-ui/select";
-import {Textarea} from "@wakecap/core-ui/textarea";
+import {Button} from "@core/core-ui/button";
+import {Checkbox} from "@core/core-ui/checkbox";
+import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@core/core-ui/form";
+import {Input} from "@core/core-ui/input";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@core/core-ui/select";
+import {Textarea} from "@core/core-ui/textarea";
 import {useForm} from "react-hook-form";
 import {expect, userEvent, within} from "storybook/test";
 import {z} from "zod";
@@ -105,7 +105,7 @@ export const WithSelect: Story = {
 							<FormItem>
 								<FormLabel>Username</FormLabel>
 								<FormControl>
-									<Input placeholder="wakecap-user" {...field} />
+									<Input placeholder="core-user" {...field} />
 								</FormControl>
 								<FormDescription>Your public display name.</FormDescription>
 								<FormMessage />

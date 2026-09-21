@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/pages/install-product-dialog";
+export * from "@core/core-ui/pages/install-product-dialog";

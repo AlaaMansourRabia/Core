@@ -1,6 +1,6 @@
 import type {ComponentType, ReactElement, SVGProps} from "react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {ClipboardList, FileText, Flag, Search, Workflow} from "lucide-react";
 
 import {Badge} from "../badge";
@@ -114,7 +114,7 @@ export type Wc3ProcessFacts = {
 	/** Tokens in a non-terminal state — the live work. */
 	openCount: number;
 	overSlaCount: number;
-	/** States flagged `custom:true` (added on top of wakecap-standard-v1). */
+	/** States flagged `custom:true` (added on top of core-standard-v1). */
 	customStateCount: number;
 	/** States + transitions flagged `proposed:true`. */
 	proposedCount: number;
@@ -618,7 +618,7 @@ export function ProposedTag(): ReactElement {
 	return <Badge variant="warningSoft">PROPOSED</Badge>;
 }
 
-/** "custom state" — added on top of the vendor default graph (not in wakecap-standard-v1). */
+/** "custom state" — added on top of the vendor default graph (not in core-standard-v1). */
 export function CustomTag(): ReactElement {
 	return <Badge variant="infoSoft">custom state</Badge>;
 }

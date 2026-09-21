@@ -15,7 +15,7 @@ import {toast, Toaster} from "../sonner";
 import {HoverTooltip} from "../tooltip";
 
 // OBS — the Organization Breakdown Structure tab of the Workforce template. A nested, collapsible
-// tree table (Wakecore DataTable with getSubRows) with per-row actions: change supervisor, add
+// tree table (Core DataTable with getSubRows) with per-row actions: change supervisor, add
 // subordinate, delete. Keeps the standard search / filter / column-toggle toolbar.
 
 interface ObsNode {
@@ -102,7 +102,7 @@ function person(
 }
 
 const OBS_TREE: ObsNode[] = [
-	person("o-moayad", "Moayad Test", "12345666", "WakeCap", "INDIRECT-LEAD SUPERVISOR", {
+	person("o-moayad", "Moayad Test", "12345666", "Core", "INDIRECT-LEAD SUPERVISOR", {
 		children: [person("o-riyas", "Riyas Test", "321321", "DSCO", "INDIRECT-SOLUTION MANAGER")],
 	}),
 	person("o-barak", "Barak Al Azmi", "SA-PKG5-002", "Aramco PMT PKG5", "Indirect-ARAMCO PMT", {
@@ -114,7 +114,7 @@ const OBS_TREE: ObsNode[] = [
 					person("o-wijdan", "Wijdan Hadadi", "1110843503", "Sinohydro", "Indirect-SCC Supervisor", {
 						department: "HSE",
 						children: [
-							person("o-abomijna", "MOAYAD ABOMIJNA", "2158931325", "WakeCap", "Indirect-Project manager", {
+							person("o-abomijna", "MOAYAD ABOMIJNA", "2158931325", "Core", "Indirect-Project manager", {
 								children: [
 									person("o-azhar", "Azhar Al Madih", "1089990046", "Sinohydro", "Indirect-Safety Supervisor", {
 										children: [

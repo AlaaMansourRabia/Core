@@ -1,31 +1,31 @@
 ---
 name: core-ui-composition
 description: >
-  Choosing and composing @wakecap/core-ui components: which overlay / action /
+  Choosing and composing @core/core-ui components: which overlay / action /
   input / data / navigation / feedback component to use WHEN, required
   provider/ancestor wiring, valid nesting, variant semantics, and end-to-end
   workflow recipes (app shell, dashboard page, form-in-dialog, template-gallery
   dialog, data view with filters). Load when deciding WHICH component to reach
-  for or HOW to assemble several Wakecore components into a screen. The
+  for or HOW to assemble several Core components into a screen. The
   machine-readable catalog lives in library-index.json (per-component intent /
   when / chooseOver / requires / variantIntent).
 metadata:
   type: reference
-  library: wakecore
+  library: core
   library_version: "0.0.1"
 sources:
-  - "wakecap/Wakecore:library-index.json"
-  - "wakecap/Wakecore:packages/components/src/dialog.tsx"
-  - "wakecap/Wakecore:packages/components/src/sheet.tsx"
-  - "wakecap/Wakecore:packages/components/src/popover.tsx"
-  - "wakecap/Wakecore:packages/components/src/dropdown-menu.tsx"
-  - "wakecap/Wakecore:packages/components/src/button.tsx"
-  - "wakecap/Wakecore:packages/components/src/data-table.tsx"
-  - "wakecap/Wakecore:packages/components/src/navigation/core-app-sidebar.tsx"
-  - "wakecap/Wakecore:packages/components/src/navigation/core-app-top-bar.tsx"
+  - "core/Core:library-index.json"
+  - "core/Core:packages/components/src/dialog.tsx"
+  - "core/Core:packages/components/src/sheet.tsx"
+  - "core/Core:packages/components/src/popover.tsx"
+  - "core/Core:packages/components/src/dropdown-menu.tsx"
+  - "core/Core:packages/components/src/button.tsx"
+  - "core/Core:packages/components/src/data-table.tsx"
+  - "core/Core:packages/components/src/navigation/core-app-sidebar.tsx"
+  - "core/Core:packages/components/src/navigation/core-app-top-bar.tsx"
 ---
 
-# @wakecap/core-ui — Composition & Component Selection
+# @core/core-ui — Composition & Component Selection
 
 This skill is the **why/when** layer. For one component's full API and failure
 modes, load its domain skill (`core-ui-components`, `core-ui-forms`,
@@ -83,7 +83,7 @@ actions).
 
 ### Navigation / app shell
 
-- **CoreAppSidebar + CoreAppTopBar** — the standard WakeCap product shell. Use these for any normal product screen.
+- **CoreAppSidebar + CoreAppTopBar** — the standard Core product shell. Use these for any normal product screen.
 - **Sidebar** (primitive) — only when building a _bespoke_ sidebar from scratch.
 
 ### Feedback
@@ -108,10 +108,10 @@ actions).
 ### App shell
 
 ```tsx
-import {SidebarProvider} from "@wakecap/core-ui/sidebar";
-import {TooltipProvider} from "@wakecap/core-ui/tooltip";
-import {CoreAppSidebar} from "@wakecap/core-ui/navigation/core-app-sidebar";
-import {CoreAppTopBar} from "@wakecap/core-ui/navigation/core-app-top-bar";
+import {SidebarProvider} from "@core/core-ui/sidebar";
+import {TooltipProvider} from "@core/core-ui/tooltip";
+import {CoreAppSidebar} from "@core/core-ui/navigation/core-app-sidebar";
+import {CoreAppTopBar} from "@core/core-ui/navigation/core-app-top-bar";
 
 <TooltipProvider>
 	<SidebarProvider>

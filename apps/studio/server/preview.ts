@@ -2,8 +2,8 @@ import type {Connect, Plugin} from "vite";
 
 import * as esbuild from "esbuild";
 
-// The canonical preview seam. Every WakeCore template is REAL page source (seeded from @wakecap/core-ui);
-// esbuild bundles it (React externalized) and the WakeCore renderer evaluates the bundle live. Studio is
+// The canonical preview seam. Every Core template is REAL page source (seeded from @core/core-ui);
+// esbuild bundles it (React externalized) and the Core renderer evaluates the bundle live. Studio is
 // read-only: it renders an approved, canonical template and writes nothing to disk. There is no agent,
 // no workspace, no session — editing happens externally and reaches Studio only after review + merge.
 // The SDK comes from the canonical layer so a merged manifest change is reflected on the next request.
@@ -54,7 +54,7 @@ function sendJson(res: import("node:http").ServerResponse, status: number, body:
 
 export function studioPreview(): Plugin {
 	return {
-		name: "wakecore-studio-preview",
+		name: "core-studio-preview",
 		configureServer(server) {
 			// Resolve a canonical template and return its source + compiled bundle. Read-only: no disk
 			// is written, no workspace is created, no agent runs. The SDK is re-read per request via the

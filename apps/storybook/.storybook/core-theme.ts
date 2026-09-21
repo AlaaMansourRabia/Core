@@ -1,16 +1,16 @@
 import {create} from "storybook/theming";
 
-export const wakecapLight = create({
+export const coreLight = create({
 	base: "light",
-	brandTitle: "Wakecore",
-	brandUrl: "https://wakecap.com",
+	brandTitle: "Core",
+	brandUrl: "https://core.com",
 	brandTarget: "_self",
 	// Relative on purpose. The hosted build serves the manager under a subpath
-	// (SB_BASE=/storybook/, see .storybook/main.ts) where a root-absolute "/wakecore-large.svg"
+	// (SB_BASE=/storybook/, see .storybook/main.ts) where a root-absolute "/core-large.svg"
 	// escapes Storybook and hits the auth-gated app root, so the logo renders broken.
-	// Relative resolves against the manager document: "/wakecore-large.svg" locally,
-	// "/storybook/wakecore-large.svg" hosted — both served from ../public.
-	brandImage: "wakecore-large.svg",
+	// Relative resolves against the manager document: "/core-large.svg" locally,
+	// "/storybook/core-large.svg" hosted — both served from ../public.
+	brandImage: "core-large.svg",
 
 	// Typography
 	fontBase: '"Figtree", ui-sans-serif, sans-serif, system-ui',
@@ -49,10 +49,10 @@ export const wakecapLight = create({
 	booleanSelectedBg: "#1c1917",
 });
 
-export const wakecapDark = create({
+export const coreDark = create({
 	base: "dark",
-	brandTitle: "Wakecore",
-	brandUrl: "https://wakecap.com",
+	brandTitle: "Core",
+	brandUrl: "https://core.com",
 	brandTarget: "_self",
 
 	fontBase: '"Figtree", ui-sans-serif, sans-serif, system-ui',

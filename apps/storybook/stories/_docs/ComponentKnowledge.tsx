@@ -221,7 +221,7 @@ export function ComponentKnowledge() {
 				)}
 
 				<p style={{...muted, fontSize: 11.5, margin: "14px 0 0"}}>
-					From the WakeCore semantic catalog (<code style={mono}>library-index.json</code>) — the same knowledge agents
+					From the Core semantic catalog (<code style={mono}>library-index.json</code>) — the same knowledge agents
 					load. See <strong>Components / Overview</strong> for the full index.
 				</p>
 			</div>

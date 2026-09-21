@@ -33,7 +33,7 @@ import {
 } from "../worker-profile";
 
 // Compliance — the Compliance tab of the Workforce template. A per-worker document-compliance matrix
-// (Background Check / SST Card / Apex ID Badge / WakeCap Asset / Active on Site) with Mobilized /
+// (Background Check / SST Card / Apex ID Badge / Core Asset / Active on Site) with Mobilized /
 // Demobilized tabs, KPI cards, and the standard search / filter / column toolbar. Clicking a worker
 // opens their WorkerProfile in a right push panel (defaulting to the Compliance tab).
 
@@ -55,7 +55,7 @@ interface ComplianceRow {
 	background: DocStatus;
 	sst: DocStatus;
 	apexId: DocStatus;
-	wakecap: AssetStatus;
+	core: AssetStatus;
 	activeOnSite: SiteStatus;
 	releaseDate: string | null;
 	releasedBy: string | null;
@@ -68,7 +68,7 @@ interface ComplianceRow {
 // settings tab edits these; the score column and the worker profile read them.
 
 /** Worker-data keys that carry live status in the sample rows. Custom elements have no data key. */
-export type ComplianceElement = "background" | "sst" | "apexId" | "wakecap";
+export type ComplianceElement = "background" | "sst" | "apexId" | "core";
 export type ComplianceType = "document" | "asset" | "boolean" | "date";
 export type ComplianceCondition = "valid" | "not-expired" | "present";
 
@@ -104,7 +104,7 @@ export const KNOWN_COMPLIANCE_ELEMENTS: {name: string; type: ComplianceType; dat
 	{name: "Background Check", type: "document", dataKey: "background"},
 	{name: "SST Card", type: "document", dataKey: "sst"},
 	{name: "Apex ID Badge", type: "document", dataKey: "apexId"},
-	{name: "WakeCap Asset", type: "asset", dataKey: "wakecap"},
+	{name: "Core Asset", type: "asset", dataKey: "core"},
 ];
 
 export const typeLabel = (t: ComplianceType) => COMPLIANCE_TYPES.find((x) => x.value === t)?.label ?? t;
@@ -131,10 +131,10 @@ export const DEFAULT_COMPLIANCE_RULES: ComplianceRule[] = [
 		enabled: true,
 	},
 	{
-		id: "r-wakecap",
-		name: "WakeCap Asset",
+		id: "r-core",
+		name: "Core Asset",
 		type: "asset",
-		dataKey: "wakecap",
+		dataKey: "core",
 		condition: "present",
 		weight: 1,
 		enabled: true,
@@ -143,7 +143,7 @@ export const DEFAULT_COMPLIANCE_RULES: ComplianceRule[] = [
 
 function ruleSatisfied(rule: ComplianceRule, row: ComplianceRow): boolean {
 	if (!rule.dataKey) return false; // custom element — no sample data to check against yet
-	if (rule.dataKey === "wakecap") return row.wakecap.kind === "yes";
+	if (rule.dataKey === "core") return row.core.kind === "yes";
 	const s = rule.dataKey === "background" ? row.background : rule.dataKey === "sst" ? row.sst : row.apexId;
 	if (rule.condition === "valid") return s.kind === "valid";
 	if (rule.condition === "not-expired") return s.kind === "valid" || s.kind === "expiring";
@@ -189,7 +189,7 @@ function row(
 	code: string,
 	company: string,
 	trade: string,
-	docs: {background: DocStatus; sst: DocStatus; apexId: DocStatus; wakecap: AssetStatus; site: SiteStatus},
+	docs: {background: DocStatus; sst: DocStatus; apexId: DocStatus; core: AssetStatus; site: SiteStatus},
 	status: "mobilized" | "demobilized" = "mobilized",
 ): ComplianceRow {
 	return {
@@ -201,7 +201,7 @@ function row(
 		background: docs.background,
 		sst: docs.sst,
 		apexId: docs.apexId,
-		wakecap: docs.wakecap,
+		core: docs.core,
 		activeOnSite: docs.site,
 		releaseDate: null,
 		releasedBy: null,
@@ -217,91 +217,91 @@ const ROWS: ComplianceRow[] = [
 		background: miss(),
 		sst: miss(),
 		apexId: miss(),
-		wakecap: NO,
+		core: NO,
 		site: "not-on-site",
 	}),
 	row("cp-2", "01 newwww", "01 newwwww", "Stage Company", "Def-trd", {
 		background: miss(),
 		sst: miss(),
 		apexId: miss(),
-		wakecap: NO,
+		core: NO,
 		site: "not-on-site",
 	}),
 	row("cp-3", "123", "123", "Stage Company", "Def-trd", {
 		background: miss(),
 		sst: valid("12 Dec 27"),
 		apexId: miss(),
-		wakecap: NO,
+		core: NO,
 		site: "not-on-site",
 	}),
 	row("cp-4", "aaaalllaaaa", "pppppppx", "Stage Company", "fasfs", {
 		background: miss(),
 		sst: miss(),
 		apexId: miss(),
-		wakecap: {kind: "yes", tag: "H26"},
+		core: {kind: "yes", tag: "H26"},
 		site: "offline",
 	}),
 	row("cp-5", "Abdelrahman Badawy 2", "10476", "Stage Company", "5555555", {
 		background: miss(),
 		sst: miss(),
 		apexId: miss(),
-		wakecap: NO,
+		core: NO,
 		site: "not-on-site",
 	}),
 	row("cp-6", "AbdelRhman Donia", "10427", "Stage Company", "fasfs", {
 		background: valid("11 Mar 27"),
 		sst: expired("28 Jun 26"),
 		apexId: miss(),
-		wakecap: NO,
+		core: NO,
 		site: "not-on-site",
 	}),
 	row("cp-7", "Abdelruhman Malek", "10434", "Stage Company", "Def-trd", {
 		background: miss(),
 		sst: miss(),
 		apexId: miss(),
-		wakecap: NO,
+		core: NO,
 		site: "not-on-site",
 	}),
 	row("cp-8", "Abdulaziz AlEssa", "10281", "Company 0", "Def-trd", {
 		background: valid("20 May 27"),
 		sst: valid("21 Oct 26"),
 		apexId: valid("24 Nov 28"),
-		wakecap: {kind: "yes", tag: "I5"},
+		core: {kind: "yes", tag: "I5"},
 		site: "offline",
 	}),
 	row("cp-9", "Abdulaziz Al-Jaber", "W1030", "essam-8", "STW", {
 		background: miss(),
 		sst: miss(),
 		apexId: miss(),
-		wakecap: NO,
+		core: NO,
 		site: "not-on-site",
 	}),
 	row("cp-10", "Abdulaziz Alyousef", "10364", "Stage Company", "Def-trd", {
 		background: miss(),
 		sst: miss(),
 		apexId: miss(),
-		wakecap: NO,
+		core: NO,
 		site: "not-on-site",
 	}),
 	row("cp-11", "Abdullah Alateeq", "10274", "Company 0", "Def-trd", {
 		background: miss(),
 		sst: expiring("12 Aug 26"),
 		apexId: miss(),
-		wakecap: NO,
+		core: NO,
 		site: "not-on-site",
 	}),
 	row("cp-12", "Abdullah Alhilal", "10320", "Stage Company", "Def-trd", {
 		background: miss(),
 		sst: miss(),
 		apexId: miss(),
-		wakecap: NO,
+		core: NO,
 		site: "not-on-site",
 	}),
 	row("cp-13", "Bilal Hassan", "10688", "Company 0", "Def-trd", {
 		background: valid("02 Feb 28"),
 		sst: valid("14 Sep 27"),
 		apexId: miss(),
-		wakecap: {kind: "yes", tag: "K3"},
+		core: {kind: "yes", tag: "K3"},
 		site: "on-site",
 	}),
 	row(
@@ -310,7 +310,7 @@ const ROWS: ComplianceRow[] = [
 		"10991",
 		"Stage Company",
 		"STW",
-		{background: miss(), sst: miss(), apexId: miss(), wakecap: NO, site: "not-on-site"},
+		{background: miss(), sst: miss(), apexId: miss(), core: NO, site: "not-on-site"},
 		"demobilized",
 	),
 	row(
@@ -319,7 +319,7 @@ const ROWS: ComplianceRow[] = [
 		"11204",
 		"essam-8",
 		"Def-trd",
-		{background: expired("01 Jan 26"), sst: miss(), apexId: miss(), wakecap: NO, site: "not-on-site"},
+		{background: expired("01 Jan 26"), sst: miss(), apexId: miss(), core: NO, site: "not-on-site"},
 		"demobilized",
 	),
 ];
@@ -409,7 +409,7 @@ function complianceGeneral(row: ComplianceRow): WorkerProfileFieldGroup[] {
 function complianceCompliance(row: ComplianceRow, onUpload: (id: string) => void): WorkerProfileCompliance {
 	const validDocs =
 		[row.background, row.sst, row.apexId].filter((d) => d.kind === "valid").length +
-		(row.wakecap.kind === "yes" ? 1 : 0);
+		(row.core.kind === "yes" ? 1 : 0);
 	return {
 		score: {value: validDocs, total: 4},
 		items: [
@@ -437,7 +437,7 @@ function complianceCompliance(row: ComplianceRow, onUpload: (id: string) => void
 				onUploadDocument: () => onUpload("apex"),
 				fields: docFields(row.apexId),
 			},
-			{id: "wakecap", title: "WakeCap Asset", auto: true, status: <AssetPill status={row.wakecap} />},
+			{id: "core", title: "Core Asset", auto: true, status: <AssetPill status={row.core} />},
 			{
 				id: "active",
 				title: "Active on Site",
@@ -450,21 +450,21 @@ function complianceCompliance(row: ComplianceRow, onUpload: (id: string) => void
 }
 
 function complianceDevice(row: ComplianceRow): WorkerProfileField[] {
-	return row.wakecap.kind === "yes"
+	return row.core.kind === "yes"
 		? [
 				{
-					label: "WakeCap Asset",
+					label: "Core Asset",
 					value: (
 						<Badge variant="successSoft" className="wwc:h-5 wwc:text-xs">
 							Linked
 						</Badge>
 					),
 				},
-				{label: "Tag", value: row.wakecap.tag},
+				{label: "Tag", value: row.core.tag},
 			]
 		: [
 				{
-					label: "WakeCap Asset",
+					label: "Core Asset",
 					value: (
 						<Badge variant="infoSoft" className="wwc:h-5 wwc:text-xs">
 							Not assigned
@@ -571,10 +571,10 @@ function makeColumns(onView: (row: ComplianceRow) => void, rules: ComplianceRule
 			cell: ({row}) => <DocPill status={row.original.apexId} />,
 		},
 		{
-			id: "wakecap",
-			header: ({column}) => <DataTableColumnHeader column={column} title="WakeCap Asset" />,
+			id: "core",
+			header: ({column}) => <DataTableColumnHeader column={column} title="Core Asset" />,
 			meta: docHeaderMeta,
-			cell: ({row}) => <AssetPill status={row.original.wakecap} />,
+			cell: ({row}) => <AssetPill status={row.original.core} />,
 		},
 		{
 			id: "activeOnSite",

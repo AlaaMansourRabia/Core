@@ -1,19 +1,19 @@
-import type {ViewTabItem} from "@wakecap/core-ui/view-tab-bar";
+import type {ViewTabItem} from "@core/core-ui/view-tab-bar";
 
-import {Button} from "@wakecap/core-ui/button";
+import {Button} from "@core/core-ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@wakecap/core-ui/dropdown-menu";
-import {Empty} from "@wakecap/core-ui/empty";
-import {CoreAppSidebar, type SidebarNavGroup} from "@wakecap/core-ui/navigation/core-app-sidebar";
-import {CoreAppTopBar} from "@wakecap/core-ui/navigation/core-app-top-bar";
-import {ProgressDetails} from "@wakecap/core-ui/pages/core-progress-details";
-import {SideMenu, type SideMenuGroup} from "@wakecap/core-ui/side-menu";
-import {cn} from "@wakecap/core-utils";
+} from "@core/core-ui/dropdown-menu";
+import {Empty} from "@core/core-ui/empty";
+import {CoreAppSidebar, type SidebarNavGroup} from "@core/core-ui/navigation/core-app-sidebar";
+import {CoreAppTopBar} from "@core/core-ui/navigation/core-app-top-bar";
+import {ProgressDetails} from "@core/core-ui/pages/core-progress-details";
+import {SideMenu, type SideMenuGroup} from "@core/core-ui/side-menu";
+import {cn} from "@core/core-utils";
 import {
 	Activity,
 	BarChart3,

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Legend, type LegendItem, type LegendTab, TabbedLegend} from "@wakecap/core-ui/legend";
+import {Legend, type LegendItem, type LegendTab, TabbedLegend} from "@core/core-ui/legend";
 import {useState} from "react";
 
 const MILESTONES: LegendItem[] = [
@@ -131,7 +131,7 @@ export const Tabbed: StoryObj<typeof TabbedLegend> = {
 		docs: {
 			description: {
 				story:
-					'A collapsible header ("view mode") sits above WakeCore `Tabs`; each tab swaps in its own colors and rows. Content caps at `maxRows` (default 4) and overflows into extra columns, so it grows sideways instead of getting tall — the `Milestones` tab (7 items) splits into two columns. Click the minus to minimize it to a chip.',
+					'A collapsible header ("view mode") sits above Core `Tabs`; each tab swaps in its own colors and rows. Content caps at `maxRows` (default 4) and overflows into extra columns, so it grows sideways instead of getting tall — the `Milestones` tab (7 items) splits into two columns. Click the minus to minimize it to a chip.',
 			},
 		},
 	},

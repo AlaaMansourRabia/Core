@@ -11,14 +11,14 @@ import {resolve, resolvedDigest} from "./resolution.mjs";
 // Shared, arm-agnostic output contract. Both arms get this verbatim.
 const OUTPUT_CONTRACT = [
 	"Respond with a SINGLE self-contained React + TypeScript snippet that implements the request.",
-	"Use @wakecap/core-ui components. Output only one ```tsx code block — no prose before or after.",
+	"Use @core/core-ui components. Output only one ```tsx code block — no prose before or after.",
 ].join(" ");
 
 // without-skills: just enough to use the library at all (package name + basic usage).
 export function baselineSystem() {
 	return [
-		"You build React UIs for WakeCap products using the @wakecap/core-ui component library.",
-		"Components are imported from @wakecap/core-ui.",
+		"You build React UIs for Core products using the @core/core-ui component library.",
+		"Components are imported from @core/core-ui.",
 		OUTPUT_CONTRACT,
 	].join("\n");
 }
@@ -72,7 +72,7 @@ export function skilledSystem(task, catalog) {
 	return [
 		baselineSystem(),
 		"",
-		"You have access to the WakeCore design-system knowledge below. Use it to choose the right component, wire required providers, and avoid known failure modes.",
+		"You have access to the Core design-system knowledge below. Use it to choose the right component, wire required providers, and avoid known failure modes.",
 		"",
 		"## Composition & selection skill",
 		compositionSkill,
@@ -106,15 +106,15 @@ export {OUTPUT_CONTRACT};
 // real developer reads (so deep-path imports are *discoverable* — not a hidden convention).
 
 const CORE = [
-	"You build React UIs for WakeCap products using the @wakecap/core-ui component library.",
+	"You build React UIs for Core products using the @core/core-ui component library.",
 	OUTPUT_CONTRACT,
 ].join("\n");
 
 // Neutral, factual package usage — what package.json + README already tell any developer.
 // Deliberately does NOT editorialize "never use the barrel" (that is the catalog's job, in A2+).
 const INSTALL_NOTE = [
-	"Install `@wakecap/core-ui` and `@wakecap/core-tokens` from GitHub Packages.",
-	'Import the tokens stylesheet once at the app root: `import "@wakecap/core-tokens";`.',
+	"Install `@core/core-ui` and `@core/core-tokens` from GitHub Packages.",
+	'Import the tokens stylesheet once at the app root: `import "@core/core-tokens";`.',
 	"Each component is published as its own subpath export (the full list of valid import paths follows).",
 ].join("\n");
 
@@ -221,7 +221,7 @@ export function systemForResolutionArm(task, catalog) {
 	return [
 		CORE,
 		"",
-		"You have access to the WakeCore knowledge retrieved as relevant to THIS task. Use it to choose the right component, wire required providers, and avoid the failure modes.",
+		"You have access to the Core knowledge retrieved as relevant to THIS task. Use it to choose the right component, wire required providers, and avoid the failure modes.",
 		"",
 		"## Composition & selection skill",
 		readSkill("core-ui-composition"),
@@ -237,7 +237,7 @@ export function systemForArm(arm, task, catalog) {
 	const depth = ARM_DEPTH[arm];
 	if (!depth) throw new Error(`Unknown arm: ${arm}`);
 	const layers = buildLayers(task, catalog);
-	const parts = [CORE, "", "You have access to the following WakeCore design-system knowledge. Use it."];
+	const parts = [CORE, "", "You have access to the following Core design-system knowledge. Use it."];
 	for (let i = 0; i < depth; i++) parts.push("", layers[LAYER_ORDER[i]]);
 	return parts.join("\n");
 }

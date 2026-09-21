@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {VerifyTimeCommandCenter} from "@wakecap/core-ui/pages/core-verifytime-command-center";
+import {VerifyTimeCommandCenter} from "@core/core-ui/pages/core-verifytime-command-center";
 
 import manifest from "../../../../manifests/timesheet.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

@@ -1,4 +1,4 @@
-# End-to-end flywheel slice — the WakeCore tracer bullet
+# End-to-end flywheel slice — the Core tracer bullet
 
 > **Design of the smallest vertical slice that exercises every major subsystem exactly once** —
 > knowledge retrieval → manifests → builder consumption → page instantiation → evaluation → learning
@@ -83,7 +83,7 @@ verbatim, not re-designed.)
 One widget (no widget library), one template region (no full page), retrieval = a filter (no index/
 graph/vectors), a **one-widget reference renderer** (no general builder runtime), no generator (`library-index`
 untouched), one model, k small, one learning. Each is a real subsystem reduced to its thinnest
-honest form. The dependency-ordered roadmap (`WAKECORE-ARCHITECTURE.md` §X) still builds each one
+honest form. The dependency-ordered roadmap (`CORE-ARCHITECTURE.md` §X) still builds each one
 *properly* afterward — the tracer just proves the path exists first.
 
 ## 7. Execution plan (what running this slice costs)
@@ -114,7 +114,7 @@ the one-widget reference renderer (step 3). Everything else is stubs or reuse.
 We've validated pieces (manifest model on Button, builder consumption, the eval harness, capture). We
 have **not** proven they connect into a turning flywheel. A tracer bullet is the cheapest way to find
 the broken seam *before* investing in any subsystem at full scale — and if it turns, it's the single
-most convincing artifact WakeCore can show: *a real failure became verified knowledge that measurably
+most convincing artifact Core can show: *a real failure became verified knowledge that measurably
 improved the next build, end to end.*
 
 ## Scope honored

@@ -1,4 +1,4 @@
-export {Comment, CommentThread} from "@wakecap/core-ui/comment-thread";
+export {Comment, CommentThread} from "@core/core-ui/comment-thread";
 export type {
 	CommentAttachment,
 	CommentAuthor,
@@ -9,4 +9,4 @@ export type {
 	CommentProps,
 	CommentReaction,
 	CommentThreadProps,
-} from "@wakecap/core-ui/comment-thread";
+} from "@core/core-ui/comment-thread";

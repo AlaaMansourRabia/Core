@@ -10,7 +10,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/core-design-canvas.tsx",
-		"import": "@wakecap/core-ui/pages/core-design-canvas",
+		"import": "@core/core-ui/pages/core-design-canvas",
 		"export": "DesignCanvas"
 	},
 	"tags": [
@@ -58,7 +58,7 @@
 		"inside a Card or Dialog",
 		"as a small embeddable panel"
 	],
-	"minimalExample": "// CoreDesignCanvas is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CanvasToolbar} from \"@wakecap/core-ui/canvas-toolbar\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"minimalExample": "// CoreDesignCanvas is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CanvasToolbar} from \"@core/core-ui/canvas-toolbar\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Promoted from the apps/web DesignCanvasExamplePage (2026-07-08)",
@@ -76,7 +76,7 @@
 		"supersedes": null,
 		"lastValidated": "2026-07-08",
 		"notes": [
-			"promotedFrom: apps/web example (DesignCanvasExamplePage) — reflected as a canonical WakeCore template; the example was removed.",
+			"promotedFrom: apps/web example (DesignCanvasExamplePage) — reflected as a canonical Core template; the example was removed.",
 			"pilot: true"
 		]
 	}

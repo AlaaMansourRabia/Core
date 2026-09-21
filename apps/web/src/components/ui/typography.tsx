@@ -10,4 +10,4 @@ export {
 	TypographyLarge,
 	TypographySmall,
 	TypographyMuted,
-} from "@wakecap/core-ui/typography";
+} from "@core/core-ui/typography";

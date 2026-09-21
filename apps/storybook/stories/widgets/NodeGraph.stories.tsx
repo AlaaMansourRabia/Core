@@ -1,11 +1,11 @@
-import type {NodeGraphEdge, NodeGraphNode} from "@wakecap/core-ui/node-graph";
+import type {NodeGraphEdge, NodeGraphNode} from "@core/core-ui/node-graph";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
-import {Badge} from "@wakecap/core-ui/badge";
-import {Button} from "@wakecap/core-ui/button";
-import {Card} from "@wakecap/core-ui/card";
-import {NodeGraph} from "@wakecap/core-ui/node-graph";
+import {Badge} from "@core/core-ui/badge";
+import {Button} from "@core/core-ui/button";
+import {Card} from "@core/core-ui/card";
+import {NodeGraph} from "@core/core-ui/node-graph";
 import {Database, FileCheck, Filter, GitBranch, Layers, Play, Table2} from "lucide-react";
 import {useState} from "react";
 
@@ -66,7 +66,7 @@ const PIPELINE_NODES: NodeGraphNode[] = [
 		id: "telemetry",
 		label: "Site telemetry",
 		kind: "Datasource",
-		description: "wakecap.raw.telemetry",
+		description: "core.raw.telemetry",
 		icon: <Database />,
 		position: {x: 0, y: 40},
 	},
@@ -74,7 +74,7 @@ const PIPELINE_NODES: NodeGraphNode[] = [
 		id: "badges",
 		label: "Badge reads",
 		kind: "Datasource",
-		description: "wakecap.raw.badges",
+		description: "core.raw.badges",
 		icon: <Database />,
 		position: {x: 0, y: 180},
 	},

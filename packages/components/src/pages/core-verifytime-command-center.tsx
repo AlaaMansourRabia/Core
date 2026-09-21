@@ -107,7 +107,7 @@ const QUEUES: Queue[] = [
 		workers: 574,
 		severity: "high",
 		impact: "Direct payroll exposure",
-		explanation: "A timecard was submitted but no WakeCap detection supports it. Highest fraud risk.",
+		explanation: "A timecard was submitted but no Core detection supports it. Highest fraud risk.",
 		action: "Investigate payroll risk",
 	},
 	{
@@ -260,7 +260,7 @@ const CASES: Record<string, CaseData> = {
 	},
 	"timecard-no-detection": {
 		whatHappened:
-			"574 timecards were submitted with billable hours but have no WakeCap detection of any kind to support them.",
+			"574 timecards were submitted with billable hours but have no Core detection of any kind to support them.",
 		whyBelieved:
 			"These records combine manual timecard entry with a complete absence of physical presence — the strongest indicator of over-reporting or ghost workers.",
 		evidence: [

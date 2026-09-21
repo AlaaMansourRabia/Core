@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/chat/core-ai-chat-message.tsx",
-		"import": "@wakecap/core-ui/chat/core-ai-chat-message"
+		"import": "@core/core-ui/chat/core-ai-chat-message"
 	},
 	"tags": [
 		"chat",

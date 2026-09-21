@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/form-dialog.tsx",
-		"import": "@wakecap/core-ui/form-dialog",
+		"import": "@core/core-ui/form-dialog",
 		"export": "FormDialog"
 	},
 	"subcomponents": ["FormDialogField", "FormDialogRow", "FormDialogNote", "FormDialogCaveat"],
@@ -85,7 +85,7 @@
 	"composedOf": ["Dialog", "Button"],
 	"allowedPlacement": ["anywhere a create or edit action is triggered", "list page toolbars", "detail page section actions"],
 	"forbiddenPlacement": ["nested inside another dialog", "as a non-modal page form"],
-	"minimalExample": "import {FormDialog, FormDialogField} from \"@wakecap/core-ui/form-dialog\";\n\n<FormDialog\n\topen={open}\n\tonOpenChange={setOpen}\n\ttitle=\"Create process\"\n\tvalid={name.trim().length > 0}\n\thint=\"Name it, then create.\"\n\terror=\"Name required.\"\n\tsubmitLabel=\"Create process\"\n\tonSubmit={() => onCreate({name: name.trim()})}\n\tonReset={() => setName(\"\")}\n>\n\t<FormDialogField label=\"Name\" invalid={name.trim().length === 0}>\n\t\t{({invalid}) => <Input value={name} aria-invalid={invalid} onChange={(e) => setName(e.target.value)} />}\n\t</FormDialogField>\n</FormDialog>",
+	"minimalExample": "import {FormDialog, FormDialogField} from \"@core/core-ui/form-dialog\";\n\n<FormDialog\n\topen={open}\n\tonOpenChange={setOpen}\n\ttitle=\"Create process\"\n\tvalid={name.trim().length > 0}\n\thint=\"Name it, then create.\"\n\terror=\"Name required.\"\n\tsubmitLabel=\"Create process\"\n\tonSubmit={() => onCreate({name: name.trim()})}\n\tonReset={() => setName(\"\")}\n>\n\t<FormDialogField label=\"Name\" invalid={name.trim().length === 0}>\n\t\t{({invalid}) => <Input value={name} aria-invalid={invalid} onChange={(e) => setName(e.target.value)} />}\n\t</FormDialogField>\n</FormDialog>",
 	"evaluationCriteria": [
 		"The submit button is never rendered disabled.",
 		"No field shows an error before a submit has been refused.",

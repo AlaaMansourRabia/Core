@@ -81,7 +81,7 @@ export function promoteWorkspace(input: {path: string; name?: string}): Promise<
 	return getJson<PromoteSteps>(`/api/workspace/promote?${q.toString()}`);
 }
 
-// A Claude Code session bound to an isolated worktree of the local WakeCore repo. mode "browser" → Remote
+// A Claude Code session bound to an isolated worktree of the local Core repo. mode "browser" → Remote
 // Control (a claude.ai/code URL); mode "terminal" → interactive `claude` in a terminal (+ copyable command).
 export type SessionMode = "browser" | "terminal";
 export type SessionResult = {

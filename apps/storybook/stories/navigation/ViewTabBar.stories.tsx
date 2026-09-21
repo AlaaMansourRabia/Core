@@ -1,8 +1,8 @@
-import type {WeekSelectorWeek} from "@wakecap/core-ui/week-selector";
+import type {WeekSelectorWeek} from "@core/core-ui/week-selector";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {ViewTabBar, type ViewTabItem} from "@wakecap/core-ui/view-tab-bar";
+import {Button} from "@core/core-ui/button";
+import {ViewTabBar, type ViewTabItem} from "@core/core-ui/view-tab-bar";
 import {LayoutGrid, Plus, Table, Workflow} from "lucide-react";
 import {useState} from "react";
 

@@ -1,4 +1,4 @@
-import {Button} from "@wakecap/core-ui/button";
+import {Button} from "@core/core-ui/button";
 import {Link} from "react-router-dom";
 
 export function ReportsCta() {

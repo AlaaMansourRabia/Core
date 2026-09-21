@@ -1,1 +1,1 @@
-export {Slider} from "@wakecap/core-ui/slider";
+export {Slider} from "@core/core-ui/slider";

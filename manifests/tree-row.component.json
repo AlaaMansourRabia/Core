@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/tree-row.tsx",
-		"import": "@wakecap/core-ui/tree-row",
+		"import": "@core/core-ui/tree-row",
 		"export": "TreeRow"
 	},
 	"tags": [

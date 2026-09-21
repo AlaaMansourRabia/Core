@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/compare-bars.tsx",
-		"import": "@wakecap/core-ui/compare-bars",
+		"import": "@core/core-ui/compare-bars",
 		"export": "CompareBars"
 	},
 	"tags": [

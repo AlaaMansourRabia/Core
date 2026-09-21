@@ -1,6 +1,6 @@
 # Bundled typefaces
 
-WakeCore self-hosts the three families its tokens declare, so `--font-sans`, `--font-mono` and
+Core self-hosts the three families its tokens declare, so `--font-sans`, `--font-mono` and
 `--font-serif` resolve to the same computed family in every consumer — including offline, air-gapped
 and CSP-restricted builds. Nothing here is fetched at runtime.
 

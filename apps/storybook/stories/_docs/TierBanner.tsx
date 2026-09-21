@@ -1,7 +1,7 @@
 import type {CSSProperties} from "react";
 
 /**
- * A compact, theme-aware banner that reminds visitors which Wakecore tier they are looking at and
+ * A compact, theme-aware banner that reminds visitors which Core tier they are looking at and
  * how it is meant to be used. The full explainer lives on Getting Started → Welcome; this is the
  * per-section reminder placed at the top of each tier's Overview page.
  *
@@ -12,7 +12,7 @@ import type {CSSProperties} from "react";
 type Tier = "components" | "widgets" | "templates";
 
 // Direct link to the Component/Widget gap issue form (.github/ISSUE_TEMPLATE/component-widget-gap.yml).
-const ISSUE_URL = "https://github.com/wakecap/Wakecore/issues/new?template=component-widget-gap.yml";
+const ISSUE_URL = "https://github.com/core/Core/issues/new?template=component-widget-gap.yml";
 
 const TIERS: Record<Tier, {kind: "build" | "match"; pill: string; title: string; body: string; issue: boolean}> = {
 	components: {

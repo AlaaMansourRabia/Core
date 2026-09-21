@@ -171,7 +171,7 @@ export type Wc3ProductReadiness = {
 	testRefs: string[];
 };
 
-/** One first-party WakeCap product manifest, as the catalogue and detail screens render it. */
+/** One first-party Core product manifest, as the catalogue and detail screens render it. */
 export type Wc3Product = {
 	productKey: string;
 	displayName: string;
@@ -191,14 +191,14 @@ export type Wc3Product = {
 
 /* ------------------------------------------------------------------- data */
 
-/** The WakeCap first-party product catalogue — 17 products, alphabetical by manifest order. */
+/** The Core first-party product catalogue — 17 products, alphabetical by manifest order. */
 export const WC3_PRODUCTS: Wc3Product[] = [
 	{
 		productKey: "capture",
 		displayName: "Capture",
 		version: "2026-06-02.v1",
 		productType: "ontology-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [],
 		permissions: {
@@ -508,7 +508,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Contracts",
 		version: "2026-06-02.v1",
 		productType: "ontology-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [],
 		permissions: {
@@ -612,7 +612,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Datamanagement",
 		version: "2026-06-02.v1",
 		productType: "ontology-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [],
 		permissions: {
@@ -716,7 +716,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Equipment",
 		version: "2026-06-02.v1",
 		productType: "ontology-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [],
 		permissions: {
@@ -838,7 +838,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Gateway MQTT Ingress",
 		version: "2026-07-21.v2",
 		productType: "source-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [
 			{
 				productKey: "raw-device-events",
@@ -867,7 +867,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 			rollbackRefs: [
 				"src/platform/infrastructure/Wc3.Platform.Storage.Postgres/Adapters/PostgresProductMarketplaceService.cs",
 			],
-			realDataRefs: ["https://github.com/wakecap/wc3-platform/issues/1052"],
+			realDataRefs: ["https://github.com/core/wc3-platform/issues/1052"],
 			metadataRefs: [],
 			lineageRefs: ["products/gateway-mqtt-ingress/source/gateway-mqtt-ingress.source-registry.json"],
 			lakehouseRefs: [],
@@ -966,7 +966,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Labour & Workforce",
 		version: "2026-06-02.v1",
 		productType: "ontology-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [],
 		permissions: {
@@ -1230,7 +1230,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Map Management",
 		version: "2026-06-02.v1",
 		productType: "ontology-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [],
 		permissions: {
@@ -1430,7 +1430,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Media",
 		version: "2026-06-02.v1",
 		productType: "ontology-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [],
 		permissions: {
@@ -1593,7 +1593,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Raw Device Events",
 		version: "2026-06-02.v1",
 		productType: "ontology-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [],
 		permissions: {
@@ -1683,7 +1683,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Reset Baseline Governed Action",
 		version: "2026-07-12.v2",
 		productType: "ontology-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [],
 		permissions: {
@@ -1761,7 +1761,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Safety & Compliance",
 		version: "2026-06-02.v1",
 		productType: "ontology-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [],
 		permissions: {
@@ -1877,7 +1877,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Verifyprogress",
 		version: "2026-06-02.v1",
 		productType: "ontology-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [],
 		permissions: {
@@ -1981,7 +1981,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Verifytime",
 		version: "2026-06-02.v1",
 		productType: "ontology-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [],
 		permissions: {
@@ -2085,7 +2085,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Wirepas Device Simulator",
 		version: "2026-06-10.v1",
 		productType: "runtime-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [
 			{
@@ -2222,7 +2222,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Wirepas NMS Ontology Product",
 		version: "2026-05-26.v1",
 		productType: "ontology-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [],
 		permissions: {
@@ -2384,7 +2384,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Wirepas NMS Source Product",
 		version: "2026-05-26.v1",
 		productType: "source-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [
 			{
 				productKey: "wirepas-nms-ontology",
@@ -2578,7 +2578,7 @@ export const WC3_PRODUCTS: Wc3Product[] = [
 		displayName: "Wirepas NMS Product",
 		version: "2026-05-26.v1",
 		productType: "composite-product",
-		ownerEnclaveId: "wakecap",
+		ownerEnclaveId: "core",
 		dependencies: [],
 		linkedProducts: [
 			{

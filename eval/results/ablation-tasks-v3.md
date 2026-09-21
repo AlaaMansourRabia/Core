@@ -1,4 +1,4 @@
-# WakeCore ablation — which knowledge layer earns the lift
+# Core ablation — which knowledge layer earns the lift
 
 Pass-rate per arm (Wilson 95% CI). The **fair control is A1** (structural package facts a real developer has); A0 is the legacy information-starved reference only.
 
@@ -17,6 +17,6 @@ Pass-rate per arm (Wilson 95% CI). The **fair control is A1** (structural packag
 | A2→A3 (**composition** (skill+patterns))   | +83       | +17     | -17    | +0      |
 | A3→A4 (**impl knowledge** (failure modes)) | +0        | -17     | +0     | +0      |
 
-> Metrics: **structure** = the deterministic validators (component-choice / imports / provider-wiring / failure-mode, rolled up); **compile** = `tsc` against the real built `@wakecap/core-ui` types; **render** = render-smoke mount. **overall** = all three pass.
+> Metrics: **structure** = the deterministic validators (component-choice / imports / provider-wiring / failure-mode, rolled up); **compile** = `tsc` against the real built `@core/core-ui` types; **render** = render-smoke mount. **overall** = all three pass.
 > render-smoke is a _server-render floor_ (mounts + non-empty markup); it does not run effects or browser-only APIs — full browser fidelity is a V3 follow-up.
 > A claim is only supported when the lift's CI lower bound clears 0 (see `eval/V2-PLAN.md` §6).

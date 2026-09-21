@@ -1,7 +1,7 @@
-# WakeCore tier architecture — components → widgets → templates (strawman)
+# Core tier architecture — components → widgets → templates (strawman)
 
 > **Status: design strawman, consumption-validated. Nothing implemented.** Purpose: agree the tier
-> model, the schema-first manifests, and how it plugs into existing WakeCore + the eval harness,
+> model, the schema-first manifests, and how it plugs into existing Core + the eval harness,
 > before writing any code. Decisions that need a human call are flagged **[DECISION]**.
 >
 > **Updated after the builder walkthrough** (`BUILDER-CONSUMPTION-WALKTHROUGH.md`): the four
@@ -35,8 +35,8 @@ Three ideas carry the whole thing:
 ## 1. Definitions
 
 - **Component** — a single, generic UI primitive/control with **no domain meaning** and no data
-  contract. Generic across all WakeCap products; could live in a vendor-neutral UI kit unchanged.
-  *Examples: Button, DataTable, Sheet, Input.* Lives in `@wakecap/core-ui`.
+  contract. Generic across all Core products; could live in a vendor-neutral UI kit unchanged.
+  *Examples: Button, DataTable, Sheet, Input.* Lives in `@core/core-ui`.
 
 - **Widget** — a **self-contained, configurable, domain-meaningful** unit composed of one or more
   components, with a declared **data contract**, **config schema**, and **slots**. Does one job a
@@ -220,7 +220,7 @@ layout, not counts.
 
 ---
 
-## 5. Integration with existing WakeCore
+## 5. Integration with existing Core
 
 | Existing | Change |
 |---|---|
@@ -237,11 +237,11 @@ layout, not counts.
 
 ```
 packages/
-  components/    @wakecap/core-ui          (existing: components + library-index.json)
-  widgets/       @wakecap/core-widgets      NEW — widget React impls + per-widget manifests
+  components/    @core/core-ui          (existing: components + library-index.json)
+  widgets/       @core/core-widgets      NEW — widget React impls + per-widget manifests
     src/worker-grid/worker-grid.tsx
     src/worker-grid/worker-grid.manifest.json
-  templates/     @wakecap/core-templates    NEW — template impls + manifests
+  templates/     @core/core-templates    NEW — template impls + manifests
     src/org-overview/org-overview.manifest.json
   tokens/, utils/   (existing)
 
@@ -361,7 +361,7 @@ runtime crash. Literal (non-bound) values are allowed; only `{{…}}` strings ar
 
 1. Component/widget boundary for borderline cases (data contract = the line?).
 2. App-shell as template-layout vs. a layout widget.
-3. Separate `@wakecap/core-widgets` / `core-templates` packages vs. folders in core-ui.
+3. Separate `@core/core-widgets` / `core-templates` packages vs. folders in core-ui.
 4. Separate per-tier index files vs. one catalog.
 5. The declarative **serialization format** the open-source builder will consume — the widget/template
    manifests (§3–§4) + the page-instance model (§8) + binding grammar (§9) are the proposal;

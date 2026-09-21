@@ -1,2 +1,2 @@
-export {CanvasToolbar} from "@wakecap/core-ui/canvas-toolbar";
-export type {CanvasToolbarBlueprint, CanvasToolbarProps} from "@wakecap/core-ui/canvas-toolbar";
+export {CanvasToolbar} from "@core/core-ui/canvas-toolbar";
+export type {CanvasToolbarBlueprint, CanvasToolbarProps} from "@core/core-ui/canvas-toolbar";

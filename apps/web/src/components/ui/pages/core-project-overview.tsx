@@ -1,1 +1,1 @@
-export {ProjectOverview} from "@wakecap/core-ui/pages/core-project-overview";
+export {ProjectOverview} from "@core/core-ui/pages/core-project-overview";

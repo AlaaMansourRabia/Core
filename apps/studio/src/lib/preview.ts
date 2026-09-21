@@ -1,5 +1,5 @@
 // Client side of the canonical preview seam. Given a template id, fetch its canonical source (the Code
-// view) and the compiled bundle fed to the WakeCore renderer. Read-only: nothing is written, no session
+// view) and the compiled bundle fed to the Core renderer. Read-only: nothing is written, no session
 // is created. Editing happens externally and reaches Studio only after review + merge.
 
 export type PreviewResult = {

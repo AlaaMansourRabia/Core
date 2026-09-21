@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {Input} from "@wakecap/core-ui/input";
-import {Label} from "@wakecap/core-ui/label";
+import {Button} from "@core/core-ui/button";
+import {Input} from "@core/core-ui/input";
+import {Label} from "@core/core-ui/label";
 import {
 	Sheet,
 	SheetClose,
@@ -12,7 +12,7 @@ import {
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
-} from "@wakecap/core-ui/sheet";
+} from "@core/core-ui/sheet";
 
 // NOTE: triggers are shown closed (deterministic snapshots). Open a Sheet in the live Storybook to
 // see the slide-in panel; the content JSX is visible in the autodocs source for each story.

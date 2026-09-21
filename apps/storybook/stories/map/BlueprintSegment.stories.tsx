@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {BlueprintSegment} from "@wakecap/core-ui/blueprint-segment";
+import {BlueprintSegment} from "@core/core-ui/blueprint-segment";
 
 function FloorPlan() {
 	return (

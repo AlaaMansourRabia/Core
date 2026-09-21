@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {AssetListItem} from "@wakecap/core-ui/asset-list-item";
-import {Badge} from "@wakecap/core-ui/badge";
+import {AssetListItem} from "@core/core-ui/asset-list-item";
+import {Badge} from "@core/core-ui/badge";
 import {Camera, Play, RefreshCw} from "lucide-react";
 import {useState} from "react";
 

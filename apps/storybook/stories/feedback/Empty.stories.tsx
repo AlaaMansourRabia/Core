@@ -1,8 +1,8 @@
 import type {ComponentType} from "react";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {Empty, EmptySelection} from "@wakecap/core-ui/empty";
+import {Button} from "@core/core-ui/button";
+import {Empty, EmptySelection} from "@core/core-ui/empty";
 
 const meta = {
 	title: "Components/Feedback/Empty",

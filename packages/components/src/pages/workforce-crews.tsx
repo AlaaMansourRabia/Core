@@ -45,7 +45,7 @@ import {WorkerProfile, type WorkerProfileField, type WorkerProfileFieldGroup} fr
 
 // Crews — the Crews tab of the Workforce template. A list of crews (with KPI cards) that opens a full
 // crew detail page (back button, roster table, worker push panel). Add / Edit crew is a modal, not a
-// sheet. Wakecore primitives; primary/neutral tokens only.
+// sheet. Core primitives; primary/neutral tokens only.
 
 function initials(name: string) {
 	return name

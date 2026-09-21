@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {ArrowRight, Maximize2, Minimize2, PanelRight, TrendingDown, X} from "lucide-react";
 import {useEffect, useState} from "react";
 

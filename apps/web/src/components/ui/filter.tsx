@@ -6,4 +6,4 @@ export {
 	FilterTrigger,
 	useFilter,
 	type FilterValue,
-} from "@wakecap/core-ui/filter";
+} from "@core/core-ui/filter";

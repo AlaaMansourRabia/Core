@@ -8,7 +8,7 @@ import {
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
-} from "@wakecap/core-ui/breadcrumb";
+} from "@core/core-ui/breadcrumb";
 
 const meta = {
 	title: "Components/Navigation/Breadcrumb",

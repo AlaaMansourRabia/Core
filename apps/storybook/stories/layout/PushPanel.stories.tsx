@@ -1,17 +1,17 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Avatar, AvatarFallback} from "@wakecap/core-ui/avatar";
-import {Badge} from "@wakecap/core-ui/badge";
-import {Button} from "@wakecap/core-ui/button";
+import {Avatar, AvatarFallback} from "@core/core-ui/avatar";
+import {Badge} from "@core/core-ui/badge";
+import {Button} from "@core/core-ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@wakecap/core-ui/dropdown-menu";
-import {Input} from "@wakecap/core-ui/input";
-import {Label} from "@wakecap/core-ui/label";
+} from "@core/core-ui/dropdown-menu";
+import {Input} from "@core/core-ui/input";
+import {Label} from "@core/core-ui/label";
 import {
 	PushPanel,
 	PushPanelClose,
@@ -25,9 +25,9 @@ import {
 	PushPanelProvider,
 	PushPanelTitle,
 	PushPanelTrigger,
-} from "@wakecap/core-ui/push-panel";
-import {Separator} from "@wakecap/core-ui/separator";
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@wakecap/core-ui/tabs";
+} from "@core/core-ui/push-panel";
+import {Separator} from "@core/core-ui/separator";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@core/core-ui/tabs";
 import {
 	Award,
 	Calendar,

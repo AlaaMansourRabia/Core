@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
-import {KPIBar} from "@wakecap/core-ui/kpi-bar";
+import {KPIBar} from "@core/core-ui/kpi-bar";
 import {AlertTriangle, Users} from "lucide-react";
 
 import kpiBarManifest from "../../../../manifests/kpi-bar.widget.json";

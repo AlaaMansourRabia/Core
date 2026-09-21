@@ -12,10 +12,10 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@wakecap/core-tokens": "workspace:*",
-		"@wakecap/core-ui": "workspace:*",
-		"@wakecap/core-utils": "workspace:*",
-		"@wakecap/sdk": "workspace:*",
+		"@core/core-tokens": "workspace:*",
+		"@core/core-ui": "workspace:*",
+		"@core/core-utils": "workspace:*",
+		"@core/sdk": "workspace:*",
 		"lucide-react": "^0.562.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
