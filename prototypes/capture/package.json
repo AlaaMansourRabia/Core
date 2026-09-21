@@ -18,8 +18,8 @@
 		"@core/core-ui": "workspace:*",
 		"@core/core-utils": "workspace:*",
 		"lucide-react": "^0.562.0",
-		"react": "^19.2.0",
-		"react-dom": "^19.2.0",
+		"react": "^19.3.0",
+		"react-dom": "^19.3.0",
 		"three": "^0.182.0"
 	},
 	"devDependencies": {

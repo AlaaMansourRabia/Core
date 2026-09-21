@@ -13,8 +13,8 @@
 		"@core/core-tokens": "^0.1.0",
 		"@core/core-ui": "^0.0.2",
 		"lucide-react": "^1.8.0",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1",
+		"react": "^19.3.0",
+		"react-dom": "^19.3.0",
 		"react-hook-form": "^7.70.0",
 		"sonner": "^2.0.0"
 	},
