@@ -1,0 +1,246 @@
+/* ─── Wakecore Manager Theme ─── */
+
+/* Self-hosted, same as the preview canvas — so the manager chrome and the stories render the same
+   family, and Storybook works offline. */
+@import "../../../packages/tokens/src/fonts.css";
+
+body,
+#storybook-panel-root,
+[class*="sidebar"],
+[class*="Sidebar"] {
+	font-family: Figtree, ui-sans-serif, sans-serif, system-ui;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code,
+pre,
+[class*="mono"],
+[class*="Mono"] {
+	font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* ─── Sidebar icons → Lucide (outline, black) ─── */
+
+/* Storybook renders tree icons from an SVG sprite as <svg type="..."><use/></svg>.
+   We hide the original glyph and paint a Lucide outline icon via a CSS mask so the
+   element becomes a solid black silhouette of the Lucide stroke artwork.
+   Chevron/expander arrows have no `type` attribute, so they are left untouched. */
+.sidebar-item svg[type] use {
+	display: none !important;
+}
+
+.sidebar-item svg[type] {
+	display: inline-block;
+	width: 14px !important;
+	height: 14px !important;
+	background-color: #1c1917 !important;
+	-webkit-mask-position: center !important;
+	mask-position: center !important;
+	-webkit-mask-size: contain !important;
+	mask-size: contain !important;
+	-webkit-mask-repeat: no-repeat !important;
+	mask-repeat: no-repeat !important;
+}
+
+/* group → Lucide "folder" */
+.sidebar-item svg[type="group"] {
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M20%2020a2%202%200%200%200%202-2V8a2%202%200%200%200-2-2h-7.9a2%202%200%200%201-1.69-.9L9.6%203.9A2%202%200%200%200%207.93%203H4a2%202%200%200%200-2%202v13a2%202%200%200%200%202%202Z%22%2F%3E%3C%2Fsvg%3E") !important;
+	mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M20%2020a2%202%200%200%200%202-2V8a2%202%200%200%200-2-2h-7.9a2%202%200%200%201-1.69-.9L9.6%203.9A2%202%200%200%200%207.93%203H4a2%202%200%200%200-2%202v13a2%202%200%200%200%202%202Z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+/* component → Lucide "component" */
+.sidebar-item svg[type="component"] {
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M15.536%2011.293a1%201%200%200%200%200%201.414l2.376%202.377a1%201%200%200%200%201.414%200l2.377-2.377a1%201%200%200%200%200-1.414l-2.377-2.377a1%201%200%200%200-1.414%200z%22%2F%3E%3Cpath%20d%3D%22M2.297%2011.293a1%201%200%200%200%200%201.414l2.377%202.377a1%201%200%200%200%201.414%200l2.377-2.377a1%201%200%200%200%200-1.414L6.088%208.916a1%201%200%200%200-1.414%200z%22%2F%3E%3Cpath%20d%3D%22M8.916%2017.912a1%201%200%200%200%200%201.415l2.377%202.376a1%201%200%200%200%201.414%200l2.377-2.376a1%201%200%200%200%200-1.415l-2.377-2.376a1%201%200%200%200-1.414%200z%22%2F%3E%3Cpath%20d%3D%22M8.916%204.674a1%201%200%200%200%200%201.414l2.377%202.376a1%201%200%200%200%201.414%200l2.377-2.376a1%201%200%200%200%200-1.414l-2.377-2.377a1%201%200%200%200-1.414%200z%22%2F%3E%3C%2Fsvg%3E") !important;
+	mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M15.536%2011.293a1%201%200%200%200%200%201.414l2.376%202.377a1%201%200%200%200%201.414%200l2.377-2.377a1%201%200%200%200%200-1.414l-2.377-2.377a1%201%200%200%200-1.414%200z%22%2F%3E%3Cpath%20d%3D%22M2.297%2011.293a1%201%200%200%200%200%201.414l2.377%202.377a1%201%200%200%200%201.414%200l2.377-2.377a1%201%200%200%200%200-1.414L6.088%208.916a1%201%200%200%200-1.414%200z%22%2F%3E%3Cpath%20d%3D%22M8.916%2017.912a1%201%200%200%200%200%201.415l2.377%202.376a1%201%200%200%200%201.414%200l2.377-2.376a1%201%200%200%200%200-1.415l-2.377-2.376a1%201%200%200%200-1.414%200z%22%2F%3E%3Cpath%20d%3D%22M8.916%204.674a1%201%200%200%200%200%201.414l2.377%202.376a1%201%200%200%200%201.414%200l2.377-2.376a1%201%200%200%200%200-1.414l-2.377-2.377a1%201%200%200%200-1.414%200z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+/* story → Lucide "bookmark" */
+.sidebar-item svg[type="story"] {
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m19%2021-7-4-7%204V5a2%202%200%200%201%202-2h10a2%202%200%200%201%202%202v16z%22%2F%3E%3C%2Fsvg%3E") !important;
+	mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m19%2021-7-4-7%204V5a2%202%200%200%201%202-2h10a2%202%200%200%201%202%202v16z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+/* document → Lucide "file-text" */
+.sidebar-item svg[type="document"] {
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%2022a2%202%200%200%201-2-2V4a2%202%200%200%201%202-2h8a2.4%202.4%200%200%201%201.704.706l3.588%203.588A2.4%202.4%200%200%201%2020%208v12a2%202%200%200%201-2%202z%22%2F%3E%3Cpath%20d%3D%22M14%202v5a1%201%200%200%200%201%201h5%22%2F%3E%3Cpath%20d%3D%22M10%209H8%22%2F%3E%3Cpath%20d%3D%22M16%2013H8%22%2F%3E%3Cpath%20d%3D%22M16%2017H8%22%2F%3E%3C%2Fsvg%3E") !important;
+	mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%2022a2%202%200%200%201-2-2V4a2%202%200%200%201%202-2h8a2.4%202.4%200%200%201%201.704.706l3.588%203.588A2.4%202.4%200%200%201%2020%208v12a2%202%200%200%201-2%202z%22%2F%3E%3Cpath%20d%3D%22M14%202v5a1%201%200%200%200%201%201h5%22%2F%3E%3Cpath%20d%3D%22M10%209H8%22%2F%3E%3Cpath%20d%3D%22M16%2013H8%22%2F%3E%3Cpath%20d%3D%22M16%2017H8%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+/* ─── Sidebar items → Wakecore shadcn Tabs (default variant) ───
+   The full row is the `.sidebar-item` wrapper; inside it sit the clickable
+   <a>/<button> (label) AND a hover-revealed action <button> ("…" menu).
+   Storybook paints its OWN backgrounds on hover (wrapper → light blue, action
+   button → blue) and on select (wrapper → #57534e). We override those: paint
+   the *wrapper* like a shadcn TabsTrigger (muted hover fill, elevated white pill
+   when active) and force every inner element transparent so nothing layers on
+   top. Mirrors @wakecap/core-ui Tabs: rounded, transition-all,
+   data-[state=active]:bg-background + shadow. */
+
+/* The full-row pill lives on the wrapper */
+.sidebar-item {
+	border-radius: 6px !important;
+	transition:
+		background-color 0.15s ease,
+		box-shadow 0.15s ease;
+}
+
+/* Inner elements never carry a background of their own (kills Storybook's blue
+   hover fill + blue action-menu button, and any earlier inner fill) */
+.sidebar-item > a,
+.sidebar-item > button {
+	background-color: transparent !important;
+	background-image: none !important;
+	border-radius: 6px;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.5;
+	letter-spacing: 0;
+	color: #57534e;
+	transition: color 0.15s ease;
+}
+
+/* Hover — shadcn ghost fill (bg-muted) on the whole row */
+.sidebar-item[data-highlightable]:not([data-selected="true"]):hover {
+	background-color: #f5f5f4 !important;
+}
+.sidebar-item:not([data-selected="true"]):hover > a,
+.sidebar-item:not([data-selected="true"]):hover > button {
+	color: #1c1917 !important;
+}
+
+/* Pressed (onclick) feedback */
+.sidebar-item[data-highlightable]:not([data-selected="true"]):active {
+	background-color: #e7e5e4 !important;
+}
+
+/* Selected — shadcn active tab: bg-background pill with hairline border + shadow.
+   box-shadow (incl. inset hairline) avoids the layout shift a real border causes. */
+.sidebar-item[data-selected="true"] {
+	background-color: #ffffff !important;
+	box-shadow:
+		inset 0 0 0 1px #e7e5e4,
+		0 1px 2px rgba(28, 25, 23, 0.07) !important;
+}
+.sidebar-item[data-selected="true"] > a,
+.sidebar-item[data-selected="true"] > button {
+	font-weight: 600;
+	color: #1c1917 !important;
+}
+
+/* ─── Root group headers (collapsible sections) ─── */
+
+.sidebar-subheading,
+[class*="GroupHeader"],
+button[class*="SidebarGroupButton"] {
+	text-transform: none !important;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	letter-spacing: 0 !important;
+	opacity: 1 !important;
+	color: #1c1917 !important;
+}
+
+/* ─── Nested items (children of groups) ─── */
+
+.sidebar-item[data-parent-id]:not([data-parent-id="root"]) > a:not([href^="#"]),
+.sidebar-item[data-parent-id]:not([data-parent-id="root"]) > button {
+	font-size: 13px;
+	color: #78716c;
+}
+
+/* ─── Search ─── */
+
+input[placeholder*="Find"],
+input[placeholder*="Search"],
+input[placeholder*="search"] {
+	border-radius: 6px;
+	font-size: 13px;
+}
+
+/* ─── Toolbar ─── */
+
+button[role="tab"] {
+	font-size: 12px;
+	font-weight: 500;
+}
+
+/* ─── Scrollbar ─── */
+
+::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.08);
+	border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, 0.15);
+}
+
+/* ─── Docs ─── */
+
+.sbdocs-wrapper {
+	font-feature-settings:
+		"kern" 1,
+		"liga" 1;
+}
+.sbdocs-h1 {
+	font-weight: 300 !important;
+	letter-spacing: -0.02em !important;
+}
+.sbdocs-h2 {
+	font-weight: 400 !important;
+	letter-spacing: -0.01em !important;
+}
+pre code,
+.docblock-source code {
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+table[class*="ArgTable"] th,
+table[class*="args"] th {
+	text-transform: uppercase;
+	font-size: 10.5px;
+	letter-spacing: 0.05em;
+	font-weight: 600;
+}
+
+/* ─── Row context-menu ("…") button ───
+   Storybook paints a 5px blue glow *behind* this button (box-shadow: #dbecff 0 0 5px 5px) to fade
+   the label out from underneath it. Against our neutral rows it reads as a stray blur — light blue
+   on a hovered row, a dark smudge on the selected white pill — so it goes. The button gets the same
+   muted-fill treatment as any Wakecore icon button instead. */
+.sidebar-item button[aria-label="Open context menu"] {
+	box-shadow: none !important;
+	background-color: transparent !important;
+	border-radius: 4px;
+	transition: background-color 0.15s ease;
+}
+.sidebar-item button[aria-label="Open context menu"]:hover,
+.sidebar-item button[aria-label="Open context menu"][aria-expanded="true"] {
+	background-color: #e7e5e4 !important;
+	box-shadow: none !important;
+}
+
+/* ─── Brand mark ───
+   The theme's brandImage renders at its intrinsic 150×28, which overpowers the 14px rows beneath
+   it. Hold it to the height of a sidebar row's type instead and let the width follow. */
+.sidebar-header img {
+	height: 20px !important;
+	width: auto !important;
+	max-height: none !important;
+}
+
+/* ─── "Create a new story" (+) ───
+   Storybook's dev-only scaffolder next to the search field. Wakecore components are authored in
+   packages/components and documented from real story files (see the Contributing page), so a
+   one-click generated story is a path we don't want offered. */
+button[aria-label="Create a new story"] {
+	display: none !important;
+}

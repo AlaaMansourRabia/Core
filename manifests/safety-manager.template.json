@@ -1,0 +1,94 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "safety-manager",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "CoreSafetyManager",
+	"archetype": "Workspace",
+	"category": "safety",
+	"version": "1.0.0",
+	"manifestStatus": "draft",
+	"source": {
+		"path": "packages/components/src/pages/core-safety-manager.tsx",
+		"import": "@wakecap/core-ui/pages/core-safety-manager",
+		"export": "SafetyManager"
+	},
+	"tags": [
+		"safety",
+		"observations",
+		"app-shell",
+		"sidebar",
+		"top-bar",
+		"header",
+		"tabs",
+		"map",
+		"observations-map",
+		"zones"
+	],
+	"intent": "Observation-manager scaffold: a full app shell (CoreAppSidebar + CoreAppTopBar) with a single \"Safety Manager\" sidebar entry, and a description-less route header (PageContentHeader) carrying four tabs — Analytics (placeholder), List View (TaskMonitor over observation data), Map View (ObservationsMap: observations, cameras and responders on the site map under a five-minute timeline) and Responder List — plus a Settings action opening the ontology sub-surface.",
+	"when": [
+		"Starting the Safety / observation-manager product surface that owns its own app shell",
+		"A single-section app whose route content is organized by a peer tab set in the header"
+	],
+	"whenNot": [
+		"A content page rendered inside an existing app shell -> use a content-only template",
+		"A multi-section admin surface where the left nav switches content -> use Admin Panel"
+	],
+	"chooseOver": [
+		{
+			"component": "Assembling CoreAppSidebar + CoreAppTopBar + PageContentHeader by hand",
+			"because": "Safety Manager owns the shell and the header tab scaffold so observation surfaces plug straight in."
+		}
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"PageContentHeader"
+	],
+	"requiredProviders": [],
+	"composedOf": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"PageContentHeader",
+		"ViewTabBar",
+		"Empty",
+		"TaskMonitor",
+		"ObservationsMap",
+		"MapControlPanel",
+		"MapLegend",
+		"MapHoverCard",
+		"ObservationDetailPanel",
+		"CameraDetailPanel",
+		"ResponderDetailPanel",
+		"TimeScrubber",
+		"ViolationList"
+	],
+	"allowedPlacement": [
+		"route-level safety / observation-manager surface that owns the full window"
+	],
+	"forbiddenPlacement": [
+		"inside another CoreAppSidebar/CoreAppTopBar shell",
+		"inside a Card or Dialog"
+	],
+	"minimalExample": "// CoreSafetyManager is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@wakecap/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@wakecap/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@wakecap/core-ui/page-content-header\";\nimport {ViewTabBar} from \"@wakecap/core-ui/view-tab-bar\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Observation-Template branch (2026-07-19)",
+		"derivedFrom": {
+			"source": "CoreAppSidebar + CoreAppTopBar app shell + PageContentHeader",
+			"extracted": [
+				"single-entry sidebar shell",
+				"description-less three-tab route header scaffold (Analytics / List View / Map View) with a Settings action"
+			]
+		},
+		"status": "draft",
+		"verifiedBy": null,
+		"confidence": "unset — scaffold, no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-19",
+		"notes": [
+			"pilot: true",
+			"placeholder tab bodies pending real observation surfaces"
+		]
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"name": "wakecore-hosted-mcp",
+	"version": "0.1.0",
+	"private": true,
+	"description": "WakeCore Hosted MCP — the hosted server that exposes the @wakecap/knowledge capability API to any AI editor over MCP (Streamable HTTP + stdio), with health, schemas, and structured logging.",
+	"bin": {
+		"wakecore-hosted-mcp": "./dist/main.mjs"
+	},
+	"type": "module",
+	"scripts": {
+		"build": "tsdown",
+		"start": "node dist/main.mjs",
+		"start:stdio": "node dist/main.mjs --stdio",
+		"dev": "node dist/main.mjs",
+		"typecheck": "tsgo --noEmit",
+		"test": "node --test",
+		"lint": "oxlint .",
+		"format": "oxfmt .",
+		"format:check": "oxfmt --check ."
+	},
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "1.29.0",
+		"@wakecap/knowledge": "workspace:*"
+	},
+	"devDependencies": {
+		"tsdown": "latest"
+	},
+	"nx": {
+		"targets": {
+			"typecheck": {
+				"dependsOn": [
+					"^build"
+				]
+			},
+			"test": {
+				"dependsOn": [
+					"build",
+					"^build"
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,38 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "command-palette",
+	"tier": "pattern",
+	"name": "command-palette",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"intent": "Keyboard-first search across actions and entities.",
+	"when": "Power-user quick navigation/actions (⌘K).",
+	"components": [
+		"Command",
+		"Dialog"
+	],
+	"order": [
+		"Dialog",
+		"Command (input + grouped results)"
+	],
+	"requiredProviders": [],
+	"tags": [
+		"search",
+		"navigation"
+	],
+	"notes": "Command for the palette; Combobox for a form field selection.",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 pattern migration (2026-07)",
+		"derivedFrom": {
+			"source": "library-index.json patterns[]",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": []
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"id": "dashboard",
+	"title": "Metrics dashboard recipe",
+	"domain": "composition",
+	"prompt": "Build an organization overview landing page: a grid of KPI summary cards across the top, then a couple of trend chart panels below. Show a loading placeholder while data is fetching.",
+	"expected": ["Card"],
+	"acceptable": ["Chart", "Skeleton", "Badge"],
+	"forbidden": [],
+	"requiredProviders": []
+}

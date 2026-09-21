@@ -1,0 +1,43 @@
+name: Intent — Validate Skills
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - "packages/*/skills/**"
+      - "skills/_artifacts/**"
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+      - "packages/*/skills/**"
+      - "skills/_artifacts/**"
+
+jobs:
+  validate:
+    name: Validate ${{ matrix.package.name }} skills
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package:
+          - { name: "core-ui", dir: "packages/components/skills" }
+          - { name: "core-tokens", dir: "packages/tokens/skills" }
+          - { name: "core-utils", dir: "packages/utils/skills" }
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate skills
+        run: pnpm exec intent validate ${{ matrix.package.dir }}

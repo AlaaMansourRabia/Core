@@ -1,0 +1,117 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "wizard-dialog",
+	"tier": "widget",
+	"name": "WizardDialog",
+	"category": "form",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/wizard-dialog.tsx",
+		"import": "@wakecap/core-ui/wizard-dialog",
+		"export": "WizardDialog"
+	},
+	"tags": ["wizard", "stepper", "dialog", "modal", "multi-step", "create", "validation", "authoring"],
+	"intent": "Multi-step authoring modal: a Stepper rail, one lazily mounted step at a time, and a Next that is never disabled but reveals the current step's errors rather than advancing past them.",
+	"when": [
+		"Authoring a record whose fields do not fit one screen",
+		"A create flow with a genuine review step before commit",
+		"A staged operation where a later step derives from an earlier one — plan, then apply"
+	],
+	"whenNot": [
+		"The form fits one screen -> use FormDialog",
+		"The steps are a progress indicator rather than a form -> use Stepper directly",
+		"A long onboarding flow that owns the whole viewport -> use a page template, not a dialog"
+	],
+	"chooseOver": [
+		{
+			"component": "Dialog + Stepper assembled by hand",
+			"because": "WizardDialog owns step position, the per-step attempted flag and its clearing on every move, the Step N of M counter, and which of Back/Next/submit is showing — the chrome three shipped wizards had each copied."
+		},
+		{
+			"component": "FormDialog",
+			"because": "Use FormDialog when the fields fit one screen; a wizard's cost is only worth paying when they do not."
+		}
+	],
+	"pairsWith": ["Stepper", "Input", "Combobox", "ToggleGroup", "PropertyList"],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"open": {"type": "boolean", "required": true, "note": "Controlled visibility."},
+			"onOpenChange": {"type": "(open: boolean) => void", "required": true},
+			"title": {
+				"type": "ReactNode",
+				"required": true,
+				"note": "Fixed across steps; the rail communicates position."
+			},
+			"steps": {
+				"type": "WizardStep[]",
+				"required": true,
+				"note": "Each step declares its label, its own `valid`, and its content. Content may be a function of {attempted}."
+			},
+			"submitLabel": {"type": "ReactNode", "required": true, "note": "Shown in place of Next on the last step."},
+			"onSubmit": {"type": "() => void", "required": true, "note": "Runs on the last step when its `valid` holds."},
+			"onReset": {
+				"type": "() => void",
+				"required": false,
+				"note": "Clears the caller's field state. Runs on close AND after a successful submit; step position resets too."
+			},
+			"width": {"type": "number", "required": false, "note": "Max width in px. Defaults to 720."},
+			"keepOpenOnSubmit": {"type": "boolean", "required": false}
+		},
+		"events": {
+			"onSubmit": {"payload": {}},
+			"onOpenChange": {"payload": {"open": "boolean"}}
+		},
+		"rowIdentity": "Steps are identified by their `label`, which must therefore be unique within one wizard."
+	},
+	"configSchema": {
+		"width": {"type": "number", "default": 720},
+		"keepOpenOnSubmit": {"type": "boolean", "default": false}
+	},
+	"slots": {
+		"steps[].content": {"description": "One step's fields", "accepts": ["component", "widget"]},
+		"steps[].nextLabel": {"description": "Per-step override of the Next button", "accepts": ["component"]}
+	},
+	"states": {
+		"default": "Opens on step 1; Back is absent rather than disabled.",
+		"refused": "Next pressed on a step whose `valid` is false: position holds and the step's content re-renders with attempted true.",
+		"advanced": "Position moves and `attempted` clears, so an error already moved past does not follow the user.",
+		"last": "Next is replaced by the submit button; the same validity gate applies.",
+		"reopened": "Step position and `attempted` both reset, so the next open starts at step 1."
+	},
+	"composedOf": ["Dialog", "Stepper", "Button"],
+	"allowedPlacement": ["list page toolbars", "catalogue create actions", "install and provisioning flows"],
+	"forbiddenPlacement": ["nested inside another dialog", "as a page-level onboarding flow"],
+	"minimalExample": "import {WizardDialog} from \"@wakecap/core-ui/wizard-dialog\";\n\n<WizardDialog\n\topen={open}\n\tonOpenChange={setOpen}\n\ttitle=\"New object type\"\n\tsteps={[\n\t\t{label: \"Metadata\", valid: name.trim().length > 0, content: ({attempted}) => <MetadataStep attempted={attempted} />},\n\t\t{label: \"Review\", content: <ReviewStep />},\n\t]}\n\tsubmitLabel=\"Create object type\"\n\tonSubmit={commit}\n\tonReset={reset}\n/>",
+	"evaluationCriteria": [
+		"Next is never rendered disabled.",
+		"Only the current step is mounted.",
+		"Moving between steps clears the attempted flag.",
+		"Re-opening returns to step 1 with cleared fields."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Extracted from the three copied wizard chromes found in the missing-widgets template review (2026-08-25)",
+		"derivedFrom": {
+			"source": "packages/components/src/object-type-wizard.tsx",
+			"extracted": [
+				"horizontal Stepper rail across the step labels",
+				"never-disable Next with a per-step attempted flag",
+				"attempted cleared on every step change",
+				"Step N of M footer counter",
+				"Back absent on the first step, submit replacing Next on the last"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": "The private WizardSteps chrome in object-type-wizard.tsx, wc3-action-type-wizard.tsx and wc3-product-install-dialog.tsx",
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"wc3-product-install-dialog.tsx:280 carried the comment 'Wizard chrome (copied from object-type-wizard.tsx / wc3-action-type-wizard.tsx)' — this widget is what that comment was asking for.",
+			"Lazy step mounting keeps a derived Review step free until it is reached.",
+			"pilot: true"
+		]
+	}
+}

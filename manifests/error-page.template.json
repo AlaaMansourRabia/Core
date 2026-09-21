@@ -1,0 +1,221 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "error-page",
+	"tier": "template",
+	"consumption": "import",
+	"name": "ErrorPage",
+	"category": "system",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/error-page.tsx",
+		"import": "@wakecap/core-ui/error-page"
+	},
+	"tags": [
+		"feedback",
+		"error",
+		"page",
+		"404",
+		"500"
+	],
+	"intent": "Full-page error state for route-level failures and access errors (404 / 401 / 403 / 500 / 503 or a generic fallback), centered in the viewport with a recovery action.",
+	"when": [
+		"A route failed to load, was not found, or the user lacks access",
+		"A server/service error needs a whole-page state with a way out",
+		"Pre-auth or boot-time failures shown before the app shell mounts"
+	],
+	"whenNot": [
+		"An inline, recoverable error inside otherwise-valid content -> use Alert",
+		"A populated page that simply has no data/results -> use Empty",
+		"A transient, auto-dismissing failure message -> use Sonner (toast)"
+	],
+	"chooseOver": [
+		{
+			"component": "Empty",
+			"because": "Empty is a zero-data placeholder inside a working page; ErrorPage is a whole-page failure state (something went wrong, not just nothing here)."
+		},
+		{
+			"component": "Alert",
+			"because": "Alert is an inline/section message that keeps the surrounding page usable; ErrorPage takes over the full page."
+		}
+	],
+	"pairsWith": [
+		"Button"
+	],
+	"requiredProviders": [],
+	"regions": [
+		{
+			"id": "code",
+			"role": "Large status code (e.g. 404)",
+			"source": "type preset / code prop / <ErrorPageCode>",
+			"required": false,
+			"note": "Hidden when showCode=false; the title becomes the lead for non-status errors."
+		},
+		{
+			"id": "title",
+			"role": "Short error headline",
+			"source": "type preset / title prop / <ErrorPageTitle>",
+			"required": true
+		},
+		{
+			"id": "description",
+			"role": "One-line explanation and guidance",
+			"source": "type preset / description prop / <ErrorPageDescription>",
+			"required": true
+		},
+		{
+			"id": "action",
+			"role": "Recovery action(s)",
+			"source": "action prop / children / <ErrorPageAction>",
+			"required": false,
+			"recommended": [
+				"Button"
+			],
+			"note": "Typically a primary 'Go home' / 'Retry' / 'Sign in' Button; rendered below the description."
+		}
+	],
+	"requiredWidgets": [],
+	"requiredComponents": [
+		{
+			"name": "Button",
+			"region": "action",
+			"required": false,
+			"note": "Recovery action. Wrap a router Link with <Button asChild> for navigation — do not navigate via onClick."
+		}
+	],
+	"dataContract": {
+		"applicable": false,
+		"note": "Stateless and config-driven — no data source, no fetching, no async loading/error lifecycle (the page IS the error state). Content comes from the `type` preset or explicit prop overrides; see configSchema."
+	},
+	"configSchema": {
+		"type": {
+			"type": "\"404\" | \"401\" | \"403\" | \"500\" | \"503\" | \"generic\"",
+			"default": "generic",
+			"note": "Selects a preset code + title + description."
+		},
+		"showCode": {
+			"type": "boolean",
+			"default": true,
+			"note": "Set false for non-HTTP/generic errors so a meaningless code number is not shown."
+		},
+		"code": {
+			"type": "string",
+			"required": false,
+			"note": "Override the preset status code."
+		},
+		"title": {
+			"type": "string",
+			"required": false,
+			"note": "Override the preset title."
+		},
+		"description": {
+			"type": "string",
+			"required": false,
+			"note": "Override the preset description."
+		},
+		"action": {
+			"type": "ReactNode",
+			"required": false,
+			"note": "Recovery action region (usually a Button). `children` is also rendered after the action."
+		}
+	},
+	"states": {
+		"default": "Generic error ('Error' / 'Something Went Wrong') centered in a min-h-[400px] column.",
+		"preset": "type=404|401|403|500|503 renders the matching code, title, and description.",
+		"with-action": "An `action` (e.g. a Button) renders below the description for recovery.",
+		"no-code": "showCode=false hides the large status number; the title leads.",
+		"custom": "Compound components (ErrorPageCode/Title/Description/Action) or children fully override the preset content."
+	},
+	"composedOf": [
+		"Button"
+	],
+	"allowedPlacement": [
+		"route-level (full page)",
+		"app-shell content-region (in-app errors)",
+		"standalone full-viewport (pre-auth / boot errors)"
+	],
+	"forbiddenPlacement": [
+		"inline within a populated section (use Alert)",
+		"card-body / list-row",
+		"as a no-data placeholder (use Empty)"
+	],
+	"commonMistakes": [
+		{
+			"mistake": "Using ErrorPage for an inline, recoverable section error",
+			"symptom": "A whole-page block interrupts otherwise-valid content",
+			"fix": "Use Alert for inline/section errors that keep the page usable."
+		},
+		{
+			"mistake": "Using ErrorPage for an empty data state (no results)",
+			"symptom": "Reads as a failure when nothing actually failed",
+			"fix": "Use Empty for zero-data inside a populated page."
+		},
+		{
+			"mistake": "Navigating via onClick on the action Button",
+			"symptom": "Breaks middle-click / open-in-new-tab; no real href",
+			"fix": "Wrap a router Link with <Button asChild> for navigation."
+		},
+		{
+			"mistake": "Mixing a `type` preset with contradictory explicit code/title",
+			"symptom": "Status code and message disagree",
+			"fix": "Either pick a preset via `type`, or override code+title+description together — not a contradictory mix."
+		},
+		{
+			"mistake": "Leaving showCode=true for a generic, non-status error",
+			"symptom": "A meaningless 'Error' number dominates the page",
+			"fix": "Set showCode={false} for non-HTTP errors."
+		}
+	],
+	"minimalExample": "import {ErrorPage} from \"@wakecap/core-ui/error-page\";\nimport {Button} from \"@wakecap/core-ui/button\";\n\n<ErrorPage\n  type=\"404\"\n  action={<Button asChild><a href=\"/\">Go home</a></Button>}\n/>",
+	"evaluationCriteria": [
+		{
+			"id": "tier-selection",
+			"metric": "tier-selection",
+			"check": "ErrorPage chosen for route/full-page failures — not Alert (inline) or Empty (no-data)."
+		},
+		{
+			"id": "preset-or-override",
+			"metric": "config-valid",
+			"check": "Either a valid `type` preset is used, or code+title+description are all provided; no contradictory mix."
+		},
+		{
+			"id": "recovery-action",
+			"metric": "usage",
+			"check": "A recovery action (Button navigating via asChild Link) is provided for 404/403/401."
+		},
+		{
+			"id": "regions",
+			"metric": "render",
+			"check": "Title and description regions render; the code region is present unless showCode=false."
+		},
+		{
+			"id": "render",
+			"metric": "render",
+			"check": "Produces non-empty, centered, full-page markup."
+		}
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "template manifest pilot (2026-06)",
+		"derivedFrom": {
+			"source": "packages/components/src/error-page.tsx",
+			"extracted": [
+				"configSchema keys (props)",
+				"regions (compound components + preset fields)",
+				"preset types -> states",
+				"composedOf"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet (derive once template evals exist)",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json: ErrorPage; tier-tagged template in Stage 0)",
+			"pilot: true",
+			"authoredFields: [\"intent\",\"when\",\"whenNot\",\"chooseOver\",\"regions\",\"requiredComponents\",\"states\",\"allowedPlacement\",\"forbiddenPlacement\",\"commonMistakes\",\"minimalExample\",\"evaluationCriteria\"]",
+			"knowledgeRefs: [\"library-index.json#ErrorPage\",\"docs/ARTIFACT-CLASSIFICATION.md#2c\"]"
+		]
+	}
+}

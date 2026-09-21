@@ -1,0 +1,149 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "kpi-bar",
+	"tier": "widget",
+	"name": "KPIBar",
+	"category": "analytics",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/kpi-bar.tsx",
+		"import": "@wakecap/core-ui/kpi-bar",
+		"export": "KPIBar"
+	},
+	"tags": [
+		"kpi",
+		"metrics",
+		"analytics",
+		"dashboard",
+		"bar",
+		"strip"
+	],
+	"intent": "A compact, single-row stat bar of headline metrics (value + label, optional leading icon or status dot), border-separated into groups — the thin strip that sits above a dashboard's main content (map/list).",
+	"when": [
+		"A one-line summary band of counts/totals above a dashboard or workspace",
+		"Metrics with tiny status dots (on-track / at-risk / critical) or small leading icons",
+		"Vertical space is tight — a card grid (KPISummary) would be too tall"
+	],
+	"whenNot": [
+		"Prominent metric tiles with trends/subtitles -> use MetricCard",
+		"A responsive grid of metric tiles -> use KPISummary",
+		"Tabular records -> use DataTable"
+	],
+	"chooseOver": [
+		{
+			"component": "KPISummary",
+			"because": "KPISummary is a CARD GRID (tall); KPIBar is a COMPACT one-line bar for the top of a dashboard. Different shape, different vertical footprint."
+		},
+		{
+			"component": "MetricCard",
+			"because": "MetricCard is a single prominent tile; KPIBar packs several small metrics into one thin row."
+		}
+	],
+	"pairsWith": [
+		"MapControls"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"groups": {
+				"type": "KPIBarItem[][]",
+				"required": true,
+				"note": "Border-separated sections; each inner array is one bordered group of items. KPIBarItem = { value, label?, icon?, dot?: 'success'|'warning'|'danger'|'neutral', tone?: 'default'|'danger', hideLabelBelow?: 'sm'|'md' }. The caller computes/aggregates the values and maps domain data to groups."
+			}
+		},
+		"note": "Presentational and stateless — no data fetching. An item shows a leading icon OR a status dot (icon wins); `tone: 'danger'` reds the value/icon; `hideLabelBelow` hides the label responsively (value always stays)."
+	},
+	"configSchema": {
+		"className": {
+			"type": "string",
+			"required": false,
+			"note": "Merged onto the bar container (defaults to a border-b, h-14, px-4 top strip)."
+		}
+	},
+	"states": {
+		"default": "A single row of border-separated groups; each item shows value + label.",
+		"dot": "An item with `dot` shows a small colored status dot before the value (green/amber/red/neutral).",
+		"icon": "An item with `icon` shows a small leading icon (takes precedence over dot).",
+		"danger": "An item with tone='danger' renders its value (and icon) in red — e.g. active safety alerts > 0.",
+		"responsive": "Labels with hideLabelBelow collapse below sm/md; values always remain."
+	},
+	"composedOf": [],
+	"allowedPlacement": [
+		"top strip of a dashboard content region (above a map / list / table)",
+		"under an app top bar"
+	],
+	"forbiddenPlacement": [
+		"as a grid of cards (use KPISummary)",
+		"inside a table row",
+		"as a standalone page"
+	],
+	"commonMistakes": [
+		{
+			"mistake": "Using KPIBar where prominent metric tiles are wanted",
+			"symptom": "Cramped one-line metrics that should be cards",
+			"fix": "Use MetricCard / KPISummary for a card grid; KPIBar is the compact bar."
+		},
+		{
+			"mistake": "Baking a domain type into the bar",
+			"symptom": "The bar can't be reused across dashboards",
+			"fix": "Pass generic KPIBarItem groups; let each page aggregate its data into them."
+		},
+		{
+			"mistake": "Setting both icon and dot on one item",
+			"symptom": "Only the icon shows",
+			"fix": "Use one or the other per item (icon takes precedence)."
+		}
+	],
+	"minimalExample": "import {KPIBar} from \"@wakecap/core-ui/kpi-bar\";\nimport {Users, AlertTriangle} from \"lucide-react\";\n\n<KPIBar\n  groups={[\n    [{value: 12, label: \"Projects\"}],\n    [\n      {value: 8, label: \"On Track\", dot: \"success\", hideLabelBelow: \"sm\"},\n      {value: 3, label: \"At Risk\", dot: \"warning\", hideLabelBelow: \"sm\"},\n      {value: 1, label: \"Critical\", dot: \"danger\", hideLabelBelow: \"sm\"},\n    ],\n    [{value: \"1,240\", label: \"on-site today\", icon: Users, hideLabelBelow: \"md\"}],\n    [{value: 2, label: \"alerts (24h)\", icon: AlertTriangle, tone: \"danger\", hideLabelBelow: \"md\"}],\n  ]}\n/>",
+	"evaluationCriteria": [
+		{
+			"id": "tier-selection",
+			"metric": "tier-selection",
+			"check": "KPIBar chosen for a compact one-line bar — not MetricCard (tile) or KPISummary (card grid)."
+		},
+		{
+			"id": "data-contract",
+			"metric": "data-contract",
+			"check": "groups is a non-empty array of item arrays; each item has a value; no domain type baked in."
+		},
+		{
+			"id": "config-valid",
+			"metric": "config-valid",
+			"check": "dot is one of success/warning/danger/neutral; tone is default/danger; hideLabelBelow is sm/md."
+		},
+		{
+			"id": "render",
+			"metric": "render",
+			"check": "Renders one bordered section per group and one value (+ label) per item."
+		}
+	],
+	"lineage": {
+		"origin": "promoted-from-source",
+		"authoredBy": "KPIBar widget slice (2026-06)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-org-overview.tsx (KPIStrip)",
+			"extracted": [
+				"groups/items model (4 border-separated sections)",
+				"dot tones (green/amber/red)",
+				"icon items (Users/AlertTriangle)",
+				"danger tone (alerts > 0)",
+				"responsive label hiding (sm/md)"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: the inline KPIStrip in packages/components/src/pages/core-org-overview.tsx (the Dashboard kpi-strip region).",
+			"pilot: true",
+			"resolves: packages/components/src/pages/core-org-overview.tsx -> compact kpi-strip region.",
+			"authoredFields: [\"intent\",\"when\",\"whenNot\",\"chooseOver\",\"dataContract\",\"configSchema\",\"states\",\"allowedPlacement\",\"forbiddenPlacement\",\"commonMistakes\",\"minimalExample\",\"evaluationCriteria\"]",
+			"refactored: [\"core-org-overview now composes KPIBar (groups built from project aggregates); the local KPIStrip removed.\"]",
+			"siblings: MetricCard + KPISummary are the CARD-GRID widgets; KPIBar is the COMPACT-BAR widget. Kept separate by design.",
+			"knowledgeRefs: [\"library-index.json#KPIBar\",\"manifests/dashboard-page.pattern.json\",\"manifests/kpi-summary.widget.json\"]"
+		]
+	}
+}

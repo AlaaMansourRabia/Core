@@ -1,0 +1,44 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "map-minimap",
+	"tier": "component",
+	"name": "MapMinimap",
+	"category": "map",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/map-minimap.tsx",
+		"import": "@wakecap/core-ui/map-minimap",
+		"export": "MapMinimap"
+	},
+	"tags": [
+		"map",
+		"minimap",
+		"overview",
+		"locator"
+	],
+	"intent": "A minimap / overview: a header (label + optional minimize) above a thumbnail of the whole map, with a box marking the region the main view is currently showing. Pass the current `viewport` (fractions of the full map). With `onNavigate`, dragging or clicking the preview recenters the main view. When `minimizable`, minimizing collapses it to a compact reopen chip — the same behavior as the Legend. Set the width (and ideally the map's aspect) via `className`.",
+	"when": [],
+	"chooseOver": [],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "Group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — intent taken verbatim from the module's own doc comment; contract not yet enumerated",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Was exported from @wakecap/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
+			"Stub by design: the intent is accurate, the data contract is not yet authored.",
+			"pilot: false"
+		]
+	}
+}

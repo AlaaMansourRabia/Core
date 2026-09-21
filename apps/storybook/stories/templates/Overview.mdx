@@ -1,0 +1,50 @@
+import {Meta} from "@storybook/addon-docs/blocks";
+
+import {TierBanner} from "../_docs/TierBanner";
+
+<Meta title="Templates/Overview" />
+
+# Templates
+
+<TierBanner tier="templates" />
+
+Templates are complete product pages composed from WakeCore widgets and components. Their manifests
+declare regions, data flow, responsive behavior, and the public import that owns the page.
+
+```
+Tokens → Components → Widgets → Templates
+```
+
+## Current template catalog
+
+The catalog is manifest-driven. Storybook contains live previews for the most reusable templates;
+Designer Hub exposes every manifest through its shared template viewer.
+
+- Admin Panel
+- Analytics Overview
+- AppInstaller
+- Blueprint Navigator
+- Blueprint Viewer and Blueprint Viewer 3
+- Clinic
+- Design Canvas
+- Error Page and Login Page
+- Map Compare Layout
+- Progress Details
+- Project Setup
+- Safety Manager
+- Site Reality
+- Timesheet
+- Workforce
+- Organization and project product-page templates listed in `library-index.json`
+
+Task Monitor, Regular Dashboard, and Detail are no longer catalog templates. Their reusable source
+implementations remain available to products, but they are intentionally absent from the Templates
+navigation and manifest tier.
+
+## What each template documents
+
+Purpose · business problem · regions · widget composition · data flow · responsive behavior · states ·
+examples · evaluation criteria.
+
+The Designer Hub parity validator ensures every surviving Storybook artifact remains discoverable in
+Designer Hub.

@@ -1,0 +1,47 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "form-in-dialog",
+	"tier": "pattern",
+	"name": "form-in-dialog",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"intent": "Collect and validate input inside a focused modal.",
+	"when": "Create/edit an entity without leaving the current screen.",
+	"components": [
+		"Dialog",
+		"DialogContent",
+		"Form",
+		"Field",
+		"Input",
+		"Button"
+	],
+	"order": [
+		"Dialog",
+		"DialogContent",
+		"Form (useForm + zodResolver)",
+		"Field controls",
+		"footer Buttons (Cancel / Save)"
+	],
+	"requiredProviders": [
+		"Form"
+	],
+	"tags": [
+		"form",
+		"overlay"
+	],
+	"notes": "Submit via form.handleSubmit; close the Dialog on success.",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 pattern migration (2026-07)",
+		"derivedFrom": {
+			"source": "library-index.json patterns[]",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": []
+	}
+}

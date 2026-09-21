@@ -1,0 +1,169 @@
+name: Quality Gate
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  commitlint:
+    name: Commit Messages
+    # Lint commit messages on feature PRs only. Release PRs into `main` aggregate
+    # already-reviewed commits plus GitHub's squash/merge artifacts (whose subjects are
+    # PR titles, not conventional commits), so linting them is noise — skip them.
+    if: github.event_name == 'pull_request' && github.event.pull_request.base.ref != 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Validate commit messages
+        # Lint only the commits this PR actually introduces: non-merge commits reachable from the
+        # head, minus anything already on `main`. Without the `^origin/main` exclusion a PR that
+        # merges `main` back into `develop` drags main's whole history into the range and fails on
+        # release artifacts like "V0.9 (#213)" — commits that are already shipped and that the
+        # skip above deliberately exempts in the other direction.
+        run: |
+          # No --depth: the checkout above is already unshallow, and git 2.55 (on the current
+          # runner image) rejects --depth=0 outright — "fatal: depth 0 is not a positive number".
+          git fetch --no-tags origin main
+          commits=$(git rev-list --no-merges ^origin/main ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }})
+          if [ -z "$commits" ]; then
+            echo "No new non-merge commits to lint (sync or merge-only PR)."
+            exit 0
+          fi
+          for sha in $commits; do
+            pnpm exec commitlint --from "$sha~1" --to "$sha" --verbose
+          done
+
+  lint-format:
+    name: Lint & Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Format check
+        run: pnpm format:check
+
+      - name: "Check published JSDoc for wwc: classes"
+        # The prefix is an internal build detail: a consumer's prefixed class only paints if the
+        # library happened to compile that utility, and one shipped example (`wwc:top-14`) was in
+        # neither stylesheet. Silent failure — so it is caught here rather than in a consumer app.
+        run: pnpm validate:doc-classes
+
+  build-typecheck:
+    name: Build & Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build all packages
+        run: pnpm --filter "@wakecap/core-*" build
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Build web app
+        run: pnpm --filter apps-web build
+        env:
+          # The web bundle is ~13 MB and rollup holds the whole module graph plus source maps in
+          # memory; on a runner this exceeds Node's default old-space and dies in JSON.parse.
+          # Same remedy already used for the Storybook build in chromatic.yml.
+          NODE_OPTIONS: --max-old-space-size=4096
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build all packages
+        run: pnpm --filter "@wakecap/core-*" build
+
+      - name: Install Playwright browsers
+        run: pnpm --filter apps-storybook exec playwright install chromium
+
+      - name: Run tests
+        run: pnpm test
+        env:
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
+
+  catalog-integrity:
+    name: Catalog Integrity
+    # Deterministic and free — safe to hard-gate on every PR. Proves the eval graders
+    # are correct (test:validators) and the semantic catalog has no stale references.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Validator trust gate
+        run: pnpm test:validators
+
+      - name: Catalog drift check
+        run: pnpm validate:catalog
+
+      - name: Hosted assets reachable (logo gate)
+        # Catches the two ways a hosted image turns into a broken <img> on core.wakecap.com:
+        # a root-absolute Storybook asset that escapes the /storybook/ base, and a login-screen
+        # image left inside the auth gate (which answers with login HTML, not the image).
+        run: pnpm validate:hosted-assets
+
+      - name: Manifest integrity + projection in sync (A1)
+        # Proves library-index.json is a faithful projection of the artifact manifests
+        # (single source of truth): schema-checks manifests and fails on any drift or
+        # un-regenerated catalog entry.
+        run: pnpm validate:manifests

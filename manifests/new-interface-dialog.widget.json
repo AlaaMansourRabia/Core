@@ -1,0 +1,139 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "new-interface-dialog",
+	"tier": "widget",
+	"name": "NewInterfaceDialog",
+	"category": "form",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/wc3-interface-wizard.tsx",
+		"import": "@wakecap/core-ui/new-interface-dialog",
+		"export": "NewInterfaceDialog"
+	},
+	"tags": [
+		"ontology",
+		"interface",
+		"create",
+		"authoring",
+		"inheritance"
+	],
+	"intent": "Author a shared ontology interface: name, description, status and what it extends.",
+	"when": [
+		"Declaring a contract several object types will implement",
+		"Any create flow over a named, extendable type"
+	],
+	"whenNot": [
+		"Adding a property shared across types -> use NewSharedPropertyDialog",
+		"Grouping types for navigation -> use NewTypeGroupDialog"
+	],
+	"chooseOver": [
+		{
+			"component": "A generic create dialog",
+			"because": "It offers the Extends picker and can enforce the description rule, which is the difference between an interface and a name."
+		}
+	],
+	"pairsWith": [
+		"FormDialog",
+		"Combobox",
+		"MultiSelect"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"open": {
+				"type": "boolean",
+				"required": true
+			},
+			"onOpenChange": {
+				"type": "(open: boolean) => void",
+				"required": true
+			},
+			"icons": {
+				"type": "React.ComponentType<{className?: string}>[]",
+				"required": false,
+				"note": "NewInterfaceDraft.iconIndex indexes into THIS array."
+			},
+			"statuses": {
+				"type": "string[]",
+				"required": false
+			},
+			"defaultStatus": {
+				"type": "string",
+				"required": false,
+				"note": "Must be one of `statuses`."
+			},
+			"extendsOptions": {
+				"type": "NewInterfaceExtendsOption[]",
+				"required": false
+			},
+			"requireDescription": {
+				"type": "boolean",
+				"required": false,
+				"note": "Enforce the best-practice description rule. Default false, so existing hosts are unchanged."
+			},
+			"onCreate": {
+				"type": "(draft: NewInterfaceDraft) => void",
+				"required": true
+			}
+		},
+		"events": {
+			"onCreate": {
+				"payload": {
+					"draft": "object"
+				}
+			},
+			"onOpenChange": {
+				"payload": {
+					"open": "boolean"
+				}
+			}
+		},
+		"rowIdentity": "Drafts carry no id; the host mints one on accept."
+	},
+	"configSchema": {},
+	"slots": {},
+	"states": {
+		"default": "Name and API name, status at its default.",
+		"extending": "One or more parent interfaces chosen.",
+		"strict": "With requireDescription, creation is refused until a description is given."
+	},
+	"composedOf": [
+		"Dialog",
+		"Input",
+		"Combobox"
+	],
+	"allowedPlacement": [
+		"an ontology catalogue toolbar",
+		"a Studio create action"
+	],
+	"forbiddenPlacement": [
+		"inside another dialog"
+	],
+	"minimalExample": "import {NewInterfaceDialog} from \"@wakecap/core-ui/new-interface-dialog\";\n\n<NewInterfaceDialog open={open} onOpenChange={setOpen} onCreate={addInterface} />",
+	"evaluationCriteria": [
+		"requireDescription defaults false so existing hosts do not change behaviour."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted in group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-interface-wizard.tsx",
+			"extracted": [
+				"interface authoring",
+				"extends picker",
+				"optional description rule"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Its own comment records that it reproduces a private NewInterfaceDialog from a since-removed fork — exactly the duplication this promotion prevents.",
+			"Already an exported component with a typed props interface and no fixture coupling — this manifest is the only thing that was missing.",
+			"pilot: true"
+		]
+	}
+}

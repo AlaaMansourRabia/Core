@@ -1,0 +1,2 @@
+@import "tailwindcss" prefix(app);
+@import "@wakecap/core-tokens/theme";

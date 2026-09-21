@@ -1,0 +1,45 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "score-gauge",
+	"tier": "component",
+	"name": "ScoreGauge",
+	"category": "metric",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/score-gauge.tsx",
+		"import": "@wakecap/core-ui/score-gauge",
+		"export": "ScoreGauge"
+	},
+	"tags": [
+		"score",
+		"gauge",
+		"radial",
+		"index",
+		"dial"
+	],
+	"intent": "Radial score dial — a ring whose filled arc is the score, with the figure centred inside it. Use for a single headline index (health score, readiness, compliance), not for a distribution: a donut of several categories is a pie chart, and belongs in a `TrendChart`.",
+	"when": [],
+	"chooseOver": [],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "Group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — intent taken verbatim from the module's own doc comment; contract not yet enumerated",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Was exported from @wakecap/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
+			"Stub by design: the intent is accurate, the data contract is not yet authored.",
+			"pilot: false"
+		]
+	}
+}

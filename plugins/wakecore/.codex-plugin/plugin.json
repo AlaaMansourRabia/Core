@@ -1,0 +1,42 @@
+{
+  "name": "wakecore",
+  "version": "0.1.0+codex.20260718101957",
+  "description": "Build React interfaces with WakeCore templates, adaptable components, and mandatory validation.",
+  "author": {
+    "name": "WakeCap",
+    "url": "https://www.wakecap.com"
+  },
+  "homepage": "https://core.wakecap.com",
+  "repository": "https://github.com/wakecap/Wakecore",
+  "keywords": [
+    "wakecore",
+    "design-system",
+    "react",
+    "ui",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "WakeCore",
+    "shortDescription": "Build flexible WakeCore React interfaces",
+    "longDescription": "Connects Codex to the hosted WakeCore knowledge server. It uses exact templates when available, otherwise adapts nearby templates or composes WakeCore-aligned UI, with WakeCore-only validation before completion.",
+    "developerName": "WakeCap",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Validate"
+    ],
+    "websiteURL": "https://core.wakecap.com",
+    "defaultPrompt": [
+      "Create the React app if needed, then build this UI using an exact WakeCore template or the automatic adaptation and composition fallback.",
+      "Refactor this screen to use WakeCore and validate it.",
+      "Plan a WakeCore-only implementation for this interface."
+    ],
+    "brandColor": "#F36F45",
+    "composerIcon": "./assets/wakecore-mark.svg",
+    "logo": "./assets/wakecore-logo.svg",
+    "logoDark": "./assets/wakecore-logo-dark.svg"
+  }
+}

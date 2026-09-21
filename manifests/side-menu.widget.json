@@ -1,0 +1,64 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "side-menu",
+	"tier": "widget",
+	"name": "SideMenu",
+	"category": "navigation",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/side-menu.tsx",
+		"import": "@wakecap/core-ui/side-menu",
+		"export": "SideMenu"
+	},
+	"tags": ["navigation", "side-menu", "settings", "panel", "sub-navigation", "search", "grouped"],
+	"intent": "Vertical navigation panel for a content-area sub-surface (settings, integrations, filters): owns its own header (optional back button + icon + title), optional search, and grouped items with an active state.",
+	"when": [
+		"A content region needs its own left-hand navigation column, separate from the app shell sidebar",
+		"Entering a settings/integrations/detail sub-surface that should provide a back path to the owning module",
+		"Grouped, optionally-searchable navigation with section labels and per-item icons"
+	],
+	"whenNot": [
+		"The persistent application shell navigation is required -> use CoreAppSidebar",
+		"Peer tabs across the top of a route -> use PageContentHeader (navigation variant) with ViewTabBar"
+	],
+	"chooseOver": [
+		{
+			"component": "CoreAppSidebar",
+			"because": "SideMenu is a content-local sub-navigation panel; CoreAppSidebar owns the persistent app shell."
+		}
+	],
+	"pairsWith": ["Button", "Input", "PageContentHeader"],
+	"requiredProviders": [],
+	"composedOf": ["Button", "Input"],
+	"configSchema": {
+		"title": {"type": "string", "required": true},
+		"icon": {"type": "ReactNode"},
+		"onBack": {"type": "() => void"},
+		"backLabel": {"type": "string", "default": "Back"},
+		"showSearch": {"type": "boolean", "default": true},
+		"searchPlaceholder": {"type": "string", "default": "Search..."},
+		"searchValue": {"type": "string"},
+		"onSearchChange": {"type": "(value: string) => void"},
+		"groups": {"type": "SideMenuGroup[]", "required": true},
+		"activeItemId": {"type": "string"},
+		"onItemSelect": {"type": "(id: string) => void"}
+	},
+	"allowedPlacement": ["Left column of a content region, paired with a content panel on the right"],
+	"forbiddenPlacement": ["As the persistent application shell sidebar", "Inside a Card, Dialog, or table row"],
+	"minimalExample": "<SideMenu title=\"Settings\" onBack={goBack} groups={[{items: [{id: \"general\", label: \"General\"}]}, {label: \"Workspace\", items: [{id: \"members\", label: \"Members\"}]}]} activeItemId={active} onItemSelect={setActive} />",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Observation-Template branch (2026-07-19)",
+		"derivedFrom": {
+			"source": "Settings/integrations side-panel reference",
+			"extracted": ["titled header with back affordance", "search field", "grouped items with section labels and active state"]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-19",
+		"notes": ["introduced with the Safety Manager Settings sub-surface"]
+	}
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Site · Walls + Slabs (ThatOpen + satellite)</title>
+		<style>
+			html,
+			body {
+				margin: 0;
+				height: 100%;
+				background: #1a1d21;
+				overflow: hidden;
+			}
+			#container {
+				position: absolute;
+				inset: 0;
+			}
+			#status {
+				position: absolute;
+				left: 12px;
+				top: 12px;
+				padding: 6px 10px;
+				background: rgba(20, 24, 28, 0.85);
+				color: #e7edf3;
+				font: 12px system-ui;
+				border-radius: 6px;
+				pointer-events: none;
+			}
+			#container canvas {
+				cursor: grab;
+			}
+		</style>
+		<!-- Figtree for the hover card (matches the Villa Preview overlay); falls back to system-ui. -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- ortho georef must load before the module -->
+		<script src="/ortho-meta.js"></script>
+	</head>
+	<body>
+		<div id="container"></div>
+		<div id="status">Booting viewer…</div>
+
+		<!-- Self-contained bundle (three@0.185.1 + @thatopen/components@3.4.8 + fragments@3.4.7 baked in
+		     via esbuild against the source's node_modules — the exact versions site-b.frag was built
+		     with). No CDN / no import map, so no runtime Node-polyfill breakage. -->
+		<script type="module" src="/site/site-canvas.js"></script>
+	</body>
+</html>

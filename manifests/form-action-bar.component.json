@@ -1,0 +1,79 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "form-action-bar",
+	"tier": "component",
+	"name": "FormActionBar",
+	"category": "form",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/form-action-bar.tsx",
+		"import": "@wakecap/core-ui/form-action-bar",
+		"export": "FormActionBar"
+	},
+	"tags": [
+		"form",
+		"footer",
+		"sticky",
+		"actions",
+		"save-bar"
+	],
+	"intent": "Page-level sticky form footer — dirty-state status on the left, Discard/Save actions on the right.",
+	"when": [
+		"Full-page create/edit forms that need a persistent save affordance",
+		"The form is longer than the viewport and actions must stay reachable"
+	],
+	"chooseOver": [
+		{
+			"component": "DialogFooter",
+			"because": "Dialog/Drawer/Sheet footers are modal-scoped; this one is page-scoped"
+		},
+		{
+			"component": "Toolbar",
+			"because": "Toolbar is canvas chrome (role=toolbar), not a page-pinned form footer"
+		},
+		{
+			"component": "ContextToolbar",
+			"because": "ContextToolbar is a compact top context bar, not a bottom action bar"
+		},
+		{
+			"component": "PageContentHeader",
+			"because": "PageContentHeader is the top-of-page counterpart"
+		}
+	],
+	"pairsWith": [
+		"Form",
+		"Button",
+		"PageContentHeader"
+	],
+	"requiredProviders": [],
+	"ownership": {
+		"surface": "route",
+		"background": "owned",
+		"border": "top",
+		"padding": "owned",
+		"scrolling": "none",
+		"responsiveBehavior": "none",
+		"expectedWrapper": "Sibling of the padded content container inside an unpadded scroll region — never a child of the padded div, which would force negative margins to cancel that padding."
+	},
+	"lineage": {
+		"origin": "promoted",
+		"authoredBy": "wakecore issue #179 (form action bar promotion)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-admin-panel.tsx",
+			"extracted": [
+				"sticky save bar from the AdminPanel template editor surface",
+				"status slot generalised from the template's dirty-count message"
+			]
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — promoted from an in-repo template usage",
+		"supersedes": null,
+		"lastValidated": "2026-07-20",
+		"notes": [
+			"resolves wakecap/Wakecore#179: removes the hand-rolled sticky footer and its padding-coupled negative margins in frontend-2.0-admin",
+			"layers at z-30; DataTable's bulk-actions pill is z-50 and intentionally floats above it"
+		]
+	}
+}

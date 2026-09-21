@@ -1,0 +1,7 @@
+# Heavy 3D model / mockup assets are NOT committed here (hundreds of MB) and are NOT shipped in the
+# @wakecap/core-ui package. They live in the INTERNAL repo wakecap/wakecore-3d-assets and are pulled
+# into this dir at deploy time by `node scripts/fetch-3d-assets.mjs` (see docs/HEAVY_3D_ASSETS.md).
+# For local 3D rendering: run that script with an ASSETS_REPO_TOKEN, or copy/symlink the folders here.
+site-b.frag
+worker.mjs
+reality-mesh

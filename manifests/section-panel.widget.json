@@ -1,0 +1,96 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "section-panel",
+	"tier": "widget",
+	"name": "SectionPanel",
+	"category": "layout",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/section-panel.tsx",
+		"import": "@wakecap/core-ui/section-panel",
+		"export": "SectionPanel"
+	},
+	"tags": [
+		"panel",
+		"section",
+		"container",
+		"card",
+		"list",
+		"dashboard",
+		"scroll"
+	],
+	"intent": "A titled dashboard section container: an icon + title + count header with an optional right-aligned action, over a body that can be capped to a fixed pixel height and scroll internally. Compose it with Item rows for a compact, count-stable list (the 'assigned to you' pattern) or with cards — the panel's footprint stays constant no matter how many rows it holds.",
+	"when": [
+		"A dashboard area needs a titled, bordered container with a count and optional action",
+		"A list whose length varies and must NOT change the page height — the body scrolls inside a fixed height",
+		"Grouping several compact rows (Item) or small cards under one labelled section"
+	],
+	"whenNot": [
+		"A single key metric tile -> use MetricCard",
+		"A responsive grid of metric tiles -> use KPISummary",
+		"A tabular, sortable, selectable record set -> use DataTable"
+	],
+	"chooseOver": [
+		{
+			"component": "A hand-rolled Card with a custom header + overflow div",
+			"because": "SectionPanel owns the header (icon/title/count/action) and the fixed-height internal scroll so callers just pass rows."
+		}
+	],
+	"pairsWith": [
+		"Item",
+		"Badge",
+		"Button"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"title": {"type": "string", "required": true, "note": "Header title."},
+			"icon": {"type": "React.ElementType", "required": false, "note": "Leading header icon."},
+			"count": {"type": "React.ReactNode", "required": false, "note": "Count badge next to the title."},
+			"action": {"type": "React.ReactNode", "required": false, "note": "Right-aligned header slot (e.g. a Button)."},
+			"height": {"type": "number", "required": false, "note": "Fixed body height in px; when set the body scrolls internally."},
+			"empty": {"type": "React.ReactNode", "required": false, "note": "Rendered when there are no children."},
+			"children": {"type": "React.ReactNode", "required": false, "note": "Rows or cards to render in the body."}
+		},
+		"note": "Presentational and stateless — the caller supplies the header metadata and the body content."
+	},
+	"states": {
+		"default": "Header (icon + title + count + action) over a body sized to its content.",
+		"scroll": "With `height` set, the body scrolls internally and the panel's footprint stays fixed.",
+		"empty": "With no children, the `empty` slot renders in the body."
+	},
+	"composedOf": [
+		"Card",
+		"Badge",
+		"ScrollArea"
+	],
+	"allowedPlacement": [
+		"a section of a dashboard content region",
+		"a column in a multi-panel dashboard grid"
+	],
+	"forbiddenPlacement": [
+		"as a standalone page",
+		"inside a table row"
+	],
+	"minimalExample": "import {SectionPanel} from \"@wakecap/core-ui/section-panel\";\nimport {Item, ItemContent, ItemTitle, ItemDescription} from \"@wakecap/core-ui/item\";\nimport {Bell} from \"lucide-react\";\n\n<SectionPanel icon={Bell} title=\"Needs Attention\" count={9} height={360}>\n  {rows.map((r) => (\n    <Item key={r.id}>\n      <ItemContent>\n        <ItemTitle>{r.name}</ItemTitle>\n        <ItemDescription>{r.detail}</ItemDescription>\n      </ItemContent>\n    </Item>\n  ))}\n</SectionPanel>",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Extracted from the Timesheet summary sections (2026-07-13)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-verifytime-command-center.tsx",
+			"extracted": [
+				"titled section header with count badge + action",
+				"fixed-height internal-scroll list body (count-stable footprint)"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-13",
+		"notes": [
+			"pilot: true"
+		]
+	}
+}

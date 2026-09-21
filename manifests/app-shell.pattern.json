@@ -1,0 +1,45 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "app-shell",
+	"tier": "pattern",
+	"name": "app-shell",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"intent": "Standard WakeCap product shell with collapsible sidebar and top bar.",
+	"when": "Any authenticated full-page product screen.",
+	"components": [
+		"SidebarProvider",
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"TooltipProvider"
+	],
+	"order": [
+		"SidebarProvider (root)",
+		"CoreAppSidebar",
+		"main → CoreAppTopBar + content"
+	],
+	"requiredProviders": [
+		"SidebarProvider",
+		"TooltipProvider"
+	],
+	"tags": [
+		"shell",
+		"navigation",
+		"layout"
+	],
+	"notes": "SidebarProvider at the root layout only (fm-prim-3); one TooltipProvider near the root covers all descendant tooltips.",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 pattern migration (2026-07)",
+		"derivedFrom": {
+			"source": "library-index.json patterns[]",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": []
+	}
+}

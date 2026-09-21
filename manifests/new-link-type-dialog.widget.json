@@ -1,0 +1,143 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "new-link-type-dialog",
+	"tier": "widget",
+	"name": "NewLinkTypeDialog",
+	"category": "form",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/link-type-wizard.tsx",
+		"import": "@wakecap/core-ui/new-link-type-dialog",
+		"export": "NewLinkTypeDialog"
+	},
+	"tags": [
+		"ontology",
+		"link-type",
+		"create",
+		"cardinality",
+		"foreign-key",
+		"authoring"
+	],
+	"intent": "Author a link between two object types: both sides, cardinality, visibility and the foreign key that backs it.",
+	"when": [
+		"Relating two object types in a shared ontology",
+		"Any create flow over a two-sided relationship"
+	],
+	"whenNot": [
+		"Editing an existing link -> open its detail page",
+		"Relating records rather than types -> that is data, not ontology"
+	],
+	"chooseOver": [
+		{
+			"component": "A form of two selects",
+			"because": "It asks for the foreign key that actually backs the link and shows the target primary key beside it, so the relationship is declared rather than implied."
+		}
+	],
+	"pairsWith": [
+		"FormDialog",
+		"Combobox",
+		"ToggleGroup"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"open": {
+				"type": "boolean",
+				"required": true
+			},
+			"onOpenChange": {
+				"type": "(open: boolean) => void",
+				"required": true
+			},
+			"objectTypes": {
+				"type": "LinkTypeObjectOption[]",
+				"required": true,
+				"note": "Selectable on either side; the first two seed the initial draft."
+			},
+			"fkPropertiesFor": {
+				"type": "(objectTypeId: string) => string[]",
+				"required": false,
+				"note": "Foreign-key candidates on side A, scoped by the host."
+			},
+			"targetPrimaryKeyFor": {
+				"type": "(objectTypeId: string) => string",
+				"required": false,
+				"note": "Target primary key on side B, shown read-only next to the FK picker."
+			},
+			"cardinalities": {
+				"type": "{value: string; short: string}[]",
+				"required": false
+			},
+			"visibilities": {
+				"type": "string[]",
+				"required": false
+			},
+			"backings": {
+				"type": "string[]",
+				"required": false
+			},
+			"onCreate": {
+				"type": "(draft: NewLinkTypeDraft) => void",
+				"required": true
+			}
+		},
+		"events": {
+			"onCreate": {
+				"payload": {
+					"draft": "object"
+				}
+			},
+			"onOpenChange": {
+				"payload": {
+					"open": "boolean"
+				}
+			}
+		},
+		"rowIdentity": "Drafts carry no id; the host mints one on accept."
+	},
+	"configSchema": {},
+	"slots": {},
+	"states": {
+		"default": "Both sides seeded from the first two object types.",
+		"keyed": "A foreign key chosen on side A, with side B's primary key shown beside it.",
+		"invalid": "Creation is refused until both sides and the key resolve."
+	},
+	"composedOf": [
+		"Dialog",
+		"Input",
+		"Combobox"
+	],
+	"allowedPlacement": [
+		"an ontology catalogue toolbar",
+		"a Studio create action"
+	],
+	"forbiddenPlacement": [
+		"inside another dialog"
+	],
+	"minimalExample": "import {NewLinkTypeDialog} from \"@wakecap/core-ui/new-link-type-dialog\";\n\n<NewLinkTypeDialog open={open} onOpenChange={setOpen} objectTypes={options} onCreate={addLinkType} />",
+	"evaluationCriteria": [
+		"The foreign key is asked for, not inferred."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted in group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": "packages/components/src/link-type-wizard.tsx",
+			"extracted": [
+				"two-sided link authoring",
+				"cardinality and visibility choices",
+				"FK-to-PK pairing"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Already an exported component with a typed props interface and no fixture coupling — this manifest is the only thing that was missing.",
+			"pilot: true"
+		]
+	}
+}

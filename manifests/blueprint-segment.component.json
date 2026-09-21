@@ -1,0 +1,47 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "blueprint-segment",
+	"tier": "component",
+	"name": "BlueprintSegment",
+	"category": "display",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/blueprint-segment.tsx",
+		"import": "@wakecap/core-ui/blueprint-segment",
+		"export": "BlueprintSegment"
+	},
+	"tags": [
+		"blueprint",
+		"floor",
+		"split",
+		"canvas",
+		"progress"
+	],
+	"intent": "One cell of a multi-floor blueprint split: a framed blueprint (or a “No blueprint” placeholder), a floor label + % chip, and an optional walk-through button. Tile several to build a split canvas.",
+	"when": [
+		"Tiling several floors into a split blueprint canvas",
+		"Showing a single floor's blueprint with its progress % and a walk-through action"
+	],
+	"chooseOver": [
+		{
+			"component": "BlueprintViewer3",
+			"because": "BlueprintSegment is one cell; BlueprintViewer3 is the full multi-floor viewer template that composes segments"
+		}
+	],
+	"pairsWith": [
+		"BlueprintViewer3",
+		"CanvasHeader"
+	],
+	"requiredProviders": [],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "run-app-and-storybook → develop merge (2026-07)",
+		"status": "accepted",
+		"confidence": "unset — authored alongside the component",
+		"lastValidated": "2026-07-22",
+		"notes": [
+			"authored during the develop merge reconciliation"
+		]
+	}
+}

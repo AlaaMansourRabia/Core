@@ -1,0 +1,119 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "form-dialog",
+	"tier": "widget",
+	"name": "FormDialog",
+	"category": "form",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/form-dialog.tsx",
+		"import": "@wakecap/core-ui/form-dialog",
+		"export": "FormDialog"
+	},
+	"subcomponents": ["FormDialogField", "FormDialogRow", "FormDialogNote", "FormDialogCaveat"],
+	"tags": ["form", "dialog", "modal", "create", "edit", "validation", "required-fields", "authoring"],
+	"intent": "Single-step create or edit modal carrying the house authoring contract: a submit that is never disabled, per-field errors that appear only after a refused submit, and a reset that runs on close as well as on success.",
+	"when": [
+		"Creating a new record from a handful of fields that fit one screen",
+		"Editing a record's metadata in a modal rather than on a detail page",
+		"Any authoring form that needs the house required-field behaviour without re-deriving it"
+	],
+	"whenNot": [
+		"The form needs more than one screen -> use WizardDialog",
+		"Confirming or acknowledging an action with no fields -> use ConfirmDialog or AlertDialog",
+		"A page-level form that is not modal -> use Form with FormActionBar"
+	],
+	"chooseOver": [
+		{
+			"component": "Dialog + DialogHeader/DialogFooter assembled by hand",
+			"because": "FormDialog owns the attempted flag, the never-disable rule, the hint/error footer swap, and reset-on-close — the four decisions every hand-assembled copy had to remember and several got subtly different."
+		}
+	],
+	"pairsWith": ["Input", "Combobox", "Textarea", "ToggleGroup", "Select"],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"open": {"type": "boolean", "required": true, "note": "Controlled visibility."},
+			"onOpenChange": {
+				"type": "(open: boolean) => void",
+				"required": true,
+				"note": "Fired on dismiss, on Escape, and after a successful submit."
+			},
+			"title": {"type": "ReactNode", "required": true, "note": "Dialog heading."},
+			"valid": {
+				"type": "boolean",
+				"required": true,
+				"note": "Whether a submit may succeed. The button stays enabled either way."
+			},
+			"submitLabel": {"type": "ReactNode", "required": true, "note": "Label of the confirming button."},
+			"onSubmit": {"type": "() => void", "required": true, "note": "Runs only when `valid` holds."},
+			"onReset": {
+				"type": "() => void",
+				"required": false,
+				"note": "Clears the caller's field state. Runs on close AND after a successful submit."
+			},
+			"hint": {"type": "ReactNode", "required": false, "note": "Footer guidance shown until a submit is refused."},
+			"error": {"type": "ReactNode", "required": false, "note": "Replaces `hint` once a submit has been refused."},
+			"width": {"type": "number", "required": false, "note": "Max width in px. Defaults to 520."},
+			"keepOpenOnSubmit": {
+				"type": "boolean",
+				"required": false,
+				"note": "Empty the form and stay up, for adding several records in a row."
+			}
+		},
+		"events": {
+			"onSubmit": {"payload": {}},
+			"onOpenChange": {"payload": {"open": "boolean"}}
+		},
+		"rowIdentity": "Not a collection widget; the caller owns all field state and identity."
+	},
+	"configSchema": {
+		"width": {"type": "number", "default": 520},
+		"cancelLabel": {"type": "string", "default": "Cancel"},
+		"keepOpenOnSubmit": {"type": "boolean", "default": false}
+	},
+	"slots": {
+		"children": {"description": "The fields, as FormDialogField/FormDialogRow", "accepts": ["component", "widget"]}
+	},
+	"states": {
+		"default": "Fields at their initial values, footer showing `hint`, nothing painted invalid.",
+		"refused": "A submit while `valid` is false: position holds, the footer swaps to `error`, and every field marked `invalid` paints.",
+		"valid": "Submit runs `onSubmit`, then `onReset`, then closes.",
+		"reopened": "`onReset` having run on close, the next open starts empty rather than holding the last attempt."
+	},
+	"composedOf": ["Dialog", "Button"],
+	"allowedPlacement": ["anywhere a create or edit action is triggered", "list page toolbars", "detail page section actions"],
+	"forbiddenPlacement": ["nested inside another dialog", "as a non-modal page form"],
+	"minimalExample": "import {FormDialog, FormDialogField} from \"@wakecap/core-ui/form-dialog\";\n\n<FormDialog\n\topen={open}\n\tonOpenChange={setOpen}\n\ttitle=\"Create process\"\n\tvalid={name.trim().length > 0}\n\thint=\"Name it, then create.\"\n\terror=\"Name required.\"\n\tsubmitLabel=\"Create process\"\n\tonSubmit={() => onCreate({name: name.trim()})}\n\tonReset={() => setName(\"\")}\n>\n\t<FormDialogField label=\"Name\" invalid={name.trim().length === 0}>\n\t\t{({invalid}) => <Input value={name} aria-invalid={invalid} onChange={(e) => setName(e.target.value)} />}\n\t</FormDialogField>\n</FormDialog>",
+	"evaluationCriteria": [
+		"The submit button is never rendered disabled.",
+		"No field shows an error before a submit has been refused.",
+		"Re-opening after a dismiss shows empty fields.",
+		"The footer states what is missing, not merely that something is."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Extracted from the eleven hand-copied create/edit dialogs found in the missing-widgets template review (2026-08-25)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-process-list-view.tsx",
+			"extracted": [
+				"never-disable submit with an `attempted` flag",
+				"per-field invalid painting gated on attempted",
+				"hint/error footer swap",
+				"reset on close as well as on success",
+				"uppercase muted field caption"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": "NewProcessDialog, NewPipelineDialog and nine sibling template-local form dialogs",
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"The invalid/showError split is deliberate: call sites pass validity, the widget owns timing.",
+			"Migrated first: wc3-process-list-view.tsx and wc3-pipeline-list-view.tsx.",
+			"pilot: true"
+		]
+	}
+}

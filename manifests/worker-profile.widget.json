@@ -1,0 +1,55 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "worker-profile",
+	"tier": "widget",
+	"name": "WorkerProfile",
+	"category": "workforce",
+	"version": "1.4.0",
+	"manifestStatus": "draft",
+	"source": {
+		"path": "packages/components/src/worker-profile.tsx",
+		"import": "@wakecap/core-ui/worker-profile",
+		"export": "WorkerProfile"
+	},
+	"tags": ["worker", "profile", "workforce", "tabs", "detail", "push-panel"],
+	"intent": "Worker profile body: an optional identity region (photo, name, worker-level actions) over up to seven icon tabs (General, Certificates, Compliance, Trainings, Device, Crew, Visits — narrowed by the optional `tabs` allow-list, so a host without a Visits concept shows no Visits tab rather than a permanently empty one) and a label/value field list, for showing one worker's record inside a panel. Certificates and Device take caller actions in their tab header; Compliance takes either the typed model or caller-supplied content; a typed check reports the verdict the user picks and its upload intent to the host, holds no state of its own (the host owns `selectedOption`) and can be locked while a save is in flight, with an optional footer under the checks for a batched commit. Typed tabs take an optional per-tab loading/error state, so a tab-gated fetch does not read as an empty record. Every certificate can carry its own row actions (edit/delete) and route its document click through the host, for files behind the host's auth. The widget's own built-in text — tab names, empty and error wording, Retry — is overridable through `text`, so a localized host is not stuck with English. Panel chrome is the caller's — it drops into a PushPanel, Sheet, Dialog, or a plain column.",
+	"when": [
+		"Showing a single worker's record beside a roster or map",
+		"A detail surface whose sections are peer tabs rather than a long scroll"
+	],
+	"whenNot": [
+		"Editing worker data -> use Form + Field",
+		"Comparing several workers at once -> use DataTable"
+	],
+	"chooseOver": [
+		{
+			"component": "Hand-rolling label/value rows inside a PushPanel",
+			"because": "WorkerProfile owns the tab set, field grouping, separators, certificate blocks, the identity strip, and per-tab empty states."
+		}
+	],
+	"pairsWith": ["PushPanel", "DataTable", "DropdownMenu"],
+	"requiredProviders": [],
+	"composedOf": ["Tabs", "Badge", "Separator", "Avatar", "Progress", "ToggleGroup", "Button"],
+	"allowedPlacement": ["inside a PushPanel, Sheet, Dialog, or a column that gives it height"],
+	"forbiddenPlacement": ["inside a table cell", "as a route-level page without panel chrome"],
+	"minimalExample": "import {WorkerProfile} from \"@wakecap/core-ui/worker-profile\";\n\n<WorkerProfile general={[{fields: [{label: \"Name\", value: \"John Doe\"}]}]} />",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Workforce branch (2026-07-20)",
+		"derivedFrom": {
+			"source": "PushPanel \"Profile View Pattern\" story (apps/storybook/stories/layout/PushPanel.stories.tsx)",
+			"extracted": [
+				"seven icon-tab profile layout",
+				"grouped label/value field rows with separators",
+				"certificate blocks with status badges",
+				"per-tab empty states"
+			]
+		},
+		"status": "draft",
+		"verifiedBy": null,
+		"confidence": "unset — extracted from a story pattern, no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-09-13",
+		"notes": ["pilot: true", "first consumer: CoreWorkforce Workers List push panel"]
+	}
+}

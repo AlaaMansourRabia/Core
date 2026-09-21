@@ -1,0 +1,51 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "notification-center",
+	"tier": "widget",
+	"name": "NotificationCenter",
+	"category": "feedback",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/notification-center.tsx",
+		"import": "@wakecap/core-ui/notification-center",
+		"export": "NotificationCenter"
+	},
+	"tags": [
+		"notifications",
+		"changeset",
+		"overlay",
+		"panel"
+	],
+	"intent": "Floating notification column pinned to the right edge, carrying system notifications and the uncommitted changeset.",
+	"when": [],
+	"chooseOver": [],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "Group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — intent taken verbatim from the module's own doc comment; contract not yet enumerated",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Was exported from @wakecap/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
+			"Stub by design: the intent is accurate, the data contract is not yet authored.",
+			"pilot: false"
+		]
+	}
+}

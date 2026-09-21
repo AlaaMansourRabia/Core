@@ -1,0 +1,44 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "vertical-zoom-tools",
+	"tier": "component",
+	"name": "VerticalZoomTools",
+	"category": "canvas",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/vertical-zoom-tools.tsx",
+		"import": "@wakecap/core-ui/vertical-zoom-tools",
+		"export": "VerticalZoomTools"
+	},
+	"tags": [
+		"zoom",
+		"vertical",
+		"canvas",
+		"controls"
+	],
+	"intent": "A compact, vertical zoom control (zoom in over zoom out) intended to float over a map or canvas. The vertical counterpart to `ZoomTools`; built on the orientation-aware `Toolbar` primitive so it can be the first section of a larger vertical floating toolbar — pass `variant=\"bare\"` to nest it.",
+	"when": [],
+	"chooseOver": [],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "Group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — intent taken verbatim from the module's own doc comment; contract not yet enumerated",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Was exported from @wakecap/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
+			"Stub by design: the intent is accurate, the data contract is not yet authored.",
+			"pilot: false"
+		]
+	}
+}

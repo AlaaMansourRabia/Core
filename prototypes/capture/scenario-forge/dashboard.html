@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Scenario Forge — Live Build Map</title>
+<style>
+  :root{
+    --bg:#0b0e14; --panel:#141926; --panel2:#1b2233; --line:#2a3346; --ink:#e6ebf5; --muted:#8b97ad;
+    --existing:#6366f1; --pending:#4b5568; --running:#f59e0b; --done:#22c55e; --error:#ef4444; --paused:#38bdf8;
+    --happy:#22c55e; --blocked:#ef4444; --degraded:#f59e0b; --wall:#3b82f6;
+    --radius:12px; font-synthesis:none;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:var(--bg);color:var(--ink);font:14px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:flex;flex-direction:column}
+  header{padding:14px 20px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#121724,#0d1119);position:sticky;top:0;z-index:5}
+  .titlerow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  h1{font-size:16px;margin:0;font-weight:650;letter-spacing:.2px}
+  .sub{color:var(--muted);font-size:12px}
+  .spacer{flex:1}
+  button{font:inherit;color:var(--ink);background:var(--panel2);border:1px solid var(--line);padding:7px 12px;border-radius:9px;cursor:pointer}
+  button:hover{border-color:#3a4560}
+  button.primary{background:var(--existing);border-color:var(--existing);color:#fff;font-weight:600}
+  button:disabled{opacity:.45;cursor:not-allowed}
+  /* progress bar */
+  .progresswrap{margin-top:12px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .bar{flex:1;min-width:280px;height:14px;border-radius:999px;background:#0e1420;border:1px solid var(--line);overflow:hidden;display:flex}
+  .bar > i{display:block;height:100%;transition:width .5s cubic-bezier(.4,0,.2,1)}
+  .bar .b-done{background:var(--done)} .bar .b-existing{background:var(--existing)} .bar .b-running{background:var(--running)}
+  .count{font-variant-numeric:tabular-nums;font-weight:650;font-size:15px;white-space:nowrap}
+  .count small{color:var(--muted);font-weight:400}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+  .legend b{color:var(--ink);font-variant-numeric:tabular-nums}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px;vertical-align:middle}
+  .ticker{color:var(--running);font-size:12px;min-height:16px}
+  .live{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:12px}
+  .live .pulse{width:8px;height:8px;border-radius:50%;background:var(--done);box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}70%{box-shadow:0 0 0 7px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+
+  /* tree */
+  #tree{position:relative;flex:1;overflow:auto;padding:26px 30px 60px}
+  svg#connectors{position:absolute;top:0;left:0;pointer-events:none;z-index:0}
+  .layout{position:relative;z-index:1;display:flex;align-items:flex-start;gap:70px;min-width:max-content}
+  .col-root{align-self:center}
+  .node{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px}
+  .root-node{background:linear-gradient(180deg,#1c2336,#151b2a);border-color:#33405e;padding:14px 16px;font-weight:650;text-align:center;min-width:150px}
+  .root-node .rp{color:var(--muted);font-weight:400;font-size:12px;margin-top:4px}
+  .col-main{display:flex;flex-direction:column;gap:26px}
+  .screen-row{display:flex;align-items:center;gap:60px}
+  .screen-node{min-width:190px;align-self:center;cursor:default}
+  .screen-node .sname{font-weight:600}
+  .screen-node .smeta{color:var(--muted);font-size:12px;margin-top:3px;font-variant-numeric:tabular-nums}
+  .screen-node .minibar{height:6px;border-radius:999px;background:#0e1420;margin-top:8px;overflow:hidden}
+  .screen-node .minibar > i{display:block;height:100%;background:var(--done);transition:width .5s}
+  .cases{display:flex;flex-direction:column;gap:10px}
+  .case-card{position:relative;min-width:300px;max-width:340px;cursor:pointer;border-left-width:3px;transition:transform .15s,border-color .3s,background .3s,box-shadow .3s}
+  .case-card:hover{transform:translateX(2px);box-shadow:0 6px 22px rgba(0,0,0,.35)}
+  .case-card.sel{outline:2px solid var(--existing);outline-offset:1px}
+  .case-card.flash{animation:flash .9s}
+  @keyframes flash{0%{box-shadow:0 0 0 0 rgba(245,158,11,.55)}100%{box-shadow:0 0 0 14px rgba(245,158,11,0)}}
+  .cc-top{display:flex;align-items:center;gap:8px}
+  .tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2px 6px;border-radius:5px;border:1px solid transparent}
+  .tag.happy{color:var(--happy);border-color:color-mix(in srgb,var(--happy) 40%,transparent);background:color-mix(in srgb,var(--happy) 12%,transparent)}
+  .tag.blocked{color:var(--blocked);border-color:color-mix(in srgb,var(--blocked) 40%,transparent);background:color-mix(in srgb,var(--blocked) 12%,transparent)}
+  .tag.degraded{color:var(--degraded);border-color:color-mix(in srgb,var(--degraded) 40%,transparent);background:color-mix(in srgb,var(--degraded) 12%,transparent)}
+  .tag.wall{color:var(--wall);border-color:color-mix(in srgb,var(--wall) 40%,transparent);background:color-mix(in srgb,var(--wall) 12%,transparent)}
+  .role{font-size:11px;color:var(--muted)}
+  .cc-title{margin-top:6px;font-size:13px}
+  .cc-asset{margin-top:5px;font-size:11px;color:var(--muted)}
+  .cc-foot{margin-top:8px;display:flex;align-items:center;gap:8px}
+  .status{font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+  .sdot{width:9px;height:9px;border-radius:50%}
+  .spin{width:11px;height:11px;border:2px solid rgba(255,255,255,.25);border-top-color:var(--running);border-radius:50%;animation:spin .7s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .step{font-size:11px;color:var(--running)}
+  .open-btn{margin-left:auto;font-size:11px;padding:3px 9px;border-radius:7px;background:var(--panel2);border:1px solid var(--line);color:var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+  .open-btn:hover{border-color:var(--existing);background:#20283c}
+  .open-btn[aria-disabled="true"]{opacity:.38;cursor:not-allowed;border-style:dashed}
+  .dw-open{display:block;text-align:center;margin-bottom:14px;padding:9px;font-weight:600}
+  /* card thumbnail */
+  .cc-thumb{position:relative;height:88px;margin:-10px -12px 9px;border-bottom:1px solid var(--line);border-top-left-radius:9px;border-top-right-radius:9px;overflow:hidden;background:#0e1420}
+  .cc-thumb-svg,.cc-thumb-img{display:block;width:100%;height:100%}
+  .cc-thumb-img{object-fit:cover;object-position:center}
+  .th-badge{position:absolute;right:6px;bottom:5px;font-size:9px;letter-spacing:.3px;color:var(--muted);background:rgba(11,14,20,.72);border:1px solid var(--line);padding:0 5px;border-radius:5px}
+  .dw-thumb{height:150px;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:14px;background:#0e1420;position:relative}
+  .dw-open{width:100%}
+  /* lightbox for the full screenshot */
+  #lightbox{position:fixed;inset:0;background:rgba(5,7,11,.92);z-index:50;display:none;align-items:center;justify-content:center;padding:28px;cursor:zoom-out}
+  #lightbox.open{display:flex}
+  #lightbox img{max-width:100%;max-height:100%;object-fit:contain;border:1px solid var(--line);border-radius:8px;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+  #lightbox .lb-close{position:absolute;top:14px;right:20px;font-size:28px;line-height:1;color:#fff;background:transparent;border:none;cursor:pointer;padding:4px}
+  #lightbox .lb-cap{position:absolute;top:18px;left:22px;color:var(--muted);font-size:12px}
+  /* toolbar switch + review */
+  .switch{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);cursor:pointer;user-select:none;padding:6px 10px;border:1px solid var(--line);border-radius:9px;background:var(--panel2)}
+  .switch input{accent-color:var(--running)}
+  .bar .b-review{background:var(--paused)} .bar .b-approved{background:#a78bfa}
+  .review-box{margin-top:16px;padding:12px;border:1px solid var(--paused);border-radius:10px;background:rgba(56,189,248,.06)}
+  .review-box h4{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.3px;color:var(--paused)}
+  .wf-frame{width:100%;height:230px;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .rev-actions{display:flex;gap:8px;margin-top:10px}.rev-actions button{flex:1}
+  button.good{background:var(--done);border-color:var(--done);color:#04210f;font-weight:600}
+  .rev-full{display:block;text-align:center;margin-top:8px;font-size:12px;color:var(--muted)}
+  .badge-review{color:var(--paused);font-weight:600}
+  /* consolidated review modal */
+  #reviewModal{position:fixed;inset:0;background:rgba(5,7,11,.95);z-index:60;display:none;flex-direction:column;padding:16px 22px 18px}
+  #reviewModal.open{display:flex}
+  .rv-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:10px}
+  .rv-title{font-size:17px;font-weight:650}
+  .rv-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-top:4px}
+  .rv-count{font-variant-numeric:tabular-nums;color:var(--ink);font-size:13px;white-space:nowrap;padding-top:2px}
+  .rv-body{flex:1;min-height:0;display:flex}
+  .rv-frame{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;background:#fff}
+  .rv-foot{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px}
+  .rv-foot button{padding:9px 20px;font-weight:600}
+  .rv-foot .nav{background:var(--panel2);font-weight:500}
+  .rv-dots{display:flex;gap:4px;margin:0 10px;max-width:40vw;overflow:hidden}
+  .rv-dot{width:7px;height:7px;border-radius:50%;background:var(--pending);flex:0 0 auto}
+  .rv-dot.approved{background:var(--done)} .rv-dot.rejected{background:var(--error)} .rv-dot.cur{outline:2px solid var(--ink);outline-offset:1px}
+  button.danger{background:var(--error);border-color:var(--error);color:#fff}
+  .pill-approved{color:var(--done);font-weight:600} .pill-rejected{color:var(--error);font-weight:600}
+  /* review: left (wireframe + version bar) + right (chat) */
+  .rv-left{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+  .rv-vbar{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);min-height:24px}
+  .rv-vbar button{padding:2px 9px;font-size:12px}
+  .rv-vbar .cur{color:var(--ink);font-variant-numeric:tabular-nums}
+  .rv-chat{width:380px;flex:0 0 auto;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:10px;background:var(--panel);overflow:hidden;margin-left:14px}
+  .rv-chat-head{padding:9px 12px;border-bottom:1px solid var(--line);font-weight:600;font-size:13px}
+  .rv-chat-head small{color:var(--muted);font-weight:400}
+  .rv-msgs{flex:1;min-height:0;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+  .msg{padding:8px 10px;border-radius:9px;font-size:12.5px;line-height:1.45;max-width:92%;white-space:pre-wrap;word-break:break-word}
+  .msg.user{align-self:flex-end;background:var(--existing);color:#fff}
+  .msg.assistant{align-self:flex-start;background:var(--panel2);border:1px solid var(--line)}
+  .msg.sys{align-self:center;color:var(--muted);font-size:11px;background:transparent;text-align:center}
+  .msg.err{align-self:flex-start;color:var(--error);border:1px solid var(--error);background:rgba(239,68,68,.08)}
+  .rv-think{align-self:flex-start;color:var(--muted);font-size:12px;display:inline-flex;align-items:center;gap:7px}
+  .rv-input{border-top:1px solid var(--line);padding:8px;display:flex;gap:8px}
+  .rv-input textarea{flex:1;resize:none;background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--ink);padding:7px 9px;font:inherit;font-size:12.5px;outline:none}
+  .rv-input textarea:focus{border-color:var(--existing)}
+  .rv-refs{display:flex;flex-wrap:wrap;gap:5px;padding:8px 10px;border-bottom:1px solid var(--line);max-height:78px;overflow:auto}
+  .rv-refs .rlabel{color:var(--muted);font-size:11px;width:100%;margin-bottom:1px}
+  .rv-ref{font-size:11px;padding:2px 8px;border:1px solid var(--line);border-radius:20px;background:var(--panel2);cursor:pointer;white-space:nowrap}
+  .rv-ref:hover{border-color:var(--existing)}
+  .rv-ref .rst{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:middle}
+  /* status themed cards */
+  .case-card{border-color:var(--line)}
+  .st-existing{border-left-color:var(--existing)}
+  .st-pending{border-left-color:var(--pending);opacity:.72;border-style:dashed}
+  .st-running{border-left-color:var(--running);background:linear-gradient(180deg,#1e2130,#171a26)}
+  .st-done{border-left-color:var(--done)}
+  .st-error{border-left-color:var(--error)}
+  .st-paused{border-left-color:var(--paused)}
+
+  /* detail drawer */
+  #drawer{position:fixed;top:0;right:0;height:100%;width:360px;background:var(--panel);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s;z-index:20;display:flex;flex-direction:column}
+  #drawer.open{transform:none}
+  .dw-head{padding:16px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:8px}
+  .dw-body{padding:16px;overflow:auto;flex:1}
+  .kv{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #202839;font-size:13px}
+  .kv span:first-child{color:var(--muted)}
+  .soon{margin-top:18px;padding:12px;border:1px dashed var(--line);border-radius:10px;color:var(--muted);font-size:12px}
+  .soon h4{margin:0 0 6px;color:var(--ink);font-size:12px;letter-spacing:.3px;text-transform:uppercase}
+  .soon button{width:100%;margin-top:6px}
+  .x{margin-left:auto;background:transparent;border:none;color:var(--muted);font-size:18px;cursor:pointer;padding:0 4px}
+</style>
+</head>
+<body>
+<header>
+  <div class="titlerow">
+    <h1>Scenario Forge</h1>
+    <span class="sub">live build map — Capture</span>
+    <span class="live"><span class="pulse"></span><span id="liveText">watching plan.json…</span></span>
+    <div class="spacer"></div>
+    <label class="switch" id="connWrap" title="Install a reversible dev-only overlay into the target app so built scenarios render at its URL. Uncheck to remove everything it added."><input type="checkbox" id="connChk"> 🔌 Connect to app</label>
+    <label class="switch" title="Skip the wireframe review gate — build straight through"><input type="checkbox" id="skipChk"> Skip reviews</label>
+    <button id="reviewBtn" class="primary" style="display:none">🔍 Review</button>
+    <button id="approveAllBtn" class="good" style="display:none">✓ Approve all</button>
+    <button id="buildBtn" style="display:none;background:#7c3aed;border-color:#7c3aed;color:#fff;font-weight:600">⚙ Build into product</button>
+    <button id="thumbBtn" title="Show/hide page thumbnails">🖼 Thumbnails</button>
+    <button id="runBtn" class="primary">▶ Run generation</button>
+    <button id="removeFlowsBtn" title="Remove all generated flows from the app (restores it from the flow safe-point). The tool + skill stay." style="display:none;background:#7f1d1d;border-color:#7f1d1d;color:#fff">🧹 Remove flows</button>
+    <button id="resetBtn">Reset</button>
+  </div>
+  <div class="progresswrap">
+    <div class="bar" id="bar"><i class="b-existing" style="width:0"></i><i class="b-done" style="width:0"></i><i class="b-approved" style="width:0"></i><i class="b-review" style="width:0"></i><i class="b-running" style="width:0"></i></div>
+    <div class="count"><span id="concluded">0</span> <small>/ <span id="total">0</span> concluded</small></div>
+    <div class="legend" id="legend"></div>
+  </div>
+  <div class="ticker" id="ticker"></div>
+</header>
+
+<div id="tree">
+  <svg id="connectors"></svg>
+  <div class="layout" id="layout"></div>
+</div>
+
+<aside id="drawer">
+  <div class="dw-head">
+    <div>
+      <div id="dwTitle" style="font-weight:650"></div>
+      <div id="dwSub" class="sub" style="margin-top:3px"></div>
+    </div>
+    <button class="x" onclick="closeDrawer()">×</button>
+  </div>
+  <div class="dw-body" id="dwBody"></div>
+</aside>
+
+<div id="lightbox" onclick="closeShot()">
+  <span class="lb-cap" id="lbCap"></span>
+  <button class="lb-close" onclick="closeShot()" aria-label="Close">×</button>
+  <img id="lbImg" alt="full screenshot" onclick="event.stopPropagation()" />
+</div>
+
+<div id="reviewModal">
+  <div class="rv-head">
+    <div style="flex:1;min-width:0">
+      <div class="rv-title" id="rvTitle"></div>
+      <div class="rv-meta" id="rvMeta"></div>
+    </div>
+    <span class="rv-count" id="rvCount"></span>
+    <button class="lb-close" style="position:static;color:var(--muted)" onclick="closeReview()" aria-label="Close">×</button>
+  </div>
+  <div class="rv-body">
+    <div class="rv-left">
+      <div class="rv-vbar" id="rvVbar"></div>
+      <iframe id="rvFrame" class="rv-frame" title="wireframe"></iframe>
+    </div>
+    <aside class="rv-chat">
+      <div class="rv-chat-head">Ask &amp; shape <small>· powered by your Claude</small></div>
+      <div class="rv-refs" id="rvRefs"></div>
+      <div class="rv-msgs" id="rvMsgs"></div>
+      <div class="rv-input">
+        <textarea id="rvText" rows="2" placeholder="Ask a question, or ask to change the wireframe… (Enter to send)"></textarea>
+        <button class="primary" id="rvSend">Send</button>
+      </div>
+    </aside>
+  </div>
+  <div class="rv-foot">
+    <button class="nav" id="rvPrev" onclick="reviewGo(-1)">← Prev</button>
+    <button class="danger" onclick="reviewReject()">✗ Reject</button>
+    <button class="good" onclick="reviewApprove()">✓ Approve</button>
+    <div class="rv-dots" id="rvDots"></div>
+    <button class="nav" id="rvNext" onclick="reviewGo(1)">Next →</button>
+  </div>
+</div>
+
+<script>
+const PLAN_URL = "./plan.json";
+const STATUS_COLORS = {existing:"var(--existing)",pending:"var(--pending)",running:"var(--running)",review:"var(--paused)",approved:"#a78bfa",building:"var(--running)",built:"var(--done)",done:"#a78bfa",error:"var(--error)",paused:"var(--paused)"};
+const STATUS_LABEL = {existing:"Designed by you",pending:"Queued",running:"Building",review:"Needs review",approved:"Approved",building:"Building page",built:"In product",done:"Approved",error:"Error",paused:"Paused"};
+const DEMO_STEPS = ["Mapping happy flow…","Designing ladder…","Studying UI…","Building page…","Wiring drill-in…","Reviewing…"];
+
+let plan = null;          // last plan from file
+let state = [];           // working scenarios (may be demo-overridden)
+let selectedId = null;
+let demoActive = false;
+let lastFileHash = "";
+let thumbsOn = localStorage.getItem("sf_thumbs") !== "off";   // default on
+
+const $ = (s)=>document.querySelector(s);
+
+async function poll(){
+  if(demoActive) { touchLive(); return; }
+  try{
+    const res = await fetch(PLAN_URL + "?t=" + Date.now(), {cache:"no-store"});
+    const data = await res.json();
+    if(data.settings) $("#skipChk").checked = (data.settings.reviewMode==="skip");
+    if(data.target){ $("#connChk").checked = !!data.target.connected; $("#connWrap").style.borderColor = data.target.connected ? "var(--done)" : "var(--line)"; }
+    const hash = JSON.stringify(data.scenarios.map(s=>[s.id,s.status,s.step||""]));
+    if(hash !== lastFileHash){
+      lastFileHash = hash;
+      plan = data;
+      state = data.scenarios.map(s=>({...s}));
+      render();
+    }
+    touchLive("watching plan.json · updated just now");
+  }catch(e){
+    touchLive("plan.json unreachable — serve this folder over http");
+  }
+}
+let liveStamp = Date.now();
+function touchLive(msg){ if(msg){liveStamp=Date.now(); $("#liveText").textContent=msg;} }
+setInterval(()=>{ const s=Math.round((Date.now()-liveStamp)/1000); if(!demoActive && s>2) $("#liveText").textContent=`watching plan.json · ${s}s ago`; }, 1000);
+
+function screensOf(){ return plan.screens; }
+function casesFor(screenId){ return state.filter(s=>s.screen===screenId); }
+
+// Deep-link a card to the running prototype at this scenario's state. Pattern + base come from
+// plan.app so they can be repointed without touching the dashboard.
+function sceneUrl(c){
+  const t = plan.target||{};
+  if(c.builtNative){                  // a native flow built into the app → open at the app's URL
+    return `${t.mountUrl||"http://localhost:5180"}?scenario=${encodeURIComponent(c.id)}`;
+  }
+  if(c.builtUrl){                     // a standalone built page (older path)
+    return (t.connected && t.mountUrl) ? `${t.mountUrl}?scenario=${encodeURIComponent(c.id)}` : c.builtUrl;
+  }
+  const app = plan.app||{};
+  const pat = app.linkPattern||"?scenario={id}";
+  const q = pat.replace(/{id}/g,encodeURIComponent(c.id)).replace(/{screen}/g,encodeURIComponent(c.screen))
+              .replace(/{role}/g,encodeURIComponent(c.role)).replace(/{caseType}/g,encodeURIComponent(c.caseType));
+  return (app.baseUrl||"") + q;
+}
+// Only scenarios that actually have a page (yours + generated) are openable.
+function canOpen(c){ const st=(plan.app&&plan.app.openableStatuses)||["existing","done"]; return st.includes(c.status); }
+function openBtn(c, cls){
+  const extra = cls?(" "+cls):"";
+  return canOpen(c)
+    ? `<a class="open-btn${extra}" href="${sceneUrl(c)}" target="_blank" rel="noopener" title="Open this scenario in the app" onclick="event.stopPropagation()">Open&nbsp;↗</a>`
+    : `<span class="open-btn${extra}" aria-disabled="true" title="Available once this scenario is built" onclick="event.stopPropagation()">Open&nbsp;↗</span>`;
+}
+
+/* ---- thumbnails ----
+   A card shows a thumbnail once its page exists (existing/done). If the scenario carries a real
+   screenshot (`c.thumb` → an image path/URL, written by the generator after it renders the page),
+   that image is used. Until then we draw a schematic SVG preview keyed to the screen type, so the
+   slot is meaningful now and upgrades to a real snapshot later with no dashboard change. */
+const THUMB_ACCENT = {happy:"#22c55e",blocked:"#ef4444",degraded:"#f59e0b",wall:"#3b82f6"};
+function thumbAccent(c){ return THUMB_ACCENT[c.caseType] || "#6366f1"; }
+const R=(x,y,w,h,f,rx=1)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="${f}"/>`;
+function glyph(screen, accent){
+  const bg="#0f1522",bar="#1b2233",mut="#243049",pan="#161d2c",ln="#2a3346";
+  let g = R(0,0,320,88,bg,0) + R(0,0,320,12,bar,0) +
+    `<circle cx="9" cy="6" r="2" fill="#3a4560"/><circle cx="17" cy="6" r="2" fill="#3a4560"/><circle cx="25" cy="6" r="2" fill="#3a4560"/>`;
+  const S=[];
+  if(screen==="site"){                       // left panel + grid of unit squares (map/schematic)
+    S.push(R(6,18,54,64,pan,3));
+    for(let r=0;r<4;r++) S.push(R(11,24+r*13,44,5,ln,2));
+    for(let r=0;r<3;r++)for(let col=0;col<7;col++){ const on=((r*7+col)%3)!==0; S.push(R(72+col*34,22+r*20,28,16,on?accent:mut,2)); }
+  } else if(screen==="boq"){                  // KPI cards + priced table rows
+    S.push(R(8,18,110,7,ln,2));
+    for(let k=0;k<3;k++) S.push(R(8+k*104,30,96,16,pan,3));
+    for(let r=0;r<3;r++){ S.push(R(8,52+r*10,244,6,mut,2)); S.push(R(258,52+r*10,54,6,accent,2)); }
+  } else if(screen==="progress-details"){     // WBS tree + drill rows
+    S.push(R(6,16,70,66,pan,3));
+    for(let r=0;r<5;r++) S.push(R(11,22+r*11,58,5,ln,2));
+    for(let r=0;r<4;r++){ S.push(R(84,22+r*15,150,6,mut,2)); S.push(R(240,22+r*15,72,6,accent,2)); }
+  } else if(screen==="earned-value"){         // S-curve
+    S.push(R(8,18,150,7,ln,2)); S.push(R(18,30,296,50,pan,3));
+    S.push(`<polyline points="26,74 72,64 118,66 164,50 210,40 256,30 304,22" fill="none" stroke="${accent}" stroke-width="2"/>`);
+    S.push(`<polyline points="26,74 304,74" fill="none" stroke="#2a3346" stroke-width="1"/>`);
+  } else if(screen==="reports"){              // milestone matrix
+    S.push(R(8,18,120,7,ln,2));
+    for(let r=0;r<4;r++)for(let col=0;col<6;col++){ const on=((r+col)%4)===0; S.push(R(8+col*52,30+r*13,46,9,on?accent:pan,2)); }
+  } else if(screen==="settings"){             // form fields
+    for(let r=0;r<4;r++){ S.push(R(8,20+r*16,80,6,ln,2)); S.push(R(96,17+r*16,216,12,pan,3)); }
+  } else {
+    for(let r=0;r<4;r++) S.push(R(8,20+r*15,304,9,pan,2));
+  }
+  return g + S.join("");
+}
+function thumbInner(c){
+  return c.thumb
+    ? `<img class="cc-thumb-img" src="${c.thumb}" alt="" loading="lazy"/>`
+    : `<svg class="cc-thumb-svg" viewBox="0 0 320 88" preserveAspectRatio="none">${glyph(c.screen,thumbAccent(c))}</svg><span class="th-badge">preview</span>`;
+}
+function cardHasThumb(c){ return ["existing","review","approved","building","built"].includes(c.status); }
+
+function statusCounts(){
+  const c={existing:0,pending:0,running:0,done:0,error:0,paused:0};
+  state.forEach(s=>c[s.status]=(c[s.status]||0)+1);
+  return c;
+}
+
+function render(){
+  if(!plan) return;
+  const layout = $("#layout");
+  layout.innerHTML = "";
+
+  // root
+  const rootCol = document.createElement("div");
+  rootCol.className = "col-root";
+  const total = state.length;
+  const root = document.createElement("div");
+  root.className = "node root-node";
+  root.dataset.node = "root";
+  root.innerHTML = `${plan.project}<div class="rp">${plan.screens.length} screens · ${total} scenarios</div>`;
+  rootCol.appendChild(root);
+  layout.appendChild(rootCol);
+
+  // main column: one row per screen
+  const main = document.createElement("div");
+  main.className = "col-main";
+  screensOf().forEach(scr=>{
+    const cases = casesFor(scr.id);
+    const done = cases.filter(c=>c.status==="done"||c.status==="existing").length;
+    const row = document.createElement("div");
+    row.className = "screen-row";
+
+    const snode = document.createElement("div");
+    snode.className = "node screen-node";
+    snode.dataset.node = "screen:"+scr.id;
+    snode.innerHTML = `<div class="sname">${scr.label}</div>
+      <div class="smeta">${done}/${cases.length} concluded</div>
+      <div class="minibar"><i style="width:${cases.length? (done/cases.length*100):0}%"></i></div>`;
+    row.appendChild(snode);
+
+    const casesWrap = document.createElement("div");
+    casesWrap.className = "cases";
+    cases.forEach(c=>casesWrap.appendChild(caseCard(c)));
+    row.appendChild(casesWrap);
+    main.appendChild(row);
+  });
+  layout.appendChild(main);
+
+  renderProgress();
+  requestAnimationFrame(drawConnectors);
+}
+
+function caseCard(c){
+  const el = document.createElement("div");
+  el.className = `node case-card st-${c.status}` + (c.id===selectedId?" sel":"");
+  el.dataset.node = "case:"+c.id;
+  el.dataset.id = c.id;
+  const running = c.status==="running";
+  el.innerHTML = `
+    ${thumbsOn && cardHasThumb(c) ? `<div class="cc-thumb">${thumbInner(c)}</div>` : ""}
+    <div class="cc-top">
+      <span class="tag ${c.caseType}">${c.caseType}</span>
+      <span class="role">${c.role}</span>
+    </div>
+    <div class="cc-title">${c.title}</div>
+    ${c.asset?`<div class="cc-asset">Missing: ${c.asset} · ${c.provider||""}</div>`:""}
+    <div class="cc-foot">
+      <span class="status">${running?'<span class="spin"></span>':`<span class="sdot" style="background:${STATUS_COLORS[c.status]}"></span>`}${STATUS_LABEL[c.status]||c.status}</span>
+      ${running&&c.step?`<span class="step">${c.step}</span>`:""}
+      ${openBtn(c)}
+    </div>`;
+  el.addEventListener("click",()=>openDrawer(c.id));
+  return el;
+}
+
+function renderProgress(){
+  const total = state.length || 1;
+  const c = statusCounts();
+  const running = (c.running||0) + (c.building||0);
+  const concluded = (c.existing||0) + (c.built||0);
+  $("#concluded").textContent = concluded;
+  $("#total").textContent = state.length;
+  $("#bar").querySelector(".b-existing").style.width = ((c.existing||0)/total*100)+"%";
+  $("#bar").querySelector(".b-done").style.width = ((c.built||0)/total*100)+"%";
+  $("#bar").querySelector(".b-approved").style.width = ((c.approved||0)/total*100)+"%";
+  $("#bar").querySelector(".b-review").style.width = ((c.review||0)/total*100)+"%";
+  $("#bar").querySelector(".b-running").style.width = (running/total*100)+"%";
+  const L = [["existing","Designed"],["built","In product"],["approved","Approved"],["review","In review"],["running","Building"],["building","Building page"],["pending","Queued"],["error","Error"]];
+  $("#approveAllBtn").style.display = c.review ? "" : "none";
+  if(c.review) $("#approveAllBtn").textContent = `✓ Approve all (${c.review})`;
+  $("#reviewBtn").style.display = c.review ? "" : "none";
+  if(c.review) $("#reviewBtn").textContent = `🔍 Review (${c.review})`;
+  $("#buildBtn").style.display = ((c.approved||0)||(c.building||0)) ? "" : "none";
+  $("#buildBtn").disabled = (c.building||0)>0;
+  $("#buildBtn").textContent = (c.building||0)>0 ? `● Building… (${c.building})` : `⚙ Build into product (${c.approved||0})`;
+  $("#removeFlowsBtn").style.display = ((c.built||0)+(c.error||0)+(c.building||0)) ? "" : "none";
+  const rb=$("#runBtn"); rb.disabled = running>0; rb.textContent = running>0 ? "● Generating…" : "▶ Run generation";
+  $("#legend").innerHTML = L.filter(([k])=>c[k]).map(([k,lbl])=>`<span><span class="dot" style="background:${STATUS_COLORS[k]}"></span>${lbl} <b>${c[k]}</b></span>`).join("");
+  const runningNodes = state.filter(s=>s.status==="running");
+  $("#ticker").textContent = runningNodes.length ? ("● building: " + runningNodes.map(s=>s.title + (s.step?` — ${s.step}`:"")).join("   ·   ")) : "";
+}
+
+function drawConnectors(){
+  const tree = $("#tree"), svg = $("#connectors");
+  svg.setAttribute("width", tree.scrollWidth);
+  svg.setAttribute("height", tree.scrollHeight);
+  const base = tree.getBoundingClientRect();
+  const pt = (el, side)=>{ const r=el.getBoundingClientRect();
+    return {x:(side==="r"?r.right:r.left)-base.left+tree.scrollLeft, y:r.top-base.top+tree.scrollTop+r.height/2}; };
+  const path = (a,b,color)=>{ const dx=Math.max(30,(b.x-a.x)/2);
+    return `<path d="M${a.x},${a.y} C${a.x+dx},${a.y} ${b.x-dx},${b.y} ${b.x},${b.y}" fill="none" stroke="${color}" stroke-width="1.6" opacity=".5"/>`; };
+  let out="";
+  const root = tree.querySelector('[data-node="root"]');
+  screensOf().forEach(scr=>{
+    const sn = tree.querySelector(`[data-node="screen:${scr.id}"]`);
+    if(root&&sn) out+=path(pt(root,"r"),pt(sn,"l"),"#3a4560");
+    casesFor(scr.id).forEach(c=>{
+      const cc = tree.querySelector(`[data-node="case:${c.id}"]`);
+      if(sn&&cc){ const col = c.status==="running"?"var(--running)":(c.status==="done"||c.status==="existing")?"#3f6b52":"#2a3346";
+        out+=path(pt(sn,"r"),pt(cc,"l"),col); }
+    });
+  });
+  svg.innerHTML = out;
+}
+window.addEventListener("resize", ()=>plan&&drawConnectors());
+$("#tree").addEventListener("scroll", ()=>{/* svg scrolls with content */});
+
+/* ---- detail drawer (Phase-1 inspect + Phase-2/future seams) ---- */
+function openDrawer(id){
+  selectedId = id;
+  document.querySelectorAll(".case-card").forEach(el=>el.classList.toggle("sel", el.dataset.id===id));
+  const c = state.find(s=>s.id===id); if(!c) return;
+  $("#dwTitle").textContent = c.title;
+  $("#dwSub").textContent = `${c.screen} · ${c.role} · ${c.caseType}`;
+  const revBox = (c.status==="review" && c.wireframe) ? `
+    <div class="review-box">
+      <h4>Wireframe — review before build</h4>
+      <iframe class="wf-frame" src="${c.wireframe}" loading="lazy"></iframe>
+      <div class="rev-actions">
+        <button class="good" onclick="approve('${c.id}')">✓ Approve &amp; build</button>
+        <button onclick="reject('${c.id}')">✗ Request changes</button>
+      </div>
+      <a class="rev-full" href="${c.wireframe}" target="_blank" rel="noopener">Open wireframe full ↗</a>
+    </div>` : "";
+  $("#dwBody").innerHTML = `
+    ${(cardHasThumb(c) && c.status!=="review") ? `<div class="dw-thumb"${c.thumb?` style="cursor:zoom-in" title="View full screenshot" onclick="openShot('${c.thumb}','${(c.title||'').replace(/'/g,'')}')"`:""}>${thumbInner(c)}</div>` : ""}
+    ${revBox}
+    ${c.thumb ? `<button class="dw-open" style="margin-bottom:14px" onclick="openShot('${c.thumb}','${(c.title||'').replace(/'/g,'')}')">⤢ View full screenshot</button>` : ""}
+    ${openBtn(c,"dw-open")}
+    <div class="kv"><span>Status</span><span style="color:${STATUS_COLORS[c.status]};font-weight:600">${STATUS_LABEL[c.status]||c.status}</span></div>
+    ${c.step?`<div class="kv"><span>Step</span><span>${c.step}</span></div>`:""}
+    <div class="kv"><span>Screen</span><span>${c.screen}</span></div>
+    <div class="kv"><span>Role</span><span>${c.role}</span></div>
+    <div class="kv"><span>Case type</span><span>${c.caseType}</span></div>
+    <div class="kv"><span>Missing input</span><span>${c.asset||"—"}</span></div>
+    <div class="kv"><span>Provider</span><span>${c.provider||"—"}</span></div>
+    <div class="soon">
+      <h4>Phase 2 — steer this branch</h4>
+      Pause the run on this node and add specific instructions while other scenarios keep building.
+      <button disabled>Pause &amp; add instructions</button>
+    </div>`;
+  $("#drawer").classList.add("open");
+}
+function closeDrawer(){ $("#drawer").classList.remove("open"); selectedId=null; document.querySelectorAll(".case-card.sel").forEach(el=>el.classList.remove("sel")); }
+
+/* ---- full-screenshot lightbox ---- */
+function openShot(src, cap){ $("#lbImg").src = src; $("#lbCap").textContent = cap||""; $("#lightbox").classList.add("open"); }
+function closeShot(){ $("#lightbox").classList.remove("open"); $("#lbImg").src = ""; }
+
+/* ---- consolidated review modal: next/next/next + chat + wireframe edits + version history ---- */
+let reviewQueue = [], reviewIdx = 0;
+let rvVersions = [], rvCurrent = 0, rvViewV = 0, rvChat = [];
+const reviewOpen = ()=> $("#reviewModal").classList.contains("open");
+const curScn = ()=> reviewQueue[reviewIdx];
+const esc = (s)=> (s||"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+// api that also handles GET (querystring in the action) — separate from the POST-only api() above.
+async function api2(action, body){
+  try{
+    const get = action.includes("?") || body===undefined;
+    const r = await fetch("/api/"+action, get?{}:{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});
+    return r.ok ? await r.json() : null;
+  }catch(e){ return null; }
+}
+
+function openReview(){
+  reviewQueue = state.filter(s=>s.status==="review").map(s=>({...s, _decision:null}));
+  if(!reviewQueue.length){ touchLive("nothing to review right now"); return; }
+  reviewIdx = 0; renderReview(); $("#reviewModal").classList.add("open");
+}
+function closeReview(){ $("#reviewModal").classList.remove("open"); $("#rvFrame").src = "about:blank"; refresh(); }
+
+function renderReview(){
+  const c = curScn(); if(!c) return;
+  const scr = (plan.screens.find(x=>x.id===c.screen)||{}).label || c.screen;
+  const dec = c._decision ? ` · <span class="pill-${c._decision}">● ${c._decision}</span>` : "";
+  $("#rvTitle").textContent = c.title;
+  $("#rvMeta").innerHTML = `Capture / ${scr} · <span class="tag ${c.caseType}" style="padding:1px 6px">${c.caseType}</span> · ${c.role}`
+    + (c.asset ? ` · <span style="color:var(--ink)">Missing:</span> ${c.asset} — ${c.provider||""}` : "") + dec;
+  $("#rvCount").textContent = `${reviewIdx+1} / ${reviewQueue.length}`;
+  $("#rvPrev").disabled = reviewIdx===0;
+  $("#rvNext").disabled = reviewIdx===reviewQueue.length-1;
+  $("#rvDots").innerHTML = reviewQueue.map((s,i)=>`<span class="rv-dot ${s._decision||""} ${i===reviewIdx?"cur":""}"></span>`).join("");
+  renderRefs(c);
+  loadReviewData(c.id);
+}
+// Sibling scenarios on the same screen — click a chip to reference it in the chat; Claude gets the
+// referenced wireframe as context (server includes same-screen wireframes in the prompt).
+function renderRefs(c){
+  const sibs = state.filter(x=>x.screen===c.screen && x.id!==c.id);
+  const box = $("#rvRefs");
+  if(!sibs.length){ box.style.display="none"; box.innerHTML=""; return; }
+  box.style.display="flex";
+  box.innerHTML = `<span class="rlabel">Reference another wireframe on this screen:</span>` + sibs.map(x=>{
+    const t=(x.title||"").replace(/"/g,'&quot;').replace(/'/g,"\\'");
+    return `<span class="rv-ref" title="${x.title} — ${x.status}" onclick="insertRef('${x.role}','${t}')"><span class="rst" style="background:${STATUS_COLORS[x.status]}"></span>${x.role} · ${x.caseType}</span>`;
+  }).join("");
+}
+function insertRef(role, title){
+  const t=$("#rvText"); const ref=`the ${role} wireframe ("${title}")`;
+  t.value = (t.value.trim() ? t.value.trim()+" " : "") + ref + " ";
+  t.focus();
+}
+async function loadReviewData(id){
+  $("#rvMsgs").innerHTML=""; rvVersions=[]; rvChat=[]; rvCurrent=0; rvViewV=0;
+  const r = await api2("review?id="+encodeURIComponent(id));
+  if(!r || !r.ok){ setFrame(id,0); $("#rvVbar").innerHTML=""; $("#rvMsgs").innerHTML='<div class="msg sys">Chat needs the Node backend — run <b>node server.mjs</b>.</div>'; return; }
+  rvVersions=r.versions||[]; rvCurrent=r.current||0; rvViewV=rvCurrent; rvChat=r.chat||[];
+  renderMsgs(); renderVbar(id); setFrame(id, rvViewV);
+}
+function setFrame(id, v){ $("#rvFrame").src = `/api/version?id=${encodeURIComponent(id)}&v=${v}&t=${Date.now()}`; }
+function renderVbar(id){
+  const n = rvVersions.length, onOld = rvViewV!==rvCurrent, note = (rvVersions[rvViewV]||{}).note;
+  $("#rvVbar").innerHTML =
+    `<button ${rvViewV<=0?"disabled":""} onclick="vGo('${id}',-1)">◀</button>`
+    + `<span class="cur">v${rvViewV+1} / ${n}${rvViewV===rvCurrent?" · current":""}</span>`
+    + `<button ${rvViewV>=n-1?"disabled":""} onclick="vGo('${id}',1)">▶</button>`
+    + (onOld?`<button class="good" onclick="vRestore('${id}')">Restore this version</button>`:"")
+    + (note?`<span style="margin-left:4px;opacity:.8">${esc(note)}</span>`:"");
+}
+function vGo(id,d){ const nv=rvViewV+d; if(nv>=0 && nv<rvVersions.length){ rvViewV=nv; setFrame(id,nv); renderVbar(id); } }
+async function vRestore(id){ const r=await api2("revert",{id,v:rvViewV}); if(r&&r.ok){ rvCurrent=r.current; rvViewV=r.current; renderVbar(id); refresh(); } }
+
+function renderMsgs(){
+  $("#rvMsgs").innerHTML = rvChat.length
+    ? rvChat.map(m=>`<div class="msg ${m.role==="user"?"user":"assistant"}">${esc(m.text)}</div>`).join("")
+    : '<div class="msg sys">Ask a question or request a change to shape this wireframe before approving.</div>';
+  const el=$("#rvMsgs"); el.scrollTop=el.scrollHeight;
+}
+async function sendChat(){
+  const c = curScn(); if(!c) return;
+  const t=$("#rvText"), msg=t.value.trim(); if(!msg) return;
+  t.value=""; rvChat.push({role:"user",text:msg}); renderMsgs();
+  const think=document.createElement("div"); think.className="msg rv-think"; think.innerHTML='<span class="spin"></span> Claude is working…';
+  $("#rvMsgs").appendChild(think); $("#rvMsgs").scrollTop=1e9; $("#rvSend").disabled=true;
+  const r = await api2("chat",{id:c.id, message:msg});
+  think.remove(); $("#rvSend").disabled=false;
+  if(!r || !r.ok){ $("#rvMsgs").insertAdjacentHTML("beforeend",`<div class="msg err">${esc((r&&r.error)||"request failed — is the backend running?")}</div>`); $("#rvMsgs").scrollTop=1e9; return; }
+  rvChat.push({role:"assistant",text:r.reply}); renderMsgs();
+  if(r.updated){ rvVersions=r.versions; rvCurrent=r.current; rvViewV=r.current; renderVbar(c.id); setFrame(c.id, r.current); }
+}
+
+function reviewGo(d){ const n = reviewIdx + d; if(n>=0 && n<reviewQueue.length){ reviewIdx=n; renderReview(); } }
+function reviewAdvance(){
+  const nextUndecided = reviewQueue.findIndex((s,i)=> i>reviewIdx && !s._decision);
+  if(nextUndecided !== -1){ reviewIdx = nextUndecided; renderReview(); }
+  else if(reviewIdx < reviewQueue.length-1){ reviewIdx++; renderReview(); }
+  else if(reviewQueue.every(s=>s._decision)){ touchLive("all reviews handled"); closeReview(); }
+  else renderReview();
+}
+async function reviewApprove(){ const c=curScn(); c._decision="approved"; renderReview(); await api("approve",{id:c.id}); reviewAdvance(); }
+async function reviewReject(){ const c=curScn(); c._decision="rejected"; renderReview(); await api("reject",{id:c.id}); reviewAdvance(); }
+
+window.addEventListener("keydown", e=>{
+  if(reviewOpen()){
+    if(e.target && e.target.id==="rvText"){ if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); sendChat(); } return; }
+    if(e.key==="Escape") closeReview();
+    else if(e.key==="ArrowRight") reviewGo(1);
+    else if(e.key==="ArrowLeft") reviewGo(-1);
+    else if(e.key.toLowerCase()==="a") reviewApprove();
+    else if(e.key.toLowerCase()==="r") reviewReject();
+    return;
+  }
+  if(e.key==="Escape") closeShot();
+});
+
+/* ---- demo run: animate pending → running → done client-side (does not touch the file) ---- */
+let demoTimer=null;
+async function runDemo(){
+  if(demoActive){ stopDemo(); return; }
+  demoActive=true; $("#demoBtn").textContent="■ Stop demo";
+  touchLive("demo run — simulated progress (not writing files)");
+  const queue = state.filter(s=>s.status==="pending");
+  let i=0;
+  const CONCURRENCY=2;
+  async function worker(){
+    while(i<queue.length && demoActive){
+      const node = queue[i++];
+      node.status="running"; node.step=DEMO_STEPS[0]; render(); flash(node.id);
+      for(let k=0;k<DEMO_STEPS.length && demoActive;k++){
+        node.step=DEMO_STEPS[k]; renderProgress(); updateCard(node);
+        await wait(360+Math.random()*260);
+      }
+      if(!demoActive) return;
+      node.status="done"; node.step=null; render(); flash(node.id);
+      await wait(120);
+    }
+  }
+  await Promise.all(Array.from({length:CONCURRENCY},worker));
+  demoActive=false; $("#demoBtn").textContent="▶ Demo run";
+  touchLive("demo complete — Reset to reload from file");
+}
+function stopDemo(){ demoActive=false; $("#demoBtn").textContent="▶ Demo run"; touchLive("demo stopped"); }
+function updateCard(node){ const el=document.querySelector(`[data-node="case:${node.id}"]`); if(el){ const fresh=caseCard(node); el.replaceWith(fresh);} renderProgress(); }
+function flash(id){ const el=document.querySelector(`[data-node="case:${id}"]`); if(el){el.classList.add("flash"); setTimeout(()=>el.classList.remove("flash"),900);} }
+const wait = (ms)=>new Promise(r=>setTimeout(r,ms));
+
+/* ---- backend API: real generation + wireframe review gate ---- */
+async function api(action, body){
+  try{ const r = await fetch("/api/"+action,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body||{})}); return r.ok ? await r.json() : null; }
+  catch(e){ return null; }
+}
+function refresh(){ lastFileHash=""; poll(); }
+async function approve(id){ await api("approve",{id}); if(selectedId===id) closeDrawer(); refresh(); }
+async function reject(id){ await api("reject",{id}); if(selectedId===id) closeDrawer(); refresh(); }
+
+$("#runBtn").addEventListener("click", async ()=>{
+  const ok = await api("run");
+  touchLive(ok ? "generation running…" : "no backend — start it with:  node server.mjs");
+});
+$("#reviewBtn").addEventListener("click", openReview);
+$("#rvSend").addEventListener("click", sendChat);
+$("#buildBtn").addEventListener("click", async ()=>{ const r=await api("build"); touchLive(r&&r.ok?`running the scenario-forge skill on ${r.building} scenario(s) — building flows into the app…`:"nothing approved / no backend"); refresh(); });
+$("#removeFlowsBtn").addEventListener("click", async ()=>{ if(!confirm("Remove ALL generated flows from the app? (restores the app from the flow safe-point; the tool + skill stay)")) return; const r=await api("remove-flows"); touchLive(r&&r.ok?"flows removed — app restored, skill & tool intact":("failed: "+((r&&r.error)||"no backend"))); refresh(); });
+$("#connChk").addEventListener("change", async (e)=>{
+  const on=e.target.checked;
+  touchLive(on?"connecting into the app…":"disconnecting & removing from the app…");
+  const r=await api(on?"connect":"disconnect");
+  touchLive(r&&r.ok?(on?"connected — built scenarios now render in the app at :5180":"disconnected — everything removed from the app"):("failed: "+((r&&r.error)||"no backend")));
+  refresh();
+});
+$("#approveAllBtn").addEventListener("click", async ()=>{ await api("approve-all"); refresh(); });
+$("#skipChk").addEventListener("change", async (e)=>{ await api("settings",{reviewMode: e.target.checked?"skip":"review"}); refresh(); });
+$("#resetBtn").addEventListener("click", async ()=>{ const ok = await api("reset"); touchLive(ok?"reset to queued":"no backend for reset"); refresh(); });
+
+/* thumbnails toggle */
+function syncThumbBtn(){ const b=$("#thumbBtn"); b.classList.toggle("primary",thumbsOn); b.textContent = thumbsOn ? "🖼 Hide thumbnails" : "🖼 Show thumbnails"; }
+$("#thumbBtn").addEventListener("click",()=>{ thumbsOn=!thumbsOn; localStorage.setItem("sf_thumbs", thumbsOn?"on":"off"); syncThumbBtn(); if(plan) render(); });
+syncThumbBtn();
+
+/* boot */
+poll();
+setInterval(poll, 1500);
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "data-view-with-filters",
+	"tier": "pattern",
+	"name": "data-view-with-filters",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"intent": "Filterable, sortable, paginated list of records.",
+	"when": "Tables of more than ~10 rows needing search/sort/paginate.",
+	"components": [
+		"SearchFilterBar",
+		"DataTable",
+		"Card"
+	],
+	"order": [
+		"SearchFilterBar",
+		"DataTable",
+		"pagination"
+	],
+	"requiredProviders": [],
+	"tags": [
+		"data",
+		"table",
+		"filters"
+	],
+	"notes": "DataTable searchKey must equal the column accessorKey (fm-dt-1).",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 pattern migration (2026-07)",
+		"derivedFrom": {
+			"source": "library-index.json patterns[]",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": []
+	}
+}

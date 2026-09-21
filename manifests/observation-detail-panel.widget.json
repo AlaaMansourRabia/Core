@@ -1,0 +1,80 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "observation-detail-panel",
+	"tier": "widget",
+	"name": "ObservationDetailPanel",
+	"category": "map",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/observation-detail-panel.tsx",
+		"import": "@wakecap/core-ui/observation-detail-panel"
+	},
+	"tags": [
+		"observation",
+		"ticket",
+		"detail",
+		"comments",
+		"safety",
+		"overlay"
+	],
+	"intent": "Floating detail for one observation ticket — record fields, lifecycle actions, and its comment/audit thread.",
+	"when": [
+		"A violation selected on a map needs its full ticket without leaving the map",
+		"A ticket needs commenting and lifecycle actions in a fixed-width surface"
+	],
+	"chooseOver": [
+		{
+			"component": "TaskMonitor",
+			"because": "TaskMonitor is the full list-plus-detail workspace the Safety Manager list view is built from. ObservationDetailPanel is just the detail half, sized to float over another surface."
+		}
+	],
+	"pairsWith": [
+		"CameraDetailPanel",
+		"CommentComposer",
+		"CommentThread",
+		"ObservationsMap"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [
+		"Passing the CommentComposer's HTML straight into CommentItem.body — the body renders as a node, not markup, so the tags print literally. Flatten it to text first.",
+		"Letting the panel size to its content — it floats over a map, so the width is fixed and the body scrolls instead.",
+		"Prepending new comments while the composer is pinned below — the newest entry lands at the far end of the scroll from where it was typed. Append instead, so it appears directly above the composer.",
+		"Closing a panel on Escape without deferring to any layer above it — a press meant to dismiss an open dropdown would take the whole panel with it. Skip the handler while a popover is mounted, and skip already-defaultPrevented events."
+	],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Observations-Map-View",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-safety-manager.tsx",
+			"extracted": [
+				"observation record",
+				"lifecycle actions",
+				"comment audit trail"
+			]
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — open/act/comment flow exercised end-to-end in the browser; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-30",
+		"notes": [
+			"Record shape mirrors the Safety Manager list view so a violation reads the same from map or list."
+		]
+	},
+	"composedOf": [
+		"DetailPanelShell",
+		"CommentThread",
+		"CommentComposer",
+		"Badge",
+		"Button",
+		"Separator"
+	]
+}

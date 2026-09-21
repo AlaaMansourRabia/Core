@@ -1,0 +1,56 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "setup-steps-checklist",
+	"tier": "widget",
+	"name": "SetupStepsChecklist",
+	"category": "setup",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/setup-steps-checklist.tsx",
+		"import": "@wakecap/core-ui/setup-steps-checklist"
+	},
+	"tags": [
+		"onboarding",
+		"checklist",
+		"setup"
+	],
+	"intent": "Checklist of setup/onboarding steps with labeled steps and completion state.",
+	"when": [
+		"Guide first-run setup or onboarding tasks"
+	],
+	"chooseOver": [
+		{
+			"component": "Stepper",
+			"because": "Stepper shows ordered progress through one flow; the checklist tracks independent setup tasks"
+		}
+	],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#SetupStepsChecklist\"]"
+		]
+	}
+}

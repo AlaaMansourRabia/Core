@@ -1,0 +1,44 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "map-compass",
+	"tier": "component",
+	"name": "MapCompass",
+	"category": "map",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/map-compass.tsx",
+		"import": "@wakecap/core-ui/map-compass",
+		"export": "MapCompass"
+	},
+	"tags": [
+		"map",
+		"compass",
+		"bearing",
+		"orientation"
+	],
+	"intent": "A compass-realignment control: a two-tone needle that rotates to reflect the current map `bearing` (staying pointed at north) and, when pressed, calls `onResetNorth` to snap the map back to north. Mirrors the `VerticalZoomTools` UI so it can float over a map or nest (`variant=\"bare\"`) inside a larger vertical toolbar.",
+	"when": [],
+	"chooseOver": [],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "Group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — intent taken verbatim from the module's own doc comment; contract not yet enumerated",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Was exported from @wakecap/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
+			"Stub by design: the intent is accurate, the data contract is not yet authored.",
+			"pilot: false"
+		]
+	}
+}

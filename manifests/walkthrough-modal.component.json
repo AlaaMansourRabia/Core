@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "walkthrough-modal",
+	"tier": "component",
+	"name": "WalkthroughModal",
+	"category": "overlay",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/walkthrough-modal.tsx",
+		"import": "@wakecap/core-ui/walkthrough-modal",
+		"export": "WalkthroughModal"
+	},
+	"tags": [
+		"modal",
+		"walkthrough",
+		"compare",
+		"capture",
+		"dialog"
+	],
+	"intent": "A large, edge-to-edge MapCompareLayout (with the session timeline) shown in a dialog with a single compact 14px title and no subtitle. Opened from a capture point or a blueprint walk-through button to compare that capture against another session.",
+	"when": [
+		"Opening a full-screen capture comparison from a walk-through button or capture point",
+		"Comparing two capture sessions in a modal"
+	],
+	"chooseOver": [
+		{
+			"component": "Dialog",
+			"because": "WalkthroughModal is the composed capture-compare modal; Dialog is the generic modal container"
+		}
+	],
+	"pairsWith": [
+		"MapCompareLayout",
+		"CaptureRouteMinimap",
+		"BlueprintSegment"
+	],
+	"requiredProviders": [],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "run-app-and-storybook → develop merge (2026-07)",
+		"status": "accepted",
+		"confidence": "unset — authored alongside the component",
+		"lastValidated": "2026-07-22",
+		"notes": [
+			"authored during the develop merge reconciliation"
+		]
+	}
+}

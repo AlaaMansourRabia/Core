@@ -1,0 +1,67 @@
+name: Component / Widget gap or request
+description: A Wakecore Component or Widget is missing a prop, variant, or behavior you need.
+title: "[component/widget]: "
+labels: ["enhancement"]
+assignees:
+  - hamedafarag
+  - alaa-hue
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Wakecore.
+
+        Use this when a **Component** or **Widget** you are consuming can't do what you need — for
+        example, it should support a prop it doesn't. Don't silently fork or work around it: file it
+        here and the code owners (@hamedafarag, @alaa-hue) will decide how it gets fixed.
+
+        **Templates** are prototypes you build against, not published blocks — this form is for
+        Components and Widgets.
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Which tier?
+      options:
+        - Component
+        - Widget
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Component / Widget name
+      description: The import you are using.
+      placeholder: "@wakecap/core-ui/button"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's missing / what did you expect?
+      description: What are you trying to do, and where does the current API fall short?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API / prop (optional)
+      description: If you have a concrete idea — a prop name, signature, or variant — describe it.
+  - type: textarea
+    id: usecase
+    attributes:
+      label: Use case / where this shows up
+      description: The product screen or scenario that needs this. Helps owners weigh priority.
+  - type: input
+    id: version
+    attributes:
+      label: "@wakecap/core-ui version"
+      placeholder: "0.0.x"
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you file
+      options:
+        - label: I checked the component's Storybook page (props table + Catalog knowledge) and it genuinely can't do this.
+          required: true
+        - label: I'm consuming the published Component/Widget, not trying to import a Template as a block.

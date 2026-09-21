@@ -1,0 +1,10 @@
+{
+	"id": "transient-feedback",
+	"title": "Transient toast vs inline alert",
+	"domain": "composition",
+	"prompt": "After a user saves their settings, show a brief confirmation that auto-dismisses after a few seconds and does not take up permanent space on the page. Include whatever app-root wiring is needed for it to appear.",
+	"expected": ["Sonner", "Toaster"],
+	"acceptable": ["Toast"],
+	"forbidden": ["Alert"],
+	"requiredProviders": ["Toaster"]
+}

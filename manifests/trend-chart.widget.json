@@ -1,0 +1,169 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "trend-chart",
+	"tier": "widget",
+	"name": "TrendChart",
+	"category": "analytics",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/trend-chart.tsx",
+		"import": "@wakecap/core-ui/trend-chart",
+		"export": "TrendChart"
+	},
+	"tags": ["chart", "trend", "analytics", "regular-dashboard", "echarts"],
+	"intent": "A titled card wrapping a themed ECharts trend/analysis chart (line / bar) — the reusable chart tile in an analytics report. Removes the repeated Card + CardTitle + chart boilerplate.",
+	"when": [
+		"A line/bar trend or analysis chart inside a report or dashboard",
+		"A grid of comparable chart cards (headcount, cost burn, safety, ...)",
+		"You were about to hand-roll a Card + raw ECharts again"
+	],
+	"whenNot": [
+		"Rendering an AI-GENERATED chart payload -> use CoreChartRenderer (it renders DashboardWidget.chartData)",
+		"A single headline number -> use MetricCard",
+		"A bare, unframed chart with no card/title -> use the Chart (ChartContainer) primitive directly"
+	],
+	"chooseOver": [
+		{
+			"component": "Chart (ChartContainer)",
+			"because": "Chart is the bare themed ECharts wrapper; TrendChart adds the Card + title (+ optional legend header) so report chart tiles aren't re-implemented each time."
+		},
+		{
+			"component": "CoreChartRenderer",
+			"because": "CoreChartRenderer renders AI-generated chart PAYLOADS (DashboardWidget.chartData); TrendChart renders a hand-authored ECharts option for a fixed report chart."
+		}
+	],
+	"pairsWith": ["Chart", "MetricCard"],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"option": {
+				"type": "EChartsOption",
+				"required": true,
+				"note": "The ECharts option (series / axes / tooltip / grid). The caller builds it from its data."
+			}
+		},
+		"note": "Presentational and stateless — no data fetching. The caller maps its series into an ECharts option."
+	},
+	"configSchema": {
+		"title": {
+			"type": "ReactNode",
+			"required": false,
+			"note": "Card title."
+		},
+		"header": {
+			"type": "ReactNode",
+			"required": false,
+			"note": "Extra header content under the title — e.g. a custom legend."
+		},
+		"height": {
+			"type": "number | string",
+			"default": 240,
+			"note": "Chart height (px or CSS size)."
+		},
+		"className": {
+			"type": "string",
+			"required": false,
+			"note": "Merged onto the Card root."
+		},
+		"seriesThemes": {
+			"type": "ChartSeriesTheme[]",
+			"required": false,
+			"note": "Semantic tone or chart color index per ECharts series; resolved to canvas-safe RGB."
+		}
+	},
+	"states": {
+		"default": "A Card with a title and a themed chart of the given option.",
+		"with-legend": "header renders a custom legend (color swatches + labels) under the title.",
+		"no-header": "title and header both omitted -> just the framed chart."
+	},
+	"composedOf": ["Chart", "Card"],
+	"allowedPlacement": ["chart grid in a report / dashboard", "inside a content region as a chart tile"],
+	"forbiddenPlacement": [
+		"a table cell",
+		"as a standalone page",
+		"for AI-generated chart payloads (use CoreChartRenderer)"
+	],
+	"commonMistakes": [
+		{
+			"mistake": "Using TrendChart to render an AI-generated chart payload",
+			"symptom": "Trying to feed DashboardWidget.chartData into `option`",
+			"fix": "Use CoreChartRenderer for AI payloads; TrendChart is for a hand-authored ECharts option."
+		},
+		{
+			"mistake": "Re-implementing the Card + raw ECharts wrapper",
+			"symptom": "Duplicated Card/CardTitle/chart boilerplate per chart",
+			"fix": "Use TrendChart; pass title, optional header (legend), and option."
+		},
+		{
+			"mistake": "Putting a custom legend in the wrong place",
+			"symptom": "Legend not aligned with the title",
+			"fix": "Pass it via the `header` slot (rendered in the CardHeader under the title)."
+		},
+		{
+			"mistake": "Passing CSS var(...) or oklch(...) directly as a series color",
+			"symptom": "The chart frame renders but a series is invisible",
+			"fix": "Pass seriesThemes such as [{tone: \"primary\"}, {colorIndex: 2}]; TrendChart resolves them to canvas-safe RGB.",
+			"avoidOverride": "Do not use unresolved CSS Color 4 strings in TrendChart ECharts series colors."
+		}
+	],
+	"minimalExample": "import {TrendChart} from \"@wakecap/core-ui/trend-chart\";\n\n<TrendChart\n  title=\"Headcount\"\n  height={240}\n  seriesThemes={[{tone: \"primary\"}, {colorIndex: 2}]}\n  option={{\n    tooltip: {trigger: \"axis\"},\n    xAxis: {type: \"category\", data: months},\n    yAxis: {type: \"value\"},\n    series: [{type: \"bar\", data: actual}, {type: \"line\", data: trend, smooth: true}],\n  }}\n/>",
+	"ownership": {
+		"surface": "artifact",
+		"background": "owned",
+		"border": "all",
+		"padding": "owned",
+		"scrolling": "none",
+		"responsiveBehavior": "consumer",
+		"expectedWrapper": "An unstyled dashboard grid cell; TrendChart owns its Card background, border, and padding."
+	},
+	"evaluationCriteria": [
+		{
+			"id": "tier-selection",
+			"metric": "tier-selection",
+			"check": "TrendChart chosen for a hand-authored report chart tile — not CoreChartRenderer (AI payloads), MetricCard (a number), or bare Chart."
+		},
+		{
+			"id": "data-contract",
+			"metric": "data-contract",
+			"check": "option is a valid EChartsOption; the caller builds it from its data."
+		},
+		{
+			"id": "composition",
+			"metric": "composition",
+			"check": "Composes Chart (ChartContainer) inside a Card — does not re-init echarts by hand."
+		},
+		{
+			"id": "render",
+			"metric": "render",
+			"check": "Renders a titled Card with a chart of the given option."
+		}
+	],
+	"lineage": {
+		"origin": "promoted-from-source",
+		"authoredBy": "TrendChart widget slice (2026-06)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-org-performance.tsx (6 ReactECharts chart cards)",
+			"extracted": [
+				"Card + CardTitle + chart wrapper",
+				"title + custom legend header",
+				"height",
+				"EChartsOption passthrough"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: the repeated raw ReactECharts chart cards in packages/components/src/pages/core-org-performance.tsx (Regular Dashboard chart-grid region).",
+			"pilot: true",
+			"originated in the core-org-performance chart-grid region before that page left the template catalog.",
+			"authoredFields: [\"intent\",\"when\",\"whenNot\",\"chooseOver\",\"dataContract\",\"configSchema\",\"states\",\"allowedPlacement\",\"forbiddenPlacement\",\"commonMistakes\",\"minimalExample\",\"evaluationCriteria\"]",
+			"refactored: [\"core-org-performance now composes TrendChart for its trend chart cards (raw ReactECharts -> Chart/ChartContainer via TrendChart); same options, themed rendering.\"]",
+			"siblings: CoreChartRenderer renders AI-generated chart payloads; TrendChart renders hand-authored options. Kept separate by design.",
+			"knowledgeRefs: [\"library-index.json#TrendChart\",\"library-index.json#Chart\"]"
+		]
+	}
+}

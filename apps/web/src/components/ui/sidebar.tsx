@@ -1,0 +1,16 @@
+export {
+	Sidebar,
+	SidebarContent,
+	SidebarFooter,
+	SidebarGroup,
+	SidebarGroupContent,
+	SidebarGroupLabel,
+	SidebarHeader,
+	SidebarMenu,
+	SidebarMenuButton,
+	SidebarMenuItem,
+	SidebarProvider,
+	SidebarSeparator,
+	SidebarTrigger,
+	useSidebar,
+} from "@wakecap/core-ui/sidebar";

@@ -1,0 +1,9 @@
+{
+	"buildScriptName": "build",
+	"externals": ["packages/tokens/src/**", "packages/components/src/**"],
+	"onlyChanged": true,
+	"projectId": "Project:69dc9fe969b0b040c63609a7",
+	"storybookBaseDir": "apps/storybook",
+	"storybookBuildDir": "dist",
+	"zip": true
+}

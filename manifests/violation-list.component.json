@@ -1,0 +1,54 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "violation-list",
+	"tier": "component",
+	"name": "ViolationList",
+	"category": "data-display",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/violation-list.tsx",
+		"import": "@wakecap/core-ui/violation-list",
+		"export": "ViolationList"
+	},
+	"tags": [
+		"violation",
+		"list",
+		"drill-in",
+		"safety"
+	],
+	"intent": "A selectable list of violations, used by any panel that offers a way into a ticket.",
+	"when": [
+		"A panel lists violations that drill into their full ticket"
+	],
+	"chooseOver": [],
+	"pairsWith": [
+		"CameraDetailPanel",
+		"ResponderDetailPanel",
+		"ObservationDetailPanel"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [
+		{
+			"mistake": "Re-implementing the row markup in each panel that lists violations",
+			"fix": "Use ViolationList so a camera's catch and a responder's queue cannot drift apart",
+			"avoidOverride": "Copy the row markup between panels"
+		}
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Observations-Map-View",
+		"derivedFrom": {
+			"source": "packages/components/src/camera-detail-panel.tsx",
+			"extracted": [
+				"violation row"
+			]
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — exercised through both panels in the browser",
+		"supersedes": null,
+		"lastValidated": "2026-08-31",
+		"notes": []
+	}
+}

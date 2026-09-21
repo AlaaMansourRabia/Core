@@ -1,0 +1,55 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "map",
+	"tier": "widget",
+	"name": "Map",
+	"category": "map",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/map.tsx",
+		"import": "@wakecap/core-ui/map"
+	},
+	"tags": [
+		"display",
+		"map",
+		"mapbox",
+		"geographic",
+		"location"
+	],
+	"intent": "Interactive geospatial map.",
+	"when": [
+		"Locations, assets, or geofences on a map"
+	],
+	"chooseOver": [],
+	"pairsWith": [
+		"MapControls"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#Map\"]"
+		]
+	}
+}

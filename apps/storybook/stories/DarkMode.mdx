@@ -1,0 +1,54 @@
+import {Meta} from "@storybook/addon-docs/blocks";
+
+<Meta title="Getting Started/Dark Mode" />
+
+# Dark Mode
+
+Wakecore supports dark mode through CSS custom properties and the `.dark` class on the `<html>` element.
+
+## How It Works
+
+The design tokens in `@wakecap/core-tokens` define two sets of values:
+
+```css
+/* Light mode (default) */
+:root {
+	--background: oklch(1 0 0); /* white */
+	--foreground: oklch(0.145 0 0); /* near-black */
+	--primary: oklch(0.205 0 0); /* dark */
+	/* ... */
+}
+
+/* Dark mode */
+.dark {
+	--background: oklch(0.145 0 0); /* near-black */
+	--foreground: oklch(0.985 0 0); /* near-white */
+	--primary: oklch(0.922 0 0); /* light */
+	/* ... */
+}
+```
+
+When the `.dark` class is added to `<html>`, all CSS custom properties switch to their dark values. Every component that uses these tokens automatically adapts.
+
+## Toggling Dark Mode
+
+Toggle the `.dark` class on the document root:
+
+```tsx
+function toggleDarkMode() {
+	document.documentElement.classList.toggle("dark");
+}
+```
+
+## In Storybook
+
+Use the **sun/moon toggle** in the Storybook toolbar to switch between light and dark mode. Both the Storybook UI chrome and the component preview update together.
+
+## Component Guidelines
+
+When building components:
+
+- Use semantic color tokens with the `wwc:` prefix (`wwc:bg-primary`, `wwc:text-foreground`, `wwc:border-border`) instead of raw colors
+- Never hardcode color values — always reference tokens
+- Test both light and dark mode appearances
+- The `card`, `popover`, and `sidebar` tokens have their own foreground variants for layered surfaces

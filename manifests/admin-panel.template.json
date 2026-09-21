@@ -1,0 +1,58 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "admin-panel",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "CoreAdminPanel",
+	"archetype": "Admin",
+	"category": "settings",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/core-admin-panel.tsx",
+		"import": "@wakecap/core-ui/pages/core-admin-panel",
+		"export": "AdminPanel"
+	},
+	"tags": ["admin", "app-shell", "sidebar", "top-bar", "projects", "permissions", "users", "settings"],
+	"intent": "A full app-shell admin template: CoreAppSidebar + CoreAppTopBar around three administration surfaces selected from the sidebar — Projects (a projects DataTable), Permissions (role cards + a role×permission matrix), and Users (a users DataTable with bulk role/deactivate actions).",
+	"when": [
+		"An admin/settings area that owns its own app shell (sidebar + top bar), not just a content region",
+		"Managing organization-level entities: projects, roles/permissions, and users",
+		"A multi-section admin surface where the left nav switches the main content"
+	],
+	"whenNot": [
+		"A single content page rendered inside an existing app shell -> use a content-only template",
+		"A project analytics dashboard -> use Analytics Overview / Project Overview",
+		"A CRUD form for one entity -> use a Dialog launched from a list"
+	],
+	"chooseOver": [
+		{
+			"component": "Assembling CoreAppSidebar + CoreAppTopBar + tables by hand per admin section",
+			"because": "Admin Panel owns the shell, the sidebar-driven section switching, and the Projects/Permissions/Users surfaces."
+		}
+	],
+	"pairsWith": ["CoreAppSidebar", "CoreAppTopBar", "DataTable", "PermissionMatrix"],
+	"requiredProviders": [],
+	"composedOf": ["CoreAppSidebar", "CoreAppTopBar", "DataTable", "PermissionMatrix", "Card", "Badge", "Checkbox"],
+	"allowedPlacement": ["route-level admin / settings surface that owns the full window"],
+	"forbiddenPlacement": ["inside another CoreAppSidebar/CoreAppTopBar shell", "inside a Card or Dialog"],
+	"minimalExample": "// CoreAdminPanel is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@wakecap/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@wakecap/core-ui/navigation/core-app-top-bar\";\nimport {DataTable} from \"@wakecap/core-ui/data-table\";\nimport {PermissionMatrix} from \"@wakecap/core-ui/permission-matrix\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Admin Panel template (2026-07-13)",
+		"derivedFrom": {
+			"source": "CoreAppSidebar + CoreAppTopBar app shell",
+			"extracted": [
+				"sidebar-driven section switching (Projects / Permissions / Users)",
+				"projects + users DataTables",
+				"role × permission matrix"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-13",
+		"notes": ["pilot: true"]
+	}
+}

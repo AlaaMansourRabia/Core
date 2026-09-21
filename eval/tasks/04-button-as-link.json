@@ -1,0 +1,10 @@
+{
+	"id": "button-as-link",
+	"title": "Navigation styled as a button",
+	"domain": "primitives",
+	"prompt": "On a dashboard, add a primary call-to-action that looks like a solid button but navigates the user to the /reports route (a real link, not a JavaScript click handler).",
+	"expected": ["Button"],
+	"acceptable": [],
+	"forbidden": [],
+	"requiredProviders": []
+}

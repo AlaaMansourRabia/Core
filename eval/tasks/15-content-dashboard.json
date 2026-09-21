@@ -1,0 +1,10 @@
+{
+	"id": "content-dashboard",
+	"title": "Tabbed content dashboard",
+	"domain": "composition",
+	"prompt": "Build a project content dashboard: switch between a few named views with tabs, and under the active view show a row of headline metric tiles above a paginated, filterable table of records with a filter bar.",
+	"expected": ["DataTable"],
+	"acceptable": ["Tabs", "CoreFilterStrip", "MetricCard", "KPISummary"],
+	"forbidden": [],
+	"requiredProviders": []
+}

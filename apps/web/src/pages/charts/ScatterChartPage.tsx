@@ -1,0 +1,364 @@
+import ReactECharts from "echarts-for-react";
+
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
+
+export function ScatterChartPage() {
+	return (
+		<div className="wwc:space-y-8">
+			<div>
+				<h1 className="wwc:text-3xl wwc:font-bold">Scatter Chart</h1>
+				<p className="wwc:text-muted-foreground wwc:mt-2">
+					Scatter charts display data points to show relationships between variables.
+				</p>
+			</div>
+
+			<div className="wwc:grid wwc:gap-6 wwc:md:grid-cols-2">
+				<Card>
+					<CardHeader className="wwc:pb-2">
+						<CardTitle>Basic Scatter</CardTitle>
+						<CardDescription>Simple scatter plot with single series</CardDescription>
+					</CardHeader>
+					<CardContent>
+						<ReactECharts
+							option={{
+								tooltip: {trigger: "item", formatter: "({c})"},
+								grid: {left: "3%", right: "4%", bottom: "3%", containLabel: true},
+								xAxis: {type: "value"},
+								yAxis: {type: "value"},
+								series: [
+									{
+										name: "Points",
+										type: "scatter",
+										symbolSize: 10,
+										itemStyle: {color: "#3b82f6"},
+										data: [
+											[10, 25],
+											[15, 40],
+											[20, 35],
+											[25, 55],
+											[30, 45],
+											[35, 60],
+											[40, 50],
+											[45, 70],
+											[50, 65],
+											[55, 80],
+											[60, 75],
+											[65, 85],
+											[70, 90],
+											[75, 78],
+											[80, 95],
+											[12, 30],
+											[18, 38],
+											[22, 42],
+											[28, 48],
+											[33, 52],
+											[38, 58],
+											[43, 62],
+											[48, 68],
+											[53, 72],
+											[58, 82],
+											[63, 77],
+											[68, 88],
+											[73, 83],
+											[78, 92],
+											[83, 97],
+											[14, 28],
+											[19, 36],
+											[24, 44],
+											[29, 50],
+											[34, 56],
+											[39, 64],
+											[44, 66],
+											[49, 74],
+											[54, 76],
+											[59, 84],
+											[64, 86],
+											[69, 91],
+											[74, 88],
+											[79, 93],
+											[84, 96],
+											[16, 32],
+											[21, 37],
+											[26, 46],
+											[31, 53],
+											[36, 57],
+										],
+									},
+								],
+							}}
+							style={{height: 300}}
+						/>
+					</CardContent>
+				</Card>
+
+				<Card>
+					<CardHeader className="wwc:pb-2">
+						<CardTitle>Multi-Series</CardTitle>
+						<CardDescription>Multiple data series for comparison</CardDescription>
+					</CardHeader>
+					<CardContent>
+						<ReactECharts
+							option={{
+								tooltip: {trigger: "item"},
+								legend: {
+									data: ["Series A", "Series B", "Series C"],
+									bottom: 0,
+									left: "center",
+								},
+								grid: {left: "3%", right: "4%", bottom: "15%", containLabel: true},
+								xAxis: {type: "value"},
+								yAxis: {type: "value"},
+								series: [
+									{
+										name: "Series A",
+										type: "scatter",
+										symbolSize: 12,
+										itemStyle: {color: "#3b82f6"},
+										data: [
+											[12, 15],
+											[18, 22],
+											[25, 30],
+											[15, 20],
+											[22, 28],
+											[30, 35],
+											[35, 40],
+											[20, 25],
+											[28, 33],
+											[14, 18],
+											[32, 38],
+											[40, 45],
+											[17, 23],
+											[24, 29],
+											[38, 42],
+											[11, 16],
+											[19, 24],
+											[27, 32],
+											[33, 37],
+											[42, 48],
+											[16, 21],
+											[23, 27],
+											[29, 34],
+											[36, 41],
+											[44, 49],
+											[13, 17],
+											[21, 26],
+											[26, 31],
+											[34, 39],
+											[41, 46],
+										],
+									},
+									{
+										name: "Series B",
+										type: "scatter",
+										symbolSize: 12,
+										itemStyle: {color: "#ef4444"},
+										data: [
+											[35, 38],
+											[42, 45],
+											[48, 52],
+											[55, 58],
+											[38, 42],
+											[45, 48],
+											[52, 55],
+											[58, 62],
+											[40, 44],
+											[47, 50],
+											[54, 57],
+											[60, 64],
+											[37, 40],
+											[44, 47],
+											[50, 54],
+											[56, 60],
+											[62, 65],
+											[36, 39],
+											[43, 46],
+											[49, 53],
+											[55, 59],
+											[61, 63],
+											[39, 43],
+											[46, 49],
+											[53, 56],
+											[59, 61],
+											[64, 68],
+											[41, 44],
+											[48, 51],
+											[57, 60],
+										],
+									},
+									{
+										name: "Series C",
+										type: "scatter",
+										symbolSize: 12,
+										itemStyle: {color: "#22c55e"},
+										data: [
+											[55, 58],
+											[62, 65],
+											[68, 72],
+											[75, 78],
+											[58, 62],
+											[65, 68],
+											[72, 75],
+											[78, 82],
+											[60, 64],
+											[67, 70],
+											[74, 77],
+											[80, 84],
+											[57, 60],
+											[64, 67],
+											[70, 74],
+											[76, 80],
+											[82, 85],
+											[56, 59],
+											[63, 66],
+											[69, 73],
+											[75, 79],
+											[81, 83],
+											[59, 63],
+											[66, 69],
+											[73, 76],
+											[79, 81],
+											[84, 88],
+											[61, 64],
+											[68, 71],
+											[77, 80],
+										],
+									},
+								],
+							}}
+							style={{height: 300}}
+						/>
+					</CardContent>
+				</Card>
+
+				<Card>
+					<CardHeader className="wwc:pb-2">
+						<CardTitle>Bubble Chart</CardTitle>
+						<CardDescription>Scatter with variable point sizes</CardDescription>
+					</CardHeader>
+					<CardContent>
+						<ReactECharts
+							option={{
+								tooltip: {
+									trigger: "item",
+									formatter: (params: {value: number[]}) =>
+										`X: ${params.value[0]}<br/>Y: ${params.value[1]}<br/>Size: ${params.value[2]}`,
+								},
+								grid: {left: "3%", right: "4%", bottom: "3%", containLabel: true},
+								xAxis: {type: "value"},
+								yAxis: {type: "value"},
+								series: [
+									{
+										name: "Bubble",
+										type: "scatter",
+										symbolSize: (data: number[]) => data[2],
+										itemStyle: {color: "#22c55e", opacity: 0.7},
+										data: [
+											[10, 20, 15],
+											[20, 30, 25],
+											[30, 40, 35],
+											[40, 50, 20],
+											[50, 60, 45],
+											[60, 45, 30],
+											[70, 55, 40],
+											[80, 65, 25],
+											[25, 35, 50],
+											[45, 25, 35],
+										],
+									},
+								],
+							}}
+							style={{height: 300}}
+						/>
+					</CardContent>
+				</Card>
+
+				<Card>
+					<CardHeader className="wwc:pb-2">
+						<CardTitle>Effect Scatter</CardTitle>
+						<CardDescription>Highlighted points with ripple effect</CardDescription>
+					</CardHeader>
+					<CardContent>
+						<ReactECharts
+							option={{
+								tooltip: {trigger: "item"},
+								legend: {
+									data: ["Regular", "Highlight"],
+									bottom: 0,
+									left: "center",
+								},
+								grid: {left: "3%", right: "4%", bottom: "15%", containLabel: true},
+								xAxis: {type: "value", scale: true},
+								yAxis: {type: "value", scale: true},
+								series: [
+									{
+										name: "Regular",
+										type: "scatter",
+										symbolSize: 8,
+										itemStyle: {color: "#3b82f6"},
+										data: [
+											[10, 25],
+											[15, 40],
+											[20, 35],
+											[25, 55],
+											[30, 45],
+											[35, 60],
+											[40, 50],
+											[45, 70],
+											[50, 65],
+											[55, 80],
+											[60, 75],
+											[65, 85],
+											[70, 90],
+											[75, 78],
+											[80, 95],
+											[12, 30],
+											[18, 38],
+											[22, 42],
+											[28, 48],
+											[33, 52],
+											[38, 58],
+											[43, 62],
+											[48, 68],
+											[53, 72],
+											[58, 82],
+											[63, 77],
+											[68, 88],
+											[73, 83],
+											[78, 92],
+											[83, 97],
+											[14, 28],
+											[19, 36],
+											[24, 44],
+											[29, 50],
+											[34, 56],
+											[39, 64],
+											[44, 66],
+											[49, 74],
+											[54, 76],
+											[59, 84],
+											[16, 32],
+											[21, 37],
+										],
+									},
+									{
+										name: "Highlight",
+										type: "effectScatter",
+										symbolSize: 15,
+										itemStyle: {color: "#f59e0b"},
+										rippleEffect: {brushType: "stroke", scale: 3},
+										data: [
+											[25, 75],
+											[50, 50],
+											[75, 25],
+										],
+									},
+								],
+							}}
+							style={{height: 300}}
+						/>
+					</CardContent>
+				</Card>
+			</div>
+		</div>
+	);
+}

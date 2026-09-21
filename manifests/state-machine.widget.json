@@ -1,0 +1,299 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "state-machine",
+	"tier": "widget",
+	"name": "StateMachine",
+	"category": "data",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/state-machine.tsx",
+		"import": "@wakecap/core-ui/pages/state-machine",
+		"export": "StateMachine"
+	},
+	"tags": [
+		"process",
+		"state-machine",
+		"workflow",
+		"builder",
+		"editor",
+		"canvas",
+		"graph",
+		"transitions",
+		"wc3",
+		"studio"
+	],
+	"intent": "The state-machine authoring surface, whole: a header band, a left section rail, the graph on a full-bleed canvas, the editing panel beside it and a live validity footer under it. ONE widget, FOUR surfaces — two products crossed with two record ages. variant is the PRODUCT CUT (connect for WakeCap Connect V3, through ProcessDetail; work-permit for the Digital Work Permit template register) and authoring is the AGE (a record created in this session versus one that has run). Neither product owns a copy; both are callers.",
+	"when": [
+		"A process, workflow or approval chain has to be drawn and edited as states and transitions",
+		"A surface needs the graph of a process alongside the panel that mutates it",
+		"An embedded read of a state machine, with shell={false} turning the chrome and the rail off"
+	],
+	"whenNot": [
+		"Creating the process in the first place -> CreateProcessDialog",
+		"Drawing a graph nobody edits -> GraphCanvas with your own node types",
+		"A data pipeline rather than a state machine -> that is a different draft shape"
+	],
+	"chooseOver": [
+		{
+			"component": "GraphCanvas assembled by hand",
+			"because": "GraphCanvas draws nodes and edges; it knows nothing about states, transitions or the rules between them. This carries the domain a fresh canvas would not: the four-handle node that makes self-loops and backward edges render at all, the drag guards that refuse an illegal edge during the drag, the refusal messages quoted verbatim from checkTransition(), and the cascade when a state is deleted."
+		},
+		{
+			"component": "A template-local process editor",
+			"because": "The editor lived inside the Connect V3 process page and could not be mounted anywhere else. Every graph mutation routes through a pure helper and commits with one onChange(next), so the same builder serves a page, a dialog or an embed without any of them re-deriving the rules."
+		}
+	],
+	"pairsWith": [
+		"CreateProcessDialog",
+		"GraphCanvas",
+		"ConfirmDialog"
+	],
+	"requiredProviders": [
+		"None — GraphCanvas wraps its own ReactFlowProvider"
+	],
+	"dataContract": {
+		"input": {
+			"process": {
+				"type": "Wc3ProcessRecord",
+				"required": true,
+				"note": "States, transitions and the layout map. Seed one with seedProcesses() or createProcess()."
+			},
+			"onChange": {
+				"type": "(next: Wc3ProcessRecord) => void",
+				"required": true,
+				"note": "Receives the WHOLE next record. The builder never mutates in place."
+			},
+			"variant": {
+				"type": "\"full\" | \"canvas\"",
+				"required": false
+			},
+			"edit": {
+				"type": "Wc3ProcessEditState",
+				"required": false,
+				"note": "Controlled-optional transient state — selection, last refusal, the rail add-transition draft. Pass it with onEditChange when other surfaces must agree about the selection; omit both and the builder owns it."
+			},
+			"onEditChange": {
+				"type": "(next: Wc3ProcessEditState) => void",
+				"required": false
+			},
+			"onNavigate": {
+				"type": "(target: Wc3LineageNavTarget) => void",
+				"required": false,
+				"note": "Opens the ontology element an inspector links to. Without it those links are plain text."
+			},
+			"permit": {
+				"type": "Wc3PermitMeta",
+				"required": false,
+				"note": "Controlled-optional {name, type, description, policy} for the work-permit cut. `name` is mirrored onto the record through updateProcessMeta; type and description have no home on Wc3Process, so the host decides where they persist."
+			},
+			"onPermitChange": {
+				"type": "(next: Wc3PermitMeta) => void",
+				"required": false
+			},
+			"section": {
+				"type": "\"canvas\" | \"instances\" | \"bottlenecks\" | \"general\" | \"form\" | \"policy\"",
+				"required": false,
+				"note": "Which section the rail has open. Controlled-optional; ignored by variants with no shell."
+			},
+			"onBack": {
+				"type": "() => void",
+				"required": false,
+				"note": "Renders a Back button in the header band. Omitted, there is nowhere to go back to and no button is drawn."
+			},
+			"authoring": {
+				"type": "boolean",
+				"required": false,
+				"note": "This graph is being written, not inspected. Default false. Strips the header readouts (glyph, product chip, SLA badge, lint count, counts line), drops Instances and Bottlenecks from the rail, and reduces General to identity alone — no icon, no ontology binding row, none of the cards below it. One flag because they all fail for one reason: each reports on an established process, and on a graph created moments ago it is not merely empty but wrong."
+			},
+			"onSectionChange": {
+				"type": "(next: StateMachineSection) => void",
+				"required": false
+			},
+			"formSlot": {
+				"type": "ReactNode",
+				"required": false,
+				"note": "Fills the Form section. Defaults to a scaffold naming what belongs there."
+			},
+			"headerActions": {
+				"type": "ReactNode",
+				"required": false,
+				"note": "Actions for the far right of the header band — save, discard, publish. A slot rather than a prop per action, because what saving MEANS belongs to the host: a template register publishes a version, while the process page commits on every edit and has nothing to save."
+			},
+			"railFooter": {
+				"type": "ReactNode",
+				"required": false,
+				"note": "Extra rail cards, appended below the built-in ones. Ignored by variants with no rail."
+			}
+		},
+		"events": {
+			"onChange": {
+				"payload": {
+					"next": "Wc3ProcessRecord"
+				}
+			},
+			"onEditChange": {
+				"payload": {
+					"next": "Wc3ProcessEditState"
+				}
+			}
+		},
+		"rowIdentity": "State and transition ids are unique within one process; layout is keyed by state id."
+	},
+	"configSchema": {
+		"variant": {
+			"type": "string",
+			"default": "connect"
+		},
+		"shell": {
+			"type": "boolean",
+			"default": "the variant's own value (true for both product cuts)"
+		},
+		"authoring": {
+			"type": "boolean",
+			"default": false
+		},
+		"actions": {
+			"type": "readonly StateMachineAction[]",
+			"default": "[]",
+			"note": "The vocabulary a transition may bind to. EMPTY MEANS UNDECLARED, not 'none': the binding picker offers nothing, checkTransition accepts any id, and lint rule L7 does not fire. Supply it and both come back. It used to be 24 demo actions compiled into the package, which rejected a consumer's real ids as 'not in the ontology' while L7 refused to publish unbound — a wall with no way through (#251)."
+		},
+		"effects": {
+			"type": "readonly StateMachineEffect[]",
+			"default": "[]",
+			"note": "Vocabulary for a state's entry effects."
+		},
+		"stateFlags": {
+			"type": "readonly StateMachineFlagOption[]",
+			"default": "the built-in five",
+			"note": "Defaults to the five built-ins rather than to empty, unlike the other vocabularies: Wc3ProcessState.flags is a closed union in the MODEL, so these are labels for something the widget already understands. Pass it to relabel, reorder or offer fewer."
+		},
+		"instances": {
+			"type": "readonly Wc3ProcessInstanceRow[]",
+			"default": "[]",
+			"note": "The rows this process's tokens are — what Instances lists, what Bottlenecks ranks, and the count on every canvas node. Token rows are keyed by BACKING OBJECT TYPE, not by process, so only the host knows where they live. It used to read a fixture keyed on objectTypeId, so a real process showed an empty Instances section, an empty Bottlenecks section and a 0 on every node."
+		},
+		"instancesLoading": {
+			"type": "boolean",
+			"default": false,
+			"note": "Separates 'no live work yet' from 'not fetched yet' in the empty state."
+		},
+		"readOnly": {
+			"type": "boolean",
+			"default": false,
+			"note": "Read, select and pan; no node drag, no connection gesture, no add forms, no deletes, no Tidy layout. The closest thing before was shell={false}, which stripped the header and rail and STILL committed a moveState on every drag."
+		},
+		"sections": {
+			"type": "readonly SectionGroup[]",
+			"default": "whatever `variant` declares",
+			"note": "The rail's groups, in order. This is what stops the library naming its own consumers: `variant` is a preset that resolves to a sections value, and a third product passes its own rail rather than sending a PR to add a key to an enum inside core-ui."
+		},
+		"sectionLabels": {
+			"type": "Partial<Record<StateMachineSection, string>>",
+			"default": "whatever `variant` declares",
+			"note": "Per-section renames."
+		}
+	},
+	"variantIntent": {
+		"connect": "WakeCap Connect V3's process page: header band, section rail (Canvas / Instances / Bottlenecks / Settings), canvas and editing panel. What ProcessDetail mounts.",
+		"work-permit": "The Digital Work Permit cut. The same canvas, the same editing panel and the same guards — the LEFT RAIL is the whole difference today: General, Canvas, Form, Policy, then a rule, then Instances and Bottlenecks. General is the Settings section renamed, carrying the permit's type and description beside the record's own name and icon."
+	},
+	"states": {
+		"tidied": "Tidy layout re-runs processLayout and re-frames the graph — the only thing that moves a state other than a drag.",
+		"checking": "The canvas footer reads \"Checking workflow…\" for a beat after any change to the graph's SHAPE — a drag does not trigger it, since a move cannot alter validity. The words carry a shimmer while it lasts: a highlight sweeping across the glyphs via a background-clip: text gradient, because the line is being recomputed rather than absent, which is what a Skeleton would say instead. Motion-reduce stops the sweep.",
+		"validated": "The footer reads \"Workflow validated — no blocking issues.\" in green when L1-L7 all pass. It is centred under the canvas: the canvas's own readout, not a caption for something to its left.",
+		"blocked": "The footer names the count and the failing rule ids; the rail's Graph validity card carries the detail.",
+		"empty": "Every state deleted — an Empty pointing at the rail, since a graph needs an initial, a terminal and one active state to pass L1–L3.",
+		"refused": "An illegal edit raises an amber band above the canvas, quoting checkTransition() or stateDeleteBlockReason() verbatim.",
+		"stateSelected": "The node carries React Flow's own selected shadow and the rail opens its State tab with that state's row expanded.",
+		"transitionSelected": "The edge takes React Flow's own selected stroke and the rail opens its Transition tab with that transition's row expanded.",
+		"transitionDrawn": "A legal connection drag COMMITS on drop, unbound: the edge is created with a derived key and kind, drawn dashed, selected, and its inspector opened on the Bound action type field — the one thing a drag cannot supply. The footer reads 1 blocking issue — L7 until it binds; binding it clears the dash and the lint in one move.",
+		"seededExample": "A NEW record opens on a worked example, never a blank canvas. Connect V3: createProcess() seeds Draft -> In review -> Active -> Closed with a Rejected branch that reopens, structurally complete against L1-L6, every edge UNBOUND and dashed because a generic process cannot know which of the host's action types fires \"submit\" — the footer reads as five L7s, a checklist over a working graph rather than a diagnosis of a broken one. Work Permit: defaultTemplateGraph() seeds the standard permit lifecycle with the shipped graph's custom states dropped, and because that cut knows its ontology its edges arrive bound and it opens publishable. The old two-state stub failed L3, L4 and L5 on sight and made every author invent a lifecycle from nothing.",
+		"authoringOpensOnCanvas": "Authoring always opens the rail on the CANVAS, whatever the variant leads with. A graph being written has nothing else worth landing on — Instances and Bottlenecks are dropped in that mode, and General is identity fields for a record whose whole point is the shape behind them. The work-permit cut is the one this changes: its rail leads with General, which is right for an existing template and wrong for a blank one.",
+		"authoring": "Identity alone — Back and the name in the header, General/Canvas/Form in the rail, a General section with no icon, no binding row and no provenance cards, and a state inspector reduced to what DEFINES a state (key, label, category, type, flags, entry requirements) with colour, SLA and the outgoing list left to the process page.",
+		"entryPanelCollapsed": "A state's entry requirements and effects are folded away behind one button — the deep end of a state, and usually two lines that read \"none\".",
+		"permitSections": "The work-permit variant only: General, Canvas, Form, then a ruled-off Instances and Bottlenecks — with the permit type and description inside General's Identity card.",
+		"permitTypeless": "A process whose rows carry no permit_type says so instead of offering an empty picker.",
+		"permitTypePills": "Permit type is a single-select ToggleGroup, not a dropdown — a short, closed list every option of which fits on screen. Each pill carries the type's identity colour as a dot, dimmed when unpicked; the picked pill stacks four cues (ring, border, tinted surface, weight) because the base toggle marks `on` with a light grey fill alone. Pressing the active pill again clears it.",
+		"openDomain": "Every vocabulary is a prop and every one defaults to EMPTY. A product that is neither Connect V3 nor the Work Permit register declares its rail through `sections`, its binding vocabulary through `actions` and its tokens through `instances` — no key added to an enum here, no demo data rendered in a product that has none. See the Custom Product story.",
+		"readOnly": "The graph as most people meet it: pan, zoom, select, inspect. Node drag, the connection gesture, both add forms, every delete and Tidy layout are all off."
+	},
+	"composedOf": [
+		"GraphCanvas",
+		"Card",
+		"ConfirmDialog",
+		"Combobox",
+		"Input",
+		"Textarea",
+		"ToggleGroup",
+		"Tabs",
+		"Accordion",
+		"RecordDetailShell",
+		"SideMenu",
+		"DataTable",
+		"Empty"
+	],
+	"allowedPlacement": [
+		"inside a fixed-height or min-h-0 flex container",
+		"the flush pane of a RecordDetailShell"
+	],
+	"forbiddenPlacement": [
+		"a container with no resolved height — the canvas collapses to a 0px strip",
+		"inside a padded well — the canvas is full-bleed by design and gutters around it are width the graph wanted"
+	],
+	"minimalExample": "import {StateMachine} from \"@wakecap/core-ui/pages/state-machine\";\nimport {seedProcesses} from \"@wakecap/core-ui/pages/wc3-process-views\";\n\nconst [process, setProcess] = useState(() => seedProcesses()[0]);\n\n<div className=\"wwc:h-[42rem]\">\n\t<StateMachine variant=\"connect\" process={process} onChange={setProcess} />\n</div>",
+	"evaluationCriteria": [
+		"The builder sits in a container with a resolved height.",
+		"A refusal is shown verbatim — no surface rewords checkTransition().",
+		"A legal connection drag commits the transition on drop, dashed and unbound, and opens its inspector on the binding.",
+		"A new variant is added to StateMachineVariant AND to VARIANT_TRAITS, and recomposes the exported pieces rather than forking the file.",
+		"A variant that changes the section list changes its VARIANT_TRAITS row, not the render.",
+		"A behavioural difference between variants is a trait key, never an inline `variant === \"…\"` test in the render."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Extracted from the canvas section of wc3-process-detail.tsx (2026-09-01)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-process-detail.tsx",
+			"extracted": [
+				"four-handle process state node (the counts and tints it once painted are gone — see the React Flow defaults note)",
+				"self-loop and backward-edge routing (the bulged-arc edge component it once used is gone)",
+				"drag guards and the verbatim refusal banner",
+				"state inspector, transition inspector and add-transition form",
+				"add-state form and the graph-validity (L1-L7) rail card",
+				"delete confirmations with the state cascade"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": "The inline process canvas and editing rail in wc3-process-detail.tsx",
+		"lastValidated": "2026-09-01",
+		"notes": [
+			"The page keeps ownership of `edit` because Instances and Bottlenecks scope off the same selection; the builder owns it when mounted alone.",
+			"variant is the declared extension axis — the node, both inspectors, the add-transition form and ProcessRailCard are exported so a variant recomposes rather than forks.",
+			"The shell moved here from wc3-process-detail.tsx so both cuts share one header and one rail; ProcessDetail is now a thin wrapper over variant=full and renders exactly what it always did.",
+			"Section order, grouping, the rule between groups and the Settings/General rename are all VARIANT_TRAITS rows, never branches in the render.",
+			"The Policy section (wc3-permit-policy.tsx) carries what a permit INHERITS from its template — validity, extensions, receiver handover, required attachments, daily sign-off and geofence. Its own module because none of it touches the graph, and it persists through the same permit value the host already owns.",
+			"Its option vocabularies (receiver eligibility, handover mode, sign-off roles) are FIXTURES; nothing in this repo models them.",
+			"Wc3ProcessState gained optional entryRequirements (action type ids collected before a permit may reach the state, on ANY incoming edge) and entryEffects (applied in order on entry). Both are optional, so no fixture needed changing.",
+			"WC3_PROCESS_EFFECTS is a FIXTURE vocabulary, not a contract — the engine's real effect set is not modelled here; only start_sla_timer is mentioned in passing. Replace it when there is a real list.",
+			"The editing rail is split State / Transition. Each tab is a LIST that expands in place — the open accordion row IS the selection, so expanding a row rings its node and clicking a node opens its row: one value, two ways to set it. Add is an in-place form under the list, not a permanently mounted card.",
+			"The canvas footer is a live validity readout, not a legend and a how-to-drag hint — both were static text that said the same thing every visit. The check is instant (processGraphLint is pure); the brief Checking state exists so a recheck is visible rather than flipping silently between two identical sentences.",
+			"The canvas is on React Flow's DEFAULTS, deliberately: the built-in default node (registered under the `default` key so the library's own node CSS applies), default bezier edges at the default #b1b1b7, default handles, default selection. It previously painted a bespoke 176x66 box - colour strip, category line, custom/proposed markers, flag row, live token pill, SLA tint - over smoothstep wiring with a stroke colour per transition kind, and read as noise beside the graphs on reactflow.dev/examples. The readouts it dropped are still on the page: the rail inspector, Instances and Bottlenecks. ONE deviation from bare default remains: each node's background is its state's identity colour mixed 14% into React Flow's --xy-node-background-color, so the canvas names a state with the same colour the rail's State list prints as a dot beside it. Mixing into the library's own node background rather than a literal white makes it land on #fff light and #1e1e1e dark from one number.",
+			"GraphCanvas is passed layout=\"free\" so its smoothstep default does not apply: a state machine runs backwards and loops onto itself, and orthogonal segments turned every one of those into a staircase. The fit padding is passed back explicitly.",
+			"A self-loop and a backward edge take DIFFERENT handle pairs. Backward runs bottom to top and arcs under the row; a self-loop cannot, because both ends sit on one node and bottom-to-top puts all four bezier control points on the same x, drawing a straight vertical line THROUGH the node. A self-loop therefore leaves the right handle and returns into the top one, and the default curve swings clear over the top-right corner on its own.",
+			"Edges carry NO label. The transition keys are long snake_case identifiers (reject_from_submitted, reopen_from_rejected) and one on every line put more text between the nodes than inside them, crossing the neighbouring edges to do it. A transition is named in the rail's Transition list, the state inspector's outgoing rows, and the inspector an edge click opens.",
+			"The canvas is FULL-BLEED: no padded well, no gap, no Card. A rounded bordered box floating in a gutter made the canvas a picture OF the work rather than the work, and every rule around it took width the graph wanted. The editing rail is the shell's left panel mirrored — same bg-card, same one-pixel border (border-l from lg up, border-t stacked), full height, its own scroll — so the middle of the page is nothing but canvas.",
+			"Renamed from ProcessBuilder to StateMachine when the Work Permit cut landed: \"process\" was the wrong half of the name, because what it authors is a state machine whatever the product calls the record. The variant axis became the PRODUCT CUT — connect and work-permit — and the shell-less embed stopped being a variant, since it is not a product; it is shell={false}, which turns the rail off with it.",
+			"The two axes are deliberately separate. `variant` answers WHICH PRODUCT and today changes the left rail alone; `authoring` answers HOW OLD THE RECORD IS and strips what only an established process can report. Crossing them rather than shipping four variants is what keeps a canvas fix from being made four times — and it is why ProcessDetail takes an `isNew` prop and the Processes list tracks the id it just created in session state rather than putting a flag on the record.",
+			"Wc3ProcessTransition.actionTypeId is NULLABLE, and that is what lets a canvas drop commit. Everything else a transition needs is derived (key, kind) or came from the drag (from, to); the binding is the one field a gesture cannot supply. checkTransition no longer refuses a null binding at guard 2 — the rule moved to where it belongs, processGraphLint's L7 and the publish gate, which is the difference between 'you may not draw that' and 'that is not finished'. An unbound edge is the one place a stroke style survived the move to React Flow's defaults: dashed, because it carries state rather than decoration. L7 now has two messages for one rule, since a brand-new edge is not bound to something wrong, it is not bound yet.",
+			"The transition inspector folds actor role, guards and effects behind one button, the same call the state inspector makes about entry requirements. The Bound action type field stays above the fold alone: it is the field a drop cannot fill and therefore the field the author landed here to fill.",
+			"It keys on a hash of the graph SHAPE, not the record: every commit deep-clones the process, so keying on the record would re-check on every drag.",
+			"The tab and the add form both follow the canvas (node click, edge click, connection drop) so a gesture never fills in a hidden surface. Graph validity stays outside both tabs, being a fact about the whole graph.",
+			"SideMenuGroup gained an optional `divider` for this: unlabelled groups are otherwise separated by 2px and read as one list.",
+			"pilot: true",
+			"Issue #251: the widget was parameterised on PRESENTATION and hardcoded on DOMAIN — seven props for how it looks, none for what it shows. Every vocabulary came from a module-level fixture, so a consumer's action ids were refused as 'not in the ontology' while L7 blocked publishing, and its rows never appeared. The vocabularies are props defaulting to empty; the pure helpers (checkTransition, transitionAction, processGraphLint, processTokens, processOpenRows, processBottlenecks, processAgingBuckets, processFacts, stateDeleteBlockReason) take their data as an ARGUMENT rather than closing over a fixture; and the demo data moved to @wakecap/core-ui/pages/state-machine-fixtures, which only stories and demo surfaces import. Measured with esbuild, that takes the fixture payload a consumer pulls from 23.4 KB gz to 11.6 KB gz. The rest is WC3_OBJECT_TYPES, still reached through getObjectType for the backing-type glyph — severing it needs the object type injected too, which is a further API decision and was left out."
+		]
+	}
+}

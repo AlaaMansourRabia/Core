@@ -1,0 +1,49 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "progress-list-item",
+	"tier": "component",
+	"name": "ProgressListItem",
+	"category": "display",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/progress-list-item.tsx",
+		"import": "@wakecap/core-ui/progress-list-item",
+		"export": "ProgressListItem"
+	},
+	"tags": [
+		"progress",
+		"list",
+		"row",
+		"wbs",
+		"drilldown"
+	],
+	"intent": "The shared row for a progress-details list. One component covers every WBS level via the variant prop: generic (a zone/category/division grouping — an EV rollup + tool count), task (a work item — name/code + schedule badge, EV strip, progress bar), and object (a physical object — name/code + metrics + progress bar). Rows with an onOpen handler drill into the next level.",
+	"when": [
+		"Rendering a WBS drill-down list (zone → category → division → task → object)",
+		"One row component spanning grouping, task, and object levels"
+	],
+	"chooseOver": [
+		{
+			"component": "Item",
+			"because": "ProgressListItem is the WBS-specific row with EV/schedule/progress variants; Item is the generic list row"
+		}
+	],
+	"pairsWith": [
+		"ProgressDetails",
+		"OperationsDrawer",
+		"Badge",
+		"Progress"
+	],
+	"requiredProviders": [],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "run-app-and-storybook → develop merge (2026-07)",
+		"status": "accepted",
+		"confidence": "unset — authored alongside the component",
+		"lastValidated": "2026-07-22",
+		"notes": [
+			"authored during the develop merge reconciliation"
+		]
+	}
+}

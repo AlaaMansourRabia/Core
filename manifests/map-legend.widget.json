@@ -1,0 +1,65 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "map-legend",
+	"tier": "widget",
+	"name": "MapLegend",
+	"category": "map",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/map-legend.tsx",
+		"import": "@wakecap/core-ui/map-legend"
+	},
+	"tags": [
+		"map",
+		"legend",
+		"key",
+		"overlay",
+		"collapsible"
+	],
+	"intent": "Compact, foldable key for what is currently drawn on a map.",
+	"when": [
+		"A map carries more than one kind of marker or layer",
+		"Marker colour encodes a dimension the viewer has to decode"
+	],
+	"chooseOver": [
+		{
+			"component": "Legend",
+			"because": "Legend is a chart key laid out inline with its chart. MapLegend floats over a map, folds away, and draws swatches shaped like the markers they describe."
+		}
+	],
+	"pairsWith": [
+		"ObservationsMap",
+		"MapControlPanel"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [
+		"Drawing every swatch as the same shape — a key is easier to read when a round entry means a round marker and a dashed entry means a dashed outline.",
+		"Letting the legend describe a scheme the map is not currently using — drive its sections from the same state that colours the markers.",
+		"Reaching for a heavy drop shadow on a floating map surface — it reads as a modal over the map instead of a panel on it. Use the shared FLOAT_SHADOW."
+	],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Observations-Map-View",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — rendered and read back in the browser",
+		"supersedes": null,
+		"lastValidated": "2026-08-31",
+		"notes": []
+	},
+	"composedOf": [
+		"Button"
+	]
+}

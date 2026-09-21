@@ -1,0 +1,108 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "permission-matrix",
+	"tier": "widget",
+	"name": "PermissionMatrix",
+	"category": "admin",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/permission-matrix.tsx",
+		"import": "@wakecap/core-ui/permission-matrix",
+		"export": "PermissionMatrix"
+	},
+	"tags": ["permissions", "roles", "admin", "hierarchy", "checkbox", "access-control", "responsive"],
+	"intent": "A reusable three-level role-permission chooser with a selected-count header, parent/child cascade, indeterminate states, active category navigation, and a coherent equal-track matrix that scrolls as one unit on narrow containers.",
+	"when": [
+		"Creating or editing a role whose permissions are grouped into category, scope, and action levels",
+		"A hierarchical permission catalog needs parent cascade and indeterminate checkbox states",
+		"Permission labels vary in length but all hierarchy columns must retain equivalent widths"
+	],
+	"whenNot": [
+		"Displaying sortable records with independent columns -> use DataTable",
+		"Selecting one value from a flat list -> use Select or Combobox",
+		"Showing a general-purpose expandable hierarchy without permission cascade -> use TreeRow"
+	],
+	"chooseOver": [
+		{
+			"component": "A template-local nested checkbox grid",
+			"because": "PermissionMatrix owns cascade logic, indeterminate state, shared column tracks, cell rhythm, overflow, and accessibility so templates do not duplicate or desynchronize them."
+		}
+	],
+	"pairsWith": ["SectionPanel", "Checkbox", "Badge", "Dialog"],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"categories": {
+				"type": "PermissionMatrixCategory[]",
+				"required": true,
+				"note": "Three-level category -> group -> permission catalog; leaf permission ids are the selection keys."
+			},
+			"value": {
+				"type": "Record<string, boolean>",
+				"required": false,
+				"note": "Controlled checked state keyed by leaf permission id."
+			},
+			"defaultValue": {
+				"type": "Record<string, boolean>",
+				"required": false,
+				"note": "Initial checked state when uncontrolled."
+			},
+			"onValueChange": {
+				"type": "(next: Record<string, boolean>) => void",
+				"required": false,
+				"note": "Receives one atomic next value for leaf, group, category, and Select All changes."
+			},
+			"activeCategoryId": {
+				"type": "string",
+				"required": false,
+				"note": "Controlled top-level category displayed in the detail columns."
+			},
+			"readOnly": {
+				"type": "boolean",
+				"required": false,
+				"note": "Disables permission changes while preserving category inspection."
+			},
+			"showHeader": {
+				"type": "boolean",
+				"required": false,
+				"note": "Set false when a containing Dialog already owns the title and description."
+			}
+		},
+		"rowIdentity": "Permission ids must be unique across the complete catalog; category and group ids must be unique within their levels."
+	},
+	"states": {
+		"default": "The first category is active; the header reports selected leaf permissions against the complete catalog.",
+		"partial": "Parent checkboxes use the indeterminate state when only some descendants are selected.",
+		"selected": "Selecting a parent updates every descendant in one value change.",
+		"readOnly": "All checkboxes are disabled while category navigation remains available for inspection.",
+		"narrow": "The matrix retains three equal readable tracks and horizontally scrolls as one unit.",
+		"empty": "The matrix renders Select All disabled with a 0/0 count."
+	},
+	"composedOf": ["SectionPanel", "Checkbox", "Badge"],
+	"allowedPlacement": ["role create or edit form", "access-control settings page", "read-only role permissions dialog"],
+	"forbiddenPlacement": ["inside a DataTable row", "as a substitute for application navigation"],
+	"minimalExample": "import {PermissionMatrix} from \"@wakecap/core-ui/permission-matrix\";\n\n<PermissionMatrix categories={catalog} value={permissions} onValueChange={setPermissions} />",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Extracted from the Admin Panel role setup permission selector (2026-07-19)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-admin-panel.tsx",
+			"extracted": [
+				"three-level permission hierarchy",
+				"parent cascade and indeterminate checkbox logic",
+				"selected permission count",
+				"active category navigation"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": "Admin Panel template-local PermissionSelector",
+		"lastValidated": "2026-07-19",
+		"notes": [
+			"Uses one equal-track outer grid and bounded label truncation to preserve coherent geometry.",
+			"pilot: true"
+		]
+	}
+}

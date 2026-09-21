@@ -1,0 +1,45 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "section-header",
+	"tier": "component",
+	"name": "SectionHeader",
+	"category": "layout",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/section-header.tsx",
+		"import": "@wakecap/core-ui/section-header",
+		"export": "SectionHeader"
+	},
+	"tags": [
+		"section",
+		"header",
+		"title",
+		"actions",
+		"heading"
+	],
+	"intent": "Title (+ optional description) on the left, actions on the right — the heading that sits above a page section, settings pane, or band of tiles. Use this rather than an ad-hoc `h2` + `p` pair so every section reads at the same size and spacing.",
+	"when": [],
+	"chooseOver": [],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "Group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — intent taken verbatim from the module's own doc comment; contract not yet enumerated",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Was exported from @wakecap/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
+			"Stub by design: the intent is accurate, the data contract is not yet authored.",
+			"pilot: false"
+		]
+	}
+}

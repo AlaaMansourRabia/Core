@@ -1,0 +1,45 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-content-area",
+	"tier": "utility",
+	"name": "CoreContentArea",
+	"category": "pages",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/core-content-area.tsx",
+		"import": "@wakecap/core-ui/pages/core-content-area",
+		"export": "CoreContentArea"
+	},
+	"tags": [
+		"router",
+		"content",
+		"layout",
+		"pages"
+	],
+	"intent": "Main content-area wrapper for the app shell (padding, scroll, max-width).",
+	"when": [
+		"The content region inside CoreAppSidebar + CoreAppTopBar"
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar"
+	],
+	"requiredProviders": [],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 utility migration (2026-07)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-content-area.tsx",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"migrated from library-index.json (hand-authored catalog entry)"
+		]
+	}
+}

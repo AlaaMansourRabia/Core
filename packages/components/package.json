@@ -1,0 +1,1562 @@
+{
+	"name": "@wakecap/core-ui",
+	"version": "0.18.1",
+	"bin": {
+		"intent": "./bin/intent.js"
+	},
+	"files": [
+		"dist",
+		"skills",
+		"!skills/_artifacts",
+		"bin"
+	],
+	"type": "module",
+	"sideEffects": [
+		"*.css"
+	],
+	"main": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
+	"exports": {
+		".": {
+			"source": "./src/index.ts",
+			"types": "./dist/index.d.mts",
+			"import": "./dist/index.mjs"
+		},
+		"./site-reality-viewer": {
+			"source": "./src/site-reality-viewer.ts",
+			"types": "./dist/site-reality-viewer.d.mts",
+			"import": "./dist/site-reality-viewer.mjs"
+		},
+		"./footprint-viewer": {
+			"source": "./src/footprint-viewer.ts",
+			"types": "./dist/footprint-viewer.d.mts",
+			"import": "./dist/footprint-viewer.mjs"
+		},
+		"./building-viewer": {
+			"source": "./src/building-viewer.tsx",
+			"types": "./dist/building-viewer.d.mts",
+			"import": "./dist/building-viewer.mjs"
+		},
+		"./site-panel": {
+			"source": "./src/site-panel.tsx",
+			"types": "./dist/site-panel.d.mts",
+			"import": "./dist/site-panel.mjs"
+		},
+		"./site-toolbar": {
+			"source": "./src/site-toolbar.tsx",
+			"types": "./dist/site-toolbar.d.mts",
+			"import": "./dist/site-toolbar.mjs"
+		},
+		"./map-transition": {
+			"source": "./src/map-transition.tsx",
+			"types": "./dist/map-transition.d.mts",
+			"import": "./dist/map-transition.mjs"
+		},
+		"./progress-sheet": {
+			"source": "./src/progress-sheet.tsx",
+			"types": "./dist/progress-sheet.d.mts",
+			"import": "./dist/progress-sheet.mjs"
+		},
+		"./site-image-viewer": {
+			"source": "./src/site-image-viewer.tsx",
+			"types": "./dist/site-image-viewer.d.mts",
+			"import": "./dist/site-image-viewer.mjs"
+		},
+		"./site-image-viewer-fixtures": {
+			"source": "./src/site-image-viewer-fixtures.ts",
+			"types": "./dist/site-image-viewer-fixtures.d.mts",
+			"import": "./dist/site-image-viewer-fixtures.mjs"
+		},
+		"./pages/capture-ui-enhanced": {
+			"source": "./src/pages/capture-ui-enhanced.tsx",
+			"types": "./dist/pages/capture-ui-enhanced.d.mts",
+			"import": "./dist/pages/capture-ui-enhanced.mjs"
+		},
+		"./file-system": {
+			"source": "./src/file-system/index.ts",
+			"types": "./dist/file-system/index.d.mts",
+			"import": "./dist/file-system/index.mjs"
+		},
+		"./styles.css": {
+			"style": "./dist/styles.css",
+			"import": "./dist/styles.css"
+		},
+		"./styles.tw4.css": {
+			"style": "./dist/styles.tw4.css",
+			"import": "./dist/styles.tw4.css"
+		},
+		"./accordion": {
+			"source": "./src/accordion.tsx",
+			"types": "./dist/accordion.d.mts",
+			"import": "./dist/accordion.mjs"
+		},
+		"./add-observation-dialog": {
+			"source": "./src/add-observation-dialog.tsx",
+			"types": "./dist/add-observation-dialog.d.mts",
+			"import": "./dist/add-observation-dialog.mjs"
+		},
+		"./banner": {
+			"source": "./src/banner.tsx",
+			"types": "./dist/banner.d.mts",
+			"import": "./dist/banner.mjs"
+		},
+		"./alert-dialog": {
+			"source": "./src/alert-dialog.tsx",
+			"types": "./dist/alert-dialog.d.mts",
+			"import": "./dist/alert-dialog.mjs"
+		},
+		"./alert": {
+			"source": "./src/alert.tsx",
+			"types": "./dist/alert.d.mts",
+			"import": "./dist/alert.mjs"
+		},
+		"./app-card": {
+			"source": "./src/app-card.tsx",
+			"types": "./dist/app-card.d.mts",
+			"import": "./dist/app-card.mjs"
+		},
+		"./aspect-ratio": {
+			"source": "./src/aspect-ratio.tsx",
+			"types": "./dist/aspect-ratio.d.mts",
+			"import": "./dist/aspect-ratio.mjs"
+		},
+		"./avatar": {
+			"source": "./src/avatar.tsx",
+			"types": "./dist/avatar.d.mts",
+			"import": "./dist/avatar.mjs"
+		},
+		"./badge": {
+			"source": "./src/badge.tsx",
+			"types": "./dist/badge.d.mts",
+			"import": "./dist/badge.mjs"
+		},
+		"./blueprint-segment": {
+			"source": "./src/blueprint-segment.tsx",
+			"types": "./dist/blueprint-segment.d.mts",
+			"import": "./dist/blueprint-segment.mjs"
+		},
+		"./breadcrumb": {
+			"source": "./src/breadcrumb.tsx",
+			"types": "./dist/breadcrumb.d.mts",
+			"import": "./dist/breadcrumb.mjs"
+		},
+		"./browser-tabs": {
+			"source": "./src/browser-tabs.tsx",
+			"types": "./dist/browser-tabs.d.mts",
+			"import": "./dist/browser-tabs.mjs"
+		},
+		"./building-model-placeholder": {
+			"source": "./src/building-model-placeholder.tsx",
+			"types": "./dist/building-model-placeholder.d.mts",
+			"import": "./dist/building-model-placeholder.mjs"
+		},
+		"./building-progress": {
+			"source": "./src/building-progress.tsx",
+			"types": "./dist/building-progress.d.mts",
+			"import": "./dist/building-progress.mjs"
+		},
+		"./button-group": {
+			"source": "./src/button-group.tsx",
+			"types": "./dist/button-group.d.mts",
+			"import": "./dist/button-group.mjs"
+		},
+		"./button": {
+			"source": "./src/button.tsx",
+			"types": "./dist/button.d.mts",
+			"import": "./dist/button.mjs"
+		},
+		"./calendar": {
+			"source": "./src/calendar.tsx",
+			"types": "./dist/calendar.d.mts",
+			"import": "./dist/calendar.mjs"
+		},
+		"./calendar-view": {
+			"source": "./src/calendar-view.tsx",
+			"types": "./dist/calendar-view.d.mts",
+			"import": "./dist/calendar-view.mjs"
+		},
+		"./canvas-header": {
+			"source": "./src/canvas-header.tsx",
+			"types": "./dist/canvas-header.d.mts",
+			"import": "./dist/canvas-header.mjs"
+		},
+		"./capture-route-minimap": {
+			"source": "./src/capture-route-minimap.tsx",
+			"types": "./dist/capture-route-minimap.d.mts",
+			"import": "./dist/capture-route-minimap.mjs"
+		},
+		"./card": {
+			"source": "./src/card.tsx",
+			"types": "./dist/card.d.mts",
+			"import": "./dist/card.mjs"
+		},
+		"./canvas-toolbar": {
+			"source": "./src/canvas-toolbar.tsx",
+			"types": "./dist/canvas-toolbar.d.mts",
+			"import": "./dist/canvas-toolbar.mjs"
+		},
+		"./canvas-file-picker": {
+			"source": "./src/canvas-file-picker.tsx",
+			"types": "./dist/canvas-file-picker.d.mts",
+			"import": "./dist/canvas-file-picker.mjs"
+		},
+		"./canvas-navigator": {
+			"source": "./src/canvas-navigator.tsx",
+			"types": "./dist/canvas-navigator.d.mts",
+			"import": "./dist/canvas-navigator.mjs"
+		},
+		"./compare-bars": {
+			"source": "./src/compare-bars.tsx",
+			"types": "./dist/compare-bars.d.mts",
+			"import": "./dist/compare-bars.mjs"
+		},
+		"./milestone-table": {
+			"source": "./src/milestone-table.tsx",
+			"types": "./dist/milestone-table.d.mts",
+			"import": "./dist/milestone-table.mjs"
+		},
+		"./operations-drawer": {
+			"source": "./src/operations-drawer.tsx",
+			"types": "./dist/operations-drawer.d.mts",
+			"import": "./dist/operations-drawer.mjs"
+		},
+		"./progress-list-item": {
+			"source": "./src/progress-list-item.tsx",
+			"types": "./dist/progress-list-item.d.mts",
+			"import": "./dist/progress-list-item.mjs"
+		},
+		"./pages/core-blueprint-viewer-3": {
+			"source": "./src/pages/core-blueprint-viewer-3.tsx",
+			"types": "./dist/pages/core-blueprint-viewer-3.d.mts",
+			"import": "./dist/pages/core-blueprint-viewer-3.mjs"
+		},
+		"./pages/core-progress-details": {
+			"source": "./src/pages/core-progress-details.tsx",
+			"types": "./dist/pages/core-progress-details.d.mts",
+			"import": "./dist/pages/core-progress-details.mjs"
+		},
+		"./toolbar": {
+			"source": "./src/toolbar.tsx",
+			"types": "./dist/toolbar.d.mts",
+			"import": "./dist/toolbar.mjs"
+		},
+		"./toolbar-color-picker": {
+			"source": "./src/toolbar-color-picker.tsx",
+			"types": "./dist/toolbar-color-picker.d.mts",
+			"import": "./dist/toolbar-color-picker.mjs"
+		},
+		"./toolbar-pager": {
+			"source": "./src/toolbar-pager.tsx",
+			"types": "./dist/toolbar-pager.d.mts",
+			"import": "./dist/toolbar-pager.mjs"
+		},
+		"./toolbar-stats": {
+			"source": "./src/toolbar-stats.tsx",
+			"types": "./dist/toolbar-stats.d.mts",
+			"import": "./dist/toolbar-stats.mjs"
+		},
+		"./carousel": {
+			"source": "./src/carousel.tsx",
+			"types": "./dist/carousel.d.mts",
+			"import": "./dist/carousel.mjs"
+		},
+		"./chart": {
+			"source": "./src/chart.tsx",
+			"types": "./dist/chart.d.mts",
+			"import": "./dist/chart.mjs"
+		},
+		"./checkbox": {
+			"source": "./src/checkbox.tsx",
+			"types": "./dist/checkbox.d.mts",
+			"import": "./dist/checkbox.mjs"
+		},
+		"./compare-view": {
+			"source": "./src/compare-view.tsx",
+			"types": "./dist/compare-view.d.mts",
+			"import": "./dist/compare-view.mjs"
+		},
+		"./collapsible": {
+			"source": "./src/collapsible.tsx",
+			"types": "./dist/collapsible.d.mts",
+			"import": "./dist/collapsible.mjs"
+		},
+		"./combobox": {
+			"source": "./src/combobox.tsx",
+			"types": "./dist/combobox.d.mts",
+			"import": "./dist/combobox.mjs"
+		},
+		"./command": {
+			"source": "./src/command.tsx",
+			"types": "./dist/command.d.mts",
+			"import": "./dist/command.mjs"
+		},
+		"./inline-comment-composer": {
+			"source": "./src/inline-comment-composer.tsx",
+			"types": "./dist/inline-comment-composer.d.mts",
+			"import": "./dist/inline-comment-composer.mjs"
+		},
+		"./comment-thread": {
+			"source": "./src/comment-thread.tsx",
+			"types": "./dist/comment-thread.d.mts",
+			"import": "./dist/comment-thread.mjs"
+		},
+		"./context-menu": {
+			"source": "./src/context-menu.tsx",
+			"types": "./dist/context-menu.d.mts",
+			"import": "./dist/context-menu.mjs"
+		},
+		"./context-toolbar": {
+			"source": "./src/context-toolbar.tsx",
+			"types": "./dist/context-toolbar.d.mts",
+			"import": "./dist/context-toolbar.mjs"
+		},
+		"./copy-button": {
+			"source": "./src/copy-button.tsx",
+			"types": "./dist/copy-button.d.mts",
+			"import": "./dist/copy-button.mjs"
+		},
+		"./confirm-dialog": {
+			"source": "./src/confirm-dialog.tsx",
+			"types": "./dist/confirm-dialog.d.mts",
+			"import": "./dist/confirm-dialog.mjs"
+		},
+		"./data-table": {
+			"source": "./src/data-table.tsx",
+			"types": "./dist/data-table.d.mts",
+			"import": "./dist/data-table.mjs"
+		},
+		"./date-picker": {
+			"source": "./src/date-picker.tsx",
+			"types": "./dist/date-picker.d.mts",
+			"import": "./dist/date-picker.mjs"
+		},
+		"./dialog": {
+			"source": "./src/dialog.tsx",
+			"types": "./dist/dialog.d.mts",
+			"import": "./dist/dialog.mjs"
+		},
+		"./drawer": {
+			"source": "./src/drawer.tsx",
+			"types": "./dist/drawer.d.mts",
+			"import": "./dist/drawer.mjs"
+		},
+		"./drawing-actions": {
+			"source": "./src/drawing-actions.tsx",
+			"types": "./dist/drawing-actions.d.mts",
+			"import": "./dist/drawing-actions.mjs"
+		},
+		"./dropdown-menu": {
+			"source": "./src/dropdown-menu.tsx",
+			"types": "./dist/dropdown-menu.d.mts",
+			"import": "./dist/dropdown-menu.mjs"
+		},
+		"./empty": {
+			"source": "./src/empty.tsx",
+			"types": "./dist/empty.d.mts",
+			"import": "./dist/empty.mjs"
+		},
+		"./fragment-viewer": {
+			"source": "./src/fragment-viewer.tsx",
+			"types": "./dist/fragment-viewer.d.mts",
+			"import": "./dist/fragment-viewer.mjs"
+		},
+		"./viewer-toolbar": {
+			"source": "./src/viewer-toolbar.tsx",
+			"types": "./dist/viewer-toolbar.d.mts",
+			"import": "./dist/viewer-toolbar.mjs"
+		},
+		"./error-page": {
+			"source": "./src/error-page.tsx",
+			"types": "./dist/error-page.d.mts",
+			"import": "./dist/error-page.mjs"
+		},
+		"./export-dialog": {
+			"source": "./src/export-dialog.tsx",
+			"types": "./dist/export-dialog.d.mts",
+			"import": "./dist/export-dialog.mjs"
+		},
+		"./field": {
+			"source": "./src/field.tsx",
+			"types": "./dist/field.d.mts",
+			"import": "./dist/field.mjs"
+		},
+		"./filter": {
+			"source": "./src/filter.tsx",
+			"types": "./dist/filter.d.mts",
+			"import": "./dist/filter.mjs"
+		},
+		"./floor-progress-bar": {
+			"source": "./src/floor-progress-bar.tsx",
+			"types": "./dist/floor-progress-bar.d.mts",
+			"import": "./dist/floor-progress-bar.mjs"
+		},
+		"./floating-assistant": {
+			"source": "./src/floating-assistant.tsx",
+			"types": "./dist/floating-assistant.d.mts",
+			"import": "./dist/floating-assistant.mjs"
+		},
+		"./form-action-bar": {
+			"source": "./src/form-action-bar.tsx",
+			"types": "./dist/form-action-bar.d.mts",
+			"import": "./dist/form-action-bar.mjs"
+		},
+		"./form-dialog": {
+			"source": "./src/form-dialog.tsx",
+			"types": "./dist/form-dialog.d.mts",
+			"import": "./dist/form-dialog.mjs"
+		},
+		"./new-object-type-dialog": {
+			"source": "./src/object-type-wizard.tsx",
+			"types": "./dist/object-type-wizard.d.mts",
+			"import": "./dist/object-type-wizard.mjs"
+		},
+		"./new-link-type-dialog": {
+			"source": "./src/link-type-wizard.tsx",
+			"types": "./dist/link-type-wizard.d.mts",
+			"import": "./dist/link-type-wizard.mjs"
+		},
+		"./new-action-type-dialog": {
+			"source": "./src/pages/wc3-action-type-wizard.tsx",
+			"types": "./dist/pages/wc3-action-type-wizard.d.mts",
+			"import": "./dist/pages/wc3-action-type-wizard.mjs"
+		},
+		"./new-interface-dialog": {
+			"source": "./src/pages/wc3-interface-wizard.tsx",
+			"types": "./dist/pages/wc3-interface-wizard.d.mts",
+			"import": "./dist/pages/wc3-interface-wizard.mjs"
+		},
+		"./new-type-group-dialog": {
+			"source": "./src/pages/wc3-group-wizard.tsx",
+			"types": "./dist/pages/wc3-group-wizard.d.mts",
+			"import": "./dist/pages/wc3-group-wizard.mjs"
+		},
+		"./new-shared-property-dialog": {
+			"source": "./src/pages/wc3-shared-property-wizard.tsx",
+			"types": "./dist/pages/wc3-shared-property-wizard.d.mts",
+			"import": "./dist/pages/wc3-shared-property-wizard.mjs"
+		},
+		"./catalogue-view-toggle": {
+			"source": "./src/catalogue-view-toggle.tsx",
+			"types": "./dist/catalogue-view-toggle.d.mts",
+			"import": "./dist/catalogue-view-toggle.mjs"
+		},
+		"./record-detail-shell": {
+			"source": "./src/record-detail-shell.tsx",
+			"types": "./dist/record-detail-shell.d.mts",
+			"import": "./dist/record-detail-shell.mjs"
+		},
+		"./graph-canvas": {
+			"source": "./src/graph-canvas.tsx",
+			"types": "./dist/graph-canvas.d.mts",
+			"import": "./dist/graph-canvas.mjs"
+		},
+		"./node-graph": {
+			"source": "./src/node-graph.tsx",
+			"types": "./dist/node-graph.d.mts",
+			"import": "./dist/node-graph.mjs"
+		},
+		"./product-package-detail": {
+			"source": "./src/product-package-detail.tsx",
+			"types": "./dist/product-package-detail.d.mts",
+			"import": "./dist/product-package-detail.mjs"
+		},
+		"./asset-list-item": {
+			"source": "./src/asset-list-item.tsx",
+			"types": "./dist/asset-list-item.d.mts",
+			"import": "./dist/asset-list-item.mjs"
+		},
+		"./wizard-dialog": {
+			"source": "./src/wizard-dialog.tsx",
+			"types": "./dist/wizard-dialog.d.mts",
+			"import": "./dist/wizard-dialog.mjs"
+		},
+		"./form": {
+			"source": "./src/form.tsx",
+			"types": "./dist/form.d.mts",
+			"import": "./dist/form.mjs"
+		},
+		"./gantt": {
+			"source": "./src/gantt.tsx",
+			"types": "./dist/gantt.d.mts",
+			"import": "./dist/gantt.mjs"
+		},
+		"./hover-card": {
+			"source": "./src/hover-card.tsx",
+			"types": "./dist/hover-card.d.mts",
+			"import": "./dist/hover-card.mjs"
+		},
+		"./house-shape": {
+			"source": "./src/house-shape.tsx",
+			"types": "./dist/house-shape.d.mts",
+			"import": "./dist/house-shape.mjs"
+		},
+		"./image-zoom": {
+			"source": "./src/image-zoom.tsx",
+			"types": "./dist/image-zoom.d.mts",
+			"import": "./dist/image-zoom.mjs"
+		},
+		"./input-group": {
+			"source": "./src/input-group.tsx",
+			"types": "./dist/input-group.d.mts",
+			"import": "./dist/input-group.mjs"
+		},
+		"./input-otp": {
+			"source": "./src/input-otp.tsx",
+			"types": "./dist/input-otp.d.mts",
+			"import": "./dist/input-otp.mjs"
+		},
+		"./input": {
+			"source": "./src/input.tsx",
+			"types": "./dist/input.d.mts",
+			"import": "./dist/input.mjs"
+		},
+		"./item": {
+			"source": "./src/item.tsx",
+			"types": "./dist/item.d.mts",
+			"import": "./dist/item.mjs"
+		},
+		"./kbd": {
+			"source": "./src/kbd.tsx",
+			"types": "./dist/kbd.d.mts",
+			"import": "./dist/kbd.mjs"
+		},
+		"./kpi-bar": {
+			"source": "./src/kpi-bar.tsx",
+			"types": "./dist/kpi-bar.d.mts",
+			"import": "./dist/kpi-bar.mjs"
+		},
+		"./kiosk-body": {
+			"source": "./src/kiosk-body.tsx",
+			"types": "./dist/kiosk-body.d.mts",
+			"import": "./dist/kiosk-body.mjs"
+		},
+		"./kpi-summary": {
+			"source": "./src/kpi-summary.tsx",
+			"types": "./dist/kpi-summary.d.mts",
+			"import": "./dist/kpi-summary.mjs"
+		},
+		"./label": {
+			"source": "./src/label.tsx",
+			"types": "./dist/label.d.mts",
+			"import": "./dist/label.mjs"
+		},
+		"./legend": {
+			"source": "./src/legend.tsx",
+			"types": "./dist/legend.d.mts",
+			"import": "./dist/legend.mjs"
+		},
+		"./map-compass": {
+			"source": "./src/map-compass.tsx",
+			"types": "./dist/map-compass.d.mts",
+			"import": "./dist/map-compass.mjs"
+		},
+		"./map-compare-layout": {
+			"source": "./src/map-compare-layout.tsx",
+			"types": "./dist/map-compare-layout.d.mts",
+			"import": "./dist/map-compare-layout.mjs"
+		},
+		"./map-minimap": {
+			"source": "./src/map-minimap.tsx",
+			"types": "./dist/map-minimap.d.mts",
+			"import": "./dist/map-minimap.mjs"
+		},
+		"./float-shadow": {
+			"source": "./src/float-shadow.ts",
+			"types": "./dist/float-shadow.d.mts",
+			"import": "./dist/float-shadow.mjs"
+		},
+		"./map-hover-card": {
+			"source": "./src/map-hover-card.tsx",
+			"types": "./dist/map-hover-card.d.mts",
+			"import": "./dist/map-hover-card.mjs"
+		},
+		"./map-legend": {
+			"source": "./src/map-legend.tsx",
+			"types": "./dist/map-legend.d.mts",
+			"import": "./dist/map-legend.mjs"
+		},
+		"./map-control-panel": {
+			"source": "./src/map-control-panel.tsx",
+			"types": "./dist/map-control-panel.d.mts",
+			"import": "./dist/map-control-panel.mjs"
+		},
+		"./map-controls": {
+			"source": "./src/map-controls.tsx",
+			"types": "./dist/map-controls.d.mts",
+			"import": "./dist/map-controls.mjs"
+		},
+		"./mapbox-token": {
+			"source": "./src/mapbox-token.ts",
+			"types": "./dist/mapbox-token.d.mts",
+			"import": "./dist/mapbox-token.mjs"
+		},
+		"./map-toolbar": {
+			"source": "./src/map-toolbar.tsx",
+			"types": "./dist/map-toolbar.d.mts",
+			"import": "./dist/map-toolbar.mjs"
+		},
+		"./map": {
+			"source": "./src/map.tsx",
+			"types": "./dist/map.d.mts",
+			"import": "./dist/map.mjs"
+		},
+		"./camera-detail-panel": {
+			"source": "./src/camera-detail-panel.tsx",
+			"types": "./dist/camera-detail-panel.d.mts",
+			"import": "./dist/camera-detail-panel.mjs"
+		},
+		"./detail-panel-shell": {
+			"source": "./src/detail-panel-shell.tsx",
+			"types": "./dist/detail-panel-shell.d.mts",
+			"import": "./dist/detail-panel-shell.mjs"
+		},
+		"./observation-detail-panel": {
+			"source": "./src/observation-detail-panel.tsx",
+			"types": "./dist/observation-detail-panel.d.mts",
+			"import": "./dist/observation-detail-panel.mjs"
+		},
+		"./violation-list": {
+			"source": "./src/violation-list.tsx",
+			"types": "./dist/violation-list.d.mts",
+			"import": "./dist/violation-list.mjs"
+		},
+		"./responder-detail-panel": {
+			"source": "./src/responder-detail-panel.tsx",
+			"types": "./dist/responder-detail-panel.d.mts",
+			"import": "./dist/responder-detail-panel.mjs"
+		},
+		"./observations-map": {
+			"source": "./src/observations-map.tsx",
+			"types": "./dist/observations-map.d.mts",
+			"import": "./dist/observations-map.mjs"
+		},
+		"./menubar": {
+			"source": "./src/menubar.tsx",
+			"types": "./dist/menubar.d.mts",
+			"import": "./dist/menubar.mjs"
+		},
+		"./metric-card": {
+			"source": "./src/metric-card.tsx",
+			"types": "./dist/metric-card.d.mts",
+			"import": "./dist/metric-card.mjs"
+		},
+		"./minimap": {
+			"source": "./src/minimap.tsx",
+			"types": "./dist/minimap.d.mts",
+			"import": "./dist/minimap.mjs"
+		},
+		"./multi-select": {
+			"source": "./src/multi-select.tsx",
+			"types": "./dist/multi-select.d.mts",
+			"import": "./dist/multi-select.mjs"
+		},
+		"./navigation-menu": {
+			"source": "./src/navigation-menu.tsx",
+			"types": "./dist/navigation-menu.d.mts",
+			"import": "./dist/navigation-menu.mjs"
+		},
+		"./neighborhood-scene": {
+			"source": "./src/neighborhood-scene.tsx",
+			"types": "./dist/neighborhood-scene.d.mts",
+			"import": "./dist/neighborhood-scene.mjs"
+		},
+		"./object-drawing-toolbar": {
+			"source": "./src/object-drawing-toolbar.tsx",
+			"types": "./dist/object-drawing-toolbar.d.mts",
+			"import": "./dist/object-drawing-toolbar.mjs"
+		},
+		"./pagination": {
+			"source": "./src/pagination.tsx",
+			"types": "./dist/pagination.d.mts",
+			"import": "./dist/pagination.mjs"
+		},
+		"./popover": {
+			"source": "./src/popover.tsx",
+			"types": "./dist/popover.d.mts",
+			"import": "./dist/popover.mjs"
+		},
+		"./permission-matrix": {
+			"source": "./src/permission-matrix.tsx",
+			"types": "./dist/permission-matrix.d.mts",
+			"import": "./dist/permission-matrix.mjs"
+		},
+		"./progress": {
+			"source": "./src/progress.tsx",
+			"types": "./dist/progress.d.mts",
+			"import": "./dist/progress.mjs"
+		},
+		"./progress-comparison": {
+			"source": "./src/progress-comparison.tsx",
+			"types": "./dist/progress-comparison.d.mts",
+			"import": "./dist/progress-comparison.mjs"
+		},
+		"./prompt-input": {
+			"source": "./src/prompt-input.tsx",
+			"types": "./dist/prompt-input.d.mts",
+			"import": "./dist/prompt-input.mjs"
+		},
+		"./push-panel": {
+			"source": "./src/push-panel.tsx",
+			"types": "./dist/push-panel.d.mts",
+			"import": "./dist/push-panel.mjs"
+		},
+		"./radio-group": {
+			"source": "./src/radio-group.tsx",
+			"types": "./dist/radio-group.d.mts",
+			"import": "./dist/radio-group.mjs"
+		},
+		"./resizable": {
+			"source": "./src/resizable.tsx",
+			"types": "./dist/resizable.d.mts",
+			"import": "./dist/resizable.mjs"
+		},
+		"./scroll-area": {
+			"source": "./src/scroll-area.tsx",
+			"types": "./dist/scroll-area.d.mts",
+			"import": "./dist/scroll-area.mjs"
+		},
+		"./section-panel": {
+			"source": "./src/section-panel.tsx",
+			"types": "./dist/section-panel.d.mts",
+			"import": "./dist/section-panel.mjs"
+		},
+		"./side-menu": {
+			"source": "./src/side-menu.tsx",
+			"types": "./dist/side-menu.d.mts",
+			"import": "./dist/side-menu.mjs"
+		},
+		"./select": {
+			"source": "./src/select.tsx",
+			"types": "./dist/select.d.mts",
+			"import": "./dist/select.mjs"
+		},
+		"./chip": {
+			"source": "./src/chip.tsx",
+			"types": "./dist/chip.d.mts",
+			"import": "./dist/chip.mjs"
+		},
+		"./search-filter-bar": {
+			"source": "./src/search-filter-bar.tsx",
+			"types": "./dist/search-filter-bar.d.mts",
+			"import": "./dist/search-filter-bar.mjs"
+		},
+		"./schedule-week-bar": {
+			"source": "./src/schedule-week-bar.tsx",
+			"types": "./dist/schedule-week-bar.d.mts",
+			"import": "./dist/schedule-week-bar.mjs"
+		},
+		"./separator": {
+			"source": "./src/separator.tsx",
+			"types": "./dist/separator.d.mts",
+			"import": "./dist/separator.mjs"
+		},
+		"./setup-steps-checklist": {
+			"source": "./src/setup-steps-checklist.tsx",
+			"types": "./dist/setup-steps-checklist.d.mts",
+			"import": "./dist/setup-steps-checklist.mjs"
+		},
+		"./stepper": {
+			"source": "./src/stepper.tsx",
+			"types": "./dist/stepper.d.mts",
+			"import": "./dist/stepper.mjs"
+		},
+		"./sheet": {
+			"source": "./src/sheet.tsx",
+			"types": "./dist/sheet.d.mts",
+			"import": "./dist/sheet.mjs"
+		},
+		"./sidebar": {
+			"source": "./src/sidebar.tsx",
+			"types": "./dist/sidebar.d.mts",
+			"import": "./dist/sidebar.mjs"
+		},
+		"./skeleton": {
+			"source": "./src/skeleton.tsx",
+			"types": "./dist/skeleton.d.mts",
+			"import": "./dist/skeleton.mjs"
+		},
+		"./single-house-view": {
+			"source": "./src/single-house-view.tsx",
+			"types": "./dist/single-house-view.d.mts",
+			"import": "./dist/single-house-view.mjs"
+		},
+		"./slider": {
+			"source": "./src/slider.tsx",
+			"types": "./dist/slider.d.mts",
+			"import": "./dist/slider.mjs"
+		},
+		"./sonner": {
+			"source": "./src/sonner.tsx",
+			"types": "./dist/sonner.d.mts",
+			"import": "./dist/sonner.mjs"
+		},
+		"./stage-content": {
+			"source": "./src/stage-content.tsx",
+			"types": "./dist/stage-content.d.mts",
+			"import": "./dist/stage-content.mjs"
+		},
+		"./spinner": {
+			"source": "./src/spinner.tsx",
+			"types": "./dist/spinner.d.mts",
+			"import": "./dist/spinner.mjs"
+		},
+		"./switch": {
+			"source": "./src/switch.tsx",
+			"types": "./dist/switch.d.mts",
+			"import": "./dist/switch.mjs"
+		},
+		"./table": {
+			"source": "./src/table.tsx",
+			"types": "./dist/table.d.mts",
+			"import": "./dist/table.mjs"
+		},
+		"./walkthrough-modal": {
+			"source": "./src/walkthrough-modal.tsx",
+			"types": "./dist/walkthrough-modal.d.mts",
+			"import": "./dist/walkthrough-modal.mjs"
+		},
+		"./walkthrough-tile": {
+			"source": "./src/walkthrough-tile.tsx",
+			"types": "./dist/walkthrough-tile.d.mts",
+			"import": "./dist/walkthrough-tile.mjs"
+		},
+		"./worker-profile": {
+			"source": "./src/worker-profile.tsx",
+			"types": "./dist/worker-profile.d.mts",
+			"import": "./dist/worker-profile.mjs"
+		},
+		"./task-monitor": {
+			"source": "./src/task-monitor.tsx",
+			"types": "./dist/task-monitor.d.mts",
+			"import": "./dist/task-monitor.mjs"
+		},
+		"./tabs": {
+			"source": "./src/tabs.tsx",
+			"types": "./dist/tabs.d.mts",
+			"import": "./dist/tabs.mjs"
+		},
+		"./textarea": {
+			"source": "./src/textarea.tsx",
+			"types": "./dist/textarea.d.mts",
+			"import": "./dist/textarea.mjs"
+		},
+		"./time-scrubber": {
+			"source": "./src/time-scrubber.tsx",
+			"types": "./dist/time-scrubber.d.mts",
+			"import": "./dist/time-scrubber.mjs"
+		},
+		"./timeline-range-selector": {
+			"source": "./src/timeline-range-selector.tsx",
+			"types": "./dist/timeline-range-selector.d.mts",
+			"import": "./dist/timeline-range-selector.mjs"
+		},
+		"./timestamp-picker": {
+			"source": "./src/timestamp-picker.tsx",
+			"types": "./dist/timestamp-picker.d.mts",
+			"import": "./dist/timestamp-picker.mjs"
+		},
+		"./toast": {
+			"source": "./src/toast.tsx",
+			"types": "./dist/toast.d.mts",
+			"import": "./dist/toast.mjs"
+		},
+		"./toaster": {
+			"source": "./src/toaster.tsx",
+			"types": "./dist/toaster.d.mts",
+			"import": "./dist/toaster.mjs"
+		},
+		"./toggle-group": {
+			"source": "./src/toggle-group.tsx",
+			"types": "./dist/toggle-group.d.mts",
+			"import": "./dist/toggle-group.mjs"
+		},
+		"./tool-call": {
+			"source": "./src/tool-call.tsx",
+			"types": "./dist/tool-call.d.mts",
+			"import": "./dist/tool-call.mjs"
+		},
+		"./toggle": {
+			"source": "./src/toggle.tsx",
+			"types": "./dist/toggle.d.mts",
+			"import": "./dist/toggle.mjs"
+		},
+		"./thinking-pill": {
+			"source": "./src/thinking-pill.tsx",
+			"types": "./dist/thinking-pill.d.mts",
+			"import": "./dist/thinking-pill.mjs"
+		},
+		"./turn-timer": {
+			"source": "./src/turn-timer.tsx",
+			"types": "./dist/turn-timer.d.mts",
+			"import": "./dist/turn-timer.mjs"
+		},
+		"./tooltip": {
+			"source": "./src/tooltip.tsx",
+			"types": "./dist/tooltip.d.mts",
+			"import": "./dist/tooltip.mjs"
+		},
+		"./tree-row": {
+			"source": "./src/tree-row.tsx",
+			"types": "./dist/tree-row.d.mts",
+			"import": "./dist/tree-row.mjs"
+		},
+		"./widget-card": {
+			"source": "./src/widget-card.tsx",
+			"types": "./dist/widget-card.d.mts",
+			"import": "./dist/widget-card.mjs"
+		},
+		"./trend-chart": {
+			"source": "./src/trend-chart.tsx",
+			"types": "./dist/trend-chart.d.mts",
+			"import": "./dist/trend-chart.mjs"
+		},
+		"./vertical-zoom-tools": {
+			"source": "./src/vertical-zoom-tools.tsx",
+			"types": "./dist/vertical-zoom-tools.d.mts",
+			"import": "./dist/vertical-zoom-tools.mjs"
+		},
+		"./view-tab-bar": {
+			"source": "./src/view-tab-bar.tsx",
+			"types": "./dist/view-tab-bar.d.mts",
+			"import": "./dist/view-tab-bar.mjs"
+		},
+		"./week-selector": {
+			"source": "./src/week-selector.tsx",
+			"types": "./dist/week-selector.d.mts",
+			"import": "./dist/week-selector.mjs"
+		},
+		"./zoom-tools": {
+			"source": "./src/zoom-tools.tsx",
+			"types": "./dist/zoom-tools.d.mts",
+			"import": "./dist/zoom-tools.mjs"
+		},
+		"./typography": {
+			"source": "./src/typography.tsx",
+			"types": "./dist/typography.d.mts",
+			"import": "./dist/typography.mjs"
+		},
+		"./use-debounced-value": {
+			"source": "./src/use-debounced-value.ts",
+			"types": "./dist/use-debounced-value.d.mts",
+			"import": "./dist/use-debounced-value.mjs"
+		},
+		"./use-document-dir": {
+			"source": "./src/use-document-dir.ts",
+			"types": "./dist/use-document-dir.d.mts",
+			"import": "./dist/use-document-dir.mjs"
+		},
+		"./use-persistent-state": {
+			"source": "./src/use-persistent-state.ts",
+			"types": "./dist/use-persistent-state.d.mts",
+			"import": "./dist/use-persistent-state.mjs"
+		},
+		"./use-toast": {
+			"source": "./src/use-toast.tsx",
+			"types": "./dist/use-toast.d.mts",
+			"import": "./dist/use-toast.mjs"
+		},
+		"./work-item-card": {
+			"source": "./src/work-item-card.tsx",
+			"types": "./dist/work-item-card.d.mts",
+			"import": "./dist/work-item-card.mjs"
+		},
+		"./page-content-header": {
+			"source": "./src/page-content-header.tsx",
+			"types": "./dist/page-content-header.d.mts",
+			"import": "./dist/page-content-header.mjs"
+		},
+		"./property-list": {
+			"source": "./src/property-list.tsx",
+			"types": "./dist/property-list.d.mts",
+			"import": "./dist/property-list.mjs"
+		},
+		"./activity-log": {
+			"source": "./src/activity-log.tsx",
+			"types": "./dist/activity-log.d.mts",
+			"import": "./dist/activity-log.mjs"
+		},
+		"./comment-composer": {
+			"source": "./src/comment-composer.tsx",
+			"types": "./dist/comment-composer.d.mts",
+			"import": "./dist/comment-composer.mjs"
+		},
+		"./chat/core-chart-renderer": {
+			"source": "./src/chat/core-chart-renderer.tsx",
+			"types": "./dist/chat/core-chart-renderer.d.mts",
+			"import": "./dist/chat/core-chart-renderer.mjs"
+		},
+		"./chat/core-chat-input": {
+			"source": "./src/chat/core-chat-input.tsx",
+			"types": "./dist/chat/core-chat-input.d.mts",
+			"import": "./dist/chat/core-chat-input.mjs"
+		},
+		"./chat/core-chat-message": {
+			"source": "./src/chat/core-chat-message.tsx",
+			"types": "./dist/chat/core-chat-message.d.mts",
+			"import": "./dist/chat/core-chat-message.mjs"
+		},
+		"./chat/core-chat-panel": {
+			"source": "./src/chat/core-chat-panel.tsx",
+			"types": "./dist/chat/core-chat-panel.d.mts",
+			"import": "./dist/chat/core-chat-panel.mjs"
+		},
+		"./chat/core-chat-widget": {
+			"source": "./src/chat/core-chat-widget.tsx",
+			"types": "./dist/chat/core-chat-widget.d.mts",
+			"import": "./dist/chat/core-chat-widget.mjs"
+		},
+		"./chat/core-ai-chat": {
+			"source": "./src/chat/core-ai-chat.tsx",
+			"types": "./dist/chat/core-ai-chat.d.mts",
+			"import": "./dist/chat/core-ai-chat.mjs"
+		},
+		"./chat/core-ai-chat-message": {
+			"source": "./src/chat/core-ai-chat-message.tsx",
+			"types": "./dist/chat/core-ai-chat-message.d.mts",
+			"import": "./dist/chat/core-ai-chat-message.mjs"
+		},
+		"./chat/core-ai-chat-header": {
+			"source": "./src/chat/core-ai-chat-header.tsx",
+			"types": "./dist/chat/core-ai-chat-header.d.mts",
+			"import": "./dist/chat/core-ai-chat-header.mjs"
+		},
+		"./navigation/core-context-tabs": {
+			"source": "./src/navigation/core-context-tabs.tsx",
+			"types": "./dist/navigation/core-context-tabs.d.mts",
+			"import": "./dist/navigation/core-context-tabs.mjs"
+		},
+		"./navigation/core-dashboard-header": {
+			"source": "./src/navigation/core-dashboard-header.tsx",
+			"types": "./dist/navigation/core-dashboard-header.d.mts",
+			"import": "./dist/navigation/core-dashboard-header.mjs"
+		},
+		"./navigation/core-filter-strip": {
+			"source": "./src/navigation/core-filter-strip.tsx",
+			"types": "./dist/navigation/core-filter-strip.d.mts",
+			"import": "./dist/navigation/core-filter-strip.mjs"
+		},
+		"./navigation/core-app-sidebar": {
+			"source": "./src/navigation/core-app-sidebar.tsx",
+			"types": "./dist/navigation/core-app-sidebar.d.mts",
+			"import": "./dist/navigation/core-app-sidebar.mjs"
+		},
+		"./tones": {
+			"source": "./src/tones.ts",
+			"types": "./dist/tones.d.mts",
+			"import": "./dist/tones.mjs"
+		},
+		"./navigation/core-app-top-bar": {
+			"source": "./src/navigation/core-app-top-bar.tsx",
+			"types": "./dist/navigation/core-app-top-bar.d.mts",
+			"import": "./dist/navigation/core-app-top-bar.mjs"
+		},
+		"./navigation/core-org-project-switcher": {
+			"source": "./src/navigation/core-org-project-switcher.tsx",
+			"types": "./dist/navigation/core-org-project-switcher.d.mts",
+			"import": "./dist/navigation/core-org-project-switcher.mjs"
+		},
+		"./pages/core-blueprint-viewer": {
+			"source": "./src/pages/core-blueprint-viewer.tsx",
+			"types": "./dist/pages/core-blueprint-viewer.d.mts",
+			"import": "./dist/pages/core-blueprint-viewer.mjs"
+		},
+		"./pages/core-building-viewer": {
+			"source": "./src/pages/core-building-viewer.tsx",
+			"types": "./dist/pages/core-building-viewer.d.mts",
+			"import": "./dist/pages/core-building-viewer.mjs"
+		},
+		"./pages/core-building-viewer-capture": {
+			"source": "./src/pages/core-building-viewer-capture.tsx",
+			"types": "./dist/pages/core-building-viewer-capture.d.mts",
+			"import": "./dist/pages/core-building-viewer-capture.mjs"
+		},
+		"./pages/core-content-area": {
+			"source": "./src/pages/core-content-area.tsx",
+			"types": "./dist/pages/core-content-area.d.mts",
+			"import": "./dist/pages/core-content-area.mjs"
+		},
+		"./pages/core-admin-panel": {
+			"source": "./src/pages/core-admin-panel.tsx",
+			"types": "./dist/pages/core-admin-panel.d.mts",
+			"import": "./dist/pages/core-admin-panel.mjs"
+		},
+		"./pages/core-wc3-workspace": {
+			"source": "./src/pages/core-wc3-workspace.tsx",
+			"types": "./dist/pages/core-wc3-workspace.d.mts",
+			"import": "./dist/pages/core-wc3-workspace.mjs"
+		},
+		"./pages/core-wakecap-connect": {
+			"source": "./src/pages/core-wakecap-connect.tsx",
+			"types": "./dist/pages/core-wakecap-connect.d.mts",
+			"import": "./dist/pages/core-wakecap-connect.mjs"
+		},
+		"./pages/core-wakecap-connect-v3": {
+			"source": "./src/pages/core-wakecap-connect-v3.tsx",
+			"types": "./dist/pages/core-wakecap-connect-v3.d.mts",
+			"import": "./dist/pages/core-wakecap-connect-v3.mjs"
+		},
+		"./pages/wc3-object-type-detail": {
+			"source": "./src/pages/wc3-object-type-detail.tsx",
+			"types": "./dist/pages/wc3-object-type-detail.d.mts",
+			"import": "./dist/pages/wc3-object-type-detail.mjs"
+		},
+		"./pages/permit-policy": {
+			"source": "./src/pages/wc3-permit-policy.tsx",
+			"types": "./dist/pages/wc3-permit-policy.d.mts",
+			"import": "./dist/pages/wc3-permit-policy.mjs"
+		},
+		"./pages/state-machine": {
+			"source": "./src/pages/state-machine.tsx",
+			"types": "./dist/pages/state-machine.d.mts",
+			"import": "./dist/pages/state-machine.mjs"
+		},
+		"./pages/state-machine-fixtures": {
+			"source": "./src/pages/state-machine-fixtures.ts",
+			"types": "./dist/pages/state-machine-fixtures.d.mts",
+			"import": "./dist/pages/state-machine-fixtures.mjs"
+		},
+		"./pages/create-process-dialog": {
+			"source": "./src/pages/wc3-process-create.tsx",
+			"types": "./dist/pages/wc3-process-create.d.mts",
+			"import": "./dist/pages/wc3-process-create.mjs"
+		},
+		"./pages/install-product-dialog": {
+			"source": "./src/pages/wc3-product-install-dialog.tsx",
+			"types": "./dist/pages/wc3-product-install-dialog.d.mts",
+			"import": "./dist/pages/wc3-product-install-dialog.mjs"
+		},
+		"./pages/run-action-dialog": {
+			"source": "./src/pages/wc3-action-type-run-dialog.tsx",
+			"types": "./dist/pages/wc3-action-type-run-dialog.d.mts",
+			"import": "./dist/pages/wc3-action-type-run-dialog.mjs"
+		},
+		"./pages/lineage-impact-view": {
+			"source": "./src/pages/wc3-lineage-impact-view.tsx",
+			"types": "./dist/pages/wc3-lineage-impact-view.d.mts",
+			"import": "./dist/pages/wc3-lineage-impact-view.mjs"
+		},
+		"./pages/health-view": {
+			"source": "./src/pages/wc3-health-view.tsx",
+			"types": "./dist/pages/wc3-health-view.d.mts",
+			"import": "./dist/pages/wc3-health-view.mjs"
+		},
+		"./pages/process-bottlenecks": {
+			"source": "./src/pages/wc3-process-bottlenecks.tsx",
+			"types": "./dist/pages/wc3-process-bottlenecks.d.mts",
+			"import": "./dist/pages/wc3-process-bottlenecks.mjs"
+		},
+		"./pages/analysis-workbench": {
+			"source": "./src/pages/wc3-analysis-shared.tsx",
+			"types": "./dist/pages/wc3-analysis-shared.d.mts",
+			"import": "./dist/pages/wc3-analysis-shared.mjs"
+		},
+		"./pages/app-marketplace": {
+			"source": "./src/pages/app-marketplace-shared.tsx",
+			"types": "./dist/pages/app-marketplace-shared.d.mts",
+			"import": "./dist/pages/app-marketplace-shared.mjs"
+		},
+		"./pages/wc3-product-shared": {
+			"source": "./src/pages/wc3-product-shared.tsx",
+			"types": "./dist/pages/wc3-product-shared.d.mts",
+			"import": "./dist/pages/wc3-product-shared.mjs"
+		},
+		"./pages/wc3-process-views": {
+			"source": "./src/pages/wc3-process-views.ts",
+			"types": "./dist/pages/wc3-process-views.d.mts",
+			"import": "./dist/pages/wc3-process-views.mjs"
+		},
+		"./pages/wc3-analysis-views": {
+			"source": "./src/pages/wc3-analysis-views.ts",
+			"types": "./dist/pages/wc3-analysis-views.d.mts",
+			"import": "./dist/pages/wc3-analysis-views.mjs"
+		},
+		"./pages/wc3-analysis-object-view": {
+			"source": "./src/pages/wc3-analysis-object-view.tsx",
+			"types": "./dist/pages/wc3-analysis-object-view.d.mts",
+			"import": "./dist/pages/wc3-analysis-object-view.mjs"
+		},
+		"./pages/wc3-process-shared": {
+			"source": "./src/pages/wc3-process-shared.tsx",
+			"types": "./dist/pages/wc3-process-shared.d.mts",
+			"import": "./dist/pages/wc3-process-shared.mjs"
+		},
+		"./pages/wc3-process-data": {
+			"source": "./src/pages/wc3-process-data.ts",
+			"types": "./dist/pages/wc3-process-data.d.mts",
+			"import": "./dist/pages/wc3-process-data.mjs"
+		},
+		"./pages/wc3-product-data": {
+			"source": "./src/pages/wc3-product-data.ts",
+			"types": "./dist/pages/wc3-product-data.d.mts",
+			"import": "./dist/pages/wc3-product-data.mjs"
+		},
+		"./pages/wc3-lineage-data": {
+			"source": "./src/pages/wc3-lineage-data.ts",
+			"types": "./dist/pages/wc3-lineage-data.d.mts",
+			"import": "./dist/pages/wc3-lineage-data.mjs"
+		},
+		"./pages/wc3-analysis-data": {
+			"source": "./src/pages/wc3-analysis-data.ts",
+			"types": "./dist/pages/wc3-analysis-data.d.mts",
+			"import": "./dist/pages/wc3-analysis-data.mjs"
+		},
+		"./notification-center": {
+			"source": "./src/notification-center.tsx",
+			"types": "./dist/notification-center.d.mts",
+			"import": "./dist/notification-center.mjs"
+		},
+		"./activity-sheet": {
+			"source": "./src/activity-sheet.tsx",
+			"types": "./dist/activity-sheet.d.mts",
+			"import": "./dist/activity-sheet.mjs"
+		},
+		"./pages/wc3-ontology-views": {
+			"source": "./src/pages/wc3-ontology-views.tsx",
+			"types": "./dist/pages/wc3-ontology-views.d.mts",
+			"import": "./dist/pages/wc3-ontology-views.mjs"
+		},
+		"./pages/wc3-ontology-data": {
+			"source": "./src/pages/wc3-ontology-data.ts",
+			"types": "./dist/pages/wc3-ontology-data.d.mts",
+			"import": "./dist/pages/wc3-ontology-data.mjs"
+		},
+		"./pages/core-observations-map-view": {
+			"source": "./src/pages/core-observations-map-view.tsx",
+			"types": "./dist/pages/core-observations-map-view.d.mts",
+			"import": "./dist/pages/core-observations-map-view.mjs"
+		},
+		"./pages/core-safety-manager": {
+			"source": "./src/pages/core-safety-manager.tsx",
+			"types": "./dist/pages/core-safety-manager.d.mts",
+			"import": "./dist/pages/core-safety-manager.mjs"
+		},
+		"./pages/core-site-reality": {
+			"source": "./src/pages/core-site-reality.tsx",
+			"types": "./dist/pages/core-site-reality.d.mts",
+			"import": "./dist/pages/core-site-reality.mjs"
+		},
+		"./pages/work-permit-templates": {
+			"source": "./src/pages/work-permit-templates.tsx",
+			"types": "./dist/pages/work-permit-templates.d.mts",
+			"import": "./dist/pages/work-permit-templates.mjs"
+		},
+		"./pages/core-work-permit": {
+			"source": "./src/pages/core-work-permit.tsx",
+			"types": "./dist/pages/core-work-permit.d.mts",
+			"import": "./dist/pages/core-work-permit.mjs"
+		},
+		"./pages/core-workforce": {
+			"source": "./src/pages/core-workforce.tsx",
+			"types": "./dist/pages/core-workforce.d.mts",
+			"import": "./dist/pages/core-workforce.mjs"
+		},
+		"./pages/core-app-installer": {
+			"source": "./src/pages/core-app-installer.tsx",
+			"types": "./dist/pages/core-app-installer.d.mts",
+			"import": "./dist/pages/core-app-installer.mjs"
+		},
+		"./pages/core-analytics-overview": {
+			"source": "./src/pages/core-analytics-overview.tsx",
+			"types": "./dist/pages/core-analytics-overview.d.mts",
+			"import": "./dist/pages/core-analytics-overview.mjs"
+		},
+		"./pages/core-verifytime-command-center": {
+			"source": "./src/pages/core-verifytime-command-center.tsx",
+			"types": "./dist/pages/core-verifytime-command-center.d.mts",
+			"import": "./dist/pages/core-verifytime-command-center.mjs"
+		},
+		"./pages/core-timesheet": {
+			"source": "./src/pages/core-timesheet.tsx",
+			"types": "./dist/pages/core-timesheet.d.mts",
+			"import": "./dist/pages/core-timesheet.mjs"
+		},
+		"./pages/core-project-setup": {
+			"source": "./src/pages/core-project-setup.tsx",
+			"types": "./dist/pages/core-project-setup.d.mts",
+			"import": "./dist/pages/core-project-setup.mjs"
+		},
+		"./pages/core-design-canvas": {
+			"source": "./src/pages/core-design-canvas.tsx",
+			"types": "./dist/pages/core-design-canvas.d.mts",
+			"import": "./dist/pages/core-design-canvas.mjs"
+		},
+		"./pages/core-task-monitor": {
+			"source": "./src/pages/core-task-monitor.tsx",
+			"types": "./dist/pages/core-task-monitor.d.mts",
+			"import": "./dist/pages/core-task-monitor.mjs"
+		},
+		"./pages/core-login-page": {
+			"source": "./src/pages/core-login-page.tsx",
+			"types": "./dist/pages/core-login-page.d.mts",
+			"import": "./dist/pages/core-login-page.mjs"
+		},
+		"./pages/core-map-compare-layout": {
+			"source": "./src/pages/core-map-compare-layout.tsx",
+			"types": "./dist/pages/core-map-compare-layout.d.mts",
+			"import": "./dist/pages/core-map-compare-layout.mjs"
+		},
+		"./pages/core-org-ai-report": {
+			"source": "./src/pages/core-org-ai-report.tsx",
+			"types": "./dist/pages/core-org-ai-report.d.mts",
+			"import": "./dist/pages/core-org-ai-report.mjs"
+		},
+		"./pages/core-org-overview": {
+			"source": "./src/pages/core-org-overview.tsx",
+			"types": "./dist/pages/core-org-overview.d.mts",
+			"import": "./dist/pages/core-org-overview.mjs"
+		},
+		"./pages/core-org-performance": {
+			"source": "./src/pages/core-org-performance.tsx",
+			"types": "./dist/pages/core-org-performance.d.mts",
+			"import": "./dist/pages/core-org-performance.mjs"
+		},
+		"./pages/core-org-reality-capture": {
+			"source": "./src/pages/core-org-reality-capture.tsx",
+			"types": "./dist/pages/core-org-reality-capture.d.mts",
+			"import": "./dist/pages/core-org-reality-capture.mjs"
+		},
+		"./pages/core-org-workforce-intelligence": {
+			"source": "./src/pages/core-org-workforce-intelligence.tsx",
+			"types": "./dist/pages/core-org-workforce-intelligence.d.mts",
+			"import": "./dist/pages/core-org-workforce-intelligence.mjs"
+		},
+		"./pages/core-project-overview": {
+			"source": "./src/pages/core-project-overview.tsx",
+			"types": "./dist/pages/core-project-overview.d.mts",
+			"import": "./dist/pages/core-project-overview.mjs"
+		},
+		"./pages/core-project-quality-issues": {
+			"source": "./src/pages/core-project-quality-issues.tsx",
+			"types": "./dist/pages/core-project-quality-issues.d.mts",
+			"import": "./dist/pages/core-project-quality-issues.mjs"
+		},
+		"./pages/core-project-reality-capture": {
+			"source": "./src/pages/core-project-reality-capture.tsx",
+			"types": "./dist/pages/core-project-reality-capture.d.mts",
+			"import": "./dist/pages/core-project-reality-capture.mjs"
+		},
+		"./pages/core-project-schedule-cost": {
+			"source": "./src/pages/core-project-schedule-cost.tsx",
+			"types": "./dist/pages/core-project-schedule-cost.d.mts",
+			"import": "./dist/pages/core-project-schedule-cost.mjs"
+		},
+		"./pages/core-project-workforce-safety": {
+			"source": "./src/pages/core-project-workforce-safety.tsx",
+			"types": "./dist/pages/core-project-workforce-safety.d.mts",
+			"import": "./dist/pages/core-project-workforce-safety.mjs"
+		},
+		"./types": {
+			"source": "./src/types.ts",
+			"types": "./dist/types.d.mts",
+			"import": "./dist/types.mjs"
+		},
+		"./types/chat": {
+			"source": "./src/types/chat.ts",
+			"types": "./dist/types/chat.d.mts",
+			"import": "./dist/types/chat.mjs"
+		},
+		"./data/mock-data": {
+			"source": "./src/data/mock-data.ts",
+			"types": "./dist/data/mock-data.d.mts",
+			"import": "./dist/data/mock-data.mjs"
+		},
+		"./data/rnglf-zones": {
+			"source": "./src/data/rnglf-zones.ts",
+			"types": "./dist/data/rnglf-zones.d.mts",
+			"import": "./dist/data/rnglf-zones.mjs"
+		},
+		"./services/chatService": {
+			"source": "./src/services/chatService.ts",
+			"types": "./dist/services/chatService.d.mts",
+			"import": "./dist/services/chatService.mjs"
+		},
+		"./add-clinic-location-dialog": {
+			"source": "./src/add-clinic-location-dialog.tsx",
+			"types": "./dist/add-clinic-location-dialog.d.mts",
+			"import": "./dist/add-clinic-location-dialog.mjs"
+		},
+		"./assign-doctor-dialog": {
+			"source": "./src/assign-doctor-dialog.tsx",
+			"types": "./dist/assign-doctor-dialog.d.mts",
+			"import": "./dist/assign-doctor-dialog.mjs"
+		},
+		"./add-clinic-visit-dialog": {
+			"source": "./src/add-clinic-visit-dialog.tsx",
+			"types": "./dist/add-clinic-visit-dialog.d.mts",
+			"import": "./dist/add-clinic-visit-dialog.mjs"
+		},
+		"./attention-list": {
+			"source": "./src/attention-list.tsx",
+			"types": "./dist/attention-list.d.mts",
+			"import": "./dist/attention-list.mjs"
+		},
+		"./progress-stat": {
+			"source": "./src/progress-stat.tsx",
+			"types": "./dist/progress-stat.d.mts",
+			"import": "./dist/progress-stat.mjs"
+		},
+		"./score-gauge": {
+			"source": "./src/score-gauge.tsx",
+			"types": "./dist/score-gauge.d.mts",
+			"import": "./dist/score-gauge.mjs"
+		},
+		"./rule-row": {
+			"source": "./src/rule-row.tsx",
+			"types": "./dist/rule-row.d.mts",
+			"import": "./dist/rule-row.mjs"
+		},
+		"./section-header": {
+			"source": "./src/section-header.tsx",
+			"types": "./dist/section-header.d.mts",
+			"import": "./dist/section-header.mjs"
+		},
+		"./pages/core-clinic": {
+			"source": "./src/pages/core-clinic.tsx",
+			"types": "./dist/pages/core-clinic.d.mts",
+			"import": "./dist/pages/core-clinic.mjs"
+		}
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
+	"scripts": {
+		"build": "tsdown && pnpm build:css",
+		"build:css": "tailwindcss -i src/styles.css -o dist/styles.css && node scripts/flatten-css.mjs && cp -R ../tokens/src/fonts dist/fonts",
+		"typecheck": "tsgo --noEmit",
+		"lint": "oxlint .",
+		"format": "oxfmt .",
+		"format:check": "oxfmt --check .",
+		"test": "vitest run",
+		"test:update": "vitest run --update"
+	},
+	"dependencies": {
+		"3d-tiles-renderer": "^0.4.9",
+		"@radix-ui/react-accordion": "^1.2.12",
+		"@radix-ui/react-alert-dialog": "^1.1.15",
+		"@radix-ui/react-aspect-ratio": "^1.1.8",
+		"@radix-ui/react-avatar": "^1.1.11",
+		"@radix-ui/react-checkbox": "^1.3.3",
+		"@radix-ui/react-collapsible": "^1.1.12",
+		"@radix-ui/react-context-menu": "^2.2.16",
+		"@radix-ui/react-dialog": "^1.1.15",
+		"@radix-ui/react-dropdown-menu": "^2.1.16",
+		"@radix-ui/react-hover-card": "^1.1.15",
+		"@radix-ui/react-label": "^2.1.8",
+		"@radix-ui/react-menubar": "^1.1.16",
+		"@radix-ui/react-navigation-menu": "^1.2.14",
+		"@radix-ui/react-popover": "^1.1.15",
+		"@radix-ui/react-progress": "^1.1.8",
+		"@radix-ui/react-radio-group": "^1.3.8",
+		"@radix-ui/react-scroll-area": "^1.2.10",
+		"@radix-ui/react-select": "^2.2.6",
+		"@radix-ui/react-separator": "^1.1.8",
+		"@radix-ui/react-slider": "^1.3.6",
+		"@radix-ui/react-slot": "^1.2.4",
+		"@radix-ui/react-switch": "^1.2.6",
+		"@radix-ui/react-tabs": "^1.1.13",
+		"@radix-ui/react-toast": "^1.2.15",
+		"@radix-ui/react-toggle": "^1.1.10",
+		"@radix-ui/react-toggle-group": "^1.1.11",
+		"@radix-ui/react-tooltip": "^1.2.8",
+		"@rjsf/core": "^5",
+		"@rjsf/utils": "^5",
+		"@rjsf/validator-ajv8": "^5",
+		"@tanstack/react-table": "^8.21.3",
+		"@tiptap/extension-image": "^3.23.1",
+		"@tiptap/extension-placeholder": "^3.23.1",
+		"@tiptap/extension-task-item": "^3.23.1",
+		"@tiptap/extension-task-list": "^3.23.1",
+		"@tiptap/extension-text-align": "^3.23.1",
+		"@tiptap/extension-underline": "^3.23.1",
+		"@tiptap/pm": "^3.23.1",
+		"@tiptap/react": "^3.23.1",
+		"@tiptap/starter-kit": "^3.23.1",
+		"@wakecap/core-tokens": "workspace:*",
+		"@wakecap/core-utils": "workspace:*",
+		"@xyflow/react": "^12.11.2",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"cmdk": "^1.1.1",
+		"date-fns": "^4.1.0",
+		"echarts": "^6.0.0",
+		"echarts-for-react": "^3.0.6",
+		"embla-carousel-autoplay": "^8.6.0",
+		"embla-carousel-react": "^8.6.0",
+		"input-otp": "^1.4.2",
+		"lucide-react": "^0.562.0",
+		"mapbox-gl": "^3.17.0",
+		"react-day-picker": "^9.13.0",
+		"react-resizable-panels": "^4.2.1",
+		"sonner": "^2.0.7",
+		"tailwind-merge": "^3.4.0",
+		"vaul": "^1.1.2",
+		"zod": "^4.3.5"
+	},
+	"devDependencies": {
+		"@tailwindcss/cli": "^4.2.2",
+		"@thatopen/components": "~3.4.6",
+		"@thatopen/components-front": "~3.4.3",
+		"@thatopen/fragments": "~3.4.6",
+		"@types/mapbox-gl": "^3.4.1",
+		"@types/react": "^18.3.0",
+		"@types/react-dom": "^18.3.0",
+		"@types/three": "^0.182.0",
+		"@vitest/browser": "4.1.4",
+		"@vitest/browser-playwright": "^4.1.4",
+		"cssnano": "^7.1.5",
+		"postcss": "^8.5.10",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-hook-form": "^7.70.0",
+		"three": "^0.182.0",
+		"tsdown": "latest",
+		"tw-animate-css": "^1.4.0",
+		"vitest": "^4.1.4",
+		"vitest-browser-react": "^2.2.0",
+		"web-ifc": "^0.0.77"
+	},
+	"peerDependencies": {
+		"@thatopen/components": "~3.4.6",
+		"@thatopen/components-front": "~3.4.3",
+		"@thatopen/fragments": "~3.4.6",
+		"react": ">=18.2.0",
+		"react-dom": ">=18.2.0",
+		"react-hook-form": ">=7.46",
+		"three": "^0.182.0"
+	},
+	"peerDependenciesMeta": {
+		"three": {
+			"optional": true
+		},
+		"@thatopen/fragments": {
+			"optional": true
+		},
+		"@thatopen/components": {
+			"optional": true
+		},
+		"@thatopen/components-front": {
+			"optional": true
+		},
+		"react-hook-form": {
+			"optional": true
+		}
+	},
+	"nx": {
+		"targets": {
+			"test": {
+				"dependsOn": [
+					"^build",
+					"build"
+				],
+				"cache": true
+			},
+			"test:update": {
+				"dependsOn": [
+					"^build",
+					"build"
+				],
+				"cache": true
+			}
+		}
+	}
+}

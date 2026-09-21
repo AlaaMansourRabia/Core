@@ -1,0 +1,92 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "viewer-toolbar",
+	"tier": "widget",
+	"name": "ViewerToolbar",
+	"category": "map",
+	"version": "1.0.0",
+	"manifestStatus": "draft",
+	"source": {
+		"path": "packages/components/src/viewer-toolbar.tsx",
+		"import": "@wakecap/core-ui/viewer-toolbar",
+		"export": "ViewerToolbar"
+	},
+	"tags": [
+		"3d",
+		"bim",
+		"toolbar",
+		"controls",
+		"viewer",
+		"sections",
+		"measure",
+		"navigation"
+	],
+	"intent": "Control bar for a FragmentViewer: navigation (orbit/pan), fit, select, ortho, clipping sections, the four measurement tools, an IFC storey menu, hide/isolate/show-all, and an appearance menu carrying ghost mode and shading. Chrome only — it reads and drives viewer state through context and owns no 3D code. Stays on one row as long as it fits, dropping labels before it wraps.",
+	"when": [
+		"A FragmentViewer needs the controls a BIM viewer is expected to have",
+		"The host wants to place viewer controls independently of the canvas"
+	],
+	"whenNot": [
+		"There is no FragmentViewerProvider in the tree — the hook throws by design",
+		"Only one or two actions are needed -> call the useFragmentViewer() API directly from your own buttons"
+	],
+	"chooseOver": [
+		{
+			"component": "Building buttons against the That Open SDK directly",
+			"because": "ViewerToolbar keeps engine wiring in one place and renders entirely from Wakecore components, so it themes with the rest of the product."
+		}
+	],
+	"pairsWith": [
+		"FragmentViewer",
+		"SectionPanel",
+		"PushPanel"
+	],
+	"requiredProviders": [
+		"FragmentViewerProvider"
+	],
+	"composedOf": [
+		"Toolbar",
+		"Button",
+		"DropdownMenu",
+		"Separator"
+	],
+	"allowedPlacement": [
+		"beside or floating over a FragmentViewer, inside its FragmentViewerProvider"
+	],
+	"forbiddenPlacement": [
+		"outside a FragmentViewerProvider",
+		"as a general-purpose application toolbar -> use Toolbar"
+	],
+	"minimalExample": "import {FragmentViewer, FragmentViewerProvider} from \"@wakecap/core-ui/fragment-viewer\";\nimport {ViewerToolbar} from \"@wakecap/core-ui/viewer-toolbar\";\n\n<FragmentViewerProvider>\n\t<FragmentViewer src=\"/models/x.frag\" workerUrl={workerUrl} />\n\t<ViewerToolbar />\n</FragmentViewerProvider>",
+	"commonMistakes": [
+		"Wrapping it in a content-sized box: the bar measures its nearest positioned ancestor to pick its density, so a shrink-to-fit wrapper makes that measurement circular. Give it a full-width positioned ancestor.",
+		"Pairing pointer-events:none on a wrapper with pointer-events-auto on the bar — if the host's Tailwind hasn't emitted that utility, every click is silently swallowed",
+		"Placing it over the bottom-left of the canvas, where the That Open SDK draws its logo",
+		"Expecting a tool button to act immediately: Sections and Measure arm a tool, then a click in the viewport places the plane or point"
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "3d-visualization branch (2026-07-21)",
+		"derivedFrom": {
+			"source": "BIMCamel's viewer toolbar as the reference layout; behaviour from @thatopen/components + components-front",
+			"extracted": [
+				"navigation mode / fit / select / ortho group",
+				"sections and the four measurement tools",
+				"hide / isolate / show all",
+				"panel switches for Levels, Appearance, Props, Model"
+			]
+		},
+		"status": "draft",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-21",
+		"notes": [
+			"pilot: true",
+			"chrome only: every button calls the viewer API from context, so this file contains no 3D code",
+			"Levels and Appearance are menus; Props has no button — the host shows it as selection arrives",
+			"Pan is not an SDK navigation mode: it is Orbit with the left mouse button set to truck",
+			"ghost mode swaps Fragments materials directly; the SDK has no component for it"
+		]
+	}
+}

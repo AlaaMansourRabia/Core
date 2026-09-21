@@ -1,0 +1,13 @@
+@import "@wakecap/core-tokens/fonts";
+@import "@wakecap/core-tokens";
+@source "../../../packages/components/src";
+
+html,
+body,
+#root {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+}

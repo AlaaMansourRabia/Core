@@ -1,0 +1,83 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "design-canvas",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "CoreDesignCanvas",
+	"archetype": "Canvas",
+	"category": "workspace",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/core-design-canvas.tsx",
+		"import": "@wakecap/core-ui/pages/core-design-canvas",
+		"export": "DesignCanvas"
+	},
+	"tags": [
+		"canvas",
+		"design",
+		"drawing",
+		"resizable",
+		"toolbar",
+		"workspace"
+	],
+	"intent": "A design canvas workspace: a top toolbar over a three-panel resizable split (collapsible side panels and a dotted-grid canvas surface with a floating toolbar), including a full CanvasToolbar wired to a blueprint selector, drawing actions, and zoom tools.",
+	"when": [
+		"A canvas / drawing workspace with side panels and a toolbar",
+		"The user needs blueprint selection, drawing tools, and zoom over a canvas surface",
+		"A resizable multi-panel editor layout"
+	],
+	"whenNot": [
+		"A metrics dashboard or analytics readout -> use a Dashboard / Analytics template",
+		"A master-detail worklist -> use the Task Monitor template",
+		"A form / setup flow -> use the Project Setup template"
+	],
+	"chooseOver": [
+		{
+			"component": "Assembling ResizablePanelGroup + CanvasToolbar by hand",
+			"because": "The Design Canvas template owns the toolbar + resizable panel layout and the canvas surface with its floating toolbar."
+		}
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar"
+	],
+	"requiredProviders": [],
+	"composedOf": [
+		"CanvasToolbar",
+		"ResizablePanelGroup",
+		"ResizablePanel",
+		"ResizableHandle",
+		"Button"
+	],
+	"allowedPlacement": [
+		"app-shell content-region (inside CoreAppSidebar + CoreAppTopBar + CoreContentArea)",
+		"route-level canvas / design workspace"
+	],
+	"forbiddenPlacement": [
+		"inside a Card or Dialog",
+		"as a small embeddable panel"
+	],
+	"minimalExample": "// CoreDesignCanvas is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CanvasToolbar} from \"@wakecap/core-ui/canvas-toolbar\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted from the apps/web DesignCanvasExamplePage (2026-07-08)",
+		"derivedFrom": {
+			"source": "apps/web/src/pages/examples/DesignCanvasExamplePage.tsx",
+			"extracted": [
+				"three-panel resizable split with collapsible side panels",
+				"canvas surface with a floating toolbar",
+				"CanvasToolbar (blueprint selector + drawing actions + zoom tools)"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-08",
+		"notes": [
+			"promotedFrom: apps/web example (DesignCanvasExamplePage) — reflected as a canonical WakeCore template; the example was removed.",
+			"pilot: true"
+		]
+	}
+}

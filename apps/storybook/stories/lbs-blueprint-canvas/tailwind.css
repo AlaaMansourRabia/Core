@@ -1,0 +1,11 @@
+/*
+ * Dedicated, unprefixed Tailwind layer for the ported LBS blueprint-canvas widget. Its files use plain
+ * Tailwind classes (`flex`, `h-full`, `absolute right-3`, `bg-primary`, …), unlike core-ui's
+ * `wwc:`-prefixed stories, so they can't come from the preview's prefixed instance. Compiled as its own
+ * stylesheet (imported by the story) and scoped to this folder. tokens/theme.css supplies the `@theme`
+ * colours so `bg-primary` / `text-destructive` / `border-border` / `bg-accent` resolve.
+ */
+@import "tailwindcss";
+@import "../../../../packages/tokens/src/theme.css";
+
+@source ".";

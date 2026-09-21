@@ -1,0 +1,45 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "progress-stat",
+	"tier": "component",
+	"name": "ProgressStat",
+	"category": "metric",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/progress-stat.tsx",
+		"import": "@wakecap/core-ui/progress-stat",
+		"export": "ProgressStat"
+	},
+	"tags": [
+		"progress",
+		"metric",
+		"tile",
+		"stat",
+		"completion"
+	],
+	"intent": "A single metric tile with a completion bar: dot + label, headline figure, caption, and a `Progress` bar underneath. Use for \"how far along is this dimension\" breakdowns, where each tile is one facet of a score. For a bare figure with a trend arrow, use `MetricCard` instead.",
+	"when": [],
+	"chooseOver": [],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "Group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — intent taken verbatim from the module's own doc comment; contract not yet enumerated",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Was exported from @wakecap/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
+			"Stub by design: the intent is accurate, the data contract is not yet authored.",
+			"pilot: false"
+		]
+	}
+}

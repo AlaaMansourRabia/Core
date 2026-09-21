@@ -1,0 +1,14 @@
+{
+	"name": "@wakecap/sdk",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"description": "WakeCore SDK — deterministic template/widget resolution, validation, and PageInstance generation over the WakeCore catalog.",
+	"exports": {
+		".": "./src/index.mjs",
+		"./catalog": "./src/catalog.mjs",
+		"./sdk": "./src/sdk.mjs"
+	},
+	"main": "./src/index.mjs",
+	"files": ["src"]
+}

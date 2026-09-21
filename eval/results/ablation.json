@@ -1,0 +1,166 @@
+{
+  "model": "claude-opus-4-8",
+  "k": 3,
+  "arms": [
+    "A1",
+    "A2",
+    "A3",
+    "A4"
+  ],
+  "tasks": [
+    "side-panel",
+    "transient-feedback",
+    "data-grid",
+    "button-as-link",
+    "icon-button-hint",
+    "app-sidebar",
+    "validated-form",
+    "dashboard",
+    "template-gallery",
+    "destructive-action"
+  ],
+  "agg": {
+    "A1": {
+      "n": 30,
+      "overall": 7,
+      "component-choice": 25,
+      "imports": 30,
+      "provider-wiring": 30,
+      "failure-mode": 7
+    },
+    "A2": {
+      "n": 30,
+      "overall": 7,
+      "component-choice": 29,
+      "imports": 30,
+      "provider-wiring": 30,
+      "failure-mode": 7
+    },
+    "A3": {
+      "n": 29,
+      "overall": 28,
+      "component-choice": 29,
+      "imports": 29,
+      "provider-wiring": 29,
+      "failure-mode": 28
+    },
+    "A4": {
+      "n": 28,
+      "overall": 28,
+      "component-choice": 28,
+      "imports": 28,
+      "provider-wiring": 28,
+      "failure-mode": 28
+    }
+  },
+  "cells": {
+    "A1": {
+      "overall": {
+        "rate": 0.23333333333333334,
+        "lo": 0.11792239210501229,
+        "hi": 0.40928672330324267
+      },
+      "component-choice": {
+        "rate": 0.8333333333333334,
+        "lo": 0.6643529481431982,
+        "hi": 0.9266356575964831
+      },
+      "imports": {
+        "rate": 1,
+        "lo": 0.886482908609522,
+        "hi": 1
+      },
+      "provider-wiring": {
+        "rate": 1,
+        "lo": 0.886482908609522,
+        "hi": 1
+      },
+      "failure-mode": {
+        "rate": 0.23333333333333334,
+        "lo": 0.11792239210501229,
+        "hi": 0.40928672330324267
+      }
+    },
+    "A2": {
+      "overall": {
+        "rate": 0.23333333333333334,
+        "lo": 0.11792239210501229,
+        "hi": 0.40928672330324267
+      },
+      "component-choice": {
+        "rate": 0.9666666666666667,
+        "lo": 0.8332924860304112,
+        "hi": 0.9940915620051425
+      },
+      "imports": {
+        "rate": 1,
+        "lo": 0.886482908609522,
+        "hi": 1
+      },
+      "provider-wiring": {
+        "rate": 1,
+        "lo": 0.886482908609522,
+        "hi": 1
+      },
+      "failure-mode": {
+        "rate": 0.23333333333333334,
+        "lo": 0.11792239210501229,
+        "hi": 0.40928672330324267
+      }
+    },
+    "A3": {
+      "overall": {
+        "rate": 0.9655172413793104,
+        "lo": 0.8282410893529976,
+        "hi": 0.9938869433859677
+      },
+      "component-choice": {
+        "rate": 1,
+        "lo": 0.8830264055344442,
+        "hi": 1
+      },
+      "imports": {
+        "rate": 1,
+        "lo": 0.8830264055344442,
+        "hi": 1
+      },
+      "provider-wiring": {
+        "rate": 1,
+        "lo": 0.8830264055344442,
+        "hi": 1
+      },
+      "failure-mode": {
+        "rate": 0.9655172413793104,
+        "lo": 0.8282410893529976,
+        "hi": 0.9938869433859677
+      }
+    },
+    "A4": {
+      "overall": {
+        "rate": 1,
+        "lo": 0.8793527963418923,
+        "hi": 1
+      },
+      "component-choice": {
+        "rate": 1,
+        "lo": 0.8793527963418923,
+        "hi": 1
+      },
+      "imports": {
+        "rate": 1,
+        "lo": 0.8793527963418923,
+        "hi": 1
+      },
+      "provider-wiring": {
+        "rate": 1,
+        "lo": 0.8793527963418923,
+        "hi": 1
+      },
+      "failure-mode": {
+        "rate": 1,
+        "lo": 0.8793527963418923,
+        "hi": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "analysis-workbench",
+	"tier": "widget",
+	"name": "AnalysisWorkbench",
+	"category": "data",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/wc3-analysis-shared.tsx",
+		"import": "@wakecap/core-ui/pages/analysis-workbench",
+		"export": "AnalysisWorkbench"
+	},
+	"subcomponents": [
+		"AnalysisSpecSummary",
+		"AnalysisRouteBadge",
+		"analysisRun",
+		"analysisDiagnose",
+		"analysisLineage"
+	],
+	"tags": [
+		"analysis",
+		"query-builder",
+		"stages",
+		"ontology",
+		"lineage",
+		"aggregation",
+		"wc3"
+	],
+	"intent": "Stage-path query builder over an ontology object set or a governed dataset — source, filter, traverse, derive — with a route badge, a spec summary and a diagnosis for every empty result.",
+	"when": [
+		"Building an ad-hoc analysis a user will save and re-run",
+		"Any staged query the user assembles rather than types"
+	],
+	"whenNot": [
+		"Rendering a finished result -> use Chart or DataTable",
+		"Filtering an existing table -> use Filter"
+	],
+	"chooseOver": [
+		{
+			"component": "A form of dropdowns over a query API",
+			"because": "The workbench names WHY a result is empty — source-empty, no-time-column, filters-excluded-all, all-unlinked — instead of showing a blank chart, and carries the lineage of the spec that produced it."
+		}
+	],
+	"pairsWith": [
+		"Chart",
+		"DataTable",
+		"Badge"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"mode": {
+				"type": "Wc3AnalysisMode",
+				"required": true,
+				"note": "Object analysis or data analysis."
+			},
+			"session": {
+				"type": "Wc3AnalysisSession",
+				"required": true,
+				"note": "The spec, its result and the saved set; the host owns persistence."
+			},
+			"onSessionChange": {
+				"type": "(next: Wc3AnalysisSession) => void",
+				"required": true
+			},
+			"renderSourceConfig": {
+				"type": "(ctx: Wc3AnalysisStageContext) => ReactNode",
+				"required": true,
+				"note": "Source stage body — one of exactly two stages whose options differ per mode."
+			},
+			"renderTraverseConfig": {
+				"type": "(ctx: Wc3AnalysisStageContext) => ReactNode",
+				"required": true,
+				"note": "Traverse / Join stage body — the other one."
+			},
+			"onNavigate": {
+				"type": "(target: Wc3LineageNavTarget) => void",
+				"required": false
+			}
+		},
+		"events": {
+			"onSessionChange": {
+				"payload": {
+					"session": "Wc3AnalysisSession"
+				}
+			}
+		},
+		"rowIdentity": "Saved analyses are keyed by id; object sets by the ontology's own identity."
+	},
+	"configSchema": {},
+	"slots": {
+		"renderSourceConfig": {
+			"description": "Source stage body, per mode",
+			"accepts": [
+				"component",
+				"widget"
+			]
+		},
+		"renderTraverseConfig": {
+			"description": "Traverse or Join stage body, per mode",
+			"accepts": [
+				"component",
+				"widget"
+			]
+		}
+	},
+	"states": {
+		"default": "A source stage awaiting a set.",
+		"built": "A stage path with a route badge and a spec summary.",
+		"empty": "A named diagnosis rather than a blank result.",
+		"saved": "The spec is referenced by id so a tile re-runs it under the viewer's own permissions."
+	},
+	"composedOf": [
+		"StageContent",
+		"Combobox",
+		"Chart",
+		"Badge"
+	],
+	"allowedPlacement": [
+		"a Studio analysis perspective"
+	],
+	"forbiddenPlacement": [
+		"a dashboard tile — bind the tile to a SAVED analysis by reference instead"
+	],
+	"minimalExample": "import {AnalysisWorkbench} from \"@wakecap/core-ui/pages/analysis-workbench\";\n\n<AnalysisWorkbench\n\tmode=\"object\"\n\tsession={session}\n\tonSessionChange={setSession}\n\trenderSourceConfig={(ctx) => <SourceStage {...ctx} />}\n\trenderTraverseConfig={(ctx) => <TraverseStage {...ctx} />}\n/>",
+	"evaluationCriteria": [
+		"An empty result always states which diagnosis applies.",
+		"The spec, not the result, is what gets saved.",
+		"Exactly two stages are supplied by the host — the two whose options differ per mode."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted from the WC3 analysis perspective (2026-08-26)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-analysis-shared.tsx",
+			"extracted": [
+				"stage path builder",
+				"route badge",
+				"spec summary",
+				"empty-result diagnosis",
+				"lineage trace"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"The spec/run/diagnose seam around it was already pure and exported; only the surface was stuck.",
+			"Promoted in group B of the missing-widgets template review.",
+			"pilot: true"
+		]
+	}
+}

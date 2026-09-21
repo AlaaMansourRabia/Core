@@ -1,0 +1,35 @@
+{
+	"name": "capture-prototype",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"typecheck": "tsc --noEmit",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@tanstack/react-table": "^8.21.3",
+		"@thatopen/components": "~3.4.6",
+		"@thatopen/components-front": "~3.4.3",
+		"@thatopen/fragments": "~3.4.6",
+		"@wakecap/core-tokens": "workspace:*",
+		"@wakecap/core-ui": "workspace:*",
+		"@wakecap/core-utils": "workspace:*",
+		"lucide-react": "^0.562.0",
+		"react": "^19.2.0",
+		"react-dom": "^19.2.0",
+		"three": "^0.182.0"
+	},
+	"devDependencies": {
+		"@gltf-transform/core": "^4.4.2",
+		"@tailwindcss/vite": "^4.2.2",
+		"@types/react": "^19.2.0",
+		"@types/react-dom": "^19.2.0",
+		"@types/three": "^0.182.0",
+		"@vitejs/plugin-react": "^5.1.1",
+		"typescript": "~5.9.3",
+		"vite": "^7.2.4"
+	}
+}

@@ -1,0 +1,144 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "new-object-type-dialog",
+	"tier": "widget",
+	"name": "NewObjectTypeDialog",
+	"category": "form",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/object-type-wizard.tsx",
+		"import": "@wakecap/core-ui/new-object-type-dialog",
+		"export": "NewObjectTypeDialog"
+	},
+	"tags": [
+		"ontology",
+		"object-type",
+		"wizard",
+		"create",
+		"authoring",
+		"stepper"
+	],
+	"intent": "Four-step authoring wizard for an ontology object type: metadata, datasources, properties, review.",
+	"when": [
+		"Adding an object type to a shared ontology",
+		"Any four-stage authoring flow over a typed record"
+	],
+	"whenNot": [
+		"Editing an existing object type -> open its detail page",
+		"A single-screen create -> use FormDialog"
+	],
+	"chooseOver": [
+		{
+			"component": "A hand-built Stepper in a Dialog",
+			"because": "It carries the whole four-step contract — never-disabled Next, per-step validation, an assembled draft — and is entirely prop-driven, so a host with its own glyphs, datasources and base types reuses it unchanged."
+		}
+	],
+	"pairsWith": [
+		"WizardDialog",
+		"Stepper",
+		"Combobox",
+		"ToggleGroup"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"open": {
+				"type": "boolean",
+				"required": true
+			},
+			"onOpenChange": {
+				"type": "(open: boolean) => void",
+				"required": true
+			},
+			"groups": {
+				"type": "string[]",
+				"required": false,
+				"note": "Group facets offered on the Metadata step."
+			},
+			"datasources": {
+				"type": "DatasourceDef[]",
+				"required": false
+			},
+			"icons": {
+				"type": "React.ComponentType<{className?: string}>[]",
+				"required": false,
+				"note": "NewObjectTypeDraft.iconIndex indexes into THIS array, so a caller maps the index back to its own icon name."
+			},
+			"baseTypes": {
+				"type": "string[]",
+				"required": false,
+				"note": "Property base types on the Properties step; defaults to the eight common ones."
+			},
+			"showLayer": {
+				"type": "boolean",
+				"required": false,
+				"note": "Show the L1–L4 layer selector. Off for ontologies with no layer concept."
+			},
+			"onCreate": {
+				"type": "(draft: NewObjectTypeDraft) => void",
+				"required": false
+			}
+		},
+		"events": {
+			"onCreate": {
+				"payload": {
+					"draft": "object"
+				}
+			},
+			"onOpenChange": {
+				"payload": {
+					"open": "boolean"
+				}
+			}
+		},
+		"rowIdentity": "Drafts carry no id; the host mints one on accept."
+	},
+	"configSchema": {},
+	"slots": {},
+	"states": {
+		"metadata": "Display name, API name, status, visibility and optional layer.",
+		"datasource": "Attach one or more datasources; duplicate keys raise a heads-up rather than a block.",
+		"properties": "At least one property required before Review.",
+		"review": "The assembled draft, with any duplicate-key warning restated."
+	},
+	"composedOf": [
+		"Dialog",
+		"Input",
+		"Combobox"
+	],
+	"allowedPlacement": [
+		"an ontology catalogue toolbar",
+		"a Studio create action"
+	],
+	"forbiddenPlacement": [
+		"inside another dialog"
+	],
+	"minimalExample": "import {NewObjectTypeDialog} from \"@wakecap/core-ui/new-object-type-dialog\";\n\n<NewObjectTypeDialog open={open} onOpenChange={setOpen} onCreate={(draft) => addObjectType(draft)} />",
+	"evaluationCriteria": [
+		"Next is never rendered disabled.",
+		"iconIndex maps back to the caller's own icon array."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted in group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": "packages/components/src/object-type-wizard.tsx",
+			"extracted": [
+				"four-step wizard chrome",
+				"per-step validation",
+				"assembled object-type draft"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Its wizard chrome is the one wc3-action-type-wizard.tsx and wc3-product-install-dialog.tsx were copied from — see WizardDialog, which now owns it.",
+			"Already an exported component with a typed props interface and no fixture coupling — this manifest is the only thing that was missing.",
+			"pilot: true"
+		]
+	}
+}

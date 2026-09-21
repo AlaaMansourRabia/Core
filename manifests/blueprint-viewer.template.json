@@ -1,0 +1,297 @@
+{
+	"schemaVersion": "artifact-manifest/0.1",
+	"id": "blueprint-viewer",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "BlueprintViewer",
+	"archetype": "BuildingViewer",
+	"category": "workspace",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/core-blueprint-viewer.tsx",
+		"import": "@wakecap/core-ui/pages/core-blueprint-viewer",
+		"export": "BlueprintViewer"
+	},
+
+	"intent": "A single-blueprint viewing workspace at the lowest hierarchy level: a pan/zoom SVG floor-plan canvas with floating overlays — a searchable floor navigator (top-left), a 'Show Multiple' split view (top-center), and zoom tools (top-right) — plus a full-height Building Progress side panel. This is the leaf of the blueprint hierarchy: you have drilled down to one floor and are inspecting its plan, not navigating a portfolio or map of sites.",
+	"when": [
+		"Inspect a single floor's blueprint at the lowest level of the building hierarchy (pan, zoom, walk the plan)",
+		"Compare sibling floors side-by-side via a 'Show Multiple' split view under one parent",
+		"Show per-floor completion progress beside the plan and jump between floors",
+		"A deterministic SVG floor-plan surface (no live map tiles), full-height and full-screenable"
+	],
+	"whenNot": [
+		"A geospatial map of project sites / markers -> use the CoreOrgOverview product route or compose Map + MapControls",
+		"A master-detail worklist of tasks/alerts/issues -> use the TaskMonitor template",
+		"A portfolio or org overview with KPIs + list + map -> use the CoreOrgOverview product route",
+		"A small embeddable floor-plan thumbnail -> compose the FloorPlan / canvas pieces directly, not this full workspace"
+	],
+	"chooseOver": [
+		{
+			"over": "Assembling CanvasNavigator + VerticalZoomTools + BuildingProgress + a floor-plan SVG by hand",
+			"because": "The BlueprintViewer template owns the canvas region layout (navigator / split toggle / zoom tools / progress panel) and the pan/zoom + floor-selection state flow between them."
+		}
+	],
+
+	"regions": [
+		{
+			"id": "canvas",
+			"role": "Pan/zoom SVG floor-plan surface (single blueprint or a split multi-floor grid); drag to pan, wheel to zoom",
+			"source": "FloorPlan (local SVG) + SplitBlueprints (local) inside a pointer-driven pan/zoom surface",
+			"required": true
+		},
+		{
+			"id": "navigator",
+			"role": "Searchable floor navigator (top-left) — one branch per building, each floor a leaf; selects the active floor",
+			"source": "CanvasNavigator widget (@wakecap/core-ui/canvas-navigator)",
+			"required": true,
+			"recommended": ["CanvasNavigator"]
+		},
+		{
+			"id": "view-controls",
+			"role": "Top-center 'Show Multiple' split toggle + top-right zoom tools and walk-through action",
+			"source": "Toggle + VerticalZoomTools + Toolbar/ToolbarButton (walk-through)",
+			"required": true,
+			"recommended": ["VerticalZoomTools"]
+		},
+		{
+			"id": "progress-panel",
+			"role": "Full-height right side panel: per-floor progress list, approved-vs-planned hero comparison, and a walk-through CTA",
+			"source": "BuildingProgress widget (@wakecap/core-ui/building-progress) + local markup",
+			"required": false,
+			"recommended": ["BuildingProgress"],
+			"note": "Closable via its X and reopened via the top-right 'Show details' button."
+		},
+		{
+			"id": "header",
+			"role": "Header toolbar: breadcrumbs (building > floor) on the left, week selector + full-screen toggle on the right",
+			"source": "Breadcrumb + WeekSelector + Button",
+			"required": false
+		}
+	],
+
+	"requiredWidgets": [
+		{
+			"name": "CanvasNavigator",
+			"region": "navigator",
+			"required": true,
+			"note": "Searchable floor tree overlaid top-left; selecting a floor sets the active blueprint."
+		},
+		{
+			"name": "VerticalZoomTools",
+			"region": "view-controls",
+			"required": true,
+			"note": "Zoom in/out over the floor-plan canvas."
+		},
+		{
+			"name": "BuildingProgress",
+			"region": "progress-panel",
+			"required": true,
+			"note": "Tapered building-elevation list of per-floor completion; drives floor selection."
+		}
+	],
+	"optionalWidgets": [
+		{
+			"name": "WeekSelector",
+			"region": "header",
+			"required": false,
+			"note": "Selects the schedule week the progress reflects."
+		}
+	],
+	"missingRequiredWidgets": [],
+	"impliedWidgets": [],
+
+	"requiredComponents": [
+		{
+			"name": "Toggle",
+			"region": "view-controls / progress-panel",
+			"required": true,
+			"note": "'Show Multiple' split-view toggle (top-center and in the panel)."
+		},
+		{
+			"name": "Toolbar",
+			"region": "view-controls",
+			"required": false,
+			"note": "Vertical walk-through toolbar matching the zoom tools' radius."
+		},
+		{
+			"name": "Tooltip",
+			"region": "view-controls",
+			"required": false,
+			"note": "Labels the walk-through toolbar button."
+		},
+		{
+			"name": "Button",
+			"region": "header / view-controls",
+			"required": false,
+			"note": "Full-screen toggle and 'Show details' reopen button."
+		},
+		{"name": "Breadcrumb", "region": "header", "required": false, "note": "Building > floor trail."}
+	],
+
+	"dataContract": {
+		"applicable": false,
+		"note": "No props today — floors, weeks, and the floor plans are local fixtures inside the page (BUILDING_FLOORS, WEEKS, FloorPlan). A production widgetization should lift floors + plans + progress to a data source/prop. See dataSources."
+	},
+
+	"dataSources": [
+		{
+			"id": "floors",
+			"type": "constant",
+			"call": "BUILDING_FLOORS (module constant)",
+			"returns": "Floor[]",
+			"status": "mock",
+			"note": "MOCK fixture today — drives the navigator tree, the split view, and the progress list. Production must supply real floor + progress data."
+		},
+		{
+			"id": "floor-plan",
+			"type": "constant",
+			"call": "FloorPlan (local SVG component)",
+			"returns": "SVG",
+			"status": "mock",
+			"note": "A deterministic hand-drawn SVG floor plan (no live map). Production must render the real blueprint per floor."
+		}
+	],
+
+	"dataFlow": [
+		"BUILDING_FLOORS -> navigator tree (NAV_NODES) + FLOOR_TABS (split view) + progress list",
+		"select a floor (navigator or progress list) -> activeFloor + drop to single view -> canvas + breadcrumb + hero comparison",
+		"Show Multiple -> showMultiple -> SplitBlueprints renders one section per floor (hero comparison hidden)",
+		"drag on the canvas -> pan; wheel / VerticalZoomTools -> zoom -> the floor-plan transform",
+		"close the panel -> top-center Show Multiple + top-right Show details / walk-through take over"
+	],
+
+	"states": {
+		"default": "Single active floor's blueprint on the canvas, navigator top-left, zoom tools top-right, progress panel open on the right.",
+		"show-multiple": "SplitBlueprints renders every floor as a grid section; the panel's hero comparison hides (no single active floor).",
+		"panel-closed": "Details panel closed; the top-center 'Show Multiple' toggle, a 'Show details' button, and a walk-through toolbar appear over the canvas.",
+		"full-screen": "The viewer promotes to a fixed full-viewport overlay; exit via the button or Esc.",
+		"panning": "Pointer-drag pans the plan; zoom transitions are suppressed while dragging."
+	},
+
+	"composedOf": [
+		"CanvasNavigator",
+		"VerticalZoomTools",
+		"BuildingProgress",
+		"WeekSelector",
+		"Toggle",
+		"Toolbar",
+		"Tooltip",
+		"Button",
+		"Breadcrumb"
+	],
+	"requiredProviders": [],
+
+	"responsive": {
+		"strategy": "Full-height workspace: a flexible pan/zoom canvas beside a fixed 288px (w-72) progress panel that can close; overlays are absolutely positioned over the canvas.",
+		"note": "The canvas fills remaining space; the progress panel is a fixed-width closable aside. Full-screen escapes the bordered box to the full viewport."
+	},
+
+	"allowedPlacement": [
+		"app-shell content-region (inside CoreAppSidebar + CoreAppTopBar + CoreContentArea)",
+		"route-level single-floor blueprint page (leaf of the blueprint hierarchy)"
+	],
+	"forbiddenPlacement": [
+		"inside a Card or Dialog",
+		"nested in another scroll/zoom container (it owns its own pan/zoom + full-height layout)"
+	],
+
+	"commonMistakes": [
+		{
+			"mistake": "Using it for a geospatial site map",
+			"symptom": "Expecting live map tiles / lat-long markers",
+			"fix": "This is a deterministic SVG floor-plan viewer; use the CoreOrgOverview product route or compose Map + MapControls for a Mapbox site map."
+		},
+		{
+			"mistake": "Shipping with the BUILDING_FLOORS / FloorPlan mock fixtures",
+			"symptom": "The viewer shows the sample plan and hard-coded floors in production",
+			"fix": "Lift floors, plans, and progress to a data source/prop when widgetizing."
+		},
+		{
+			"mistake": "Embedding the full viewer as a small panel",
+			"symptom": "A full pan/zoom workspace crammed into a card slot",
+			"fix": "It is a page-level template — give it a full content region; compose FloorPlan/canvas pieces directly for a thumbnail."
+		},
+		{
+			"mistake": "Placing it inside another scroll container",
+			"symptom": "Wheel-zoom fights page scroll and the panel mis-sizes",
+			"fix": "Give it a full content region (CoreContentArea)."
+		}
+	],
+
+	"minimalExample": "// BlueprintViewer is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CanvasNavigator} from \"@wakecap/core-ui/canvas-navigator\";\nimport {VerticalZoomTools} from \"@wakecap/core-ui/vertical-zoom-tools\";\nimport {BuildingProgress} from \"@wakecap/core-ui/building-progress\";\nimport {Toggle} from \"@wakecap/core-ui/toggle\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+
+	"evaluationCriteria": [
+		{
+			"id": "tier-selection",
+			"metric": "tier-selection",
+			"check": "BlueprintViewer chosen for single-floor blueprint inspection — not a Dashboard (map) or TaskMonitor (worklist)."
+		},
+		{
+			"id": "regions",
+			"metric": "render",
+			"check": "canvas + navigator + view-controls render; the progress panel shows and closes."
+		},
+		{
+			"id": "widget-composition",
+			"metric": "composition",
+			"check": "CanvasNavigator, VerticalZoomTools, and BuildingProgress are composed rather than re-implemented."
+		},
+		{
+			"id": "interaction",
+			"metric": "interaction",
+			"check": "Selecting a floor updates the canvas + breadcrumb; 'Show Multiple' splits the canvas; pan/zoom work."
+		},
+		{
+			"id": "render",
+			"metric": "render",
+			"check": "Produces the full-height blueprint viewer markup with all required regions."
+		}
+	],
+
+	"lineage": {
+		"promotedFrom": "web demo page (apps/web BlueprintViewer2Page) — authored template",
+		"pilot": true,
+		"origin": "authored",
+		"status": "candidate",
+		"archetypeNote": "The 'Single Floor' variation of the Building Viewer template's Blueprint Viewer variant, authored from the Blueprint Viewer #2 web demo. Single-floor viewing with a Show-Multiple split toggle; sibling variation is 'Multi-Floor Split' (core-blueprint-viewer-3). Distinct from the map-first Dashboard and the master-detail Monitor.",
+		"authoredFields": [
+			"intent",
+			"when",
+			"whenNot",
+			"chooseOver",
+			"regions",
+			"requiredWidgets",
+			"optionalWidgets",
+			"requiredComponents",
+			"dataContract",
+			"dataSources",
+			"dataFlow",
+			"states",
+			"responsive",
+			"allowedPlacement",
+			"forbiddenPlacement",
+			"commonMistakes",
+			"minimalExample",
+			"evaluationCriteria"
+		],
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-blueprint-viewer.tsx",
+			"extracted": [
+				"regions (JSX layout)",
+				"composedOf (imports)",
+				"requiredWidgets (CanvasNavigator / VerticalZoomTools / BuildingProgress imports)",
+				"dataSources (BUILDING_FLOORS / FloorPlan)",
+				"states (component state machine)",
+				"responsive (Tailwind layout)"
+			]
+		},
+		"knowledgeRefs": ["manifests/dashboard-page.pattern.json"],
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"authoredBy": "template manifest pilot (2026-07)",
+		"lastValidated": "2026-07-09"
+	}
+}

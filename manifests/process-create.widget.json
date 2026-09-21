@@ -1,0 +1,127 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "process-create",
+	"tier": "widget",
+	"name": "CreateProcessDialog",
+	"category": "form",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/wc3-process-create.tsx",
+		"import": "@wakecap/core-ui/pages/create-process-dialog",
+		"export": "CreateProcessDialog"
+	},
+	"tags": [
+		"process",
+		"create",
+		"state-machine",
+		"ontology",
+		"authoring",
+		"wc3",
+		"studio"
+	],
+	"intent": "Bind a new state machine to an ontology object type: name, icon, backing object type and the property that holds its state value.",
+	"when": [
+		"A Studio surface offers to create a process",
+		"Any authoring flow that binds a workflow to an object type"
+	],
+	"whenNot": [
+		"Editing an existing process's graph -> open the process detail canvas",
+		"Creating a pipeline -> that is a different draft shape"
+	],
+	"chooseOver": [
+		{
+			"component": "A template-local create dialog",
+			"because": "This carries the domain rules a fresh copy would not: the status-property heuristic, the live backing-row count, and the warning that another process already claims that object type — tokens are keyed by object type, so two processes on ot_permit share the same rows."
+		}
+	],
+	"pairsWith": [
+		"FormDialog",
+		"Combobox",
+		"DataTable"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"open": {
+				"type": "boolean",
+				"required": true
+			},
+			"onOpenChange": {
+				"type": "(open: boolean) => void",
+				"required": true
+			},
+			"onCreate": {
+				"type": "(draft: Wc3ProcessDraft) => void",
+				"required": true,
+				"note": "Receives a DRAFT, not a record — the caller builds it with createProcess() and drills in."
+			},
+			"processes": {
+				"type": "Wc3ProcessRecord[]",
+				"required": true,
+				"note": "Read only to answer whether the chosen object type is already claimed."
+			}
+		},
+		"events": {
+			"onCreate": {
+				"payload": {
+					"name": "string",
+					"icon": "string",
+					"objectTypeId": "string",
+					"statusProp": "string"
+				}
+			}
+		},
+		"rowIdentity": "Object type ids come from the shared ontology; process ids are minted by the caller."
+	},
+	"configSchema": {},
+	"slots": {},
+	"states": {
+		"default": "Empty form, footer guidance, nothing painted invalid.",
+		"refused": "A Create press while incomplete names exactly what is missing.",
+		"claimed": "An amber caveat when another process already backs the chosen object type.",
+		"bound": "Once an object type is picked, the status property is pre-filled by heuristic and the backing row count is stated."
+	},
+	"composedOf": [
+		"FormDialog",
+		"Combobox",
+		"Input",
+		"ToggleGroup"
+	],
+	"allowedPlacement": [
+		"a process catalogue toolbar",
+		"a Studio overview create action"
+	],
+	"forbiddenPlacement": [
+		"inside another dialog"
+	],
+	"minimalExample": "import {CreateProcessDialog} from \"@wakecap/core-ui/pages/create-process-dialog\";\n\n<CreateProcessDialog open={open} onOpenChange={setOpen} processes={processes} onCreate={(draft) => open(createProcess(draft))} />",
+	"evaluationCriteria": [
+		"Create is never disabled.",
+		"The status property is pre-filled once an object type is chosen.",
+		"A already-claimed object type raises the shared-tokens caveat."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Extracted from the private NewProcessDialog in wc3-process-list-view.tsx (2026-08-26)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-process-list-view.tsx",
+			"extracted": [
+				"status-property heuristic",
+				"backing-row probe",
+				"already-claimed detection",
+				"icon picker over process glyphs"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"This is the flow the review was raised about: it lived only inside the process list view.",
+			"Promoted in group B of the missing-widgets template review.",
+			"pilot: true"
+		]
+	}
+}

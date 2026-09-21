@@ -1,0 +1,74 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "catalogue-view-toggle",
+	"tier": "component",
+	"name": "CatalogueViewToggle",
+	"category": "navigation",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/catalogue-view-toggle.tsx",
+		"import": "@wakecap/core-ui/catalogue-view-toggle",
+		"export": "CatalogueViewToggle"
+	},
+	"subcomponents": [
+		"CatalogueCardGrid",
+		"useCatalogueViewMode"
+	],
+	"tags": [
+		"catalogue",
+		"view-mode",
+		"table",
+		"cards",
+		"toggle",
+		"grid",
+		"persisted"
+	],
+	"intent": "Persisted table-or-cards switch for a catalogue page, plus the responsive grid its cards land in.",
+	"when": [
+		"A list page offers both a dense table and a card grid over the same rows",
+		"The choice should survive a reload"
+	],
+	"whenNot": [
+		"Choosing a value rather than a presentation -> use ToggleGroup directly",
+		"Only one presentation exists -> render DataTable alone"
+	],
+	"chooseOver": [
+		{
+			"component": "A page-local ToggleGroup plus usePersistentState",
+			"because": "Four catalogue pages each re-typed the toggle, its icons, the de-select swallow and the grid tracks; this keeps them identical and keeps the mode reaching DataTable through only showColumnToggle and renderGrid, so the table is never unmounted and never loses its sort, page index or column visibility."
+		}
+	],
+	"pairsWith": [
+		"DataTable",
+		"PageContentHeader",
+		"Filter"
+	],
+	"variantIntent": {
+		"table": "Dense, sortable, column-configurable",
+		"cards": "Scannable, richer per-row detail"
+	},
+	"minimalExample": "import {CatalogueCardGrid, CatalogueViewToggle, useCatalogueViewMode} from \"@wakecap/core-ui/catalogue-view-toggle\";\n\nconst [mode, setMode] = useCatalogueViewMode(\"wc3.processes.view\");\n<DataTable\n\tshowColumnToggle={mode === \"table\"}\n\trenderGrid={mode === \"cards\" ? (rows) => <CatalogueCardGrid>{rows.map(renderCard)}</CatalogueCardGrid> : undefined}\n\ttoolbarExtra={<CatalogueViewToggle value={mode} onValueChange={setMode} />}\n/>",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Extracted from the four catalogue pages found in the missing-widgets template review (2026-08-25)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-process-list-view.tsx",
+			"extracted": [
+				"persisted table/cards mode",
+				"segmented toggle with its de-select swallow",
+				"sm:grid-cols-2 xl:grid-cols-3 card grid"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": "The page-local view toggles in wc3-process-list-view, wc3-pipeline-list-view, wc3-product-catalogue-view and wc3-analysis-saved-view",
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Component tier, not widget: a presentation switch carries no domain meaning and no data contract.",
+			"Deliberately does NOT wrap DataTable — doing so would fight the one-table-mounted-for-life invariant those pages protect.",
+			"pilot: true"
+		]
+	}
+}

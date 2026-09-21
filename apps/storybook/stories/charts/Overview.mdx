@@ -1,0 +1,96 @@
+import {Meta} from "@storybook/addon-docs/blocks";
+
+<Meta title="Widgets/Charts/Overview" />
+
+# Charts
+
+Data visualization widgets built on ECharts with the WakeCap chart theme.
+
+## Widgets
+
+<table>
+	<thead>
+		<tr>
+			<th>Widget</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<strong>Trend Chart</strong>
+			</td>
+			<td>A titled, themed line/bar chart card for trends and comparisons</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Chart Container</strong>
+			</td>
+			<td>
+				Base ECharts wrapper with theme integration (<code>ChartContainer</code> + <code>useChartTheme</code>)
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Bar Chart</strong>
+			</td>
+			<td>Vertical or horizontal bar chart</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Line Chart</strong>
+			</td>
+			<td>Line chart with optional data points</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Area Chart</strong>
+			</td>
+			<td>Filled area chart</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Pie Chart</strong>
+			</td>
+			<td>Pie or donut chart</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Scatter Chart</strong>
+			</td>
+			<td>Scatter plot for correlation analysis</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Radar Chart</strong>
+			</td>
+			<td>Radar/spider chart for multi-axis comparison</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Gauge Chart</strong>
+			</td>
+			<td>Gauge/meter for single value display</td>
+		</tr>
+	</tbody>
+</table>
+
+## Usage
+
+All charts use the `ChartContainer` wrapper and the `useChartTheme` hook for theme-aware colors:
+
+```tsx
+import {ChartContainer, useChartTheme} from "@wakecap/core-ui/chart";
+
+function MyChart() {
+	const {colors, textColor, borderColor} = useChartTheme();
+
+	const option = {
+		xAxis: {type: "category", data: ["Mon", "Tue", "Wed"]},
+		yAxis: {type: "value"},
+		series: [{type: "bar", data: [120, 200, 150], itemStyle: {color: colors[0]}}],
+	};
+
+	return <ChartContainer option={option} style={{height: 300}} />;
+}
+```

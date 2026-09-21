@@ -1,0 +1,221 @@
+import {Meta} from "@storybook/addon-docs/blocks";
+
+<Meta title="Getting Started/AI Agents" />
+
+# Agent Skills
+
+Wakecore ships **TanStack Intent** skill files alongside each published package. These are structured SKILL.md documents that AI coding agents load to understand how to use the design system correctly — from imports and API patterns to common mistakes and failure modes.
+
+## Why Agent Skills?
+
+Wakecore has conventions that are easy to get wrong without context:
+
+- **Deep-path imports** — importing from `@wakecap/core-ui` gives you `undefined` at runtime (the barrel only exports types)
+- **`wwc:` class prefix** — all Tailwind utilities must be prefixed for `cn()` conflict resolution to work
+- **Provider requirements** — `TooltipProvider` and `SidebarProvider` must wrap specific parts of the tree
+- **Browser-only utils** — `getChartColors()` and `getCssVarAsRgb()` crash outside the browser
+- **ECharts integration** — `ChartContainer` vs `ChartRenderer` serve different use cases
+
+Skills encode these rules so agents get it right on the first try, without trial and error.
+
+## How It Works
+
+Skills are SKILL.md files co-located with each package:
+
+```
+packages/components/skills/   →  @wakecap/core-ui skills
+packages/tokens/skills/       →  @wakecap/core-tokens skills
+packages/utils/skills/        →  @wakecap/core-utils skills
+skills/_artifacts/            →  domain map, skill spec, skill tree
+```
+
+Each skill file contains:
+
+- **Frontmatter** — metadata (name, type, source files)
+- **Setup** — complete, runnable code examples
+- **Core Patterns** — API patterns specific to that domain
+- **Common Mistakes** — ranked failure modes with wrong/correct examples
+
+When an agent runs `npx @tanstack/intent install`, it loads these skills into its context.
+
+## Installation
+
+After installing Wakecore packages, load the skills:
+
+```bash
+# Install skills into your project
+npx @tanstack/intent@latest install
+
+# List available skills
+npx @tanstack/intent@latest list
+
+# Validate skill files (CI)
+npx @tanstack/intent@latest validate
+```
+
+## Available Skills
+
+<table>
+	<thead>
+		<tr>
+			<th>Skill</th>
+			<th>Package</th>
+			<th>Type</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<code>core-ui-quickstart</code>
+			</td>
+			<td>
+				<code>@wakecap/core-tokens</code>
+			</td>
+			<td>Lifecycle</td>
+			<td>
+				First-time installation, CSS setup paths (pre-built, TW4, TW3), <code>wwc:</code> prefix, first component
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>core-ui-components</code>
+			</td>
+			<td>
+				<code>@wakecap/core-ui</code>
+			</td>
+			<td>Core</td>
+			<td>
+				Deep-path imports, Button variants/sizes, <code>cn()</code> merging, <code>cva</code> variants, provider
+				requirements
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>core-ui-forms</code>
+			</td>
+			<td>
+				<code>@wakecap/core-ui</code>
+			</td>
+			<td>Core</td>
+			<td>Form composition with react-hook-form + zod, FormField/FormItem/FormControl wiring</td>
+		</tr>
+		<tr>
+			<td>
+				<code>core-ui-data-table</code>
+			</td>
+			<td>
+				<code>@wakecap/core-ui</code>
+			</td>
+			<td>Core</td>
+			<td>DataTable with @tanstack/react-table ColumnDef, sorting, filtering, expandable/tree rows</td>
+		</tr>
+		<tr>
+			<td>
+				<code>core-ui-charts</code>
+			</td>
+			<td>
+				<code>@wakecap/core-ui</code>
+			</td>
+			<td>Core</td>
+			<td>ChartContainer (ECharts + design tokens) and ChartRenderer (AI-generated chart payloads)</td>
+		</tr>
+		<tr>
+			<td>
+				<code>core-ui-chat</code>
+			</td>
+			<td>
+				<code>@wakecap/core-ui</code>
+			</td>
+			<td>Core</td>
+			<td>ChatWidget floating AI assistant, ChatPanel, message types, add-to-page flow</td>
+		</tr>
+		<tr>
+			<td>
+				<code>core-tokens</code>
+			</td>
+			<td>
+				<code>@wakecap/core-tokens</code>
+			</td>
+			<td>Core</td>
+			<td>
+				OKLCH design tokens, dark mode via <code>.dark</code> class, radius/font/shadow tokens
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>core-utils</code>
+			</td>
+			<td>
+				<code>@wakecap/core-utils</code>
+			</td>
+			<td>Core</td>
+			<td>
+				<code>cn()</code> with <code>wwc:</code> prefix, <code>cva</code>/VariantProps, browser-only color converters
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>core-ui-composition</code>
+			</td>
+			<td>
+				<code>@wakecap/core-ui</code>
+			</td>
+			<td>Reference</td>
+			<td>
+				Component selection guides (which to use when), composition rules, workflow recipes, variant semantics — backed
+				by the <code>library-index.json</code> semantic catalog
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+## Skill Types
+
+- **Lifecycle** — load once during project setup (e.g., `core-ui-quickstart`)
+- **Core** — load when working in that domain (e.g., `core-ui-forms` when building a form)
+- **Reference** — load when choosing between components or composing a screen (e.g., `core-ui-composition`)
+
+Agents should load `core-ui-quickstart` first, then load domain-specific skills as needed.
+
+## For Contributors
+
+### File locations
+
+Each skill lives in its package's `skills/` directory as a `SKILL.md` file:
+
+```
+packages/components/skills/core-ui-components/SKILL.md
+packages/components/skills/core-ui-forms/SKILL.md
+packages/components/skills/core-ui-data-table/SKILL.md
+packages/components/skills/core-ui-charts/SKILL.md
+packages/components/skills/core-ui-chat/SKILL.md
+packages/tokens/skills/core-tokens/SKILL.md
+packages/tokens/skills/core-ui-quickstart/SKILL.md
+packages/utils/skills/core-utils/SKILL.md
+```
+
+### Artifact files
+
+Global metadata lives in `skills/_artifacts/`:
+
+- **`skill_spec.md`** — writing rules and library context
+- **`domain_map.yaml`** — all domains, failure modes, and cross-references
+- **`skill_tree.yaml`** — hierarchical skill index
+
+### Validation
+
+Skills are validated in CI whenever files in `packages/*/skills/` or `skills/_artifacts/` change. You can validate locally:
+
+```bash
+cd packages/components && pnpm exec intent validate
+cd packages/tokens && pnpm exec intent validate
+cd packages/utils && pnpm exec intent validate
+```
+
+### Writing rules
+
+- Every code block uses real package imports (exact deep-path, exact name)
+- All Tailwind utility classes use the `wwc:` prefix
+- No placeholder code — all examples are complete and runnable
+- Failure modes must be plausible (an agent would generate them), silent (no crash), and grounded in source

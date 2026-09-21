@@ -1,0 +1,109 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "lint-findings",
+	"tier": "widget",
+	"name": "HealthView",
+	"category": "feedback",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/wc3-health-view.tsx",
+		"import": "@wakecap/core-ui/pages/health-view",
+		"export": "HealthView"
+	},
+	"subcomponents": [
+		"runOntologyLint"
+	],
+	"tags": [
+		"lint",
+		"health",
+		"findings",
+		"rules",
+		"severity",
+		"ontology",
+		"wc3"
+	],
+	"intent": "Grouped rule findings with severity, the element each one points at, and a jump-to-element action.",
+	"when": [
+		"Surfacing rule violations over a model the user can repair",
+		"Any health or readiness panel over a rule engine"
+	],
+	"whenNot": [
+		"Reporting one error in place -> use Alert",
+		"Ranking by duration rather than rule -> use the bottlenecks section"
+	],
+	"chooseOver": [
+		{
+			"component": "A list of error strings",
+			"because": "Each finding carries the element it points at, so the panel can jump the user to the thing that needs repairing rather than describing it."
+		}
+	],
+	"pairsWith": [
+		"Badge",
+		"Card",
+		"SideMenu"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"onOpenElement": {
+				"type": "(target: LintTarget) => void",
+				"required": false,
+				"note": "Jump to the object, link, action or interface a finding names."
+			}
+		},
+		"events": {
+			"onOpenElement": {
+				"payload": {
+					"kind": "LintTargetKind",
+					"id": "string | null"
+				}
+			}
+		},
+		"rowIdentity": "Findings are keyed by rule plus target."
+	},
+	"configSchema": {},
+	"slots": {},
+	"states": {
+		"clean": "No findings.",
+		"findings": "Grouped by rule, each naming its target.",
+		"ontologyWide": "A finding with no single target is attributed to the ontology itself."
+	},
+	"composedOf": [
+		"Card",
+		"Badge"
+	],
+	"allowedPlacement": [
+		"an ontology health tab",
+		"a readiness panel"
+	],
+	"forbiddenPlacement": [
+		"a dashboard tile that cannot navigate"
+	],
+	"minimalExample": "import {HealthView, runOntologyLint} from \"@wakecap/core-ui/pages/health-view\";\n\n<HealthView onOpenElement={goTo} />",
+	"evaluationCriteria": [
+		"Every finding is actionable — it names an element or the ontology itself."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted from the WC3 ontology health tab (2026-08-26)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-health-view.tsx",
+			"extracted": [
+				"rule engine",
+				"grouped findings with severity",
+				"jump-to-element targets"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Pairs with processGraphLint in wc3-process-shared.tsx, which renders its findings a second, different way — a two-copy case in waiting.",
+			"Promoted in group B of the missing-widgets template review.",
+			"pilot: true"
+		]
+	}
+}

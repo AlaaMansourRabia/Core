@@ -1,0 +1,102 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "clinic",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "CoreClinic",
+	"archetype": "Workspace",
+	"category": "safety",
+	"version": "1.0.0",
+	"manifestStatus": "draft",
+	"source": {
+		"path": "packages/components/src/pages/core-clinic.tsx",
+		"import": "@wakecap/core-ui/pages/core-clinic",
+		"export": "Clinic"
+	},
+	"tags": [
+		"clinic",
+		"occupational-health",
+		"fitness-for-work",
+		"worker-fitness",
+		"app-shell",
+		"sidebar",
+		"top-bar",
+		"header",
+		"tabs",
+		"data-table",
+		"scaffold"
+	],
+	"intent": "Occupational-health scaffold: a full app shell (CoreAppSidebar + CoreAppTopBar) with a single \"Clinic\" sidebar entry, and a description-less route header (PageContentHeader) carrying two tabs — a placeholder Overview and a live Worker Fitness list (KPI row, Workers/Visit Logs tabs, DataTable with fitness status, visit counts, and next-due dates) — plus a Settings action that opens a SideMenu sub-surface whose General pane is live (toggle rows + shared FormActionBar).",
+	"when": [
+		"Starting the Clinic / occupational-health product surface that owns its own app shell",
+		"A single-section app whose route content is organized by a peer tab set in the header"
+	],
+	"whenNot": [
+		"A content page rendered inside an existing app shell -> use a content-only template",
+		"A multi-section admin surface where the left nav switches content -> use Admin Panel",
+		"Observation and incident management -> use Safety Manager"
+	],
+	"chooseOver": [
+		{
+			"component": "Assembling CoreAppSidebar + CoreAppTopBar + PageContentHeader by hand",
+			"because": "Clinic owns the shell, the header tab scaffold, and the Settings sub-surface so health surfaces plug straight in."
+		},
+		{
+			"component": "SafetyManager",
+			"because": "Same shell shape, but scoped to worker health and fitness-for-work rather than observations."
+		}
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"PageContentHeader",
+		"SideMenu",
+		"DataTable",
+		"MetricCard",
+		"FormActionBar"
+	],
+	"requiredProviders": [],
+	"composedOf": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"PageContentHeader",
+		"ViewTabBar",
+		"SideMenu",
+		"Tabs",
+		"MetricCard",
+		"DataTable",
+		"Filter",
+		"Avatar",
+		"Checkbox",
+		"DropdownMenu",
+		"Switch",
+		"FormActionBar",
+		"Empty"
+	],
+	"allowedPlacement": ["route-level clinic / occupational-health surface that owns the full window"],
+	"forbiddenPlacement": ["inside another CoreAppSidebar/CoreAppTopBar shell", "inside a Card or Dialog"],
+	"minimalExample": "// CoreClinic is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@wakecap/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@wakecap/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@wakecap/core-ui/page-content-header\";\nimport {ViewTabBar} from \"@wakecap/core-ui/view-tab-bar\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Round 2 branch (2026-07-20)",
+		"derivedFrom": {
+			"source": "CoreSafetyManager",
+			"extracted": [
+				"single-entry sidebar shell",
+				"description-less route header scaffold with a Settings action",
+				"Settings sub-surface (SideMenu + General toggle rows + FormActionBar save/discard)",
+				"KPI row + tabs + DataTable list pattern from CoreWorkforce"
+			]
+		},
+		"status": "draft",
+		"verifiedBy": null,
+		"confidence": "unset — scaffold, no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-20",
+		"notes": [
+			"pilot: true",
+			"Overview tab body is a placeholder pending real clinic analytics",
+			"Worker Fitness > Visit Logs tab is a placeholder pending the visit-record schema"
+		]
+	}
+}

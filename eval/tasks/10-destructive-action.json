@@ -1,0 +1,10 @@
+{
+	"id": "destructive-action",
+	"title": "Destructive action emphasis",
+	"domain": "primitives",
+	"prompt": "Add a button that permanently deletes the selected record. Make its visual treatment communicate that the action is dangerous and irreversible.",
+	"expected": ["Button"],
+	"acceptable": [],
+	"forbidden": [],
+	"requiredProviders": []
+}

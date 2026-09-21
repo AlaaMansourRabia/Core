@@ -1,0 +1,234 @@
+import {Meta} from "@storybook/addon-docs/blocks";
+
+import {WelcomeIntro} from "./_docs/WelcomeIntro";
+
+<Meta title="Getting Started/Welcome" />
+
+<WelcomeIntro />
+
+## What is Wakecore?
+
+Wakecore is WakeCap's design system and component library, purpose-built for construction technology interfaces. It provides a unified set of tokens, components, and patterns that ensure visual consistency across all WakeCap products.
+
+## Getting Started
+
+### Installation
+
+```bash
+pnpm add @wakecap/core-ui @wakecap/core-tokens @wakecap/core-utils
+```
+
+### CSS Class Prefix (Internal)
+
+All Tailwind utility classes **inside** Wakecore components are prefixed with **`wwc:`** to avoid collisions with your app's own styles. This is an internal implementation detail — **you never use `wwc:` in your own code**. Components are self-styled; you just import and use them.
+
+### Fonts
+
+Import them — the WOFF2 files ship inside the package:
+
+```tsx
+import "@wakecap/core-tokens/fonts";
+```
+
+That declares `@font-face` for Figtree (`--font-sans`), IBM Plex Mono (`--font-mono`) and Lora
+(`--font-serif`), served from your own origin. No CDN link, no runtime request to a third party, and
+`font-src 'self'` is enough for CSP.
+
+Using the pre-built `@wakecap/core-ui/styles.css`? The faces are already inlined, and the WOFF2 files
+sit beside it in `dist/fonts/` — keep that directory alongside the CSS if you copy it elsewhere.
+
+### Setup
+
+Choose the setup path that matches your project:
+
+#### Path A — Pre-built CSS (No Tailwind required)
+
+The simplest option. Works with **any framework** — no Tailwind CSS needed in your project.
+
+Import the pre-built CSS in your app entry:
+
+```tsx
+// your-app/src/main.tsx
+import "@wakecap/core-ui/styles.css";
+```
+
+This single import includes all design tokens (colors, fonts, spacing), dark mode support, CSS reset, and every utility class used by the components. **~80 KB total.**
+
+> If your project uses Tailwind CSS 3 or 4, use **Path C** or **Path B** instead — they provide design tokens as unprefixed utility classes and avoid CSS reset conflicts.
+
+#### Path B — Tailwind CSS 4
+
+For projects already on **Tailwind CSS 4**. Uses a dedicated pre-built CSS for component styles (no reset conflicts) plus a theme import for design tokens as unprefixed utility classes.
+
+**1. Import component styles** in your app entry, then your own CSS **after**:
+
+```tsx
+// your-app/src/main.tsx
+import "./index.css"; // your TW4 CSS first
+import "@wakecap/core-ui/styles.tw4.css"; // component styles after
+```
+
+**2. Configure your CSS** with Tailwind and the Wakecore theme:
+
+```css
+/* your-app/src/index.css */
+@import "tailwindcss";
+@import "@wakecap/core-tokens/theme";
+```
+
+Your own `@import "tailwindcss"` provides unprefixed utilities and the CSS reset. The `@wakecap/core-tokens/theme` import maps design tokens (colors, radius, fonts) into Tailwind's theme. The `styles.tw4.css` provides `wwc:` prefixed component styles without a duplicate reset.
+
+#### Path C — Tailwind CSS 3
+
+For projects on **Tailwind CSS 3**. Uses the pre-built CSS for component styles, plus a Tailwind preset so you can use the design tokens as standard TW3 utility classes.
+
+**1. Import Wakecore CSS** in your app entry (e.g. `main.tsx`), **before** your own CSS:
+
+```tsx
+// your-app/src/main.tsx
+import "@wakecap/core-ui/styles.css";
+import "./index.css"; // your TW3 styles (@tailwind base/components/utilities)
+```
+
+**2. Add the Wakecore preset** to your Tailwind config so design tokens are available as unprefixed utilities:
+
+```js
+// tailwind.config.cjs
+const wakecorePreset = require("@wakecap/core-tokens/tailwind3-preset");
+
+module.exports = {
+	presets: [wakecorePreset],
+	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+};
+```
+
+Now you can use design token classes like `text-muted-foreground`, `bg-primary`, `border-border` — they resolve to the same CSS custom properties used by the components.
+
+### Usage
+
+Import components individually for optimal tree-shaking:
+
+```tsx
+import {Button} from "@wakecap/core-ui/button";
+import {Card, CardHeader, CardTitle, CardContent} from "@wakecap/core-ui/card";
+import {Badge} from "@wakecap/core-ui/badge";
+```
+
+Use standard Tailwind classes in your own code. With the TW3 preset (Path C) or TW4 theme (Path B), design token classes work unprefixed:
+
+```tsx
+<div className="flex gap-4 bg-background text-foreground">
+	<Card>
+		<div className="p-4 text-muted-foreground">Content styled with design tokens</div>
+	</Card>
+</div>
+```
+
+## Packages
+
+<table>
+	<thead>
+		<tr>
+			<th>Package</th>
+			<th>Name</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<strong>Components</strong>
+			</td>
+			<td>
+				<code>@wakecap/core-ui</code>
+			</td>
+			<td>React components built on Radix UI, ECharts, and Mapbox</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Tokens</strong>
+			</td>
+			<td>
+				<code>@wakecap/core-tokens</code>
+			</td>
+			<td>Design tokens as CSS custom properties (OKLCH color space)</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Utilities</strong>
+			</td>
+			<td>
+				<code>@wakecap/core-utils</code>
+			</td>
+			<td>
+				Shared utility functions (<code>cn</code>, color helpers)
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+## Component Categories
+
+- **Primitives** — Buttons, inputs, badges, toggles, and other building blocks
+- **Layout** — Cards, tables, tabs, accordions, and structural components
+- **Overlay** — Dialogs, sheets, popovers, tooltips, and dropdown menus
+- **Navigation** — Breadcrumbs, pagination, command palette, and nav menus
+- **Form** — Form fields, date pickers, comboboxes, and OTP inputs
+- **Feedback** — Alerts, toasts, empty states, and error pages
+- **Display** — Carousels, timelines, Gantt charts, and typography
+- **Charts** — Bar, line, area, pie, scatter, radar, and gauge charts
+- **Map** — Interactive maps with directions, heatmaps, and 3D views
+
+## Tech Stack
+
+- **React 19** with TypeScript 5.9
+- **Tailwind CSS 4** with OKLCH color tokens and internal `wwc:` class prefix
+- **Radix UI** for accessible primitives
+- **ECharts** for data visualization
+- **Mapbox GL** for interactive maps
+- **CVA** (class-variance-authority) for variant management
+- **Pre-built CSS** shipped for consumers without Tailwind
+
+## Consumer Compatibility
+
+<table>
+	<thead>
+		<tr>
+			<th>Consumer Setup</th>
+			<th>How to Use</th>
+			<th>CSS Size</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<strong>No Tailwind</strong>
+			</td>
+			<td>
+				<code>@import "@wakecap/core-ui/styles.css"</code>
+			</td>
+			<td>~80 KB</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Tailwind CSS 3</strong>
+			</td>
+			<td>Pre-built CSS + TW3 preset (Path C) — design tokens as unprefixed utilities</td>
+			<td>~80 KB + your TW3</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Tailwind CSS 4</strong>
+			</td>
+			<td>
+				<code>styles.tw4.css</code> + theme import (Path B) — no reset conflicts
+			</td>
+			<td>~80 KB + your TW4</td>
+		</tr>
+	</tbody>
+</table>
+
+## Resources
+
+- [GitHub — Design Agent](https://github.com/wakecap/Design-Agent)
+- [wakecap.com](https://wakecap.com)

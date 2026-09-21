@@ -1,0 +1,77 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "map-control-panel",
+	"tier": "widget",
+	"name": "MapControlPanel",
+	"category": "map",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/map-control-panel.tsx",
+		"import": "@wakecap/core-ui/map-control-panel"
+	},
+	"tags": [
+		"map",
+		"controls",
+		"filter",
+		"collapsible",
+		"overlay"
+	],
+	"intent": "Collapsible floating control card for a map — labelled dropdown filters over switch rows.",
+	"when": [
+		"A map needs basemap, filter and layer-visibility controls in one corner",
+		"The controls must fold away so they stop covering the map"
+	],
+	"chooseOver": [
+		{
+			"component": "MapControls",
+			"because": "MapControls is a horizontal strip of icon buttons with a built-in geocoder and geolocate. MapControlPanel is a labelled, collapsible card for filters that need to read as named fields rather than icons."
+		}
+	],
+	"pairsWith": [
+		"ObservationsMap",
+		"MultiSelect",
+		"Select"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [
+		"Pre-selecting every option to mean \"show everything\" — an empty selection is the natural \"no filter\", and pre-selecting 90 zones fills the trigger with noise.",
+		"Using the Select-module MultiSelect inside the panel — it renders its list as a plain absolutely-positioned element, which the card's overflow-hidden clips. The multi-select module's Popover-based MultiSelect portals out and carries the pills.",
+		"Letting the panel grow with its rows — several filters plus their pills outgrow any map. The body scrolls under `maxBodyHeight` instead.",
+		"Putting three options behind a dropdown — the click costs more than it saves. Use `as: \"chips\"` for short option sets and keep the dropdown for long ones.",
+		"Letting a multi-select print every pill — eight selections push the rows below it off the panel. The pills cap at four and collapse the rest into a +N popover.",
+		"Collapsing a panel to header height while keeping full width — it still occupies the surface it was meant to get out of the way of. Narrow it too.",
+		"Forcing every chip row onto one line — five options at panel width truncate to nothing. Set chipColumns and let them wrap into an even grid.",
+		"Masking a panel's scrolling body to fade its edges — that fades the content while the card's surface and border still end on a hard line. Mask the card itself."
+	],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Observations-Map-View",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — every control exercised end-to-end in the browser; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-30",
+		"notes": []
+	},
+	"composedOf": [
+		"MultiSelect",
+		"Select",
+		"Chip",
+		"Switch",
+		"Label",
+		"Button",
+		"Badge"
+	]
+}

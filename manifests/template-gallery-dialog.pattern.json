@@ -1,0 +1,44 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "template-gallery-dialog",
+	"tier": "pattern",
+	"name": "template-gallery-dialog",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"intent": "Searchable gallery of cards that drills into a detail view in the same modal.",
+	"when": "Browse-and-pick from many templates/examples.",
+	"components": [
+		"Dialog",
+		"SearchFilterBar",
+		"Card",
+		"ScrollArea",
+		"Button"
+	],
+	"order": [
+		"Dialog",
+		"SearchFilterBar (filter)",
+		"grid of cards",
+		"→ detail view with a Back button"
+	],
+	"requiredProviders": [],
+	"tags": [
+		"overlay",
+		"search",
+		"gallery"
+	],
+	"notes": "A single view-state toggles list ↔ detail inside one DialogContent.",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 pattern migration (2026-07)",
+		"derivedFrom": {
+			"source": "library-index.json patterns[]",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": []
+	}
+}

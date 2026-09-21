@@ -1,0 +1,61 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "search-filter-bar",
+	"tier": "widget",
+	"name": "SearchFilterBar",
+	"category": "data",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/search-filter-bar.tsx",
+		"import": "@wakecap/core-ui/search-filter-bar"
+	},
+	"tags": [
+		"search",
+		"filter",
+		"toolbar",
+		"data-view"
+	],
+	"intent": "A search input paired with quick filter pills (with counts) and an optional trailing slot, sitting above a list or table.",
+	"when": [
+		"Provide search plus a few quick filter tabs over a collection",
+		"Header controls for a data view"
+	],
+	"chooseOver": [
+		{
+			"component": "Filter",
+			"because": "Filter is multi-category faceted filtering in a popover; SearchFilterBar is inline search plus a small set of quick filters"
+		}
+	],
+	"pairsWith": [
+		"DataTable",
+		"Filter"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#SearchFilterBar\"]"
+		]
+	}
+}

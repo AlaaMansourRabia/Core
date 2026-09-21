@@ -1,0 +1,48 @@
+{
+	"$schema": "https://open-design.ai/schemas/plugin.v1.json",
+	"specVersion": "1.0.0",
+	"name": "wakecore-templates",
+	"title": "WakeCore Templates",
+	"version": "0.1.0",
+	"description": "Pick a WakeCore template and open it in the editor. Every option is built exclusively from WakeCore — templates, widgets, validation. Badges show build maturity: ✓ Ready renders fully; ◐ Partial/Shell renders some regions; ○ Not built yet is a stub in WakeCore.",
+	"od": {
+		"kind": "scenario",
+		"taskKind": "new-generation",
+		"scenario": "new-generation",
+		"mode": "prototype",
+		"capabilities": ["prompt:inject"],
+		"context": {
+			"skills": [
+				{
+					"path": "./SKILL.md"
+				}
+			]
+		},
+		"inputs": [
+			{
+				"name": "template",
+				"type": "string",
+				"required": true,
+				"label": "WakeCore template",
+				"placeholder": "Choose a WakeCore template",
+				"options": [
+					"CoreOrgPerformance — ✓ Ready",
+					"CoreProjectQualityIssues — ✓ Ready",
+					"TaskMonitor — ✓ Ready",
+					"CoreLoginPage — ✓ Ready",
+					"ErrorPage — ✓ Ready",
+					"CoreProjectScheduleCost — ✓ Ready",
+					"CoreProjectWorkforceSafety — ✓ Ready",
+					"CoreProjectOverview — ✓ Ready",
+					"CoreProjectRealityCapture — ✓ Ready",
+					"CoreOrgWorkforceIntelligence — ✓ Ready"
+				]
+			}
+		],
+		"useCase": {
+			"query": {
+				"en": "The user picked this WakeCore template from the gallery: \"{{template}}\". The part after the em dash is only a build-maturity badge — ignore it for resolution. Follow the wakecore-compose skill exactly: call the wakecore MCP list_templates, find the template whose name matches the picked one, then generate_page_instance for its id and write index.html using the WakeCore render wrapper. If WakeCore reports the template has no widgets or empty required regions (the badge says 'Not built yet' or 'Shell only'), still generate what exists, but state plainly in your summary that this template is not fully built in WakeCore yet and which regions are empty."
+			}
+		}
+	}
+}

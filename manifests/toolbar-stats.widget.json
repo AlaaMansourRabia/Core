@@ -1,0 +1,98 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "toolbar-stats",
+	"tier": "widget",
+	"name": "ToolbarStats",
+	"category": "analytics",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/toolbar-stats.tsx",
+		"import": "@wakecap/core-ui/toolbar-stats",
+		"export": "ToolbarStats"
+	},
+	"tags": ["analytics", "metrics", "toolbar", "stats", "kpi"],
+	"intent": "A compact full-width metric strip that groups labeled values into equal-width cells for dashboards, tables, and operational workspaces.",
+	"when": [
+		"Several related headline metrics need to share one compact horizontal region",
+		"Metric groups need clear dividers without building a dashboard grid",
+		"A toolbar or table header needs persistent summary statistics"
+	],
+	"whenNot": [
+		"Only one headline metric is needed -> use MetricCard",
+		"Metrics need charts or trends -> use TrendChart",
+		"The values are row-level records -> use DataTable"
+	],
+	"chooseOver": [
+		{
+			"component": "Card",
+			"because": "ToolbarStats owns equal-width metric layout, grouped dividers, compact density, and negative-value treatment."
+		}
+	],
+	"pairsWith": ["DataTable", "ContextToolbar", "PageContentHeader"],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"groups": {
+				"type": "ToolbarStat[][]",
+				"required": true,
+				"note": "Ordered groups of pre-formatted label/value metrics."
+			}
+		},
+		"note": "Presentational and stateless; callers compute and format values."
+	},
+	"configSchema": {
+		"variant": {
+			"type": "\"cards\" | \"table\"",
+			"required": false,
+			"note": "Cards renders separate stat cards; table renders one compact divided row."
+		},
+		"className": {
+			"type": "string",
+			"required": false,
+			"note": "Merged onto the root metric strip."
+		}
+	},
+	"states": {
+		"cards": "Separate stat cards with group dividers and horizontal overflow when needed.",
+		"table": "A bare row of full-height cells separated by borders.",
+		"negative": "Metrics flagged negative use the destructive semantic text color."
+	},
+	"composedOf": ["Card"],
+	"allowedPlacement": ["dashboard summary band", "table toolbar", "operational workspace header"],
+	"forbiddenPlacement": ["inside a table cell", "as a route-level page", "for a single metric"],
+	"commonMistakes": [
+		{
+			"mistake": "Using ToolbarStats as a generic layout component",
+			"symptom": "Non-metric content is squeezed into stat cells",
+			"fix": "Use a toolbar or grid component for actions and arbitrary content."
+		}
+	],
+	"minimalExample": "import {ToolbarStats} from \"@wakecap/core-ui/toolbar-stats\";\n\n<ToolbarStats groups={[[{label: \"Workers\", value: \"342\"}]]} />",
+	"evaluationCriteria": [
+		{
+			"id": "tier-selection",
+			"metric": "tier-selection",
+			"check": "ToolbarStats is selected as a widget for a composed metric strip, not as a primitive component."
+		},
+		{
+			"id": "render",
+			"metric": "render",
+			"check": "Every metric renders a label and value; group boundaries and negative semantics remain visible."
+		}
+	],
+	"lineage": {
+		"origin": "promoted-from-source",
+		"authoredBy": "ToolbarStats widget classification cleanup (2026-07-30)",
+		"derivedFrom": {
+			"source": "packages/components/src/toolbar-stats.tsx",
+			"extracted": ["grouped metric strip", "cards and table variants", "semantic negative state"]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-30",
+		"notes": ["promotedFrom: component", "classification: widget"]
+	}
+}

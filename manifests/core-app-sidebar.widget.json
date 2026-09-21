@@ -1,0 +1,81 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-app-sidebar",
+	"tier": "widget",
+	"name": "CoreAppSidebar",
+	"category": "navigation",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/navigation/core-app-sidebar.tsx",
+		"import": "@wakecap/core-ui/navigation/core-app-sidebar"
+	},
+	"tags": [
+		"navigation",
+		"app-shell",
+		"sidebar",
+		"tree",
+		"grouped-nav",
+		"collapsible",
+		"flyout",
+		"breadcrumbable-groups"
+	],
+	"variantIntent": {
+		"list": "Default — flat groups, ruled apart, all open. Every existing consumer.",
+		"tree": "Grouped sections — icon groups render as a tree, rules drop, sections open folded."
+	},
+	"intent": "The standard WakeCap product sidebar: branded shell with a pinned block of shell surfaces (Search, a `pinnedTop` entry, Home, Notifications) over grouped nav, plus profile, density, and collapse to an icon rail with sub-tab flyouts. Search is a ROW that hands off to a search surface of the consumer's choosing, not an inline filter. Groups are navigable in their own right: give a group an `icon` and it renders as a tree — parent-sized header, a spine down to the last item, an elbow into each — and folds in the collapsed rail to that one icon, whose flyout lists its items using the same flyout an `expandable` item's `subMenu` gets. `collapsible` makes the WHOLE header fold the group — name, icon and chevron are one control, so no group name is a link and none underlines — while `activeGroupId` marks a group (and its rail icon) as the active surface and `onGroupSelect` fires only from the collapsed rail's flyout title. `variant` names the two shapes — `\"list\"` (default) for the flat, ruled, all-open list and `\"tree\"` for grouped sections that fold to their icon — and supplies the defaults for `showGroupDividers` and `groupsCollapsedByDefault`, both of which still override it. `brandName`, `showHomeDivider`, `dividerBefore` and `showSearch` tune the chrome independently of the variant; expanding and folding animate.",
+	"when": [
+		"Any standard WakeCap product app shell",
+		"A sidebar whose GROUPS are destinations too, not just headings over a list",
+		"A nav that must stay legible collapsed — one icon per section, its items in a flyout",
+		"A long nav that should open as a short list of section headers and expand on demand"
+	],
+	"chooseOver": [
+		{
+			"component": "Sidebar",
+			"because": "The Sidebar primitive when you must build a bespoke nav; CoreAppSidebar for the standard shell"
+		},
+		{
+			"component": "Hand-rolled grouped nav in a template",
+			"because": "Group icons, tree spines, fold chevrons, clickable group names and the collapsed-rail flyouts all live here, so every template gets the same behaviour from props rather than reimplementing it locally."
+		}
+	],
+	"pairsWith": [
+		"CoreAppTopBar",
+		"TooltipProvider"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [
+		{
+			"mistake": "Drive selection via DOM clicks",
+			"fix": "Pass activeItemId to control the highlight from your route",
+			"avoidOverride": "Drive selection via DOM clicks — pass activeItemId to control the highlight from your route"
+		}
+	],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#CoreAppSidebar\"]"
+		]
+	}
+}

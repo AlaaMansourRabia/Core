@@ -1,0 +1,359 @@
+import {Meta} from "@storybook/addon-docs/blocks";
+
+<Meta title="Design Tokens/Overview" />
+
+# Design Tokens
+
+Wakecore uses CSS custom properties as design tokens, defined in `@wakecap/core-tokens`. All colors use the OKLCH color space for perceptual uniformity.
+
+## Colors
+
+### Semantic Colors
+
+export const ColorSwatch = ({color}) => (
+	<span style={{display: "inline-flex", alignItems: "center", gap: "8px"}}>
+		<span
+			style={{
+				display: "inline-block",
+				width: "16px",
+				height: "16px",
+				borderRadius: "4px",
+				backgroundColor: color,
+				border: "1px solid rgba(0,0,0,0.1)",
+				flexShrink: 0,
+			}}
+		/>
+		<code>{color}</code>
+	</span>
+);
+
+<table>
+	<thead>
+		<tr>
+			<th>Token</th>
+			<th>Light Mode</th>
+			<th>Dark Mode</th>
+			<th>Usage</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<code>--background</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(1 0 0)" />
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.145 0 0)" />
+			</td>
+			<td>Page background</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--foreground</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.145 0 0)" />
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.985 0 0)" />
+			</td>
+			<td>Primary text</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--primary</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.205 0 0)" />
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.922 0 0)" />
+			</td>
+			<td>Primary actions, links</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--secondary</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.97 0 0)" />
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.245 0.007 70)" />
+			</td>
+			<td>Secondary actions</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--muted</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.96 0 0)" />
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.26 0.007 70)" />
+			</td>
+			<td>Subtle backgrounds</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--accent</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.975 0 0)" />
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.26 0.007 70)" />
+			</td>
+			<td>Selected / on-state fill</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--menu-highlight</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.94 0 0)" />
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.28 0.007 70)" />
+			</td>
+			<td>Focused menu / list row</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--destructive</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.577 0.245 27.325)" />
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.704 0.191 22.216)" />
+			</td>
+			<td>Error, delete actions</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--border</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.92 0 0)" />
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.275 0 0)" />
+			</td>
+			<td>Borders, dividers</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--input</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.95 0 0)" />
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.24 0 0)" />
+			</td>
+			<td>Input backgrounds</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--ring</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.708 0 0)" />
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.556 0 0)" />
+			</td>
+			<td>Focus rings</td>
+		</tr>
+	</tbody>
+</table>
+
+### Chart Colors
+
+<table>
+	<thead>
+		<tr>
+			<th>Token</th>
+			<th>Value</th>
+			<th>Usage</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<code>--chart-1</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.92 0.07 75)" />
+			</td>
+			<td>Chart series 1</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--chart-2</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.85 0.12 70)" />
+			</td>
+			<td>Chart series 2</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--chart-3</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.78 0.17 65)" />
+			</td>
+			<td>Chart series 3</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--chart-4</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.71 0.22 60)" />
+			</td>
+			<td>Chart series 4</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--chart-5</code>
+			</td>
+			<td>
+				<ColorSwatch color="oklch(0.64 0.27 55)" />
+			</td>
+			<td>Chart series 5</td>
+		</tr>
+	</tbody>
+</table>
+
+## Typography
+
+<table>
+	<thead>
+		<tr>
+			<th>Font</th>
+			<th>Family</th>
+			<th>Usage</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<strong>Sans</strong>
+			</td>
+			<td>Figtree, ui-sans-serif, sans-serif, system-ui</td>
+			<td>Body text, UI elements</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Serif</strong>
+			</td>
+			<td>Lora, ui-serif, serif</td>
+			<td>Display text, headings (optional)</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Mono</strong>
+			</td>
+			<td>IBM Plex Mono, ui-monospace, monospace</td>
+			<td>Code, keyboard shortcuts</td>
+		</tr>
+	</tbody>
+</table>
+
+## Border Radius
+
+<table>
+	<thead>
+		<tr>
+			<th>Token</th>
+			<th>Value</th>
+			<th>Usage</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<code>--radius</code>
+			</td>
+			<td>
+				<code>0.625rem</code> (10px)
+			</td>
+			<td>Base radius</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--radius-sm</code>
+			</td>
+			<td>
+				<code>calc(var(--radius) - 4px)</code>
+			</td>
+			<td>Small elements</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--radius-md</code>
+			</td>
+			<td>
+				<code>calc(var(--radius) - 2px)</code>
+			</td>
+			<td>Medium elements</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--radius-lg</code>
+			</td>
+			<td>
+				<code>var(--radius)</code>
+			</td>
+			<td>Large elements</td>
+		</tr>
+		<tr>
+			<td>
+				<code>--radius-xl</code>
+			</td>
+			<td>
+				<code>calc(var(--radius) + 4px)</code>
+			</td>
+			<td>Extra large elements</td>
+		</tr>
+	</tbody>
+</table>
+
+## Spacing
+
+Base spacing unit: `--spacing: 0.25rem` (4px)
+
+Tailwind CSS 4 uses this as the spacing scale multiplier. For example, `wwc:p-4` = `1rem` (16px).
+
+## Usage with Tailwind CSS 4
+
+All Wakecore utility classes use the **`wwc:`** prefix to avoid collisions with consumer styles.
+
+Tokens are mapped to Tailwind utilities via the `@theme inline` directive:
+
+```css
+@theme inline {
+	--color-primary: var(--primary);
+	--color-secondary: var(--secondary);
+	--color-destructive: var(--destructive);
+	/* ... */
+}
+```
+
+This means you can use them directly in Tailwind classes (with the `wwc:` prefix):
+
+```tsx
+<div className="wwc:bg-primary wwc:text-primary-foreground">
+  Primary colored element
+</div>
+
+<div className="wwc:border wwc:border-border wwc:rounded-lg">
+  Bordered container
+</div>
+```

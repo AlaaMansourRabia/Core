@@ -1,0 +1,54 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "confirm-dialog",
+	"tier": "component",
+	"name": "ConfirmDialog",
+	"category": "overlay",
+	"version": "1.0.0",
+	"manifestStatus": "draft",
+	"source": {
+		"path": "packages/components/src/confirm-dialog.tsx",
+		"import": "@wakecap/core-ui/confirm-dialog",
+		"export": "ConfirmDialog"
+	},
+	"tags": ["overlay", "dialog", "confirm", "destructive", "guard"],
+	"intent": "Controlled \"are you sure?\" gate in front of a consequential action — title, description, Cancel, and a named confirm button that can take the destructive tone.",
+	"when": [
+		"An action is hard to undo (demobilize, archive, delete, revoke) and needs an explicit confirm",
+		"A bulk action applies to a selection and the user should see the scope before committing"
+	],
+	"whenNot": [
+		"The action is trivially reversible -> just do it and offer Undo via Sonner",
+		"The dialog collects input rather than a yes/no -> use Dialog with a form"
+	],
+	"chooseOver": [
+		{
+			"component": "AlertDialog",
+			"because": "AlertDialog is the eight-part primitive; ConfirmDialog is the one-prop-per-decision wrapper so confirm flows stay identical across surfaces."
+		}
+	],
+	"pairsWith": ["DataTable", "DropdownMenu", "Button"],
+	"requiredProviders": [],
+	"composedOf": ["AlertDialog"],
+	"allowedPlacement": ["anywhere in a route — it portals to the body"],
+	"forbiddenPlacement": ["inside another AlertDialog"],
+	"minimalExample": "import {ConfirmDialog} from \"@wakecap/core-ui/confirm-dialog\";\n\n<ConfirmDialog\n\topen={pending !== null}\n\tonOpenChange={(open) => !open && setPending(null)}\n\tdestructive\n\ttitle=\"Demobilize workers?\"\n\tdescription=\"They can be remobilized later.\"\n\tconfirmLabel=\"Demobilize\"\n\tonConfirm={commit}\n/>",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Workforce branch (2026-07-20)",
+		"derivedFrom": {
+			"source": "Inline ConfirmDialog helper in packages/components/src/pages/core-admin-panel.tsx",
+			"extracted": ["AlertDialog title/description/Cancel/confirm assembly", "destructive confirm-button tone"]
+		},
+		"status": "draft",
+		"verifiedBy": null,
+		"confidence": "unset — promoted from a template-local helper, no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-20",
+		"notes": [
+			"pilot: true",
+			"first consumer: CoreWorkforce demobilize/mobilize confirmation",
+			"core-admin-panel still has its own inline copy — candidate for follow-up de-duplication"
+		]
+	}
+}

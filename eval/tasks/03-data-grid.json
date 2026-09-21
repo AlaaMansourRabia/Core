@@ -1,0 +1,10 @@
+{
+	"id": "data-grid",
+	"title": "Rich data grid vs plain table",
+	"domain": "data-tables",
+	"prompt": "Render a list of 500 workers with columns for name, role, and site. Users need to sort by any column, filter by name, and page through the results.",
+	"expected": ["DataTable"],
+	"acceptable": [],
+	"forbidden": ["Table"],
+	"requiredProviders": []
+}

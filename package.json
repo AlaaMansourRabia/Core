@@ -1,0 +1,70 @@
+{
+	"name": "wakecore-monorepo",
+	"private": true,
+	"scripts": {
+		"studio": "bash integrations/open-design/studio.sh",
+		"hub": "bash apps/hub/start.sh",
+		"dev": "nx run apps-web:dev",
+		"storybook": "nx run apps-storybook:dev",
+		"standalone": "node standalone/build.mjs",
+		"export:html": "node standalone/export-story.mjs",
+		"test:html-export": "node --test standalone/story-html.test.mjs",
+		"storybook:build": "nx run apps-storybook:build",
+		"build": "nx run-many --target=build",
+		"lint": "nx run-many --target=lint",
+		"typecheck": "nx run-many --target=typecheck",
+		"test": "nx run-many --target=test",
+		"test:validators": "node --test scripts/validators/*.test.mjs",
+		"audit:runtime": "node scripts/wakecore-runtime-audit.mjs",
+		"eval": "node --env-file-if-exists=eval/.env.local eval/run.mjs",
+		"showcase:prepare": "node eval/showcase/prepare.mjs",
+		"showcase": "node eval/showcase/prepare.mjs && vite eval/showcase",
+		"eval:ablation": "node --env-file-if-exists=eval/.env.local eval/ablation.mjs",
+		"eval:ablation:dry": "node eval/ablation.mjs --dry",
+		"validate:catalog": "node scripts/validate-catalog.mjs",
+		"validate:designer-parity": "node scripts/validate-designer-parity.mjs",
+		"validate:hosted-assets": "node scripts/validate-hosted-assets.mjs",
+		"validate:doc-classes": "node scripts/check-doc-classes.mjs",
+		"validate:manifests": "node scripts/validators/manifest-integrity.mjs && node scripts/project-catalog-manifests.mjs --check",
+		"generate:catalog": "node scripts/extract-component-catalog.mjs && node scripts/sync-library-index.mjs && node scripts/project-catalog-manifests.mjs",
+		"format": "nx run-many --target=format",
+		"format:check": "nx run-many --target=format:check",
+		"prepare": "husky",
+		"postinstall": "npx @tanstack/intent install && (node scripts/fetch-3d-assets.mjs || true)",
+		"eval:resolution": "node eval/measure-resolution.mjs",
+		"mcp:bundle": "node scripts/build-mcp-bundle.mjs",
+		"validate:codex-plugin": "node plugins/wakecore/scripts/verify-plugin.mjs && node --test plugins/wakecore/scripts/verify-plugin.test.mjs",
+		"fetch:3d-assets": "node scripts/fetch-3d-assets.mjs"
+	},
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "1.29.0",
+		"@wakecap/knowledge": "workspace:*"
+	},
+	"devDependencies": {
+		"@anthropic-ai/sdk": "^0.104.2",
+		"@changesets/cli": "^2.29.8",
+		"@commitlint/config-conventional": "^20.4.2",
+		"@nx/js": "^21.1.2",
+		"@tanstack/intent": "^0.3.2",
+		"@types/react": "18.3.28",
+		"@types/react-dom": "18.3.7",
+		"@typescript/native-preview": "7.0.0-dev.20260211.1",
+		"commitlint": "^20.4.2",
+		"husky": "^9.1.7",
+		"nx": "^21.1.2",
+		"oxfmt": "latest",
+		"oxlint": "latest",
+		"typescript": "~5.9.3",
+		"yaml": "^2.9.0"
+	},
+	"packageManager": "pnpm@10.6.0",
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"oxlint"
+		],
+		"overrides": {
+			"@types/react": "18.3.28",
+			"@types/react-dom": "18.3.7"
+		}
+	}
+}

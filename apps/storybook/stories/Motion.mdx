@@ -1,0 +1,119 @@
+import {Meta} from "@storybook/addon-docs/blocks";
+
+<Meta title="Motion/Overview" />
+
+# Motion
+
+Motion in Wakecore is **functional, not decorative**. Every transition exists to preserve continuity across a
+state change — where content came from, that it is loading, that it settled. This section is the reference for
+the motion primitives, the standard timing/easing values, and the reusable transition components.
+
+> **For AI agents:** when you need a "reload"/swap animation (a map, canvas, route, or heavy panel changing
+> content), do **not** hand-roll `setTimeout` + `scale`/`blur` classes. Use the shipped primitives documented
+> below — `useMapTransition()` and `<MapTransitionSurface>` from `@wakecap/core-ui/map-transition`. Match the
+> timing tokens in the table when adding any new transition so motion stays consistent across the system.
+
+---
+
+## Motion tokens
+
+These are the canonical values used across the design system. Reuse them; don't invent new ones.
+
+| Token                     | Value               | Used for                                                                                                          |
+| ------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Load duration**         | `500ms`             | How long a surface stays zoomed-out + blurred with a spinner before its content swaps (the "load" window).        |
+| **Settle duration**       | `600ms`             | Time for the incoming content to zoom-to-fit + unblur after the swap.                                             |
+| **Chrome / opacity fade** | `500ms`             | Fading floating chrome in/out (e.g. `chromeFade` when the Progress sheet opens). Pair with `pointer-events-none`. |
+| **Micro-interaction**     | `200–300ms`         | Hover tints, toolbar tooltips, small toasts (slide + fade).                                                       |
+| **Easing**                | `ease-in-out`       | The standard curve for surface transitions.                                                                       |
+| **Zoom-out scale**        | `scale-[0.95]`      | The "grey frame" a surface shrinks to during a transition.                                                        |
+| **Blur**                  | `blur-sm`           | Applied together with the zoom-out.                                                                               |
+| **Frame radius**          | `rounded-[25.26px]` | Corner radius of the zoomed-out frame.                                                                            |
+
+Tailwind (with the internal `wwc:` prefix): `wwc:transition-all wwc:duration-500 wwc:ease-in-out`,
+`wwc:scale-[0.95]`, `wwc:blur-sm`, `wwc:rounded-[25.26px]`.
+
+---
+
+## The map/canvas "reload" transition
+
+The signature Wakecore transition: when a map or canvas changes what it shows (a new location, view mode, or
+level), the current content **zooms out to a rounded grey frame and blurs**, a **spinner** appears for the load
+window, the new content **mounts already zoomed-out + blurred**, then it **zooms-to-fit and unblurs**. It reads
+as "this surface is reloading" without a hard cut.
+
+It ships as two independent pieces so you can use either half:
+
+### 1. `useMapTransition()` — the state machine
+
+```tsx
+import {useMapTransition} from "@wakecap/core-ui/map-transition";
+
+const tx = useMapTransition(); // optional: useMapTransition({ outMs: 500, holdMs: 600 })
+
+// Wrap the state change that swaps the content. It fires at the zoomed-out midpoint,
+// so the new content mounts already scaled-out + blurred, then animates back to fit.
+onClick={() => tx.run(() => setLocation(next))}
+
+// tx.phase       → "idle" | "out" | "in"
+// tx.scaledOut   → boolean  (feed a surface)
+// tx.blurred     → boolean
+// tx.showSpinner → boolean  (the load window only)
+```
+
+`run(apply)` is a no-op while a transition is in flight, so rapid clicks can't stack. If you have an external
+loading signal, OR it into the flags at the call site: `scaledOut={tx.scaledOut || isLoading}`.
+
+### 2. `<MapTransitionSurface>` — the presentation
+
+```tsx
+import {MapTransitionSurface, useMapTransition} from "@wakecap/core-ui/map-transition";
+
+const tx = useMapTransition();
+
+return (
+	<div className="wwc:relative wwc:h-full wwc:w-full">
+		{/* Chrome (toolbars, tools) go OUTSIDE the surface so the transform never pulls them */}
+		<Toolbar />
+		<MapTransitionSurface scaledOut={tx.scaledOut} blurred={tx.blurred} showSpinner={tx.showSpinner}>
+			{content /* the thing that swaps */}
+		</MapTransitionSurface>
+	</div>
+);
+```
+
+The scale/blur is applied to a **single inner layer**. Anything you want to stay put during the transition
+(zoom tools, mode switcher, legends) must be rendered as a **sibling** of `<MapTransitionSurface>`, not a child —
+otherwise the transform drags it along. This is why the capture template's 3D-tools toolbar and `SiteToolbar`
+sit outside the scaled wrapper.
+
+See it live under **Motion → Map Transition**.
+
+---
+
+## Where it's used
+
+- **Capture UI Enhanced** template (`Templates → Capture UI Enhanced`) — every map navigation (view / level /
+  mode / location-step / navigator jump) routes through the transition. The template owns the machine
+  (`useMapTransition`) and `BuildingViewer` renders the visual, connected by the `mapScaledOut` / `mapBlurred` /
+  `showSpinner` props.
+- **`BuildingViewer`** widget (`Widgets → BuildingViewer`) — the canvas surface that applies the scale/blur to
+  the map layer and shows the spinner.
+
+## Related motion (not the reload transition)
+
+- **Chrome fade** (`chromeFade`) — floating panels fade to `opacity-0` + `pointer-events-none` over `500ms`
+  when the Progress sheet opens.
+- **Camera-driven backdrop** — in Reality mode the plan-image backdrop fades/blurs/scales **per animation
+  frame from the 3D camera** (not this nav transition). It's driven by the footprint viewer's `onBackdrop`
+  callback, not by `useMapTransition`.
+- **Jump toast** — a slide + fade (enter/leave) line announcing a jump down to the villa level.
+
+---
+
+## Adding a new transition
+
+1. Reuse the tokens above (durations, easing, scale/blur) — don't introduce new timing values.
+2. For content swaps, reach for `useMapTransition()` + `<MapTransitionSurface>` before writing custom timers.
+3. Keep chrome as a **sibling** of the animated surface.
+4. Respect in-flight guards (`run` no-ops mid-transition) so interactions can't stack.

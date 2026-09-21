@@ -1,0 +1,1608 @@
+{
+  "source": "WakeCap Capture \u2014 ALMANAR: SF & Public Amenities, Phase 1, Zone 1",
+  "p6Baseline": "MNR-SF-PH1-Z1-RBL-MUP-25-Apr-26.xer",
+  "villa": "2265 VL4-L",
+  "unitType": "VL4",
+  "lbsItemId": 107027,
+  "reportPeriodCode": "111",
+  "dateBasis": "planned (P6), ISO yyyy-mm-dd",
+  "overall": {
+    "start": "2025-04-17",
+    "finish": "2027-06-16",
+    "durationDays": 790,
+    "baselineStart": "2025-05-11",
+    "baselineFinish": "2027-05-31"
+  },
+  "activityCount": 69,
+  "floorCodes": {
+    "SS": "Substructure/foundation",
+    "GF": "Ground floor",
+    "FF": "First floor",
+    "UF": "Upper floor",
+    "RF": "Roof"
+  },
+  "disciplineCodes": {
+    "ARC": "Architectural",
+    "STR": "Structural",
+    "PLU": "Plumbing",
+    "MEP": "Mechanical/HVAC",
+    "ELE": "Electrical",
+    "SITE": "Sitework/landscape"
+  },
+  "activities": [
+    {
+      "code": "RM-C-1A-B01-01-A-111",
+      "name": "Earth work - Backfilling For Foundation - 1A - B-01 - BL-01 - A - 31",
+      "division": "DIVISION 31 - EARTHWORK",
+      "disciplines": [
+        "SITE"
+      ],
+      "floors": [
+        "SS"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2025-04-17",
+      "plannedFinish": "2025-04-27",
+      "baselineStart": "2025-05-11",
+      "baselineFinish": "2025-05-20",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 201151.68,
+      "earnedValue": 201151.68
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-122",
+      "name": "Earth work - Excavation For PC - 1A - B-01 - BL-01 - A - 31",
+      "division": "DIVISION 31 - EARTHWORK",
+      "disciplines": [
+        "SITE"
+      ],
+      "floors": [
+        "SS"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2025-04-27",
+      "plannedFinish": "2025-05-06",
+      "baselineStart": "2025-05-20",
+      "baselineFinish": "2025-05-31",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 4279.8,
+      "earnedValue": 4279.8
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-133",
+      "name": "Anti-termite Under PC Concrete - 1A - B-01 - BL-01 - A - 31",
+      "division": "DIVISION 31 - EARTHWORK",
+      "disciplines": [
+        "SITE"
+      ],
+      "floors": [
+        "SS"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2025-05-07",
+      "plannedFinish": "2025-05-12",
+      "baselineStart": "2025-05-31",
+      "baselineFinish": "2025-06-04",
+      "durationHours": 32.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 3587.83,
+      "earnedValue": 3587.83
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-144",
+      "name": "Foundation PC - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "SS"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2025-05-12",
+      "plannedFinish": "2025-05-17",
+      "baselineStart": "2025-06-04",
+      "baselineFinish": "2025-06-15",
+      "durationHours": 32.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 58614.3,
+      "earnedValue": 58614.3
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-165",
+      "name": "Foundation RC - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "SS"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2025-09-06",
+      "plannedFinish": "2025-10-16",
+      "baselineStart": "2025-10-11",
+      "baselineFinish": "2025-11-19",
+      "durationHours": 272.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 227638.26,
+      "earnedValue": 227638.26
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-155",
+      "name": "UG Utilities - 1A - B-01 - BL-01 - A - 22",
+      "division": "DIVISION 22 - PLUMBING",
+      "disciplines": [
+        "PLU"
+      ],
+      "floors": [
+        "SS"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2025-09-23",
+      "plannedFinish": "2025-10-16",
+      "baselineStart": "2025-10-28",
+      "baselineFinish": "2025-11-20",
+      "durationHours": 160.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 70212.46,
+      "earnedValue": 70212.46
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-101",
+      "name": "Formwork & Reinforcement For Vertical Wall Elements For Ground Floor - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2025-12-16",
+      "plannedFinish": "2026-02-25",
+      "baselineStart": "2026-01-20",
+      "baselineFinish": "2026-04-02",
+      "durationHours": 472.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 168051.78,
+      "earnedValue": 168051.78
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-102",
+      "name": "Electrical Conduits & Fittings Embedded in Walls For Ground Floor - 1A - B-01 - BL-01 - A - 26",
+      "division": "DIVISION 26 - ELECTRICAL",
+      "disciplines": [
+        "ELE"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2025-12-21",
+      "plannedFinish": "2026-02-07",
+      "baselineStart": "2026-01-24",
+      "baselineFinish": "2026-03-25",
+      "durationHours": 328.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 13799.18,
+      "earnedValue": 13799.18
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-103",
+      "name": "Mechanical Pipes & Fittings Embedded in Walls For Ground Floor - 1A - B-01 - BL-01 - A - 22",
+      "division": "DIVISION 22 - PLUMBING",
+      "disciplines": [
+        "PLU"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2025-12-22",
+      "plannedFinish": "2026-02-25",
+      "baselineStart": "2026-01-25",
+      "baselineFinish": "2026-04-04",
+      "durationHours": 436.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 65.28,
+      "budgetAtCompletion": 9565.71,
+      "earnedValue": 6244.5
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-104",
+      "name": "Formwork & Reinforcement For Flat Slabs & Stairs For Ground Floor - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2025-12-30",
+      "plannedFinish": "2026-02-25",
+      "baselineStart": "2026-02-02",
+      "baselineFinish": "2026-04-02",
+      "durationHours": 380.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 99.5,
+      "budgetAtCompletion": 168051.78,
+      "earnedValue": 167211.52
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-105",
+      "name": "HVAC Piping - 1A - B-01 - BL-01 - A - 23",
+      "division": "DIVISION 23 - HEATING, VENTILATION & AIR CONDITIONING (HVAC)",
+      "disciplines": [
+        "MEP"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF",
+        "RF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2026-01-05",
+      "plannedFinish": "2026-04-02",
+      "baselineStart": "2026-01-20",
+      "baselineFinish": "2026-02-12",
+      "durationHours": 518.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 97.38,
+      "budgetAtCompletion": 33266.79,
+      "earnedValue": 32395.2
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-106",
+      "name": "Concrete Pouring ( Wall & Slabs ) Elements For Ground Floor - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2026-01-10",
+      "plannedFinish": "2026-02-25",
+      "baselineStart": "2026-03-08",
+      "baselineFinish": "2026-04-21",
+      "durationHours": 308.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 99.35,
+      "budgetAtCompletion": 109298.9,
+      "earnedValue": 108588.46
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-107",
+      "name": "Formwork & Reinforcement For Vertical Wall Elements For First Floor - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "FF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2026-01-19",
+      "plannedFinish": "2026-02-26",
+      "baselineStart": "2026-02-23",
+      "baselineFinish": "2026-03-12",
+      "durationHours": 244.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 168051.78,
+      "earnedValue": 168051.78
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-128",
+      "name": "Repair Concrete For External Wall Surfaces - 1A - B-01 - BL-01 - A - 32",
+      "division": "DIVISION 32 - EXTERIOR IMPROVEMENTS",
+      "disciplines": [
+        "SITE"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "InProgress",
+      "criticalPath": false,
+      "plannedStart": "2026-01-24",
+      "plannedFinish": "2026-05-23",
+      "baselineStart": "2026-03-17",
+      "baselineFinish": "2026-05-24",
+      "durationHours": 742.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 4852.36,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-118",
+      "name": "Repair Concrete For Internal Wall Surfaces - 1A - B-01 - BL-01 - A - 9",
+      "division": "DIVISION 09 - FINISHES",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "InProgress",
+      "criticalPath": false,
+      "plannedStart": "2026-01-26",
+      "plannedFinish": "2026-07-13",
+      "baselineStart": "2026-05-03",
+      "baselineFinish": "2026-11-17",
+      "durationHours": 1039.6,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 87.47,
+      "budgetAtCompletion": 4852.36,
+      "earnedValue": 4244.36
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-109",
+      "name": "Mechanical Pipes & Fittings Embedded in Walls For First Floor - 1A - B-01 - BL-01 - A - 22",
+      "division": "DIVISION 22 - PLUMBING",
+      "disciplines": [
+        "PLU"
+      ],
+      "floors": [
+        "FF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2026-01-26",
+      "plannedFinish": "2026-02-26",
+      "baselineStart": "2026-05-03",
+      "baselineFinish": "2026-07-23",
+      "durationHours": 196.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 87.5,
+      "budgetAtCompletion": 9565.71,
+      "earnedValue": 8370.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-108",
+      "name": "Formwork & Reinforcement For Flat Slabs & Stairs For First Floor - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "FF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2026-02-08",
+      "plannedFinish": "2026-02-26",
+      "baselineStart": "2026-04-22",
+      "baselineFinish": "2026-04-25",
+      "durationHours": 108.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 99.5,
+      "budgetAtCompletion": 168051.78,
+      "earnedValue": 167211.52
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-113",
+      "name": "Formwork & Reinforcement For Vertical Wall Elements-Roof - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "RF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2026-02-16",
+      "plannedFinish": "2026-04-16",
+      "baselineStart": "2026-02-24",
+      "baselineFinish": "2026-02-25",
+      "durationHours": 326.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 84025.89,
+      "earnedValue": 84025.89
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-110",
+      "name": "Electrical Conduits & Fittings Embedded in Walls For First Floor - 1A - B-01 - BL-01 - A - 26",
+      "division": "DIVISION 26 - ELECTRICAL",
+      "disciplines": [
+        "ELE"
+      ],
+      "floors": [
+        "FF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2026-02-16",
+      "plannedFinish": "2026-02-26",
+      "baselineStart": "2026-01-29",
+      "baselineFinish": "2026-02-01",
+      "durationHours": 52.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 18398.9,
+      "earnedValue": 18398.9
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-112",
+      "name": "Concrete Pouring ( Wall & Slabs ) Elements For First Floor - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "FF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2026-02-17",
+      "plannedFinish": "2026-03-25",
+      "baselineStart": "2026-02-17",
+      "baselineFinish": "2026-02-21",
+      "durationHours": 166.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 99.35,
+      "budgetAtCompletion": 109298.9,
+      "earnedValue": 108588.46
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-115",
+      "name": "Electrical Conduits & Fittings Embedded in Walls For Roof - 1A - B-01 - BL-01 - A - 26",
+      "division": "DIVISION 26 - ELECTRICAL",
+      "disciplines": [
+        "ELE"
+      ],
+      "floors": [
+        "RF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2026-02-26",
+      "plannedFinish": "2026-04-02",
+      "baselineStart": "2026-04-05",
+      "baselineFinish": "2026-04-12",
+      "durationHours": 178.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 13799.18,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-114",
+      "name": "Formwork & Reinforcement For Flat Slabs & Stairs-Roof - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "RF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2026-02-28",
+      "plannedFinish": "2026-04-16",
+      "baselineStart": "2026-04-05",
+      "baselineFinish": "2026-04-09",
+      "durationHours": 268.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 63019.42,
+      "earnedValue": 63019.42
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-116",
+      "name": "Mechanical Pipes & Fittings Embedded in Walls For Roof - 1A - B-01 - BL-01 - A - 22",
+      "division": "DIVISION 22 - PLUMBING",
+      "disciplines": [
+        "PLU"
+      ],
+      "floors": [
+        "RF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2026-02-28",
+      "plannedFinish": "2026-04-02",
+      "baselineStart": "2026-04-05",
+      "baselineFinish": "2026-04-14",
+      "durationHours": 172.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 9565.71,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-119",
+      "name": "Parapet Elements-Roof - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "RF"
+      ],
+      "status": "InProgress",
+      "criticalPath": false,
+      "plannedStart": "2026-03-15",
+      "plannedFinish": "2026-05-11",
+      "baselineStart": "2026-08-04",
+      "baselineFinish": "2026-08-16",
+      "durationHours": 366.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 21006.47,
+      "earnedValue": 21006.47
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-117",
+      "name": "Concrete Pouring ( Wall & Slabs ) Elements For Roof - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "RF"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2026-03-16",
+      "plannedFinish": "2026-04-16",
+      "baselineStart": "2026-04-09",
+      "baselineFinish": "2026-04-21",
+      "durationHours": 184.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 54649.45,
+      "earnedValue": 54649.45
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-168",
+      "name": "Waterproofing for Foundation - 1A - B-01 - BL-01 - A - 7",
+      "division": "DIVISION 07 - THERMAL & MOISTURE PROTECTION",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "SS"
+      ],
+      "status": "Completed",
+      "criticalPath": false,
+      "plannedStart": "2026-04-14",
+      "plannedFinish": "2026-04-15",
+      "baselineStart": "2026-05-05",
+      "baselineFinish": "2026-05-10",
+      "durationHours": 16.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 2314.55,
+      "earnedValue": 2314.55
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-131",
+      "name": "UG Water Tank - 1A - B-01 - BL-01 - A - 22",
+      "division": "DIVISION 22 - PLUMBING",
+      "disciplines": [
+        "PLU"
+      ],
+      "floors": [
+        "SS"
+      ],
+      "status": "InProgress",
+      "criticalPath": false,
+      "plannedStart": "2026-04-20",
+      "plannedFinish": "2026-06-27",
+      "baselineStart": "2026-06-10",
+      "baselineFinish": "2026-06-24",
+      "durationHours": 434.4,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 80.0,
+      "budgetAtCompletion": 42890.97,
+      "earnedValue": 34312.78
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-166",
+      "name": "Boundary wall & Utility Service Cabinet & Booster Pump-Foundation - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "SS"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-05-10",
+      "plannedFinish": "2026-05-13",
+      "baselineStart": "2026-04-30",
+      "baselineFinish": "2026-05-05",
+      "durationHours": 32.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 100.0,
+      "budgetAtCompletion": 29768.73,
+      "earnedValue": 29768.73
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-126",
+      "name": "Boundary wall - 1A - B-01 - BL-01 - A - 3",
+      "division": "DIVISION 03 - CONCRETE",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-05-14",
+      "plannedFinish": "2026-05-23",
+      "baselineStart": "2026-05-10",
+      "baselineFinish": "2026-05-19",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 100.0,
+      "approvedProgressPercent": 39.0,
+      "budgetAtCompletion": 122191.73,
+      "earnedValue": 47654.77
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-130",
+      "name": "Roof & Upper Roof Waterproofing - 1A - B-01 - BL-01 - A - 7",
+      "division": "DIVISION 07 - THERMAL & MOISTURE PROTECTION",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "UF",
+        "RF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-08-13",
+      "plannedFinish": "2026-08-18",
+      "baselineStart": "2026-10-07",
+      "baselineFinish": "2026-10-12",
+      "durationHours": 32.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 24.7,
+      "budgetAtCompletion": 41695.8,
+      "earnedValue": 10298.86
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-120",
+      "name": "HVAC (Ventilation Fans System) - 1A - B-01 - BL-01 - A - 23",
+      "division": "DIVISION 23 - HEATING, VENTILATION & AIR CONDITIONING (HVAC)",
+      "disciplines": [
+        "MEP"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF",
+        "RF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-08-25",
+      "plannedFinish": "2026-09-03",
+      "baselineStart": "2026-10-04",
+      "baselineFinish": "2026-10-13",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 12819.88,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-123",
+      "name": "Wet Area Waterproofing - 1A - B-01 - BL-01 - A - 7",
+      "division": "DIVISION 07 - THERMAL & MOISTURE PROTECTION",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-09-14",
+      "plannedFinish": "2026-09-19",
+      "baselineStart": "2026-10-07",
+      "baselineFinish": "2026-10-12",
+      "durationHours": 32.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 7.52,
+      "budgetAtCompletion": 8298.3,
+      "earnedValue": 624.03
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-127",
+      "name": "Mechanical Pipes & Fittings - 1A - B-01 - BL-01 - A - 22",
+      "division": "DIVISION 22 - PLUMBING",
+      "disciplines": [
+        "PLU"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF",
+        "RF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-09-19",
+      "plannedFinish": "2026-10-14",
+      "baselineStart": "2026-10-12",
+      "baselineFinish": "2026-11-05",
+      "durationHours": 168.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 70.41,
+      "budgetAtCompletion": 3188.57,
+      "earnedValue": 2245.07
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-129",
+      "name": "Wet Area Flooring, Walls and Skirting - 1A - B-01 - BL01 - A - 9 - 1A - B-01 - BL-01 - A - 9",
+      "division": "DIVISION 09 - FINISHES",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-10-14",
+      "plannedFinish": "2026-10-25",
+      "baselineStart": "2026-11-05",
+      "baselineFinish": "2026-11-16",
+      "durationHours": 72.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 11504.96,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-121",
+      "name": "Internal Flooring and Skirting - 1A - B-01 - BL-01 - A - 9",
+      "division": "DIVISION 09 - FINISHES",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-10-22",
+      "plannedFinish": "2026-11-01",
+      "baselineStart": "2026-11-21",
+      "baselineFinish": "2026-11-30",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 40119.74,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-124",
+      "name": "LC Wiring - 1A - B-01 - BL-01 - A - 27",
+      "division": "DIVISION 27 - COMMUNICATIONS",
+      "disciplines": [
+        "ELE"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-11-10",
+      "plannedFinish": "2026-11-19",
+      "baselineStart": "2026-10-20",
+      "baselineFinish": "2026-10-29",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 539.45,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-125",
+      "name": "LV Cabling and wiring - 1A - B-01 - BL-01 - A - 26",
+      "division": "DIVISION 26 - ELECTRICAL",
+      "disciplines": [
+        "ELE"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF",
+        "RF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-11-19",
+      "plannedFinish": "2026-11-29",
+      "baselineStart": "2026-10-29",
+      "baselineFinish": "2026-11-08",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 22081.84,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-135",
+      "name": "Roof Flooring and Skirting - 1A - B-01 - BL-01 - A - 9",
+      "division": "DIVISION 09 - FINISHES",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-11-29",
+      "plannedFinish": "2026-12-08",
+      "baselineStart": "2026-11-08",
+      "baselineFinish": "2026-11-17",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 11066.57,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-134",
+      "name": "Wet Area False Ceiling - 1A - B-01 - BL01 - A - 9 - 1A - B-01 - BL-01 - A - 9",
+      "division": "DIVISION 09 - FINISHES",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-12-08",
+      "plannedFinish": "2026-12-23",
+      "baselineStart": "2026-11-17",
+      "baselineFinish": "2026-12-02",
+      "durationHours": 104.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 10489.89,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-138",
+      "name": "Solar System (Water Heater incl. Panel & Storage tank ) - 1A - B-01 - BL-01 - A - 22",
+      "division": "DIVISION 22 - PLUMBING",
+      "disciplines": [
+        "PLU"
+      ],
+      "floors": [
+        "RF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-12-12",
+      "plannedFinish": "2026-12-21",
+      "baselineStart": "2026-11-21",
+      "baselineFinish": "2026-11-29",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 11095.77,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-136",
+      "name": "Entrance False Ceiling - 1A - B-01 - BL-01 - A - 9",
+      "division": "DIVISION 09 - FINISHES",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-12-23",
+      "plannedFinish": "2026-12-28",
+      "baselineStart": "2026-12-02",
+      "baselineFinish": "2026-12-07",
+      "durationHours": 32.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 1766.85,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-137",
+      "name": "Stairs Finishes - 1A - B-01 - BL-01 - A - 9",
+      "division": "DIVISION 09 - FINISHES",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "GF",
+        "FF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2026-12-28",
+      "plannedFinish": "2027-01-06",
+      "baselineStart": "2026-12-07",
+      "baselineFinish": "2026-12-16",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 26465.37,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-141",
+      "name": "Installation of Windows - 1A - B-01 - BL-01 - A - 8",
+      "division": "DIVISION 08 - DOOR & WINDOWS",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-01-27",
+      "plannedFinish": "2027-02-25",
+      "baselineStart": "2027-01-07",
+      "baselineFinish": "2027-02-01",
+      "durationHours": 168.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 72293.2,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-140",
+      "name": "Installation of Doors incl. Hardware - 1A - B-01 - BL-01 - A - 8",
+      "division": "DIVISION 08 - DOOR & WINDOWS",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-01-28",
+      "plannedFinish": "2027-02-07",
+      "baselineStart": "2027-01-17",
+      "baselineFinish": "2027-01-26",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 80487.0,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-169",
+      "name": "Water Meter and House Connection - 1A - B-01 - BL-01 - A - 22",
+      "division": "DIVISION 22 - PLUMBING",
+      "disciplines": [
+        "PLU"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-01-30",
+      "plannedFinish": "2027-02-02",
+      "baselineStart": "2027-01-07",
+      "baselineFinish": "2027-01-12",
+      "durationHours": 32.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 12863.74,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-139",
+      "name": "Stairs Handrail - 1A - B-01 - BL-01 - A - 5",
+      "division": "DIVISION 05 - METALS",
+      "disciplines": [
+        "STR"
+      ],
+      "floors": [
+        "GF",
+        "FF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": true,
+      "plannedStart": "2027-01-31",
+      "plannedFinish": "2027-02-04",
+      "baselineStart": "2027-01-31",
+      "baselineFinish": "2027-02-04",
+      "durationHours": 32.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 10364.08,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-142",
+      "name": "Internal Painting (Primary & Final Finish ) - 1A - B-01 - BL-01 - A - 9",
+      "division": "DIVISION 09 - FINISHES",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": true,
+      "plannedStart": "2027-02-04",
+      "plannedFinish": "2027-02-15",
+      "baselineStart": "2027-02-04",
+      "baselineFinish": "2027-02-15",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 30.92,
+      "budgetAtCompletion": 50607.7,
+      "earnedValue": 15647.9
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-132",
+      "name": "Boundary wall Finish Work - 1A - B-01 - BL-01 - A - 32",
+      "division": "DIVISION 32 - EXTERIOR IMPROVEMENTS",
+      "disciplines": [
+        "SITE"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-02-07",
+      "plannedFinish": "2027-02-20",
+      "baselineStart": "2027-01-26",
+      "baselineFinish": "2027-02-04",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 26183.94,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-149",
+      "name": "Wet Area Sanitary Fixtures and Accessories - 1A - B-01 - BL-01 - A - 22",
+      "division": "DIVISION 22 - PLUMBING",
+      "disciplines": [
+        "PLU"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": true,
+      "plannedStart": "2027-02-16",
+      "plannedFinish": "2027-03-01",
+      "baselineStart": "2027-02-16",
+      "baselineFinish": "2027-03-01",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 32145.37,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-148",
+      "name": "Internal Lighting - 1A - B-01 - BL-01 - A - 26",
+      "division": "DIVISION 26 - ELECTRICAL",
+      "disciplines": [
+        "ELE"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-02-16",
+      "plannedFinish": "2027-03-01",
+      "baselineStart": "2027-02-16",
+      "baselineFinish": "2027-03-01",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 26670.49,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-146",
+      "name": "LC Wiring Devices - 1A - B-01 - BL-01 - A - 27",
+      "division": "DIVISION 27 - COMMUNICATIONS",
+      "disciplines": [
+        "ELE"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-02-16",
+      "plannedFinish": "2027-03-01",
+      "baselineStart": "2027-02-16",
+      "baselineFinish": "2027-03-01",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 18951.6,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-143",
+      "name": "External Texture Painting - 1A - B-01 - BL-01 - A - 32",
+      "division": "DIVISION 32 - EXTERIOR IMPROVEMENTS",
+      "disciplines": [
+        "SITE"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-02-25",
+      "plannedFinish": "2027-03-15",
+      "baselineStart": "2027-02-04",
+      "baselineFinish": "2027-02-15",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 41968.94,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-153",
+      "name": "Glass Partitions & Mirrors - 1A - B-01 - BL-01 - A - 9",
+      "division": "DIVISION 09 - FINISHES",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": true,
+      "plannedStart": "2027-03-01",
+      "plannedFinish": "2027-03-07",
+      "baselineStart": "2027-03-01",
+      "baselineFinish": "2027-03-07",
+      "durationHours": 32.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 16538.41,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-147",
+      "name": "LV Wiring Devices - 1A - B-01 - BL-01 - A - 26",
+      "division": "DIVISION 26 - ELECTRICAL",
+      "disciplines": [
+        "ELE"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF",
+        "RF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-03-01",
+      "plannedFinish": "2027-03-17",
+      "baselineStart": "2027-03-01",
+      "baselineFinish": "2027-03-17",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 50417.83,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-154",
+      "name": "Install Kitchen Cabinets, Countertop , Vanities and Accessories - 1A - B-01 - BL-01 - A - 6",
+      "division": "DIVISION 06 - WOOD, PLASTIC & COMPOSITES",
+      "disciplines": [
+        "ARC"
+      ],
+      "floors": [
+        "GF",
+        "FF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": true,
+      "plannedStart": "2027-03-08",
+      "plannedFinish": "2027-03-22",
+      "baselineStart": "2027-03-08",
+      "baselineFinish": "2027-03-22",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 70818.73,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-150",
+      "name": "External Lighting - 1A - B-01 - BL-01 - A - 32",
+      "division": "DIVISION 32 - EXTERIOR IMPROVEMENTS",
+      "disciplines": [
+        "SITE"
+      ],
+      "floors": [
+        "GF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-03-15",
+      "plannedFinish": "2027-03-24",
+      "baselineStart": "2027-02-16",
+      "baselineFinish": "2027-03-01",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 12600.47,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-151",
+      "name": "Louver & balustrade - 1A - B-01 - BL-01 - A - 32",
+      "division": "DIVISION 32 - EXTERIOR IMPROVEMENTS",
+      "disciplines": [
+        "SITE"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-03-15",
+      "plannedFinish": "2027-03-24",
+      "baselineStart": "2027-02-16",
+      "baselineFinish": "2027-03-01",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 9613.82,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-160",
+      "name": "Fire Extinguishers - 1A - B-01 - BL-01 - A - 22",
+      "division": "DIVISION 22 - PLUMBING",
+      "disciplines": [
+        "PLU"
+      ],
+      "floors": [
+        "GF",
+        "FF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-03-16",
+      "plannedFinish": "2027-03-24",
+      "baselineStart": "2027-02-20",
+      "baselineFinish": "2027-03-04",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 2620.31,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-167",
+      "name": "Main DB & Submain DB's - 1A - B-01 - BL-01 - A - 26",
+      "division": "DIVISION 26 - ELECTRICAL",
+      "disciplines": [
+        "ELE"
+      ],
+      "floors": [
+        "GF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-03-24",
+      "plannedFinish": "2027-04-03",
+      "baselineStart": "2027-03-17",
+      "baselineFinish": "2027-03-27",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 20546.01,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-156",
+      "name": "Hardscape and Paving - 1A - B-01 - BL-01 - A - 32",
+      "division": "DIVISION 32 - EXTERIOR IMPROVEMENTS",
+      "disciplines": [
+        "SITE"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-03-24",
+      "plannedFinish": "2027-04-03",
+      "baselineStart": "2027-03-17",
+      "baselineFinish": "2027-03-27",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 45520.1,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-161",
+      "name": "Utility Service Cabinet & Booster Pump - 1A - B-01 - BL-01 - A - 32",
+      "division": "DIVISION 32 - EXTERIOR IMPROVEMENTS",
+      "disciplines": [
+        "SITE"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-04-03",
+      "plannedFinish": "2027-04-12",
+      "baselineStart": "2027-03-27",
+      "baselineFinish": "2027-04-05",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 20313.79,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-163",
+      "name": "Carport Shade - 1A - B-01 - BL-01 - A - 32",
+      "division": "DIVISION 32 - EXTERIOR IMPROVEMENTS",
+      "disciplines": [
+        "SITE"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-04-12",
+      "plannedFinish": "2027-04-21",
+      "baselineStart": "2027-04-05",
+      "baselineFinish": "2027-04-14",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 57741.64,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-157",
+      "name": "Gas Supply System - 1A - B-01 - BL-01 - A - 22",
+      "division": "DIVISION 22 - PLUMBING",
+      "disciplines": [
+        "PLU"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-04-20",
+      "plannedFinish": "2027-04-29",
+      "baselineStart": "2027-05-22",
+      "baselineFinish": "2027-05-31",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 8535.21,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-170",
+      "name": "EV Charger - 1A - B-01 - BL-01 - A - 26",
+      "division": "DIVISION 26 - ELECTRICAL",
+      "disciplines": [
+        "ELE"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-04-20",
+      "plannedFinish": "2027-05-01",
+      "baselineStart": "2027-04-01",
+      "baselineFinish": "2027-04-11",
+      "durationHours": 70.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 477.2,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-164",
+      "name": "Signage - 1A - B-01 - BL-01 - A - 32",
+      "division": "DIVISION 32 - EXTERIOR IMPROVEMENTS",
+      "disciplines": [
+        "SITE"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-05-09",
+      "plannedFinish": "2027-05-19",
+      "baselineStart": "2027-04-27",
+      "baselineFinish": "2027-05-03",
+      "durationHours": 40.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 366.64,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-162",
+      "name": "Electrical Meter - 1A - B-01 - BL-01 - A - 26",
+      "division": "DIVISION 26 - ELECTRICAL",
+      "disciplines": [
+        "ELE"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-05-12",
+      "plannedFinish": "2027-05-22",
+      "baselineStart": "2027-05-22",
+      "baselineFinish": "2027-05-26",
+      "durationHours": 32.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 11522.53,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-159",
+      "name": "Softscape and Irrigation - 1A - B-01 - BL-01 - A - 32",
+      "division": "DIVISION 32 - EXTERIOR IMPROVEMENTS",
+      "disciplines": [
+        "SITE"
+      ],
+      "floors": [
+        "GF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-05-27",
+      "plannedFinish": "2027-06-06",
+      "baselineStart": "2027-04-28",
+      "baselineFinish": "2027-05-06",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 32741.42,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-145",
+      "name": "HVAC Internal units ( Split unit ) - 1A - B-01 - BL-01 - A - 23",
+      "division": "DIVISION 23 - HEATING, VENTILATION & AIR CONDITIONING (HVAC)",
+      "disciplines": [
+        "MEP"
+      ],
+      "floors": [
+        "GF",
+        "FF",
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-05-30",
+      "plannedFinish": "2027-06-07",
+      "baselineStart": "2027-05-01",
+      "baselineFinish": "2027-05-09",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 56545.74,
+      "earnedValue": 0.0
+    },
+    {
+      "code": "RM-C-1A-B01-01-A-152",
+      "name": "HVAC External units ( Above Roof ) - 1A - B-01 - BL-01 - A - 23",
+      "division": "DIVISION 23 - HEATING, VENTILATION & AIR CONDITIONING (HVAC)",
+      "disciplines": [
+        "MEP"
+      ],
+      "floors": [
+        "UF"
+      ],
+      "status": "NotStarted",
+      "criticalPath": false,
+      "plannedStart": "2027-06-08",
+      "plannedFinish": "2027-06-16",
+      "baselineStart": "2027-05-10",
+      "baselineFinish": "2027-05-23",
+      "durationHours": 64.0,
+      "plannedProgressPercent": 0,
+      "approvedProgressPercent": 0,
+      "budgetAtCompletion": 93887.27,
+      "earnedValue": 0.0
+    }
+  ]
+}

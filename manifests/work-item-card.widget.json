@@ -1,0 +1,56 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "work-item-card",
+	"tier": "widget",
+	"name": "WorkItemCard",
+	"category": "activity",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/work-item-card.tsx",
+		"import": "@wakecap/core-ui/work-item-card"
+	},
+	"tags": [
+		"card",
+		"task",
+		"kanban"
+	],
+	"intent": "Card summarizing a work item (task/issue) — title, status, assignee and metadata — for boards and lists.",
+	"when": [
+		"Cards on a kanban board or a work-item list"
+	],
+	"chooseOver": [
+		{
+			"component": "Card",
+			"because": "Card is a generic container; WorkItemCard is the pre-composed work-item summary"
+		}
+	],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#WorkItemCard\"]"
+		]
+	}
+}

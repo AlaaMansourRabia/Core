@@ -1,0 +1,60 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-ai-chat",
+	"tier": "widget",
+	"name": "CoreAiChat",
+	"category": "chat",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/chat/core-ai-chat.tsx",
+		"import": "@wakecap/core-ui/chat/core-ai-chat"
+	},
+	"tags": [
+		"chat",
+		"ai",
+		"assistant",
+		"inline"
+	],
+	"intent": "Inline AI chat surface — grey user pills, full-width assistant responses, optional usage header; embeds edge-to-edge in a panel. Pass `sessions` to add a built-in history drill-in: the header's history action swaps the thread for a session list and Back restores whatever was underneath, since opening it never mutates the conversation.",
+	"when": [
+		"Embed an AI assistant conversation inside a pane or panel"
+	],
+	"chooseOver": [
+		{
+			"component": "CoreChatWidget",
+			"because": "CoreChatWidget is a floating launcher; CoreAiChat is an inline embedded chat"
+		}
+	],
+	"pairsWith": [
+		"CoreAiChatMessage",
+		"CoreAiChatHeader"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#CoreAiChat\"]"
+		]
+	}
+}

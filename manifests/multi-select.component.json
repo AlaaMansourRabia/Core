@@ -1,0 +1,68 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "multi-select",
+	"tier": "component",
+	"name": "MultiSelect",
+	"category": "form",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/multi-select.tsx",
+		"import": "@wakecap/core-ui/multi-select",
+		"export": "MultiSelect"
+	},
+	"tags": [
+		"form",
+		"input",
+		"search",
+		"multi-select",
+		"pills"
+	],
+	"intent": "Searchable multi-select form field — pick several options from a long list, shown as removable pills.",
+	"when": [
+		"A form field whose value is an array of ids (projects, roles, orgs)",
+		"Many options that benefit from type-to-filter",
+		"Selected values must stay visible without reopening the dropdown"
+	],
+	"chooseOver": [
+		{
+			"component": "Combobox",
+			"because": "Combobox is single-select and returns a scalar value"
+		},
+		{
+			"component": "Filter",
+			"because": "Filter is a category-grouped popover with draft/Apply/Clear semantics, not an inline form field"
+		},
+		{
+			"component": "Select",
+			"because": "Select is single-value and has no search"
+		}
+	],
+	"pairsWith": [
+		"Form",
+		"Popover",
+		"Command",
+		"Badge",
+		"Checkbox"
+	],
+	"requiredProviders": [],
+	"lineage": {
+		"origin": "promoted",
+		"authoredBy": "wakecore issue #180 (multi-select promotion)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-admin-panel.tsx",
+			"extracted": [
+				"private MultiSelect helper from the AdminPanel template",
+				"generalised options from string[] to { value, label, disabled? }"
+			]
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — promoted from an in-repo template usage",
+		"supersedes": null,
+		"lastValidated": "2026-07-20",
+		"notes": [
+			"resolves wakecap/Wakecore#180: removes the hand-composed MultiSelect in frontend-2.0-admin"
+		]
+	}
+}

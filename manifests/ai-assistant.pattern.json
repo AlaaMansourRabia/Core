@@ -1,0 +1,36 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "ai-assistant",
+	"tier": "pattern",
+	"name": "ai-assistant",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"intent": "Embed the floating AI assistant on a screen.",
+	"when": "Add an AI chat assistant with add-to-page support.",
+	"components": [
+		"CoreChatWidget"
+	],
+	"order": [
+		"mount CoreChatWidget with apiEndpoint + onAddWidget"
+	],
+	"requiredProviders": [],
+	"tags": [
+		"chat",
+		"ai"
+	],
+	"notes": "See the core-ui-chat skill for message types (text/chart/dashboard) and the add-to-page flow.",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 pattern migration (2026-07)",
+		"derivedFrom": {
+			"source": "library-index.json patterns[]",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": []
+	}
+}

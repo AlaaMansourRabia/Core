@@ -1,0 +1,87 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "timesheet",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "CoreTimesheet",
+	"archetype": "Operations",
+	"category": "dashboard",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/core-timesheet.tsx",
+		"import": "@wakecap/core-ui/pages/core-timesheet",
+		"export": "Timesheet"
+	},
+	"tags": [
+		"workforce",
+		"time-verification",
+		"operations",
+		"command-center",
+		"agentic",
+		"queues",
+		"investigation",
+		"ai-assistant"
+	],
+	"intent": "An agentic-first workforce time-verification command center: an operational briefing (present, attendance, verified hours, verification progress + an AI summary), a large 'Needs Attention' grid of severity-ranked operational queues (missing arrival/exit, no timecard, low confidence, long hours, suspicious attendance, contractor issues, shift exceptions), proactive AI recommendations that explain why they surfaced, a natural-language workspace that builds focused views, investigation case sheets (what happened, why, evidence, resolution, impact, suggested actions), and a demoted worker-records evidence table with grouping and bulk review.",
+	"when": [
+		"A manager over tens of thousands of workers must know what needs attention first, not browse rows",
+		"Time/attendance verification where decisions and operational situations matter more than raw records",
+		"An operations 'command center' that groups work into queues and opens investigations before individual records"
+	],
+	"whenNot": [
+		"A straight editable worker/timecard list -> use a DataTable list page",
+		"A KPI + charts analytics readout with no queues or cases -> use the Analytics Overview template",
+		"A single record's fields -> use a Detail page"
+	],
+	"chooseOver": [
+		{
+			"component": "A raw worker DataTable with filters",
+			"because": "The command center turns 25,000 rows into a briefing, ranked queues, and investigations, keeping the table as a secondary evidence layer."
+		}
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar"
+	],
+	"requiredProviders": [],
+	"composedOf": [
+		"Card",
+		"Badge",
+		"Button",
+		"Progress",
+		"PromptInput",
+		"Sheet",
+		"Separator",
+		"Table"
+	],
+	"allowedPlacement": [
+		"app-shell content-region (inside CoreAppSidebar + CoreAppTopBar + CoreContentArea)",
+		"route-level workforce time-verification page"
+	],
+	"forbiddenPlacement": [
+		"inside a Card or Dialog",
+		"as a small embeddable panel"
+	],
+	"minimalExample": "// CoreTimesheet is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {Progress} from \"@wakecap/core-ui/progress\";\nimport {PromptInput} from \"@wakecap/core-ui/prompt-input\";\nimport {Sheet} from \"@wakecap/core-ui/sheet\";\nimport {Table} from \"@wakecap/core-ui/table\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Agentic-first redesign of the Timesheet workforce time-verification screen (2026-07-12)",
+		"derivedFrom": {
+			"source": "Timesheet data-table screen",
+			"extracted": [
+				"headline KPIs reframed as an operational briefing",
+				"25,604-row table reorganized into severity-ranked operational queues",
+				"per-issue investigation cases with evidence and suggested actions"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-12",
+		"notes": [
+			"pilot: true"
+		]
+	}
+}

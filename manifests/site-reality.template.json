@@ -1,0 +1,109 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "site-reality",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "CoreSiteReality",
+	"archetype": "Workspace",
+	"category": "site-operations",
+	"version": "1.0.0",
+	"manifestStatus": "draft",
+	"source": {
+		"path": "packages/components/src/pages/core-site-reality.tsx",
+		"import": "@wakecap/core-ui/pages/core-site-reality",
+		"export": "SiteReality"
+	},
+	"tags": [
+		"site",
+		"map",
+		"live",
+		"operations",
+		"app-shell",
+		"sidebar",
+		"top-bar",
+		"stats",
+		"push-panel",
+		"scaffold"
+	],
+	"intent": "Live-site map command surface: a full app shell (CoreAppSidebar + CoreAppTopBar) with a single \"Site Reality\" sidebar entry, a full-width headline stat strip (connected / online / active / inactive / manhours), and a three-column body — an Insights Map panel of levels and toggleable layers, an intentionally empty map stage for a real engine to mount into, and a PushPanel context column carrying weather, manpower-by-shift and equipment.",
+	"when": [
+		"Starting a live-site monitoring surface where a map is the primary object and panels frame it",
+		"A screen whose headline figures must stay visible above a full-bleed canvas",
+		"A map surface that needs collapsible layer controls on one side and ambient site context on the other"
+	],
+	"whenNot": [
+		"A map with no surrounding operational context -> use the Map component directly",
+		"Side-by-side comparison of two map states -> use Map Compare Layout",
+		"A content page rendered inside an existing app shell -> use a content-only template"
+	],
+	"chooseOver": [
+		{
+			"component": "Assembling CoreAppSidebar + CoreAppTopBar + KPIBar + SectionPanel + PushPanel by hand",
+			"because": "Site Reality owns the shell, the stat band and both flanking panels, so a map engine plugs straight into the empty stage."
+		},
+		{
+			"component": "Safety Manager",
+			"because": "Safety Manager organises a route by header tabs; Site Reality keeps one persistent canvas flanked by panels."
+		}
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"KPIBar",
+		"SectionPanel",
+		"PushPanel",
+		"Map"
+	],
+	"requiredProviders": [
+		"PushPanelProvider"
+	],
+	"composedOf": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"KPIBar",
+		"SectionPanel",
+		"SectionPanelRow",
+		"KPISummary",
+		"MetricCard",
+		"PropertyList",
+		"PushPanel",
+		"Select",
+		"Input",
+		"Button",
+		"Badge",
+		"ScrollArea"
+	],
+	"allowedPlacement": [
+		"route-level live-site surface that owns the full window"
+	],
+	"forbiddenPlacement": [
+		"inside another CoreAppSidebar/CoreAppTopBar shell",
+		"inside a Card or Dialog",
+		"inside a scrolling page container (the map stage needs a bounded height)"
+	],
+	"minimalExample": "// CoreSiteReality is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@wakecap/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@wakecap/core-ui/navigation/core-app-top-bar\";\nimport {KPIBar} from \"@wakecap/core-ui/kpi-bar\";\nimport {SectionPanel} from \"@wakecap/core-ui/section-panel\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "3d-visualization branch (2026-07-21)",
+		"derivedFrom": {
+			"source": "CoreAppSidebar + CoreAppTopBar app shell (Safety Manager) + PushPanel context column (Workforce)",
+			"extracted": [
+				"single-entry sidebar shell",
+				"KPIBar headline band above a full-bleed canvas",
+				"SectionPanel levels/layers column flanking an empty map stage",
+				"docked PushPanel context column (weather / manpower / equipment)"
+			]
+		},
+		"status": "draft",
+		"verifiedBy": null,
+		"confidence": "unset — scaffold, no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-21",
+		"notes": [
+			"pilot: true",
+			"map stage intentionally empty - a map engine (Map, Cesium, That Open) mounts there",
+			"composed entirely from existing @wakecap/core-ui components; the file adds layout and fixture data only, no new UI primitive",
+			"all figures are placeholder fixtures"
+		]
+	}
+}

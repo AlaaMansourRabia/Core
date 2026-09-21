@@ -1,0 +1,464 @@
+{
+  "project": "Capture — Scenario Build",
+  "note": "Live plan. status: existing (designed by you) | pending | running | done | error | paused. The dashboard polls this file; the generator writes to it.",
+  "updatedAt": "2026-08-17T00:00:00Z",
+  "app": {
+    "baseUrl": "http://localhost:5190",
+    "linkPattern": "?scenario={id}",
+    "openableStatuses": [
+      "existing",
+      "built"
+    ]
+  },
+  "screens": [
+    {
+      "id": "site",
+      "label": "Site (3D Showcase)"
+    },
+    {
+      "id": "boq",
+      "label": "Payment / BOQ Viewer"
+    },
+    {
+      "id": "progress-details",
+      "label": "Progress Details"
+    },
+    {
+      "id": "earned-value",
+      "label": "Earned Value"
+    },
+    {
+      "id": "reports",
+      "label": "Reports"
+    },
+    {
+      "id": "settings",
+      "label": "Settings"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "site-admin-happy",
+      "screen": "site",
+      "role": "admin",
+      "caseType": "happy",
+      "title": "Full 3D model + house drill-in",
+      "asset": null,
+      "provider": null,
+      "status": "existing",
+      "thumb": "thumbs/site.png"
+    },
+    {
+      "id": "site-admin-no-3d",
+      "screen": "site",
+      "role": "admin",
+      "caseType": "degraded",
+      "title": "No 3D → 2D blueprint navigator",
+      "asset": "3D / BIM model",
+      "provider": "Capture Team / WakeCap Ops",
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/site-admin-no-3d.html"
+    },
+    {
+      "id": "site-admin-no-blueprints",
+      "screen": "site",
+      "role": "admin",
+      "caseType": "degraded",
+      "title": "No model/blueprints → schematic squares + schedule",
+      "asset": "3D model + Blueprints",
+      "provider": "Project Admin / Capture Team",
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/site-admin-no-blueprints.html"
+    },
+    {
+      "id": "site-admin-no-structure",
+      "screen": "site",
+      "role": "admin",
+      "caseType": "blocked",
+      "title": "No structure → terminal empty",
+      "asset": "LBS structure",
+      "provider": "Project Admin / planning",
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/site-admin-no-structure.html"
+    },
+    {
+      "id": "site-admin-no-schedule",
+      "screen": "site",
+      "role": "admin",
+      "caseType": "degraded",
+      "title": "Model, no 4D timeline",
+      "asset": "Schedule / Baseline",
+      "provider": "Planner / Project Controls",
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/site-admin-no-schedule.html"
+    },
+    {
+      "id": "site-admin-no-progress",
+      "screen": "site",
+      "role": "admin",
+      "caseType": "degraded",
+      "title": "Model, flat colouring",
+      "asset": "Progress actuals",
+      "provider": "Site Engineers / Project Admin",
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/site-admin-no-progress.html"
+    },
+    {
+      "id": "site-owner-happy",
+      "screen": "site",
+      "role": "owner",
+      "caseType": "happy",
+      "title": "Owner views 3D model (read)",
+      "asset": null,
+      "provider": null,
+      "status": "existing",
+      "thumb": "thumbs/site.png"
+    },
+    {
+      "id": "site-owner-no-3d",
+      "screen": "site",
+      "role": "owner",
+      "caseType": "degraded",
+      "title": "Owner → 2D blueprint",
+      "asset": "3D / BIM model",
+      "provider": "Capture Team / WakeCap Ops",
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/site-owner-no-3d.html"
+    },
+    {
+      "id": "site-owner-no-blueprints",
+      "screen": "site",
+      "role": "owner",
+      "caseType": "degraded",
+      "title": "Owner → schematic squares",
+      "asset": "3D model + Blueprints",
+      "provider": "Project Admin / Capture Team",
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "reviewNote": "",
+      "builtNative": true,
+      "wireframe": "wireframes/site-owner-no-blueprints.html"
+    },
+    {
+      "id": "site-readonly-happy",
+      "screen": "site",
+      "role": "readonly",
+      "caseType": "happy",
+      "title": "Reviewer views 3D model",
+      "asset": null,
+      "provider": null,
+      "status": "existing",
+      "thumb": "thumbs/site.png"
+    },
+    {
+      "id": "site-readonly-no-3d",
+      "screen": "site",
+      "role": "readonly",
+      "caseType": "degraded",
+      "title": "Reviewer → 2D blueprint",
+      "asset": "3D / BIM model",
+      "provider": "Capture Team / WakeCap Ops",
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/site-readonly-no-3d.html"
+    },
+    {
+      "id": "site-noaccess",
+      "screen": "site",
+      "role": "noaccess",
+      "caseType": "wall",
+      "title": "No access — site not reachable",
+      "asset": null,
+      "provider": null,
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/site-noaccess.html"
+    },
+    {
+      "id": "boq-admin-happy",
+      "screen": "boq",
+      "role": "admin",
+      "caseType": "happy",
+      "title": "Priced BOQ dictionary",
+      "asset": null,
+      "provider": null,
+      "status": "existing",
+      "thumb": "thumbs/boq.png"
+    },
+    {
+      "id": "boq-admin-no-boq",
+      "screen": "boq",
+      "role": "admin",
+      "caseType": "blocked",
+      "title": "No BOQ imported",
+      "asset": "BOQ",
+      "provider": "Quantity Surveyor / Commercial",
+      "status": "review",
+      "builtNative": true,
+      "step": "Wireframe ready — awaiting approval",
+      "wireframe": "wireframes/boq-admin-no-boq.html"
+    },
+    {
+      "id": "boq-admin-no-contract",
+      "screen": "boq",
+      "role": "admin",
+      "caseType": "degraded",
+      "title": "No contract → unpriced dictionary",
+      "asset": "Contract Setup",
+      "provider": "Finance / Commercial",
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/boq-admin-no-contract.html"
+    },
+    {
+      "id": "boq-admin-no-schedule",
+      "screen": "boq",
+      "role": "admin",
+      "caseType": "degraded",
+      "title": "No periods to bill against",
+      "asset": "Schedule / Baseline (periods)",
+      "provider": "Planner / Project Controls",
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/boq-admin-no-schedule.html"
+    },
+    {
+      "id": "boq-admin-no-resolution",
+      "screen": "boq",
+      "role": "admin",
+      "caseType": "degraded",
+      "title": "No resolution mapping",
+      "asset": "BOQ Assignment / Resolution",
+      "provider": "QS / commercial-controls",
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/boq-admin-no-resolution.html"
+    },
+    {
+      "id": "boq-readonly-wall",
+      "screen": "boq",
+      "role": "readonly",
+      "caseType": "wall",
+      "title": "Read-only dictionary",
+      "asset": null,
+      "provider": null,
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/boq-readonly-wall.html"
+    },
+    {
+      "id": "boq-owner-noaccess",
+      "screen": "boq",
+      "role": "owner",
+      "caseType": "wall",
+      "title": "Owner no access to commercial",
+      "asset": null,
+      "provider": null,
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/boq-owner-noaccess.html"
+    },
+    {
+      "id": "pd-admin-happy",
+      "screen": "progress-details",
+      "role": "admin",
+      "caseType": "happy",
+      "title": "WBS→object drill, edit %, approve",
+      "asset": null,
+      "provider": null,
+      "status": "existing",
+      "thumb": "thumbs/progress-details.png"
+    },
+    {
+      "id": "pd-admin-no-schedule",
+      "screen": "progress-details",
+      "role": "admin",
+      "caseType": "blocked",
+      "title": "No schedule → nothing to collect",
+      "asset": "Schedule / Baseline",
+      "provider": "Planner / Project Controls",
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/pd-admin-no-schedule.html"
+    },
+    {
+      "id": "pd-admin-no-templates",
+      "screen": "progress-details",
+      "role": "admin",
+      "caseType": "degraded",
+      "title": "No templates → flat tree",
+      "asset": "Operation Templates",
+      "provider": "QS / Project Controls",
+      "status": "review",
+      "step": "Wireframe ready — awaiting approval",
+      "builtNative": true,
+      "wireframe": "wireframes/pd-admin-no-templates.html"
+    },
+    {
+      "id": "pd-admin-no-actuals",
+      "screen": "progress-details",
+      "role": "admin",
+      "caseType": "degraded",
+      "title": "First period, no actuals",
+      "asset": "Progress actuals",
+      "provider": "Site Engineers / Project Admin",
+      "status": "built",
+      "step": null,
+      "wireframe": "wireframes/pd-admin-no-actuals.html",
+      "builtNative": true
+    },
+    {
+      "id": "pd-readonly-wall",
+      "screen": "progress-details",
+      "role": "readonly",
+      "caseType": "wall",
+      "title": "Read-only collection",
+      "asset": null,
+      "provider": null,
+      "status": "built",
+      "step": null,
+      "wireframe": "wireframes/pd-readonly-wall.html",
+      "builtNative": true
+    },
+    {
+      "id": "ev-admin-happy",
+      "screen": "earned-value",
+      "role": "admin",
+      "caseType": "happy",
+      "title": "EVM tiles + S-curve",
+      "asset": null,
+      "provider": null,
+      "status": "existing",
+      "thumb": "thumbs/earned-value.png"
+    },
+    {
+      "id": "ev-admin-no-schedule",
+      "screen": "earned-value",
+      "role": "admin",
+      "caseType": "blocked",
+      "title": "No BAC/PV baseline",
+      "asset": "Schedule / Baseline",
+      "provider": "Planner / Project Controls",
+      "status": "built",
+      "step": null,
+      "wireframe": "wireframes/ev-admin-no-schedule.html",
+      "builtNative": true
+    },
+    {
+      "id": "ev-admin-no-actuals",
+      "screen": "earned-value",
+      "role": "admin",
+      "caseType": "degraded",
+      "title": "PV/BAC only, EV zero",
+      "asset": "Progress actuals",
+      "provider": "Site Engineers / Project Admin",
+      "status": "built",
+      "step": null,
+      "wireframe": "wireframes/ev-admin-no-actuals.html",
+      "builtNative": true
+    },
+    {
+      "id": "rep-admin-happy",
+      "screen": "reports",
+      "role": "admin",
+      "caseType": "happy",
+      "title": "Milestone matrix + REGA + downloads",
+      "asset": null,
+      "provider": null,
+      "status": "existing",
+      "thumb": "thumbs/reports.png"
+    },
+    {
+      "id": "rep-admin-no-lbs",
+      "screen": "reports",
+      "role": "admin",
+      "caseType": "blocked",
+      "title": "No LBS → no villa rows",
+      "asset": "LBS structure",
+      "provider": "Project Admin / planning",
+      "status": "built",
+      "step": null,
+      "wireframe": "wireframes/rep-admin-no-lbs.html",
+      "builtNative": true
+    },
+    {
+      "id": "rep-admin-no-plotref",
+      "screen": "reports",
+      "role": "admin",
+      "caseType": "degraded",
+      "title": "No plot reference enrichment",
+      "asset": "Plot Reference Report",
+      "provider": "Project Admin / QS",
+      "status": "built",
+      "step": null,
+      "wireframe": "wireframes/rep-admin-no-plotref.html",
+      "builtNative": true
+    },
+    {
+      "id": "rep-readonly-wall",
+      "screen": "reports",
+      "role": "readonly",
+      "caseType": "wall",
+      "title": "Read-only, import disabled",
+      "asset": null,
+      "provider": null,
+      "status": "built",
+      "step": null,
+      "wireframe": "wireframes/rep-readonly-wall.html",
+      "builtNative": true
+    },
+    {
+      "id": "set-admin-happy",
+      "screen": "settings",
+      "role": "admin",
+      "caseType": "happy",
+      "title": "Configure trades, shifts, disciplines",
+      "asset": null,
+      "provider": null,
+      "status": "existing",
+      "thumb": "thumbs/settings.png"
+    },
+    {
+      "id": "set-readonly-wall",
+      "screen": "settings",
+      "role": "readonly",
+      "caseType": "wall",
+      "title": "Settings visible, controls disabled",
+      "asset": null,
+      "provider": null,
+      "status": "built",
+      "step": null,
+      "wireframe": "wireframes/set-readonly-wall.html",
+      "builtNative": true
+    }
+  ],
+  "settings": {
+    "reviewMode": "review"
+  },
+  "target": {
+    "root": "..",
+    "mountUrl": "http://localhost:5190",
+    "publicSubdir": "__scenarios__",
+    "connected": false
+  }
+}

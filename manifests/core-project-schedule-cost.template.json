@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-project-schedule-cost",
+	"tier": "template",
+	"consumption": "import",
+	"name": "CoreProjectScheduleCost",
+	"category": "pages",
+	"version": "1.0.0",
+	"manifestStatus": "variant",
+	"variantOf": {
+		"template": "CoreProjectQualityIssues",
+		"relationship": "variant",
+		"note": "Detail variant — no kpi-strip."
+	},
+	"source": {
+		"path": "packages/components/src/pages/core-project-schedule-cost.tsx",
+		"import": "@wakecap/core-ui/pages/core-project-schedule-cost",
+		"export": "ProjectScheduleCost"
+	},
+	"tags": [
+		"project",
+		"schedule",
+		"cost",
+		"budget"
+	],
+	"intent": "Ready-made project schedule & cost page template.",
+	"when": [
+		"A project schedule-and-cost screen"
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"CoreContentArea"
+	],
+	"requiredProviders": [],
+	"minimalExample": "import {ProjectScheduleCost} from \"@wakecap/core-ui/pages/core-project-schedule-cost\";\n\n<ProjectScheduleCost project={project} />",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 template-variant migration (2026-07)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-project-schedule-cost.tsx",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"variant of CoreProjectQualityIssues: Detail variant — no kpi-strip."
+		]
+	}
+}

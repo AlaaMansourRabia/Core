@@ -1,0 +1,745 @@
+import {Meta} from "@storybook/addon-docs/blocks";
+
+<Meta title="Getting Started/Contributing" />
+
+# Contributing a Component
+
+A step-by-step guide for adding a new reusable component to the Wakecore design system — from branch creation to published package.
+
+## Architecture
+
+Wakecore components are built on top of **[shadcn/ui](https://ui.shadcn.com/)** patterns and **[Radix UI](https://www.radix-ui.com/)** primitives, styled with **Tailwind CSS 4** using the `wwc:` class prefix.
+
+**What this means in practice:**
+
+- Most components are **adapted from shadcn/ui** — we take the shadcn pattern (Radix primitive + Tailwind styling + CVA variants) and customize it for WakeCap's design language
+- **Radix UI** provides the accessible, unstyled primitives (Dialog, Select, Tooltip, Accordion, etc.) — we never build custom accessibility or keyboard handling from scratch
+- **Tailwind CSS 4** with `@import "tailwindcss" prefix(wwc)` generates all utility classes with the `wwc:` prefix, preventing collisions with consumer apps
+- **CVA** (class-variance-authority) manages component variants — every component with visual variants uses `cva()` for its class definitions
+
+**When adding a new component**, check if shadcn/ui already has it. If it does:
+
+1. Start from the [shadcn/ui source](https://ui.shadcn.com/docs/components) as a baseline
+2. Replace all Tailwind classes with `wwc:`-prefixed versions
+3. Adapt the styling to match Wakecore's design tokens
+4. Add any WakeCap-specific props or behavior
+
+If shadcn/ui doesn't have it, follow the same pattern: wrap a Radix primitive (if applicable), style with `wwc:`-prefixed Tailwind via `cva()`, and compose with `cn()`.
+
+### Libraries & Frameworks
+
+Beyond Radix UI, these libraries are available and already used in the component library:
+
+<table>
+	<thead>
+		<tr>
+			<th>Library</th>
+			<th>Purpose</th>
+			<th>Used By</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<strong>Tailwind CSS 4</strong>
+			</td>
+			<td>
+				Utility-first CSS with <code>wwc:</code> prefix
+			</td>
+			<td>All components</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Radix UI</strong>
+			</td>
+			<td>Accessible, unstyled primitives</td>
+			<td>Dialog, Select, Tooltip, Accordion, Tabs, and 20+ more</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>CVA</strong> (class-variance-authority)
+			</td>
+			<td>Component variant management</td>
+			<td>Button, Badge, Alert, and any component with visual variants</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Lucide React</strong>
+			</td>
+			<td>Icons</td>
+			<td>Used across many components (ChevronDown, X, Check, etc.)</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>@tanstack/react-table</strong>
+			</td>
+			<td>Headless table engine</td>
+			<td>DataTable</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>ECharts</strong> (echarts + echarts-for-react)
+			</td>
+			<td>Data visualization</td>
+			<td>ChartContainer, ChartRenderer</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Mapbox GL</strong>
+			</td>
+			<td>Interactive maps</td>
+			<td>Map, MapControls</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>react-hook-form</strong> + <strong>zod</strong>
+			</td>
+			<td>Form validation</td>
+			<td>Form, FormField, FormItem</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>react-day-picker</strong> + <strong>date-fns</strong>
+			</td>
+			<td>Calendar and date utilities</td>
+			<td>Calendar, DatePicker</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Embla Carousel</strong>
+			</td>
+			<td>Carousel engine</td>
+			<td>Carousel</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>cmdk</strong>
+			</td>
+			<td>Command palette</td>
+			<td>Command</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Vaul</strong>
+			</td>
+			<td>Mobile-friendly drawer</td>
+			<td>Drawer</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Sonner</strong>
+			</td>
+			<td>Toast notifications</td>
+			<td>Toaster</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>input-otp</strong>
+			</td>
+			<td>OTP input fields</td>
+			<td>InputOTP</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>react-resizable-panels</strong>
+			</td>
+			<td>Resizable panel layouts</td>
+			<td>Resizable</td>
+		</tr>
+	</tbody>
+</table>
+
+Before adding a new dependency, check if an existing library already covers your use case. Prefer extending what's already in the stack over introducing new dependencies.
+
+**Introducing a new library:** If you need to bring in a new third-party library, you **must** wrap its components into Wakecore components — never expose the raw library directly. Specifically:
+
+1. **Create a Wakecore wrapper component** that imports from the library internally — consumers should only import from `@wakecap/core-ui/your-component`, never from the third-party package directly
+2. **Ensure tree-shaking works** — the library must support ESM imports so unused code is excluded from consumer bundles. Verify this by checking the library's `package.json` for `"module"` or `"exports"` fields
+3. **Style it to match the theme** — apply Wakecore design tokens (`wwc:` prefixed Tailwind classes, CSS variables from `@wakecap/core-tokens`) so the component is visually consistent with the rest of the system
+4. **Follow the same export steps** — add the `package.json` export entry, write tests, create a Storybook story, and add a changeset
+
+The goal is that consumers never know which library powers a component — they only interact with the Wakecore API.
+
+## Git Workflow
+
+Wakecore follows Git Flow. All work goes through `develop` first.
+
+### 1. Create a feature branch
+
+```bash
+git checkout develop
+git pull origin develop
+git checkout -b feat/ui/my-component
+```
+
+**Branch naming convention:**
+
+```
+type/scope/description
+```
+
+<table>
+	<thead>
+		<tr>
+			<th>Type</th>
+			<th>When</th>
+			<th>Example</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<code>feat</code>
+			</td>
+			<td>New component or feature</td>
+			<td>
+				<code>feat/ui/date-range-picker</code>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>fix</code>
+			</td>
+			<td>Bug fix</td>
+			<td>
+				<code>fix/ui/button-loading-state</code>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>refactor</code>
+			</td>
+			<td>Code restructuring</td>
+			<td>
+				<code>refactor/ui/sidebar-composition</code>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>docs</code>
+			</td>
+			<td>Documentation only</td>
+			<td>
+				<code>docs/tokens/dark-mode-guide</code>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+### 2. Commit with Conventional Commits
+
+All commits must follow [Conventional Commits](https://www.conventionalcommits.org/). Commitlint enforces this on PRs.
+
+```bash
+# Format
+type(scope): description
+
+# Examples
+feat(ui): add DateRangePicker component
+fix(tokens): correct dark mode border color
+test(ui): add interaction tests for Combobox
+docs(ui): add DateRangePicker story and docs
+```
+
+**Rules:**
+
+- Subject must be **lowercase** (no leading capital)
+- No period at the end
+- Use **imperative mood** ("add feature" not "added feature")
+- Scopes: `tokens`, `ui`, `utils`, `web`, `deps` (optional but encouraged)
+
+### 3. Open a PR to develop
+
+```bash
+git push -u origin feat/ui/my-component
+gh pr create --base develop --title "feat(ui): add MyComponent" --body "Description of changes"
+```
+
+**What happens on PR:**
+
+- **Quality Gate** — lint, format, build, typecheck, and 441+ browser tests
+- **Chromatic** — visual regression review for any Storybook changes
+- **Commitlint** — validates all commit messages
+- **Intent Validate** — validates skill files (if you changed any)
+
+All checks must pass before merging.
+
+### 4. Add a changeset
+
+If your PR changes the public API, fixes a bug, or adds a feature in a published package:
+
+```bash
+pnpm changeset
+```
+
+Select the affected packages and bump type:
+
+- **patch** — bug fixes, minor tweaks
+- **minor** — new features, non-breaking additions
+- **major** — breaking changes
+
+Commit the generated `.changeset/*.md` file with your PR.
+
+### 5. Merge and publish
+
+After approval, merge the PR to `develop`:
+
+- Quality Gate runs on the merge commit
+- On success, `@next` pre-release packages are published automatically
+- Consumers can test with `pnpm add @wakecap/core-ui@next`
+
+When ready for stable release, merge `develop` → `main`:
+
+- Changesets opens a "Version Packages" PR that bumps versions and generates changelogs
+- Merging that PR publishes `@latest` packages to GitHub Packages
+
+---
+
+## Component Authoring
+
+### File structure
+
+Each component lives as a single file in `packages/components/src/`:
+
+```
+packages/components/
+  src/
+    my-component.tsx          ← component source
+    my-component.test.tsx     ← unit tests (optional but encouraged)
+  package.json                ← add export entry here
+apps/storybook/
+  stories/
+    primitives/
+      MyComponent.stories.tsx ← Storybook story
+```
+
+For compound components or feature modules, use a subdirectory:
+
+```
+packages/components/
+  src/
+    chat/
+      core-chat-widget.tsx
+      core-chat-panel.tsx
+      core-chat-input.tsx
+```
+
+### Step 1 — Create the component
+
+**Simple component pattern** (e.g., Badge):
+
+```tsx
+import type {VariantProps} from "@wakecap/core-utils";
+import {cn, cva} from "@wakecap/core-utils";
+
+const myComponentVariants = cva(
+	"wwc:inline-flex wwc:items-center wwc:rounded-md wwc:px-3 wwc:py-1 wwc:text-sm wwc:font-medium",
+	{
+		variants: {
+			variant: {
+				default: "wwc:bg-primary wwc:text-primary-foreground",
+				secondary: "wwc:bg-secondary wwc:text-secondary-foreground",
+				outline: "wwc:border wwc:border-border wwc:bg-transparent",
+			},
+			size: {
+				sm: "wwc:px-2 wwc:py-0.5 wwc:text-xs",
+				default: "wwc:px-3 wwc:py-1 wwc:text-sm",
+				lg: "wwc:px-4 wwc:py-1.5 wwc:text-base",
+			},
+		},
+		defaultVariants: {
+			variant: "default",
+			size: "default",
+		},
+	},
+);
+
+interface MyComponentProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof myComponentVariants> {}
+
+/** Brief description of the component. */
+function MyComponent({variant, size, className, ...props}: MyComponentProps) {
+	return <div className={cn(myComponentVariants({variant, size}), className)} {...props} />;
+}
+
+export {MyComponent, myComponentVariants};
+export type {MyComponentProps};
+```
+
+**Component with ref forwarding** (when consumers need DOM ref access):
+
+```tsx
+import * as React from "react";
+import {cn} from "@wakecap/core-utils";
+
+interface MyInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+	label?: string;
+}
+
+const MyInput = React.forwardRef<HTMLInputElement, MyInputProps>(({label, className, ...props}, ref) => {
+	return (
+		<div>
+			{label && <label className="wwc:text-sm wwc:font-medium">{label}</label>}
+			<input
+				ref={ref}
+				className={cn("wwc:rounded-md wwc:border wwc:border-input wwc:bg-background wwc:px-3 wwc:py-2", className)}
+				{...props}
+			/>
+		</div>
+	);
+});
+MyInput.displayName = "MyInput";
+
+export {MyInput};
+export type {MyInputProps};
+```
+
+**Radix-based compound component** (shadcn/ui pattern — e.g., wrapping a Radix primitive):
+
+```tsx
+import * as React from "react";
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import {cn} from "@wakecap/core-utils";
+
+const Accordion = AccordionPrimitive.Root;
+
+const AccordionItem = React.forwardRef<
+	React.ComponentRef<typeof AccordionPrimitive.Item>,
+	React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
+>(({className, ...props}, ref) => (
+	<AccordionPrimitive.Item ref={ref} className={cn("wwc:border-b", className)} {...props} />
+));
+AccordionItem.displayName = "AccordionItem";
+
+const AccordionTrigger = React.forwardRef<
+	React.ComponentRef<typeof AccordionPrimitive.Trigger>,
+	React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
+>(({className, children, ...props}, ref) => (
+	<AccordionPrimitive.Header className="wwc:flex">
+		<AccordionPrimitive.Trigger
+			ref={ref}
+			className={cn(
+				"wwc:flex wwc:flex-1 wwc:items-center wwc:justify-between wwc:py-4 wwc:font-medium wwc:transition-all",
+				className,
+			)}
+			{...props}
+		>
+			{children}
+		</AccordionPrimitive.Trigger>
+	</AccordionPrimitive.Header>
+));
+AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
+
+export {Accordion, AccordionItem, AccordionTrigger};
+```
+
+This is the standard shadcn/ui pattern: wrap each Radix sub-component with `forwardRef`, apply `wwc:`-prefixed Tailwind classes, merge `className` via `cn()`, and set `displayName` from the Radix primitive.
+
+**Key conventions:**
+
+- Most components follow the **shadcn/ui + Radix UI** pattern
+- All Tailwind classes use the **`wwc:` prefix** (Tailwind CSS 4 with `prefix(wwc)`)
+- Use `cn()` from `@wakecap/core-utils` for className merging
+- Use `cva()` for variant definitions
+- Accept `className` prop and merge it last (allows consumer overrides)
+- Export both the component and its Props type
+- Set `displayName` on forwardRef components
+- Use `React.ComponentPropsWithoutRef<typeof Primitive>` for Radix component props
+
+### Step 2 — Add the package export
+
+Open `packages/components/package.json` and add an entry to the `exports` field:
+
+```json
+"./my-component": {
+  "source": "./src/my-component.tsx",
+  "types": "./dist/my-component.d.mts",
+  "import": "./dist/my-component.mjs"
+}
+```
+
+**This is required.** The build auto-discovers source files, but consumers can only import paths listed in `exports`.
+
+After adding the export, consumers import with:
+
+```tsx
+import {MyComponent} from "@wakecap/core-ui/my-component";
+```
+
+### Step 3 — Write tests
+
+Create `packages/components/src/my-component.test.tsx`:
+
+```tsx
+import {expect, test} from "vitest";
+import {render} from "vitest-browser-react";
+import {page} from "vitest/browser";
+
+import {MyComponent} from "./my-component";
+
+test("MyComponent renders with default variant", async () => {
+	await render(<MyComponent>Hello</MyComponent>);
+	const el = page.getByText("Hello");
+	await expect.element(el).toBeVisible();
+});
+
+test("MyComponent applies secondary variant", async () => {
+	await render(<MyComponent variant="secondary">Secondary</MyComponent>);
+	const el = page.getByText("Secondary");
+	await expect.element(el).toBeVisible();
+});
+
+test("MyComponent merges custom className", async () => {
+	await render(<MyComponent className="wwc:mt-4">Styled</MyComponent>);
+	const el = page.getByText("Styled");
+	await expect.element(el).toBeVisible();
+});
+```
+
+**Test conventions:**
+
+- `render()` is **async** — always `await` it
+- Use `page.getByRole()` and `page.getByText()` for locators
+- Use `expect.element()` for async DOM assertions
+- Use `rerender()` to test prop changes
+- Test files are co-located next to the component source
+
+Run tests locally:
+
+```bash
+pnpm test
+```
+
+### Step 4 — Create a Storybook story
+
+Create `apps/storybook/stories/{category}/MyComponent.stories.tsx`:
+
+```tsx
+import type {Meta, StoryObj} from "storybook/internal/types";
+import {MyComponent} from "@wakecap/core-ui/my-component";
+
+const meta = {
+	title: "Components/Primitives/MyComponent",
+	component: MyComponent,
+	tags: ["autodocs"],
+	argTypes: {
+		variant: {
+			control: "select",
+			options: ["default", "secondary", "outline"],
+		},
+		size: {
+			control: "select",
+			options: ["sm", "default", "lg"],
+		},
+	},
+	args: {
+		children: "My Component",
+		variant: "default",
+		size: "default",
+	},
+} satisfies Meta<typeof MyComponent>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {};
+
+export const Secondary: Story = {
+	args: {variant: "secondary"},
+};
+
+export const AllVariants: Story = {
+	render: () => (
+		<div className="wwc:flex wwc:flex-wrap wwc:gap-3">
+			<MyComponent variant="default">Default</MyComponent>
+			<MyComponent variant="secondary">Secondary</MyComponent>
+			<MyComponent variant="outline">Outline</MyComponent>
+		</div>
+	),
+};
+
+export const AllSizes: Story = {
+	render: () => (
+		<div className="wwc:flex wwc:items-center wwc:gap-3">
+			<MyComponent size="sm">Small</MyComponent>
+			<MyComponent size="default">Default</MyComponent>
+			<MyComponent size="lg">Large</MyComponent>
+		</div>
+	),
+};
+```
+
+**Story with interaction test:**
+
+```tsx
+import {expect, userEvent, within} from "storybook/test";
+
+export const ClickInteraction: Story = {
+	args: {onClick: fn(), children: "Click me"},
+	play: async ({canvasElement, args}) => {
+		const canvas = within(canvasElement);
+		const el = canvas.getByText("Click me");
+		await userEvent.click(el);
+		await expect(args.onClick).toHaveBeenCalledTimes(1);
+	},
+};
+```
+
+**Story categories** (use as `title` prefix):
+
+<table>
+	<thead>
+		<tr>
+			<th>Category</th>
+			<th>Directory</th>
+			<th>Use For</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Primitives</td>
+			<td>
+				<code>stories/primitives/</code>
+			</td>
+			<td>Buttons, inputs, badges, toggles, basic building blocks</td>
+		</tr>
+		<tr>
+			<td>Form</td>
+			<td>
+				<code>stories/form/</code>
+			</td>
+			<td>Form fields, date pickers, comboboxes, validation patterns</td>
+		</tr>
+		<tr>
+			<td>Layout</td>
+			<td>
+				<code>stories/layout/</code>
+			</td>
+			<td>Cards, tables, tabs, accordions, structural components</td>
+		</tr>
+		<tr>
+			<td>Overlay</td>
+			<td>
+				<code>stories/overlay/</code>
+			</td>
+			<td>Dialogs, sheets, popovers, tooltips, dropdowns</td>
+		</tr>
+		<tr>
+			<td>Navigation</td>
+			<td>
+				<code>stories/navigation/</code>
+			</td>
+			<td>Breadcrumbs, pagination, sidebar, nav menus</td>
+		</tr>
+		<tr>
+			<td>Feedback</td>
+			<td>
+				<code>stories/feedback/</code>
+			</td>
+			<td>Alerts, toasts, empty states, error pages</td>
+		</tr>
+		<tr>
+			<td>Display</td>
+			<td>
+				<code>stories/display/</code>
+			</td>
+			<td>Carousels, timelines, Gantt charts, typography</td>
+		</tr>
+		<tr>
+			<td>Charts</td>
+			<td>
+				<code>stories/charts/</code>
+			</td>
+			<td>ECharts-based data visualizations</td>
+		</tr>
+		<tr>
+			<td>Map</td>
+			<td>
+				<code>stories/map/</code>
+			</td>
+			<td>Mapbox GL interactive maps</td>
+		</tr>
+	</tbody>
+</table>
+
+### Step 5 — Build and verify
+
+```bash
+# Build packages
+pnpm --filter "@wakecap/core-*" build
+
+# Run all checks locally
+pnpm lint
+pnpm format:check
+pnpm typecheck
+pnpm test
+
+# Preview in Storybook
+pnpm storybook
+```
+
+---
+
+## Checklist
+
+Before opening your PR, verify:
+
+- [ ] Component file created in `packages/components/src/`
+- [ ] Export entry added to `packages/components/package.json`
+- [ ] All Tailwind classes use the `wwc:` prefix
+- [ ] `className` prop accepted and merged via `cn()`
+- [ ] `displayName` set on forwardRef components
+- [ ] Props type exported
+- [ ] Storybook story created with `tags: ["autodocs"]`
+- [ ] Story has at least a Default export and an AllVariants render
+- [ ] Tests written for key behaviors
+- [ ] `pnpm lint` passes
+- [ ] `pnpm format:check` passes
+- [ ] `pnpm typecheck` passes
+- [ ] `pnpm test` passes
+- [ ] Changeset added (`pnpm changeset`) if this is a publishable change
+- [ ] Commits follow Conventional Commits format
+
+---
+
+## Quick Reference
+
+**Imports for component authoring:**
+
+```tsx
+// Utilities
+import {cn, cva, type VariantProps} from "@wakecap/core-utils";
+
+// React (when using forwardRef)
+import * as React from "react";
+
+// Radix primitives (when wrapping)
+import * as DialogPrimitive from "@radix-ui/react-dialog";
+```
+
+**Imports for tests:**
+
+```tsx
+import {expect, test} from "vitest";
+import {render} from "vitest-browser-react";
+import {page} from "vitest/browser";
+```
+
+**Imports for stories:**
+
+```tsx
+import type {Meta, StoryObj} from "storybook/internal/types";
+import {expect, fn, userEvent, within} from "storybook/test";
+```
+
+**Key commands:**
+
+```bash
+pnpm changeset              # Add a changeset for version bump
+pnpm --filter "@wakecap/core-*" build   # Build all packages
+pnpm lint                   # Oxlint
+pnpm format                 # Oxfmt (write)
+pnpm format:check           # Oxfmt (check only)
+pnpm typecheck              # TypeScript check
+pnpm test                   # Run all tests
+pnpm storybook              # Start Storybook dev server
+```

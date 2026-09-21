@@ -1,0 +1,59 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-context-tabs",
+	"tier": "widget",
+	"name": "CoreContextTabs",
+	"category": "navigation",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/navigation/core-context-tabs.tsx",
+		"import": "@wakecap/core-ui/navigation/core-context-tabs"
+	},
+	"tags": [
+		"tabs",
+		"navigation",
+		"context",
+		"switcher"
+	],
+	"intent": "Page-level context tabs under the top bar for switching sections of the current entity.",
+	"when": [
+		"Switching sections of a project/org page (Overview/Schedule/Quality)"
+	],
+	"chooseOver": [
+		{
+			"component": "Tabs",
+			"because": "Tabs for in-component views; CoreContextTabs for page-level section nav in the shell"
+		}
+	],
+	"pairsWith": [
+		"CoreAppTopBar"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#CoreContextTabs\"]"
+		]
+	}
+}

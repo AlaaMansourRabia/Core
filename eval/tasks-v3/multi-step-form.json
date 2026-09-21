@@ -1,0 +1,10 @@
+{
+	"id": "multi-step-form",
+	"title": "Multi-step form workflow",
+	"domain": "forms",
+	"prompt": "Build a guided 'create project' flow split into three steps: first the project's basic details, then its team members, then a final review of everything entered. Show the user's progress through the steps, validate each step before advancing (a required field shows an inline error message when left empty), and let the user move back and forward between steps.",
+	"expected": ["Form"],
+	"acceptable": ["Stepper", "Card", "Input", "Button", "Progress", "Field"],
+	"forbidden": [],
+	"requiredProviders": ["Form"]
+}

@@ -1,0 +1,52 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-project-reality-capture",
+	"tier": "template",
+	"consumption": "import",
+	"name": "CoreProjectRealityCapture",
+	"category": "pages",
+	"version": "1.0.0",
+	"manifestStatus": "variant",
+	"variantOf": {
+		"template": "CoreProjectQualityIssues",
+		"relationship": "variant",
+		"note": "Detail variant — tabs media gallery, no map."
+	},
+	"source": {
+		"path": "packages/components/src/pages/core-project-reality-capture.tsx",
+		"import": "@wakecap/core-ui/pages/core-project-reality-capture",
+		"export": "ProjectRealityCapture"
+	},
+	"tags": [
+		"project",
+		"reality-capture",
+		"maps"
+	],
+	"intent": "Ready-made project reality-capture page template.",
+	"when": [
+		"A project reality-capture screen"
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"CoreContentArea"
+	],
+	"requiredProviders": [],
+	"minimalExample": "import {ProjectRealityCapture} from \"@wakecap/core-ui/pages/core-project-reality-capture\";\n\n<ProjectRealityCapture project={project} />",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 template-variant migration (2026-07)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-project-reality-capture.tsx",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"variant of CoreProjectQualityIssues: Detail variant — tabs media gallery, no map."
+		]
+	}
+}

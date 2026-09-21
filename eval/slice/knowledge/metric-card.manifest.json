@@ -1,0 +1,30 @@
+{
+  "id": "metric-card",
+  "tier": "widget",
+  "name": "Metric Card",
+  "category": "metric",
+  "version": "1.0.0",
+  "intent": "Show a single key metric with a label and an optional trend delta.",
+  "when": ["A KPI / summary number at the top of a dashboard", "One figure that deserves emphasis"],
+  "appliesTo": ["kpi", "metric", "summary", "dashboard"],
+  "dataContract": {
+    "input": {
+      "label": { "type": "string", "required": true },
+      "value": { "type": "number|string", "required": true },
+      "delta": { "type": "{ direction, pct }", "required": false }
+    }
+  },
+  "configSchema": {
+    "format": { "type": "enum", "values": ["number", "currency", "percent"], "default": "number" }
+  },
+  "composedOf": ["Card", "Typography", "Badge"],
+  "allowedPlacement": ["kpis", "content-region"],
+  "states": { "loading": "skeleton in place of value", "empty": "em dash when value is null" },
+  "evaluationCriteria": [
+    { "id": "selection", "metric": "tier-selection", "check": "metric-card widget used for a KPI tile (not a raw Card)" },
+    { "id": "config-valid", "metric": "config-valid", "check": "format in [number,currency,percent]; no unknown config keys" },
+    { "id": "data-contract", "metric": "data-contract", "check": "label + value present" },
+    { "id": "render", "metric": "render", "check": "renders non-empty markup" }
+  ],
+  "provenance": { "authoredFields": ["intent", "when", "appliesTo"], "generatedFields": ["composedOf"] }
+}

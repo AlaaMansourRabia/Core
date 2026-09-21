@@ -1,0 +1,73 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "filter",
+	"tier": "widget",
+	"name": "Filter",
+	"category": "data",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/filter.tsx",
+		"import": "@wakecap/core-ui/filter"
+	},
+	"tags": [
+		"filter",
+		"facets",
+		"popover",
+		"multi-select"
+	],
+	"intent": "Faceted multi-category filter — an icon trigger opening a popover of collapsible categories with selectable options.",
+	"when": [
+		"Filter a list or table by several independent categories at once",
+		"Offer compact faceted filtering behind a trigger"
+	],
+	"chooseOver": [
+		{
+			"component": "SearchFilterBar",
+			"because": "SearchFilterBar is a single-row search plus quick filter pills; Filter is a multi-category faceted picker in a popover"
+		},
+		{
+			"component": "Combobox",
+			"because": "Combobox selects a single field's value; Filter manages many categories of multi-select facets"
+		}
+	],
+	"pairsWith": [
+		"DataTable",
+		"SearchFilterBar"
+	],
+	"requiredProviders": [
+		"Filter"
+	],
+	"commonMistakes": [
+		{
+			"mistake": "Render FilterOption outside FilterCategory, or FilterCategory outside Filter",
+			"fix": "Both require their context and throw without it",
+			"avoidOverride": "Render FilterOption outside FilterCategory, or FilterCategory outside Filter — both require their context and throw without it"
+		}
+	],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#Filter\"]"
+		]
+	}
+}

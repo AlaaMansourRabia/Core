@@ -1,0 +1,10 @@
+{
+	"id": "multi-step-form",
+	"title": "Multi-step onboarding flow",
+	"domain": "forms",
+	"prompt": "Guide a new user through a three-part onboarding flow. Show their progress across the parts at the top, and on each part collect a few fields that are validated before they can advance to the next.",
+	"expected": ["Stepper"],
+	"acceptable": ["Form", "Field", "Input", "Button"],
+	"forbidden": [],
+	"requiredProviders": ["useForm"]
+}

@@ -1,0 +1,95 @@
+@import "../../../packages/tokens/src/fonts.css";
+@import "../../../packages/tokens/src/index.css";
+/* Enter/exit animation utilities (animate-in / animate-out / fade-* / slide-*). The component dist bundles
+   these via its own styles.css, but Storybook generates its CSS from this file's @source scan, so without
+   this import every animated overlay (Sheet, Dialog, Popover, the jump toast) appears/leaves instantly. */
+@import "tw-animate-css";
+
+@source "../../../packages/components/src";
+@source "../stories";
+@source "../../../prototypes/capture/src";
+
+/*
+ * Bind the preview canvas to the theme tokens rather than to fixed colours, so it follows
+ * whichever `.dark` toggle the user reached for — the toolbar global or a component's own
+ * theme switch. Previously the decorator wrote these as inline styles on <body>, which no
+ * stylesheet can override; the class flipped but the inherited text colour did not.
+ */
+body {
+	background-color: var(--background);
+	color: var(--foreground);
+}
+
+/*
+ * ── Docs pages (MDX + autodocs) ──
+ *
+ * Storybook ships its own type ramp for docs — Nunito Sans, blue-grey ink, a light 300-weight h1 —
+ * which reads as "a Storybook page" rather than as Wakecore. These rules bind the docs surface to
+ * the same tokens the components use, so every page follows the Welcome page: Figtree, token ink,
+ * the grey canvas that white cards lift off, and one heading ramp.
+ *
+ * Scoped to `.sbdocs*`, so component previews and stories are untouched. Sizes match the Welcome
+ * hero (stories/_docs/WelcomeIntro.tsx) — keep the two in step.
+ */
+/* !important throughout this block: the docs chrome is styled by emotion classes injected into
+ * <head> after this stylesheet, so equal-specificity rules here would lose the cascade. */
+.sbdocs-wrapper {
+	background-color: var(--background) !important;
+}
+
+.sbdocs {
+	font-family: var(--font-sans);
+}
+
+.sbdocs-content {
+	color: var(--foreground);
+}
+
+.sbdocs-content h1,
+.sbdocs-content h2,
+.sbdocs-content h3,
+.sbdocs-content h4 {
+	font-family: var(--font-sans);
+	color: var(--foreground);
+	letter-spacing: -0.015em;
+	font-weight: 650;
+}
+
+.sbdocs-content h1 {
+	font-size: 38px;
+	line-height: 1.1;
+	letter-spacing: -0.025em;
+	font-weight: 700;
+}
+
+.sbdocs-content h2 {
+	font-size: 24px;
+	border-bottom-color: var(--border);
+}
+
+.sbdocs-content h3 {
+	font-size: 17px;
+}
+
+.sbdocs-content p,
+.sbdocs-content li {
+	font-family: var(--font-sans) !important;
+	color: var(--foreground);
+	font-size: 15px;
+	line-height: 1.65;
+}
+
+.sbdocs-content table th {
+	font-weight: 600;
+}
+
+/* Fully hide a scrollbar (elements with their own overlay scrollbar, e.g. the villa detail panel).
+   Unlayered so it beats the design system's global @layer base scrollbar styling. */
+.hide-native-scrollbar {
+	scrollbar-width: none;
+}
+.hide-native-scrollbar::-webkit-scrollbar {
+	display: none;
+	width: 0;
+	height: 0;
+}

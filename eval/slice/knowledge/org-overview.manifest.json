@@ -1,0 +1,27 @@
+{
+  "id": "org-overview",
+  "tier": "template",
+  "name": "Organization Overview",
+  "version": "1.0.0",
+  "pageIntent": "At-a-glance health of the org: KPIs at the top, trends below.",
+  "when": ["Landing page for an org-level role", "Dashboard / overview page"],
+  "appliesTo": ["dashboard", "overview", "org", "metrics", "kpi", "landing"],
+  "layout": {
+    "regions": [
+      { "id": "kpis", "intent": "row of metric widgets", "minItems": 3, "maxItems": 6 },
+      { "id": "trends", "intent": "trend chart widgets", "optional": true }
+    ]
+  },
+  "requiredWidgets": [
+    { "region": "kpis", "widget": "metric-card", "min": 3, "max": 6 }
+  ],
+  "dataSources": {
+    "scope": { "intent": "current org + date range", "shape": { "orgId": "string" } }
+  },
+  "successCriteria": [
+    { "id": "tier", "metric": "tier-selection", "check": "page built from the template + metric-card widgets, not ad-hoc raw components" },
+    { "id": "composition", "metric": "composition", "check": "kpis region filled with 3-6 metric-card" },
+    { "id": "render", "metric": "render", "check": "page renders non-empty markup" }
+  ],
+  "provenance": { "authoredFields": ["pageIntent", "when", "appliesTo"] }
+}

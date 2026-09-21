@@ -1,0 +1,10 @@
+{
+  "_comment": "Heavy 3D assets for the Storybook, stored in the INTERNAL repo wakecap/wakecore-3d-assets (too big to ship in @wakecap/core-ui). Pulled into apps/storybook/public/ at deploy time by scripts/fetch-3d-assets.mjs. Add a row here when a mockup gains heavy assets.",
+  "repo": "wakecap/wakecore-3d-assets",
+  "ref": "main",
+  "assets": [
+    { "from": "capture-almanar/reality-mesh", "to": "reality-mesh" },
+    { "from": "capture-almanar/site-b.frag", "to": "site-b.frag" },
+    { "from": "capture-almanar/worker.mjs", "to": "worker.mjs" }
+  ]
+}

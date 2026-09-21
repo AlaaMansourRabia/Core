@@ -1,0 +1,49 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "canvas-header",
+	"tier": "component",
+	"name": "CanvasHeader",
+	"category": "navigation",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/canvas-header.tsx",
+		"import": "@wakecap/core-ui/canvas-header",
+		"export": "CanvasHeader"
+	},
+	"tags": [
+		"header",
+		"canvas",
+		"toolbar",
+		"breadcrumb",
+		"week-selector"
+	],
+	"intent": "The canvas-level header bar: a left cluster (typically a breadcrumb, single-line + truncating), an optional center, and a right cluster with an optional built-in weekSelector plus your actions. Heads a single workspace canvas — distinct from the platform CoreAppTopBar.",
+	"when": [
+		"Heading a single workspace canvas with a breadcrumb + period selector",
+		"Pairing a view switcher / canvas toolbar with a titled header"
+	],
+	"chooseOver": [
+		{
+			"component": "CoreAppTopBar",
+			"because": "CanvasHeader heads one workspace canvas; CoreAppTopBar is the platform-level application top bar"
+		}
+	],
+	"pairsWith": [
+		"ViewTabBar",
+		"CanvasToolbar",
+		"WeekSelector",
+		"Breadcrumb"
+	],
+	"requiredProviders": [],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "run-app-and-storybook → develop merge (2026-07)",
+		"status": "accepted",
+		"confidence": "unset — authored alongside the component",
+		"lastValidated": "2026-07-22",
+		"notes": [
+			"authored during the develop merge reconciliation"
+		]
+	}
+}

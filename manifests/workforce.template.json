@@ -1,0 +1,97 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "workforce",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "CoreWorkforce",
+	"archetype": "Workspace",
+	"category": "workforce",
+	"version": "1.0.0",
+	"manifestStatus": "draft",
+	"source": {
+		"path": "packages/components/src/pages/core-workforce.tsx",
+		"import": "@wakecap/core-ui/pages/core-workforce",
+		"export": "Workforce"
+	},
+	"tags": [
+		"workforce",
+		"workers",
+		"app-shell",
+		"sidebar",
+		"top-bar",
+		"header",
+		"tabs",
+		"settings",
+		"data-table",
+		"push-panel",
+		"scaffold"
+	],
+	"intent": "Workforce management scaffold: a full app shell (CoreAppSidebar + CoreAppTopBar) with a single \"Workforce\" sidebar entry, and a route header (PageContentHeader) carrying four tabs — Analytics, Workers List, Submissions, Compliance — plus a Settings action that opens a SideMenu settings sub-surface (Trade, Workshifts, Discipline, Location Group, Card Generator). Workers List is built out: a MetricCard KPI row, Mobilized/Demobilized tabs, and a DataTable with search, column toggle, row selection, Upload Images / Export / Add Worker(s) toolbar actions, and a PushPanel hosting the WorkerProfile widget, opened by clicking a worker.",
+	"when": [
+		"Starting the Workforce product surface that owns its own app shell",
+		"A single-section app whose route content is organized by a peer tab set in the header"
+	],
+	"whenNot": [
+		"A content page rendered inside an existing app shell -> use a content-only template",
+		"A multi-section admin surface where the left nav switches content -> use Admin Panel"
+	],
+	"chooseOver": [
+		{
+			"component": "Assembling CoreAppSidebar + CoreAppTopBar + PageContentHeader by hand",
+			"because": "Workforce owns the shell and the route header so workforce surfaces plug straight in."
+		}
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"PageContentHeader",
+		"DataTable"
+	],
+	"requiredProviders": [],
+	"composedOf": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"PageContentHeader",
+		"ViewTabBar",
+		"SideMenu",
+		"DataTable",
+		"MetricCard",
+		"Tabs",
+		"PushPanel",
+		"WorkerProfile",
+		"Avatar",
+		"Badge",
+		"Empty"
+	],
+	"allowedPlacement": [
+		"route-level workforce surface that owns the full window"
+	],
+	"forbiddenPlacement": [
+		"inside another CoreAppSidebar/CoreAppTopBar shell",
+		"inside a Card or Dialog"
+	],
+	"minimalExample": "// CoreWorkforce is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@wakecap/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@wakecap/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@wakecap/core-ui/page-content-header\";\nimport {ViewTabBar} from \"@wakecap/core-ui/view-tab-bar\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Workforce branch (2026-07-20)",
+		"derivedFrom": {
+			"source": "CoreSafetyManager shell (CoreAppSidebar + CoreAppTopBar + PageContentHeader)",
+			"extracted": [
+				"single-entry sidebar shell",
+				"four-tab route header scaffold (Analytics / Workers List / Submissions / Compliance) with a Settings action",
+				"SideMenu settings sub-surface",
+				"Workers List roster surface (KPI row + DataTable + PushPanel worker profile)"
+			]
+		},
+		"status": "draft",
+		"verifiedBy": null,
+		"confidence": "unset — scaffold, no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-20",
+		"notes": [
+			"pilot: true",
+			"Workers List modelled on the live portal workforce roster",
+			"Analytics / Submissions / Compliance bodies still placeholders"
+		]
+	}
+}

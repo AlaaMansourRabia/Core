@@ -1,0 +1,10 @@
+{
+	"id": "validated-form",
+	"title": "Validated form (provider + field structure)",
+	"domain": "forms",
+	"prompt": "Build a form to create a project with a required name field and an optional description. Validate the name is non-empty and show an inline error message under the field when it is missing.",
+	"expected": ["Form"],
+	"acceptable": [],
+	"forbidden": [],
+	"requiredProviders": ["Form"]
+}

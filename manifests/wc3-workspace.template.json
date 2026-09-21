@@ -1,0 +1,95 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "wc3-workspace",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "CoreWC3Workspace",
+	"archetype": "Admin",
+	"category": "settings",
+	"version": "0.1.0",
+	"manifestStatus": "complete",
+	"product": {
+		"name": "WakeCap Connect",
+		"release": "V1",
+		"role": "Admin Portal",
+		"pairedWith": ["app-installer"]
+	},
+	"source": {
+		"path": "packages/components/src/pages/core-wc3-workspace.tsx",
+		"import": "@wakecap/core-ui/pages/core-wc3-workspace",
+		"export": "WC3Workspace"
+	},
+	"tags": [
+		"app-shell",
+		"sidebar",
+		"top-bar",
+		"tabs",
+		"settings",
+		"wc3",
+		"ontology",
+		"workspace",
+		"skeleton"
+	],
+	"intent": "The WC3 unified-workspace app shell: CoreAppSidebar + CoreAppTopBar where every perspective is a sidebar item and each carries its own tabs. Home lands on a card per perspective; Ontology, Lineage, Products, Pipelines, Processes and Analysis are data-bearing surfaces with list/detail drill-in, wizards and dialogs, driven by fixtures extracted from the WC3 ontology-manager prototype.",
+	"when": [
+		"Standing up an admin workspace whose sidebar switches perspectives and whose top tabs switch sections within one",
+		"Demonstrating an ontology-backed admin: object/link/action types, lineage, products, pipelines, processes and analysis in one shell",
+		"Comparing the Wakecore rendering of the unified-workspace IA against the HTML prototype"
+	],
+	"whenNot": [
+		"A single content page rendered inside an existing app shell -> use a content-only template",
+		"An org-level admin over projects, roles and users -> use Admin Panel",
+		"The WC3 platform application nav (Operations, Resources, Control Panel, …) -> that is a different IA"
+	],
+	"chooseOver": [
+		{
+			"component": "Admin Panel",
+			"because": "Admin Panel is a three-surface org admin over projects, roles and users. WC3 Workspace is the ontology-backed workspace: seven perspectives, each with its own tabs, drill-in and dialogs."
+		}
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"PageContentHeader",
+		"SideMenu"
+	],
+	"requiredProviders": [],
+	"composedOf": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"PageContentHeader",
+		"SideMenu",
+		"Empty"
+	],
+	"allowedPlacement": [
+		"route-level workspace surface that owns the full window"
+	],
+	"forbiddenPlacement": [
+		"inside another CoreAppSidebar/CoreAppTopBar shell",
+		"inside a Card or Dialog"
+	],
+	"minimalExample": "// CoreWC3Workspace is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@wakecap/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@wakecap/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@wakecap/core-ui/page-content-header\";\nimport {SideMenu} from \"@wakecap/core-ui/side-menu\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"lineage": {
+		"origin": "derived",
+		"authoredBy": "WC3 Workspace skeleton (2026-08-02)",
+		"derivedFrom": {
+			"source": "wakecap/wc3-platform @ claude/wc3-ontology-prototypes-wvv4nf — apps/wc3-platform-web/prototypes/ontology-manager/06-unified-workspace.html",
+			"extracted": [
+				"the 10 perspectives and their rail order from the prototype's PERSPECTIVES array",
+				"per-perspective section names from the prototype's own tab arrays (Lineage, Analysis, Products), rail (Ontology), and mode lists (Twin TW_MODES)",
+				"perspective descriptions from SPEC-06.md §1–§8b"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — skeleton only, no held-out eval",
+		"supersedes": null,
+		"lastValidated": "2026-08-02",
+		"notes": [
+			"skeleton: true — every tab body is an Empty placeholder",
+			"follows the Workforce / Safety Manager / Clinic shape: PageContentHeader owns the title and tabs, and Settings is a mode toggled from the header action rather than a tab",
+			"the prototype's shell also carries a persona lens, changes drawer, time-machine scrubber, and a bottom context ribbon; none are in this skeleton",
+			"Command Center, Schedule, Workforce, Processes, and Pipelines have no top tabs in the prototype — their tabs here are derived from each page's actual sections"
+		]
+	}
+}

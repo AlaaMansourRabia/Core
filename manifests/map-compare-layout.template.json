@@ -1,0 +1,208 @@
+{
+  "schemaVersion": "artifact-manifest/0.1",
+  "id": "map-compare-layout",
+  "tier": "template",
+  "consumption": "compose",
+  "name": "MapCompareLayout",
+  "archetype": "MapWorkspace",
+  "category": "workspace",
+  "version": "1.0.0",
+  "manifestStatus": "complete",
+  "source": {
+    "path": "packages/components/src/pages/core-map-compare-layout.tsx",
+    "import": "@wakecap/core-ui/pages/core-map-compare-layout",
+    "export": "MapCompareLayout"
+  },
+
+  "intent": "A side-by-side map comparison workspace: two geo-aligned map surfaces (as-planned / as-built) inside a single pannable, zoomable CompareView, with a vertical MapToolbar (compare modes, locate, zoom, compass), an overview minimap, a per-view TimestampPicker to scrub each side's capture, an optional session TimelineRangeSelector docked at the bottom to drive both dates, and a fullscreen toggle. The full-page realization of the map-compare workspace, authored from the MapCompareLayout widget.",
+  "when": [
+    "Compare two captures of the same site over time (as-planned vs as-built, before/after)",
+    "The user needs to pan/zoom a map and swipe or split between two geo-aligned sources",
+    "Scrub each side to a specific capture (per-view timestamp) or drive both from a shared timeline",
+    "Start here instead of wiring CompareView + MapToolbar + minimap + pickers by hand"
+  ],
+  "whenNot": [
+    "A single project's KPIs + list + map overview -> use the CoreOrgOverview product route or compose the dashboard-page pattern",
+    "A read-only single map with markers and no compare -> compose the Map widget + MapControls directly",
+    "A master-detail worklist of items -> use the TaskMonitor template",
+    "A whole-page error / empty state -> use ErrorPage / Empty"
+  ],
+  "chooseOver": [
+    {
+      "over": "Composing CompareView + MapToolbar + MapMinimap + TimestampPicker by hand",
+      "because": "The MapWorkspace template owns the region layout (compare surface / toolbar / minimap / per-view pickers / session timeline) and the date state flowing between the two views."
+    }
+  ],
+
+  "regions": [
+    {
+      "id": "compare-surface",
+      "role": "Two geo-aligned map sources (as-planned / as-built) in one pannable, zoomable compare view with swipe/split modes",
+      "source": "MapCompareLayout widget (@wakecap/core-ui/map-compare-layout) — map + compareMap slots wrapping a CompareView",
+      "required": true,
+      "recommended": ["MapCompareLayout"]
+    },
+    {
+      "id": "toolbar",
+      "role": "Vertical map toolbar: compare modes (split/swipe), locate, zoom, and a compass reset, top-right",
+      "source": "MapToolbar (owned by the MapCompareLayout widget)",
+      "required": true
+    },
+    {
+      "id": "per-view-pickers",
+      "role": "A TimestampPicker centered over each view (shown only while comparing) to scrub that side's capture date",
+      "source": "TimestampPicker (@wakecap/core-ui/timestamp-picker) in the mapCenter / compareMapCenter slots",
+      "required": true,
+      "recommended": ["TimestampPicker"]
+    },
+    {
+      "id": "minimap",
+      "role": "Overview minimap that tracks and drives the current viewport, bottom-right",
+      "source": "MapMinimap (owned by the MapCompareLayout widget)",
+      "required": false,
+      "note": "On by default; a second overview appears bottom-left in unlocked side-by-side compare."
+    },
+    {
+      "id": "session-timeline",
+      "role": "A bottom-docked TimelineRangeSelector (shown only while comparing) whose two handles scrub the compared dates, kept in sync with the per-view pickers",
+      "source": "TimelineRangeSelector (@wakecap/core-ui/timeline-range-selector) in the bottomBar slot",
+      "required": false,
+      "recommended": ["TimelineRangeSelector"],
+      "note": "Enabled via the withSessionTimeline prop."
+    }
+  ],
+
+  "requiredWidgets": [
+    {
+      "name": "MapCompareLayout",
+      "region": "compare-surface / toolbar / minimap",
+      "required": true,
+      "note": "The compare workspace widget: CompareView + MapToolbar + MapMinimap in one layout."
+    },
+    {
+      "name": "TimestampPicker",
+      "region": "per-view-pickers",
+      "required": true,
+      "note": "Per-view capture scrubber floated over each source while comparing."
+    }
+  ],
+  "optionalWidgets": [
+    {
+      "name": "TimelineRangeSelector",
+      "region": "session-timeline",
+      "required": false,
+      "note": "Session timeline docked in the bottom bar; drives both compared dates (opt-in via withSessionTimeline)."
+    }
+  ],
+  "missingRequiredWidgets": [],
+  "impliedWidgets": [],
+
+  "requiredComponents": [
+    {"name": "Button", "region": "toolbar", "required": true, "note": "Fullscreen enter / exit toggle."}
+  ],
+
+  "dataContract": {
+    "applicable": true,
+    "input": {
+      "withSessionTimeline": {"type": "boolean", "required": false, "default": false, "note": "Dock the session TimelineRangeSelector in the bottom bar to scrub both compared dates."},
+      "className": {"type": "string", "required": false, "note": "Forwarded to the compare workspace when not fullscreen."}
+    },
+    "note": "Config only. The capture entries and the two compared dates are owned internally today (see dataSources) — a production MapWorkspace should lift captures + selection to props."
+  },
+
+  "dataSources": [
+    {
+      "id": "captures",
+      "type": "internal",
+      "call": "CAPTURE_ENTRIES (deterministic fixture)",
+      "returns": "TimestampEntry[]",
+      "status": "mock",
+      "note": "MOCK fixture today (~100 days of captures generated from a fixed anchor for stable snapshots). Production use must supply real capture sessions (no prop to inject them yet)."
+    }
+  ],
+
+  "dataFlow": [
+    "captures -> the per-view TimestampPickers (mapCenter / compareMapCenter) and the session timeline dots",
+    "planned (left / later) + built (right / earlier) dates -> which capture each view shows",
+    "scrub a per-view picker -> updates that side's date -> its view",
+    "drag the session timeline handles -> latestCaptureOnDay(start/end) -> both dates, in sync with the pickers",
+    "toggle fullscreen -> the workspace fills the viewport with an exit button"
+  ],
+
+  "states": {
+    "default": "Two geo-aligned scenes with a fullscreen toggle; per-view pickers and the session timeline surface once a compare mode is active.",
+    "comparing": "A compare mode (split / swipe) is active -> the two per-view TimestampPickers and (if enabled) the bottom session timeline appear.",
+    "session-timeline": "withSessionTimeline docks a TimelineRangeSelector in the bottom bar; its handles scrub both compared dates, staying in sync with the pickers.",
+    "fullscreen": "The workspace fills the viewport (fixed inset) with a floating Exit button.",
+    "single-map": "Omit the compareMap for a plain pan/zoom map — the toolbar drops the split control; the minimap still tracks the view (widget-level capability)."
+  },
+
+  "composedOf": ["MapCompareLayout", "TimestampPicker", "TimelineRangeSelector", "Button"],
+  "requiredProviders": [],
+
+  "responsive": {
+    "strategy": "Fluid full-height compare surface; floating toolbar (top-right), minimap (bottom-right), per-view pickers (top-center), and an optional docked session timeline (bottom).",
+    "note": "The workspace fills its container; fullscreen expands it to the viewport. Controls float over the map rather than reflowing it."
+  },
+
+  "allowedPlacement": [
+    "app-shell content-region (inside CoreAppSidebar + CoreAppTopBar + CoreContentArea)",
+    "route-level reality-capture / map-compare page"
+  ],
+  "forbiddenPlacement": [
+    "inside a Card or Dialog",
+    "nested in another scroll container (it manages its own compare surface + minimap sizing)"
+  ],
+
+  "commonMistakes": [
+    {
+      "mistake": "Re-wiring CompareView + MapToolbar + MapMinimap + pickers by hand",
+      "symptom": "Compare-mode, viewport, and picker plumbing are duplicated per page",
+      "fix": "Use the MapCompareLayout widget (this template owns the composition)."
+    },
+    {
+      "mistake": "Shipping with the CAPTURE_ENTRIES fixture",
+      "symptom": "The workspace shows synthetic captures in production",
+      "fix": "Supply real capture sessions (a production MapWorkspace needs a captures prop when widgetized)."
+    },
+    {
+      "mistake": "Placing the workspace inside another scroll container",
+      "symptom": "The compare surface and minimap mis-size and double scrollbars appear",
+      "fix": "Give it a full content region (CoreContentArea)."
+    }
+  ],
+
+  "minimalExample": "// MapCompareLayout is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {TimestampPicker} from \"@wakecap/core-ui/timestamp-picker\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+
+  "evaluationCriteria": [
+    {"id": "tier-selection", "metric": "tier-selection", "check": "MapWorkspace chosen for a two-source map comparison — not a Dashboard (KPIs + list + map) or a plain single Map."},
+    {"id": "regions", "metric": "render", "check": "compare-surface + toolbar render; per-view pickers and the session timeline appear on compare; minimap tracks the view."},
+    {"id": "data-contract", "metric": "data-contract", "check": "withSessionTimeline toggles the docked session timeline; the two compared dates stay in sync across pickers and timeline."},
+    {"id": "widget-composition", "metric": "composition", "check": "The MapCompareLayout widget is composed rather than re-assembled from CompareView + MapToolbar + minimap."},
+    {"id": "render", "metric": "render", "check": "Produces the map-compare workspace markup with both sources and floating controls."}
+  ],
+
+  "lineage": {
+    "promotedFrom": "widget (library-index.json: MapCompareLayout) — page realization authored over the widget",
+    "pilot": true,
+    "origin": "authored",
+    "status": "candidate",
+    "archetypeNote": "Defines the MapWorkspace archetype, authored from its first concrete instance (core-map-compare-layout over the MapCompareLayout widget). Whether other map pages are instances of this archetype is analyzed, NOT assumed.",
+    "authoredFields": [
+      "intent", "when", "whenNot", "chooseOver", "regions", "requiredWidgets", "optionalWidgets",
+      "missingRequiredWidgets", "impliedWidgets", "requiredComponents", "dataContract", "dataSources",
+      "dataFlow", "states", "responsive", "allowedPlacement", "forbiddenPlacement", "commonMistakes",
+      "minimalExample", "evaluationCriteria"
+    ],
+    "derivedFrom": {
+      "source": "packages/components/src/pages/core-map-compare-layout.tsx",
+      "extracted": ["regions (JSX layout)", "composedOf (imports)", "requiredWidgets (MapCompareLayout + TimestampPicker)", "dataSources (CAPTURE_ENTRIES fixture)", "dataContract (MapCompareLayoutProps)", "states (compare / fullscreen / session-timeline)"]
+    },
+    "knowledgeRefs": ["library-index.json#MapCompareLayout", "manifests/dashboard-page.pattern.json"],
+    "verifiedBy": null,
+    "confidence": "unset — no held-out eval yet",
+    "supersedes": null,
+    "authoredBy": "template manifest pilot (2026-07)",
+    "lastValidated": "2026-07-09"
+  }
+}

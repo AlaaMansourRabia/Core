@@ -1,0 +1,201 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "node-graph",
+	"tier": "widget",
+	"name": "NodeGraph",
+	"category": "data",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/node-graph.tsx",
+		"import": "@wakecap/core-ui/node-graph",
+		"export": "NodeGraph"
+	},
+	"tags": ["graph", "nodes", "edges", "pipeline", "process", "lineage", "analysis", "canvas", "dag"],
+	"intent": "Domain-neutral functional node graph: typed nodes and edges, a ZoomTools row (zoom in/out, editable percentage, fit, reset), selection by click or keyboard, node movement, optional edge creation, empty/loading/error states, and an inspector handoff for the current selection. The graph engine is an implementation detail — a consumer describes nodes rather than rendering them.",
+	"when": [
+		"Pipeline or dataflow authoring where the steps are the content",
+		"A process lifecycle or state graph the user reads and rearranges",
+		"An analysis readiness or relationship graph with an evidence panel beside it",
+		"Product, dataset or evidence lineage"
+	],
+	"whenNot": [
+		"A state machine with transition rules and guards -> use StateMachine, which carries that domain",
+		"A canvas whose nodes need bespoke rendering -> use GraphCanvas with your own nodeTypes",
+		"A hierarchy that reads better as a tree -> use TreeRow"
+	],
+	"chooseOver": [
+		{
+			"component": "GraphCanvas plus a hand-rolled node type and zoom chrome",
+			"because": "GraphCanvas owns only the canvas chrome; every consumer then re-typed the node card, the zoom row, the selection plumbing and the loading/error states. This owns that contract, so four graphs share one visual language and no consumer types the engine's props."
+		},
+		{
+			"component": "@xyflow/react used directly in the product",
+			"because": "The engine, its stylesheet and its version stay behind the widget; consumers describe nodes and edges instead of adopting a third-party API."
+		}
+	],
+	"pairsWith": ["ContextToolbar", "RecordDetailShell", "PropertyList", "Badge"],
+	"requiredProviders": ["None — it mounts its own graph context"],
+	"dataContract": {
+		"input": {
+			"nodes": {
+				"type": "NodeGraphNode[]",
+				"required": true,
+				"note": "id, label, and position; optional kind, description, status, tone, icon, footer, and the caller's data."
+			},
+			"edges": {
+				"type": "NodeGraphEdge[]",
+				"required": false,
+				"note": "id, source, target; optional label, tone, dashed, animated."
+			},
+			"selectedNodeId": {
+				"type": "string | null",
+				"required": false,
+				"note": "Controlled selection; omit for uncontrolled."
+			},
+			"viewport": {
+				"type": "NodeGraphViewport",
+				"required": false,
+				"note": "Controlled pan/zoom. With it the canvas stops framing itself."
+			},
+			"loading": {
+				"type": "boolean",
+				"required": false
+			},
+			"error": {
+				"type": "boolean | string",
+				"required": false
+			}
+		},
+		"events": {
+			"onSelectNode": {
+				"payload": {
+					"nodeId": "string | null",
+					"node": "NodeGraphNode | undefined"
+				}
+			},
+			"onNodeMove": {
+				"payload": {
+					"nodeId": "string",
+					"position": "{x: number; y: number}"
+				}
+			},
+			"onConnectNodes": {
+				"payload": {
+					"source": "string",
+					"target": "string"
+				}
+			},
+			"onViewportChange": {
+				"payload": {
+					"viewport": "NodeGraphViewport"
+				}
+			},
+			"onRetry": {
+				"payload": {}
+			}
+		},
+		"rowIdentity": "Node and edge ids must be unique within one graph."
+	},
+	"configSchema": {
+		"layout": {
+			"type": "string",
+			"default": "layered"
+		},
+		"orientation": {
+			"type": "string",
+			"default": "horizontal"
+		},
+		"density": {
+			"type": "string",
+			"default": "comfortable"
+		},
+		"selectable": {
+			"type": "boolean",
+			"default": true
+		},
+		"movable": {
+			"type": "boolean",
+			"default": true
+		},
+		"connectable": {
+			"type": "boolean",
+			"default": false
+		},
+		"showZoomTools": {
+			"type": "boolean",
+			"default": true
+		},
+		"showMiniMap": {
+			"type": "boolean",
+			"default": false
+		},
+		"inspectorWidth": {
+			"type": "number",
+			"default": 320
+		}
+	},
+	"slots": {
+		"toolbar": {
+			"description": "Chrome on the left of the zoom row — a ContextToolbar, a filter, a legend",
+			"accepts": ["component", "widget"]
+		},
+		"inspector": {
+			"description": "The evidence / detail handoff for the current selection; a right rail on desktop, stacked under the canvas below 1024px (so 820px stacks)",
+			"accepts": ["component", "widget"]
+		},
+		"emptyAction": {
+			"description": "The action offered when the graph has no nodes",
+			"accepts": ["component"]
+		}
+	},
+	"states": {
+		"ready": "The graph, with the zoom row live.",
+		"loading": "Node-shaped skeletons; the zoom actions are parked.",
+		"error": "The failure stated as a failure, with the host's Retry when it has one.",
+		"empty": "The caller's empty title, description and action.",
+		"compact": "Tighter node padding and type scale, for a graph with many nodes on screen."
+	},
+	"composedOf": ["GraphCanvas", "ZoomTools", "Badge", "Button", "Empty", "Skeleton"],
+	"allowedPlacement": ["inside a fixed-height or min-h-0 flex container"],
+	"forbiddenPlacement": [
+		"a container with no resolved height — the canvas collapses to a 0px strip",
+		"inside a table cell"
+	],
+	"minimalExample": "import {NodeGraph} from \"@wakecap/core-ui/node-graph\";\n\n<NodeGraph\n\tnodes={[{id: \"src\", label: \"Site telemetry\", kind: \"Datasource\", position: {x: 0, y: 0}}]}\n\tedges={[{id: \"e1\", source: \"src\", target: \"clean\"}]}\n\tonSelectNode={setSelected}\n/>",
+	"evaluationCriteria": [
+		"A node's status reads through `tone`, not a colour class at the call site.",
+		"A tab-gated or lazy graph fetch passes `loading` / `error` rather than an empty node list.",
+		"Node positions the user drags are persisted through `onNodeMove` and passed back in `nodes`.",
+		"The graph sits in a container with a resolved height."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Wakecore #204 — the catalogue gap found by the Connect product-contract migration (2026-09-09)",
+		"derivedFrom": {
+			"source": "The four Connect graph journeys that each rebuilt this on a raw engine: pipeline builder, process lifecycle, analysis readiness, product/evidence lineage",
+			"extracted": [
+				"typed node/edge model with semantic tone",
+				"ZoomTools row: zoom in/out, editable percentage, fit, reset",
+				"selection by click and by keyboard, controlled or uncontrolled",
+				"node movement reported on drag stop",
+				"optional edge creation",
+				"empty / loading / error states",
+				"inspector (evidence) handoff beside the canvas"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-09-09",
+		"notes": [
+			"Built on GraphCanvas, which stays the one door to @xyflow/react; this adds the contract above it and hides the engine from consumers (showControls={false}, because the zoom row owns those actions).",
+			"Reset is not Fit: Fit frames every node at whatever zoom fits, Reset returns to 100% centred — the scale the nodes were drawn for — or to defaultViewport when the host gave one.",
+			"Edge tone is applied as style.stroke rather than a stroke-* class: React Flow paints the path from --xy-edge-stroke, so a class on the edge group never reaches it.",
+			"The focus ring sits on the engine's node wrapper (via the node's className), because that — not the card inside it — is the element the browser focuses.",
+			"Dragged positions are held locally only until the incoming positions change, so a re-layout from the host always wins over a stale drag.",
+			"pilot: true"
+		]
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "dashboard-page",
+	"tier": "pattern",
+	"name": "dashboard-page",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"intent": "Metrics/overview landing within the app shell.",
+	"when": "Org/project overview and landing pages.",
+	"components": [
+		"app-shell",
+		"Card",
+		"Badge",
+		"Chart",
+		"Skeleton"
+	],
+	"order": [
+		"app shell",
+		"Card grid (KPIs)",
+		"Chart panels",
+		"Skeleton while loading"
+	],
+	"requiredProviders": [],
+	"tags": [
+		"dashboard",
+		"metrics"
+	],
+	"notes": "Use Skeleton for loading and Empty for no-data states.",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 pattern migration (2026-07)",
+		"derivedFrom": {
+			"source": "library-index.json patterns[]",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": []
+	}
+}

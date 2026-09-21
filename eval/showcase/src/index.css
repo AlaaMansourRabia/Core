@@ -1,0 +1,14 @@
+/* WakeCore theme — same setup the tw4 playground uses, so previews look on-brand. */
+@import "tailwindcss" prefix(app);
+@import "@wakecap/core-tokens/theme";
+
+:root {
+	color-scheme: light;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-sans, system-ui, sans-serif);
+	background: #f6f7f9;
+	color: #111;
+}

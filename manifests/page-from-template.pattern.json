@@ -1,0 +1,42 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "page-from-template",
+	"tier": "pattern",
+	"name": "page-from-template",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"intent": "Start a product screen from a ready-made pages/ template instead of assembling primitives.",
+	"when": "Building org/project screens that match a standard layout.",
+	"components": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"CoreContentArea",
+		"core-* page template"
+	],
+	"order": [
+		"app shell",
+		"CoreContentArea",
+		"pages/ template (e.g. CoreProjectOverview)"
+	],
+	"requiredProviders": [],
+	"tags": [
+		"page",
+		"template",
+		"shell"
+	],
+	"notes": "Prefer a pages/ template and customize via props; only drop to primitives for a layout it doesn't cover.",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 pattern migration (2026-07)",
+		"derivedFrom": {
+			"source": "library-index.json patterns[]",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": []
+	}
+}

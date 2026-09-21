@@ -1,0 +1,263 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "capture-ui-enhanced",
+	"tier": "template",
+	"consumption": "import",
+	"name": "CaptureUiEnhanced",
+	"archetype": "RealityCaptureProgressMap",
+	"category": "workspace",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/capture-ui-enhanced.tsx",
+		"import": "@wakecap/core-ui/pages/capture-ui-enhanced",
+		"export": "CaptureUiEnhanced"
+	},
+	"tags": [
+		"reality-capture",
+		"progress",
+		"map",
+		"choropleth",
+		"construction",
+		"workspace",
+		"page"
+	],
+	"intent": "A reality-capture progress workspace for a construction zone: a CanvasHeader (breadcrumb + week/capture selector + refresh & full-screen) over a three-pane body — a left rail (search, zone progress, a progress-distribution histogram, a villas-on-map list, and collapsible map-layer toggles), a center choropleth map of plot polygons + amenities with a floating view-mode switcher and an approved-progress legend, and a right detail rail for the selected villa (approved/planned/variance, milestones, progress-by-floor, evidence chain). Selecting a plot opens its detail; 'View blueprints' opens a per-floor sheet dialog.",
+	"when": [
+		"Review a zone's approved-vs-planned construction progress on a choropleth site map",
+		"Drill a single villa/plot's milestones, per-floor progress, and reality-capture evidence",
+		"Toggle map layers (drone ortho, choropleth, roads, labels) over a weekly capture timeline"
+	],
+	"whenNot": [
+		"Pan/zoom a single floor's blueprint plan -> use the BlueprintViewer template",
+		"A period-based WBS earned-value drill-down list -> use the ProgressDetails template",
+		"An org-level KPI overview across projects -> use a Dashboard/Overview template"
+	],
+	"chooseOver": [
+		{
+			"component": "Assembling CanvasHeader + a choropleth grid + a detail rail + Collapsible layer toggles by hand",
+			"because": "This template owns the header/breadcrumb/week-selector composition, the shared progress-bucket colour ramp across the list/map/legend, the selected-plot detail rail, and the blueprints dialog flow."
+		}
+	],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"regions": [
+		{
+			"id": "canvas-header",
+			"role": "Top bar: breadcrumb (left) + built-in week/capture selector + refresh & full-screen actions (right)",
+			"source": "CanvasHeader widget (with its built-in WeekSelector) + Breadcrumb + Button",
+			"required": true,
+			"recommended": ["CanvasHeader", "WeekSelector", "Breadcrumb"]
+		},
+		{
+			"id": "left-rail",
+			"role": "Search + zone-progress card + progress-distribution histogram + villas-on-map list + collapsible map-layer toggles",
+			"source": "Input + Badge + Collapsible + Switch + local cards",
+			"required": true,
+			"recommended": ["Input", "Badge", "Collapsible", "Switch"]
+		},
+		{
+			"id": "map",
+			"role": "The real ROSHN Almanar site aerial (\"Zone 1 - A\") with the real villa footprint polygons coloured by construction progress, its own hover progress card, and a SPA/Construction legend",
+			"source": "SiteImageViewer widget (@wakecap/core-ui/site-image-viewer), fed the real footprints from @wakecap/core-ui/site-image-viewer-fixtures",
+			"required": true,
+			"recommended": ["SiteImageViewer"]
+		},
+		{
+			"id": "detail-rail",
+			"role": "Selected-villa detail: approved/planned/variance stats, dual progress bars, milestones table, progress-by-floor bars, and an evidence-chain tab strip",
+			"source": "Collapsible + Tabs + Separator + Button + local stat cards",
+			"required": false,
+			"note": "Dismissable; hidden when no villa is selected / the rail is closed."
+		},
+		{
+			"id": "blueprints-dialog",
+			"role": "Per-floor blueprint sheets for the selected villa (capture + date-range context)",
+			"source": "Dialog + Badge + Button",
+			"required": false
+		}
+	],
+	"requiredWidgets": [
+		{
+			"name": "CanvasHeader",
+			"region": "canvas-header",
+			"required": true,
+			"note": "Heads the canvas; carries the breadcrumb, the built-in WeekSelector, and the right-side actions."
+		},
+		{
+			"name": "SiteImageViewer",
+			"region": "map",
+			"required": true,
+			"note": "The real ROSHN Almanar aerial + villa footprint overlay with its own hover progress card and SPA/Construction legend; the template feeds it the fixtures' villas + image size."
+		}
+	],
+	"optionalWidgets": [
+		{
+			"name": "WeekSelector",
+			"region": "canvas-header",
+			"required": false,
+			"note": "Composed inside CanvasHeader via its weekSelector prop; drives the weekly capture timeline."
+		}
+	],
+	"requiredComponents": [
+		{
+			"name": "Breadcrumb",
+			"region": "canvas-header",
+			"required": true,
+			"note": "Project -> zone path in the header left cluster."
+		},
+		{
+			"name": "Button",
+			"region": "canvas-header / detail-rail / blueprints-dialog",
+			"required": true,
+			"note": "Refresh / full-screen, close-detail, view-blueprints, and dialog actions."
+		},
+		{
+			"name": "Input",
+			"region": "left-rail",
+			"required": true,
+			"note": "Search villas / plots / batches."
+		},
+		{
+			"name": "Collapsible",
+			"region": "left-rail / detail-rail",
+			"required": true,
+			"note": "Map-layer toggles, milestones, and progress-by-floor sections."
+		},
+		{
+			"name": "Switch",
+			"region": "left-rail",
+			"required": true,
+			"note": "Per-layer visibility toggles."
+		},
+		{
+			"name": "Tabs",
+			"region": "map / detail-rail",
+			"required": true,
+			"note": "View-mode switcher, legend SPA/Construction, and the evidence-chain strip."
+		},
+		{
+			"name": "Badge",
+			"region": "left-rail / blueprints-dialog",
+			"required": false,
+			"note": "Counts and per-sheet progress."
+		},
+		{
+			"name": "Dialog",
+			"region": "blueprints-dialog",
+			"required": false,
+			"note": "Per-floor blueprint sheets."
+		},
+		{
+			"name": "Separator",
+			"region": "map / detail-rail",
+			"required": false
+		}
+	],
+	"missingRequiredWidgets": [],
+	"impliedWidgets": [],
+	"dataContract": {
+		"applicable": false,
+		"note": "Self-contained demo: villas, amenities, milestones, floors, layers and the weekly captures are module-level mock data. Selection, layer toggles, the selected capture, and the blueprints dialog are local state. No props; render as-is and replace the mock constants with real data when wiring."
+	},
+	"states": {
+		"default": "Villa 2083 TH1-L selected; the detail rail is open and capture 122 (Sep 5-11) is active.",
+		"plot-selected": "Clicking a plot in the list or on the map selects it and (re)opens the detail rail.",
+		"search-empty": "A query with no matches shows an empty-state message in the villas-on-map list.",
+		"layers-toggled": "Switching a map layer off drops its choropleth fill / labels on the plot polygons.",
+		"blueprints-open": "'View blueprints' opens the per-floor sheet Dialog for the selected villa.",
+		"detail-closed": "Closing the detail rail collapses the third pane; the map takes the full width."
+	},
+	"composedOf": [
+		"CanvasHeader",
+		"WeekSelector",
+		"SiteImageViewer",
+		"Breadcrumb",
+		"Badge",
+		"Button",
+		"Collapsible",
+		"Dialog",
+		"Input",
+		"Separator",
+		"Switch",
+		"Tabs"
+	],
+	"responsive": {
+		"strategy": "Fixed three-pane workspace: a 340px left rail, a fluid center map, and a 400px detail rail, inside a full-height column under the CanvasHeader.",
+		"breakpoints": {
+			"lg": "The header's 'Updated N min ago' hint is hidden below lg to keep the right cluster compact."
+		}
+	},
+	"allowedPlacement": [
+		"route-level workspace (full screen, inside the app shell content region)"
+	],
+	"forbiddenPlacement": [
+		"inside a Card or Dialog",
+		"inside a narrow sidebar/panel (needs the full three-pane width)"
+	],
+	"commonMistakes": [
+		{
+			"mistake": "Passing data as props",
+			"symptom": "TypeScript error — the component takes no props",
+			"fix": "Replace the module-level mock constants (VILLAS, AMENITIES, MILESTONES, FLOORS, CAPTURES) with real data, or lift them to props when generalising."
+		},
+		{
+			"mistake": "Re-deriving progress colours per region",
+			"symptom": "The list dot, the map fill, and the legend ramp drift apart",
+			"fix": "The map colours come from SiteImageViewer's milestone ramp; keep the left-rail list dots + distribution on the same bucket thresholds so they read together."
+		},
+		{
+			"mistake": "Rebuilding the header by hand",
+			"symptom": "A bespoke <header> instead of the canvas bar",
+			"fix": "Use the CanvasHeader widget with left (Breadcrumb), weekSelector, and right slots."
+		}
+	],
+	"minimalExample": "import {CaptureUiEnhanced} from \"@wakecap/core-ui/pages/capture-ui-enhanced\";\n\n<div className=\"wwc:h-screen\">\n\t<CaptureUiEnhanced />\n</div>",
+	"evaluationCriteria": [
+		{
+			"id": "tier-selection",
+			"metric": "tier-selection",
+			"check": "Chosen for a zone reality-capture progress map — not BlueprintViewer (single floor plan) or ProgressDetails (WBS list)."
+		},
+		{
+			"id": "regions",
+			"metric": "render",
+			"check": "Renders the CanvasHeader, the left rail, the choropleth map, and the villa detail rail."
+		},
+		{
+			"id": "states",
+			"metric": "interaction",
+			"check": "Selecting a plot updates the detail rail; toggling a layer changes the map; 'View blueprints' opens the dialog."
+		},
+		{
+			"id": "render",
+			"metric": "render",
+			"check": "Produces the three-pane reality-capture workspace under a CanvasHeader."
+		}
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "wakedex flow rebuild \"1 pasted screenshot(s)\", promoted (2026-09)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/capture-ui-enhanced.tsx",
+			"extracted": [
+				"regions (canvas-header / left-rail / map / detail-rail / blueprints-dialog)",
+				"composedOf (CanvasHeader/WeekSelector/Breadcrumb + Badge/Button/Collapsible/Dialog/Input/Separator/Switch/Tabs)",
+				"states (selection / search / layers / blueprints)",
+				"responsive (fixed three-pane)"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-09-09",
+		"notes": [
+			"promotedFrom: wakedex draft template (capture-ui-enhanced), header re-based onto the CanvasHeader widget",
+			"pilot: true",
+			"archetypeNote: A reality-capture zone progress workspace — choropleth site map + per-plot detail rail over a weekly capture timeline. Self-contained demo data (no data contract).",
+			"authoredFields: [\"intent\",\"when\",\"whenNot\",\"chooseOver\",\"regions\",\"requiredWidgets\",\"requiredComponents\",\"dataContract\",\"states\",\"responsive\",\"allowedPlacement\",\"forbiddenPlacement\",\"commonMistakes\",\"minimalExample\",\"evaluationCriteria\"]",
+			"knowledgeRefs: [\"manifests/progress-details.template.json\",\"manifests/blueprint-viewer-3.template.json\"]"
+		]
+	}
+}

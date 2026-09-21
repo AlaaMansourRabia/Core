@@ -1,0 +1,16 @@
+# Wakecore code owners
+#
+# Listed owners are automatically requested for review on pull requests that touch
+# matching paths, and they triage Component/Widget gap requests filed through
+# .github/ISSUE_TEMPLATE/component-widget-gap.yml.
+#
+#   Hamed Farag  -> @hamedafarag
+#   Alaa Mansour -> @alaa-hue
+
+# Everything, by default.
+*                      @hamedafarag @alaa-hue
+
+# Published packages — the public API surface consumers build on.
+/packages/components/  @hamedafarag @alaa-hue
+/packages/tokens/      @hamedafarag @alaa-hue
+/packages/utils/       @hamedafarag @alaa-hue

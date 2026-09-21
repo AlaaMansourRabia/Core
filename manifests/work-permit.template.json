@@ -1,0 +1,108 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "work-permit",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "CoreWorkPermit",
+	"archetype": "Workspace",
+	"category": "safety",
+	"version": "1.0.0",
+	"manifestStatus": "draft",
+	"source": {
+		"path": "packages/components/src/pages/core-work-permit.tsx",
+		"import": "@wakecap/core-ui/pages/core-work-permit",
+		"export": "WorkPermit"
+	},
+	"tags": [
+		"work-permit",
+		"permit",
+		"safety",
+		"app-shell",
+		"sidebar",
+		"top-bar",
+		"header",
+		"tabs",
+		"scaffold"
+	],
+	"intent": "Work permit management scaffold: a full app shell (CoreAppSidebar + CoreAppTopBar) with a single \"Work Permits\" sidebar entry, and a route header (PageContentHeader) carrying five tabs — Dashboard, Work Permits, Templates, Map and AI Agent (badged SOON) — plus a Settings gear as a far-right icon action. Templates is built out as the versioned template register — All/Draft/Published/Archived status tabs carrying their own counts, and a searchable, filterable DataTable with row selection, bulk delete and a New Template action in its toolbar, modelled on the Workforce Crews list. New Template and any row open the authoring page — the StateMachine widget in its work-permit variant, whose own shell supplies the Back button and hosts Discard / Save as draft / Save and publish on the far right. The other tab bodies are placeholders naming what belongs in them.",
+	"when": [
+		"Starting the Work Permit product surface that owns its own app shell",
+		"A single-section app whose route content is organized by a peer tab set in the header"
+	],
+	"whenNot": [
+		"A content page rendered inside an existing app shell -> use a content-only template",
+		"Authoring one permit's state machine -> use StateMachine, variant work-permit",
+		"A multi-section admin surface where the left nav switches content -> use Admin Panel"
+	],
+	"chooseOver": [
+		{
+			"component": "Assembling CoreAppSidebar + CoreAppTopBar + PageContentHeader by hand",
+			"because": "Work Permit owns the shell and the route header, so permit surfaces plug straight in with the tab set and breadcrumb already agreed."
+		},
+		{
+			"component": "Forking CoreWorkforce",
+			"because": "The two share a shell but not a tab set, and a fork would have carried Workforce's roster, settings sub-surface and ontology scope into a product that wants none of them."
+		}
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"PageContentHeader",
+		"StateMachine"
+	],
+	"requiredProviders": [],
+	"composedOf": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"PageContentHeader",
+		"ViewTabBar",
+		"MetricCard",
+		"Tabs",
+		"DataTable",
+		"Filter",
+		"StateMachine",
+		"Badge",
+		"ConfirmDialog",
+		"Empty"
+	],
+	"allowedPlacement": [
+		"route-level work permit surface that owns the full window"
+	],
+	"forbiddenPlacement": [
+		"inside another CoreAppSidebar/CoreAppTopBar shell",
+		"inside a Card or Dialog"
+	],
+	"minimalExample": "// CoreWorkPermit is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@wakecap/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@wakecap/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@wakecap/core-ui/page-content-header\";\nimport {ViewTabBar} from \"@wakecap/core-ui/view-tab-bar\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Work permit template scaffold (2026-09-02)",
+		"derivedFrom": {
+			"source": "CoreWorkforce shell (CoreAppSidebar + CoreAppTopBar + PageContentHeader)",
+			"extracted": [
+				"the Crews list shape — Filter-wrapped DataTable, row selection, bulk delete, row-action menu",
+				"single-entry sidebar shell",
+				"project switcher and breadcrumb wiring in the top bar",
+				"tabbed route header with per-tab Empty placeholders",
+				"persisted active tab and project selection"
+			]
+		},
+		"status": "draft",
+		"verifiedBy": null,
+		"confidence": "unset — scaffold, no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-09-02",
+		"notes": [
+			"pilot: true",
+			"Templates is the one live surface; the other tab bodies are placeholders on purpose.",
+			"Opening a template swaps the list for the StateMachine widget (variant work-permit) rather than a dialog or push panel: authoring a template is a place you go, not a panel over the list. The template does not own that surface — it is a caller, and Connect V3's process page is the other one.",
+			"New Template creates the draft ROW first and then opens it — a draft IS the unsaved state, so a new template that vanished on Back would be a dead end.",
+			"Edits apply live, so Discard restores a snapshot taken when the editor opened (or deletes the row, for a template created in that session) rather than declining to apply.",
+			"Publish REFUSES a graph that still fails L1-L7 and names the rules, rather than disabling the button — the same never-disable rule CreateProcessDialog follows.",
+			"Permit Templates mirrors the Workforce Crews list: a Filter-wrapped DataTable with search, column toggle, row selection and bulk delete, and no title band of its own — the create action sits in the table toolbar beside Columns, as it does in every other list here.",
+			"NO KPI row. The four cards printed total, published, drafts and archived; every one of those is the badge on a status tab three lines below, so the page opened by saying the same four things twice and spent a quarter of the viewport on it. The tabs carry the counts, and All is the fourth tab and the default — the register as a whole, which is what Total Templates used to answer.",
+			"Status switches the table rather than joining the Filters menu — a lifecycle, not a facet. Every count on the page derives from the same array the table renders.",
+			"Settings is the far-right icon ACTION, the way Safety Manager and Workforce both carry theirs — not a sixth tab. The tabs are the permit WORK; configuration is not one of those, and in the row it made the strip read as six peers when it is five and a lever. It still opens as a full body, and while it is open no tab is active, which is the honest state.",
+			"AI Agent carries a SOON badge rather than being disabled: the tab opens and says what is coming."
+		]
+	}
+}

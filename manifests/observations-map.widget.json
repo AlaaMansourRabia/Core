@@ -1,0 +1,125 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "observations-map",
+	"tier": "widget",
+	"name": "ObservationsMap",
+	"category": "map",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/observations-map.tsx",
+		"import": "@wakecap/core-ui/observations-map"
+	},
+	"tags": [
+		"badge",
+		"blueprint",
+		"camera",
+		"coverage",
+		"display",
+		"focus",
+		"geojson",
+		"georeference",
+		"hover",
+		"map",
+		"mapbox",
+		"observations",
+		"polygon",
+		"responder",
+		"selection",
+		"timeline",
+		"track",
+		"zones"
+	],
+	"intent": "Map that drapes a georeferenced blueprint over the basemap, draws coloured zone polygons, observation pins and cameras with violation counts on it, and can float a TimeScrubber and a control panel.",
+	"when": [
+		"Observations plotted against a site plan rather than raw geography",
+		"A blueprint image must stay locked to real-world coordinates while panning and zooming",
+		"Observations replayed across a day — the timeline cursor drives which pins show",
+		"Site zones drawn from a spaces payload, each in its own colour, clickable",
+		"Cameras plotted with the number of violations each one accounts for",
+		"A selection needs to read against a quiet map — the rest fades back",
+		"Many zones at once — neutral colouring keeps status the only meaningful colour",
+		"A zone picked from a list has to be found on the map",
+		"A freely pannable map that must always be recoverable to its opening view",
+		"Safety responders plotted alongside the violations they answer",
+		"A responder's coverage radius shown against the site",
+		"A responder's path and swept reach across a time range",
+		"A responder's whereabouts across a range where contact was lost and regained"
+	],
+	"chooseOver": [
+		{
+			"component": "Map",
+			"because": "Map is a bare basemap. ObservationsMap owns the georeferenced blueprint overlay and the observation pins, so the corner anchoring and marker lifecycle are not re-implemented per surface."
+		}
+	],
+	"pairsWith": [
+		"AddObservationDialog",
+		"CameraDetailPanel",
+		"MapControlPanel",
+		"MapControls",
+		"MapHoverCard",
+		"MapLegend",
+		"ObservationDetailPanel",
+		"ResponderDetailPanel",
+		"TimeScrubber"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [
+		"Passing the four corners in an arbitrary order — Mapbox image sources require [top-left, top-right, bottom-right, bottom-left]; a rotated array renders the plan flipped or sheared.",
+		"Setting fullHeight without a height-constrained parent — `height: 100%` of an auto-height parent collapses to nothing. Give the parent h-dvh (or a flex row/column that sizes it) first.",
+		"Positioning the map container with `absolute inset-0` — mapbox-gl.css declares `.mapboxgl-map { position: relative }` and loads after the utilities, so the container is overridden and collapses to zero height. Size it with h-full/w-full instead.",
+		"Framing the blueprint when the zones are the subject — a site footprint can be an order of magnitude larger than the zones inside it, which renders them near-invisible. Pass fitTo=\"zones\".",
+		"Feeding zone rings straight to GeoJSON — the spaces API repeats the closing point, sometimes two or three extra times. The widget collapses consecutive duplicates itself; hand-built rings should not re-add them.",
+		"Mounting a React root per observation marker to render an icon component — a busy day is hundreds of pins. The widget inlines the glyph as SVG markup (observationIcon) instead.",
+		"Setting `position` inline on a marker element — mapbox-gl.css positions `.mapboxgl-marker` absolutely, and an inline `position:relative` overrides it and drops every marker into normal document flow. Anchor a corner badge against mapbox's own positioning instead.",
+		"Guarding an overlay rebuild on `isStyleLoaded()` inside the `style.load` handler — the style does not report itself loaded yet, so the guard silently drops every custom layer on a basemap change. Reschedule on `idle` instead of bailing.",
+		"Fading a mapbox marker with `style.opacity` — mapbox-gl writes that property every render frame for terrain occlusion, so it is clobbered within a frame. Use `filter: opacity(...)` instead.",
+		"Rendering every zone in its payload colour when there are dozens — 80-plus hues compete with the status colours that actually mean something. Use zoneColorMode=\"neutral\" and let the markers carry the meaning.",
+		"Plotting camera-detected violations as pins as well as counting them on the camera — the camera sits on their coordinates and covers them, and the badge already says how many. Keep them off the map and reachable through the camera panel.",
+		"Giving cameras a saturated colour — a camera is context, not a finding, and a bright badge competes with the status colours that carry the meaning. Keep it dark and desaturated.",
+		"Adding a zone layer without adding it to the overlay teardown — the source cannot be removed while a layer still references it, and the next rebuild throws \"There is already a source with ID\".",
+		"Flying back to a home view whenever the selection is empty — that fires on mount too, fighting the opening fit. Only animate on the transition out of a selection.",
+		"Animating a dash by interpolating line-dasharray — it cannot be interpolated. Step through the full fourteen-pattern cycle on a timer: the first seven only slide the dash halfway, so a truncated loop snaps back and reads as a stutter instead of travel.",
+		"Guarding paint updates on `map.isStyleLoaded()` — with a live style it stays false for long stretches while tiles load, silently skipping every update. Guard on the individual `getLayer(id)` instead; that is the condition that actually matters. (addSource/addLayer still need the style-load guard.)",
+		"Emphasising a zone selection by dimming a fill that already sits near 0.3 without also dimming its outline and label — the fill disappears while the outline and label stay, so nothing reads as faded.",
+		"Distinguishing cameras from observations by size — once both matter equally they end up the same size. Distinguish by shape: observations round, cameras square.",
+		"Hard-coding the count badge's size — it has to scale off the marker it sits on, or it swamps the badge as soon as the marker shrinks.",
+		"Binding a click handler to a map layer without excluding marker-originated events — markers sit inside the canvas container, so a marker click also fires every layer handler for whatever is underneath it. Clicking a violation would select its zone, and the map's own click would read as \"clicked outside\". Ignore events whose target is inside `.mapboxgl-marker`, in every such handler.",
+		"Floating a map control on its own coordinates next to a caller-supplied controls slot — it cannot know the slot's width and drifts as the slot changes. Render it inside the same row so it is laid out beside whatever is there.",
+		"Separating two colliding markers with a geographic offset — badges are a fixed pixel size, so an offset that reads at site zoom collapses when zoomed out. Test and offset in projected pixels, and re-run on zoom.",
+		"Drawing a metre radius with equal degree offsets in x and y — longitude degrees shrink with latitude, so the circle renders as an ellipse. Divide the longitude radius by cos(latitude).",
+		"Answering \"is this in range\" against a responder's current position when a time range is selected — they moved. Judge each item at its own timestamp, against where the responder was then.",
+		"Building a coverage corridor with buffer geometry — stroking the path at twice the radius with round caps and joins is the same shape, and needs no polygon maths. Its width is in pixels, so recompute it from metres on zoom.",
+		"Drawing a coverage corridor as a stroked line without handling a stationary responder — a short window collapses the path to one point, and a zero-length line strokes to nothing, so the coverage silently disappears. Fall back to a disc when the walked path has fewer than two distinct points.",
+		"Drawing a responder's whole window as one path — contact drops, and joining the point before a gap to the point after it invents a walk that may never have happened and claims coverage over ground nobody was on. Pass one segment per unbroken run of contact.",
+		"Faking a stationary responder's coverage with a very short line so it can share the corridor layer — mapbox drops a line below roughly a metre as too small to tile, and the coverage silently disappears with no error. Draw those runs as circle polygons.",
+		"Nudging a selected marker off a collision — its coverage is drawn at its true position, so a displaced badge sits off-centre in its own circle and reads as pointing at whatever it was nudged away from. Exempt the focused marker from de-collision.",
+		"Outlining a stationary run's disc the same way whether or not a corridor is beside it — a dashed circle at the end of an unoutlined band reads as a separate object rather than the same coverage. Outline it only when it is the whole story.",
+		"Dropping observations that arrive without coordinates — they are real reports, they just cannot be pinned. Hold them out of the map layer and list them, so the totals still reconcile and they stay reachable.",
+		"Leaving the controls corner unbounded — panels stack downward and a long list slides under the timeline. Bound the area above it and let the stack scroll instead.",
+		"Rendering a list panel only when it has rows — it then appears and disappears as the time window changes, and cannot be relied on or found. Keep it present with an empty state; \"none right now\" is itself worth knowing."
+	],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Observations-Map-View",
+		"derivedFrom": {
+			"source": "packages/components/src/map.tsx",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — blueprint image pending; footprint fallback verified against corner coordinates",
+		"supersedes": null,
+		"lastValidated": "2026-08-27",
+		"notes": [
+			"Blueprint image not yet supplied — component falls back to a dashed footprint polygon."
+		]
+	}
+}

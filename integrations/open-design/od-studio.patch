@@ -1,0 +1,733 @@
+diff --git a/apps/web/src/components/HomeHero.tsx b/apps/web/src/components/HomeHero.tsx
+index eb86362..39165ed 100644
+--- a/apps/web/src/components/HomeHero.tsx
++++ b/apps/web/src/components/HomeHero.tsx
+@@ -43,6 +43,7 @@ import {
+ } from '../analytics/events';
+ import {
+   chipsForGroup,
++  findChip,
+   orderedCreateChips,
+   type ChipGroup,
+   type HomeHeroChip,
+@@ -656,7 +657,10 @@ export const HomeHero = forwardRef<HomeHeroHandle, Props>(function HomeHero(
+   // Excludes action chips (Brand Kit / Figma) that navigate away instead of
+   // seeding a template, so the dropdown matches the rail's template set.
+   const templateChips = useMemo(
+-    () => orderedCreateChips().filter((chip) => chip.action.kind === 'apply-scenario'),
++    () =>
++      orderedCreateChips().filter(
++        (chip) => chip.action.kind === 'apply-scenario' || chip.action.kind === 'run-template',
++      ),
+     [],
+   );
+   const activeExamplePlugins = useMemo(
+@@ -1206,7 +1210,7 @@ export const HomeHero = forwardRef<HomeHeroHandle, Props>(function HomeHero(
+         <span className="home-hero__brand-mark">
+           <img src="/app-icon.svg" alt="" draggable={false} />
+         </span>
+-        <span className="home-hero__brand-name">Open Design</span>
++        <span className="home-hero__brand-name">WakeCore Studio</span>
+       </div>
+       <h1 className="home-hero__title">{t('homeHero.title')}</h1>
+       <p className="home-hero__subtitle">
+@@ -3482,7 +3486,8 @@ function homeHeroChipDescription(chipId: string, t: ReturnType<typeof useT>): st
+     case 'hyperframes': return t('homeHero.chip.hyperframesDesc');
+     case 'live-artifact': return t('homeHero.chip.liveArtifactDesc');
+     case 'create-brand-kit': return t('homeHero.chip.createBrandKitDesc');
+-    default: return '';
++    // WakeCore (and any future) chips carry their subtitle inline.
++    default: return findChip(chipId)?.description ?? '';
+   }
+ }
+ 
+diff --git a/apps/web/src/components/HomeView.tsx b/apps/web/src/components/HomeView.tsx
+index d73cdf0..b426a8f 100644
+--- a/apps/web/src/components/HomeView.tsx
++++ b/apps/web/src/components/HomeView.tsx
+@@ -342,6 +342,9 @@ export function HomeView({
+     text: string;
+     chipId: string | null;
+   } | null>(null);
++  // WakeCore run-template chips seed a fixed prompt then auto-submit (same
++  // committed-state pattern as pendingCarouselSubmit).
++  const [pendingRunPrompt, setPendingRunPrompt] = useState<string | null>(null);
+   const [sessionMode, setSessionMode] = useState<ChatSessionMode>('design');
+   const [activeSkill, setActiveSkill] = useState<SkillSummary | null>(null);
+   const [selectedPluginContexts, setSelectedPluginContexts] = useState<SelectedPluginContext[]>([]);
+@@ -1703,9 +1706,31 @@ export function HomeView({
+         onOpenNewProject('template');
+         return;
+       }
++      case 'run-template': {
++        // WakeCore: the template IS the intent — bind the skill, seed the fixed
++        // prompt, and auto-run so there's nothing to type or select.
++        if (chip.action.skillId) {
++          const skill = (skills ?? []).find((sk) => sk.id === chip.action.skillId);
++          setActiveSkill(skill ?? null);
++        }
++        setActive(null);
++        setPrompt(chip.action.prompt);
++        setPromptEditedByUser(true);
++        setPendingRunPrompt(chip.action.prompt);
++        return;
++      }
+     }
+   }
+ 
++  // WakeCore run-template chips: once the seeded prompt has committed to state,
++  // fire the normal submit() path exactly as a manual Send would.
++  useEffect(() => {
++    if (pendingRunPrompt && prompt === pendingRunPrompt && !sending) {
++      setPendingRunPrompt(null);
++      void submit();
++    }
++  }, [pendingRunPrompt, prompt, sending]);
++
+   // Consume a one-shot Home composer chip intent (e.g. "Use in new chat" on the
+   // Brands tab requesting the Prototype scenario). The entry shell keeps
+   // HomeView mounted across view switches, so we react to the intent event
+diff --git a/apps/web/src/components/ProjectView.tsx b/apps/web/src/components/ProjectView.tsx
+index 691a61c..c4f3761 100644
+--- a/apps/web/src/components/ProjectView.tsx
++++ b/apps/web/src/components/ProjectView.tsx
+@@ -23,6 +23,7 @@ import {
+   type QuestionForm,
+ } from '../artifacts/question-form';
+ import { parseSubmittedAnswers } from './QuestionForm';
++import { WakeCorePanel } from './WakeCorePanel';
+ import { useI18n } from '../i18n';
+ import {
+   fetchChatRunStatus,
+@@ -8542,6 +8543,7 @@ export function ProjectView({
+             void handleSend(text, [], [], { entryFrom: 'question_answer' });
+           }}
+         />
++        <WakeCorePanel projectId={project.id} />
+       </div>
+       {contextPluginDetails ? (
+         <PluginDetailsModal
+diff --git a/apps/web/src/components/WakeCorePanel.tsx b/apps/web/src/components/WakeCorePanel.tsx
+new file mode 100644
+index 0000000..cbba19f
+--- /dev/null
++++ b/apps/web/src/components/WakeCorePanel.tsx
+@@ -0,0 +1,146 @@
++// WakeCore Studio info panel — explains the generated screen from the run's `wakecore.json` sidecar
++// (written by the wakecore-compose skill): template + rationale, widgets, validation, decision trace,
++// and links back to the Designer Hub + Storybook. Fixed right-docked + toggleable so it never disturbs
++// Open Design's split layout. Re-fetches whenever a run completes.
++import {useEffect, useState} from 'react';
++import {fetchProjectFileText} from '../providers/registry';
++import {RUNS_CHANGED_EVENT} from '../providers/daemon';
++
++interface WakeCoreDecision {
++  template?: {id?: string; name?: string; rationale?: string};
++  widgets?: Array<{widget: string; region: string}>;
++  validation?: {
++    buildable?: boolean;
++    summary?: {errors?: number; warnings?: number};
++    issues?: Array<{level?: string; message?: string; fix?: string}>;
++  };
++  trace?: Array<{tool: string; summary: string}>;
++}
++
++// Local Designer Hub / Storybook dev ports.
++const HUB = 'http://localhost:5174';
++const STORYBOOK = 'http://localhost:6006';
++
++function kebab(s: string): string {
++  return s
++    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
++    .replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2')
++    .toLowerCase();
++}
++
++export function WakeCorePanel({projectId}: {projectId: string}) {
++  const [data, setData] = useState<WakeCoreDecision | null>(null);
++  const [open, setOpen] = useState(true);
++
++  useEffect(() => {
++    let alive = true;
++    const load = async () => {
++      const text = await fetchProjectFileText(projectId, 'wakecore.json', {cache: 'no-store', cacheBustKey: Date.now()});
++      if (!alive) return;
++      try {
++        setData(text ? (JSON.parse(text) as WakeCoreDecision) : null);
++      } catch {
++        setData(null);
++      }
++    };
++    void load();
++    const onRuns = () => void load();
++    window.addEventListener(RUNS_CHANGED_EVENT, onRuns);
++    return () => {
++      alive = false;
++      window.removeEventListener(RUNS_CHANGED_EVENT, onRuns);
++    };
++  }, [projectId]);
++
++  if (!open) {
++    return (
++      <button className="wakecore-panel-toggle" onClick={() => setOpen(true)} title="Show what WakeCore built">
++        WakeCore
++      </button>
++    );
++  }
++
++  const t = data?.template;
++  const widgets = data?.widgets ?? [];
++  const v = data?.validation;
++  const trace = data?.trace ?? [];
++
++  return (
++    <aside className="wakecore-panel" aria-label="What WakeCore built">
++      <div className="wakecore-panel__head">
++        <span>What WakeCore built</span>
++        <button onClick={() => setOpen(false)} aria-label="Hide panel">
++          ×
++        </button>
++      </div>
++
++      {!data ? (
++        <div className="wakecore-panel__muted">No WakeCore decision yet — generate a screen and this panel explains it.</div>
++      ) : (
++        <>
++          {t && (
++            <section>
++              <h4>Template</h4>
++              <div className="wakecore-panel__name">{t.name}</div>
++              {t.id && <code className="wakecore-panel__code">{t.id}</code>}
++              {t.rationale && <p className="wakecore-panel__muted">{t.rationale}</p>}
++              <div className="wakecore-panel__links">
++                <a href={`${HUB}/components/${kebab(t.name ?? t.id ?? '')}`} target="_blank" rel="noreferrer">
++                  Designer Hub
++                </a>
++                <a href={STORYBOOK} target="_blank" rel="noreferrer">
++                  Storybook
++                </a>
++              </div>
++            </section>
++          )}
++
++          <section>
++            <h4>Widgets ({widgets.length})</h4>
++            {widgets.length === 0 ? (
++              <div className="wakecore-panel__muted">None placed.</div>
++            ) : (
++              widgets.map((w, i) => (
++                <div className="wakecore-panel__row" key={`${w.widget}-${i}`}>
++                  <span className="wakecore-panel__name">{w.widget}</span>
++                  <span className="wakecore-panel__muted">{w.region}</span>
++                  <a href={`${HUB}/components/${kebab(w.widget)}`} target="_blank" rel="noreferrer" title="Designer Hub">
++                    ↗
++                  </a>
++                </div>
++              ))
++            )}
++          </section>
++
++          {v && (
++            <section>
++              <h4>Validation</h4>
++              <div className={v.buildable ? 'wakecore-ok' : 'wakecore-bad'}>
++                {v.buildable ? 'Buildable' : 'Not buildable yet'} · {v.summary?.errors ?? 0} errors · {v.summary?.warnings ?? 0} warnings
++              </div>
++              {(v.issues ?? []).map((iss, i) => (
++                <div className="wakecore-panel__issue" key={i}>
++                  {iss.level === 'error' ? '✗' : '⚠'} {iss.message}
++                  {iss.fix ? <span className="wakecore-panel__muted"> — {iss.fix}</span> : null}
++                </div>
++              ))}
++            </section>
++          )}
++
++          {trace.length > 0 && (
++            <section>
++              <h4>How WakeCore decided</h4>
++              <ol className="wakecore-panel__trace">
++                {trace.map((s, i) => (
++                  <li key={i}>
++                    <code>{s.tool}</code> — {s.summary}
++                  </li>
++                ))}
++              </ol>
++            </section>
++          )}
++        </>
++      )}
++    </aside>
++  );
++}
+diff --git a/apps/web/src/components/home-hero/chip-labels.ts b/apps/web/src/components/home-hero/chip-labels.ts
+index 3e69cec..410355d 100644
+--- a/apps/web/src/components/home-hero/chip-labels.ts
++++ b/apps/web/src/components/home-hero/chip-labels.ts
+@@ -8,6 +8,7 @@
+ // dependency; this file owns the chip-id → Dict-key mapping.
+ 
+ import type { Dict } from '../../i18n/types';
++import { findChip } from './chips';
+ 
+ // Narrow translate signature — any `useT()` result satisfies it.
+ type Translate = (key: keyof Dict) => string;
+@@ -28,6 +29,7 @@ export function homeHeroChipLabel(chipId: string, t: Translate): string {
+     case 'create-plugin': return t('homeHero.chip.createPlugin');
+     case 'figma': return t('homeHero.chip.figma');
+     case 'template': return t('homeHero.chip.template');
+-    default: return chipId;
++    // WakeCore (and any future) chips carry their copy inline on the data table.
++    default: return findChip(chipId)?.label ?? chipId;
+   }
+ }
+diff --git a/apps/web/src/components/home-hero/chips.ts b/apps/web/src/components/home-hero/chips.ts
+index fb5fbe6..19796d6 100644
+--- a/apps/web/src/components/home-hero/chips.ts
++++ b/apps/web/src/components/home-hero/chips.ts
+@@ -54,7 +54,16 @@ export type ChipAction =
+   | { kind: 'open-template-picker' }
+   // Routes the user into the Brand Kit tab and opens its New Brand Kit modal,
+   // reusing the same extraction flow as the tab's own "New Brand Kit" button.
+-  | { kind: 'create-brand-kit' };
++  | { kind: 'create-brand-kit' }
++  // WakeCore: click a template card → immediately create a project and run a
++  // fixed WakeCore prompt with the wakecore-compose skill (no form, no typing).
++  | {
++      kind: 'run-template';
++      projectKind: ProjectKind;
++      prompt: string;
++      skillId?: string;
++      projectMetadata?: ProjectMetadata;
++    };
+ 
+ // Two intent groups: "create" = produce a design artifact, "migrate" =
+ // lower-row starter shortcuts such as plugin authoring, imports, and
+@@ -80,216 +89,172 @@ export interface HomeHeroChip {
+ 
+ export const HOME_HERO_CHIPS: ReadonlyArray<HomeHeroChip> = [
+   {
+-    id: 'create-brand-kit',
+-    // Inline English fallback only — the rendered label is localized through
+-    // the `homeHero.chip.createBrandKit` Dict key (see `homeHeroChipLabel` in
+-    // HomeHero.tsx / `homeHeroChipLabelForId` in HomeView.tsx) so the Chinese
+-    // UI shows "创建品牌套件".
+-    label: 'Create Brand Kit',
+-    icon: 'swatchbook',
++    id: 'wc-CoreOrgOverview',
++    label: 'Operations Dashboard',
++    icon: 'layout',
+     group: 'create',
+-    description: 'Extract a brand design system',
+-    hint: 'Extract a brand kit from a website, then apply it in any chat.',
+-    // Distinct from the plugin-bound create chips: this dispatches straight
+-    // into the Brand Kit tab's extraction flow instead of binding a scenario
+-    // plugin to the composer.
+-    action: { kind: 'create-brand-kit' },
++    description: '✓ Ready · KPIs, project list & live map',
++    action: {
++      kind: 'run-template',
++      projectKind: 'prototype',
++      skillId: 'wakecore-compose',
++      prompt: 'Build the WakeCore "CoreOrgOverview" template. Follow the wakecore-compose skill exactly: use the wakecore MCP to find this template and call generate_page_instance for it, then write index.html with the WakeCore render wrapper. Do not invent any UI.',
++    },
+   },
+   {
+-    id: 'prototype',
+-    label: 'Prototype',
+-    icon: 'palette',
++    id: 'wc-CoreOrgPerformance',
++    label: 'Regular Dashboard',
++    icon: 'refresh',
+     group: 'create',
+-    description: 'Interactive app mockups',
+-    // Prototype now binds to the bundled `example-web-prototype` plugin,
+-    // which ships `assets/template.html` (single-file HTML prototype
+-    // seed), `references/layouts.md` (paste-ready section layouts), and
+-    // a P0 checklist. The previous routing to the generic
+-    // od-new-generation router left the agent to invent every section's
+-    // CSS, producing inconsistent type scales and density between turns.
+-    // Web-prototype's manifest owns the editable `{{fidelity}}`,
+-    // `{{artifactKind}}`, `{{audience}}`, `{{designSystem}}`, and
+-    // `{{template}}` slots; Home renders those placeholders inline.
++    description: '✓ Ready · Filter strip, KPI row & charts',
+     action: {
+-      kind: 'apply-scenario',
+-      pluginId: 'example-web-prototype',
++      kind: 'run-template',
+       projectKind: 'prototype',
++      skillId: 'wakecore-compose',
++      prompt: 'Build the WakeCore "CoreOrgPerformance" template. Follow the wakecore-compose skill exactly: use the wakecore MCP to find this template and call generate_page_instance for it, then write index.html with the WakeCore render wrapper. Do not invent any UI.',
+     },
+   },
+   {
+-    id: 'wireframe',
+-    label: 'Wireframe',
+-    icon: 'layout',
++    id: 'wc-CoreOrgAiReport',
++    label: 'AI Report',
++    icon: 'file-text',
+     group: 'create',
+-    description: 'Lo-fi screens & flows',
+-    hint: 'Sketch lo-fi screens and flows to validate structure before visual design.',
+-    // Wireframe reuses the battle-tested web-prototype seed but stamps a
+-    // lo-fi fidelity so the agent stays in structural/greybox territory
+-    // instead of jumping to high-fidelity styling.
++    description: '✓ Ready · AI-generated org report',
+     action: {
+-      kind: 'apply-scenario',
+-      pluginId: 'example-web-prototype',
++      kind: 'run-template',
+       projectKind: 'prototype',
+-      projectMetadata: {
+-        kind: 'prototype',
+-        fidelity: 'wireframe',
+-      },
++      skillId: 'wakecore-compose',
++      prompt: 'Build the WakeCore "CoreOrgAiReport" template. Follow the wakecore-compose skill exactly: use the wakecore MCP to find this template and call generate_page_instance for it, then write index.html with the WakeCore render wrapper. Do not invent any UI.',
+     },
+   },
+   {
+-    id: 'mobile',
+-    label: 'Mobile app',
+-    icon: 'smartphone',
++    id: 'wc-CoreProjectQualityIssues',
++    label: 'Quality Issues',
++    icon: 'file-code',
+     group: 'create',
+-    description: 'iOS & Android screens',
+-    hint: 'Lay out mobile screens for iOS and Android.',
+-    // Mobile reuses the web-prototype seed but records mobile platform
+-    // targets so the agent frames screens for handheld viewports.
++    description: '✓ Ready · Project quality detail',
+     action: {
+-      kind: 'apply-scenario',
+-      pluginId: 'example-web-prototype',
++      kind: 'run-template',
+       projectKind: 'prototype',
+-      projectMetadata: {
+-        kind: 'prototype',
+-        platform: 'auto',
+-        platformTargets: ['mobile-ios', 'mobile-android'],
+-      },
++      skillId: 'wakecore-compose',
++      prompt: 'Build the WakeCore "CoreProjectQualityIssues" template. Follow the wakecore-compose skill exactly: use the wakecore MCP to find this template and call generate_page_instance for it, then write index.html with the WakeCore render wrapper. Do not invent any UI.',
+     },
+   },
+   {
+-    id: 'deck',
+-    label: 'Slide deck',
++    id: 'wc-CoreOrgRealityCapture',
++    label: 'Reality Capture',
++    icon: 'image',
++    group: 'create',
++    description: '✓ Ready · Site reality-capture workspace',
++    action: {
++      kind: 'run-template',
++      projectKind: 'prototype',
++      skillId: 'wakecore-compose',
++      prompt: 'Build the WakeCore "CoreOrgRealityCapture" template. Follow the wakecore-compose skill exactly: use the wakecore MCP to find this template and call generate_page_instance for it, then write index.html with the WakeCore render wrapper. Do not invent any UI.',
++    },
++  },
++  {
++    id: 'wc-TaskMonitor',
++    label: 'Task Monitor',
+     icon: 'present',
+     group: 'create',
+-    description: 'Presentations & pitch decks',
+-    // Slide deck binds to `example-simple-deck`, which ships a 353-line
+-    // `assets/template.html` (the 1920×1080 + scale-to-fit + nav + print
+-    // framework paired with proven slide CSS), 8 paste-ready layouts in
+-    // `references/layouts.md` (cover, body, big-stat, three-point,
+-    // pipeline, dark quote, before/after, closing), and a P0/P1/P2
+-    // checklist that catches overflow at 1280×800 / 1440×900. The
+-    // previous routing to od-new-generation gave the agent only the
+-    // generic deck-framework directive — which fixed nav but not slide
+-    // layout — so density bugs (168px headline + absolute footer
+-    // collision) shipped on default decks.
++    description: '✓ Ready · Master-detail task board',
+     action: {
+-      kind: 'apply-scenario',
+-      pluginId: 'example-simple-deck',
+-      projectKind: 'deck',
++      kind: 'run-template',
++      projectKind: 'prototype',
++      skillId: 'wakecore-compose',
++      prompt: 'Build the WakeCore "TaskMonitor" template. Follow the wakecore-compose skill exactly: use the wakecore MCP to find this template and call generate_page_instance for it, then write index.html with the WakeCore render wrapper. Do not invent any UI.',
+     },
+   },
+   {
+-    id: 'document',
+-    label: 'Document',
+-    icon: 'file-text',
++    id: 'wc-CoreLoginPage',
++    label: 'Login',
++    icon: 'smartphone',
+     group: 'create',
+-    description: 'Resumes, reports & PDFs',
+-    hint: 'Draft a polished document — resume, report, or PDF — you can export.',
+-    // Documents (resumes / reports / PDFs) route through the generic
+-    // od-new-generation scenario under the `other` kind; there is no
+-    // dedicated bundled document seed yet, so the agent composes the
+-    // document layout from the brief.
++    description: '✓ Ready · Email + password sign-in',
+     action: {
+-      kind: 'apply-scenario',
+-      pluginId: 'od-new-generation',
+-      projectKind: 'other',
+-      inputs: {
+-        artifactKind: 'document',
+-        audience: 'readers',
+-        topic: 'the user brief',
+-      },
+-      projectMetadata: {
+-        kind: 'other',
+-        // Analytics-only tag: splits this card's projects out of generic
+-        // `other` so `project_kind` reports `document` (matches the task_chip).
+-        // No product behavior keys off `intent: 'document'`.
+-        intent: 'document',
+-      },
++      kind: 'run-template',
++      projectKind: 'prototype',
++      skillId: 'wakecore-compose',
++      prompt: 'Build the WakeCore "CoreLoginPage" template. Follow the wakecore-compose skill exactly: use the wakecore MCP to find this template and call generate_page_instance for it, then write index.html with the WakeCore render wrapper. Do not invent any UI.',
+     },
+   },
+   {
+-    id: 'hyperframes',
+-    label: 'HyperFrames',
+-    icon: 'orbit',
++    id: 'wc-ErrorPage',
++    label: 'Error / Empty',
++    icon: 'edit',
+     group: 'create',
+-    description: 'Motion graphics & loops',
+-    hint: 'Author HTML-based motion: captions, audio-reactive visuals, scene transitions.',
+-    // HyperFrames is its own bundled scenario (motion-graphics
+-    // specialisation of Video). It surfaces in PluginsHomeSection's
+-    // primary category list, so the rail picks it up too rather than
+-    // hiding the specialised bucket behind the generic Video chip.
+-    action: { kind: 'apply-scenario', pluginId: 'example-hyperframes', projectKind: 'video' },
++    description: '✓ Ready · Error & empty states',
++    action: {
++      kind: 'run-template',
++      projectKind: 'prototype',
++      skillId: 'wakecore-compose',
++      prompt: 'Build the WakeCore "ErrorPage" template. Follow the wakecore-compose skill exactly: use the wakecore MCP to find this template and call generate_page_instance for it, then write index.html with the WakeCore render wrapper. Do not invent any UI.',
++    },
+   },
+   {
+-    id: 'live-artifact',
+-    label: 'Live artifact',
+-    icon: 'refresh',
++    id: 'wc-CoreProjectScheduleCost',
++    label: 'Schedule & Cost',
++    icon: 'layout',
+     group: 'create',
+-    description: 'Data-backed live dashboards',
+-    hint: 'Build a refreshable artifact backed by connector or local data.',
++    description: '✓ Ready · Project schedule & cost',
+     action: {
+-      kind: 'apply-scenario',
+-      pluginId: 'example-live-artifact',
++      kind: 'run-template',
+       projectKind: 'prototype',
+-      projectMetadata: {
+-        kind: 'prototype',
+-        intent: 'live-artifact',
+-        fidelity: 'high-fidelity',
+-      },
++      skillId: 'wakecore-compose',
++      prompt: 'Build the WakeCore "CoreProjectScheduleCost" template. Follow the wakecore-compose skill exactly: use the wakecore MCP to find this template and call generate_page_instance for it, then write index.html with the WakeCore render wrapper. Do not invent any UI.',
+     },
+   },
+   {
+-    id: 'image',
+-    label: 'Image',
+-    icon: 'image',
++    id: 'wc-CoreProjectWorkforceSafety',
++    label: 'Workforce & Safety',
++    icon: 'palette',
+     group: 'create',
+-    description: 'Posters, graphics & art',
++    description: '✓ Ready · Project workforce & safety',
+     action: {
+-      kind: 'apply-scenario',
+-      pluginId: 'od-media-generation',
+-      projectKind: 'image',
+-      inputs: {
+-        mediaKind: 'image',
+-        subject: 'a polished product concept',
+-        style: 'cinematic, high-quality, on-brand',
+-        aspect: '16:9',
+-      },
++      kind: 'run-template',
++      projectKind: 'prototype',
++      skillId: 'wakecore-compose',
++      prompt: 'Build the WakeCore "CoreProjectWorkforceSafety" template. Follow the wakecore-compose skill exactly: use the wakecore MCP to find this template and call generate_page_instance for it, then write index.html with the WakeCore render wrapper. Do not invent any UI.',
+     },
+   },
+   {
+-    id: 'video',
+-    label: 'Video',
+-    icon: 'play',
++    id: 'wc-CoreProjectOverview',
++    label: 'Project Overview',
++    icon: 'layout',
+     group: 'create',
+-    description: 'Clips, reels & promos',
++    description: '✓ Ready · Project overview',
+     action: {
+-      kind: 'apply-scenario',
+-      pluginId: 'od-media-generation',
+-      projectKind: 'video',
+-      inputs: {
+-        mediaKind: 'video',
+-        subject: 'a short product reveal',
+-        style: 'cinematic, high-quality, on-brand',
+-        aspect: '16:9',
+-      },
++      kind: 'run-template',
++      projectKind: 'prototype',
++      skillId: 'wakecore-compose',
++      prompt: 'Build the WakeCore "CoreProjectOverview" template. Follow the wakecore-compose skill exactly: use the wakecore MCP to find this template and call generate_page_instance for it, then write index.html with the WakeCore render wrapper. Do not invent any UI.',
+     },
+   },
+   {
+-    id: 'audio',
+-    label: 'Audio',
+-    icon: 'mic',
++    id: 'wc-CoreProjectRealityCapture',
++    label: 'Project Reality Capture',
++    icon: 'image',
+     group: 'create',
+-    description: 'Voiceovers, music & SFX',
++    description: '✓ Ready · Project reality capture',
+     action: {
+-      kind: 'apply-scenario',
+-      pluginId: 'od-media-generation',
+-      projectKind: 'audio',
+-      inputs: {
+-        mediaKind: 'audio',
+-        subject: 'a concise audio identity for a product',
+-        style: 'clear, polished, modern',
+-        aspect: '16:9',
+-      },
++      kind: 'run-template',
++      projectKind: 'prototype',
++      skillId: 'wakecore-compose',
++      prompt: 'Build the WakeCore "CoreProjectRealityCapture" template. Follow the wakecore-compose skill exactly: use the wakecore MCP to find this template and call generate_page_instance for it, then write index.html with the WakeCore render wrapper. Do not invent any UI.',
++    },
++  },
++  {
++    id: 'wc-CoreOrgWorkforceIntelligence',
++    label: 'Workforce Intelligence',
++    icon: 'orbit',
++    group: 'create',
++    description: '✓ Ready · Workforce intelligence',
++    action: {
++      kind: 'run-template',
++      projectKind: 'prototype',
++      skillId: 'wakecore-compose',
++      prompt: 'Build the WakeCore "CoreOrgWorkforceIntelligence" template. Follow the wakecore-compose skill exactly: use the wakecore MCP to find this template and call generate_page_instance for it, then write index.html with the WakeCore render wrapper. Do not invent any UI.',
+     },
+   },
+   {
+@@ -300,22 +265,6 @@ export const HOME_HERO_CHIPS: ReadonlyArray<HomeHeroChip> = [
+     hint: 'Author a reusable Open Design plugin and add it to My plugins.',
+     action: { kind: 'create-plugin' },
+   },
+-  {
+-    id: 'figma',
+-    label: 'From Figma',
+-    icon: 'import',
+-    group: 'migrate',
+-    hint: 'Migrate a Figma frame into the active design system.',
+-    action: {
+-      kind: 'apply-figma-migration',
+-      pluginId: 'od-figma-migration',
+-      projectKind: 'prototype',
+-      inputs: {
+-        figmaUrl: 'the Figma file URL you provide',
+-        targetStack: 'React 18 + Tailwind',
+-      },
+-    },
+-  },
+   {
+     id: 'template',
+     label: 'From template',
+diff --git a/apps/web/src/i18n/locales/en.ts b/apps/web/src/i18n/locales/en.ts
+index 5bdbc55..52ef246 100644
+--- a/apps/web/src/i18n/locales/en.ts
++++ b/apps/web/src/i18n/locales/en.ts
+@@ -632,7 +632,7 @@ export const en: Dict = {
+   'workspaceTabs.project': 'Project',
+   'workspaceTabs.pluginDetails': 'Plugin details',
+   'workspaceTabs.marketplace': 'Marketplace',
+-  'homeHero.title': 'What will you design today?',
++  'homeHero.title': 'What will you build with WakeCore?',
+   'homeHero.startWithTemplate': 'Start with a template…',
+   'homeHero.startBlankProject': '…or start a blank project',
+   'homeHero.templatePicker.label': 'Template',
+@@ -640,7 +640,7 @@ export const en: Dict = {
+   'homeHero.templatePicker.projectTypes': 'Project types',
+   'homeHero.templatesScrollHint': 'Scroll up to explore more templates',
+   'homeHero.templatesCollapse': 'Collapse templates',
+-  'homeHero.subtitlePrefix': 'The open-source Claude Design alternative.',
++  'homeHero.subtitlePrefix': 'Build software from WakeCore — never from scratch.',
+   'homeHero.placeholder': 'Describe what you want to generate…',
+   'homeHero.placeholderActive': 'Edit the example query or write your own…',
+   'homeHero.carousel.hint': 'Attach a file, link your design system, or describe what you want to make',
+diff --git a/apps/web/src/styles/shell.css b/apps/web/src/styles/shell.css
+index caa472e..b374e72 100644
+--- a/apps/web/src/styles/shell.css
++++ b/apps/web/src/styles/shell.css
+@@ -1537,3 +1537,49 @@ a.avatar-item:visited {
+ .split-resize-handle:focus-visible {
+   outline: none;
+ }
++
++/* WakeCore Studio info panel */
++.wakecore-panel {
++  position: fixed;
++  top: 46px;
++  right: 0;
++  bottom: 0;
++  width: 320px;
++  z-index: 40;
++  border-left: 1px solid var(--border, #e5e7eb);
++  background: var(--bg-panel, #fff);
++  color: var(--text, #0f172a);
++  overflow-y: auto;
++  padding: 14px 16px;
++  font-size: 13px;
++  line-height: 1.5;
++}
++.wakecore-panel__head { display: flex; justify-content: space-between; align-items: center; font-weight: 600; margin-bottom: 6px; }
++.wakecore-panel__head button { border: 0; background: none; cursor: pointer; font-size: 18px; line-height: 1; color: var(--text-muted, #64748b); }
++.wakecore-panel section { border-top: 1px solid var(--border, #eee); padding: 10px 0; }
++.wakecore-panel h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted, #64748b); margin: 0 0 6px; }
++.wakecore-panel__name { font-weight: 600; }
++.wakecore-panel__code { font-size: 11px; color: var(--text-muted, #64748b); }
++.wakecore-panel__muted { color: var(--text-muted, #64748b); }
++.wakecore-panel__links { display: flex; gap: 12px; align-items: center; margin-top: 6px; }
++.wakecore-panel__row { display: flex; gap: 10px; align-items: center; justify-content: space-between; padding: 3px 0; }
++.wakecore-panel__links a, .wakecore-panel__row a { color: var(--accent, #d65a31); text-decoration: none; font-size: 12px; }
++.wakecore-panel__links a:hover, .wakecore-panel__row a:hover { text-decoration: underline; }
++.wakecore-panel__issue { font-size: 12px; padding: 2px 0; }
++.wakecore-ok { color: #16a34a; }
++.wakecore-bad { color: #dc2626; }
++.wakecore-panel__trace { margin: 0; padding-left: 16px; font-size: 12px; }
++.wakecore-panel__trace code, .wakecore-panel__code { color: var(--accent, #d65a31); }
++.wakecore-panel-toggle {
++  position: fixed;
++  top: 54px;
++  right: 12px;
++  z-index: 40;
++  border: 1px solid var(--border, #e5e7eb);
++  background: var(--bg-panel, #fff);
++  color: var(--text, #0f172a);
++  border-radius: 999px;
++  padding: 4px 12px;
++  font-size: 12px;
++  cursor: pointer;
++}

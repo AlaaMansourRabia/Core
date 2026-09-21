@@ -1,0 +1,180 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "metric-card",
+	"tier": "widget",
+	"name": "MetricCard",
+	"category": "analytics",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/metric-card.tsx",
+		"import": "@wakecap/core-ui/metric-card",
+		"export": "MetricCard"
+	},
+	"tags": [
+		"kpi",
+		"metric",
+		"analytics",
+		"dashboard",
+		"card"
+	],
+	"intent": "A single key-metric tile: a label, a large value (with optional unit), an optional subtitle, a trend arrow + label, and a leading icon — the reusable KPI tile dashboards lay out in rows or grids.",
+	"when": [
+		"Show one headline metric prominently (workforce, safety score, completion %, etc.)",
+		"Build a KPI row/grid above a dashboard, list, or chart",
+		"You were about to hand-roll a Card with a number, label, and trend"
+	],
+	"whenNot": [
+		"Several metrics packed into one compact bar -> use KPISummary (a row of MetricCards / compact items)",
+		"A full record's labeled fields -> use PropertyList",
+		"Tabular records -> use DataTable",
+		"A metric that needs a chart, not a number -> use Chart / CoreChartRenderer"
+	],
+	"chooseOver": [
+		{
+			"component": "Card",
+			"because": "Card is a generic container; MetricCard is the opinionated metric tile (value + trend + status tone + icon) so dashboards don't re-implement it each time."
+		}
+	],
+	"pairsWith": [
+		"Card"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"title": {
+				"type": "string",
+				"required": true,
+				"note": "Metric label shown above the value."
+			},
+			"value": {
+				"type": "string | number",
+				"required": true,
+				"note": "Pre-formatted by the caller (e.g. toLocaleString, '%')."
+			}
+		},
+		"note": "Presentational and stateless — the caller computes/aggregates the number; MetricCard only renders it. No data fetching."
+	},
+	"configSchema": {
+		"unit": {
+			"type": "string",
+			"required": false,
+			"note": "Suffix after the value (e.g. \"%\", \"/ 12\")."
+		},
+		"subtitle": {
+			"type": "string",
+			"required": false,
+			"note": "Secondary line under the value."
+		},
+		"trend": {
+			"type": "\"up\" | \"down\" | \"stable\"",
+			"required": false,
+			"note": "Renders a colored arrow (green up / red down / muted stable)."
+		},
+		"trendLabel": {
+			"type": "string",
+			"required": false,
+			"note": "Text beside the trend arrow (e.g. \"+12% vs target\")."
+		},
+		"icon": {
+			"type": "React.ElementType",
+			"required": false,
+			"note": "Leading icon (lucide or any component type)."
+		},
+		"status": {
+			"type": "\"success\" | \"warning\" | \"danger\"",
+			"required": false,
+			"note": "Tones the VALUE green/amber/red. Independent of trend (direction)."
+		},
+		"className": {
+			"type": "string",
+			"required": false,
+			"note": "Merged onto the Card root."
+		}
+	},
+	"states": {
+		"default": "Label, value, and (if provided) unit; icon tile on the right.",
+		"with-trend": "trend / trendLabel render a colored arrow + text under the value.",
+		"status": "status tones the value text (success/warning/danger); does not change the trend arrow.",
+		"minimal": "Only title + value provided — subtitle, trend, icon, and status all omit cleanly."
+	},
+	"composedOf": [
+		"Card"
+	],
+	"allowedPlacement": [
+		"KPI row / grid above a dashboard",
+		"dashboard header band",
+		"inside a content region as a metric tile"
+	],
+	"forbiddenPlacement": [
+		"a table cell",
+		"as a standalone page",
+		"packing multiple metrics into one card (use several MetricCards / KPISummary)"
+	],
+	"commonMistakes": [
+		{
+			"mistake": "Passing a raw unformatted number expecting MetricCard to format it",
+			"symptom": "e.g. 1240 instead of 1,240",
+			"fix": "Pre-format the value (toLocaleString / units) before passing it."
+		},
+		{
+			"mistake": "Cramming several metrics into one MetricCard",
+			"symptom": "A crowded tile that breaks the grid rhythm",
+			"fix": "One metric per card; lay out several with a grid or the KPISummary widget."
+		},
+		{
+			"mistake": "Using status and trend to mean the same thing",
+			"symptom": "Redundant green-on-green or conflicting signals",
+			"fix": "status = value tone (good/bad); trend = direction (up/down). Use each for its own signal."
+		}
+	],
+	"minimalExample": "import {MetricCard} from \"@wakecap/core-ui/metric-card\";\nimport {Users} from \"lucide-react\";\n\n<MetricCard\n  title=\"Total Workforce\"\n  value=\"1,240\"\n  trend=\"up\"\n  trendLabel=\"+142 today\"\n  icon={Users}\n/>",
+	"evaluationCriteria": [
+		{
+			"id": "tier-selection",
+			"metric": "tier-selection",
+			"check": "MetricCard chosen for a single metric tile — not Card (generic), DataTable (records), or KPISummary (a row of metrics)."
+		},
+		{
+			"id": "data-contract",
+			"metric": "data-contract",
+			"check": "title and value both provided; value is pre-formatted."
+		},
+		{
+			"id": "config-valid",
+			"metric": "config-valid",
+			"check": "trend is up/down/stable; status is success/warning/danger; no unknown props."
+		},
+		{
+			"id": "render",
+			"metric": "render",
+			"check": "Renders a Card with label + value; optional unit/subtitle/trend/icon render only when provided."
+		}
+	],
+	"lineage": {
+		"origin": "promoted-from-source",
+		"authoredBy": "MetricCard promotion slice (2026-06)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-org-performance.tsx (KPICard)",
+			"extracted": [
+				"dataContract (props)",
+				"configSchema (props)",
+				"composedOf (Card/CardContent)",
+				"states (prop combinations)"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: inline component KPICard in packages/components/src/pages/core-org-performance.tsx",
+			"pilot: true",
+			"authoredFields: [\"intent\",\"when\",\"whenNot\",\"chooseOver\",\"dataContract\",\"configSchema\",\"states\",\"allowedPlacement\",\"forbiddenPlacement\",\"commonMistakes\",\"minimalExample\",\"evaluationCriteria\"]",
+			"refactored: [\"core-org-performance now imports MetricCard from @wakecap/core-ui/metric-card; local KPICard removed (visual output unchanged).\"]",
+			"unblocks: [\"KPISummary (a row of MetricCards) can move from proposed toward implementation.\"]",
+			"knowledgeRefs: [\"library-index.json#MetricCard\",\"manifests/kpi-summary.widget.json\",\"manifests/dashboard-page.pattern.json\"]"
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "operations-drawer",
+	"tier": "component",
+	"name": "OperationsDrawer",
+	"category": "overlay",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/operations-drawer.tsx",
+		"import": "@wakecap/core-ui/operations-drawer",
+		"export": "OperationsDrawer"
+	},
+	"tags": [
+		"drawer",
+		"operations",
+		"edit",
+		"table",
+		"progress"
+	],
+	"intent": "A drawer for reviewing and editing the operations under a single object: a header with the object identifier, its WBS path, an overall progress bar and a walkthrough link; a compact table listing each operation with its WT / PREV / BAC / EV metrics and an editable progress field; a discard / save footer.",
+	"when": [
+		"Editing an object's operations' progress in a side drawer",
+		"Reviewing WT / PREV / BAC / EV per operation with inline edits"
+	],
+	"chooseOver": [
+		{
+			"component": "Drawer",
+			"because": "OperationsDrawer is the composed operations-editing surface; Drawer is the generic sliding container"
+		}
+	],
+	"pairsWith": [
+		"ProgressListItem",
+		"ProgressDetails",
+		"Table",
+		"Progress",
+		"Input"
+	],
+	"requiredProviders": [],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "run-app-and-storybook → develop merge (2026-07)",
+		"status": "accepted",
+		"confidence": "unset — authored alongside the component",
+		"lastValidated": "2026-07-22",
+		"notes": [
+			"authored during the develop merge reconciliation"
+		]
+	}
+}

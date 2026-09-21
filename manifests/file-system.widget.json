@@ -1,0 +1,98 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "file-system",
+	"tier": "widget",
+	"name": "FileSystem",
+	"archetype": "Browser",
+	"category": "platform",
+	"version": "1.0.0",
+	"manifestStatus": "draft",
+	"source": {
+		"path": "packages/components/src/file-system/file-system.tsx",
+		"import": "@wakecap/core-ui/file-system",
+		"export": "FileSystem"
+	},
+	"tags": [
+		"file-system",
+		"files",
+		"folders",
+		"projects",
+		"browser",
+		"facets",
+		"filters",
+		"details-panel",
+		"listing",
+		"navigation"
+	],
+	"intent": "A file system over records that live somewhere else. Nodes are a flat array with `parentId`, and each file carries an opaque `ref` the host reads back, so the widget addresses a product's records without holding any of them. File types — their labels, marks and tints — are declared by the host, so it knows no product's vocabulary. It renders two layouts: a flat listing of every project and file under the root, narrowed by type / project / tag facets down the left with a search band spanning both, and a project's own page with Overview / Files / Trash sections and folders you can open. A row never navigates — clicking one selects it and a details panel answers what it is — while the underlined name is the only thing that leaves, and a `New` menu adds projects, folders and files. It owns no data: nodes go in as a prop and creation comes back out through `onCreate`, so the host keeps them wherever the rest of its state lives.",
+	"when": [
+		"Giving records that live in several different apps one address each, and one place to browse them",
+		"A listing whose reader asks 'what is this?' as often as 'take me there' — the row selects, the name navigates",
+		"Browsing by type, project or tag rather than by walking a folder tree",
+		"A product that already owns its records and needs the naming layer, not another store"
+	],
+	"whenNot": [
+		"Browsing a real filesystem or an object store -> this addresses records, and holds no bytes",
+		"One flat list with no hierarchy and no facets -> use DataTable",
+		"Picking a single file inside a form -> use CanvasFilePicker",
+		"Navigating an app's own sections -> use SideMenu or CoreAppSidebar"
+	],
+	"chooseOver": [
+		{
+			"component": "DataTable",
+			"because": "DataTable lists rows. FileSystem adds the hierarchy around them — projects, folders, paths, facets and a details panel — and the two-target row that separates selecting from leaving."
+		},
+		{
+			"component": "SideMenu",
+			"because": "SideMenu navigates an app's own sections. FileSystem navigates the records those apps own, from outside all of them."
+		}
+	],
+	"pairsWith": ["DataTable", "SideMenu", "Breadcrumb", "Accordion", "Checkbox", "Dialog", "DropdownMenu", "Empty"],
+	"requiredProviders": [],
+	"composedOf": [
+		"DataTable",
+		"SideMenu",
+		"Breadcrumb",
+		"Accordion",
+		"Checkbox",
+		"Input",
+		"Select",
+		"Textarea",
+		"Dialog",
+		"DropdownMenu",
+		"Badge",
+		"Button",
+		"Empty",
+		"ScrollArea",
+		"Separator"
+	],
+	"allowedPlacement": ["a route-level surface, or any column that gives it height"],
+	"forbiddenPlacement": ["inside a table cell", "inside a Dialog or Popover", "inside another FileSystem"],
+	"minimalExample": "import {FileSystem, fsNodeFromDraft, type FileSystemNode} from \"@wakecap/core-ui/file-system\";\nimport {Share2} from \"lucide-react\";\n\nconst FILE_TYPES = [\n  {id: \"pipeline\", label: \"Pipeline\", icon: Share2, app: \"Pipelines\"},\n];\n\nconst [nodes, setNodes] = useState<FileSystemNode[]>([\n  {id: \"root\", name: \"Acme\", kind: \"root\", parentId: null, updatedAt: \"Today\", updatedTs: 1},\n  {id: \"p1\", name: \"Site A\", kind: \"project\", parentId: \"root\", updatedAt: \"Today\", updatedTs: 2},\n]);\n\n<FileSystem\n  nodes={nodes}\n  rootId=\"root\"\n  fileTypes={FILE_TYPES}\n  openLabel={(node) => (node.ref ? \"Open in Pipelines\" : undefined)}\n  onOpenFile={(node) => router.push(hrefFor(node.ref))}\n  onCreate={(draft) => {\n    const node = fsNodeFromDraft(draft, crypto.randomUUID());\n    setNodes((prev) => [...prev, node]);\n    return node;\n  }}\n/>",
+	"lineage": {
+		"origin": "extracted",
+		"authoredBy": "WakeCap Connect V3 file system (2026-09-13)",
+		"derivedFrom": {
+			"source": "WakeCapConnectV3",
+			"extracted": [
+				"the whole surface, which shipped inside the template first and was lifted out once it was clear nothing in it was WakeCap-specific",
+				"the model — index, queries, facets, tag inheritance — which is pure and takes an index rather than reading a fixture"
+			]
+		},
+		"status": "draft",
+		"verifiedBy": null,
+		"confidence": "unset — extracted from a prototype, no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-09-13",
+		"notes": [
+			"Holds NO data. `nodes` is a prop and `onCreate` returns the created node, so the host decides where the array lives — module state, a store, a server. The widget derives its indexes with useMemo and nothing else.",
+			"Knows no product's vocabulary. `fileTypes` declares the labels, icons, tints and owning apps; a node names a type by id, and `ref` is `unknown` — handed back to the host and never read here.",
+			"Two targets in one row: the ROW selects into the details panel, the underlined NAME leaves. Selecting and leaving are different intentions, and a row that navigated on click would make 'what is this?' impossible to ask without losing your place to answer it.",
+			"Facets, not a tree. A folder tree was built first and removed: it repeated the path already printed under every row, cost the widest column on the surface, and could not answer the question the list is actually asked ('show me the pipelines').",
+			"Folders ARE navigable inside a project, where the question is 'what is in here?' rather than 'where is this?'. The flat listing never shows one.",
+			"Tags inherit: a file matches its own tags plus every tag on the project and folders above it, so a project tagged for a region makes its files findable under it. Facet counts and query matches come from the same function, so a facet can never offer a value that finds nothing.",
+			"The project page ships Overview / Files / Trash — the sections a file system can fill from its own data. A host wanting a cover page or a usage report should compose them around the widget rather than have it ship empty shells.",
+			"Rename and move are not implemented."
+		]
+	}
+}

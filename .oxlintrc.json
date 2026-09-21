@@ -1,0 +1,21 @@
+{
+	"$schema": "./node_modules/oxlint/configuration_schema.json",
+	"plugins": ["react", "jsx-a11y", "typescript", "unicorn"],
+	"categories": {
+		"correctness": "warn"
+	},
+	"rules": {
+		"react/exhaustive-deps": "warn",
+		"react-hooks/rules-of-hooks": "error",
+		"unicorn/no-array-for-each": "off",
+		"react/no-array-index-key": "warn",
+		"@typescript-eslint/no-explicit-any": "warn",
+		"@typescript-eslint/no-non-null-assertion": "warn",
+		"unicorn/prefer-node-protocol": "off",
+		"jsx-a11y/anchor-is-valid": "warn",
+		"jsx-a11y/prefer-tag-over-role": "warn",
+		"jsx-a11y/click-events-have-key-events": "warn",
+		"jsx-a11y/label-has-associated-control": "warn"
+	},
+	"ignorePatterns": ["dist", "node_modules", ".nx"]
+}

@@ -1,0 +1,11 @@
+# Local-only env — holds the absolute path to your local overlay GLB. Never committed.
+.env.local
+.env.*.local
+
+# Large pre-converted building pieces (real 86MB IFC → per-floor×category GLBs, ~59MB).
+# Regenerate via scripts/ifc-to-labeled-glbs.mjs.
+public/models/ue22/
+
+# Vendored reference viewer bundle + Cesium/web-ifc assets (~18MB). See src/cesium-canvas.tsx.
+public/showcase/
+.wstack/

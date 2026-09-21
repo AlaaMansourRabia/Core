@@ -1,0 +1,153 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "kpi-summary",
+	"tier": "widget",
+	"name": "KPISummary",
+	"category": "analytics",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/kpi-summary.tsx",
+		"import": "@wakecap/core-ui/kpi-summary",
+		"export": "KPISummary"
+	},
+	"tags": [
+		"kpi",
+		"metrics",
+		"analytics",
+		"dashboard",
+		"grid"
+	],
+	"intent": "A responsive grid of MetricCard tiles driven by a single metrics[] array — the reusable KPI summary band above a dashboard, list, or report.",
+	"when": [
+		"Show a row/grid of headline metrics above a page (workforce, safety, quality, etc.)",
+		"You were about to hand-roll a grid of metric Cards",
+		"Several MetricCards should share one responsive layout"
+	],
+	"whenNot": [
+		"A single metric -> use MetricCard directly",
+		"A compact one-line stat bar with inline numbers and dots (e.g. core-org-overview's KPIStrip) -> that is a different shape; KPISummary is a CARD grid, not a bar (a future KPIBar widget would cover that)",
+		"Metric tiles that need a progress bar, multiple severity badges, or other bespoke content beyond MetricCard's contract -> keep those tiles bespoke until MetricCard grows those options"
+	],
+	"chooseOver": [
+		{
+			"component": "A hand-rolled grid of Cards",
+			"because": "KPISummary owns the responsive grid and renders MetricCard tiles from data, so dashboards don't re-implement the layout."
+		},
+		{
+			"component": "MetricCard",
+			"because": "MetricCard is one tile; KPISummary lays out many in a responsive grid."
+		}
+	],
+	"pairsWith": [
+		"MetricCard"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"metrics": {
+				"type": "KpiMetric[] (= MetricCardProps[])",
+				"required": true,
+				"note": "One MetricCard per entry: { title, value, unit?, subtitle?, trend?, trendLabel?, icon?, status? }. The caller computes/aggregates the values."
+			}
+		},
+		"note": "Presentational and stateless — no data fetching. Composes MetricCard for each entry."
+	},
+	"configSchema": {
+		"columns": {
+			"type": "2 | 3 | 4",
+			"default": 4,
+			"note": "Columns at the lg breakpoint; responsive (1 col mobile, 2 at md)."
+		},
+		"children": {
+			"type": "ReactNode",
+			"required": false,
+			"note": "Optional bespoke tile(s) rendered as the LAST grid cell(s), after the metric tiles — for a tile that exceeds MetricCard's contract (e.g. a multi-badge severity breakdown). Each child occupies one grid cell, so the row stays uniform. Keeps MetricCard simple."
+		},
+		"className": {
+			"type": "string",
+			"required": false,
+			"note": "Merged onto the grid container."
+		}
+	},
+	"states": {
+		"default": "A responsive grid (1 / 2 / N columns) of MetricCard tiles.",
+		"with-trailing-tile": "children render as the last grid cell(s) after the metrics — a bespoke tile sits in the same row as the MetricCards.",
+		"empty": "metrics=[] renders an empty grid (no tiles). Callers should guard if a placeholder is wanted.",
+		"single": "One metric renders a single tile (prefer MetricCard directly in that case)."
+	},
+	"composedOf": [
+		"MetricCard"
+	],
+	"allowedPlacement": [
+		"KPI band above a dashboard / list / report",
+		"top of a content region"
+	],
+	"forbiddenPlacement": [
+		"a table cell",
+		"as a compact one-line stat bar (use a KPIBar-style widget)",
+		"inside another grid that already sets columns"
+	],
+	"commonMistakes": [
+		{
+			"mistake": "Using KPISummary for a compact inline stat bar",
+			"symptom": "A card grid where a thin one-line bar was intended",
+			"fix": "KPISummary is a card grid; for a compact bar (numbers + dots in one row) keep/author a separate KPIBar widget."
+		},
+		{
+			"mistake": "Forcing a tile with multiple badges (or other rich content) into the metrics[] contract",
+			"symptom": "Collapsed multi-badge breakdown / lost detail",
+			"fix": "Pass that tile via the `children` trailing slot as a bespoke Card; metrics[] stays MetricCard-shaped."
+		},
+		{
+			"mistake": "Baking a domain type into the metrics",
+			"symptom": "The grid can't be reused across pages",
+			"fix": "Pass generic MetricCardProps; let each page map its domain data to metrics[]."
+		}
+	],
+	"minimalExample": "import {KPISummary} from \"@wakecap/core-ui/kpi-summary\";\nimport {Users, Shield} from \"lucide-react\";\n\n<KPISummary\n  metrics={[\n    {title: \"Live Headcount\", value: \"1,240\", trend: \"up\", trendLabel: \"+12\", icon: Users},\n    {title: \"Safety Score\", value: \"98%\", status: \"success\", subtitle: \"0 incidents this week\", icon: Shield},\n  ]}\n/>",
+	"evaluationCriteria": [
+		{
+			"id": "tier-selection",
+			"metric": "tier-selection",
+			"check": "KPISummary chosen for a grid of metric tiles; MetricCard for one tile; a KPIBar for a compact bar."
+		},
+		{
+			"id": "data-contract",
+			"metric": "data-contract",
+			"check": "metrics[] is a non-empty array of MetricCardProps; no domain type baked in."
+		},
+		{
+			"id": "composition",
+			"metric": "composition",
+			"check": "Renders one MetricCard per metric inside a responsive grid (does not re-implement the tile)."
+		},
+		{
+			"id": "render",
+			"metric": "render",
+			"check": "Produces a grid with one tile per metric."
+		}
+	],
+	"lineage": {
+		"origin": "mined-from-source",
+		"authoredBy": "KPISummary widget slice (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: the repeated hand-rolled KPI-strip pattern (core-project-quality-issues, core-project-workforce-safety) — a grid of metric Cards.",
+			"pilot: true",
+			"composes: MetricCard (@wakecap/core-ui/metric-card)",
+			"authoredFields: [\"intent\",\"when\",\"whenNot\",\"chooseOver\",\"dataContract\",\"configSchema\",\"states\",\"allowedPlacement\",\"forbiddenPlacement\",\"commonMistakes\",\"minimalExample\",\"evaluationCriteria\"]",
+			"refactored: [\"core-project-workforce-safety: KPI strip -> <KPISummary> container (3 metrics + the multi-badge 'Active Alerts' tile via the children trailing slot). Minor restyle: per-tile Progress bars dropped, their % retained in the subtitle.\",\"core-project-quality-issues: KPI strip -> <KPISummary> container (3 metrics + the multi-badge 'Open Issues' tile via the children slot — that tile reordered to last).\"]",
+			"notAdoptedBy: core-org-overview / Dashboard kpi-strip — that is a compact horizontal stat bar, a DIFFERENT shape; KPISummary (card grid) does not resolve it. A separate KPIBar widget would.",
+			"knowledgeRefs: [\"library-index.json#KPISummary\",\"manifests/metric-card.widget.json\",\"manifests/dashboard-page.pattern.json\"]"
+		]
+	}
+}

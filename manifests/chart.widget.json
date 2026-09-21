@@ -1,0 +1,57 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "chart",
+	"tier": "widget",
+	"name": "Chart",
+	"category": "charts",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/chart.tsx",
+		"import": "@wakecap/core-ui/chart",
+		"export": "ChartContainer"
+	},
+	"tags": ["display", "chart", "visualization", "data"],
+	"intent": "ECharts-backed chart widget that owns the chart instance lifecycle, responsive resizing, and canvas-safe translation of WakeCore semantic tokens.",
+	"when": ["Build a theme-aware data visualization", "Render any of the chart-family examples"],
+	"chooseOver": [
+		{
+			"component": "CoreChartRenderer",
+			"because": "Chart/ChartContainer is the base for authored visualizations; CoreChartRenderer interprets AI-generated chart payloads."
+		}
+	],
+	"pairsWith": ["TrendChart"],
+	"requiredProviders": [],
+	"commonMistakes": [
+		{
+			"mistake": "Passing raw var(...) or oklch(...) strings directly to ECharts series colors",
+			"symptom": "Axes render but lines, bars, or markers are invisible in canvas output",
+			"fix": "Use createThemedChartOption with semantic tones or colorIndex values; ChartContainer also normalizes nested color fields.",
+			"avoidOverride": "Do not pass unresolved CSS Color 4 values to canvas/ECharts color fields."
+		}
+	],
+	"minimalExample": "const option = createThemedChartOption(baseOption, [{tone: \"primary\"}, {colorIndex: 2}]);\n<ChartContainer option={option} />",
+	"ownership": {
+		"surface": "route",
+		"background": "transparent",
+		"border": "none",
+		"padding": "consumer",
+		"scrolling": "none",
+		"responsiveBehavior": "consumer",
+		"expectedWrapper": "A sized content region or chart card; ChartContainer does not own a card surface."
+	},
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "WakeCore UI/UX classification review (2026-07)",
+		"derivedFrom": {
+			"source": "packages/components/src/chart.tsx",
+			"extracted": ["ECharts instance lifecycle", "ResizeObserver integration", "semantic theme translation"]
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "user-reviewed classification",
+		"supersedes": "manifests/chart.component.json",
+		"lastValidated": "2026-07-19",
+		"notes": ["promotedFrom: component", "Storybook examples live under Widgets/Charts"]
+	}
+}

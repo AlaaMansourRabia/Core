@@ -1,0 +1,51 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "floating-assistant",
+	"tier": "widget",
+	"name": "FloatingAssistant",
+	"category": "chat",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/floating-assistant.tsx",
+		"import": "@wakecap/core-ui/floating-assistant",
+		"export": "FloatingAssistant"
+	},
+	"tags": [
+		"assistant",
+		"floating",
+		"ai",
+		"chat"
+	],
+	"intent": "An AI assistant that docks to the right of the page: an icon-only, corner-anchored trigger opens a full-height chat panel powered by `AIChat`. The panel takes layout width rather than floating over the page — pass the page content as `children` and it narrows to make room (built on `PushPanel`). The conversation is controlled by the consumer (`messages` + `onSendMessage`), so any domain logic can drive the replies. The trigger is the bare WakeCap brand mark with no chrome behind it — it takes `currentColor` from `foreground`, so it inverts with the theme. Pass `icon` to swap in any other glyph. A detach control in the panel header lifts the conversation out of the layout into a floating card anchored above the trigger, and docks it back; the transition fades and scales over 200ms.",
+	"when": [],
+	"chooseOver": [],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "Group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — intent taken verbatim from the module's own doc comment; contract not yet enumerated",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Was exported from @wakecap/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
+			"Stub by design: the intent is accurate, the data contract is not yet authored.",
+			"pilot: false"
+		]
+	}
+}

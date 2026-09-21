@@ -1,0 +1,17 @@
+{
+	"$schema": "https://open-design.ai/schemas/plugin.v1.json",
+	"specVersion": "1.0.0",
+	"name": "wakecore-compose",
+	"title": "WakeCore Compose",
+	"version": "0.1.0",
+	"description": "Build UI exclusively from WakeCore. Consult the WakeCore MCP server to choose a template and widgets, generate a validated PageInstance, and render it with the WakeCore renderer. Never invent components or arbitrary UI.",
+	"od": {
+		"kind": "skill",
+		"taskKind": "new-generation",
+		"mode": "prototype",
+		"context": {
+			"skills": [{"path": "./SKILL.md"}]
+		},
+		"capabilities": ["prompt:inject"]
+	}
+}

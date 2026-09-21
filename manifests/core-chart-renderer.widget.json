@@ -1,0 +1,57 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-chart-renderer",
+	"tier": "widget",
+	"name": "CoreChartRenderer",
+	"category": "chat",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/chat/core-chart-renderer.tsx",
+		"import": "@wakecap/core-ui/chat/core-chart-renderer"
+	},
+	"tags": [
+		"chart",
+		"visualization",
+		"data",
+		"dynamic"
+	],
+	"intent": "Renders AI-generated chart payloads inside chat messages.",
+	"when": [
+		"Display AI-generated charts in chat"
+	],
+	"chooseOver": [
+		{
+			"component": "Chart",
+			"because": "Chart/ChartContainer for hand-built charts; CoreChartRenderer for AI-generated payloads"
+		}
+	],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#CoreChartRenderer\"]"
+		]
+	}
+}

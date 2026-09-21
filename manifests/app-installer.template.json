@@ -1,0 +1,102 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "app-installer",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "AppInstaller",
+	"archetype": "Workspace",
+	"category": "platform",
+	"version": "1.0.0",
+	"manifestStatus": "draft",
+	"product": {
+		"name": "WakeCap Connect",
+		"release": "V1",
+		"role": "User Portal",
+		"pairedWith": ["wc3-workspace"]
+	},
+	"source": {
+		"path": "packages/components/src/pages/core-app-installer.tsx",
+		"import": "@wakecap/core-ui/pages/core-app-installer",
+		"export": "AppInstaller"
+	},
+	"tags": [
+		"app-installer",
+		"marketplace",
+		"app-store",
+		"catalog",
+		"install",
+		"app-shell",
+		"sidebar",
+		"top-bar",
+		"header",
+		"tabs",
+		"cards",
+		"scaffold"
+	],
+	"intent": "Marketplace / app-installer scaffold: a full app shell (CoreAppSidebar + CoreAppTopBar) with a single \"Home\" sidebar entry plus the shared \"App Store\" plus below it. Home is the landing surface — a welcome hero greeting the user with a Browse App Store CTA while nothing is installed, and an app launcher grid once apps exist. The App Store surface is a PageContentHeader with two tabs (App Store / Installed Apps), a scrollable category pill filter, search with match highlighting, and a responsive grid of app cards (icon, category, blurb, Installed badge) each carrying a Details dialog and an Install / Uninstall action.",
+	"when": [
+		"Building the marketplace / app-installer surface where users browse and install WakeCap apps",
+		"A catalog surface that owns its own app shell and organizes content by a peer tab set in the header"
+	],
+	"whenNot": [
+		"A content page rendered inside an existing app shell -> use a content-only template",
+		"A multi-section admin surface where the left nav switches content -> use Admin Panel",
+		"An app that ships several sidebar entries of its own -> use Workforce / Safety Manager as the base"
+	],
+	"chooseOver": [
+		{
+			"component": "Assembling CoreAppSidebar + CoreAppTopBar + PageContentHeader by hand",
+			"because": "App Installer owns the shell and the marketplace catalog so a store surface plugs straight in."
+		}
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"PageContentHeader",
+		"Card",
+		"ToggleGroup",
+		"Badge",
+		"Dialog",
+		"Empty"
+	],
+	"requiredProviders": [],
+	"composedOf": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"PageContentHeader",
+		"ViewTabBar",
+		"Card",
+		"ToggleGroup",
+		"Badge",
+		"Button",
+		"Dialog",
+		"Empty",
+		"Toaster"
+	],
+	"allowedPlacement": ["route-level marketplace / app-installer surface that owns the full window"],
+	"forbiddenPlacement": ["inside another CoreAppSidebar/CoreAppTopBar shell", "inside a Card or Dialog"],
+	"minimalExample": "// AppInstaller is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@wakecap/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@wakecap/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@wakecap/core-ui/page-content-header\";\nimport {ViewTabBar} from \"@wakecap/core-ui/view-tab-bar\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Round 3 branch (2026-07-28)",
+		"derivedFrom": {
+			"source": "CoreWorkforce",
+			"extracted": [
+				"single-entry app shell (CoreAppSidebar + CoreAppTopBar)",
+				"description-less route header scaffold with tabs",
+				"the shared Marketplace plus entry added to CoreAppSidebar"
+			]
+		},
+		"status": "draft",
+		"verifiedBy": null,
+		"confidence": "unset — scaffold, no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-28",
+		"notes": [
+			"pilot: true",
+			"App catalog is sample data; install/update/uninstall is local state only",
+			"Lands on Home: welcome hero while nothing is installed, app launcher once apps exist",
+			"Introduces the shared showMarketplace plus button on CoreAppSidebar (default on for every app shell)"
+		]
+	}
+}

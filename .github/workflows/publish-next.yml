@@ -1,0 +1,68 @@
+name: Publish Pre-release (next)
+
+# On push to develop (via merged PR that already passed Quality Gate):
+# Publishes @wakecap/core-* pre-release packages to GitHub Packages.
+# Versions use the format: {package-version}-next.{YYYYMMDD}.{HHMMSS}.{short_sha}
+# Consumers install with: pnpm add @wakecap/core-ui@next
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  publish-next:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: "https://npm.pkg.github.com"
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Compute pre-release suffix
+        id: suffix
+        run: |
+          TIMESTAMP=$(date -u +'%Y%m%d.%H%M%S')
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          SUFFIX="next.${TIMESTAMP}.${SHORT_SHA}"
+          echo "suffix=${SUFFIX}" >> "$GITHUB_OUTPUT"
+          echo "Pre-release suffix: ${SUFFIX}"
+
+      - name: Patch package versions
+        run: |
+          SUFFIX="${{ steps.suffix.outputs.suffix }}"
+          for pkg in packages/tokens packages/utils packages/components; do
+            node -e "
+              const fs = require('fs');
+              const path = '${pkg}/package.json';
+              const pkg_json = JSON.parse(fs.readFileSync(path, 'utf8'));
+              const version = pkg_json.version + '-${SUFFIX}';
+              console.log(pkg_json.name + ': ' + version);
+              pkg_json.version = version;
+              fs.writeFileSync(path, JSON.stringify(pkg_json, null, 2) + '\n');
+            "
+          done
+
+      - name: Build all packages
+        run: pnpm --filter "@wakecap/core-*" build
+
+      - name: Publish tokens
+        run: pnpm --filter @wakecap/core-tokens publish --no-git-checks --tag next
+
+      - name: Publish utils
+        run: pnpm --filter @wakecap/core-utils publish --no-git-checks --tag next
+
+      - name: Publish components
+        run: pnpm --filter @wakecap/core-ui publish --no-git-checks --tag next
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

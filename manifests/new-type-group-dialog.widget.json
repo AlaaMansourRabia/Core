@@ -1,0 +1,125 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "new-type-group-dialog",
+	"tier": "widget",
+	"name": "NewTypeGroupDialog",
+	"category": "form",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/wc3-group-wizard.tsx",
+		"import": "@wakecap/core-ui/new-type-group-dialog",
+		"export": "NewTypeGroupDialog"
+	},
+	"tags": [
+		"ontology",
+		"group",
+		"create",
+		"authoring",
+		"organisation"
+	],
+	"intent": "Create a type group: a required name, a description, and an optional members picker.",
+	"when": [
+		"Grouping object types for navigation or ownership",
+		"Any small create flow with an optional membership step"
+	],
+	"whenNot": [
+		"Declaring a contract types implement -> use NewInterfaceDialog"
+	],
+	"chooseOver": [
+		{
+			"component": "An inline prompt",
+			"because": "It carries the optional members block, so a host that has candidates offers them at creation time and one that does not simply omits the prop."
+		}
+	],
+	"pairsWith": [
+		"FormDialog",
+		"MultiSelect"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"open": {
+				"type": "boolean",
+				"required": true
+			},
+			"onOpenChange": {
+				"type": "(open: boolean) => void",
+				"required": true
+			},
+			"title": {
+				"type": "string",
+				"required": false,
+				"note": "Dialog heading; defaults to the workforce wording."
+			},
+			"namePlaceholder": {
+				"type": "string",
+				"required": false
+			},
+			"objectTypes": {
+				"type": "NewTypeGroupOption[]",
+				"required": false,
+				"note": "Members offered at creation. Omitted means no Members block at all."
+			},
+			"onCreate": {
+				"type": "(draft: NewTypeGroupDraft) => void",
+				"required": true
+			}
+		},
+		"events": {
+			"onCreate": {
+				"payload": {
+					"draft": "object"
+				}
+			},
+			"onOpenChange": {
+				"payload": {
+					"open": "boolean"
+				}
+			}
+		},
+		"rowIdentity": "Drafts carry no id; the host mints one on accept."
+	},
+	"configSchema": {},
+	"slots": {},
+	"states": {
+		"default": "Name and description only.",
+		"withMembers": "A members picker appears when objectTypes is supplied."
+	},
+	"composedOf": [
+		"Dialog",
+		"Input",
+		"Combobox"
+	],
+	"allowedPlacement": [
+		"an ontology catalogue toolbar",
+		"a Studio create action"
+	],
+	"forbiddenPlacement": [
+		"inside another dialog"
+	],
+	"minimalExample": "import {NewTypeGroupDialog} from \"@wakecap/core-ui/new-type-group-dialog\";\n\n<NewTypeGroupDialog open={open} onOpenChange={setOpen} onCreate={addGroup} />",
+	"evaluationCriteria": [
+		"Omitting objectTypes removes the Members block entirely rather than showing an empty one."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted in group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-group-wizard.tsx",
+			"extracted": [
+				"type group authoring",
+				"optional members picker"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Already an exported component with a typed props interface and no fixture coupling — this manifest is the only thing that was missing.",
+			"pilot: true"
+		]
+	}
+}

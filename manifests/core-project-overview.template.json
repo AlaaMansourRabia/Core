@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-project-overview",
+	"tier": "template",
+	"consumption": "import",
+	"name": "CoreProjectOverview",
+	"category": "pages",
+	"version": "1.0.0",
+	"manifestStatus": "variant",
+	"variantOf": {
+		"template": "CoreProjectQualityIssues",
+		"relationship": "variant",
+		"note": "Detail variant — no tabs; a lighter card grid."
+	},
+	"source": {
+		"path": "packages/components/src/pages/core-project-overview.tsx",
+		"import": "@wakecap/core-ui/pages/core-project-overview",
+		"export": "ProjectOverview"
+	},
+	"tags": [
+		"project",
+		"overview",
+		"dashboard",
+		"metrics"
+	],
+	"intent": "Ready-made project overview page template.",
+	"when": [
+		"A project landing / overview screen"
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"CoreContentArea"
+	],
+	"requiredProviders": [],
+	"minimalExample": "import {ProjectOverview} from \"@wakecap/core-ui/pages/core-project-overview\";\n\n<ProjectOverview project={project} />",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 template-variant migration (2026-07)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-project-overview.tsx",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"variant of CoreProjectQualityIssues: Detail variant — no tabs; a lighter card grid."
+		]
+	}
+}

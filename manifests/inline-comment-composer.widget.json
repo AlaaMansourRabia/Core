@@ -1,0 +1,58 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "inline-comment-composer",
+	"tier": "widget",
+	"name": "InlineCommentComposer",
+	"category": "comments",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/inline-comment-composer.tsx",
+		"import": "@wakecap/core-ui/inline-comment-composer"
+	},
+	"tags": [
+		"comments",
+		"reply",
+		"inline"
+	],
+	"intent": "Lightweight inline comment composer for quick thread replies — auto-resizing textarea, submits on Enter.",
+	"when": [
+		"Quick reply inside a CommentThread"
+	],
+	"chooseOver": [
+		{
+			"component": "CommentComposer",
+			"because": "CommentComposer is the full rich-text editor; use the inline one for quick replies"
+		}
+	],
+	"pairsWith": [
+		"CommentThread"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#InlineCommentComposer\"]"
+		]
+	}
+}

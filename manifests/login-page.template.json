@@ -1,0 +1,199 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "login-page",
+	"tier": "template",
+	"consumption": "import",
+	"name": "CoreLoginPage",
+	"archetype": "LoginPage",
+	"category": "system",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/core-login-page.tsx",
+		"import": "@wakecap/core-ui/pages/core-login-page",
+		"export": "LoginPage"
+	},
+	"tags": [
+		"login",
+		"auth",
+		"page",
+		"form"
+	],
+	"intent": "The authentication entry page: a split-screen layout with a brand visual and an email/password sign-in form (with show/hide password, a forgot-password link, and a legal footer).",
+	"when": [
+		"The app's sign-in screen",
+		"Email/password authentication with WakeCap branding"
+	],
+	"whenNot": [
+		"A full-page error/permission state -> use ErrorPage",
+		"An in-app settings/account page -> use a Detail page",
+		"A multi-step onboarding/wizard -> not a login page"
+	],
+	"chooseOver": [
+		{
+			"component": "Hand-rolling an auth form",
+			"because": "The LoginPage template owns the split brand/form layout, the password show/hide + forgot-password affordances, the submit loading state, and the legal footer."
+		}
+	],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"regions": [
+		{
+			"id": "brand-visual",
+			"role": "Full-bleed brand image with overlay (left 2/3)",
+			"source": "raw <img> + overlay",
+			"required": false,
+			"note": "Hidden below the lg breakpoint (the form takes the full width on small screens)."
+		},
+		{
+			"id": "brand-heading",
+			"role": "Welcome heading + subtitle above the form",
+			"source": "raw markup (h1 + p)",
+			"required": false
+		},
+		{
+			"id": "login-form",
+			"role": "Email + password fields, show/hide password toggle, forgot-password link, and the submit button",
+			"source": "raw <form> + Label + Input + Button",
+			"required": true,
+			"note": "Uses a raw <form> + Label/Input today; the Form/Field components (RHF + Zod) exist and could wire validation."
+		},
+		{
+			"id": "legal-footer",
+			"role": "Terms of Service / Privacy Policy links",
+			"source": "Button (variant=link)",
+			"required": false
+		}
+	],
+	"requiredWidgets": [],
+	"optionalWidgets": [],
+	"requiredComponents": [
+		{
+			"name": "Input",
+			"region": "login-form",
+			"required": true,
+			"note": "Email + password inputs."
+		},
+		{
+			"name": "Label",
+			"region": "login-form",
+			"required": true,
+			"note": "Field labels."
+		},
+		{
+			"name": "Button",
+			"region": "login-form / legal-footer",
+			"required": true,
+			"note": "Submit, password toggle, forgot-password, and footer links."
+		}
+	],
+	"missingRequiredWidgets": [],
+	"impliedWidgets": [],
+	"dataContract": {
+		"applicable": true,
+		"input": {
+			"onLogin": {
+				"type": "(email: string, password: string) => void",
+				"required": false,
+				"note": "Callback fired on submit with the entered credentials. This template's contract is an OUTPUT callback, not input data."
+			}
+		},
+		"note": "No data is fetched or passed in. Email/password are local state; submit emits them via onLogin. Auth (SSO/OAuth providers) is NOT part of this implementation."
+	},
+	"states": {
+		"default": "Empty form; the submit button is disabled until both fields are filled.",
+		"filled": "Email + password present -> submit enabled.",
+		"loading": "isLoading -> the submit shows a spinner ('Signing in...') and is disabled.",
+		"password-visible": "The show/hide toggle reveals the password (type text vs password)."
+	},
+	"composedOf": [
+		"Button",
+		"Input",
+		"Label"
+	],
+	"responsive": {
+		"strategy": "Split screen: brand visual (left 2/3) + form panel (right 1/3).",
+		"breakpoints": {
+			"lg": "The brand visual appears; below lg it is hidden and the form takes the full width."
+		}
+	},
+	"allowedPlacement": [
+		"route-level sign-in page (full screen, outside the app shell)",
+		"standalone pre-auth page"
+	],
+	"forbiddenPlacement": [
+		"inside the app shell content region (it is full-screen, pre-auth)",
+		"inside a Card or Dialog"
+	],
+	"commonMistakes": [
+		{
+			"mistake": "Wiring the form by hand instead of using Form/Field",
+			"symptom": "Re-implemented validation/error handling",
+			"fix": "The Form + Field components (RHF + Zod) exist and can wire validation for the login form."
+		},
+		{
+			"mistake": "Assuming SSO/provider buttons exist",
+			"symptom": "Expecting OAuth providers in the box",
+			"fix": "This implementation is email/password only; add a providers region if SSO is needed (not present today)."
+		},
+		{
+			"mistake": "Placing LoginPage inside the app shell",
+			"symptom": "A sidebar/top bar around the sign-in screen",
+			"fix": "Render it full-screen and pre-auth, outside CoreAppSidebar/CoreAppTopBar."
+		}
+	],
+	"minimalExample": "import {LoginPage} from \"@wakecap/core-ui/pages/core-login-page\";\n\n<LoginPage onLogin={(email, password) => signIn(email, password)} />",
+	"evaluationCriteria": [
+		{
+			"id": "tier-selection",
+			"metric": "tier-selection",
+			"check": "LoginPage chosen for the sign-in screen — not ErrorPage, a Detail page, or a wizard."
+		},
+		{
+			"id": "regions",
+			"metric": "render",
+			"check": "login-form renders email + password + submit; brand-visual shows at lg+."
+		},
+		{
+			"id": "data-contract",
+			"metric": "data-contract",
+			"check": "onLogin (if provided) receives the entered email + password on submit."
+		},
+		{
+			"id": "states",
+			"metric": "interaction",
+			"check": "submit is disabled until both fields are filled; loading state shows on submit."
+		},
+		{
+			"id": "render",
+			"metric": "render",
+			"check": "Produces the split-screen sign-in markup."
+		}
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "LoginPage template slice (2026-06)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-login-page.tsx",
+			"extracted": [
+				"regions (brand visual / heading / form / footer)",
+				"composedOf (Button/Input/Label)",
+				"dataContract (onLogin callback)",
+				"states (form lifecycle + password toggle)",
+				"responsive (lg split)"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json: CoreLoginPage; tier-tagged template in Stage 0)",
+			"pilot: true",
+			"archetypeNote: The last distinct template archetype — the System family's sign-in page (alongside ErrorPage). Component-composed (no widgets); its contract is an output callback (onLogin) rather than input data.",
+			"authoredFields: [\"intent\",\"when\",\"whenNot\",\"chooseOver\",\"regions\",\"requiredComponents\",\"dataContract\",\"states\",\"responsive\",\"allowedPlacement\",\"forbiddenPlacement\",\"commonMistakes\",\"minimalExample\",\"evaluationCriteria\"]",
+			"knowledgeRefs: [\"library-index.json#CoreLoginPage\",\"manifests/error-page.template.json\",\"docs/ARTIFACT-CLASSIFICATION.md#2c\"]"
+		]
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "comment-composer",
+	"tier": "widget",
+	"name": "CommentComposer",
+	"category": "comments",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/comment-composer.tsx",
+		"import": "@wakecap/core-ui/comment-composer"
+	},
+	"tags": [
+		"comments",
+		"editor",
+		"rich-text"
+	],
+	"intent": "Rich-text (Tiptap) comment editor with a controlled HTML value.",
+	"when": [
+		"Compose a formatted comment or note"
+	],
+	"chooseOver": [
+		{
+			"component": "InlineCommentComposer",
+			"because": "InlineCommentComposer is a lightweight inline reply box; CommentComposer is the full rich-text editor"
+		}
+	],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#CommentComposer\"]"
+		]
+	}
+}

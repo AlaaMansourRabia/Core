@@ -1,0 +1,47 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "compare-bars",
+	"tier": "component",
+	"name": "CompareBars",
+	"category": "display",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/compare-bars.tsx",
+		"import": "@wakecap/core-ui/compare-bars",
+		"export": "CompareBars"
+	},
+	"tags": [
+		"compare",
+		"progress",
+		"bars",
+		"variance",
+		"comparison"
+	],
+	"intent": "The dual-bar comparison primitive: two hero percentages, a variance pill, a legend, and stacked bars. ProgressComparison composes it for its hero block, so the bars can also be used standalone.",
+	"when": [
+		"Comparing two progress figures (e.g. planned vs actual) as hero bars",
+		"Building a custom comparison layout from the shared bar primitive"
+	],
+	"chooseOver": [
+		{
+			"component": "ProgressComparison",
+			"because": "CompareBars is only the hero bars; ProgressComparison is the full comparison widget (milestone stepper, stats) that composes it"
+		}
+	],
+	"pairsWith": [
+		"ProgressComparison",
+		"MilestoneTable"
+	],
+	"requiredProviders": [],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "run-app-and-storybook → develop merge (2026-07)",
+		"status": "accepted",
+		"confidence": "unset — authored alongside the component",
+		"lastValidated": "2026-07-22",
+		"notes": [
+			"authored during the develop merge reconciliation"
+		]
+	}
+}

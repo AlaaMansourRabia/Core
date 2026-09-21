@@ -1,0 +1,117 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "impact-preview",
+	"tier": "widget",
+	"name": "LineageImpactView",
+	"category": "data",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/wc3-lineage-impact-view.tsx",
+		"import": "@wakecap/core-ui/pages/lineage-impact-view",
+		"export": "LineageImpactView"
+	},
+	"tags": [
+		"impact",
+		"what-if",
+		"blast-radius",
+		"lineage",
+		"ontology",
+		"dependencies",
+		"wc3"
+	],
+	"intent": "What-if blast radius: given a change to one ontology element, the pipelines, processes and actions it reaches.",
+	"when": [
+		"Before changing or deleting a shared ontology element",
+		"Any admin surface answering \"what does this break\""
+	],
+	"whenNot": [
+		"Tracing where data came FROM -> use the data lineage view",
+		"Listing rule violations -> use the lint findings view"
+	],
+	"chooseOver": [
+		{
+			"component": "A dependency list",
+			"because": "A list names the neighbours; this walks the graph and reports what a change actually reaches, across pipelines, processes and actions at once."
+		}
+	],
+	"pairsWith": [
+		"GraphCanvas",
+		"Badge",
+		"Card"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"objectTypeId": {
+				"type": "string",
+				"required": false,
+				"note": "Deep-linked object type; a routed id wins over the remembered one."
+			},
+			"onDetailChange": {
+				"type": "(label: string | null) => void",
+				"required": false,
+				"note": "Reports the drill-in segment for a host breadcrumb."
+			},
+			"onNavigate": {
+				"type": "(target: Wc3LineageNavTarget) => void",
+				"required": false,
+				"note": "Coarse by design — selects a perspective and a tab, not a record."
+			},
+			"onOpenChangeset": {
+				"type": "() => void",
+				"required": false
+			}
+		},
+		"events": {
+			"onNavigate": {
+				"payload": {
+					"target": "Wc3LineageNavTarget"
+				}
+			}
+		},
+		"rowIdentity": "Reached records are keyed by their own ids across three registries."
+	},
+	"configSchema": {},
+	"slots": {},
+	"states": {
+		"unselected": "No element chosen yet.",
+		"reached": "Pipelines, processes and actions the change would touch.",
+		"isolated": "Nothing downstream depends on the element."
+	},
+	"composedOf": [
+		"Card",
+		"Badge",
+		"GraphCanvas"
+	],
+	"allowedPlacement": [
+		"a lineage perspective",
+		"a delete confirmation flow"
+	],
+	"forbiddenPlacement": [
+		"a dashboard tile"
+	],
+	"minimalExample": "import {LineageImpactView} from \"@wakecap/core-ui/pages/lineage-impact-view\";\n\n<LineageImpactView objectTypeId=\"ot_permit\" onNavigate={goTo} />",
+	"evaluationCriteria": [
+		"All three downstream registries are walked, not just one."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted from the WC3 lineage perspective (2026-08-26)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-lineage-impact-view.tsx",
+			"extracted": [
+				"blast-radius walk across pipelines, processes and actions"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Promoted in group B of the missing-widgets template review.",
+			"pilot: true"
+		]
+	}
+}

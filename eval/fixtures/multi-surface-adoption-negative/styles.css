@@ -1,0 +1,48 @@
+:root {
+	--ref-color-brand: #0f6fc6;
+	--ref-color-muted: var(--wwc-color-violet-600);
+	--reference-panel: var(--ref-color-brand);
+}
+
+.app-shell {
+	min-height: 100vh;
+	color: var(--wwc-color-blue-100);
+	background: hsl(var(--wwc-color-background));
+}
+
+.main-shell {
+	padding-left: 24px;
+}
+
+.route-content {
+	min-height: 100vh;
+}
+
+.main-shell > header {
+	background: transparent;
+	border-bottom: 0;
+}
+
+[data-sidebar="menu-button"] {
+	background: var(--reference-panel);
+}
+
+[role="tab"][data-state="active"] {
+	background: var(--wwc-color-background);
+	border-radius: var(--wwc-radius-full);
+	box-shadow: var(--wwc-shadow-sm);
+}
+
+.studio-shell {
+	color: var(--ref-color-brand);
+}
+
+.canvas {
+	position: absolute;
+	width: 1180px;
+	height: 720px;
+}
+
+.data-table th {
+	color: var(--wwc-color-blue-600);
+}

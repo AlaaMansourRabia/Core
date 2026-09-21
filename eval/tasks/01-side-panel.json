@@ -1,0 +1,10 @@
+{
+	"id": "side-panel",
+	"title": "Side panel vs centered modal",
+	"domain": "composition",
+	"prompt": "Build a panel that slides in from the right edge of the screen so a user can edit a list of filters without leaving the current page. Keep the main content visible behind it.",
+	"expected": ["Sheet"],
+	"acceptable": ["Drawer"],
+	"forbidden": ["Dialog"],
+	"requiredProviders": []
+}

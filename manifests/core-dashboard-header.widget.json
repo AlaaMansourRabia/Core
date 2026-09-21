@@ -1,0 +1,80 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-dashboard-header",
+	"tier": "widget",
+	"name": "CoreDashboardHeader",
+	"category": "navigation",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/navigation/core-dashboard-header.tsx",
+		"import": "@wakecap/core-ui/navigation/core-dashboard-header",
+		"export": "CoreDashboardHeader"
+	},
+	"tags": ["header", "navigation", "dashboard", "top-bar"],
+	"intent": "Full dashboard shell header with organization/project switching, global search, feedback, notifications, user menu, and organization/project context tabs.",
+	"when": [
+		"The persistent shell header for an organization/project dashboard experience",
+		"The header must own global context switching, search, notifications, identity, and context tabs"
+	],
+	"whenNot": [
+		"A route-local entity title, status, metadata, navigation, and actions inside an existing app shell -> use PageContentHeader",
+		"A compact contextual title/action row -> use ContextToolbar"
+	],
+	"chooseOver": [
+		{
+			"component": "PageContentHeader",
+			"because": "CoreDashboardHeader owns global dashboard context; PageContentHeader owns route-local title, navigation, and workflow actions."
+		}
+	],
+	"insteadUse": [
+		{
+			"component": "PageContentHeader",
+			"whenInstead": "The application shell already exists and the route needs entity identity, status, metadata, and priority actions."
+		}
+	],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [
+		{
+			"mistake": "Selecting CoreDashboardHeader for a generic route title and action row",
+			"symptom": "Organization switching, global search, notification, user, and context-tab concepts are missing or mocked",
+			"fix": "Use PageContentHeader for route-local identity/actions; reserve CoreDashboardHeader for the complete dashboard shell contract.",
+			"avoidOverride": "Do not describe CoreDashboardHeader as a generic title/meta/actions header."
+		}
+	],
+	"ownership": {
+		"surface": "shell",
+		"background": "owned",
+		"border": "bottom",
+		"padding": "owned",
+		"scrolling": "none",
+		"responsiveBehavior": "collapse",
+		"expectedWrapper": "Dashboard shell root; do not nest inside a route-local card or another header surface."
+	},
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#CoreDashboardHeader\"]"
+		]
+	}
+}

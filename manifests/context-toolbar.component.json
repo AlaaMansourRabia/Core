@@ -1,0 +1,96 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "context-toolbar",
+	"tier": "component",
+	"name": "ContextToolbar",
+	"category": "navigation",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/context-toolbar.tsx",
+		"import": "@wakecap/core-ui/context-toolbar",
+		"export": "ContextToolbar"
+	},
+	"tags": ["toolbar", "context", "status", "actions", "responsive"],
+	"intent": "Compact contextual toolbar with icon/title, status, actions, density, and accessible responsive overflow in atomic flex groups.",
+	"when": [
+		"A surface needs a compact context label/status and a small set of actions",
+		"Action and identity clusters must remain aligned and atomic at narrow widths"
+	],
+	"whenNot": [
+		"A route needs avatar, descriptive metadata, peer navigation, and priority action hierarchy -> use PageContentHeader",
+		"A persistent application shell top bar -> use CoreAppTopBar"
+	],
+	"chooseOver": [
+		{
+			"component": "Toolbar",
+			"because": "ContextToolbar supplies WakeCore context/title/status semantics and responsive action overflow rather than only primitive toolbar behavior."
+		},
+		{
+			"component": "PageContentHeader",
+			"because": "ContextToolbar is a compact surface-local context row; PageContentHeader owns route identity, navigation, and workflow action hierarchy."
+		}
+	],
+	"pairsWith": ["Badge", "Button", "DropdownMenu"],
+	"requiredProviders": [],
+	"composedOf": ["Button", "DropdownMenu"],
+	"dataContract": {
+		"input": {
+			"title": {"type": "ReactNode", "required": true},
+			"actions": {"type": "ContextToolbarAction[]", "required": false}
+		}
+	},
+	"configSchema": {
+		"leadingIcon": {"type": "ReactNode"},
+		"title": {"type": "ReactNode", "required": true},
+		"status": {"type": "ReactNode"},
+		"actions": {"type": "ContextToolbarAction[]"},
+		"maxVisibleActions": {"type": "number", "default": 2},
+		"density": {"type": "compact | comfortable", "default": "compact"},
+		"menuLabel": {"type": "string", "default": "More actions"}
+	},
+	"states": {
+		"default": "Title/status and visible actions",
+		"overflow": "Actions beyond maxVisibleActions appear in an accessible menu",
+		"comfortable": "Larger height and padding"
+	},
+	"allowedPlacement": ["Above a route-local workspace, canvas, table, or panel"],
+	"forbiddenPlacement": ["As the persistent application shell top bar", "Inside a table cell"],
+	"commonMistakes": [
+		{
+			"mistake": "Applying gap without flex or grid to toolbar wrappers",
+			"symptom": "The intended spacing is inactive and action groups crowd the title",
+			"fix": "Use ContextToolbar slots; its title and action groups are flex, centered, and marked atomic.",
+			"avoidOverride": "Do not apply gap utilities to non-flex/non-grid toolbar wrappers."
+		}
+	],
+	"minimalExample": "<ContextToolbar leadingIcon={<Map />} title=\"Live map\" status={<Badge>Online</Badge>} actions={[{id: \"filter\", label: \"Filter\", onSelect: openFilters}]} />",
+	"evaluationCriteria": [
+		{
+			"id": "composition",
+			"metric": "composition",
+			"check": "Title/status/actions use the artifact slots instead of an ad hoc toolbar."
+		},
+		{
+			"id": "responsive",
+			"metric": "responsive-layout",
+			"check": "At desktop and 820px, atomic groups neither overlap nor split and icon actions remain labeled."
+		}
+	],
+	"ownership": {
+		"surface": "route",
+		"background": "owned",
+		"border": "bottom",
+		"padding": "owned",
+		"scrolling": "none",
+		"responsiveBehavior": "overflow-menu",
+		"expectedWrapper": "Direct contextual-surface child with no duplicate background, divider, or padding wrapper."
+	},
+	"lineage": {
+		"origin": "experiment-feedback",
+		"authoredBy": "WakeCore UI feedback hardening (2026-07)",
+		"status": "candidate",
+		"confidence": "high — API and responsive ownership authored from held-out experiment",
+		"lastValidated": "2026-07-18"
+	}
+}

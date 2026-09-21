@@ -1,0 +1,47 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "use-toast",
+	"tier": "utility",
+	"name": "useToast",
+	"category": "feedback",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/use-toast.tsx",
+		"import": "@wakecap/core-ui/use-toast",
+		"export": "useToast"
+	},
+	"tags": [
+		"feedback",
+		"toast",
+		"hook"
+	],
+	"intent": "Hook to imperatively trigger toasts.",
+	"when": [
+		"Fire toasts from event handlers"
+	],
+	"chooseOver": [
+		{
+			"component": "Sonner",
+			"because": "Prefer the Sonner API for app toasts"
+		}
+	],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 utility migration (2026-07)",
+		"derivedFrom": {
+			"source": "packages/components/src/use-toast.tsx",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"migrated from library-index.json (hand-authored catalog entry)"
+		]
+	}
+}

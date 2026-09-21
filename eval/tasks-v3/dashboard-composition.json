@@ -1,0 +1,10 @@
+{
+	"id": "dashboard-composition",
+	"title": "Dashboard page composition",
+	"domain": "composition",
+	"prompt": "Build an organization overview landing page. Summarize the key metrics at the top of the page, then show one or two trend visualizations below them. While the data is still loading, show placeholder content in place of the metrics and the visualizations.",
+	"expected": ["Card"],
+	"acceptable": ["Chart", "Skeleton", "Badge", "Typography"],
+	"forbidden": [],
+	"requiredProviders": []
+}

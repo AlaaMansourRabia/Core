@@ -1,0 +1,75 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-app-top-bar",
+	"tier": "widget",
+	"name": "CoreAppTopBar",
+	"category": "navigation",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/navigation/core-app-top-bar.tsx",
+		"import": "@wakecap/core-ui/navigation/core-app-top-bar",
+		"export": "CoreAppTopBar"
+	},
+	"tags": [
+		"navigation",
+		"app-shell",
+		"topbar"
+	],
+	"intent": "The product top bar: project/org switcher, breadcrumb/title, feedback and actions, with density matching CoreAppSidebar.",
+	"when": [
+		"The header row of the WakeCap app shell"
+	],
+	"chooseOver": [
+		{
+			"component": "NavigationMenu",
+			"because": "NavigationMenu for link-based site nav; CoreAppTopBar is the product header"
+		}
+	],
+	"pairsWith": [
+		"CoreAppSidebar"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [
+		{
+			"mistake": "Wrapping CoreAppTopBar in another bordered or card-colored header",
+			"symptom": "A doubled horizontal divider or a darker strip appears under the shell header",
+			"fix": "Place CoreAppTopBar directly in the shell. It owns its height, background, padding, and bottom border.",
+			"avoidOverride": "Do not add border-b, background, height, or horizontal padding to a wrapper around CoreAppTopBar."
+		}
+	],
+	"ownership": {
+		"surface": "shell",
+		"background": "owned",
+		"border": "bottom",
+		"padding": "owned",
+		"scrolling": "none",
+		"responsiveBehavior": "collapse",
+		"expectedWrapper": "Direct shell child with no border, background, fixed height, or horizontal padding."
+	},
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#CoreAppTopBar\"]"
+		]
+	}
+}

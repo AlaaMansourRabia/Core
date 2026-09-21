@@ -1,0 +1,3 @@
+# Story fixtures — footprint and progress data exported from the model, not hand-written source.
+# Formatting them adds ~25,000 lines of churn and makes real changes to these files unreviewable.
+public/*.json

@@ -1,0 +1,363 @@
+/*
+ * Wakecore Design Tokens — Theme
+ *
+ * Single source of truth for all design tokens. Used by:
+ * - index.css (monorepo internal, imports this + adds prefix)
+ * - TW4 consumers: @import "@wakecap/core-tokens/theme"
+ * - TW3 consumers: via tailwind3-preset.cjs (maps the same CSS vars)
+ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-menu-highlight: var(--menu-highlight);
+	--color-menu-highlight-foreground: var(--menu-highlight-foreground);
+	--color-destructive: var(--destructive);
+	--color-destructive-foreground: var(--destructive-foreground);
+	--color-success: var(--success);
+	--color-warning: var(--warning);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+	--color-chart-1: var(--chart-1);
+	--color-chart-2: var(--chart-2);
+	--color-chart-3: var(--chart-3);
+	--color-chart-4: var(--chart-4);
+	--color-chart-5: var(--chart-5);
+	--color-sidebar: var(--sidebar);
+	--color-sidebar-foreground: var(--sidebar-foreground);
+	--color-sidebar-primary: var(--sidebar-primary);
+	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+	--color-sidebar-accent: var(--sidebar-accent);
+	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+	--color-sidebar-border: var(--sidebar-border);
+	--color-sidebar-ring: var(--sidebar-ring);
+	/* Flat 5px corner on every surface. The scale is deliberately collapsed rather than stepped:
+	 * at this size the difference between steps is invisible, so a single value keeps the whole
+	 * app honest. `rounded-full` is untouched — avatars, status dots and pills stay circular, and
+	 * small controls (checkboxes, etc.) use --radius-control so they stay square, not round. */
+	--radius-xs: var(--radius);
+	--radius-sm: var(--radius);
+	--radius-md: var(--radius);
+	--radius-lg: var(--radius);
+	--radius-xl: var(--radius);
+	--radius-2xl: var(--radius);
+	--radius-3xl: var(--radius);
+	--radius-4xl: var(--radius);
+	--font-sans: Figtree, ui-sans-serif, sans-serif, system-ui;
+	--font-serif: Lora, ui-serif, serif;
+	--font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+	/* Accordion open/close. The Accordion component has always asked for
+	 * `animate-accordion-down` / `-up`, but the animations were never defined, so every accordion in
+	 * the system snapped open instead of sliding. Radix publishes the measured content height as
+	 * --radix-accordion-content-height, which is what makes an auto-height slide possible at all. */
+	--animate-accordion-down: accordion-down 0.2s ease-out;
+	--animate-accordion-up: accordion-up 0.2s ease-out;
+
+	@keyframes accordion-down {
+		from {
+			height: 0;
+		}
+		to {
+			height: var(--radix-accordion-content-height);
+		}
+	}
+
+	@keyframes accordion-up {
+		from {
+			height: var(--radix-accordion-content-height);
+		}
+		to {
+			height: 0;
+		}
+	}
+
+	/* A highlight travelling left-to-right across a line of text, for a status line that is working
+	 * rather than a block that is absent — a Skeleton says "there is nothing here yet", this says
+	 * "these words are being recomputed". Pair it with a background-clip: text gradient sized
+	 * 200% wide; the animation slides that gradient, so the sweep runs over the glyphs themselves.
+	 * Two full widths of travel, so the highlight leaves the line entirely between passes. */
+	--animate-text-shimmer: text-shimmer 1.6s linear infinite;
+
+	@keyframes text-shimmer {
+		from {
+			background-position: 100% 0;
+		}
+		to {
+			background-position: -100% 0;
+		}
+	}
+}
+
+/* `.wwc-invert` marks a subtree that runs the OPPOSITE theme to the page: dark tokens in light
+ * mode, light tokens in dark mode. It exists so a surface can pop off its background — the
+ * notification centre's cards use it. It is applied by extending the two token blocks' selector
+ * lists rather than restating the values, so there is exactly one source of truth per theme.
+ *
+ * Cascade: a plain `.wwc-invert` (0,1,0) ties with `:root` (0,1,0) and wins on order, since the
+ * dark block is declared later — so a light page yields dark tokens. Inside a dark page,
+ * `.dark .wwc-invert` (0,2,0) outranks it and restores the light tokens.
+ *
+ * Caveat: Tailwind's `dark:` variant keys off the `.dark` class, not off these tokens, so it does
+ * NOT follow the inversion. Inside an inverted subtree, prefer utilities bound to tokens
+ * (bg-card, text-muted-foreground) over `dark:`-conditioned colours. */
+:root,
+.dark .wwc-invert {
+	/* Light mode: the body is a subtle grey CANVAS; cards/surfaces sit on it as white and lift off. */
+	--background: oklch(0.985 0 0);
+	--foreground: oklch(0.145 0 0);
+	--card: oklch(1 0 0);
+	--card-foreground: oklch(0.145 0 0);
+	--popover: oklch(1 0 0);
+	--popover-foreground: oklch(0.145 0 0);
+	--primary: oklch(0.205 0 0);
+	--primary-foreground: oklch(0.985 0 0);
+	--secondary: oklch(0.97 0 0);
+	--secondary-foreground: oklch(0.205 0 0);
+	--muted: oklch(0.96 0 0);
+	--muted-foreground: oklch(0.556 0 0);
+	--accent: oklch(0.975 0 0);
+	--accent-foreground: oklch(0.205 0 0);
+	/* The transient highlight on a menu or list row under pointer or keyboard focus. Deliberately not
+	 * --accent: at 0.975 the step off a white --popover is 0.025 L and the highlight is invisible, but
+	 * --accent is also the SELECTED-state fill for Calendar's day and Toggle's on-state, so it cannot
+	 * be darkened for menus without repainting those. Since Radix focuses an item on hover, this band
+	 * is also the only focus affordance those items have.
+	 *
+	 * 0.94 was a 0.06 L step, which measured 1.14:1 against --background and was reported as invisible
+	 * twice (#279, reopened). 0.89 is 1.33:1 on the worst surface — still a quiet hover, but one you
+	 * can actually see. It now sits BELOW --border (0.92); nothing depends on the light ordering. */
+	--menu-highlight: oklch(0.89 0 0);
+	--menu-highlight-foreground: oklch(0.205 0 0);
+	--destructive: oklch(0.577 0.245 27.325);
+	--destructive-foreground: oklch(1 0 0);
+	--success: oklch(0.59 0.16 145);
+	--warning: oklch(0.72 0.16 70);
+	--border: oklch(0.92 0 0);
+	--input: oklch(0.95 0 0);
+	--ring: oklch(0.708 0 0);
+	--chart-1: oklch(0.92 0.07 75);
+	--chart-2: oklch(0.85 0.12 70);
+	--chart-3: oklch(0.78 0.17 65);
+	--chart-4: oklch(0.71 0.22 60);
+	--chart-5: oklch(0.64 0.27 55);
+	--sidebar: oklch(0.99 0 0);
+	--sidebar-foreground: oklch(0.145 0 0);
+	--sidebar-primary: oklch(0.205 0 0);
+	--sidebar-primary-foreground: oklch(0.985 0 0);
+	--sidebar-accent: oklch(0.975 0 0);
+	--sidebar-accent-foreground: oklch(0.205 0 0);
+	--sidebar-border: oklch(0.92 0 0);
+	--sidebar-ring: oklch(0.708 0 0);
+	--radius: 5px;
+	/* Small controls opt out of the base radius: at 16px, 8px would round a checkbox into a circle
+	 * and it would read as a radio button. Fixed, so it stays a box whatever --radius becomes. */
+	--radius-control: 4px;
+	/* The one sanctioned shadow: a slight lift for analytics surfaces (widget cards, data tables).
+	 * The generic shadow-* utilities stay disabled by the minimal theme — see tokens/src/index.css. */
+	--shadow-surface: 0 1px 2px 0 rgb(0 0 0 / 0.06);
+}
+
+.dark,
+.wwc-invert {
+	/* Warm charcoal, not black. The canvas sits at L 0.185 (#141210) rather than near-black, so
+	 * surfaces can step UP from it — with shadows disabled, lightness is the only elevation cue we
+	 * have. The barely-there warm tint (chroma ~0.006, hue 70) matches the amber chart palette
+	 * below. Ladder: sidebar 0.165 (recessed) < canvas 0.185 < card 0.215 < muted 0.26 <
+	 * menu-highlight 0.28 < border 0.30. */
+	--background: oklch(0.185 0.006 70);
+	--foreground: oklch(0.985 0 0);
+	--card: oklch(0.215 0.006 70);
+	--card-foreground: oklch(0.985 0 0);
+	--popover: oklch(0.205 0.006 70);
+	--popover-foreground: oklch(0.985 0 0);
+	--primary: oklch(0.922 0 0);
+	--primary-foreground: oklch(0.205 0 0);
+	--secondary: oklch(0.245 0.007 70);
+	--secondary-foreground: oklch(0.985 0 0);
+	/* Steps clearly ABOVE --card: this is the widget/table header band, which in light mode steps
+	 * down from white. It previously sat 0.01 from --card and the band was invisible in dark mode. */
+	--muted: oklch(0.26 0.007 70);
+	--muted-foreground: oklch(0.708 0 0);
+	--accent: oklch(0.26 0.007 70);
+	--accent-foreground: oklch(0.985 0 0);
+	/* A focused menu row has to read against both --popover (0.205) and --card (0.215) at the same step
+	 * the light value gives. Not --accent, which is a selected-state fill elsewhere; not --muted, which
+	 * is the static header band and the menu separator's own fill.
+	 *
+	 * 0.28 sat between --muted (0.26) and --border (0.30), and that ceiling capped the highlight at
+	 * 1.20:1 against --card — the same invisibility #279 reports in light. The dark palette is too
+	 * compressed for a perceptible band below the border, so the highlight now passes it: 0.325 is
+	 * 1.38:1, and stays clear of --border rather than collapsing onto it. */
+	--menu-highlight: oklch(0.325 0.007 70);
+	--menu-highlight-foreground: oklch(0.985 0 0);
+	--destructive: oklch(0.704 0.191 22.216);
+	--destructive-foreground: oklch(0.985 0 0);
+	--success: oklch(0.72 0.16 145);
+	--warning: oklch(0.8 0.15 75);
+	--border: oklch(0.3 0.008 70);
+	--input: oklch(0.245 0.007 70);
+	--ring: oklch(0.556 0 0);
+	--chart-1: oklch(0.92 0.07 75);
+	--chart-2: oklch(0.85 0.12 70);
+	--chart-3: oklch(0.78 0.17 65);
+	--chart-4: oklch(0.71 0.22 60);
+	--chart-5: oklch(0.64 0.27 55);
+	--sidebar: oklch(0.165 0.006 70);
+	--sidebar-foreground: oklch(0.985 0 0);
+	--sidebar-primary: oklch(0.488 0.243 264.376);
+	--sidebar-primary-foreground: oklch(0.985 0 0);
+	--sidebar-accent: oklch(0.26 0.007 70);
+	--sidebar-accent-foreground: oklch(0.985 0 0);
+	--sidebar-border: oklch(0.3 0.008 70);
+	--sidebar-ring: oklch(0.439 0 0);
+	--radius: 5px;
+	/* Small controls opt out of the base radius: at 16px, 8px would round a checkbox into a circle
+	 * and it would read as a radio button. Fixed, so it stays a box whatever --radius becomes. */
+	--radius-control: 4px;
+	/* Deeper on the dark canvas — a 6% black lift is invisible against a near-black background. */
+	--shadow-surface: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+}
+
+/* Tailwind's `@theme` turns each alias into the variable the utilities actually read, and a custom
+ * property is substituted where it is DECLARED, not where it is used — `--color-card` resolves
+ * against :root's `--card`, so overriding `--card` deeper in the tree can never reach it. (`.dark`
+ * escapes this only because it sits on <html>, i.e. on :root itself.) Re-aliasing here re-resolves
+ * each one against the inverted values above.
+ *
+ * Both spellings are emitted on purpose: this file is compiled with `prefix(wwc)` inside the
+ * monorepo, which names the variables `--wwc-color-*`, while TW4 consumers importing
+ * `@wakecap/core-tokens/theme` unprefixed get `--color-*`. The unused half is inert.
+ * Generated from the @theme block above — regenerate if that list changes. */
+.wwc-invert {
+	--color-background: var(--background);
+	--wwc-color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--wwc-color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--wwc-color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--wwc-color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--wwc-color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--wwc-color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--wwc-color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--wwc-color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--wwc-color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--wwc-color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--wwc-color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--wwc-color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--wwc-color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--wwc-color-accent-foreground: var(--accent-foreground);
+	--color-menu-highlight: var(--menu-highlight);
+	--wwc-color-menu-highlight: var(--menu-highlight);
+	--color-menu-highlight-foreground: var(--menu-highlight-foreground);
+	--wwc-color-menu-highlight-foreground: var(--menu-highlight-foreground);
+	--color-destructive: var(--destructive);
+	--wwc-color-destructive: var(--destructive);
+	--color-destructive-foreground: var(--destructive-foreground);
+	--wwc-color-destructive-foreground: var(--destructive-foreground);
+	--color-success: var(--success);
+	--wwc-color-success: var(--success);
+	--color-warning: var(--warning);
+	--wwc-color-warning: var(--warning);
+	--color-border: var(--border);
+	--wwc-color-border: var(--border);
+	--color-input: var(--input);
+	--wwc-color-input: var(--input);
+	--color-ring: var(--ring);
+	--wwc-color-ring: var(--ring);
+	--color-chart-1: var(--chart-1);
+	--wwc-color-chart-1: var(--chart-1);
+	--color-chart-2: var(--chart-2);
+	--wwc-color-chart-2: var(--chart-2);
+	--color-chart-3: var(--chart-3);
+	--wwc-color-chart-3: var(--chart-3);
+	--color-chart-4: var(--chart-4);
+	--wwc-color-chart-4: var(--chart-4);
+	--color-chart-5: var(--chart-5);
+	--wwc-color-chart-5: var(--chart-5);
+	--color-sidebar: var(--sidebar);
+	--wwc-color-sidebar: var(--sidebar);
+	--color-sidebar-foreground: var(--sidebar-foreground);
+	--wwc-color-sidebar-foreground: var(--sidebar-foreground);
+	--color-sidebar-primary: var(--sidebar-primary);
+	--wwc-color-sidebar-primary: var(--sidebar-primary);
+	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+	--wwc-color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+	--color-sidebar-accent: var(--sidebar-accent);
+	--wwc-color-sidebar-accent: var(--sidebar-accent);
+	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+	--wwc-color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+	--color-sidebar-border: var(--sidebar-border);
+	--wwc-color-sidebar-border: var(--sidebar-border);
+	--color-sidebar-ring: var(--sidebar-ring);
+	--wwc-color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+	* {
+		border-color: var(--border);
+	}
+}
+
+body {
+	margin: 0;
+	background-color: var(--background);
+	color: var(--foreground);
+	font-family: Figtree, ui-sans-serif, sans-serif, system-ui;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbars: thin, and a light translucent thumb that blends with any surface (both themes). */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: color-mix(in srgb, var(--muted-foreground) 28%, transparent) transparent;
+}
+
+::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: color-mix(in srgb, var(--muted-foreground) 28%, transparent);
+	border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: color-mix(in srgb, var(--muted-foreground) 45%, transparent);
+}
+
+::-webkit-scrollbar-corner {
+	background: transparent;
+}

@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-ai-chat-message",
+	"tier": "widget",
+	"name": "CoreAiChatMessage",
+	"category": "chat",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/chat/core-ai-chat-message.tsx",
+		"import": "@wakecap/core-ui/chat/core-ai-chat-message"
+	},
+	"tags": [
+		"chat",
+		"ai",
+		"message"
+	],
+	"intent": "A single AI-chat message — grey right-aligned pill for the user, full-width plain content for the assistant (no bubble, no timestamps).",
+	"when": [
+		"Render one message in a custom AI chat list"
+	],
+	"chooseOver": [],
+	"pairsWith": [
+		"CoreAiChat"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#CoreAiChatMessage\"]"
+		]
+	}
+}

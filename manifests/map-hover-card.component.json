@@ -1,0 +1,47 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "map-hover-card",
+	"tier": "component",
+	"name": "MapHoverCard",
+	"category": "map",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/map-hover-card.tsx",
+		"import": "@wakecap/core-ui/map-hover-card",
+		"export": "MapHoverCard"
+	},
+	"tags": ["map", "hover", "card", "preview", "overlay"],
+	"intent": "The card shown while hovering a map marker — a peek at what is under the cursor.",
+	"when": [
+		"A map marker needs identifying without opening its full record",
+		"Several kinds of marker share a map and each should say something different on hover"
+	],
+	"chooseOver": [
+		{
+			"component": "HoverCard",
+			"because": "HoverCard is the generic Radix trigger-and-content pair for DOM elements. MapHoverCard is only the card: map markers are plain DOM outside React, so the map widget owns the trigger and placement.",
+			"avoidOverride": "Wrap a map marker in a Radix HoverCard trigger"
+		}
+	],
+	"pairsWith": ["ObservationsMap", "Badge"],
+	"requiredProviders": [],
+	"commonMistakes": [
+		{
+			"mistake": "Putting the full record in the hover card",
+			"fix": "Carry only what identifies the thing and what you would decide on; opening it is what the detail panel is for",
+			"avoidOverride": "Duplicate the detail panel's content on hover"
+		}
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Observations-Map-View",
+		"derivedFrom": {"source": null, "extracted": []},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — all three marker kinds hovered and read back in the browser",
+		"supersedes": null,
+		"lastValidated": "2026-08-31",
+		"notes": []
+	}
+}

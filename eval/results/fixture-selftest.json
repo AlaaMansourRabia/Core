@@ -1,0 +1,875 @@
+{
+  "generatedAt": "fixture",
+  "mode": "fixture",
+  "model": "claude-opus-4-8",
+  "tally": {
+    "without": {
+      "total": 10,
+      "overall": 0,
+      "component-choice": 6,
+      "imports": 6,
+      "provider-wiring": 7,
+      "failure-mode": 7
+    },
+    "with": {
+      "total": 10,
+      "overall": 10,
+      "component-choice": 10,
+      "imports": 10,
+      "provider-wiring": 10,
+      "failure-mode": 10
+    }
+  },
+  "tasks": [
+    {
+      "task": {
+        "id": "side-panel",
+        "title": "Side panel vs centered modal",
+        "domain": "composition"
+      },
+      "without": {
+        "pass": false,
+        "metrics": {
+          "component-choice": false,
+          "imports": true,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": false,
+            "reason": "Used Dialog where Sheet was expected. Dialog is a centered blocking modal; Sheet stays edge-anchored and feels less interruptive",
+            "suggestedFix": "Use Sheet (or Drawer) instead.",
+            "source": "library-index.json#Sheet.chooseOver"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      },
+      "with": {
+        "pass": true,
+        "metrics": {
+          "component-choice": true,
+          "imports": true,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Sheet).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      }
+    },
+    {
+      "task": {
+        "id": "transient-feedback",
+        "title": "Transient toast vs inline alert",
+        "domain": "composition"
+      },
+      "without": {
+        "pass": false,
+        "metrics": {
+          "component-choice": false,
+          "imports": true,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": false,
+            "reason": "Used Alert where Sonner/Toaster was expected. Alert for persistent inline messages",
+            "suggestedFix": "Use Sonner or Toaster (or Toast) instead.",
+            "source": "library-index.json#Sonner.chooseOver"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      },
+      "with": {
+        "pass": true,
+        "metrics": {
+          "component-choice": true,
+          "imports": true,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Toaster).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      }
+    },
+    {
+      "task": {
+        "id": "data-grid",
+        "title": "Rich data grid vs plain table",
+        "domain": "data-tables"
+      },
+      "without": {
+        "pass": false,
+        "metrics": {
+          "component-choice": false,
+          "imports": true,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": false,
+            "reason": "Used Table where DataTable was expected. Table is presentational (static rows, custom layout, no built-in features). DataTable adds the TanStack engine: sorting, filtering, pagination, selection, column visibility/order, and row expansion.",
+            "suggestedFix": "Use DataTable instead.",
+            "source": "library-index.json#DataTable.chooseOver"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      },
+      "with": {
+        "pass": true,
+        "metrics": {
+          "component-choice": true,
+          "imports": true,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (DataTable).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      }
+    },
+    {
+      "task": {
+        "id": "button-as-link",
+        "title": "Navigation styled as a button",
+        "domain": "primitives"
+      },
+      "without": {
+        "pass": false,
+        "metrics": {
+          "component-choice": true,
+          "imports": false,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Button).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": false,
+            "reason": "Barrel import of Button from \"@wakecap/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@wakecap/core-ui/button\".",
+            "source": "fm-prim-1"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      },
+      "with": {
+        "pass": true,
+        "metrics": {
+          "component-choice": true,
+          "imports": true,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Button).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      }
+    },
+    {
+      "task": {
+        "id": "icon-button-hint",
+        "title": "Hint on an icon-only button (provider wiring)",
+        "domain": "primitives"
+      },
+      "without": {
+        "pass": false,
+        "metrics": {
+          "component-choice": true,
+          "imports": true,
+          "provider-wiring": false,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Tooltip).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": false,
+            "reason": "Tooltip is used without its required TooltipProvider.",
+            "suggestedFix": "Wrap the subtree (e.g. the app shell) in a single <TooltipProvider>.",
+            "source": "fm-prim-2"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      },
+      "with": {
+        "pass": true,
+        "metrics": {
+          "component-choice": true,
+          "imports": true,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Tooltip).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      }
+    },
+    {
+      "task": {
+        "id": "app-sidebar",
+        "title": "Collapsible app sidebar (provider wiring)",
+        "domain": "composition"
+      },
+      "without": {
+        "pass": false,
+        "metrics": {
+          "component-choice": true,
+          "imports": true,
+          "provider-wiring": false,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Sidebar).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": false,
+            "reason": "Sidebar is used without its required SidebarProvider.",
+            "suggestedFix": "Mount <SidebarProvider> at the root layout, wrapping the sidebar and <main>.",
+            "source": "fm-prim-3"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      },
+      "with": {
+        "pass": true,
+        "metrics": {
+          "component-choice": true,
+          "imports": true,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Sidebar).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      }
+    },
+    {
+      "task": {
+        "id": "validated-form",
+        "title": "Validated form (provider + field structure)",
+        "domain": "forms"
+      },
+      "without": {
+        "pass": false,
+        "metrics": {
+          "component-choice": false,
+          "imports": true,
+          "provider-wiring": false,
+          "failure-mode": false
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": false,
+            "reason": "None of the expected components (Form) were used.",
+            "suggestedFix": "Reach for Form for this decision.",
+            "source": "library-index.json#Form"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": false,
+            "reason": "Field is used without its required Form.",
+            "suggestedFix": "Wrap the fields in <Form {...form}> (the FormProvider) so useFormContext() resolves.",
+            "source": "fm-form-2"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": false,
+            "reason": "fm-form-1: Using FormControl without FormItem context crashes silently",
+            "suggestedFix": "Wrap FormControl in a <FormItem> so useFormField() has context.",
+            "source": "fm-form-1"
+          }
+        ]
+      },
+      "with": {
+        "pass": true,
+        "metrics": {
+          "component-choice": true,
+          "imports": true,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Form).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      }
+    },
+    {
+      "task": {
+        "id": "dashboard",
+        "title": "Metrics dashboard recipe",
+        "domain": "composition"
+      },
+      "without": {
+        "pass": false,
+        "metrics": {
+          "component-choice": true,
+          "imports": false,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Card).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": false,
+            "reason": "Barrel import of Card from \"@wakecap/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Card } from \"@wakecap/core-ui/card\".",
+            "source": "fm-prim-1"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      },
+      "with": {
+        "pass": true,
+        "metrics": {
+          "component-choice": true,
+          "imports": true,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Card, Skeleton).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      }
+    },
+    {
+      "task": {
+        "id": "template-gallery",
+        "title": "Template gallery recipe",
+        "domain": "composition"
+      },
+      "without": {
+        "pass": false,
+        "metrics": {
+          "component-choice": true,
+          "imports": false,
+          "provider-wiring": true,
+          "failure-mode": false
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Dialog, Card).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": false,
+            "reason": "Barrel import of Card, Dialog from \"@wakecap/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Card } from \"@wakecap/core-ui/card\".",
+            "source": "fm-prim-1"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": false,
+            "reason": "fm-prim-5: Passing unprefixed className to Wakecore components",
+            "suggestedFix": "Prefix Tailwind utilities passed to Wakecore components with wwc: (e.g. wwc:bg-red-500).",
+            "source": "fm-prim-5"
+          }
+        ]
+      },
+      "with": {
+        "pass": true,
+        "metrics": {
+          "component-choice": true,
+          "imports": true,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Dialog, Card, SearchFilterBar).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      }
+    },
+    {
+      "task": {
+        "id": "destructive-action",
+        "title": "Destructive action emphasis",
+        "domain": "primitives"
+      },
+      "without": {
+        "pass": false,
+        "metrics": {
+          "component-choice": true,
+          "imports": false,
+          "provider-wiring": true,
+          "failure-mode": false
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Button).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": false,
+            "reason": "Barrel import of Button from \"@wakecap/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@wakecap/core-ui/button\".",
+            "source": "fm-prim-1"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": false,
+            "reason": "fm-prim-5: Passing unprefixed className to Wakecore components",
+            "suggestedFix": "Prefix Tailwind utilities passed to Wakecore components with wwc: (e.g. wwc:bg-red-500).",
+            "source": "fm-prim-5"
+          }
+        ]
+      },
+      "with": {
+        "pass": true,
+        "metrics": {
+          "component-choice": true,
+          "imports": true,
+          "provider-wiring": true,
+          "failure-mode": true
+        },
+        "findings": [
+          {
+            "metric": "component-choice",
+            "pass": true,
+            "reason": "Chose an expected/acceptable component (Button).",
+            "suggestedFix": "",
+            "source": "eval/tasks"
+          },
+          {
+            "metric": "imports",
+            "pass": true,
+            "reason": "All @wakecap/core-ui imports use valid deep subpaths.",
+            "suggestedFix": "",
+            "source": "packages/components/package.json#exports"
+          },
+          {
+            "metric": "provider-wiring",
+            "pass": true,
+            "reason": "All provider-requiring components have their required wiring present.",
+            "suggestedFix": "",
+            "source": "library-index.json#requires"
+          },
+          {
+            "metric": "failure-mode",
+            "pass": true,
+            "reason": "No known failure modes detected.",
+            "suggestedFix": "",
+            "source": "domain_map.yaml"
+          }
+        ]
+      }
+    }
+  ]
+}

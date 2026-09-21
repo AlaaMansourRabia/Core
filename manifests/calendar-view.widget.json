@@ -1,0 +1,64 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "calendar-view",
+	"tier": "widget",
+	"name": "CalendarView",
+	"category": "schedule",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/calendar-view.tsx",
+		"import": "@wakecap/core-ui/calendar-view"
+	},
+	"tags": [
+		"calendar",
+		"events",
+		"schedule",
+		"month"
+	],
+	"intent": "Month calendar that lays out events (with tones) across days — for viewing schedules, not picking dates.",
+	"when": [
+		"Display events or a schedule in a month grid",
+		"Show an interactive calendar of activities"
+	],
+	"chooseOver": [
+		{
+			"component": "Calendar",
+			"because": "Calendar is a date picker for selecting dates into inputs; CalendarView displays events on a month grid"
+		}
+	],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [
+		{
+			"mistake": "Using CalendarView CalendarView to pick a date for a form field",
+			"fix": "Use Calendar / DatePicker instead",
+			"avoidOverride": "Use CalendarView to pick a date for a form field — use Calendar / DatePicker instead"
+		}
+	],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#CalendarView\"]"
+		]
+	}
+}

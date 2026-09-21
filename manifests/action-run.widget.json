@@ -1,0 +1,131 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "action-run",
+	"tier": "widget",
+	"name": "RunActionDialog",
+	"category": "form",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/wc3-action-type-run-dialog.tsx",
+		"import": "@wakecap/core-ui/pages/run-action-dialog",
+		"export": "RunActionDialog"
+	},
+	"tags": [
+		"action",
+		"run",
+		"execute",
+		"parameters",
+		"permissions",
+		"ontology",
+		"wc3"
+	],
+	"intent": "Execute a typed ontology action: a parameter form generated from the action type, gated on the acting user's groups.",
+	"when": [
+		"Running an action against a record",
+		"Any surface offering a typed, permissioned operation"
+	],
+	"whenNot": [
+		"Editing the action type itself -> open its detail page",
+		"An untyped confirm -> use ConfirmDialog"
+	],
+	"chooseOver": [
+		{
+			"component": "A hand-built parameter form",
+			"because": "The form is generated from the action type's parameters, including static and fromObjectProperty defaults and an instance picker, and the run is gated on the acting user's groups rather than trusted."
+		}
+	],
+	"pairsWith": [
+		"FormDialog",
+		"Combobox",
+		"Badge"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"open": {
+				"type": "boolean",
+				"required": true
+			},
+			"onOpenChange": {
+				"type": "(open: boolean) => void",
+				"required": true
+			},
+			"actionType": {
+				"type": "Wc3ActionType | null",
+				"required": true
+			},
+			"actingUser": {
+				"type": "{name: string; groups: string[]}",
+				"required": false,
+				"note": "Defaults to the ontology admin; the run is gated on these groups."
+			},
+			"preset": {
+				"type": "Record<string, unknown>",
+				"required": false,
+				"note": "Values preset by another surface; shows the prefilled chip."
+			},
+			"instancesFor": {
+				"type": "(objectTypeId: string) => {value: string; label: string}[]",
+				"required": false,
+				"note": "Instance picker source; omit and objectRef parameters fall back to free text."
+			}
+		},
+		"events": {
+			"onOpenChange": {
+				"payload": {
+					"open": "boolean"
+				}
+			}
+		},
+		"rowIdentity": "Parameters are keyed by apiName."
+	},
+	"configSchema": {},
+	"slots": {},
+	"states": {
+		"default": "Parameters at their static defaults.",
+		"prefilled": "Preset values arrive from another surface and are chipped as such.",
+		"denied": "The acting user's groups do not permit the run, and the dialog says so.",
+		"derived": "fromObjectProperty defaults refill when their source parameter changes."
+	},
+	"composedOf": [
+		"Dialog",
+		"Combobox",
+		"Input",
+		"Badge"
+	],
+	"allowedPlacement": [
+		"an action type detail header",
+		"a record's action menu"
+	],
+	"forbiddenPlacement": [
+		"inside another dialog"
+	],
+	"minimalExample": "import {RunActionDialog} from \"@wakecap/core-ui/pages/run-action-dialog\";\n\n<RunActionDialog open={open} onOpenChange={setOpen} actionType={actionType} />",
+	"evaluationCriteria": [
+		"A user outside the permitted groups cannot run.",
+		"fromObjectProperty defaults refill when their source changes."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted from the WC3 action type detail page (2026-08-26)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-action-type-detail.tsx",
+			"extracted": [
+				"generated parameter form",
+				"permission gate on acting groups",
+				"preset/prefilled handling"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Was exported from its module but absent from the package exports map — public to the monorepo, private to every consumer.",
+			"Promoted in group B of the missing-widgets template review.",
+			"pilot: true"
+		]
+	}
+}

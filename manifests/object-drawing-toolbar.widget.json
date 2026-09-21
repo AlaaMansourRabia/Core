@@ -1,0 +1,32 @@
+{
+	"schemaVersion": "artifact-manifest/0.1",
+	"id": "object-drawing-toolbar",
+	"tier": "widget",
+	"name": "ObjectDrawingToolbar",
+	"category": "canvas",
+	"source": {
+		"path": "packages/components/src/object-drawing-toolbar.tsx",
+		"import": "@wakecap/core-ui/object-drawing-toolbar"
+	},
+	"intent": "Single-line canvas drawing toolbar: an Edit/View mode toggle, shape tools (select/pan/line/circle/rectangle/polygon), fill & stroke color pickers, an opacity slider, a 90° angle-snap toggle, and unlink/import actions — composed from Toolbar primitives.",
+	"when": [
+		"Provide the full drawing-tool bar for an object/vector canvas"
+	],
+	"manifestStatus": "stub",
+	"TODO": {
+		"dataContract": "stub — author input fields, slots, rowIdentity",
+		"configSchema": "stub — enumerate config props from source",
+		"states": "stub — list default/editing/view states",
+		"composedOf": "stub — list composed components",
+		"evaluationCriteria": "stub — define selection/config/render checks"
+	},
+	"lineage": {
+		"promotedFrom": "component (library-index.json)",
+		"pilot": false,
+		"manifestStatus": "stub",
+		"knowledgeRefs": [
+			"library-index.json#ObjectDrawingToolbar"
+		],
+		"authoredBy": "object-drawing-toolbar authoring (2026-07)"
+	}
+}

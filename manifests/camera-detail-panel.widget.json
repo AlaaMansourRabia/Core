@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "camera-detail-panel",
+	"tier": "widget",
+	"name": "CameraDetailPanel",
+	"category": "map",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/camera-detail-panel.tsx",
+		"import": "@wakecap/core-ui/camera-detail-panel"
+	},
+	"tags": [
+		"camera",
+		"cctv",
+		"detail",
+		"drill-in",
+		"live-stream",
+		"overlay",
+		"thumbnail",
+		"violations"
+	],
+	"intent": "Floating detail for one camera — its fields plus the violations it caught, as a selectable list.",
+	"when": [
+		"A camera selected on a map needs its record and everything it caught",
+		"The violation list is the entry point to individual tickets",
+		"A camera preview or live stream sits alongside what the camera caught"
+	],
+	"chooseOver": [
+		{
+			"component": "ObservationDetailPanel",
+			"because": "ObservationDetailPanel is one ticket. CameraDetailPanel is the level above it — the camera and the list of tickets it accounts for, which drills into the ticket panel."
+		}
+	],
+	"pairsWith": [
+		"ObservationsMap",
+		"ObservationDetailPanel",
+		"DetailPanelShell"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [
+		"Giving the camera panel a different width from the ticket panel — the frame visibly jumps when drilling in and back. Both default to 340.",
+		"Letting a future stream player size the preview — the 16:9 frame, rounding and clipping belong to the panel. Pass the player as `preview` and let it fill the box."
+	],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Observations-Map-View",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — camera → violation → back flow exercised end-to-end in the browser",
+		"supersedes": null,
+		"lastValidated": "2026-08-30",
+		"notes": []
+	},
+	"composedOf": [
+		"DetailPanelShell",
+		"AspectRatio",
+		"Badge"
+	]
+}

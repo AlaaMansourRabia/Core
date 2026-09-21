@@ -1,0 +1,45 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "widget-card",
+	"tier": "component",
+	"name": "WidgetCard",
+	"category": "layout",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/widget-card.tsx",
+		"import": "@wakecap/core-ui/widget-card",
+		"export": "WidgetCard"
+	},
+	"tags": [
+		"analytics",
+		"card",
+		"container",
+		"shell",
+		"header-band"
+	],
+	"intent": "Analytics surface container: a bordered, clipped card whose header sits on a muted grey bar so the title reads as a distinct band above the content. Shared shell for chart tiles, metric tiles and data tables so every analytics widget frames its content the same way.",
+	"when": [],
+	"chooseOver": [],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "Group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — intent taken verbatim from the module's own doc comment; contract not yet enumerated",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Was exported from @wakecap/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
+			"Stub by design: the intent is accurate, the data contract is not yet authored.",
+			"pilot: false"
+		]
+	}
+}

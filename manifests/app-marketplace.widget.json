@@ -1,0 +1,130 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "app-marketplace",
+	"tier": "widget",
+	"name": "AppMarketplace",
+	"category": "navigation",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/app-marketplace-shared.tsx",
+		"import": "@wakecap/core-ui/pages/app-marketplace",
+		"export": "useAppInstallation"
+	},
+	"subcomponents": [
+		"AppDetailsDialog",
+		"HomeSurface",
+		"AppWorkspace",
+		"installedAppsGroup",
+		"APP_LIFECYCLE_STAGES"
+	],
+	"tags": [
+		"marketplace",
+		"apps",
+		"install",
+		"uninstall",
+		"lifecycle",
+		"navigation",
+		"connect"
+	],
+	"intent": "Browse, inspect, install and uninstall apps, and derive the installed-apps navigation group from what is installed.",
+	"when": [
+		"A portal offers an app catalogue",
+		"The sidebar's app list must follow the install state",
+		"Grouping apps by project lifecycle stage"
+	],
+	"whenNot": [
+		"Installing an ontology product -> use InstallProductDialog",
+		"A static nav list that never changes -> declare the group directly"
+	],
+	"chooseOver": [
+		{
+			"component": "Per-template install state",
+			"because": "Four templates already import this module; the install lifecycle and the nav group derived from it must agree across all of them, and a per-template copy guarantees they eventually will not."
+		}
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"AppCard",
+		"Dialog"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"initialInstalled": {
+				"type": "readonly string[]",
+				"required": false,
+				"note": "App ids installed at mount; they also count as already opened, so no 'new' dot shows."
+			},
+			"onUninstalled": {
+				"type": "(app: MarketApp) => void",
+				"required": false,
+				"note": "Lets the host react when an app leaves the workspace."
+			}
+		},
+		"events": {
+			"onUninstalled": {
+				"payload": {
+					"app": "MarketApp"
+				}
+			}
+		},
+		"rowIdentity": "Apps are keyed by id; lifecycle stage is nav metadata, not behaviour."
+	},
+	"configSchema": {
+		"marketplacePlacement": {
+			"type": "string",
+			"default": "pinned"
+		},
+		"appGrouping": {
+			"type": "string",
+			"default": "flat"
+		}
+	},
+	"slots": {},
+	"states": {
+		"browsing": "The catalogue with install affordances.",
+		"installed": "The app appears in the derived nav group.",
+		"uninstalled": "It leaves the group; an empty stage disappears."
+	},
+	"composedOf": [
+		"AppCard",
+		"Dialog",
+		"Badge"
+	],
+	"allowedPlacement": [
+		"a portal shell",
+		"a Studio marketplace surface"
+	],
+	"forbiddenPlacement": [
+		"a record detail page"
+	],
+	"minimalExample": "import {useAppInstallation, installedAppsGroup} from \"@wakecap/core-ui/pages/app-marketplace\";\n\nconst install = useAppInstallation({initialInstalled: [\"safety\", \"workforce\"]});",
+	"evaluationCriteria": [
+		"The nav group is derived from install state, never declared twice.",
+		"Lifecycle stage is treated as nav metadata, not behaviour."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted from the shared module four Connect templates already import (2026-08-26)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/app-marketplace-shared.tsx",
+			"extracted": [
+				"install/uninstall lifecycle hook",
+				"app details dialog",
+				"installed-apps nav group",
+				"Design/Plan/Capture/Pay lifecycle stages"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Already the repo's best-behaved shared module — imported by core-app-installer, core-wakecap-connect, core-wakecap-connect-v3 and core-wc3-workspace. It had earned widget tier by use and simply had not been given it.",
+			"Promoted in group B of the missing-widgets template review.",
+			"pilot: true"
+		]
+	}
+}

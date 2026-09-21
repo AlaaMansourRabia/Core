@@ -1,0 +1,54 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "canvas-toolbar",
+	"tier": "widget",
+	"name": "CanvasToolbar",
+	"category": "canvas",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/canvas-toolbar.tsx",
+		"import": "@wakecap/core-ui/canvas-toolbar"
+	},
+	"tags": [
+		"canvas",
+		"toolbar",
+		"drawing"
+	],
+	"intent": "Toolbar for a drawing/blueprint canvas — blueprint selection and tool controls.",
+	"when": [
+		"Controls for a canvas or drawing surface"
+	],
+	"chooseOver": [],
+	"pairsWith": [
+		"DrawingActions",
+		"ZoomTools"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#CanvasToolbar\"]"
+		]
+	}
+}

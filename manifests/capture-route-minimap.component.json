@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "capture-route-minimap",
+	"tier": "component",
+	"name": "CaptureRouteMinimap",
+	"category": "display",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/capture-route-minimap.tsx",
+		"import": "@wakecap/core-ui/capture-route-minimap",
+		"export": "CaptureRouteMinimap"
+	},
+	"tags": [
+		"minimap",
+		"capture",
+		"route",
+		"overlay",
+		"floor-plan"
+	],
+	"intent": "A floating, resizable, collapsible mini-viewer that overlays a main view with a whole floor plan and a blue capture walk of ordered points. Minimizes to a map-icon button and fires onPointSelect when a point is clicked.",
+	"when": [
+		"Overlaying an ordered capture walk-through route on a map / blueprint view",
+		"A collapsible floor-plan overview with clickable capture points"
+	],
+	"chooseOver": [
+		{
+			"component": "MapMinimap",
+			"because": "CaptureRouteMinimap draws an ordered capture route with selectable points; MapMinimap is a plain viewport overview of the current view"
+		}
+	],
+	"pairsWith": [
+		"MapCompareLayout",
+		"BlueprintViewer3",
+		"WalkthroughModal"
+	],
+	"requiredProviders": [],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "run-app-and-storybook → develop merge (2026-07)",
+		"status": "accepted",
+		"confidence": "unset — authored alongside the component",
+		"lastValidated": "2026-07-22",
+		"notes": [
+			"authored during the develop merge reconciliation"
+		]
+	}
+}

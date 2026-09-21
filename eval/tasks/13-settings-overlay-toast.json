@@ -1,0 +1,10 @@
+{
+	"id": "settings-overlay-toast",
+	"title": "Edit-in-modal then confirm",
+	"domain": "composition",
+	"prompt": "Let the user edit their profile in a focused overlay that interrupts the page until they finish, with the fields inside it. When they save, close the overlay and show a brief confirmation that disappears on its own. Include any app-root wiring the confirmation needs.",
+	"expected": ["Dialog"],
+	"acceptable": ["Sonner", "Form", "Button"],
+	"forbidden": ["AlertDialog"],
+	"requiredProviders": ["Toaster"]
+}

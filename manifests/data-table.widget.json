@@ -1,0 +1,206 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "data-table",
+	"tier": "widget",
+	"name": "DataTable",
+	"category": "data",
+	"version": "1.0.0",
+	"source": {
+		"path": "packages/components/src/data-table.tsx",
+		"import": "@wakecap/core-ui/data-table"
+	},
+	"tags": [
+		"data",
+		"table",
+		"advanced",
+		"interactive"
+	],
+	"intent": "Feature-rich data grid on TanStack Table: sorting, filtering, pagination, row selection, column show/hide and reorder, expandable detail rows, and nested/tree rows.",
+	"when": [
+		"More than ~10 rows, or any interactivity (sort / filter / paginate / select)",
+		"Tabular domain records the user needs to scan, sort, search, or act on in bulk",
+		"Rows that expand to a detail panel, or nested/tree data",
+		"Server-paged lists too large to fetch at once — see the manual pagination/sorting/search props"
+	],
+	"whenNot": [
+		"Static or lightly-interactive rows with a custom layout -> use Table",
+		"A handful of fixed rows that never sort/filter/paginate -> use Table",
+		"A single record's labeled fields -> use PropertyList",
+		"Key metrics / KPI tiles -> use Card (or a MetricCard widget)"
+	],
+	"chooseOver": [
+		{
+			"component": "Table",
+			"because": "Table is presentational (static rows, custom layout, no built-in features). DataTable adds the TanStack engine: sorting, filtering, pagination, selection, column visibility/order, and row expansion."
+		}
+	],
+	"pairsWith": [
+		"SearchFilterBar",
+		"Card"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"columns": {
+				"type": "ColumnDef<TData, TValue>[]",
+				"required": true,
+				"note": "TanStack column defs. A `select` column (row checkbox) and an `actions` column (row menu) are NOT built in — provide them as columns when needed. A column given the id `actions` is STYLED for you: w-px, max-w-none, overflow-visible, text-clip, whitespace-nowrap. Body cells otherwise truncate at max-w-0 so long text ellipsizes, which is right for text and wrong for a column of buttons — the ellipsis there does not mean the label is too long, it means the column was squeezed and a control is half-drawn behind a \"…\". Naming the column `actions` is enough; meta.cellClassName is for other control columns, or to override part of what actions gets."
+			},
+			"data": {
+				"type": "TData[]",
+				"required": true,
+				"note": "Array of row records."
+			}
+		},
+		"rowIdentity": "TanStack row.id (array index as a string) — no getRowId prop is exposed. bulkActions.onClick(selectedIds) yields these index-based ids; map to your domain ids yourself.",
+		"slots": {
+			"renderSubComponent": "({ row }) => ReactNode — detail panel shown when an expandable row is open",
+			"getSubRows": "(row) => TData[] | undefined — nested/tree children",
+			"getRowCanExpand": "(row) => boolean — which rows can expand",
+			"toolbarExtra": "ReactNode — extra controls on the right of the toolbar",
+			"filterStrip": "ReactNode — a filter row rendered under the toolbar"
+		}
+	},
+	"configSchema": {
+		"searchKey": {
+			"type": "string",
+			"required": false,
+			"note": "MUST equal a column's accessorKey/id, or the search box renders but filters nothing (fm-dt-1)."
+		},
+		"searchPlaceholder": {
+			"type": "string",
+			"default": "Filter..."
+		},
+		"showColumnToggle": {
+			"type": "boolean",
+			"default": true
+		},
+		"showPagination": {
+			"type": "boolean",
+			"default": true
+		},
+		"showSelectedCount": {
+			"type": "boolean",
+			"default": true
+		},
+		"pageSize": {
+			"type": "number",
+			"default": 10
+		},
+		"expandAllByDefault": {
+			"type": "boolean",
+			"default": false
+		},
+		"bulkActions": {
+			"type": "BulkAction[]",
+			"required": false,
+			"note": "{ label, icon?, onClick(selectedIds), variant? }. A floating action bar appears while rows are selected."
+		}
+	},
+	"states": {
+		"default": "Toolbar (optional search + column toggle), bordered table, footer (selected count + pagination).",
+		"empty": "Built-in single 'No results.' row spanning all columns when data or the active filter yields zero rows.",
+		"selected": "Selected rows get data-state=selected; footer shows 'N of M row(s) selected'; a floating bulk-action bar appears if bulkActions are provided.",
+		"expanded": "Rows with getRowCanExpand show an expander; renderSubComponent renders the detail panel; tree rows indent by depth.",
+		"loading": "NOT built in — render your own Skeleton/Spinner in place of the table while fetching."
+	},
+	"composedOf": [
+		"Table",
+		"Button",
+		"Input",
+		"Popover",
+		"Collapsible"
+	],
+	"allowedPlacement": [
+		"content-region",
+		"card-body",
+		"page-main",
+		"dialog-body (small datasets)"
+	],
+	"forbiddenPlacement": [
+		"toolbar",
+		"sidebar-rail",
+		"kpi-region"
+	],
+	"commonMistakes": [
+		{
+			"id": "fm-dt-1",
+			"mistake": "searchKey set to a column id that doesn't match any accessorKey/id",
+			"symptom": "Search input renders but filtering does nothing",
+			"fix": "Set searchKey to an existing column accessorKey (e.g. \"email\").",
+			"avoidOverride": "A searchKey that doesn't match a column accessorKey (see fm-dt-1)"
+		},
+		{
+			"mistake": "Using DataTable for a few static rows",
+			"symptom": "Heavy engine + toolbar for no benefit",
+			"fix": "Use Table for static/custom-layout rows."
+		},
+		{
+			"mistake": "Expecting built-in selection checkboxes",
+			"symptom": "No checkboxes appear",
+			"fix": "Add a `select` column to columns — selection UI is consumer-provided."
+		},
+		{
+			"mistake": "Treating bulkActions selectedIds as domain ids",
+			"symptom": "Ids are array indices, not your record ids",
+			"fix": "Encode a stable id in your data and resolve it yourself (no getRowId prop today)."
+		},
+		{
+			"mistake": "Assuming a loading prop exists",
+			"symptom": "Flash of the empty 'No results.' state while data is fetching",
+			"fix": "Render a Skeleton/Spinner until data resolves, then mount DataTable."
+		}
+	],
+	"minimalExample": "const columns: ColumnDef<Payment>[] = [\n  { accessorKey: \"email\", header: \"Email\" },\n  { accessorKey: \"amount\", header: \"Amount\" },\n];\n\n<DataTable columns={columns} data={payments} searchKey=\"email\" />",
+	"evaluationCriteria": [
+		{
+			"id": "tier-selection",
+			"metric": "tier-selection",
+			"check": "DataTable chosen over Table when rows are interactive or number more than ~10."
+		},
+		{
+			"id": "config-valid",
+			"metric": "config-valid",
+			"check": "searchKey (if set) matches a column accessorKey/id; no unknown config keys; pageSize > 0."
+		},
+		{
+			"id": "data-contract",
+			"metric": "data-contract",
+			"check": "columns and data both provided; columns is a non-empty ColumnDef array."
+		},
+		{
+			"id": "fm-dt-1",
+			"metric": "failure-mode",
+			"check": "No searchKey that fails to resolve to a column (fm-dt-1)."
+		},
+		{
+			"id": "render",
+			"metric": "render",
+			"check": "Renders a table with a header and rows, or the built-in empty state — non-empty markup."
+		}
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "artifact-audit widget pilot (2026-06)",
+		"derivedFrom": {
+			"source": "packages/components/src/data-table.tsx",
+			"extracted": [
+				"composedOf",
+				"configSchema keys",
+				"dataContract slots",
+				"requiredProviders"
+			]
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json: DataTable)",
+			"pilot: true",
+			"authoredFields: [\"intent\",\"when\",\"whenNot\",\"chooseOver\",\"dataContract\",\"configSchema\",\"states\",\"allowedPlacement\",\"forbiddenPlacement\",\"commonMistakes\",\"minimalExample\",\"evaluationCriteria\"]",
+			"knowledgeRefs: [\"library-index.json#DataTable\",\"skills/_artifacts/domain_map.yaml#fm-dt-1\"]"
+		]
+	}
+}

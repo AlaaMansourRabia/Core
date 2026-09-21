@@ -1,0 +1,126 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "new-shared-property-dialog",
+	"tier": "widget",
+	"name": "NewSharedPropertyDialog",
+	"category": "form",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/wc3-shared-property-wizard.tsx",
+		"import": "@wakecap/core-ui/new-shared-property-dialog",
+		"export": "NewSharedPropertyDialog"
+	},
+	"tags": [
+		"ontology",
+		"shared-property",
+		"create",
+		"authoring",
+		"validation"
+	],
+	"intent": "Author a property reused across object types: display name, API name, base type, formatting and type classes.",
+	"when": [
+		"Declaring a property several object types will share",
+		"Any create flow whose validation rules differ per host"
+	],
+	"whenNot": [
+		"Adding a property to one object type -> do it on that type's detail page"
+	],
+	"chooseOver": [
+		{
+			"component": "A generic create dialog",
+			"because": "Validation is a prop: the default is display-name-required, and a host needing more — a required API name, a uniqueness check — passes the full rule set in the order it wants them reported."
+		}
+	],
+	"pairsWith": [
+		"FormDialog",
+		"Combobox",
+		"MultiSelect"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"open": {
+				"type": "boolean",
+				"required": true
+			},
+			"onOpenChange": {
+				"type": "(open: boolean) => void",
+				"required": true
+			},
+			"baseTypes": {
+				"type": "string[]",
+				"required": false
+			},
+			"formattings": {
+				"type": "{value: string; label: string}[]",
+				"required": false
+			},
+			"validate": {
+				"type": "(draft: NewSharedPropertyDraft) => string | null",
+				"required": false,
+				"note": "Return a message to block creation. Defaults to display-name-required only."
+			},
+			"onCreate": {
+				"type": "(draft: NewSharedPropertyDraft) => void",
+				"required": true
+			}
+		},
+		"events": {
+			"onCreate": {
+				"payload": {
+					"draft": "object"
+				}
+			},
+			"onOpenChange": {
+				"payload": {
+					"open": "boolean"
+				}
+			}
+		},
+		"rowIdentity": "Drafts carry no id; the host mints one on accept."
+	},
+	"configSchema": {},
+	"slots": {},
+	"states": {
+		"default": "Display name, slugified API name, base type string.",
+		"refused": "The validate rule's message is shown and creation is held."
+	},
+	"composedOf": [
+		"Dialog",
+		"Input",
+		"Combobox"
+	],
+	"allowedPlacement": [
+		"an ontology catalogue toolbar",
+		"a Studio create action"
+	],
+	"forbiddenPlacement": [
+		"inside another dialog"
+	],
+	"minimalExample": "import {NewSharedPropertyDialog} from \"@wakecap/core-ui/new-shared-property-dialog\";\n\n<NewSharedPropertyDialog open={open} onOpenChange={setOpen} onCreate={addSharedProperty} />",
+	"evaluationCriteria": [
+		"The host's validate rules are reported in the order the host gave them."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted in group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-shared-property-wizard.tsx",
+			"extracted": [
+				"shared property authoring",
+				"API-name slugify",
+				"pluggable validation"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Already an exported component with a typed props interface and no fixture coupling — this manifest is the only thing that was missing.",
+			"pilot: true"
+		]
+	}
+}

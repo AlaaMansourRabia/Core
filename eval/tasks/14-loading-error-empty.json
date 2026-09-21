@@ -1,0 +1,10 @@
+{
+	"id": "loading-error-empty",
+	"title": "Async section states",
+	"domain": "data-tables",
+	"prompt": "Render a section that lists workforce records in a sortable, filterable table. While the data is loading show a placeholder shimmer in its place, if the request fails show a persistent error message, and when there are simply no records show a friendly empty state instead of a blank table.",
+	"expected": ["DataTable"],
+	"acceptable": ["Skeleton", "Empty", "Alert", "Banner"],
+	"forbidden": [],
+	"requiredProviders": []
+}

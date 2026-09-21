@@ -1,0 +1,76 @@
+{
+  "model": "claude-opus-4-8",
+  "k": 3,
+  "arms": ["A4", "A5"],
+  "tasks": [
+    "side-panel",
+    "data-grid",
+    "validated-form",
+    "template-gallery",
+    "destructive-action",
+    "dashboard-composition",
+    "multi-step-form"
+  ],
+  "agg": {
+    "A4": {
+      "n": 21,
+      "overall": 0,
+      "structure": 21,
+      "compile": 9,
+      "render": 0
+    },
+    "A5": {
+      "n": 21,
+      "overall": 0,
+      "structure": 21,
+      "compile": 11,
+      "render": 0
+    }
+  },
+  "cells": {
+    "A4": {
+      "overall": {
+        "rate": 0,
+        "lo": 0,
+        "hi": 0.15464382326420195
+      },
+      "structure": {
+        "rate": 1,
+        "lo": 0.8453561767357979,
+        "hi": 0.9999999999999998
+      },
+      "compile": {
+        "rate": 0.42857142857142855,
+        "lo": 0.24469699486521046,
+        "hi": 0.6345378370296754
+      },
+      "render": {
+        "rate": 0,
+        "lo": 0,
+        "hi": 0.15464382326420195
+      }
+    },
+    "A5": {
+      "overall": {
+        "rate": 0,
+        "lo": 0,
+        "hi": 0.15464382326420195
+      },
+      "structure": {
+        "rate": 1,
+        "lo": 0.8453561767357979,
+        "hi": 0.9999999999999998
+      },
+      "compile": {
+        "rate": 0.5238095238095238,
+        "lo": 0.3236921790026675,
+        "hi": 0.7165628770323705
+      },
+      "render": {
+        "rate": 0,
+        "lo": 0,
+        "hi": 0.15464382326420195
+      }
+    }
+  }
+}

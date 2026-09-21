@@ -1,0 +1,845 @@
+{
+  "generatedFrom": "packages/components/dist/*.d.mts",
+  "generatedFor": "catalog/API compatibility and prop-aware selection",
+  "components": {
+    "Button": {
+      "import": "@wakecap/core-ui/button",
+      "export": "Button",
+      "props": {
+        "asChild": {
+          "type": "boolean",
+          "required": false
+        },
+        "loading": {
+          "type": "boolean",
+          "required": false
+        },
+        "variant": {
+          "type": "enum",
+          "values": [
+            "default",
+            "link",
+            "destructive",
+            "outline",
+            "secondary",
+            "ghost"
+          ],
+          "required": false
+        },
+        "size": {
+          "type": "enum",
+          "values": [
+            "default",
+            "sm",
+            "lg"
+          ],
+          "required": false
+        },
+        "icon": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "requiredProps": [],
+      "inheritsHtmlReactAttributes": true
+    },
+    "Form": {
+      "import": "@wakecap/core-ui/form",
+      "export": "Form",
+      "props": {
+        "children": {
+          "type": "ReactNode | ReactNode[]",
+          "required": true
+        },
+        "watch": {
+          "type": "UseFormWatch<TFieldValues>",
+          "required": true
+        },
+        "getValues": {
+          "type": "UseFormGetValues<TFieldValues>",
+          "required": true
+        },
+        "getFieldState": {
+          "type": "UseFormGetFieldState<TFieldValues>",
+          "required": true
+        },
+        "setError": {
+          "type": "UseFormSetError<TFieldValues>",
+          "required": true
+        },
+        "clearErrors": {
+          "type": "UseFormClearErrors<TFieldValues>",
+          "required": true
+        },
+        "setValue": {
+          "type": "UseFormSetValue<TFieldValues>",
+          "required": true
+        },
+        "trigger": {
+          "type": "UseFormTrigger<TFieldValues>",
+          "required": true
+        },
+        "formState": {
+          "type": "FormState<TFieldValues>",
+          "required": true
+        },
+        "resetField": {
+          "type": "UseFormResetField<TFieldValues>",
+          "required": true
+        },
+        "reset": {
+          "type": "UseFormReset<TFieldValues>",
+          "required": true
+        },
+        "handleSubmit": {
+          "type": "UseFormHandleSubmit<TFieldValues, TTransformedValues>",
+          "required": true
+        },
+        "unregister": {
+          "type": "UseFormUnregister<TFieldValues>",
+          "required": true
+        },
+        "control": {
+          "type": "Control<TFieldValues, TContext, TTransformedValues>",
+          "required": true
+        },
+        "register": {
+          "type": "UseFormRegister<TFieldValues>",
+          "required": true
+        },
+        "setFocus": {
+          "type": "UseFormSetFocus<TFieldValues>",
+          "required": true
+        },
+        "subscribe": {
+          "type": "UseFormSubscribe<TFieldValues>",
+          "required": true
+        }
+      },
+      "requiredProps": [
+        "children",
+        "watch",
+        "getValues",
+        "getFieldState",
+        "setError",
+        "clearErrors",
+        "setValue",
+        "trigger",
+        "formState",
+        "resetField",
+        "reset",
+        "handleSubmit",
+        "unregister",
+        "control",
+        "register",
+        "setFocus",
+        "subscribe"
+      ],
+      "inheritsHtmlReactAttributes": false
+    },
+    "FormField": {
+      "import": "@wakecap/core-ui/form",
+      "export": "FormField",
+      "props": {
+        "render": {
+          "type": "({ field, fieldState, formState, }: { field: ControllerRenderProps<TFieldValues,",
+          "required": true
+        },
+        "name": {
+          "type": "TName",
+          "required": true
+        },
+        "rules": {
+          "type": "Omit<RegisterOptions<TFieldValues, TName>, \"valueAsNumber\" | \"valueAsDate\" | \"se",
+          "required": false
+        },
+        "shouldUnregister": {
+          "type": "boolean",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "PathValueImpl<TFieldValues, TName>",
+          "required": false
+        },
+        "control": {
+          "type": "Control<TFieldValues, any, TFieldValues>",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "exact": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "requiredProps": [
+        "render",
+        "name"
+      ],
+      "inheritsHtmlReactAttributes": false
+    },
+    "FormItem": {
+      "import": "@wakecap/core-ui/form",
+      "export": "FormItem",
+      "props": {},
+      "requiredProps": [],
+      "inheritsHtmlReactAttributes": true
+    },
+    "FormControl": {
+      "import": "@wakecap/core-ui/form",
+      "export": "FormControl",
+      "props": {
+        "children": {
+          "type": "ReactNode",
+          "required": false
+        }
+      },
+      "requiredProps": [],
+      "inheritsHtmlReactAttributes": true
+    },
+    "FormLabel": {
+      "import": "@wakecap/core-ui/form",
+      "export": "FormLabel",
+      "props": {
+        "asChild": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "requiredProps": [],
+      "inheritsHtmlReactAttributes": true
+    },
+    "FormMessage": {
+      "import": "@wakecap/core-ui/form",
+      "export": "FormMessage",
+      "props": {},
+      "requiredProps": [],
+      "inheritsHtmlReactAttributes": true
+    },
+    "DataTable": {
+      "import": "@wakecap/core-ui/data-table",
+      "export": "DataTable",
+      "props": {
+        "columns": {
+          "type": "ColumnDef<TData, TValue>[]",
+          "required": true
+        },
+        "data": {
+          "type": "TData[]",
+          "required": true
+        },
+        "searchKey": {
+          "type": "string",
+          "required": false
+        },
+        "searchPlaceholder": {
+          "type": "string",
+          "required": false
+        },
+        "showColumnToggle": {
+          "type": "boolean",
+          "required": false
+        },
+        "showPagination": {
+          "type": "boolean",
+          "required": false
+        },
+        "showSelectedCount": {
+          "type": "boolean",
+          "required": false
+        },
+        "pageSize": {
+          "type": "number",
+          "required": false
+        },
+        "pageSizeOptions": {
+          "type": "false | number[]",
+          "required": false
+        },
+        "recordLabel": {
+          "type": "string",
+          "required": false
+        },
+        "getRowCanExpand": {
+          "type": "(row: Row<TData>) => boolean",
+          "required": false
+        },
+        "renderSubComponent": {
+          "type": "(props: { row: Row<TData>; }) => ReactNode",
+          "required": false
+        },
+        "getSubRows": {
+          "type": "(row: TData) => TData[]",
+          "required": false
+        },
+        "expandAllByDefault": {
+          "type": "boolean",
+          "required": false
+        },
+        "toolbarExtra": {
+          "type": "ReactNode",
+          "required": false
+        },
+        "filterStrip": {
+          "type": "ReactNode",
+          "required": false
+        },
+        "bulkActions": {
+          "type": "BulkAction[]",
+          "required": false
+        }
+      },
+      "requiredProps": [
+        "columns",
+        "data"
+      ],
+      "inheritsHtmlReactAttributes": false
+    },
+    "Stepper": {
+      "import": "@wakecap/core-ui/stepper",
+      "export": "Stepper",
+      "props": {
+        "value": {
+          "type": "number",
+          "required": true
+        },
+        "orientation": {
+          "type": "enum",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "required": false
+        }
+      },
+      "requiredProps": [
+        "value"
+      ],
+      "inheritsHtmlReactAttributes": true
+    },
+    "StepperItem": {
+      "import": "@wakecap/core-ui/stepper",
+      "export": "StepperItem",
+      "props": {
+        "step": {
+          "type": "number",
+          "required": true
+        }
+      },
+      "requiredProps": [
+        "step"
+      ],
+      "inheritsHtmlReactAttributes": true
+    },
+    "StepperIndicator": {
+      "import": "@wakecap/core-ui/stepper",
+      "export": "StepperIndicator",
+      "props": {},
+      "requiredProps": [],
+      "inheritsHtmlReactAttributes": true
+    },
+    "Chart": {
+      "import": "@wakecap/core-ui/chart",
+      "export": "ChartContainer",
+      "props": {
+        "config": {
+          "type": "ChartConfig",
+          "required": false
+        },
+        "option": {
+          "type": "EChartsOption",
+          "required": true
+        },
+        "className": {
+          "type": "string",
+          "required": false
+        },
+        "style": {
+          "type": "CSSProperties",
+          "required": false
+        },
+        "height": {
+          "type": "string | number",
+          "required": false
+        },
+        "onEvents": {
+          "type": "Record<string, (params: unknown) => void>",
+          "required": false
+        }
+      },
+      "requiredProps": [
+        "option"
+      ],
+      "inheritsHtmlReactAttributes": true
+    },
+    "Sheet": {
+      "import": "@wakecap/core-ui/sheet",
+      "export": "Sheet",
+      "props": {
+        "children": {
+          "type": "ReactNode",
+          "required": false
+        },
+        "open": {
+          "type": "boolean",
+          "required": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false
+        },
+        "onOpenChange": {
+          "type": "(open: boolean) => void",
+          "required": false
+        },
+        "modal": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "requiredProps": [],
+      "inheritsHtmlReactAttributes": false
+    },
+    "SheetContent": {
+      "import": "@wakecap/core-ui/sheet",
+      "export": "SheetContent",
+      "props": {
+        "asChild": {
+          "type": "boolean",
+          "required": false
+        },
+        "onEscapeKeyDown": {
+          "type": "(event: KeyboardEvent) => void",
+          "required": false
+        },
+        "onPointerDownOutside": {
+          "type": "(event: PointerDownOutsideEvent) => void",
+          "required": false
+        },
+        "onFocusOutside": {
+          "type": "(event: FocusOutsideEvent) => void",
+          "required": false
+        },
+        "onInteractOutside": {
+          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+          "required": false
+        },
+        "onOpenAutoFocus": {
+          "type": "(event: Event) => void",
+          "required": false
+        },
+        "onCloseAutoFocus": {
+          "type": "(event: Event) => void",
+          "required": false
+        },
+        "forceMount": {
+          "type": "true",
+          "required": false
+        },
+        "side": {
+          "type": "enum",
+          "values": [
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "required": false
+        }
+      },
+      "requiredProps": [],
+      "inheritsHtmlReactAttributes": true
+    },
+    "Dialog": {
+      "import": "@wakecap/core-ui/dialog",
+      "export": "Dialog",
+      "props": {
+        "children": {
+          "type": "ReactNode",
+          "required": false
+        },
+        "open": {
+          "type": "boolean",
+          "required": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false
+        },
+        "onOpenChange": {
+          "type": "(open: boolean) => void",
+          "required": false
+        },
+        "modal": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "requiredProps": [],
+      "inheritsHtmlReactAttributes": false
+    },
+    "DialogContent": {
+      "import": "@wakecap/core-ui/dialog",
+      "export": "DialogContent",
+      "props": {
+        "asChild": {
+          "type": "boolean",
+          "required": false
+        },
+        "onEscapeKeyDown": {
+          "type": "(event: KeyboardEvent) => void",
+          "required": false
+        },
+        "onPointerDownOutside": {
+          "type": "(event: PointerDownOutsideEvent) => void",
+          "required": false
+        },
+        "onFocusOutside": {
+          "type": "(event: FocusOutsideEvent) => void",
+          "required": false
+        },
+        "onInteractOutside": {
+          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+          "required": false
+        },
+        "onOpenAutoFocus": {
+          "type": "(event: Event) => void",
+          "required": false
+        },
+        "onCloseAutoFocus": {
+          "type": "(event: Event) => void",
+          "required": false
+        },
+        "forceMount": {
+          "type": "true",
+          "required": false
+        }
+      },
+      "requiredProps": [],
+      "inheritsHtmlReactAttributes": true
+    },
+    "ViewTabBar": {
+      "import": "@wakecap/core-ui/view-tab-bar",
+      "export": "ViewTabBar",
+      "props": {
+        "tabs": {
+          "type": "readonly ViewTabItem<T>[]",
+          "required": true
+        },
+        "activeTab": {
+          "type": "T",
+          "required": true
+        },
+        "onTabChange": {
+          "type": "(tab: T) => void",
+          "required": true
+        },
+        "surface": {
+          "type": "enum",
+          "values": [
+            "transparent",
+            "card"
+          ],
+          "required": false
+        },
+        "className": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "requiredProps": [
+        "tabs",
+        "activeTab",
+        "onTabChange"
+      ],
+      "inheritsHtmlReactAttributes": false
+    },
+    "TrendChart": {
+      "import": "@wakecap/core-ui/trend-chart",
+      "export": "TrendChart",
+      "props": {
+        "title": {
+          "type": "ReactNode",
+          "required": false
+        },
+        "header": {
+          "type": "ReactNode",
+          "required": false
+        },
+        "option": {
+          "type": "EChartsOption",
+          "required": true
+        },
+        "seriesThemes": {
+          "type": "ChartSeriesTheme[]",
+          "required": false
+        },
+        "height": {
+          "type": "string | number",
+          "required": false
+        },
+        "className": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "requiredProps": [
+        "option"
+      ],
+      "inheritsHtmlReactAttributes": false
+    },
+    "PageContentHeader": {
+      "import": "@wakecap/core-ui/page-content-header",
+      "export": "PageContentHeader",
+      "props": {
+        "variant": {
+          "type": "enum",
+          "values": [
+            "navigation",
+            "entity-actions",
+            "title-actions"
+          ],
+          "required": false
+        },
+        "title": {
+          "type": "ReactNode",
+          "required": true
+        },
+        "description": {
+          "type": "ReactNode",
+          "required": false
+        },
+        "meta": {
+          "type": "ReactNode",
+          "required": false
+        },
+        "status": {
+          "type": "ReactNode",
+          "required": false
+        },
+        "avatar": {
+          "type": "ReactNode",
+          "required": false
+        },
+        "tabs": {
+          "type": "readonly ViewTabItem<string>[]",
+          "required": false
+        },
+        "activeTab": {
+          "type": "string",
+          "required": false
+        },
+        "onTabChange": {
+          "type": "(tab: string) => void",
+          "required": false
+        },
+        "actions": {
+          "type": "PageContentHeaderAction[]",
+          "required": false
+        },
+        "splitAction": {
+          "type": "PageContentHeaderSplitAction",
+          "required": false
+        },
+        "density": {
+          "type": "enum",
+          "values": [
+            "compact",
+            "comfortable"
+          ],
+          "required": false
+        },
+        "headingLevel": {
+          "type": "1 | 2 | 3",
+          "required": false
+        },
+        "menuLabel": {
+          "type": "string",
+          "required": false
+        },
+        "instrumentationId": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "requiredProps": [
+        "title"
+      ],
+      "inheritsHtmlReactAttributes": true
+    },
+    "ContextToolbar": {
+      "import": "@wakecap/core-ui/context-toolbar",
+      "export": "ContextToolbar",
+      "props": {
+        "leadingIcon": {
+          "type": "ReactNode",
+          "required": false
+        },
+        "title": {
+          "type": "ReactNode",
+          "required": true
+        },
+        "status": {
+          "type": "ReactNode",
+          "required": false
+        },
+        "actions": {
+          "type": "ContextToolbarAction[]",
+          "required": false
+        },
+        "maxVisibleActions": {
+          "type": "number",
+          "required": false
+        },
+        "density": {
+          "type": "enum",
+          "values": [
+            "compact",
+            "comfortable"
+          ],
+          "required": false
+        },
+        "menuLabel": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "requiredProps": [
+        "title"
+      ],
+      "inheritsHtmlReactAttributes": true
+    },
+    "CoreAppTopBar": {
+      "import": "@wakecap/core-ui/navigation/core-app-top-bar",
+      "export": "CoreAppTopBar",
+      "props": {
+        "activeLabel": {
+          "type": "string",
+          "required": true
+        },
+        "showProjectSwitcher": {
+          "type": "boolean",
+          "required": false
+        },
+        "selectedProject": {
+          "type": "string",
+          "required": false
+        },
+        "projects": {
+          "type": "string[]",
+          "required": false
+        },
+        "projectGroups": {
+          "type": "CoreAppTopBarProjectGroup[]",
+          "required": false
+        },
+        "onSelectProject": {
+          "type": "(project: string) => void",
+          "required": false
+        },
+        "isPinned": {
+          "type": "boolean",
+          "required": false
+        },
+        "onToggleSidebar": {
+          "type": "() => void",
+          "required": false
+        },
+        "onHoverSidebar": {
+          "type": "() => void",
+          "required": false
+        },
+        "rightContent": {
+          "type": "ReactNode",
+          "required": false
+        },
+        "density": {
+          "type": "enum",
+          "values": [
+            "compact",
+            "comfortable"
+          ],
+          "required": false
+        }
+      },
+      "requiredProps": [
+        "activeLabel"
+      ],
+      "inheritsHtmlReactAttributes": false
+    },
+    "CoreDashboardHeader": {
+      "import": "@wakecap/core-ui/navigation/core-dashboard-header",
+      "export": "CoreDashboardHeader",
+      "props": {
+        "selectedOrg": {
+          "type": "Organization",
+          "required": true
+        },
+        "selectedProject": {
+          "type": "Project",
+          "required": true
+        },
+        "activeOrgTab": {
+          "type": "enum",
+          "values": [
+            "overview",
+            "performance",
+            "workforce-intelligence",
+            "reality-capture",
+            "ai-report"
+          ],
+          "required": true
+        },
+        "activeProjectTab": {
+          "type": "enum",
+          "values": [
+            "overview",
+            "reality-capture",
+            "schedule-cost",
+            "workforce-safety",
+            "quality-issues"
+          ],
+          "required": true
+        },
+        "isProjectLevel": {
+          "type": "boolean",
+          "required": true
+        },
+        "onSelectOrg": {
+          "type": "(org: Organization) => void",
+          "required": true
+        },
+        "onSelectProject": {
+          "type": "(project: Project) => void",
+          "required": true
+        },
+        "onOrgTabChange": {
+          "type": "(tab: OrgTab) => void",
+          "required": true
+        },
+        "onProjectTabChange": {
+          "type": "(tab: ProjectTab) => void",
+          "required": true
+        },
+        "onLogout": {
+          "type": "() => void",
+          "required": false
+        }
+      },
+      "requiredProps": [
+        "selectedOrg",
+        "selectedProject",
+        "activeOrgTab",
+        "activeProjectTab",
+        "isProjectLevel",
+        "onSelectOrg",
+        "onSelectProject",
+        "onOrgTabChange",
+        "onProjectTabChange"
+      ],
+      "inheritsHtmlReactAttributes": false
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "analytics-overview",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "CoreAnalyticsOverview",
+	"archetype": "Analytics",
+	"category": "dashboard",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/core-analytics-overview.tsx",
+		"import": "@wakecap/core-ui/pages/core-analytics-overview",
+		"export": "AnalyticsOverview"
+	},
+	"tags": [
+		"overview",
+		"analytics",
+		"kpi",
+		"charts",
+		"dashboard",
+		"table"
+	],
+	"intent": "An analytics overview page for operations: a dismissible risk banner, a row of KPI cards with trend arrows, ECharts bar charts (performance + workload) and a complaint-type donut, plus interactive contractor and 'recent & important' tables that cross-filter the page on click.",
+	"when": [
+		"An analytics readout of KPIs + charts + prioritized tables on one page",
+		"The user needs headline metrics, trend charts, and a drillable list that cross-filter",
+		"An operations 'overview' that leans on ECharts and data tables (not a map)"
+	],
+	"whenNot": [
+		"A KPI strip + project list + geospatial map -> use the CoreOrgOverview product route or compose the dashboard-page pattern",
+		"A single record's fields -> use a Detail page",
+		"A master-detail worklist -> use the Task Monitor template"
+	],
+	"chooseOver": [
+		{
+			"component": "Assembling KPI cards + ECharts + tables by hand",
+			"because": "The Analytics Overview template owns the banner + KPI row + chart stack + cross-filtering tables and their interaction."
+		}
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar"
+	],
+	"requiredProviders": [],
+	"composedOf": [
+		"Card",
+		"Badge",
+		"Banner",
+		"Table",
+		"ReactECharts"
+	],
+	"allowedPlacement": [
+		"app-shell content-region (inside CoreAppSidebar + CoreAppTopBar + CoreContentArea)",
+		"route-level analytics / overview page"
+	],
+	"forbiddenPlacement": [
+		"inside a Card or Dialog",
+		"as a small embeddable panel"
+	],
+	"minimalExample": "// CoreAnalyticsOverview is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {Banner} from \"@wakecap/core-ui/banner\";\nimport {Table} from \"@wakecap/core-ui/table\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted from the apps/web OverviewExamplePage (2026-07-08)",
+		"derivedFrom": {
+			"source": "apps/web/src/pages/examples/OverviewExamplePage.tsx",
+			"extracted": [
+				"risk banner + KPI card row",
+				"ECharts performance/workload bars + complaint-type donut",
+				"interactive contractor + recent-important tables (cross-filter)"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-08",
+		"notes": [
+			"promotedFrom: apps/web example (OverviewExamplePage) — reflected as a canonical WakeCore template; the example was removed.",
+			"pilot: true"
+		]
+	}
+}

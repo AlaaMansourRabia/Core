@@ -1,0 +1,49 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "responder-detail-panel",
+	"tier": "widget",
+	"name": "ResponderDetailPanel",
+	"category": "map",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/responder-detail-panel.tsx",
+		"import": "@wakecap/core-ui/responder-detail-panel"
+	},
+	"tags": ["responder", "safety", "profile", "detail", "overlay"],
+	"intent": "Floating profile for one safety responder — identity, alert tally, acknowledgement mix and coverage.",
+	"when": [
+		"A responder selected on a map needs their profile without leaving the map",
+		"Responder performance is read alongside the observations they answer"
+	],
+	"chooseOver": [
+		{
+			"component": "ObservationDetailPanel",
+			"because": "ObservationDetailPanel is a ticket with a lifecycle and a comment thread. ResponderDetailPanel is a person: a read-only profile with tallies and coverage, no actions to take on it."
+		}
+	],
+	"pairsWith": ["ObservationsMap", "DetailPanelShell"],
+	"requiredProviders": [],
+	"commonMistakes": [
+		"Giving responders a different panel width from the other floating panels — the frame jumps when switching between a violation, a camera and a responder. All default to 340."
+	],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Observations-Map-View",
+		"derivedFrom": {"source": "packages/components/src/pages/core-safety-manager.tsx", "extracted": ["responder record", "alert tallies", "platform acknowledgements", "coverage"]},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — open flow exercised end-to-end in the browser; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-31",
+		"notes": ["Record shape mirrors the Safety Manager responder list so a responder reads the same from map or list."]
+	},
+	"composedOf": ["DetailPanelShell", "Badge", "Separator"]
+}

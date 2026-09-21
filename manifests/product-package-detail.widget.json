@@ -1,0 +1,180 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "product-package-detail",
+	"tier": "widget",
+	"name": "ProductPackageDetail",
+	"category": "data",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/product-package-detail.tsx",
+		"import": "@wakecap/core-ui/product-package-detail",
+		"export": "ProductPackageDetail"
+	},
+	"tags": ["product", "package", "install", "marketplace", "governance", "wc3", "connect", "evidence"],
+	"intent": "Route-injectable product package surface: identity, version, dependencies, outputs, permission gates, evidence and install state, over a governed install — a plan, a confirmation dialog, and a success receipt carrying package, version, project and actor. It owns no shell and no router, so it mounts inside a workspace route that already has a sidebar and a top bar.",
+	"when": [
+		"A product / package detail drill-in inside a Connect product centre",
+		"Any surface where installing something needs a plan, a confirmation and a receipt",
+		"A catalogue entry read by both viewers and installers"
+	],
+	"whenNot": [
+		"Browsing many packages at once -> use AppMarketplace or DataTable",
+		"A four-step install with a planner, release evidence capture and blocker codes -> use InstallProductDialog",
+		"A generic record drill-in with no install -> use RecordDetailShell"
+	],
+	"chooseOver": [
+		{
+			"component": "Card + Dialog + Badge + Button composed at the application layer",
+			"because": "That is what the Connect prototype did, and it duplicated product-package composition — sections, gate rendering, the install plan, the confirmation and the receipt — in application state. This owns the package surface while leaving the shell, the route and the authorisation decision with the host."
+		}
+	],
+	"pairsWith": ["CoreAppSidebar", "CoreAppTopBar", "PageContentHeader", "AppMarketplace"],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"package": {
+				"type": "ProductPackage",
+				"required": true,
+				"note": "id, name, version; optional apiName, description, publisher, kind, channel, publishedAt, details."
+			},
+			"dependencies": {
+				"type": "ProductPackageDependency[]",
+				"required": false,
+				"note": "status: satisfied | will-install | missing | conflict."
+			},
+			"outputs": {
+				"type": "ProductPackageOutput[]",
+				"required": false,
+				"note": "What the install writes: add | replace | link."
+			},
+			"permissions": {
+				"type": "ProductPackagePermission[]",
+				"required": false,
+				"note": "The role gates, each with whether the acting user satisfies it."
+			},
+			"evidence": {
+				"type": "ProductPackageEvidence[]",
+				"required": false
+			},
+			"installState": {
+				"type": "ProductPackageInstallState",
+				"required": false,
+				"note": "not-installed | installed | outdated | installing | failed, with the installed version."
+			},
+			"target": {
+				"type": "ProductPackageInstallTarget",
+				"required": false,
+				"note": "Where an install lands. Without it the action has nothing to act on."
+			},
+			"actor": {
+				"type": "ProductPackageActor",
+				"required": true
+			},
+			"canInstall": {
+				"type": "boolean",
+				"required": false,
+				"note": "The host's authorisation answer. False disables the install action and nothing else."
+			},
+			"denialReason": {
+				"type": "string",
+				"required": false,
+				"note": "State the refusal — a greyed button is not an explanation."
+			},
+			"blockers": {
+				"type": "ProductPackageInstallBlocker[]",
+				"required": false,
+				"note": "Refusals from the host's planner. Listed on the plan; they close the confirm."
+			}
+		},
+		"events": {
+			"onInstall": {
+				"payload": {
+					"request": "ProductPackageInstallRequest"
+				}
+			},
+			"onInstalled": {
+				"payload": {
+					"receipt": "ProductPackageInstallReceipt"
+				}
+			},
+			"onOpenEvidence": {
+				"payload": {
+					"evidence": "ProductPackageEvidence"
+				}
+			}
+		},
+		"rowIdentity": "Dependency, output, permission and evidence ids must be unique within their list."
+	},
+	"configSchema": {
+		"canInstall": {
+			"type": "boolean",
+			"default": true
+		},
+		"installLabel": {
+			"type": "string",
+			"default": "derived — Install / Upgrade to <version> / Installed"
+		}
+	},
+	"slots": {
+		"headerActions": {
+			"description": "Extra identity-header actions — View in catalogue, Copy manifest",
+			"accepts": ["component"]
+		},
+		"footer": {
+			"description": "Rendered under the sections, in the same column",
+			"accepts": ["component", "widget"]
+		}
+	},
+	"states": {
+		"not-installed": "The action reads Install.",
+		"outdated": "The action names the upgrade — Upgrade to <version>.",
+		"installed": "The action is parked once the installed version is the current one.",
+		"installing": "Pending while the host's apply settles.",
+		"failed": "The failure is stated; nothing claims to have installed.",
+		"unauthorized": "Only the install action is disabled, with the denial reason stated under it.",
+		"blocked": "Planner refusals are listed on the page and on the plan, and the confirm is closed."
+	},
+	"composedOf": ["PageContentHeader", "Card", "PropertyList", "Badge", "Button", "Dialog", "Banner", "Separator"],
+	"allowedPlacement": [
+		"inside a route that already owns its shell (CoreAppSidebar + CoreAppTopBar, or a WC3 workspace slot)"
+	],
+	"forbiddenPlacement": [
+		"as a page that supplies its own sidebar, top bar or routing",
+		"inside a dialog — the install confirmation is already a dialog"
+	],
+	"minimalExample": "import {ProductPackageDetail} from \"@wakecap/core-ui/product-package-detail\";\n\n<ProductPackageDetail\n\tpackage={pkg}\n\ttarget={{projectName: \"Riyadh Metro\", environment: \"Prod\"}}\n\tactor={{name: \"A. Ibrahim\", role: \"Platform admin\"}}\n\tcanInstall={canInstall}\n\tdenialReason={canInstall ? undefined : \"Install · Prod requires the Platform admin role.\"}\n\tonInstalled={recordReceipt}\n/>",
+	"evaluationCriteria": [
+		"An unauthorized persona still reads every section; only the install action is disabled.",
+		"The refusal is stated in words, not implied by a disabled control.",
+		"Nothing is written before the confirmation: onInstall runs on confirm, and the receipt only after it settles.",
+		"The host owns the shell and the route; the widget renders neither.",
+		"At 820px the install panel stacks under the package rather than beside it."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Wakecore #206 — the injectable package surface the Connect Product Center needed (2026-09-09)",
+		"derivedFrom": {
+			"source": "The Connect WakeCore prototype's ProductDetail, which composed Card + Dialog + Badge + Button and held the install receipt in application state",
+			"extracted": [
+				"compact identity header with kind, version and channel",
+				"dependencies, outputs, permissions, evidence and version sections",
+				"governed install plan and confirmation",
+				"disabled/read-only presentation with an explicit denial reason",
+				"success receipt carrying package, version, project and actor"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-09-09",
+		"notes": [
+			"Authorisation is an input, never a decision the widget makes: it renders canInstall and denialReason, and touches nothing else on the surface.",
+			"Blockers are shown but never hidden behind the action — the plan stays reachable so a viewer can see WHY, and only the confirm is closed.",
+			"onInstall may return a promise; the action holds its pending state until it settles, and the receipt is stamped only after it resolves.",
+			"It is not InstallProductDialog: that is the four-step planner-driven flow over the WC3 fixture types, this is the package surface with a single governed confirmation over product-neutral props.",
+			"pilot: true"
+		]
+	}
+}

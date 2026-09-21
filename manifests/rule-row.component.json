@@ -1,0 +1,45 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "rule-row",
+	"tier": "component",
+	"name": "RuleRow",
+	"category": "form",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/rule-row.tsx",
+		"import": "@wakecap/core-ui/rule-row",
+		"export": "RuleRow"
+	},
+	"tags": [
+		"rule",
+		"row",
+		"reorder",
+		"builder",
+		"ordered-list"
+	],
+	"intent": "One row of an ordered rule list: reorder controls, the caller's condition controls, an optional trailing meta slot, and a delete button. Row order carries meaning in every rule builder we ship — first match wins — so reordering is first-class rather than an afterthought. The component owns the chrome and the affordances; the caller owns the rule shape and supplies whatever controls express it. ```tsx <RuleList onAdd={addRule}> {rules.map((rule, index) => ( <RuleRow key={rule.id} meta={<Badge variant=\"infoSoft\">{rule.affected} affected</Badge>} disableMoveUp={index === 0} disableMoveDown={index === rules.length - 1} onMoveUp={() => move(index, -1)} onMoveDown={() => move(index, 1)} onDelete={() => remove(rule.id)} > <Select …/> <Input …/> <span className=\"wwc:text-sm wwc:text-muted-foreground\">→ every</span> </RuleRow> ))} </RuleList> ```.",
+	"when": [],
+	"chooseOver": [],
+	"pairsWith": [],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "Group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — intent taken verbatim from the module's own doc comment; contract not yet enumerated",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Was exported from @wakecap/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
+			"Stub by design: the intent is accurate, the data contract is not yet authored.",
+			"pilot: false"
+		]
+	}
+}

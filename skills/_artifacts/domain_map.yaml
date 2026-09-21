@@ -1,0 +1,712 @@
+# skills/_artifacts/domain_map.yaml
+# Wakecore design system — domain discovery artifact
+# Packages: @wakecap/core-ui, @wakecap/core-tokens, @wakecap/core-utils
+
+library:
+  name: wakecore
+  packages:
+    - "@wakecap/core-ui"
+    - "@wakecap/core-tokens"
+    - "@wakecap/core-utils"
+  version: "0.0.1"
+  repository: "github.com/wakecap/Wakecore"
+  description: >
+    WakeCap's internal design system. Provides React 19 UI components,
+    OKLCH design tokens (light/dark), and className utilities for WakeCap
+    product feature development. All Tailwind utilities use the wwc: prefix.
+
+domains:
+  - slug: setup
+    name: Installation & Setup
+    description: >
+      Getting the packages installed (GitHub Packages auth), importing tokens
+      and fonts, and verifying the dev environment is wired correctly.
+    package: "@wakecap/core-tokens"
+    skills:
+      - slug: core-ui-quickstart
+        name: Quickstart
+        type: lifecycle
+        description: >
+          First-time setup: GitHub Packages .npmrc auth, installing all three
+          packages, importing tokens CSS, optional fonts, and rendering a first
+          component.
+        sources:
+          - "wakecap/Wakecore:README.md"
+          - "wakecap/Wakecore:packages/tokens/src/index.css"
+          - "wakecap/Wakecore:packages/tokens/src/fonts.css"
+        failure_modes:
+          - id: fm-setup-1
+            title: Importing from package root instead of deep path
+            priority: HIGH
+            description: >
+              Agent generates `import { Button } from "@wakecap/core-ui"` which
+              resolves to the barrel index (types/chat/mock-data only) instead of
+              the component. The import succeeds but Button is undefined at runtime.
+            wrong: 'import { Button } from "@wakecap/core-ui";'
+            correct: 'import { Button } from "@wakecap/core-ui/button";'
+            source: "wakecap/Wakecore:packages/components/package.json"
+            status: active
+          - id: fm-setup-2
+            title: Omitting tokens CSS import causes unstyled components
+            priority: HIGH
+            description: >
+              Components render with broken Tailwind utility classes because
+              `@wakecap/core-tokens` CSS (which defines the @theme inline bridge
+              and :root CSS vars) is never loaded.
+            wrong: "// No CSS import — relies on app's own Tailwind config"
+            correct: 'import "@wakecap/core-tokens";'
+            source: "wakecap/Wakecore:packages/tokens/src/index.css"
+            status: active
+          - id: fm-setup-3
+            title: Loading fonts CSS unconditionally in air-gapped environments
+            priority: MEDIUM
+            description: >
+              `@wakecap/core-tokens/fonts` imports Google Fonts via CDN. In
+              offline/air-gapped environments this causes a network timeout that
+              blocks font rendering. The CSS custom property fallbacks still work.
+            wrong: 'import "@wakecap/core-tokens/fonts"; // always'
+            correct: "// Only import in environments with CDN access; self-host otherwise"
+            source: "wakecap/Wakecore:README.md"
+            status: active
+          - id: fm-setup-4
+            title: Using unprefixed Tailwind classes with Wakecore components
+            priority: HIGH
+            description: >
+              Wakecore builds with `@import "tailwindcss" prefix(wwc)`. All
+              Tailwind utility classes use the `wwc:` prefix. Consumer code
+              that passes className to Wakecore components or uses cn() must
+              use `wwc:bg-primary`, not `bg-primary`. Unprefixed classes are
+              silently ignored by tailwind-merge because cn() is configured
+              with `prefix: "wwc"`.
+            wrong: '<Button className={cn("bg-red-500")}>Delete</Button>'
+            correct: '<Button className={cn("wwc:bg-red-500")}>Delete</Button>'
+            source: "wakecap/Wakecore:packages/utils/src/index.ts:4"
+            status: active
+
+  - slug: primitives
+    name: Component Primitives
+    description: >
+      Using and composing core UI components: Button, Card, Input, Dialog,
+      Select, Tabs, and the full primitive set. Covers variant selection,
+      className extension, asChild pattern, cva usage, and provider requirements.
+    package: "@wakecap/core-ui"
+    skills:
+      - slug: core-ui-components
+        name: Component Usage
+        type: core
+        description: >
+          How to import, use, and compose Wakecore primitives. Deep-path imports,
+          Button variants (default/destructive/outline/secondary/ghost/link) and
+          sizes, asChild delegation, loading state, cn() for className merging,
+          cva/VariantProps for custom variants. TooltipProvider and other
+          context requirements.
+        sources:
+          - "wakecap/Wakecore:packages/components/src/button.tsx"
+          - "wakecap/Wakecore:packages/components/src/sidebar.tsx"
+          - "wakecap/Wakecore:packages/components/src/tooltip.tsx"
+          - "wakecap/Wakecore:packages/components/package.json"
+          - "wakecap/Wakecore:packages/utils/src/index.ts"
+        failure_modes:
+          - id: fm-prim-1
+            title: Using barrel import instead of deep-path for components
+            priority: HIGH
+            description: >
+              `import { Button } from "@wakecap/core-ui"` resolves the barrel
+              index which only re-exports types, mock-data, and chatService.
+              Button is undefined silently.
+            wrong: 'import { Button } from "@wakecap/core-ui";'
+            correct: 'import { Button } from "@wakecap/core-ui/button";'
+            source: "wakecap/Wakecore:packages/components/src/index.ts"
+            status: active
+            skills:
+              - core-ui-quickstart
+              - core-ui-components
+          - id: fm-prim-2
+            title: Using Tooltip without TooltipProvider wrapper
+            priority: HIGH
+            description: >
+              Tooltip throws at runtime if not wrapped in TooltipProvider.
+              The error only appears when the tooltip tries to open.
+            wrong: |
+              <Tooltip>
+                <TooltipTrigger>hover me</TooltipTrigger>
+                <TooltipContent>info</TooltipContent>
+              </Tooltip>
+            correct: |
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>hover me</TooltipTrigger>
+                  <TooltipContent>info</TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            source: "wakecap/Wakecore:packages/components/src/navigation/core-dashboard-header.tsx:75"
+            status: active
+          - id: fm-prim-3
+            title: Using SidebarProvider without required children structure
+            priority: MEDIUM
+            description: >
+              SidebarProvider wraps the full layout with flex + CSS custom
+              properties. Placing it inside a component that has its own
+              positioning/layout causes double-flex or CSS var scoping issues.
+            wrong: |
+              // Inside a deeply nested component
+              <SidebarProvider>
+                <Sidebar>...</Sidebar>
+              </SidebarProvider>
+            correct: |
+              // At root layout level, wrapping full page
+              <SidebarProvider>
+                <Sidebar>...</Sidebar>
+                <main>{children}</main>
+              </SidebarProvider>
+            source: "wakecap/Wakecore:packages/components/src/sidebar.tsx:68"
+            status: active
+          - id: fm-prim-4
+            title: Passing className without cn() loses Tailwind precedence
+            priority: MEDIUM
+            description: >
+              Passing raw className string alongside variant classes causes
+              conflicting Tailwind utilities to merge unpredictably. cn() from
+              @wakecap/core-utils uses tailwind-merge to resolve conflicts correctly.
+            wrong: |
+              <Button className="wwc:bg-red-500">delete</Button>
+              // wwc:bg-red-500 may be overridden by wwc:bg-primary from variant
+            correct: |
+              import { cn } from "@wakecap/core-utils";
+              <Button className={cn("wwc:bg-red-500")}>delete</Button>
+              // tailwind-merge resolves wwc:bg- conflict in favour of last class
+            source: "wakecap/Wakecore:packages/utils/src/index.ts"
+            status: active
+          - id: fm-prim-5
+            title: Passing unprefixed className to Wakecore components
+            priority: HIGH
+            description: >
+              All Wakecore components use wwc:-prefixed Tailwind classes internally
+              and merge via cn() which is configured with prefix: "wwc". Passing
+              unprefixed overrides like className="bg-red-500" means tailwind-merge
+              cannot detect conflicts with the component's wwc:bg-primary default.
+            wrong: |
+              <Button className="bg-red-500 w-full">delete</Button>
+              // unprefixed — cn() can't resolve conflicts
+            correct: |
+              <Button className="wwc:bg-red-500 wwc:w-full">delete</Button>
+              // wwc: prefix — tailwind-merge resolves correctly
+            source: "wakecap/Wakecore:packages/utils/src/index.ts:4"
+            status: active
+
+  - slug: forms
+    name: Forms & Validation
+    description: >
+      Building validated forms with react-hook-form + zod + Form* components.
+      Covers Form/FormField/FormItem/FormLabel/FormControl/FormDescription/FormMessage
+      composition, useForm with zodResolver, field registration, and error display.
+    package: "@wakecap/core-ui"
+    skills:
+      - slug: core-ui-forms
+        name: Forms & Validation
+        type: core
+        description: >
+          Building forms with @wakecap/core-ui/form, react-hook-form, zod, and
+          @hookform/resolvers/zod. Form, FormField, FormItem, FormLabel, FormControl,
+          FormDescription, FormMessage. useFormField hook. zodResolver wiring.
+        sources:
+          - "wakecap/Wakecore:packages/components/src/form.tsx"
+          - "wakecap/Wakecore:packages/components/package.json"
+        failure_modes:
+          - id: fm-form-1
+            title: Using FormControl without FormItem context crashes silently
+            priority: HIGH
+            description: >
+              FormControl calls useFormField() which reads FormItemContext. If
+              FormControl is rendered outside FormItem the context is empty
+              ({} as FormItemContextValue), causing id/aria attributes to be
+              undefined strings.
+            wrong: |
+              <FormField control={form.control} name="email" render={({ field }) => (
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+              )} />
+            correct: |
+              <FormField control={form.control} name="email" render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )} />
+            source: "wakecap/Wakecore:packages/components/src/form.tsx:43"
+            status: active
+          - id: fm-form-2
+            title: Not wrapping with Form (FormProvider) loses form context
+            priority: CRITICAL
+            description: >
+              useFormContext() inside FormField throws if FormProvider (re-exported
+              as Form) is not an ancestor. Agent may omit Form wrapper when
+              constructing form JSX.
+            wrong: |
+              // Missing <Form> wrapper
+              <FormField control={form.control} name="name" render={...} />
+            correct: |
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                  <FormField control={form.control} name="name" render={...} />
+                </form>
+              </Form>
+            source: "wakecap/Wakecore:packages/components/src/form.tsx:17"
+            status: active
+          - id: fm-form-3
+            title: Importing Form components from wrong path
+            priority: HIGH
+            description: >
+              All Form* components are exported from `@wakecap/core-ui/form`.
+              Importing from `@wakecap/core-ui` barrel or from react-hook-form
+              directly misses the styled wrappers and context plumbing.
+            wrong: 'import { FormField } from "react-hook-form";'
+            correct: 'import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@wakecap/core-ui/form";'
+            source: "wakecap/Wakecore:packages/components/src/form.tsx:137"
+            status: active
+
+  - slug: data-tables
+    name: Data Tables
+    description: >
+      Building sortable, filterable, paginated tables with DataTable and
+      @tanstack/react-table ColumnDef. Tree/nested rows with getSubRows,
+      expandable rows with renderSubComponent, DataTableColumnHeader for sort,
+      DataTableTreeCell for indent, DataTableRowGroup for collapsible groups.
+    package: "@wakecap/core-ui"
+    skills:
+      - slug: core-ui-data-table
+        name: Data Table
+        type: core
+        description: >
+          DataTable component from @wakecap/core-ui/data-table. ColumnDef with
+          @tanstack/react-table. Sorting, filtering, pagination, column visibility.
+          Expandable rows (renderSubComponent), tree/nested rows (getSubRows),
+          DataTableRowGroup collapsible sections, DataTableTreeCell indent,
+          DataTableColumnHeader sort button, DataTableExpandButton.
+        sources:
+          - "wakecap/Wakecore:packages/components/src/data-table.tsx"
+        failure_modes:
+          - id: fm-dt-1
+            title: Setting searchKey to non-existent column id silently breaks filter
+            priority: HIGH
+            description: >
+              DataTable calls `table.getColumn(searchKey)` — if searchKey doesn't
+              match a column's `accessorKey` or `id` the column is undefined, the
+              filter input renders but has no effect.
+            wrong: |
+              <DataTable
+                columns={columns}
+                data={data}
+                searchKey="fullName"   // column accessorKey is "name"
+              />
+            correct: |
+              <DataTable
+                columns={columns}
+                data={data}
+                searchKey="name"   // must match accessorKey or id exactly
+              />
+            source: "wakecap/Wakecore:packages/components/src/data-table.tsx:108"
+            status: active
+          - id: fm-dt-2
+            title: Using renderSubComponent without getRowCanExpand
+            priority: MEDIUM
+            description: >
+              renderSubComponent is only called when row.getIsExpanded() is true.
+              Without getRowCanExpand returning true, rows can never expand — the
+              sub-component is never rendered but no error is thrown.
+            wrong: |
+              <DataTable
+                columns={columns}
+                data={data}
+                renderSubComponent={({ row }) => <Detail row={row} />}
+                // missing getRowCanExpand
+              />
+            correct: |
+              <DataTable
+                columns={columns}
+                data={data}
+                getRowCanExpand={() => true}
+                renderSubComponent={({ row }) => <Detail row={row} />}
+              />
+            source: "wakecap/Wakecore:packages/components/src/data-table.tsx:171"
+            status: active
+          - id: fm-dt-3
+            title: Mixing getSubRows (tree) and renderSubComponent (detail panel)
+            priority: MEDIUM
+            description: >
+              getSubRows produces nested child rows via @tanstack/react-table's
+              tree model. renderSubComponent renders a full-width detail panel for
+              expanded rows. Using both simultaneously causes double rendering —
+              child rows AND the detail panel appear when a row expands.
+            wrong: |
+              <DataTable
+                data={data}
+                getSubRows={(row) => row.children}
+                renderSubComponent={({ row }) => <Detail />}
+              />
+            correct: "// Use one or the other. getSubRows for tree data. renderSubComponent for expand-to-detail."
+            source: "wakecap/Wakecore:packages/components/src/data-table.tsx:40"
+            status: active
+
+  - slug: charts
+    name: Charts & Data Visualisation
+    description: >
+      Two chart systems in @wakecap/core-ui: ChartContainer (ECharts wrapper
+      with useChartTheme hook for design token colors) and ChartRenderer
+      (lightweight ECharts for AI-generated charts, uses ChartData type).
+      getCssVarAsRgb and getChartColors from @wakecap/core-utils for direct
+      ECharts or custom canvas consumers.
+    package: "@wakecap/core-ui"
+    skills:
+      - slug: core-ui-charts
+        name: Charts
+        type: core
+        description: >
+          ChartContainer (ECharts wrapper), useChartTheme hook, ChartConfig
+          type from @wakecap/core-ui/chart. ChartRenderer from
+          @wakecap/core-ui/chat/core-chart-renderer for AI-generated charts.
+          ChartData type, ChartType (bar/line/area/pie/scatter).
+          getCssVarAsRgb, getChartColors from @wakecap/core-utils.
+        sources:
+          - "wakecap/Wakecore:packages/components/src/chart.tsx"
+          - "wakecap/Wakecore:packages/components/src/chat/core-chart-renderer.tsx"
+          - "wakecap/Wakecore:packages/utils/src/index.ts"
+          - "wakecap/Wakecore:packages/tokens/src/index.css"
+        failure_modes:
+          - id: fm-chart-1
+            title: Using ReactECharts directly instead of ChartContainer
+            priority: MEDIUM
+            description: >
+              ChartContainer wraps ReactECharts with notMerge=true and
+              consistent styling. Using ReactECharts directly bypasses
+              the design system integration.
+            wrong: |
+              import ReactECharts from "echarts-for-react";
+              <ReactECharts option={option} />
+            correct: |
+              import { ChartContainer } from "@wakecap/core-ui/chart";
+              <ChartContainer option={option} style={{ height: 300 }} />
+            source: "wakecap/Wakecore:packages/components/src/chart.tsx:46"
+            status: active
+          - id: fm-chart-2
+            title: Calling getCssVarAsRgb/getChartColors server-side or in SSR
+            priority: HIGH
+            description: >
+              getCssVarAsRgb and getChartColors use document.createElement and
+              getComputedStyle — browser-only APIs. Calling them at module level
+              or in a server component causes ReferenceError: document is not defined.
+            wrong: |
+              // At module level
+              const colors = getChartColors();
+            correct: |
+              // Inside useEffect or event handler
+              useEffect(() => {
+                const colors = getChartColors();
+                setColors(colors);
+              }, []);
+            source: "wakecap/Wakecore:packages/utils/src/index.ts:12"
+            status: active
+          - id: fm-chart-3
+            title: Providing ChartConfig color as CSS var string instead of value
+            priority: MEDIUM
+            description: >
+              ChartContainer injects `--color-{key}` CSS custom properties from
+              ChartConfig.color values. Passing a CSS var reference like
+              `var(--chart-1)` as the color string causes the injected property
+              to be `--color-sales: var(--chart-1)` which works, but passing
+              an OKLCH string directly does not resolve in older Safari without
+              the browser doing the conversion.
+            wrong: |
+              const config = {
+                sales: { label: "Sales", color: "oklch(0.78 0.17 65)" }
+              };
+            correct: |
+              const config = {
+                sales: { label: "Sales", color: "var(--chart-3)" }
+                // or use hex: color: "#d99447"
+              };
+            source: "wakecap/Wakecore:packages/components/src/chart.tsx:60"
+            status: active
+
+  - slug: chat
+    name: Chat & AI Widget
+    description: >
+      ChatWidget (floating AI assistant), ChatPanel (open panel), ChatMessage,
+      ChatInput, ChartRenderer. Message/ChartMessage/TextMessage types. DashboardWidget
+      for add-to-page callback. sendChatMessage service stub for wiring a real API.
+      generateId utility.
+    package: "@wakecap/core-ui"
+    skills:
+      - slug: core-ui-chat
+        name: Chat Widget
+        type: core
+        description: >
+          ChatWidget from @wakecap/core-ui/chat/core-chat-widget. Floating AI
+          assistant with open/minimize/close state. onAddWidget callback for
+          add-to-page flow. apiEndpoint prop to connect real backend.
+          Message, TextMessage, ChartMessage, DashboardWidget types from
+          @wakecap/core-ui/types/chat. sendChatMessage service from
+          @wakecap/core-ui/services/chatService — replace mock with real fetch.
+        sources:
+          - "wakecap/Wakecore:packages/components/src/chat/core-chat-widget.tsx"
+          - "wakecap/Wakecore:packages/components/src/chat/core-chat-panel.tsx"
+          - "wakecap/Wakecore:packages/components/src/chat/core-chat-message.tsx"
+          - "wakecap/Wakecore:packages/components/src/chat/core-chat-input.tsx"
+          - "wakecap/Wakecore:packages/components/src/chat/core-chart-renderer.tsx"
+          - "wakecap/Wakecore:packages/components/src/services/chatService.ts"
+          - "wakecap/Wakecore:packages/components/src/types/chat.ts"
+        failure_modes:
+          - id: fm-chat-1
+            title: Passing apiEndpoint but not replacing the mock sendChatMessage
+            priority: HIGH
+            description: >
+              ChatWidget accepts apiEndpoint and passes it to sendChatMessage, but
+              the bundled sendChatMessage ignores both arguments and returns mock
+              data. The prop has no effect unless the consumer replaces or wraps
+              the service. There is no error — it silently returns demo responses.
+            wrong: |
+              <ChatWidget apiEndpoint="https://api.example.com/chat" />
+              // apiEndpoint is passed but sendChatMessage still returns mock data
+            correct: |
+              // Replace the service before rendering:
+              // Option A — fork sendChatMessage in your own code
+              // Option B — wrap ChatWidget and intercept onSendMessage at ChatPanel level
+              // The built-in service is a demo stub, not a real HTTP client
+            source: "wakecap/Wakecore:packages/components/src/services/chatService.ts:13"
+            status: active
+          - id: fm-chat-2
+            title: Assuming ChartMessage.chart field instead of ChartMessage.chartData
+            priority: HIGH
+            description: >
+              ChartMessage has both a `chart` field (optional, legacy) and a
+              `chartData` field. ChatMessage and ChartRenderer use `chartData`.
+              Accessing `message.chart` when building custom renderers returns
+              undefined while `message.chartData` has the data.
+            wrong: |
+              if (message.type === "chart") {
+                renderChart(message.chart);   // undefined
+              }
+            correct: |
+              if (message.type === "chart") {
+                renderChart(message.chartData);  // correct
+              }
+            source: "wakecap/Wakecore:packages/components/src/types/chat.ts:36"
+            status: active
+          - id: fm-chat-3
+            title: ChartRenderer pie chart expects data with 'value' and 'name' keys
+            priority: MEDIUM
+            description: >
+              ChartRenderer's pie case hard-codes `dataKey="value"` and
+              `nameKey="name"`. Passing ChartData with differently named keys
+              (e.g. `count`, `label`) renders a pie with no segments or incorrect
+              tooltips.
+            wrong: |
+              chartData = {
+                chartType: "pie",
+                data: [{ category: "A", total: 100 }],
+                // 'value' and 'name' keys are missing
+              }
+            correct: |
+              chartData = {
+                chartType: "pie",
+                data: [{ name: "A", value: 100 }],
+                config: { A: { label: "A" } },
+              }
+            source: "wakecap/Wakecore:packages/components/src/chat/core-chart-renderer.tsx:148"
+            status: active
+
+  - slug: tokens
+    name: Design Tokens
+    description: >
+      OKLCH CSS custom properties, Tailwind 4 @theme inline bridge with wwc:
+      prefix, light/dark mode via .dark class, color/radius/font/shadow/spacing
+      variables, pre-built CSS alternative, and the optional Google Fonts stylesheet.
+    package: "@wakecap/core-tokens"
+    skills:
+      - slug: core-tokens
+        name: Design Tokens
+        type: core
+        description: >
+          @wakecap/core-tokens CSS variables. OKLCH colors: --background,
+          --foreground, --primary, --secondary, --muted, --accent, --destructive,
+          --border, --input, --ring, --chart-1..5, sidebar variants. Radius:
+          --radius-sm/md/lg/xl. Fonts: --font-sans/serif/mono. Dark mode via
+          .dark class. Tailwind 4 @theme inline bridge maps --color-primary etc.
+          Import paths: "@wakecap/core-tokens" (CSS vars + Tailwind) or
+          "@wakecap/core-tokens/fonts" (Google Fonts CDN, opt-in).
+        sources:
+          - "wakecap/Wakecore:packages/tokens/src/index.css"
+          - "wakecap/Wakecore:packages/tokens/src/fonts.css"
+          - "wakecap/Wakecore:packages/tokens/package.json"
+        failure_modes:
+          - id: fm-tok-1
+            title: Applying dark mode with prefers-color-scheme instead of .dark class
+            priority: HIGH
+            description: >
+              Tokens only define dark mode values under the `.dark` selector class.
+              There is no `@media (prefers-color-scheme: dark)` variant. Adding
+              the class to `<html>` or a parent element is the only mechanism.
+            wrong: |
+              /* Won't activate token dark values */
+              @media (prefers-color-scheme: dark) {
+                body { background: var(--background); }
+              }
+            correct: |
+              /* Toggle .dark class on <html> */
+              document.documentElement.classList.toggle('dark', isDark);
+            source: "wakecap/Wakecore:packages/tokens/src/index.css:89"
+            status: active
+          - id: fm-tok-2
+            title: Referencing token CSS vars before tokens CSS is imported
+            priority: HIGH
+            description: >
+              Using `var(--primary)` or Tailwind `wwc:bg-primary` in a component
+              before `@wakecap/core-tokens` CSS is loaded produces transparent
+              colors (var resolves to empty string). Component renders but is
+              invisible or incorrectly coloured.
+            wrong: |
+              // Component file loaded before tokens
+              <div className="wwc:bg-primary wwc:text-primary-foreground">...</div>
+            correct: |
+              // In app entry point, before any component CSS
+              import "@wakecap/core-tokens";
+            source: "wakecap/Wakecore:packages/tokens/src/index.css:1"
+            status: active
+          - id: fm-tok-3
+            title: Using Tailwind color utilities without the @theme inline bridge
+            priority: MEDIUM
+            description: >
+              The @theme inline block in index.css maps Tailwind 4 color utilities
+              (bg-primary, text-foreground, etc.) to the CSS vars. Without importing
+              @wakecap/core-tokens, these utilities emit no styles — Tailwind 4
+              does not include these mappings by default.
+            wrong: |
+              // Custom component that uses Tailwind token utilities
+              // but the consuming app doesn't import @wakecap/core-tokens
+              <div className="wwc:bg-sidebar wwc:text-sidebar-foreground" />
+            correct: |
+              // Ensure @wakecap/core-tokens is imported in the app entry point
+              import "@wakecap/core-tokens";
+            source: "wakecap/Wakecore:packages/tokens/src/index.css:3"
+            status: active
+
+  - slug: utils
+    name: Utilities
+    description: >
+      cn() for className merging with wwc: prefix support, cva/VariantProps for
+      component variants, cssColorToRgb/getChartColors/getCssVarAsRgb for ECharts
+      and canvas-based chart libraries.
+    package: "@wakecap/core-utils"
+    skills:
+      - slug: core-utils
+        name: Utilities
+        type: core
+        description: >
+          cn() from @wakecap/core-utils: clsx + tailwind-merge with wwc: prefix
+          config, resolves conflicting wwc:-prefixed Tailwind utilities. cva,
+          VariantProps re-exported from class-variance-authority. cssColorToRgb,
+          getChartColors, getCssVarAsRgb — browser-only OKLCH-to-RGB converters.
+        sources:
+          - "wakecap/Wakecore:packages/utils/src/index.ts"
+          - "wakecap/Wakecore:packages/utils/package.json"
+        failure_modes:
+          - id: fm-utils-1
+            title: Calling DOM color utils in non-browser context
+            priority: HIGH
+            description: >
+              cssColorToRgb, getChartColors, and getCssVarAsRgb each call
+              document.createElement and document.body.appendChild. Calling them
+              in server components, Node.js scripts, or Vitest unit tests (without
+              a DOM) throws ReferenceError: document is not defined.
+            wrong: |
+              // In a server component or at module level
+              export const chartColors = getChartColors();
+            correct: |
+              // Only in browser event handlers or useEffect
+              useEffect(() => {
+                setColors(getChartColors());
+              }, []);
+            source: "wakecap/Wakecore:packages/utils/src/index.ts:9"
+            status: active
+          - id: fm-utils-2
+            title: Expecting cn() to deduplicate non-conflicting classes
+            priority: MEDIUM
+            description: >
+              cn() uses tailwind-merge which only removes conflicting Tailwind
+              utilities (e.g. two wwc:bg-* values). Non-conflicting duplicates
+              (e.g. two identical aria-* or data-* attributes) are not deduplicated.
+              This is expected behaviour but agents sometimes expect full deduplication.
+            wrong: |
+              cn("wwc:p-2 wwc:rounded", "wwc:p-2 wwc:rounded")
+              // returns "wwc:p-2 wwc:rounded wwc:p-2 wwc:rounded"
+            correct: |
+              cn("wwc:p-2 wwc:rounded wwc:bg-primary", "wwc:bg-secondary")
+              // returns "wwc:p-2 wwc:rounded wwc:bg-secondary" — conflict resolved
+            source: "wakecap/Wakecore:packages/utils/src/index.ts:4"
+            status: active
+          - id: fm-utils-3
+            title: Passing unprefixed Tailwind classes to cn()
+            priority: HIGH
+            description: >
+              cn() uses extendTailwindMerge({ prefix: "wwc" }). Without the
+              prefix, tailwind-merge treats classes as unknown custom classes and
+              keeps all of them. Conflicts between bg-primary and bg-destructive
+              are silently ignored — both appear in the output.
+            wrong: |
+              cn("bg-primary text-white", "bg-destructive")
+              // returns "bg-primary text-white bg-destructive" — no resolution
+            correct: |
+              cn("wwc:bg-primary wwc:text-white", "wwc:bg-destructive")
+              // returns "wwc:text-white wwc:bg-destructive" — resolved
+            source: "wakecap/Wakecore:packages/utils/src/index.ts:4"
+            status: active
+
+  - slug: composition
+    name: Composition & Selection
+    description: >
+      Choosing between overlapping components (overlays, actions, inputs, data,
+      navigation, feedback) and assembling screens with correct provider wiring.
+      The machine-readable when/why catalog lives in library-index.json
+      (per-component intent/when/chooseOver/requires/variantIntent, and a
+      patterns[] composition-recipe catalog). Deep wrong/correct code stays in
+      the failure_modes above and is referenced by fm-* id.
+    package: "@wakecap/core-ui"
+    skills:
+      - slug: core-ui-composition
+        name: Composition & Selection
+        type: reference
+        description: >
+          Component selection guides, composition rules (required providers /
+          ancestors / nesting), workflow recipes, and variant semantics. The
+          narrative companion to the library-index.json semantic catalog.
+        sources:
+          - "wakecap/Wakecore:library-index.json"
+          - "wakecap/Wakecore:packages/components/src/dialog.tsx"
+          - "wakecap/Wakecore:packages/components/src/navigation/core-app-sidebar.tsx"
+
+tensions:
+  - domains: [charts, tokens]
+    description: >
+      Chart color sourcing conflict. ChartRenderer uses hardcoded hex CHART_COLORS
+      (approximations of token OKLCH values) while ChartContainer uses ChartConfig
+      which can reference CSS vars (var(--chart-1)). Mixing the two systems in the
+      same view produces colour inconsistency in dark mode, since CHART_COLORS
+      are fixed hex but CSS vars change with .dark class.
+
+cross_references:
+  - from: core-ui-components
+    to: core-tokens
+    reason: Components use Tailwind utilities that depend on @theme inline bridge from tokens
+  - from: core-ui-components
+    to: core-utils
+    reason: cn() and cva/VariantProps are used in every component
+  - from: core-ui-charts
+    to: core-utils
+    reason: getCssVarAsRgb/getChartColors bridge token OKLCH values for ECharts consumers
+  - from: core-ui-chat
+    to: core-ui-charts
+    reason: ChatMessage renders ChartRenderer for chart-type messages

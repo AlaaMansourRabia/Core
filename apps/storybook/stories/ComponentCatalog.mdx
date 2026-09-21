@@ -1,0 +1,24 @@
+import {Meta} from "@storybook/addon-docs/blocks";
+
+import {ComponentCatalog} from "./ComponentCatalog";
+import {TierBanner} from "./_docs/TierBanner";
+
+<Meta title="Components/Overview" />
+
+# Components — index
+
+<TierBanner tier="components" />
+
+The searchable index of every Wakecore component, drawn from [`library-index.json`](https://github.com/wakecap/Wakecore/blob/develop/library-index.json) — the same knowledge AI agents load to decide _which_ component to use, _when_, and _how_ to compose a screen.
+
+**Each component's full entry now lives on its own Docs page.** Intent, when to use, when _not_ to, what to **choose it over**, required wiring, what it **pairs with**, and per-variant meaning all render at the top of that component's page (look for the **Catalog knowledge** panel). This page stays the thin, searchable index — search or filter below and click through.
+
+A `knowledgeLevel` flag marks how mature each entry is:
+
+- **full** — hand-authored decision guidance (intent + when + chooseOver + variants)
+- **concise** — hand-authored intent + when
+- **generated** — structural only (path/import/variants), semantics not yet authored
+
+The prose companion lives in the `core-ui-composition` skill (see **Agent Skills**); deep wrong/correct fixes live in the failure-mode map.
+
+<ComponentCatalog />

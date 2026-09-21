@@ -1,0 +1,57 @@
+[
+	{
+		"id": "side-panel",
+		"title": "Side panel vs centered modal",
+		"prompt": "Build a panel that slides in from the right edge of the screen so a user can edit a list of filters without leaving the current page. Keep the main content visible behind it.",
+		"decision": "Sheet over Dialog (chooseOver)",
+		"differences": [
+			"A1 tends to use a centered Dialog that blocks the whole page",
+			"A4 uses a Sheet that slides from the edge, main content still visible",
+			"The screen layout is fundamentally different, not just styled differently"
+		]
+	},
+	{
+		"id": "data-grid",
+		"title": "Rich data grid vs plain table",
+		"prompt": "Render a list of 500 workers with columns for name, role, and site. Users need to sort by any column, filter by name, and page through the results.",
+		"decision": "DataTable over Table (chooseOver)",
+		"differences": [
+			"A1 tends to render a plain static table",
+			"A4 uses DataTable: sortable column headers, a filter input, pagination controls",
+			"A4 shows interactive chrome the baseline simply does not have"
+		]
+	},
+	{
+		"id": "transient-feedback",
+		"title": "Transient toast vs inline alert",
+		"prompt": "After a user saves their settings, show a brief confirmation that auto-dismisses after a few seconds and does not take up permanent space on the page. Include whatever app-root wiring is needed for it to appear.",
+		"decision": "Sonner/Toaster over Alert (chooseOver + requires)",
+		"differences": [
+			"A1 tends to use a permanent inline Alert that occupies page space",
+			"A4 uses a floating toast that auto-dismisses (with the required Toaster at the root)",
+			"Best seen as a 2-frame / short capture: appears, then fades"
+		]
+	},
+	{
+		"id": "multi-step-form",
+		"title": "Multi-step form workflow",
+		"prompt": "Build a guided 'create project' flow split into three steps: first the project's basic details, then its team members, then a final review of everything entered. Show the user's progress through the steps, validate each step before advancing, and let the user move back and forward between steps.",
+		"decision": "Stepper + Form composition (pattern)",
+		"differences": [
+			"A1 tends to render one long flat form",
+			"A4 uses a Stepper with a progress indicator, sectioned steps, and inline validation",
+			"A4 adds wayfinding (back/next, step state) the baseline lacks"
+		]
+	},
+	{
+		"id": "destructive-action",
+		"title": "Destructive action emphasis",
+		"prompt": "Add a button that permanently deletes the selected record. Make its visual treatment communicate that the action is dangerous and irreversible.",
+		"decision": "Button variant=\"destructive\" (variantIntent)",
+		"differences": [
+			"A1 tends to render a neutral / default button",
+			"A4 uses the destructive (red) variant",
+			"Smallest change, crispest read: a clean emphasis/color difference"
+		]
+	}
+]

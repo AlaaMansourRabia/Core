@@ -1,0 +1,52 @@
+name: Publish Packages
+
+# On push to main (via merged PR that already passed Quality Gate):
+# - If there are changeset files → opens/updates a "Version Packages" PR
+# - If changeset files were just consumed (version bump merge) → publishes to GitHub Packages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: "https://npm.pkg.github.com"
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Generate bot token
+        id: bot-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.WAKECAP_CI_BOT_APP_ID }}
+          private-key: ${{ secrets.WAKECAP_CI_BOT_PRIVATE_KEY }}
+
+      - name: Build all packages
+        run: pnpm --filter "@wakecap/core-*" build
+
+      - name: Create release PR or publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          title: "Version Packages"
+          commit: "chore: version packages"
+          publish: pnpm changeset publish
+        env:
+          GITHUB_TOKEN: ${{ steps.bot-token.outputs.token }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,170 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "graph-canvas",
+	"tier": "widget",
+	"name": "GraphCanvas",
+	"category": "data",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/graph-canvas.tsx",
+		"import": "@wakecap/core-ui/graph-canvas",
+		"export": "GraphCanvas"
+	},
+	"tags": [
+		"graph",
+		"canvas",
+		"nodes",
+		"edges",
+		"dag",
+		"flow",
+		"xyflow",
+		"lineage",
+		"state-machine"
+	],
+	"intent": "Themed node-and-edge canvas: dotted background, controls, optional minimap, and the house viewport defaults for a layered DAG.",
+	"when": [
+		"A state machine, pipeline wiring, lineage DAG or ontology graph",
+		"Any surface where nodes and typed edges are the content"
+	],
+	"whenNot": [
+		"A hierarchy that reads better as a tree -> use TreeRow",
+		"A chart of values rather than a graph of relations -> use Chart or TrendChart"
+	],
+	"chooseOver": [
+		{
+			"component": "ReactFlow assembled by hand",
+			"because": "Four canvases each re-typed the provider, background, controls and viewport defaults, and had already drifted — three padded fitView and one did not. This keeps them one surface while forwarding every ReactFlowProps so the domain stays with the caller."
+		}
+	],
+	"pairsWith": [
+		"Card",
+		"RecordDetailShell",
+		"Legend"
+	],
+	"requiredProviders": [
+		"Wraps its own ReactFlowProvider unless withProvider is false"
+	],
+	"dataContract": {
+		"input": {
+			"nodes": {
+				"type": "Node[]",
+				"required": true
+			},
+			"edges": {
+				"type": "Edge[]",
+				"required": true
+			},
+			"nodeTypes": {
+				"type": "NodeTypes",
+				"required": false,
+				"note": "The caller's domain node renderers."
+			},
+			"layout": {
+				"type": "\"layered\" | \"free\"",
+				"required": false,
+				"note": "layered adds smoothstep edges and fitView padding; free drops both."
+			},
+			"showMiniMap": {
+				"type": "boolean",
+				"required": false
+			},
+			"onFitView": {
+				"type": "() => void",
+				"required": false,
+				"note": "For a canvas that wants an animated re-fit."
+			}
+		},
+		"events": {
+			"onNodeClick": {
+				"payload": {
+					"node": "Node"
+				}
+			},
+			"onPaneClick": {
+				"payload": {}
+			}
+		},
+		"rowIdentity": "Node and edge ids must be unique within one canvas."
+	},
+	"configSchema": {
+		"layout": {
+			"type": "string",
+			"default": "layered"
+		},
+		"showMiniMap": {
+			"type": "boolean",
+			"default": false
+		},
+		"showControls": {
+			"type": "boolean",
+			"default": true
+		},
+		"withProvider": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"slots": {
+		"children": {
+			"description": "Panels, overlays and legends rendered inside the canvas",
+			"accepts": [
+				"component",
+				"widget"
+			]
+		}
+	},
+	"states": {
+		"layered": "smoothstep edges and a padded fitView that frames the whole graph on mount.",
+		"free": "No edge-type default and no fit padding — for a radial graph the user navigates.",
+		"withMiniMap": "A pannable, zoomable minimap in the corner."
+	},
+	"composedOf": [
+		"ReactFlow",
+		"Background",
+		"Controls",
+		"MiniMap"
+	],
+	"allowedPlacement": [
+		"inside a fixed-height or min-h-0 flex container"
+	],
+	"forbiddenPlacement": [
+		"a container with no resolved height — the canvas collapses to a 0px strip"
+	],
+	"minimalExample": "import {GraphCanvas} from \"@wakecap/core-ui/graph-canvas\";\n\n<GraphCanvas nodes={nodes} edges={edges} nodeTypes={NODE_TYPES} onNodeClick={select} />",
+	"evaluationCriteria": [
+		"The xyflow attribution stays visible — MIT terms depend on it.",
+		"The canvas sits in a container with a resolved height.",
+		"A radial graph passes layout=\"free\" rather than inheriting DAG defaults."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Extracted from the four xyflow canvases found in the missing-widgets template review (2026-08-25)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-lineage-data-view.tsx",
+			"extracted": [
+				"ReactFlowProvider wrapper",
+				"dotted Background at gap 16",
+				"Controls with showInteractive off",
+				"smoothstep edge default for layered DAGs (layout=\"free\" opts out; the process state machine does)",
+				"fitView with 0.12 padding, minZoom 0.2",
+				"visible attribution"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": "The inline ReactFlow surfaces in wc3-process-detail, wc3-pipeline-detail, wc3-lineage-data-view and wc3-graph-explorer-flow",
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"The four had already diverged: three passed fitViewOptions padding and wc3-graph-explorer-flow did not.",
+			"proOptions.hideAttribution stays false — @xyflow/react is MIT only while the credit shows.",
+			"colorMode is derived from the `dark` class Wakecore toggles on <html> and passed to ReactFlow, which is the only supported way to reach React Flow's own `.react-flow.dark` chrome — node fill and border, edge stroke, Controls, MiniMap. A caller can still pin a canvas by passing colorMode itself. Added when the process state machine moved onto React Flow's built-in default node, which is otherwise white with a near-black border on a near-black page.",
+			"The canvas ground is React Flow's own --xy-background-color, set to the two values reactflow.dev's example theme (xy-theme.css) uses: #f7f9fb light, #101012 dark. It replaced a bg-muted/20 class, which beat the library's own background rule; setting their variable instead leaves that rule in charge and a caller can still override through `style`. The Background dots carry no colour prop or class — the dot fill reads --xy-background-pattern-dots-color-default (#91919a / #555), never currentColor, so the text-border class that used to sit there painted nothing.",
+			"It is the ONE DOOR to @xyflow/react. Alongside the component it re-exports everything a canvas page needs — Handle, Position, MarkerType, Panel, useNodesState, useEdgesState, useReactFlow, and the Node / Edge / NodeProps / EdgeProps / Connection / FinalConnectionState types — plus the stylesheet, loaded once from here and verified to survive the tsdown build. Nothing is renamed or wrapped: these ARE React Flow's primitives, and Wakecore-sounding aliases would only make the next person open two files to find the real documentation. What the re-export buys is that one module owns the dependency, its version and its context, so a page cannot pick up a second copy or drift onto an API this canvas has not adopted. StateMachine names no third-party package because of it; the pipeline, lineage and ontology canvases still import xyflow directly and have not been migrated.",
+			"A SELECTED node carries a 2px primary ring and a soft lift, set as React Flow's own --xy-node-boxshadow-selected rather than a rule of ours, so the library still owns when the ring appears and on which element. Its default is 0.5px of near-black, which is readable on a white node and invisible on a tinted one. React Flow scopes the declaration to the built-in node type names, so it reaches a node registered under `default` and leaves canvases with fully custom node components alone; the same rule covers :focus-visible, so a keyboard user gets the identical ring. One consequence worth knowing: because React Flow shares one variable between .selected and :focus, a node deselected by clicking it a second time keeps the ring until focus moves.",
+			"showControls turns off React Flow's own Controls for a canvas whose surrounding chrome already owns zoom and fit — NodeGraph, which draws the ZoomTools row above it. Two fit buttons on one canvas is one too many.",
+			"pilot: true"
+		]
+	}
+}

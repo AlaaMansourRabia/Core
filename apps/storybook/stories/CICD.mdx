@@ -1,0 +1,415 @@
+import {Meta} from "@storybook/addon-docs/blocks";
+
+<Meta title="Getting Started/CI-CD" />
+
+# CI/CD Pipelines
+
+Wakecore uses 5 GitHub Actions workflows that work together to validate code, run visual regression tests, and publish packages across two release channels.
+
+## Branching Strategy
+
+Wakecore follows **Git Flow** with two long-lived branches:
+
+<table>
+	<thead>
+		<tr>
+			<th>Branch</th>
+			<th>Role</th>
+			<th>PR Target</th>
+			<th>Publish Channel</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<code>develop</code>
+			</td>
+			<td>Default branch, active development</td>
+			<td>All feature PRs target here</td>
+			<td>
+				<code>@next</code> pre-release on every merge
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>main</code>
+			</td>
+			<td>Stable releases</td>
+			<td>Periodic merges from develop</td>
+			<td>
+				<code>@latest</code> stable via Changesets
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+**Typical flow:**
+
+```
+feature branch → PR to develop → merge → @next auto-publish
+                 develop → PR to main → merge → Changesets opens "Version Packages" PR → merge → @latest publish
+```
+
+## Workflow Overview
+
+<table>
+	<thead>
+		<tr>
+			<th>Workflow</th>
+			<th>File</th>
+			<th>Trigger</th>
+			<th>Purpose</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<strong>Quality Gate</strong>
+			</td>
+			<td>
+				<code>ci.yml</code>
+			</td>
+			<td>Push &amp; PR to main/develop</td>
+			<td>Lint, format, build, typecheck, and test</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Chromatic</strong>
+			</td>
+			<td>
+				<code>chromatic.yml</code>
+			</td>
+			<td>Push &amp; PR to main/develop</td>
+			<td>Visual regression testing via Storybook snapshots</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Publish Packages</strong>
+			</td>
+			<td>
+				<code>publish.yml</code>
+			</td>
+			<td>Push to main</td>
+			<td>Stable releases via Changesets</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Publish Pre-release</strong>
+			</td>
+			<td>
+				<code>publish-next.yml</code>
+			</td>
+			<td>Push to develop</td>
+			<td>
+				Pre-release <code>@next</code> packages
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Intent — Validate Skills</strong>
+			</td>
+			<td>
+				<code>intent-validate.yml</code>
+			</td>
+			<td>Push &amp; PR when skill files change</td>
+			<td>Validate TanStack Intent SKILL.md files</td>
+		</tr>
+	</tbody>
+</table>
+
+---
+
+## Quality Gate
+
+**File:** `.github/workflows/ci.yml`
+
+The core CI pipeline. Every push and PR to `main` or `develop` must pass this gate before anything can be published. It runs **4 parallel jobs:**
+
+<table>
+	<thead>
+		<tr>
+			<th>Job</th>
+			<th>Runs On</th>
+			<th>What It Does</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<strong>Commit Messages</strong>
+			</td>
+			<td>PRs only</td>
+			<td>
+				Validates commit messages against <a href="https://www.conventionalcommits.org/">Conventional Commits</a> via
+				commitlint
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Lint &amp; Format</strong>
+			</td>
+			<td>Always</td>
+			<td>Runs Oxlint and Oxfmt format check across all packages</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Build &amp; Typecheck</strong>
+			</td>
+			<td>Always</td>
+			<td>
+				Builds all <code>@wakecap/core-*</code> packages, runs typecheck (tsgo), builds the web app
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Test</strong>
+			</td>
+			<td>Always</td>
+			<td>
+				Builds packages, installs Playwright/Chromium, runs 441 tests across 98 test files via Storybook addon-vitest in
+				browser mode
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+**Downstream:** Both publish workflows wait for Quality Gate to succeed before running. Nothing gets published from broken code.
+
+---
+
+## Chromatic
+
+**File:** `.github/workflows/chromatic.yml`
+
+Visual regression testing for Storybook. Builds Storybook, uploads snapshots to Chromatic, and compares against baselines.
+
+**Triggers:**
+
+- **Push to main/develop** — auto-accepts visual changes (baselines update after merge)
+- **PR to main/develop** — visual diffs must be reviewed and approved before merging
+
+**Key settings:**
+
+- `exitZeroOnChanges: false` — visual diffs **block** the PR until reviewed
+- `onlyChanged: true` — only snapshots stories that changed (faster builds)
+- `autoAcceptChanges: "{main,develop}"` — auto-accepts on branch pushes (safe because PRs already reviewed the changes)
+
+**Required secrets:**
+
+- `CHROMATIC_PROJECT_TOKEN` — Chromatic project authentication
+- `VITE_MAPBOX_TOKEN` — needed for map stories to render correctly (validated before build)
+
+---
+
+## Publish Packages (stable)
+
+**File:** `.github/workflows/publish.yml`
+
+Manages stable releases to GitHub Packages using [Changesets](https://github.com/changesets/changesets).
+
+**Trigger:** Runs on every push to `main` (i.e., merged PRs). Also supports manual trigger via `workflow_dispatch`. Safe because branch protection ensures all PRs pass Quality Gate before merging.
+
+**How it works:**
+
+1. `changesets/action` checks for `.changeset/*.md` files
+2. **If changesets exist** → opens/updates a "Version Packages" PR that bumps `package.json` versions, generates changelogs, and deletes consumed changeset files
+3. **If no changesets exist** (version bump PR was just merged) → publishes packages to GitHub Packages with the `@latest` tag
+
+**How to trigger a version bump:**
+
+```bash
+# 1. Create a changeset describing your change
+pnpm changeset
+
+# 2. Select affected packages and bump type (patch/minor/major)
+# 3. Commit the generated .changeset/*.md file with your PR
+# 4. After PR merges to develop, then develop merges to main,
+#    Changesets opens a "Version Packages" PR automatically
+# 5. Merging that PR publishes to GitHub Packages
+```
+
+**Published packages:**
+
+<table>
+	<thead>
+		<tr>
+			<th>Package</th>
+			<th>Registry</th>
+			<th>Tag</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<code>@wakecap/core-tokens</code>
+			</td>
+			<td>GitHub Packages</td>
+			<td>
+				<code>@latest</code>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>@wakecap/core-utils</code>
+			</td>
+			<td>GitHub Packages</td>
+			<td>
+				<code>@latest</code>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>@wakecap/core-ui</code>
+			</td>
+			<td>GitHub Packages</td>
+			<td>
+				<code>@latest</code>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+---
+
+## Publish Pre-release (next)
+
+**File:** `.github/workflows/publish-next.yml`
+
+Publishes pre-release packages on every successful merge to `develop`.
+
+**Trigger:** Runs on every push to `develop` (i.e., merged PRs). Safe because branch protection ensures all PRs pass Quality Gate before merging.
+
+**Version format:**
+
+```
+{package-version}-next.{YYYYMMDD}.{HHMMSS}.{short-sha}
+```
+
+Each package uses its own `package.json` version as the base, so versions stay accurate even if packages are at different stable versions.
+
+**Example versions:**
+
+```
+@wakecap/core-tokens@0.1.0-next.20260416.143022.abc1234
+@wakecap/core-utils@0.0.1-next.20260416.143022.abc1234
+@wakecap/core-ui@0.2.0-next.20260416.143022.abc1234
+```
+
+**Install pre-release packages:**
+
+```bash
+pnpm add @wakecap/core-ui@next @wakecap/core-tokens@next @wakecap/core-utils@next
+```
+
+**Publish order:** tokens → utils → components (respects the dependency chain).
+
+---
+
+## Intent — Validate Skills
+
+**File:** `.github/workflows/intent-validate.yml`
+
+Validates TanStack Intent SKILL.md files whenever skill content changes.
+
+**Trigger:** Push or PR to main/develop, only when files in `packages/*/skills/**` or `skills/_artifacts/**` change.
+
+**How it works:** Runs `pnpm exec intent validate` for each package in parallel via a matrix strategy:
+
+- `packages/components` — 5 skills (core-ui-components, core-ui-forms, core-ui-data-table, core-ui-charts, core-ui-chat)
+- `packages/tokens` — 2 skills (core-tokens, core-ui-quickstart)
+- `packages/utils` — 1 skill (core-utils)
+
+See the [Agent Skills](?path=/docs/agent-skills--docs) page for details on what skills are and how they work.
+
+---
+
+## Pipeline Diagram
+
+How the workflows connect for a typical feature development cycle:
+
+```
+Feature PR → develop
+  ├── Quality Gate (4 parallel jobs)
+  │     ├── Commit Messages (PR only)
+  │     ├── Lint & Format
+  │     ├── Build & Typecheck
+  │     └── Test (441 browser tests)
+  ├── Chromatic (visual regression review)
+  └── Intent Validate (if skills changed)
+
+PR merges → push to develop
+  ├── Quality Gate runs again
+  ├── Publish Pre-release (@next)
+  ├── Chromatic (auto-accept baselines)
+  └── Intent Validate (if skills changed)
+
+Periodic: develop → PR to main → merge
+  ├── Quality Gate runs
+  ├── Publish Packages (Changesets)
+  ├── Chromatic (auto-accept baselines)
+  └── Intent Validate (if skills changed)
+```
+
+---
+
+## Required Secrets
+
+<table>
+	<thead>
+		<tr>
+			<th>Secret</th>
+			<th>Used By</th>
+			<th>Purpose</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<code>GITHUB_TOKEN</code>
+			</td>
+			<td>Publish, Publish Pre-release</td>
+			<td>Auto-provided by GitHub. Authenticates to GitHub Packages and creates PRs.</td>
+		</tr>
+		<tr>
+			<td>
+				<code>CHROMATIC_PROJECT_TOKEN</code>
+			</td>
+			<td>Chromatic</td>
+			<td>Authenticates with the Chromatic project for visual testing.</td>
+		</tr>
+		<tr>
+			<td>
+				<code>VITE_MAPBOX_TOKEN</code>
+			</td>
+			<td>Quality Gate (test), Chromatic</td>
+			<td>Mapbox GL access token. Required for map stories to render correctly in tests and visual snapshots.</td>
+		</tr>
+	</tbody>
+</table>
+
+---
+
+## Running Locally
+
+All CI checks can be run locally before pushing:
+
+```bash
+# Lint & Format
+pnpm lint
+pnpm format:check
+
+# Build & Typecheck
+pnpm --filter "@wakecap/core-*" build
+pnpm typecheck
+
+# Tests (requires Playwright)
+pnpm test
+
+# Validate Intent skills
+pnpm exec intent validate packages/components/skills
+pnpm exec intent validate packages/tokens/skills
+pnpm exec intent validate packages/utils/skills
+
+# Build Storybook
+VITE_MAPBOX_TOKEN=your_token pnpm --filter apps-storybook build
+```

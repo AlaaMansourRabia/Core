@@ -1,0 +1,16 @@
+{
+	"buildCommand": "node scripts/vercel-build.mjs",
+	"outputDirectory": "apps/web/dist",
+	"functions": {
+		"api/mcp.mjs": {
+			"includeFiles": "api/_bundle/**"
+		}
+	},
+	"rewrites": [
+		{"source": "/mcp", "destination": "/api/mcp"},
+		{"source": "/health", "destination": "/api/mcp?op=health"},
+		{"source": "/ready", "destination": "/api/mcp?op=ready"},
+		{"source": "/schemas", "destination": "/api/mcp?op=schemas"},
+		{"source": "/(.*)", "destination": "/index.html"}
+	]
+}

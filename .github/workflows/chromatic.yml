@@ -1,0 +1,74 @@
+name: Chromatic
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify required secrets
+        run: |
+          missing=()
+          [ -z "$VITE_MAPBOX_TOKEN" ] && missing+=("VITE_MAPBOX_TOKEN — map stories will render empty and produce incorrect baselines")
+          [ -z "$CHROMATIC_PROJECT_TOKEN" ] && missing+=("CHROMATIC_PROJECT_TOKEN — cannot publish to Chromatic")
+          if [ ${#missing[@]} -gt 0 ]; then
+            for m in "${missing[@]}"; do echo "::error::Missing secret: $m"; done
+            exit 1
+          fi
+        env:
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
+      - name: Build packages
+        run: pnpm --filter "@wakecap/core-*" build
+
+      # Heavy 3D mesh/model assets live in the internal repo wakecap/wakecore-3d-assets and are pulled
+      # into apps/storybook/public/ here so the published Storybook renders the 3D views. Only on push
+      # (the deployed build), not on every PR, to avoid the ~300 MB pull. Non-fatal until the
+      # ASSETS_REPO_TOKEN secret exists — add `REQUIRE_3D_ASSETS: "1"` under env once it does, to enforce.
+      - name: Fetch heavy 3D assets
+        if: github.event_name == 'push'
+        run: node scripts/fetch-3d-assets.mjs
+        env:
+          ASSETS_REPO_TOKEN: ${{ secrets.ASSETS_REPO_TOKEN }}
+
+      - name: Build Storybook
+        run: pnpm --filter apps-storybook exec storybook build -o dist --stats-json
+        env:
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
+          # The 3D viewer stories bundle three + the That Open SDK, pushing the build past Node's
+          # default ~2 GB heap. Runners have 7 GB, so give the build room.
+          NODE_OPTIONS: --max-old-space-size=4096
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v16
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: apps/storybook/dist
+          storybookBaseDir: apps/storybook
+          exitZeroOnChanges: false
+          exitOnceUploaded: false
+          onlyChanged: true
+          autoAcceptChanges: "{main,develop}"

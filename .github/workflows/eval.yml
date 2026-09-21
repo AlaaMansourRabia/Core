@@ -1,0 +1,82 @@
+name: Agent Evals — knowledge-layer A/B
+
+# Measures whether the WakeCore knowledge layer lifts an agent's pass-rate.
+#
+#   On PRs        → offline FIXTURE eval only (no API key, deterministic, green).
+#                   Validates the harness + validators + scorecard pipeline.
+#   Nightly /     → LIVE A/B against claude-opus-4-8 (needs the ANTHROPIC_API_KEY
+#   manual run      secret). This is the real "proof"; it never runs on PRs, so a
+#                   missing key can't block a merge.
+#
+# Warn-only by design — promote the live run to a regression gate (P3) once the
+# baseline is stable.
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # nightly 06:00 UTC
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+      - "library-index.json"
+      - "skills/**"
+      - "packages/*/skills/**"
+      - "scripts/validators/**"
+      - "eval/**"
+  workflow_dispatch: {} # allow manual runs
+
+jobs:
+  fixture-eval:
+    name: Fixture eval (offline, no key)
+    if: ${{ github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      # Exercises the validators + scorecard end-to-end against stored fixtures.
+      - name: Run offline fixture eval
+        run: pnpm eval --fixture
+      - name: Post scorecard to job summary
+        if: always()
+        run: cat eval/results/summary.md >> "$GITHUB_STEP_SUMMARY" || echo "No summary produced."
+
+  live-eval:
+    name: Live A/B (nightly, needs ANTHROPIC_API_KEY)
+    if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Skip (don't fail) when the secret isn't configured — keeps the nightly green.
+      - name: Run live A/B eval
+        if: ${{ env.ANTHROPIC_API_KEY != '' }}
+        run: pnpm eval
+
+      - name: Post scorecard to job summary
+        if: always()
+        run: cat eval/results/summary.md >> "$GITHUB_STEP_SUMMARY" || echo "No summary produced."
+
+      - name: Upload raw generations (debug)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-generations
+          path: eval/results/runs/
+          retention-days: 14
+          if-no-files-found: ignore

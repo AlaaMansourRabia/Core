@@ -1,0 +1,43 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "toaster",
+	"tier": "utility",
+	"name": "Toaster",
+	"category": "feedback",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/toaster.tsx",
+		"import": "@wakecap/core-ui/toaster",
+		"export": "Toaster"
+	},
+	"tags": [
+		"feedback",
+		"toast",
+		"container"
+	],
+	"intent": "Mount point that renders Sonner toasts — place once at the root.",
+	"when": [
+		"Required once for any toast to appear"
+	],
+	"pairsWith": [
+		"Sonner"
+	],
+	"requiredProviders": [],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 utility migration (2026-07)",
+		"derivedFrom": {
+			"source": "packages/components/src/toaster.tsx",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"migrated from library-index.json (hand-authored catalog entry)"
+		]
+	}
+}

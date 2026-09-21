@@ -1,0 +1,56 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "time-scrubber",
+	"tier": "component",
+	"name": "TimeScrubber",
+	"category": "display",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/time-scrubber.tsx",
+		"import": "@wakecap/core-ui/time-scrubber",
+		"export": "TimeScrubber"
+	},
+	"tags": [
+		"legend",
+		"playback",
+		"range",
+		"scrubber",
+		"time",
+		"timeline"
+	],
+	"intent": "A minimal, precise intraday timeline with bar / line / dots tracks, a playhead, and an optional two-handle range.",
+	"when": [
+		"A surface reads a window of time rather than a single moment"
+	],
+	"chooseOver": [],
+	"pairsWith": [
+		"ObservationsMap"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [
+		{
+			"mistake": "Re-picking which range handle to move on every pointer-move",
+			"fix": "Choose the handle on pointer-down and hold it for the gesture, clamping each end against its partner",
+			"avoidOverride": "Hand the drag over mid-gesture when one end passes the other"
+		}
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "Group C of the missing-widgets template review (2026-08-26)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — intent taken verbatim from the module's own doc comment; contract not yet enumerated",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Was exported from @wakecap/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
+			"Stub by design: the intent is accurate, the data contract is not yet authored.",
+			"pilot: false"
+		]
+	}
+}

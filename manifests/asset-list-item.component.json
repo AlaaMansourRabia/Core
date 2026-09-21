@@ -1,0 +1,67 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "asset-list-item",
+	"tier": "component",
+	"name": "AssetListItem",
+	"category": "display",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/asset-list-item.tsx",
+		"import": "@wakecap/core-ui/asset-list-item",
+		"export": "AssetListItem"
+	},
+	"tags": [
+		"asset",
+		"thumbnail",
+		"list",
+		"selection",
+		"card",
+		"media",
+		"capture"
+	],
+	"intent": "Selectable row for a captured asset — thumbnail with an overlay slot, clamped title and subtitle, and a meta line.",
+	"when": [
+		"Listing camera feeds, drone captures, timelapses or any thumbnailed record",
+		"A list selection drives a map or detail panel beside it"
+	],
+	"whenNot": [
+		"Rows with no media -> use Item or a DataTable row",
+		"A rich work record with status and assignees -> use WorkItemCard"
+	],
+	"chooseOver": [
+		{
+			"component": "A hand-built Card with an img and a badge row",
+			"because": "One template held three copies of this shell differing only in the thumbnail overlay and the meta line; both are slots here."
+		}
+	],
+	"pairsWith": [
+		"Badge",
+		"Card",
+		"Map"
+	],
+	"minimalExample": "import {AssetListItem} from \"@wakecap/core-ui/asset-list-item\";\n\n<AssetListItem\n\tthumbnail={camera.thumbnail}\n\tthumbnailAlt={camera.name}\n\ttitle={camera.name}\n\tsubtitle={camera.location}\n\tselected={isSelected}\n\tonClick={select}\n>\n\t<Badge>{camera.status}</Badge>\n\t<span>{camera.lastUpdate}</span>\n</AssetListItem>",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Extracted from the three duplicated list items in core-org-reality-capture (2026-08-25)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-org-reality-capture.tsx",
+			"extracted": [
+				"selection ring card shell",
+				"80x56 thumbnail well with an overlay layer",
+				"image fallback",
+				"clamped title and subtitle",
+				"meta line"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": "CameraListItem, DroneListItem and TimelapseListItem",
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"The three copies also used template-literal classNames; the component uses cn, matching the rest of the library.",
+			"pilot: true"
+		]
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"id": "app-shell-nav",
+	"title": "Authenticated product shell",
+	"domain": "composition",
+	"prompt": "Stand up the standard authenticated WakeCap product screen: a collapsible left navigation rail, a top bar across the top, and a scrollable main content region below it. Include whatever root-level wiring the navigation and any hover tooltips need to work.",
+	"expected": ["CoreAppSidebar"],
+	"acceptable": ["CoreAppTopBar", "CoreContentArea"],
+	"forbidden": [],
+	"requiredProviders": ["SidebarProvider", "TooltipProvider"]
+}

@@ -1,0 +1,104 @@
+{
+  "_note": "ILLUSTRATIVE STRAWMAN — architecture-validation pilot only. Not consumed by any code. Not the source of truth yet. Hand-built from the real Button data currently split across catalog-structural.json (generated), library-index.json (authored), and eval/contracts/* (props + overlay).",
+
+  "id": "button",
+  "tier": "component",
+  "name": "Button",
+  "category": "primitives",
+  "version": "1.0.0",
+  "schemaVersion": "artifact-manifest/0.1",
+
+  "source": {
+    "path": "packages/components/src/button.tsx",
+    "import": "@wakecap/core-ui/button"
+  },
+  "description": "An interactive element that triggers an action when clicked.",
+
+  "intent": "Trigger an action; with asChild, render any element (e.g. a router Link) as a styled button.",
+  "when": [
+    "Submit/cancel a form",
+    "Open a dialog or menu",
+    "Any one-shot click action"
+  ],
+  "chooseOver": [
+    { "over": "Link/anchor", "because": "Wrap a Link with Button asChild for navigation — never navigate via onClick" },
+    { "over": "ToggleGroup", "because": "ToggleGroup selects a value/state; Button performs a discrete action" }
+  ],
+  "avoid": [
+    "variant=link for real navigation — use asChild + a Link"
+  ],
+  "tags": ["action", "clickable", "form", "interactive"],
+  "pairsWith": ["ButtonGroup", "Form", "Dialog"],
+  "requiredProviders": [],
+
+  "props": {
+    "asChild": { "type": "boolean", "required": false },
+    "loading": { "type": "boolean", "required": false },
+    "variant": { "type": "enum", "values": ["default", "destructive", "outline", "secondary", "ghost", "link"], "required": false },
+    "size":    { "type": "enum", "values": ["default", "sm", "lg"], "required": false },
+    "icon":    { "type": "boolean", "required": false },
+    "_inherits": "HTML <button> + React attributes (summarized, not enumerated)"
+  },
+
+  "variants": [
+    { "axis": "variant", "id": "default",     "default": true,  "intent": "Primary action — one per view" },
+    { "axis": "variant", "id": "destructive",                   "intent": "Irreversible/dangerous action (delete)" },
+    { "axis": "variant", "id": "outline",                       "intent": "Secondary action beside a primary" },
+    { "axis": "variant", "id": "secondary",                     "intent": "Low-emphasis action" },
+    { "axis": "variant", "id": "ghost",                         "intent": "Minimal-chrome action — toolbars/icon buttons" },
+    { "axis": "variant", "id": "link",                          "intent": "Inline, text-style action" },
+    { "axis": "size",    "id": "default",     "default": true },
+    { "axis": "size",    "id": "sm" },
+    { "axis": "size",    "id": "lg" },
+    { "axis": "icon",    "id": "false",       "default": true },
+    { "axis": "icon",    "id": "true",                          "intent": "Icon-only button (use with aria-label)" }
+  ],
+
+  "states": {},
+
+  "forbiddenProps": ["size=\"icon\""],
+  "commonMistakes": [
+    { "wrong": "<Button size=\"icon\">", "why": "Button has no \"icon\" size; sizes are default|sm|lg. Icon buttons use the boolean `icon` prop.", "right": "<Button icon variant=\"ghost\" aria-label=\"…\"><SomeIcon /></Button>" }
+  ],
+  "minimalExample": "import { Button } from \"@wakecap/core-ui/button\";\n<Button variant=\"destructive\">Delete</Button>",
+
+  "evaluationCriteria": [
+    { "id": "selection",      "check": "chosen for a discrete action (not Link for navigation, not ToggleGroup for state)", "metric": "selection" },
+    { "id": "variant-intent", "check": "destructive variant used for irreversible actions", "metric": "variant-intent" },
+    { "id": "nav-pattern",    "check": "navigation uses asChild + a Link, never onClick", "metric": "failure-mode" },
+    { "id": "config-valid",   "check": "no invented props (e.g. size=\"icon\")", "metric": "config-valid" },
+    { "id": "render",         "check": "renders without crash", "metric": "render" }
+  ],
+
+  "knowledgeLevel": "full",
+
+  "provenance": {
+    "id": "generated",
+    "tier": "authored",
+    "name": "generated",
+    "category": "inferred",
+    "version": "authored",
+    "schemaVersion": "authored",
+    "source.path": "generated",
+    "source.import": "generated",
+    "description": "generated",
+    "intent": "authored",
+    "when": "authored",
+    "chooseOver": "authored",
+    "avoid": "authored",
+    "tags": "authored",
+    "pairsWith": "authored",
+    "requiredProviders": "generated",
+    "props": "generated",
+    "variants[].axis": "generated",
+    "variants[].id": "generated",
+    "variants[].default": "generated",
+    "variants[].intent": "authored",
+    "states": "authored",
+    "forbiddenProps": "authored",
+    "commonMistakes": "authored",
+    "minimalExample": "authored",
+    "evaluationCriteria": "authored",
+    "knowledgeLevel": "authored"
+  }
+}

@@ -1,0 +1,141 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "product-install",
+	"tier": "widget",
+	"name": "InstallProductDialog",
+	"category": "form",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/wc3-product-install-dialog.tsx",
+		"import": "@wakecap/core-ui/pages/install-product-dialog",
+		"export": "InstallProductDialog"
+	},
+	"subcomponents": [
+		"computeInstallPlan"
+	],
+	"tags": [
+		"install",
+		"product",
+		"plan",
+		"ontology",
+		"provisioning",
+		"wc3",
+		"studio"
+	],
+	"intent": "Four-step product install — draft the target, compute a plan, review release evidence, apply — over a planner that resolves adds, collisions and blockers before anything is written.",
+	"when": [
+		"Installing a first-party product into a project",
+		"Any staged operation where a plan must be reviewed before it is applied"
+	],
+	"whenNot": [
+		"Installing an end-user app -> use the marketplace install lifecycle",
+		"A single-step create -> use FormDialog"
+	],
+	"chooseOver": [
+		{
+			"component": "A confirm dialog over an install action",
+			"because": "computeInstallPlan resolves object and name collisions and six blocker codes (permission, dependency, linked, installed, readiness, noop) BEFORE anything is written; a confirm dialog can only ask, not explain."
+		}
+	],
+	"pairsWith": [
+		"WizardDialog",
+		"PropertyList",
+		"Badge"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"open": {
+				"type": "boolean",
+				"required": true
+			},
+			"onOpenChange": {
+				"type": "(open: boolean) => void",
+				"required": true
+			},
+			"product": {
+				"type": "Wc3Product | null",
+				"required": true,
+				"note": "null keeps the dialog mounted but inert — the catalogue renders it as an unconditional sibling."
+			},
+			"mode": {
+				"type": "Wc3InstallMode",
+				"required": true,
+				"note": "Only the title and the recorded lifecycle differ between the two."
+			},
+			"installs": {
+				"type": "Wc3Install[]",
+				"required": true,
+				"note": "The live install array; dependency, linked and already-installed checks read it."
+			},
+			"persona": {
+				"type": "Wc3Persona",
+				"required": true,
+				"note": "Every gate is evaluated against the acting persona, live."
+			},
+			"onApply": {
+				"type": "(record: Wc3Install) => void",
+				"required": true,
+				"note": "Fired with the install record an apply WOULD have written — the dialog mutates nothing."
+			}
+		},
+		"events": {
+			"onApply": {
+				"payload": {
+					"record": "Wc3Install"
+				}
+			}
+		},
+		"rowIdentity": "Products are keyed by productKey; plan entries by apiName."
+	},
+	"configSchema": {},
+	"slots": {},
+	"states": {
+		"draft": "Target and mode chosen; nothing computed yet.",
+		"plan": "Adds, object and name collisions and blockers resolved read-only.",
+		"blocked": "Blockers are visible but never stop navigation — the block is enforced once, on Apply, and only the FIRST blocker is toasted. The flow is a review surface, not a gate.",
+		"applied": "onApply receives the record; the host decides whether to write it."
+	},
+	"composedOf": [
+		"WizardDialog",
+		"Card",
+		"PropertyList",
+		"Badge"
+	],
+	"allowedPlacement": [
+		"a product catalogue row action",
+		"a product detail header"
+	],
+	"forbiddenPlacement": [
+		"inside another dialog"
+	],
+	"minimalExample": "import {InstallProductDialog, computeInstallPlan} from \"@wakecap/core-ui/pages/install-product-dialog\";\n\n<InstallProductDialog open={open} onOpenChange={setOpen} product={product} />",
+	"evaluationCriteria": [
+		"The dialog mutates nothing — apply hands the record to the host.",
+		"Blockers do not stop navigation; the block lands once, on Apply.",
+		"Every blocker names its code and its reason."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted from the WC3 product catalogue (2026-08-26)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-product-catalogue-view.tsx",
+			"extracted": [
+				"four-step install wizard",
+				"install planner with six blocker codes",
+				"release-evidence review step"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"The planner is the widget's real data contract and was already separable.",
+			"Promoted in group B of the missing-widgets template review.",
+			"pilot: true"
+		]
+	}
+}

@@ -1,0 +1,68 @@
+import {Meta} from "@storybook/addon-docs/blocks";
+
+import {TierBanner} from "../_docs/TierBanner";
+
+<Meta title="Widgets/Overview" />
+
+# Widgets
+
+<TierBanner tier="widgets" />
+
+> ✅ **The widget tier is real.** 30 existing `core-ui` exports are now classified as widgets
+> (`tier: "widget"` in `library-index.json`), grouped under **Widgets/** in this sidebar, each with a
+> manifest — `DataTable` complete, the rest as drafts (`manifestStatus: "stub"`).
+
+**Widgets** are the tier above components: composed, _domain-meaningful_ building blocks with a declared
+**data contract**, **config schema**, and **states** — the units an agent or a page-builder drops onto a
+page. A component is generic (`Button`, `Table`); a widget has a data contract and a name a product
+person would use (`DataTable`, `App Sidebar`, `Activity Log`).
+
+## This is a logical promotion, not a code move
+
+- These widgets **already live inside `@wakecap/core-ui`** — composed from components today.
+- **No source file moved. No export changed. No API changed.** `@wakecap/core-ui/data-table`,
+  `@wakecap/core-ui/navigation/core-app-sidebar`, etc. all import exactly as before.
+- This pass makes the tier **visible and declared** (sidebar + `library-index` + manifests).
+- **Physical package/folder migration (`src/widgets/`, or a `@wakecap/core-widgets` package) comes
+  later**, once the manifests mature — and even then with re-export shims so consumers never break.
+
+## Promoted widgets by category
+
+| Category       | Widgets                                                                                                            |
+| -------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Data**       | **DataTable** ✅ · Filter · SearchFilterBar                                                                        |
+| **Navigation** | App Sidebar · App Top Bar · Context Tabs · Dashboard Header · Org/Project Switcher · Filter Strip                  |
+| **Map**        | Map · Map Controls                                                                                                 |
+| **Schedule**   | Gantt · Calendar View                                                                                              |
+| **Activity**   | Activity Log · Task Monitor · Work Item Card                                                                       |
+| **Comments**   | Comment Thread · Comment Composer · Inline Comment Composer                                                        |
+| **Chat**       | Chat Widget · Chat Panel · Chat Input · Chat Message · Chart Renderer · AI Chat · AI Chat Header · AI Chat Message |
+| **Setup**      | Setup Steps Checklist                                                                                              |
+| **Canvas**     | Canvas Toolbar · Drawing Actions                                                                                   |
+
+✅ = complete manifest. 18 of these have Storybook pages today (look under **Widgets/** in the sidebar);
+the other 12 (sub-part widgets like the chat message/header pieces, `Map Controls`, the `Core*`
+navigation headers) are declared in `library-index` + carry a stub manifest, but don't yet have their
+own story page.
+
+## Manifest status
+
+- **Complete (1):** `DataTable` — the reference manifest (`manifests/data-table.widget.json`): full data
+  contract, config, states, common mistakes (incl. `fm-dt-1`), evaluation criteria. See its page for the
+  **Widget contract** panel.
+- **Stub (29):** `manifests/<id>.widget.json` with `manifestStatus: "stub"` — id, name, category, source,
+  intent, and TODO sections for dataContract/configSchema/states/evaluationCriteria. Honest drafts, not
+  fake completeness; they fill in as each widget is hardened.
+
+## Borderline — left as components (needs decision)
+
+- **PropertyList** — a generic `<dl>` label/value list; minimal data contract. Promote only if simple
+  presentational lists count as widgets.
+- **ZoomTools** — near-generic zoom in/out/reset controls; no domain contract. Likely a component.
+
+## Next
+
+The **next widget to complete** (after DataTable) is **App Sidebar** (`core-app-sidebar`) — deliberately
+the opposite shape (config-heavy, no row data) — to prove the manifest schema generalizes before the
+manifest _system_ (schema engine, registry, enforcement) is generalized. See
+[the artifact classification](https://github.com/wakecap/Wakecore/blob/develop/docs/ARTIFACT-CLASSIFICATION.md).

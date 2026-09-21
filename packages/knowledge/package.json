@@ -1,0 +1,42 @@
+{
+	"name": "@wakecap/knowledge",
+	"version": "0.1.0",
+	"private": true,
+	"description": "WakeCore Knowledge Platform — the versioned, transport-agnostic API over WakeCore knowledge (resolve/search/validate/explain). Built from the canonical manifests + library-index; MCP is just one transport over this.",
+	"files": [
+		"dist"
+	],
+	"type": "module",
+	"main": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.mts",
+			"import": "./dist/index.mjs"
+		}
+	},
+	"scripts": {
+		"build": "tsdown",
+		"build:index": "node scripts/build-index.mjs",
+		"typecheck": "tsgo --noEmit",
+		"test": "node --test",
+		"lint": "oxlint .",
+		"format": "oxfmt .",
+		"format:check": "oxfmt --check ."
+	},
+	"dependencies": {
+		"zod": "^4.3.5"
+	},
+	"devDependencies": {
+		"tsdown": "latest"
+	},
+	"nx": {
+		"targets": {
+			"test": {
+				"dependsOn": [
+					"build"
+				]
+			}
+		}
+	}
+}

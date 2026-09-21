@@ -1,0 +1,139 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "record-detail-shell",
+	"tier": "widget",
+	"name": "RecordDetailShell",
+	"category": "layout",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/record-detail-shell.tsx",
+		"import": "@wakecap/core-ui/record-detail-shell",
+		"export": "RecordDetailShell"
+	},
+	"tags": [
+		"detail",
+		"sections",
+		"side-menu",
+		"layout",
+		"record",
+		"navigation"
+	],
+	"intent": "Left section rail beside a single scrolling content column, for a record whose detail genuinely warrants navigation.",
+	"when": [
+		"A record has five or more substantial sections",
+		"One section at a time is the right reading unit",
+		"A section owns the page height itself, such as a graph canvas — pass flush"
+	],
+	"whenNot": [
+		"The record has a few short sections -> stack them full-width with no rail",
+		"Navigating between records rather than within one -> use SideMenu directly",
+		"The app shell's own sidebar -> use CoreAppSidebar"
+	],
+	"chooseOver": [
+		{
+			"component": "SideMenu plus a hand-built content column",
+			"because": "The shell owns the md-breakpoint column flip, the min-h-0 chain that keeps the column scrolling instead of the page, and the unpadded scroll owner wrapping a padded well — three details four detail pages each re-derived and one of which is easy to get subtly wrong."
+		}
+	],
+	"pairsWith": [
+		"SideMenu",
+		"Card",
+		"PageContentHeader"
+	],
+	"requiredProviders": [],
+	"dataContract": {
+		"input": {
+			"title": {
+				"type": "string",
+				"required": true,
+				"note": "The record's TYPE, not its name — \"Object type\", \"Process\"."
+			},
+			"sections": {
+				"type": "SideMenuGroup[]",
+				"required": true,
+				"note": "Grouped section entries; ids address them."
+			},
+			"activeSectionId": {
+				"type": "string",
+				"required": false
+			},
+			"onSectionChange": {
+				"type": "(id: string) => void",
+				"required": false
+			},
+			"flush": {
+				"type": "boolean",
+				"required": false,
+				"note": "Place children as a direct flex child, for a section that owns the page height."
+			}
+		},
+		"events": {
+			"onSectionChange": {
+				"payload": {
+					"id": "string"
+				}
+			}
+		},
+		"rowIdentity": "Section ids must be unique across all groups."
+	},
+	"configSchema": {
+		"flush": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"slots": {
+		"children": {
+			"description": "The active section's body",
+			"accepts": [
+				"component",
+				"widget"
+			]
+		}
+	},
+	"states": {
+		"default": "Rail on the left from md up, one section rendered in a padded scrolling column.",
+		"narrow": "Below md the rail becomes a horizontal row above the content.",
+		"flush": "The section is a direct flex child and owns its own padding, overflow and min-h-0 chain."
+	},
+	"composedOf": [
+		"SideMenu"
+	],
+	"allowedPlacement": [
+		"a record detail page below its header"
+	],
+	"forbiddenPlacement": [
+		"a record with only a few short sections",
+		"as the application shell"
+	],
+	"minimalExample": "import {RecordDetailShell} from \"@wakecap/core-ui/record-detail-shell\";\n\n<RecordDetailShell title=\"Object type\" sections={sections} activeSectionId={tab} onSectionChange={setTab}>\n\t{tab === \"overview\" && <OverviewTab />}\n</RecordDetailShell>",
+	"evaluationCriteria": [
+		"The content column scrolls, not the page.",
+		"The scroll owner is unpadded.",
+		"A record with few short sections does not use this at all."
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Extracted from the four SideMenu detail pages found in the missing-widgets template review (2026-08-25)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/wc3-object-type-detail.tsx",
+			"extracted": [
+				"md-breakpoint rail/content flip",
+				"min-h-0 scroll chain",
+				"unpadded scroll owner around a padded content well",
+				"showSearch={false} rail convention"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": "The inline SideMenu rows in wc3-object-type-detail, wc3-action-type-detail, wc3-process-detail and wc3-product-detail",
+		"lastValidated": "2026-08-26",
+		"notes": [
+			"Scoped on purpose: the interface, pipeline and shared-property detail pages stack full-width and must NOT adopt this.",
+			"flush exists for wc3-process-detail's canvas section, which owns the page height.",
+			"pilot: true"
+		]
+	}
+}

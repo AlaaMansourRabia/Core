@@ -1,0 +1,47 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "milestone-table",
+	"tier": "component",
+	"name": "MilestoneTable",
+	"category": "display",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/milestone-table.tsx",
+		"import": "@wakecap/core-ui/milestone-table",
+		"export": "MilestoneTable"
+	},
+	"tags": [
+		"milestone",
+		"table",
+		"schedule",
+		"dates",
+		"progress"
+	],
+	"intent": "A collapsible milestones table (swatch + id, actual date or “—”, planned date) with zebra striping. Complements ProgressComparison's milestone stepper when the exact dates matter.",
+	"when": [
+		"Listing milestones with their actual vs planned dates",
+		"Adding a detailed dated milestone table beside a progress comparison"
+	],
+	"chooseOver": [
+		{
+			"component": "ProgressComparison",
+			"because": "MilestoneTable is a dated, collapsible table; ProgressComparison shows a compact inline milestone stepper"
+		}
+	],
+	"pairsWith": [
+		"ProgressComparison",
+		"CompareBars"
+	],
+	"requiredProviders": [],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "run-app-and-storybook → develop merge (2026-07)",
+		"status": "accepted",
+		"confidence": "unset — authored alongside the component",
+		"lastValidated": "2026-07-22",
+		"notes": [
+			"authored during the develop merge reconciliation"
+		]
+	}
+}

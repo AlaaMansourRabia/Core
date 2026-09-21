@@ -1,0 +1,71 @@
+{
+  "level": "phase",
+  "lbsNode": 102532,
+  "blueprintId": 6361,
+  "lbsItemBlueprintAssignmentId": 6354,
+  "periodId": 7762,
+  "blueprint": {
+    "fileName": "project.webp",
+    "originalName": "Project.webp",
+    "width": null,
+    "height": null,
+    "image": "phase_blueprint_6361.webp"
+  },
+  "polygons": [
+    {
+      "canvasObjectId": 2277,
+      "linkedLbsItemId": 102533,
+      "name": "CONSTRUCTION",
+      "type": "Polygon",
+      "geometry": {
+        "x": 1509.226,
+        "y": 1532.697,
+        "width": 2095.594,
+        "height": 1215.587,
+        "rotation": 0.0,
+        "points": [
+          {
+            "x": 1509.226,
+            "y": 2166.916
+          },
+          {
+            "x": 2884.253,
+            "y": 1532.697
+          },
+          {
+            "x": 3604.82,
+            "y": 1863.019
+          },
+          {
+            "x": 2282.679,
+            "y": 2748.284
+          }
+        ]
+      },
+      "authoredStyle": {
+        "fillColor": "#22c55e",
+        "strokeColor": "#16a34a",
+        "opacity": 0.15
+      },
+      "progress": {
+        "approvedProgressPercent": 24.78,
+        "plannedProgressPercent": 35.02,
+        "progressVariancePercent": -10.24
+      },
+      "coloring": {
+        "spaMilestoneMode": {
+          "bucket": "M35",
+          "fillColor": "#93C5FD",
+          "strokeColor": "#93C5FD",
+          "opacity": 0.7
+        },
+        "constructionVarianceMode": {
+          "bucket": "behind",
+          "fillColor": "#ef4444",
+          "strokeColor": "#b91c1c",
+          "opacity": 0.7
+        }
+      }
+    }
+  ]
+}

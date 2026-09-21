@@ -1,0 +1,79 @@
+{
+	"schemaVersion": "artifact-manifest/0.1",
+	"id": "progress-details",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "ProgressDetails",
+	"archetype": "ProgressDetails",
+	"category": "workspace",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/core-progress-details.tsx",
+		"import": "@wakecap/core-ui/pages/core-progress-details",
+		"export": "ProgressDetails"
+	},
+
+	"intent": "A period-based progress-details workspace for reviewing and drilling a WBS (work breakdown structure): a three-bar header (tab switcher + week/period selector; period status + approval counters + Import / Close-Period actions; search + sort + filter), a searchable WBS Navigator sidebar (CanvasNavigator), and a content list that drills the full hierarchy — zone → category → division → task → object. Every row is the shared ProgressListItem (generic / task / object variants); clicking an object opens the Operations Drawer to review and edit its operations' progress. The breadcrumb collapses responsively and each level's rows show earned-value metrics + a progress bar.",
+	"when": [
+		"Review a collection period's earned-value progress across a WBS and drill zone → task → object",
+		"Edit per-operation progress for an object from a right-side Operations Drawer",
+		"Browse a hierarchy in a sidebar navigator synced to a breadcrumb-driven content list"
+	],
+	"whenNot": [
+		"Inspect one floor's blueprint plan (pan/zoom) -> use the BlueprintViewer template",
+		"A geospatial map of sites / an org KPI overview -> use the Dashboard template",
+		"A single work-item card outside a list -> use the WorkItemCard widget"
+	],
+	"chooseOver": [
+		{
+			"over": "Assembling CanvasNavigator + Breadcrumb + a list of ProgressListItem + OperationsDrawer by hand",
+			"because": "The ProgressDetails template owns the three-bar header, the sidebar↔breadcrumb↔list navigation state, the responsive breadcrumb collapse, and the object→Operations-Drawer flow."
+		}
+	],
+
+	"regions": [
+		{
+			"id": "app-bar",
+			"role": "Top bar: Collection/Comparison view switcher (left) + the date-range + period pager (right)",
+			"source": "ViewTabBar (variant=\"segmented\") with its built-in WeekSelector",
+			"required": true,
+			"recommended": ["ViewTabBar", "WeekSelector"]
+		},
+		{
+			"id": "period-context",
+			"role": "Period bar: period code + Open status badge + cut-off + centered Approved/Pending/Rejected counters, with Export / Recent-imports / Import / Close-Period actions on the right",
+			"source": "Badge + Button + ButtonGroup + local status dots",
+			"required": true,
+			"recommended": ["Badge", "ButtonGroup"]
+		},
+		{
+			"id": "navigator",
+			"role": "WBS Navigator sidebar (searchable) — drills zones → categories → divisions; its collapse control hides the whole sidebar",
+			"source": "CanvasNavigator widget (@wakecap/core-ui/canvas-navigator)",
+			"required": true,
+			"recommended": ["CanvasNavigator"]
+		},
+		{
+			"id": "content-header",
+			"role": "Condensed content header: back button + responsive ellipsis breadcrumb (left) and search + Sort + filter (right)",
+			"source": "Breadcrumb + BreadcrumbEllipsis + Button + Input",
+			"required": true,
+			"recommended": ["Breadcrumb"]
+		},
+		{
+			"id": "content-list",
+			"role": "The current node's children as divided rows in a white card; rows drill in, objects open the drawer",
+			"source": "ProgressListItem widget (@wakecap/core-ui/progress-list-item) inside a Card",
+			"required": true,
+			"recommended": ["ProgressListItem", "Card"]
+		},
+		{
+			"id": "operations-drawer",
+			"role": "Right-side overlay drawer editing the selected object's operations (progress table)",
+			"source": "OperationsDrawer widget (@wakecap/core-ui/operations-drawer)",
+			"required": false,
+			"recommended": ["OperationsDrawer"]
+		}
+	]
+}

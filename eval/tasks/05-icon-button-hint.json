@@ -1,0 +1,10 @@
+{
+	"id": "icon-button-hint",
+	"title": "Hint on an icon-only button (provider wiring)",
+	"domain": "primitives",
+	"prompt": "Add an icon-only button to a toolbar. On hover or focus it should reveal a short text label naming what the button does. Include any app-level wiring the hint mechanism needs.",
+	"expected": ["Tooltip"],
+	"acceptable": [],
+	"forbidden": [],
+	"requiredProviders": ["TooltipProvider"]
+}

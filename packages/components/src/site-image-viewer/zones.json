@@ -1,0 +1,126 @@
+{
+  "level": "zone",
+  "lbsNode": 102533,
+  "blueprintId": 6370,
+  "lbsItemBlueprintAssignmentId": 6374,
+  "periodId": 7762,
+  "blueprint": {
+    "fileName": "screenshot-2026-07-20-at-10-09-44-am.png",
+    "originalName": "Phase 1",
+    "width": null,
+    "height": null,
+    "image": "zone_blueprint_6370.webp"
+  },
+  "polygons": [
+    {
+      "canvasObjectId": 3353,
+      "linkedLbsItemId": 105243,
+      "name": "Zone 1 - A",
+      "type": "Polygon",
+      "geometry": {
+        "x": 100.948,
+        "y": 250.829,
+        "width": 675.119,
+        "height": 598.212,
+        "rotation": 0.0,
+        "points": [
+          {
+            "x": 494.68,
+            "y": 250.829
+          },
+          {
+            "x": 776.067,
+            "y": 560.43
+          },
+          {
+            "x": 313.038,
+            "y": 849.041
+          },
+          {
+            "x": 100.948,
+            "y": 428.194
+          }
+        ]
+      },
+      "authoredStyle": {
+        "fillColor": "#22c55e",
+        "strokeColor": "#16a34a",
+        "opacity": 0.35
+      },
+      "progress": {
+        "approvedProgressPercent": 37.03,
+        "plannedProgressPercent": 52.55,
+        "progressVariancePercent": -15.52
+      },
+      "coloring": {
+        "spaMilestoneMode": {
+          "bucket": "M50",
+          "fillColor": "#3B82F6",
+          "strokeColor": "#3B82F6",
+          "opacity": 0.7
+        },
+        "constructionVarianceMode": {
+          "bucket": "behind",
+          "fillColor": "#ef4444",
+          "strokeColor": "#b91c1c",
+          "opacity": 0.7
+        }
+      }
+    },
+    {
+      "canvasObjectId": 3354,
+      "linkedLbsItemId": 102534,
+      "name": "Zone 1 - B",
+      "type": "Polygon",
+      "geometry": {
+        "x": 504.129,
+        "y": 94.455,
+        "width": 606.872,
+        "height": 456.53,
+        "rotation": 0.0,
+        "points": [
+          {
+            "x": 504.129,
+            "y": 244.532
+          },
+          {
+            "x": 820.165,
+            "y": 94.455
+          },
+          {
+            "x": 1111.001,
+            "y": 322.195
+          },
+          {
+            "x": 785.516,
+            "y": 550.985
+          }
+        ]
+      },
+      "authoredStyle": {
+        "fillColor": "#22c55e",
+        "strokeColor": "#16a34a",
+        "opacity": 0.35
+      },
+      "progress": {
+        "approvedProgressPercent": 18.76,
+        "plannedProgressPercent": 25.07,
+        "progressVariancePercent": -6.32
+      },
+      "coloring": {
+        "spaMilestoneMode": {
+          "bucket": "M35",
+          "fillColor": "#93C5FD",
+          "strokeColor": "#93C5FD",
+          "opacity": 0.7
+        },
+        "constructionVarianceMode": {
+          "bucket": "behind",
+          "fillColor": "#ef4444",
+          "strokeColor": "#b91c1c",
+          "opacity": 0.7
+        }
+      }
+    }
+  ]
+}

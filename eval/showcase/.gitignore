@@ -1,0 +1,6 @@
+# Local-only build + render artifacts — never committed.
+node_modules/
+.generated/
+runs/
+dist/
+package-lock.json

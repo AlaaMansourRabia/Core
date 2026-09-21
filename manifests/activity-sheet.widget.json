@@ -1,0 +1,60 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "activity-sheet",
+	"tier": "widget",
+	"name": "ActivitySheet",
+	"category": "activity",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/activity-sheet.tsx",
+		"import": "@wakecap/core-ui/activity-sheet"
+	},
+	"tags": ["activity", "notifications", "changeset", "sheet", "panel", "app-shell"],
+	"intent": "The app shell's activity panel as an ordinary right-hand Sheet: two tabbed streams behind one surface — transient notifications you dismiss, and a changeset of edits that accumulate until applied or discarded — rendered with standard cards and buttons rather than a bespoke translucent surface. Reuses NotificationCenter's NotificationItem and ChangeEntry types so a shell can feed both from the state it already keeps.",
+	"when": [
+		"A top-bar bell and/or changeset button that should open a normal side panel",
+		"Notifications and pending edits that belong behind one surface with tabs, not two separate panels",
+		"An activity panel that must sit visually flush with the rest of the shell"
+	],
+	"whenNot": [
+		"A translucent overlay panel with its own visual language -> use NotificationCenter",
+		"A single transient message -> use Toast / Sonner"
+	],
+	"chooseOver": [
+		{
+			"component": "NotificationCenter",
+			"because": "NotificationCenter renders its own bespoke translucent surface. ActivitySheet is a plain Sheet with standard cards and buttons, so it matches the rest of the shell instead of competing with it."
+		}
+	],
+	"pairsWith": ["CoreAppTopBar", "CoreAppSidebar", "Sheet", "Card", "ViewTabBar"],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "WakeCap Connect V3 (2026-08-24)",
+		"derivedFrom": {
+			"source": "NotificationCenter",
+			"extracted": [
+				"the NotificationItem and ChangeEntry shapes, reused verbatim",
+				"the two-stream model (notifications + changeset) and its actions"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-08-24",
+		"notes": [
+			"Promoted out of the WakeCap Connect V3 template so any shell can use it, rather than staying template-local",
+			"pilot: false"
+		]
+	}
+}

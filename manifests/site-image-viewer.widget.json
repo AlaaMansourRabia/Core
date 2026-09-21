@@ -1,0 +1,176 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "site-image-viewer",
+	"tier": "widget",
+	"name": "SiteImageViewer",
+	"category": "map",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/site-image-viewer.tsx",
+		"import": "@wakecap/core-ui/site-image-viewer",
+		"export": "SiteImageViewer"
+	},
+	"tags": [
+		"map",
+		"site-image",
+		"aerial",
+		"blueprint",
+		"villa",
+		"polygon",
+		"progress",
+		"svg-overlay"
+	],
+	"intent": "A background site-plan image (aerial / blueprint) with a villa polygon overlay coloured by construction progress. A plain SVG whose viewBox equals the image's natural pixel size sits over an <img>, so image-pixel villa points map 1:1 to the screen (no canvas library, no coordinate math). Villas colour by approved % across the milestone ramp; unlinked render grey, linked-but-no-progress render slate. Hovering a linked villa raises its stroke + name chip inline (no modal); the floating Approved-vs-Planned progress card (the DS ProgressComparison) is opt-in via the `hoverCard` prop and off by default. A built-in legend (bottom-right) keys the colours and doubles as the SPA (progress) ↔ Construction (variance) mode switch: a segmented toggle, a header, the colour ramp laid out horizontally with a label under each bucket, and the non-ramp states as footnotes.",
+	"when": [
+		"Overlay real footprint polygons on a site aerial / blueprint, coloured by progress",
+		"Let a user hover a footprint to read its approved-vs-planned progress",
+		"Switch a site map between progress (SPA) and variance (Construction) colouring"
+	],
+	"whenNot": [
+		"A tiled, pan/zoom geospatial map -> use the Map / ObservationsMap widgets",
+		"A choropleth of abstract plot boxes (no real footprints/aerial) -> a simple grid",
+		"A single floor's blueprint plan -> use the BlueprintViewer template"
+	],
+	"chooseOver": [
+		{
+			"component": "Map / ObservationsMap",
+			"because": "Those are tiled geospatial map engines. SiteImageViewer is a lightweight pure-SVG overlay on a fixed site image — the viewBox equals the image size, so villa points need no projection."
+		},
+		{
+			"component": "Hand-rolling an SVG overlay + a hover card + a legend",
+			"because": "SiteImageViewer owns the 1:1 viewBox mapping, the milestone/variance colour resolver shared across fill + hover card + legend, the flip-and-clamp floating ProgressComparison card, and the built-in legend/mode switch."
+		}
+	],
+	"pairsWith": [
+		"ProgressComparison",
+		"CanvasHeader"
+	],
+	"requiredProviders": [],
+	"regions": [
+		{
+			"id": "site-image",
+			"role": "The background site-plan image (backgroundUrl); fills the frame by default (imageFit=cover), or letterboxes with imageFit=contain",
+			"source": "raw <img>",
+			"required": true
+		},
+		{
+			"id": "villa-overlay",
+			"role": "SVG polygon overlay — one polygon per villa, coloured by styleForVilla; linked villas are interactive",
+			"source": "raw <svg> with viewBox = image pixel size",
+			"required": true
+		},
+		{
+			"id": "hover-card",
+			"role": "Opt-in floating Approved-vs-Planned progress card while hovering a linked villa (hoverCard prop, off by default — hover is otherwise inline: raised stroke + name chip)",
+			"source": "ProgressComparison (@wakecap/core-ui/progress-comparison)",
+			"required": false
+		},
+		{
+			"id": "legend",
+			"role": "Bottom-right key that doubles as the SPA/Construction mode switch — a segmented toggle, a header, the colour ramp with a label under each bucket, and the non-ramp states as footnotes. Collapsible; collapsed by default to a small 'Legend' pill",
+			"source": "built-in (SiteLegend), styled with Wakecore tokens",
+			"required": true
+		},
+		{
+			"id": "zoom-tools",
+			"role": "Top-right zoom controls (zoom in / out / reset); the map also supports wheel-to-zoom (toward the cursor) and drag-to-pan once zoomed. Zooming out past fill centres the image on a dark-grey backdrop; Reset returns to fill",
+			"source": "Button (icon) cluster over a CSS-transform pan/zoom layer",
+			"required": true
+		}
+	],
+	"requiredWidgets": [],
+	"optionalWidgets": [
+		{"name": "ProgressComparison", "region": "hover-card", "required": false, "note": "The floating hover card."}
+	],
+	"requiredComponents": [
+		{"name": "Button", "region": "zoom-tools", "required": true, "note": "The icon buttons for zoom in / out / reset."}
+	],
+	"dataContract": {
+		"applicable": true,
+		"input": {
+			"backgroundUrl": {"type": "string", "required": true, "note": "The site image; hosted by the consumer."},
+			"villas": {
+				"type": "Villa[]",
+				"required": true,
+				"note": "Footprints in image-pixel space; each has points, a bbox, linkedLbsItemId, and approved/planned %. The real ROSHN Almanar set is @wakecap/core-ui/site-image-viewer-fixtures."
+			},
+			"imageWidth": {"type": "number", "required": false, "note": "viewBox width; default 4096."},
+			"imageHeight": {"type": "number", "required": false, "note": "viewBox height; default 4096."},
+			"imageFit": {"type": "\"cover\" | \"contain\"", "required": false, "note": "How the image fits the frame; cover (fills) by default, contain letterboxes. The SVG overlay slices/meets to match."},
+			"mapMode": {"type": "\"progress\" | \"variance\"", "required": false, "note": "Colour mode. Controlled when onMapModeChange is given; else the initial mode. Default progress."},
+			"onMapModeChange": {"type": "(mode: \"progress\" | \"variance\") => void", "required": false, "note": "Fired when the mode changes; provide to control mapMode from outside (e.g. share with a side panel)."},
+			"hoverCard": {"type": "boolean", "required": false, "note": "Opt in to the floating ProgressComparison hover card; off by default (hover is inline only)."},
+			"labelSize": {"type": "number", "required": false, "note": "On-screen px size of the villa-number labels; held constant regardless of fit scale (the viewer counter-scales the SVG text). Default 10."},
+			"onNavigate": {"type": "(lbsItemId: number) => void", "required": false, "note": "Fired when a linked villa is clicked."}
+		},
+		"note": "The colour ramp and viewBox size come from props/defaults; the villa data is not bundled with the widget."
+	},
+	"states": {
+		"progress": "SPA mode — villas coloured by approved % across the M35–M100 ramp.",
+		"variance": "Construction mode — villas coloured behind / on-track / ahead of plan (±2.5%).",
+		"hover": "A hovered linked villa raises its stroke + name chip (inline); with `hoverCard`, also shows the floating progress card.",
+		"unlinked": "Villas with no linkedLbsItemId render grey and are non-interactive.",
+		"missing": "Linked villas with no approved % render slate.",
+		"zoomed": "Zoomed in via the top-right tools / wheel; drag to pan. Villa numbers stay a constant on-screen size; Reset returns to fit."
+	},
+	"composedOf": [
+		"Button",
+		"ProgressComparison"
+	],
+	"responsive": {
+		"strategy": "Fills its container; the SVG overlay + image scale together (viewBox + matching object-fit — cover by default) so footprints stay registered at any size.",
+		"breakpoints": {}
+	},
+	"allowedPlacement": [
+		"the map/canvas pane of a site workspace (e.g. the CaptureUiEnhanced template)"
+	],
+	"forbiddenPlacement": [
+		"inside a small card (needs room for the site image + hover card)"
+	],
+	"commonMistakes": [
+		{
+			"mistake": "Recomputing villa screen coordinates by hand",
+			"symptom": "Polygons drift off the image at some sizes",
+			"fix": "Keep the viewBox equal to the image's natural pixel size (imageWidth/imageHeight) and let the browser map points 1:1."
+		},
+		{
+			"mistake": "Colouring the polygons and the legend from different ramps",
+			"symptom": "The map and legend disagree",
+			"fix": "Both read the exported milestone ramp (styleForVilla / PROGRESS_LEGEND_ITEMS / VARIANCE_LEGEND_ITEMS)."
+		},
+		{
+			"mistake": "Bundling the villa data with the widget",
+			"symptom": "Every consumer pulls the ~large fixture payload",
+			"fix": "Pass villas via props; import the demo set from @wakecap/core-ui/site-image-viewer-fixtures only in demo surfaces."
+		}
+	],
+	"minimalExample": "import {SiteImageViewer} from \"@wakecap/core-ui/site-image-viewer\";\nimport {ALMANAR_VILLAS, ALMANAR_SITE_META} from \"@wakecap/core-ui/site-image-viewer-fixtures\";\n\n<SiteImageViewer\n\tbackgroundUrl=\"/site-background.webp\"\n\tvillas={ALMANAR_VILLAS}\n\timageWidth={ALMANAR_SITE_META.imageWidth}\n\timageHeight={ALMANAR_SITE_META.imageHeight}\n/>",
+	"evaluationCriteria": [
+		{"id": "regions", "metric": "render", "check": "Renders the site image, the SVG villa overlay, and the built-in legend."},
+		{"id": "viewbox", "metric": "render", "check": "The SVG viewBox equals imageWidth×imageHeight so footprints register on the image."},
+		{"id": "hover", "metric": "interaction", "check": "Hovering a linked villa raises its stroke + name chip inline; no floating card unless hoverCard is set."},
+		{"id": "mode", "metric": "interaction", "check": "The legend switches SPA (progress) ↔ Construction (variance) colouring."}
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "promoted from the site-image-viewer story (owner-dashboard site view) into @wakecap/core-ui (2026-09)",
+		"derivedFrom": {
+			"source": "apps/storybook/stories/site-image-viewer/SiteView.tsx",
+			"extracted": [
+				"the SVG-over-image viewer (1:1 viewBox), the flip-and-clamp hover card, and the mode-switching legend",
+				"the SHA-1036 milestone ramp + variance classifier (milestone-ramp)",
+				"the ProgressComparison hover card (villa-hover-card)"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — rendered and read back in Storybook",
+		"supersedes": null,
+		"lastValidated": "2026-09-09",
+		"notes": [
+			"The real ROSHN Almanar villa data + site meta moved to the @wakecap/core-ui/site-image-viewer-fixtures entry so the widget stays lean.",
+			"The CaptureUiEnhanced template composes this widget for its map region."
+		]
+	}
+}

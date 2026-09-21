@@ -1,0 +1,370 @@
+{
+  "source": {
+    "projectId": "926c85f7-b5b5-450b-b12e-d1a5dd744109",
+    "lbsNode": {
+      "id": 105243,
+      "name": "Zone 1 - A",
+      "level": "Zone"
+    },
+    "blueprintId": 6366,
+    "lbsItemBlueprintAssignmentId": 6368,
+    "periodId": 7762
+  },
+  "batchPolygons": [
+    {
+      "canvasObjectId": 3330,
+      "linkedLbsItemId": 106879,
+      "name": "Batch-01 (40 UNITS)",
+      "type": "Polygon",
+      "geometry": {
+        "x": 1026.328,
+        "y": 1981.05,
+        "width": 1212.045,
+        "height": 940.631,
+        "rotation": 0.0,
+        "points": [
+          {
+            "x": 1026.328,
+            "y": 2121.863
+          },
+          {
+            "x": 1362.573,
+            "y": 1981.05
+          },
+          {
+            "x": 2238.373,
+            "y": 2739.874
+          },
+          {
+            "x": 1842.323,
+            "y": 2921.681
+          }
+        ]
+      },
+      "authoredStyle": {
+        "fillColor": "#00B050",
+        "strokeColor": "#000000",
+        "opacity": 0.4
+      },
+      "progress": {
+        "approvedProgressPercent": 49.11,
+        "plannedProgressPercent": 65.04,
+        "progressVariancePercent": -15.93
+      },
+      "coloring": {
+        "spaMilestoneMode": {
+          "bucket": "M50",
+          "fillColor": "#3B82F6",
+          "strokeColor": "#3B82F6",
+          "opacity": 0.7
+        },
+        "constructionVarianceMode": {
+          "bucket": "behind",
+          "fillColor": "#ef4444",
+          "strokeColor": "#b91c1c",
+          "opacity": 0.7
+        }
+      }
+    },
+    {
+      "canvasObjectId": 3331,
+      "linkedLbsItemId": 105244,
+      "name": "Batch-02 (55 UNITS)",
+      "type": "Polygon",
+      "geometry": {
+        "x": 502.412,
+        "y": 1331.746,
+        "width": 1110.389,
+        "height": 758.825,
+        "rotation": 0.0,
+        "points": [
+          {
+            "x": 987.23,
+            "y": 2090.571
+          },
+          {
+            "x": 502.412,
+            "y": 1644.663
+          },
+          {
+            "x": 1331.294,
+            "y": 1331.746
+          },
+          {
+            "x": 1612.801,
+            "y": 1550.788
+          },
+          {
+            "x": 1409.491,
+            "y": 1621.195
+          },
+          {
+            "x": 1417.31,
+            "y": 1941.935
+          }
+        ]
+      },
+      "authoredStyle": {
+        "fillColor": "#00B050",
+        "strokeColor": "#000000",
+        "opacity": 0.4
+      },
+      "progress": {
+        "approvedProgressPercent": 41.53,
+        "plannedProgressPercent": 56.48,
+        "progressVariancePercent": -14.95
+      },
+      "coloring": {
+        "spaMilestoneMode": {
+          "bucket": "M50",
+          "fillColor": "#3B82F6",
+          "strokeColor": "#3B82F6",
+          "opacity": 0.7
+        },
+        "constructionVarianceMode": {
+          "bucket": "behind",
+          "fillColor": "#ef4444",
+          "strokeColor": "#b91c1c",
+          "opacity": 0.7
+        }
+      }
+    },
+    {
+      "canvasObjectId": 3332,
+      "linkedLbsItemId": 106045,
+      "name": "Batch-04 (68 UNITS)",
+      "type": "Polygon",
+      "geometry": {
+        "x": 1612.801,
+        "y": 1433.444,
+        "width": 1274.602,
+        "height": 899.638,
+        "rotation": 0.0,
+        "points": [
+          {
+            "x": 1612.801,
+            "y": 1902.82
+          },
+          {
+            "x": 1745.735,
+            "y": 2067.102
+          },
+          {
+            "x": 1925.587,
+            "y": 2004.519
+          },
+          {
+            "x": 2285.291,
+            "y": 2333.082
+          },
+          {
+            "x": 2887.403,
+            "y": 2067.102
+          },
+          {
+            "x": 2613.716,
+            "y": 1785.476
+          },
+          {
+            "x": 2871.764,
+            "y": 1699.424
+          },
+          {
+            "x": 2582.437,
+            "y": 1433.444
+          },
+          {
+            "x": 2011.603,
+            "y": 1675.955
+          },
+          {
+            "x": 1706.637,
+            "y": 1456.913
+          }
+        ]
+      },
+      "authoredStyle": {
+        "fillColor": "#00B050",
+        "strokeColor": "#000000",
+        "opacity": 0.41
+      },
+      "progress": {
+        "approvedProgressPercent": 29.77,
+        "plannedProgressPercent": 43.0,
+        "progressVariancePercent": -13.23
+      },
+      "coloring": {
+        "spaMilestoneMode": {
+          "bucket": "M35",
+          "fillColor": "#93C5FD",
+          "strokeColor": "#93C5FD",
+          "opacity": 0.7
+        },
+        "constructionVarianceMode": {
+          "bucket": "behind",
+          "fillColor": "#ef4444",
+          "strokeColor": "#b91c1c",
+          "opacity": 0.7
+        }
+      }
+    },
+    {
+      "canvasObjectId": 3346,
+      "linkedLbsItemId": 106474,
+      "name": "Batch-03 (65 UNITS)",
+      "type": "Polygon",
+      "geometry": {
+        "x": 1698.239,
+        "y": 918.497,
+        "width": 1336.954,
+        "height": 740.59,
+        "rotation": 0.0,
+        "points": [
+          {
+            "x": 1698.239,
+            "y": 1166.739
+          },
+          {
+            "x": 1867.945,
+            "y": 1319.822
+          },
+          {
+            "x": 1718.935,
+            "y": 1377.745
+          },
+          {
+            "x": 2025.234,
+            "y": 1638.4
+          },
+          {
+            "x": 2604.719,
+            "y": 1406.707
+          },
+          {
+            "x": 2886.182,
+            "y": 1659.087
+          },
+          {
+            "x": 3035.193,
+            "y": 1580.477
+          },
+          {
+            "x": 2281.863,
+            "y": 918.497
+          }
+        ]
+      },
+      "authoredStyle": {
+        "fillColor": "#00B050",
+        "strokeColor": "#000000",
+        "opacity": 0.37
+      },
+      "progress": {
+        "approvedProgressPercent": 38.43,
+        "plannedProgressPercent": 55.68,
+        "progressVariancePercent": -17.25
+      },
+      "coloring": {
+        "spaMilestoneMode": {
+          "bucket": "M50",
+          "fillColor": "#3B82F6",
+          "strokeColor": "#3B82F6",
+          "opacity": 0.7
+        },
+        "constructionVarianceMode": {
+          "bucket": "behind",
+          "fillColor": "#ef4444",
+          "strokeColor": "#b91c1c",
+          "opacity": 0.7
+        }
+      }
+    },
+    {
+      "canvasObjectId": 3334,
+      "linkedLbsItemId": 105588,
+      "name": "Batch-05 (73 UNITS)",
+      "type": "Polygon",
+      "geometry": {
+        "x": 2003.326,
+        "y": 1721.537,
+        "width": 1496.315,
+        "height": 962.221,
+        "rotation": 0.0,
+        "points": [
+          {
+            "x": 2667.996,
+            "y": 1768.474
+          },
+          {
+            "x": 2785.29,
+            "y": 1721.537
+          },
+          {
+            "x": 2996.421,
+            "y": 1932.756
+          },
+          {
+            "x": 3262.289,
+            "y": 1823.235
+          },
+          {
+            "x": 3499.641,
+            "y": 2041.374
+          },
+          {
+            "x": 3317.026,
+            "y": 2112.683
+          },
+          {
+            "x": 3442.14,
+            "y": 2222.204
+          },
+          {
+            "x": 2417.767,
+            "y": 2683.758
+          },
+          {
+            "x": 2003.326,
+            "y": 2300.434
+          },
+          {
+            "x": 2179.957,
+            "y": 2223.56
+          },
+          {
+            "x": 2292.653,
+            "y": 2339.549
+          },
+          {
+            "x": 2915.461,
+            "y": 2025.728
+          }
+        ]
+      },
+      "authoredStyle": {
+        "fillColor": "#00B050",
+        "strokeColor": "#000000",
+        "opacity": 0.39
+      },
+      "progress": {
+        "approvedProgressPercent": 31.61,
+        "plannedProgressPercent": 48.18,
+        "progressVariancePercent": -16.57
+      },
+      "coloring": {
+        "spaMilestoneMode": {
+          "bucket": "M35",
+          "fillColor": "#93C5FD",
+          "strokeColor": "#93C5FD",
+          "opacity": 0.7
+        },
+        "constructionVarianceMode": {
+          "bucket": "behind",
+          "fillColor": "#ef4444",
+          "strokeColor": "#b91c1c",
+          "opacity": 0.7
+        }
+      }
+    }
+  ]
+}

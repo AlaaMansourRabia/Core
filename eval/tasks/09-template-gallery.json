@@ -1,0 +1,10 @@
+{
+	"id": "template-gallery",
+	"title": "Template gallery recipe",
+	"domain": "composition",
+	"prompt": "When a user clicks 'New from template', open a searchable gallery of template cards in a focused overlay. Selecting a card shows its details before the user confirms.",
+	"expected": ["Dialog"],
+	"acceptable": ["Card", "SearchFilterBar"],
+	"forbidden": [],
+	"requiredProviders": []
+}

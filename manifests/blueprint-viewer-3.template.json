@@ -1,0 +1,68 @@
+{
+	"schemaVersion": "artifact-manifest/0.1",
+	"id": "blueprint-viewer-3",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "BlueprintViewer3",
+	"archetype": "BuildingViewer",
+	"category": "workspace",
+	"version": "1.0.0",
+	"manifestStatus": "variant",
+	"variantOf": {
+		"template": "BuildingViewer",
+		"relationship": "variant",
+		"note": "The 'Multi-Floor Split' variation of the Building Viewer template's Blueprint Viewer variant — a fixed multi-floor split canvas with a compound→house drill navigator and a milestones/progress panel. Sibling variation: 'Single Floor' (core-blueprint-viewer)."
+	},
+	"source": {
+		"path": "packages/components/src/pages/core-blueprint-viewer-3.tsx",
+		"import": "@wakecap/core-ui/pages/core-blueprint-viewer-3",
+		"export": "BlueprintViewer3"
+	},
+
+	"intent": "A v3 iteration of the single-blueprint viewing workspace: a fixed multi-floor split canvas (drag to pan) with a collapsed, drill-down canvas navigator (compound → zone → house → floor) top-left, and a scrollable full-height details panel on the right — the active house's approved-vs-planned progress, a collapsible milestones table, and a Building Progress floor list. A breadcrumb + week-selector metric bar frames the top, with a full-screen toggle.",
+	"when": [
+		"Inspect a house's floors as a fixed multi-blueprint split, panning the whole canvas",
+		"Drill a compound → zone → house hierarchy from a collapsed top-left navigator",
+		"Show a house's approved-vs-planned progress, milestones, and per-floor completion in a side panel"
+	],
+	"whenNot": [
+		"The canonical single-floor pan/zoom viewer with a Show-Multiple toggle -> use the 'Single Floor' variation (BlueprintViewer)",
+		"A geospatial map or org KPI overview -> use the Dashboard template"
+	],
+	"chooseOver": [
+		{
+			"over": "BlueprintViewer",
+			"because": "The 'Multi-Floor Split' variation is a fixed multi-floor split canvas with a compound→house drill navigator and a milestones + progress details panel, rather than the 'Single Floor' variation's single-floor viewer with a Show-Multiple toggle."
+		}
+	],
+
+	"regions": [
+		{
+			"id": "metric-bar",
+			"role": "Top bar: breadcrumb trail (compound → zone → house → floor) on the left, week selector + full-screen toggle on the right",
+			"source": "Breadcrumb + WeekSelector + Button",
+			"required": true,
+			"recommended": ["Breadcrumb", "WeekSelector"]
+		},
+		{
+			"id": "canvas",
+			"role": "Fixed multi-floor split canvas (one segment per floor); drag anywhere to pan all segments together",
+			"source": "FloorPlan (local SVG) + SplitBlueprints (local) inside a pointer-driven pan surface",
+			"required": true
+		},
+		{
+			"id": "navigator",
+			"role": "Collapsed top-left canvas navigator drilling compound → zone → house → floor; selecting a house drives the canvas + panel",
+			"source": "CanvasNavigator widget (@wakecap/core-ui/canvas-navigator)",
+			"required": true,
+			"recommended": ["CanvasNavigator"]
+		},
+		{
+			"id": "details-panel",
+			"role": "Full-height right panel: approved-vs-planned progress hero, a collapsible milestones table, and a Building Progress floor list that highlights the selected floor",
+			"source": "BuildingProgress widget (@wakecap/core-ui/building-progress) + local markup",
+			"required": true,
+			"recommended": ["BuildingProgress"]
+		}
+	]
+}

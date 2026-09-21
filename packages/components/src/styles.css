@@ -1,0 +1,18 @@
+@import "@wakecap/core-tokens/fonts";
+@import "@wakecap/core-tokens";
+/* Enter/exit animation utilities (animate-in, slide-in-from-*, fade-*, zoom-*). Sheet,
+   Dialog, AlertDialog, Popover and friends all name these; without this import they
+   compile to nothing and every overlay appears instantly. */
+@import "tw-animate-css";
+@source ".";
+
+/* Fully hide a scrollbar (for elements with their own overlay scrollbar). Unlayered so it beats the
+   design system's global `@layer base` scrollbar styling regardless of cascade-layer order. */
+.hide-native-scrollbar {
+	scrollbar-width: none;
+}
+.hide-native-scrollbar::-webkit-scrollbar {
+	display: none;
+	width: 0;
+	height: 0;
+}

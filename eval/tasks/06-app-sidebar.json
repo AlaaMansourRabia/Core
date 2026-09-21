@@ -1,0 +1,10 @@
+{
+	"id": "app-sidebar",
+	"title": "Collapsible app sidebar (provider wiring)",
+	"domain": "composition",
+	"prompt": "Lay out an authenticated app screen with a collapsible left navigation sidebar next to the main content area. Include the root-level wiring the sidebar needs to manage its collapsed state and layout.",
+	"expected": ["Sidebar", "CoreAppSidebar"],
+	"acceptable": [],
+	"forbidden": [],
+	"requiredProviders": ["SidebarProvider"]
+}

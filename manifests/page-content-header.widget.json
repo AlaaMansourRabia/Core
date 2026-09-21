@@ -1,0 +1,148 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "page-content-header",
+	"tier": "widget",
+	"name": "PageContentHeader",
+	"category": "navigation",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/page-content-header.tsx",
+		"import": "@wakecap/core-ui/page-content-header",
+		"export": "PageContentHeader"
+	},
+	"tags": ["header", "page", "content", "entity", "navigation", "actions", "responsive"],
+	"intent": "Route-content header that unifies identity or page title, optional peer navigation, status metadata, priority actions, accessible overflow, and split-primary workflows.",
+	"when": [
+		"A route inside an existing application shell needs a title or entity identity plus actions",
+		"The same product needs consistent navigation, entity-action, and title-action header variants",
+		"Secondary actions must collapse to an accessible overflow while the title and primary action remain visible"
+	],
+	"whenNot": [
+		"The persistent application shell needs sidebar pairing, project switching, global search, notifications, and identity -> use CoreAppTopBar with CoreAppSidebar",
+		"A complete organization/project dashboard shell header is required -> use CoreDashboardHeader",
+		"A small contextual row above a canvas or panel is sufficient -> use ContextToolbar"
+	],
+	"chooseOver": [
+		{
+			"component": "CoreDashboardHeader",
+			"because": "PageContentHeader is route-local content; CoreDashboardHeader owns a complete dashboard shell context."
+		}
+	],
+	"insteadUse": [
+		{
+			"component": "CoreDashboardHeader",
+			"whenInstead": "The header must own organization/project switching, global search, notifications, identity, and dashboard context tabs."
+		},
+		{
+			"component": "ContextToolbar",
+			"whenInstead": "The surface only needs a compact context label, status, and a small action set."
+		}
+	],
+	"pairsWith": ["Avatar", "Badge", "ViewTabBar", "Button", "ButtonGroup", "DropdownMenu", "Tooltip"],
+	"requiredProviders": [],
+	"composedOf": ["ViewTabBar", "Button", "ButtonGroup", "DropdownMenu", "Tooltip"],
+	"dataContract": {
+		"input": {
+			"title": {"type": "ReactNode", "required": true},
+			"tabs": {"type": "ViewTabItem[]", "required": false},
+			"actions": {"type": "PageContentHeaderAction[]", "required": false},
+			"splitAction": {"type": "PageContentHeaderSplitAction", "required": false}
+		}
+	},
+	"configSchema": {
+		"variant": {"type": "navigation | entity-actions | title-actions", "default": "title-actions"},
+		"title": {"type": "ReactNode", "required": true},
+		"description": {"type": "ReactNode"},
+		"meta": {"type": "ReactNode"},
+		"status": {"type": "ReactNode"},
+		"avatar": {"type": "ReactNode"},
+		"tabs": {"type": "ViewTabItem[]"},
+		"activeTab": {"type": "string"},
+		"onTabChange": {"type": "(tab: string) => void"},
+		"actions": {"type": "PageContentHeaderAction[]"},
+		"splitAction": {"type": "PageContentHeaderSplitAction"},
+		"density": {"type": "compact | comfortable", "default": "variant-dependent"},
+		"headingLevel": {"type": "1 | 2 | 3", "default": 1},
+		"menuLabel": {"type": "string", "default": "More actions"},
+		"instrumentationId": {"type": "string", "default": "page-content-header"}
+	},
+	"states": {
+		"navigation": "Entity identity, peer ViewTabBar, and action hierarchy",
+		"entity-actions": "Entity identity/status with primary, secondary, and overflow actions",
+		"title-actions": "Page title/description with supporting controls and optional split-primary action",
+		"responsive": "Secondary controls collapse into overflow and navigation moves to a dedicated row below desktop width",
+		"titleScale": "The title steps DOWN as the header narrows rather than holding a desktop size in a phone-width column: title-actions runs 24px only once the header has the width for it, 20px at @md and 18px below. Sizes read off the header's own @container, not the viewport, because a header inside a 380px panel on a wide screen is narrow whatever the window says. The size and weight are !important on purpose — this is a semantic heading, our utilities live in @layer utilities, and ANY unlayered `h1 {}` rule in a host app beats a layered one however specific it is; styles.tw4.css ships no reset by design, so preflight cannot be relied on to have zeroed it either.",
+		"disabled": "Individual actions and split options honor their disabled state"
+	},
+	"allowedPlacement": [
+		"Direct child of route content below the application shell",
+		"Top of a detail, workspace, playground, or operational route"
+	],
+	"forbiddenPlacement": [
+		"As a replacement for the persistent application shell top bar",
+		"Inside a table row or small card",
+		"Nested inside another PageContentHeader or CoreDashboardHeader"
+	],
+	"commonMistakes": [
+		{
+			"mistake": "Passing navigation tabs without variant=\"navigation\" and controlled activeTab/onTabChange props",
+			"symptom": "The peer navigation is not rendered",
+			"fix": "Use the navigation variant and provide tabs, activeTab, and onTabChange together."
+		},
+		{
+			"mistake": "Marking every action primary",
+			"symptom": "The header has no clear action hierarchy and cannot collapse gracefully",
+			"fix": "Keep one primary workflow, leave supporting actions secondary, and mark rare actions overflow."
+		}
+	],
+	"minimalExample": "<PageContentHeader variant=\"title-actions\" title=\"Playground\" description=\"Iterate on and test prompts.\" actions={[{id: \"evaluation\", label: \"Set up Evaluation\", onSelect: setup}]} splitAction={{id: \"start\", label: \"Start\", onSelect: start, options: [{id: \"template\", label: \"From template\", onSelect: fromTemplate}]}} />",
+	"evaluationCriteria": [
+		{
+			"id": "selection",
+			"metric": "tier-selection",
+			"check": "Selected for route content, never as an application shell substitute."
+		},
+		{
+			"id": "composition",
+			"metric": "wakecore-composition",
+			"check": "All visible controls are rendered by WakeCore ViewTabBar, Button, ButtonGroup, DropdownMenu, and Tooltip artifacts."
+		},
+		{
+			"id": "responsive",
+			"metric": "responsive-layout",
+			"check": "At desktop and narrow widths, title and primary action remain visible, secondary actions stay accessible from overflow, and groups never overlap."
+		},
+		{
+			"id": "interaction",
+			"metric": "interaction",
+			"check": "Peer navigation, direct actions, overflow actions, and split action options are keyboard accessible and invoke their handlers."
+		}
+	],
+	"ownership": {
+		"surface": "route",
+		"background": "owned",
+		"border": "bottom",
+		"padding": "owned",
+		"scrolling": "none",
+		"responsiveBehavior": "overflow-menu-and-navigation-row",
+		"expectedWrapper": "Direct route-content child without duplicate background, divider, height, or horizontal padding."
+	},
+	"lineage": {
+		"origin": "experiment-feedback",
+		"authoredBy": "WakeCore screenshot reproduction experiment (2026-07)",
+		"derivedFrom": {
+			"source": "Three supplied header references",
+			"extracted": [
+				"identity hierarchy",
+				"peer navigation",
+				"action priority",
+				"split-primary workflow",
+				"responsive density"
+			]
+		},
+		"status": "candidate",
+		"confidence": "high — three reference variants mapped to existing WakeCore artifacts",
+		"lastValidated": "2026-07-18"
+	}
+}

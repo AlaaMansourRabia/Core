@@ -1,0 +1,72 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "export-dialog",
+	"tier": "component",
+	"name": "ExportDialog",
+	"category": "overlay",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/export-dialog.tsx",
+		"import": "@wakecap/core-ui/export-dialog",
+		"export": "ExportDialog"
+	},
+	"tags": [
+		"overlay",
+		"dialog",
+		"export",
+		"download",
+		"report",
+		"template"
+	],
+	"intent": "Export configuration dialog — file type (PDF/Excel), whether active filters narrow the export, and which saved template to use or a new one to generate.",
+	"when": [
+		"A list or table surface needs an export affordance with more than one choice",
+		"Exports are shaped by reusable report templates"
+	],
+	"chooseOver": [
+		{
+			"component": "DropdownMenu",
+			"because": "A menu fits one axis of choice; ExportDialog carries four that must be seen together before committing"
+		},
+		{
+			"component": "Dialog",
+			"because": "Dialog is the empty shell; ExportDialog is the ready-made export form with its own submission contract"
+		}
+	],
+	"pairsWith": [
+		"Button",
+		"Filter",
+		"DataTable",
+		"TaskMonitor"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [
+		{
+			"mistake": "Perform the export inside the dialog",
+			"fix": "The dialog only collects the selection — do the work in onExport",
+			"avoidOverride": "Perform the export inside the dialog — handle it in onExport"
+		},
+		{
+			"mistake": "Pass activeFilterCount that disagrees with the surface's real filter state",
+			"fix": "Derive it from the same applied-filter value the list uses",
+			"avoidOverride": "Hardcode activeFilterCount"
+		}
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Safety Manager list-view work (2026-07)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-20",
+		"notes": [
+			"Composed from Dialog + RadioGroup + Select + Switch + Input; owns no export behaviour of its own"
+		]
+	}
+}

@@ -1,0 +1,41 @@
+{
+	"name": "@wakecap/core-utils",
+	"version": "0.0.1",
+	"bin": {
+		"intent": "./bin/intent.js"
+	},
+	"files": [
+		"dist",
+		"skills",
+		"!skills/_artifacts",
+		"bin"
+	],
+	"type": "module",
+	"sideEffects": false,
+	"main": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.mts",
+			"import": "./dist/index.mjs"
+		}
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
+	"scripts": {
+		"build": "tsdown",
+		"typecheck": "tsgo --noEmit",
+		"lint": "oxlint .",
+		"format": "oxfmt .",
+		"format:check": "oxfmt --check ."
+	},
+	"dependencies": {
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"tailwind-merge": "^3.4.0"
+	},
+	"devDependencies": {
+		"tsdown": "latest"
+	}
+}

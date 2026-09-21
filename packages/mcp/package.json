@@ -1,0 +1,19 @@
+{
+	"name": "@wakecap/mcp",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"description": "WakeCore MCP server — the tool-agnostic intelligence API any AI editor consults to build UI from WakeCore (resolve/validate/generate). Wraps @wakecap/sdk over stdio.",
+	"bin": {
+		"wakecore-mcp": "./src/server.mjs"
+	},
+	"exports": {
+		".": "./src/server.mjs",
+		"./tools": "./src/tools.mjs"
+	},
+	"files": ["src"],
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "1.29.0",
+		"@wakecap/sdk": "workspace:*"
+	}
+}

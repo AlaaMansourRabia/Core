@@ -1,0 +1,38 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "empty-state",
+	"tier": "pattern",
+	"name": "empty-state",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"intent": "Communicate no-data and offer a next action.",
+	"when": "Empty lists/tables/search results or first-run.",
+	"components": [
+		"Empty",
+		"Button"
+	],
+	"order": [
+		"Empty (icon + message)",
+		"primary Button"
+	],
+	"requiredProviders": [],
+	"tags": [
+		"feedback",
+		"empty"
+	],
+	"notes": "Use Skeleton (not Empty) while loading; ErrorPage for failures.",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 pattern migration (2026-07)",
+		"derivedFrom": {
+			"source": "library-index.json patterns[]",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": []
+	}
+}

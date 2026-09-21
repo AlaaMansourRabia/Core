@@ -1,0 +1,42 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-org-workforce-intelligence",
+	"tier": "template",
+	"consumption": "import",
+	"name": "CoreOrgWorkforceIntelligence",
+	"category": "pages",
+	"version": "1.0.0",
+	"manifestStatus": "variant",
+	"variantOf": {
+		"template": "CoreOrgPerformance",
+		"relationship": "instance",
+		"note": "Regular Dashboard instance — same shape as core-org-performance with a workforce-intelligence scenario (scenario sliders + a table)."
+	},
+	"source": {
+		"path": "packages/components/src/pages/core-org-workforce-intelligence.tsx",
+		"import": "@wakecap/core-ui/pages/core-org-workforce-intelligence",
+		"export": "OrgWorkforceIntelligence"
+	},
+	"tags": ["workforce", "intelligence", "analytics", "dashboard"],
+	"intent": "Ready-made org workforce-intelligence page template.",
+	"when": ["An org workforce-intelligence screen"],
+	"pairsWith": ["CoreAppSidebar", "CoreAppTopBar", "CoreContentArea"],
+	"requiredProviders": [],
+	"minimalExample": "import {OrgWorkforceIntelligence} from \"@wakecap/core-ui/pages/core-org-workforce-intelligence\";\n\n<OrgWorkforceIntelligence selectedOrg={org} />",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 template-variant migration (2026-07)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-org-workforce-intelligence.tsx",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"instance of CoreOrgPerformance: Regular Dashboard instance — same shape as core-org-performance with a workforce-intelligence scenario (scenario sliders + a table)."
+		]
+	}
+}

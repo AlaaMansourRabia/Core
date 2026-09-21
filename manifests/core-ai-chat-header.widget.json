@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-ai-chat-header",
+	"tier": "widget",
+	"name": "CoreAiChatHeader",
+	"category": "chat",
+	"version": "1.0.0",
+	"manifestStatus": "stub",
+	"source": {
+		"path": "packages/components/src/chat/core-ai-chat-header.tsx",
+		"import": "@wakecap/core-ui/chat/core-ai-chat-header"
+	},
+	"tags": [
+		"chat",
+		"ai",
+		"header"
+	],
+	"intent": "Header bar above an AI chat conversation — a title/usage line plus a right-side action cluster. Pass `sessionName` to render the conversation name in the left cluster; with `onSessionNameChange` it becomes click-to-edit (Enter or blur commits, Escape reverts) and re-seeds itself when the name changes underneath.",
+	"when": [
+		"Show context/usage and actions above a CoreAiChat"
+	],
+	"chooseOver": [],
+	"pairsWith": [
+		"CoreAiChat"
+	],
+	"requiredProviders": [],
+	"commonMistakes": [],
+	"stubPlan": [
+		"dataContract: stub — author input fields, slots, rowIdentity",
+		"configSchema: stub — enumerate config props from source",
+		"states: stub — list default/empty/loading/etc.",
+		"composedOf: stub — list composed components",
+		"evaluationCriteria: stub — define selection/config/render checks"
+	],
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "bulk widget promotion (2026-06)",
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"promotedFrom: component (library-index.json)",
+			"pilot: false",
+			"knowledgeRefs: [\"library-index.json#CoreAiChatHeader\"]"
+		]
+	}
+}

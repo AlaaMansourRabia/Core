@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "core-project-workforce-safety",
+	"tier": "template",
+	"consumption": "import",
+	"name": "CoreProjectWorkforceSafety",
+	"category": "pages",
+	"version": "1.0.0",
+	"manifestStatus": "variant",
+	"variantOf": {
+		"template": "CoreProjectQualityIssues",
+		"relationship": "instance",
+		"note": "Detail instance — same shape, workforce-safety data."
+	},
+	"source": {
+		"path": "packages/components/src/pages/core-project-workforce-safety.tsx",
+		"import": "@wakecap/core-ui/pages/core-project-workforce-safety",
+		"export": "ProjectWorkforceSafety"
+	},
+	"tags": [
+		"project",
+		"workforce",
+		"safety",
+		"metrics"
+	],
+	"intent": "Ready-made project workforce & safety page template.",
+	"when": [
+		"A project workforce-and-safety screen"
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"CoreContentArea"
+	],
+	"requiredProviders": [],
+	"minimalExample": "import {ProjectWorkforceSafety} from \"@wakecap/core-ui/pages/core-project-workforce-safety\";\n\n<ProjectWorkforceSafety project={project} />",
+	"lineage": {
+		"origin": "migrated",
+		"authoredBy": "A1 template-variant migration (2026-07)",
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-project-workforce-safety.tsx",
+			"extracted": []
+		},
+		"status": "accepted",
+		"verifiedBy": null,
+		"confidence": "unset — projection round-trip verified; no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-05",
+		"notes": [
+			"instance of CoreProjectQualityIssues: Detail instance — same shape, workforce-safety data."
+		]
+	}
+}

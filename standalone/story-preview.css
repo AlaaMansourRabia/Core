@@ -1,0 +1,10 @@
+@import "./src/fonts.css";
+@import "../packages/tokens/src/index.css";
+
+@source "../packages/components/src";
+@source "../apps/storybook/stories";
+
+body {
+	background-color: var(--background);
+	color: var(--foreground);
+}

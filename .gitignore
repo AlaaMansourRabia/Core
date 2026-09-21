@@ -1,0 +1,62 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+storybook-static
+*.local
+.env
+
+# Claude Code
+.claude/settings.local.json
+.claude/worktrees/
+CLAUDE.local.md
+# WakeCore Studio session scaffolding (standalone template preview + session MCP)
+.wakecore-preview/
+.claude/wakecore-session*.json
+.claude/wakecore-session-init.sh
+.mcp.json
+
+# Nx cache
+.nx/
+
+# Working scratch directory
+Working/
+
+# pnpm store
+.pnpm-store/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.wstack/
+
+# generated structural cache for the component semantic catalog
+scripts/catalog-structural.json
+
+# raw per-run agent generations (kept as CI artifacts + locally, not committed)
+eval/results/runs/
+
+# eval render-smoke scratch
+eval/graders/.render-tmp/
+
+# generated knowledge index artifact
+knowledge-index.json
+
+# Local-only symlinks to the WC3 example dataset (see apps/hub/README.md)
+apps/web/public/models
+apps/storybook/public/models

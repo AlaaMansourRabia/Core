@@ -1,0 +1,46 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "building-model-placeholder",
+	"tier": "component",
+	"name": "BuildingModelPlaceholder",
+	"category": "display",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/building-model-placeholder.tsx",
+		"import": "@wakecap/core-ui/building-model-placeholder",
+		"export": "BuildingModelPlaceholder"
+	},
+	"tags": [
+		"building",
+		"3d",
+		"placeholder",
+		"floors",
+		"model"
+	],
+	"intent": "A dependency-free CSS-3D building placeholder (one extruded box per floor, drag-to-orbit, click-to-select) that stands in for a real BIM / 3D model when one isn't available yet.",
+	"when": [
+		"A building's floors need a 3D-ish preview but no BIM model exists",
+		"Selecting a floor from a lightweight 3D stand-in"
+	],
+	"chooseOver": [
+		{
+			"component": "a real BIM / 3D viewer",
+			"because": "BuildingModelPlaceholder is a zero-dependency stand-in used only until a real model is wired up"
+		}
+	],
+	"pairsWith": [
+		"BlueprintViewer3"
+	],
+	"requiredProviders": [],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "run-app-and-storybook → develop merge (2026-07)",
+		"status": "accepted",
+		"confidence": "unset — authored alongside the component",
+		"lastValidated": "2026-07-22",
+		"notes": [
+			"authored during the develop merge reconciliation"
+		]
+	}
+}

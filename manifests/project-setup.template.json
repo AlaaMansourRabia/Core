@@ -1,0 +1,83 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "project-setup",
+	"tier": "template",
+	"consumption": "compose",
+	"name": "CoreProjectSetup",
+	"archetype": "Setup",
+	"category": "workflow",
+	"version": "1.0.0",
+	"manifestStatus": "complete",
+	"source": {
+		"path": "packages/components/src/pages/core-project-setup.tsx",
+		"import": "@wakecap/core-ui/pages/core-project-setup",
+		"export": "ProjectSetup"
+	},
+	"tags": [
+		"setup",
+		"onboarding",
+		"checklist",
+		"progress",
+		"wizard"
+	],
+	"intent": "A project setup page: a left panel with project context (name, org, tier) and a completion progress card, and a right panel with a recommended next action plus a multi-step SetupStepsChecklist of collapsible setup steps with per-item actions.",
+	"when": [
+		"Guiding a new project (or workspace) through a setup / onboarding flow",
+		"The user needs to see completion progress and a step-by-step checklist",
+		"A 'get started' page with context on the left and actionable steps on the right"
+	],
+	"whenNot": [
+		"An operational dashboard of live metrics -> use a Dashboard / Analytics template",
+		"A single record's editable fields -> use a Detail page",
+		"A master-detail worklist -> use the Task Monitor template"
+	],
+	"chooseOver": [
+		{
+			"component": "Assembling a progress card + checklist by hand",
+			"because": "The Project Setup template owns the context sidebar, the progress card, and the SetupStepsChecklist flow."
+		}
+	],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar"
+	],
+	"requiredProviders": [],
+	"composedOf": [
+		"Card",
+		"Badge",
+		"Progress",
+		"Separator",
+		"SetupStepsChecklist",
+		"Button"
+	],
+	"allowedPlacement": [
+		"app-shell content-region (inside CoreAppSidebar + CoreAppTopBar + CoreContentArea)",
+		"route-level project setup / onboarding page"
+	],
+	"forbiddenPlacement": [
+		"inside a Card or Dialog",
+		"as a small embeddable panel"
+	],
+	"minimalExample": "// CoreProjectSetup is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {Progress} from \"@wakecap/core-ui/progress\";\nimport {SetupStepsChecklist} from \"@wakecap/core-ui/setup-steps-checklist\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "Promoted from the apps/web ProjectSetupExamplePage (2026-07-08)",
+		"derivedFrom": {
+			"source": "apps/web/src/pages/examples/ProjectSetupExamplePage.tsx",
+			"extracted": [
+				"project context sidebar + progress card",
+				"recommended next action",
+				"SetupStepsChecklist multi-step flow"
+			]
+		},
+		"status": "candidate",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-08",
+		"notes": [
+			"promotedFrom: apps/web example (ProjectSetupExamplePage) — reflected as a canonical WakeCore template; the example was removed.",
+			"pilot: true"
+		]
+	}
+}

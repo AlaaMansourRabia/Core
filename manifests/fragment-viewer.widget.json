@@ -1,0 +1,70 @@
+{
+	"schemaVersion": "artifact-manifest/0.2",
+	"id": "fragment-viewer",
+	"tier": "widget",
+	"name": "FragmentViewer",
+	"category": "map",
+	"version": "1.0.0",
+	"manifestStatus": "draft",
+	"source": {
+		"path": "packages/components/src/fragment-viewer.tsx",
+		"import": "@wakecap/core-ui/fragment-viewer",
+		"export": "FragmentViewer"
+	},
+	"tags": ["display", "3d", "bim", "fragments", "thatopen", "model", "viewer", "ifc"],
+	"intent": "Renders a That Open Fragments (.frag) model with orbit, zoom and click-to-select — the same runtime the WC3 engineering viewers use. Fills its parent, reports the picked element, and releases its WebGL context on unmount.",
+	"when": [
+		"Showing a single BIM/engineering model inside a product surface",
+		"Filling the canvas of a map/site workspace with a building rather than a basemap",
+		"A picked element must drive surrounding panels (selection is reported, not owned)"
+	],
+	"whenNot": [
+		"Geospatial basemaps, geofences or asset pins -> use Map (mapbox-gl)",
+		"Whole-project federations of gigabyte scale -> stream through APS; Fragments loads one model into browser memory",
+		"IFC files -> convert to .frag first (IfcImporter); this widget deliberately avoids the 23 MB web-ifc wasm"
+	],
+	"chooseOver": [
+		{
+			"component": "Embedding a third-party BIM viewer in an iframe",
+			"because": "FragmentViewer renders in-page, themes with the surrounding surface and reports selection back to React."
+		}
+	],
+	"pairsWith": ["PushPanel", "SectionPanel", "PropertyList"],
+	"requiredProviders": [],
+	"composedOf": ["Empty", "Skeleton"],
+	"allowedPlacement": ["a parent with a bounded height (the canvas fills its container)"],
+	"forbiddenPlacement": [
+		"inside a scrolling container with auto height (the canvas collapses to zero)",
+		"more than a couple per page (each instance holds a WebGL context)"
+	],
+	"minimalExample": "import {FragmentViewer} from \"@wakecap/core-ui/fragment-viewer\";\nimport workerUrl from \"@thatopen/fragments/worker?url\";\n\n<div className=\"h-[600px]\">\n\t<FragmentViewer src=\"/models-bundled/uptown.frag\" workerUrl={workerUrl} />\n</div>",
+	"commonMistakes": [
+		"Omitting workerUrl or passing a bare specifier — a bundled library cannot resolve @thatopen/fragments/worker to a runtime URL, so the model silently never loads",
+		"Mounting it in an auto-height parent, which gives the canvas zero height",
+		"Passing a new inline onSelectionChange identity expecting a reload — handlers are held in refs precisely so the WebGL context survives re-renders"
+	],
+	"lineage": {
+		"origin": "authored",
+		"authoredBy": "3d-visualization branch (2026-07-21)",
+		"derivedFrom": {
+			"source": "ModelViewport in wc3-engineering-viewer packages/custom-viewer-core (private, unpublished)",
+			"extracted": [
+				"canvas-owned scene / camera / OrbitControls / render loop",
+				"debounced fragments.update on camera move, forced on rest",
+				"camera framing from getMergedBox",
+				"click raycast to highlight + selection callback"
+			]
+		},
+		"status": "draft",
+		"verifiedBy": null,
+		"confidence": "unset — no held-out eval yet",
+		"supersedes": null,
+		"lastValidated": "2026-07-21",
+		"notes": [
+			"pilot: true",
+			"three and @thatopen/fragments are OPTIONAL peerDependencies — only apps importing this widget install them (~900 KB)",
+			"pin @thatopen/fragments to the version that authored the .frag files; the WC3 dataset catalog records 3.4.6",
+			"scope is one model: multi-model federation, geospatial placement, isolation and QTO are deliberately out"
+		]
+	}
+}
