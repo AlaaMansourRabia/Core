@@ -14,13 +14,16 @@ const GOAL_SIGNALS: Array<{goal: ImplementationGoal; patterns: RegExp[]}> = [
 			/\bwake\s*core\b.{0,32}\b(?:showcase|demo|demonstrat|test|try|explor|evaluat)/i,
 			/\b(?:showcase|demo|demonstrat|test|try|explor|evaluat)\w*\b.{0,32}\bwake\s*core\b/i,
 			/\bdesign[ -]?system showcase\b/i,
+			/\b(?:showcase|evaluat)\w*\b.{0,32}\bCore\s+(?:component|widget)s?\b/,
+			/\bCore\s+(?:component|widget)s?\b.{0,32}\b(?:showcase|evaluat)/,
+			/\bCore\s+showcase\b/i,
 		],
 	},
 	{
 		goal: "component-evaluation",
 		patterns: [
-			/\b(?:component|widget)s?\b.{0,28}\b(?:compar|evaluat|review|audit|test|benchmark)/i,
-			/\b(?:compar|evaluat|review|audit|test|benchmark)\w*\b.{0,28}\b(?:component|widget)s?\b/i,
+			/\b(?:component|widget)s?\b.{0,28}\b(?:compar|review|audit|benchmark)/i,
+			/\b(?:compar|review|audit|benchmark)\w*\b.{0,28}\b(?:component|widget)s?\b/i,
 		],
 	},
 	{
