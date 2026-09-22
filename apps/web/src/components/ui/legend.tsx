@@ -1,4 +1,4 @@
-export {Legend, TabbedLegend} from "@core/core-ui/legend";
+export {Legend, TabbedLegend} from "@corensystem/core-ui/legend";
 export type {
 	LegendItem,
 	LegendPlacement,
@@ -6,4 +6,4 @@ export type {
 	LegendShape,
 	LegendTab,
 	TabbedLegendProps,
-} from "@core/core-ui/legend";
+} from "@corensystem/core-ui/legend";

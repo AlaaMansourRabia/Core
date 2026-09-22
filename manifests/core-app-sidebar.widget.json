@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/navigation/core-app-sidebar.tsx",
-		"import": "@core/core-ui/navigation/core-app-sidebar"
+		"import": "@corensystem/core-ui/navigation/core-app-sidebar"
 	},
 	"tags": [
 		"navigation",

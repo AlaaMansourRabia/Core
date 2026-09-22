@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/toggle.tsx",
-		"import": "@core/core-ui/toggle",
+		"import": "@corensystem/core-ui/toggle",
 		"export": "Toggle"
 	},
 	"tags": [

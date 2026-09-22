@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/collapsible.tsx",
-		"import": "@core/core-ui/collapsible",
+		"import": "@corensystem/core-ui/collapsible",
 		"export": "Collapsible"
 	},
 	"tags": [

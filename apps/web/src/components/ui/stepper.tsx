@@ -6,4 +6,4 @@ export {
 	StepperLabel,
 	StepperDescription,
 	StepperSeparator,
-} from "@core/core-ui/stepper";
+} from "@corensystem/core-ui/stepper";

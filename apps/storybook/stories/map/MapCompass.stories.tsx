@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {MapCompass} from "@core/core-ui/map-compass";
+import {MapCompass} from "@corensystem/core-ui/map-compass";
 import {useState} from "react";
 
 const meta = {

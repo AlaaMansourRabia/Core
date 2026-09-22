@@ -1,12 +1,12 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@core/core-ui/badge";
-import {Button} from "@core/core-ui/button";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@core/core-ui/card";
-import {Input} from "@core/core-ui/input";
-import {Label} from "@core/core-ui/label";
-import {Progress} from "@core/core-ui/progress";
-import {cn} from "@core/core-utils";
+import {Badge} from "@corensystem/core-ui/badge";
+import {Button} from "@corensystem/core-ui/button";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@corensystem/core-ui/card";
+import {Input} from "@corensystem/core-ui/input";
+import {Label} from "@corensystem/core-ui/label";
+import {Progress} from "@corensystem/core-ui/progress";
+import {cn} from "@corensystem/core-utils";
 import {
 	Activity,
 	AlertTriangle,

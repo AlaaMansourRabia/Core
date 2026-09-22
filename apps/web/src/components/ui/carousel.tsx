@@ -5,4 +5,4 @@ export {
 	CarouselItem,
 	CarouselPrevious,
 	CarouselNext,
-} from "@core/core-ui/carousel";
+} from "@corensystem/core-ui/carousel";

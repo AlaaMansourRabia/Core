@@ -1,1 +1,1 @@
-export {InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator} from "@core/core-ui/input-otp";
+export {InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator} from "@corensystem/core-ui/input-otp";

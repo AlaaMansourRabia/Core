@@ -3,4 +3,4 @@ export {
 	type CalendarEvent,
 	type CalendarEventTone,
 	type CalendarViewProps,
-} from "@core/core-ui/calendar-view";
+} from "@corensystem/core-ui/calendar-view";

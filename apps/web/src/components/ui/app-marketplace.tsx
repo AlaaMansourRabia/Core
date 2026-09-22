@@ -1,1 +1,1 @@
-export * from "@core/core-ui/pages/app-marketplace";
+export * from "@corensystem/core-ui/pages/app-marketplace";

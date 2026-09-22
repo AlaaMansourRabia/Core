@@ -298,7 +298,7 @@ test("unknown adapt-template replacement requires a structured catalog-gap decla
 			substitutions: [{templateRegion: "content", replacement: "LocalPanel", reason: "No match"}],
 		},
 		code: `
-			import {Button} from "@core/core-ui/button";
+			import {Button} from "@corensystem/core-ui/button";
 			export default () => <LocalPanel><Button>Go</Button></LocalPanel>;
 		`,
 	});

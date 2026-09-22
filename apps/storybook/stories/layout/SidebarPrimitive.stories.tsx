@@ -13,7 +13,7 @@ import {
 	SidebarMenuItem,
 	SidebarProvider,
 	SidebarTrigger,
-} from "@core/core-ui/sidebar";
+} from "@corensystem/core-ui/sidebar";
 import {Home, type LucideIcon, Settings, Users} from "lucide-react";
 
 // The generic, composable Sidebar PRIMITIVE set (SidebarProvider + Sidebar + SidebarMenu…). This is

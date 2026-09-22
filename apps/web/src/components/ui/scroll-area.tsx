@@ -1,1 +1,1 @@
-export {ScrollArea, ScrollBar} from "@core/core-ui/scroll-area";
+export {ScrollArea, ScrollBar} from "@corensystem/core-ui/scroll-area";

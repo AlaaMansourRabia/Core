@@ -2,7 +2,7 @@
 // for styling but not for a POINTER interaction: without the stylesheet the rail's icons lay out
 // inline instead of stacked, and the flyout lands on top of them, so every click lands on the wrong
 // element. Loading the built stylesheet makes the geometry faithful — at the cost of needing
-// `@core/core-ui` built first, which its tests already require.
+// `@corensystem/core-ui` built first, which its tests already require.
 import "../../dist/styles.css";
 import {FileText, Folder} from "lucide-react";
 import {expect, test} from "vitest";

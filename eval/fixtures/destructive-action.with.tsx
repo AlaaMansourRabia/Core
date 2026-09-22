@@ -1,4 +1,4 @@
-import {Button} from "@core/core-ui/button";
+import {Button} from "@corensystem/core-ui/button";
 
 export function DeleteRecordButton({onDelete}) {
 	return (

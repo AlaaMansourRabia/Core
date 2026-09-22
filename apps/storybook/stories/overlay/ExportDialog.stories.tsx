@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
-import {ExportDialog, type ExportTemplateOption} from "@core/core-ui/export-dialog";
+import {Button} from "@corensystem/core-ui/button";
+import {ExportDialog, type ExportTemplateOption} from "@corensystem/core-ui/export-dialog";
 import {Download} from "lucide-react";
 import {useState} from "react";
 

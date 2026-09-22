@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/alert-dialog.tsx",
-		"import": "@core/core-ui/alert-dialog",
+		"import": "@corensystem/core-ui/alert-dialog",
 		"export": "AlertDialog"
 	},
 	"tags": [

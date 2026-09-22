@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/gantt.tsx",
-		"import": "@core/core-ui/gantt"
+		"import": "@corensystem/core-ui/gantt"
 	},
 	"tags": ["display", "gantt", "timeline", "project", "scheduling"],
 	"intent": "Gantt timeline of scheduled task bars and dependencies.",

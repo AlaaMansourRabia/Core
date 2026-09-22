@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/avatar.tsx",
-		"import": "@core/core-ui/avatar",
+		"import": "@corensystem/core-ui/avatar",
 		"export": "Avatar"
 	},
 	"tags": [

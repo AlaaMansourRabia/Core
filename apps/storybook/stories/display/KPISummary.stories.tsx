@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@core/core-ui/badge";
-import {Card, CardContent, CardDescription, CardHeader} from "@core/core-ui/card";
-import {KPISummary} from "@core/core-ui/kpi-summary";
+import {Badge} from "@corensystem/core-ui/badge";
+import {Card, CardContent, CardDescription, CardHeader} from "@corensystem/core-ui/card";
+import {KPISummary} from "@corensystem/core-ui/kpi-summary";
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {AlertTriangle, HardHat, Shield, Users} from "lucide-react";
 
@@ -26,7 +26,7 @@ function KPISummaryDocsPage() {
 }
 
 const meta = {
-	// A grid of MetricCards (see manifests/kpi-summary.widget.json). Composes @core/core-ui/metric-card.
+	// A grid of MetricCards (see manifests/kpi-summary.widget.json). Composes @corensystem/core-ui/metric-card.
 	title: "Widgets/Analytics/KPISummary",
 	component: KPISummary,
 	tags: ["autodocs"],

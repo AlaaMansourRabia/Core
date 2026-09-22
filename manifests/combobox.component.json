@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/combobox.tsx",
-		"import": "@core/core-ui/combobox",
+		"import": "@corensystem/core-ui/combobox",
 		"export": "Combobox"
 	},
 	"tags": [

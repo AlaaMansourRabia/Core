@@ -1,2 +1,2 @@
-export {Map} from "@core/core-ui/map";
-export type {MapProps} from "@core/core-ui/map";
+export {Map} from "@corensystem/core-ui/map";
+export type {MapProps} from "@corensystem/core-ui/map";

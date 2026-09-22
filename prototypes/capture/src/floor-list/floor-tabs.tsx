@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {Calendar, Folders, Layers} from "lucide-react";
 
 import type {FloorTab} from "./types";

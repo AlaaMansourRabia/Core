@@ -1,1 +1,1 @@
-export {Input} from "@core/core-ui/input";
+export {Input} from "@corensystem/core-ui/input";

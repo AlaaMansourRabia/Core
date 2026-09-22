@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
+import {Button} from "@corensystem/core-ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuCheckboxItem,
@@ -17,7 +17,7 @@ import {
 	DropdownMenuSubContent,
 	DropdownMenuSubTrigger,
 	DropdownMenuTrigger,
-} from "@core/core-ui/dropdown-menu";
+} from "@corensystem/core-ui/dropdown-menu";
 import {
 	Cloud,
 	CreditCard,

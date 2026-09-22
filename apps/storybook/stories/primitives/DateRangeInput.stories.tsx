@@ -1,7 +1,7 @@
-import type {DateRange} from "@core/core-ui/date-range-input";
+import type {DateRange} from "@corensystem/core-ui/date-range-input";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {DateRangeInput} from "@core/core-ui/date-range-input";
+import {DateRangeInput} from "@corensystem/core-ui/date-range-input";
 import {useState} from "react";
 
 const meta = {

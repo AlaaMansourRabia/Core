@@ -3,7 +3,7 @@
 // transport. HTTP is the hosted default; `--stdio` (or CORE_MCP_TRANSPORT=stdio) runs the local
 // editor path. The index is built BEFORE any transport accepts traffic, so /ready is meaningful.
 
-import {createKnowledge} from "@core/knowledge";
+import {createKnowledge} from "@corensystem/knowledge";
 
 import {loadConfig} from "./config";
 import {createLogger} from "./obs/logger";

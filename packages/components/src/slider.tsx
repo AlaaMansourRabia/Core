@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import * as SliderPrimitive from "@radix-ui/react-slider";
 import * as React from "react";
 

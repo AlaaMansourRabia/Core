@@ -1,2 +1,2 @@
-export {CompareBars} from "@core/core-ui/compare-bars";
-export type {CompareBarsProps, CompareBarsSource} from "@core/core-ui/compare-bars";
+export {CompareBars} from "@corensystem/core-ui/compare-bars";
+export type {CompareBarsProps, CompareBarsSource} from "@corensystem/core-ui/compare-bars";

@@ -10,7 +10,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/core-analytics-overview.tsx",
-		"import": "@core/core-ui/pages/core-analytics-overview",
+		"import": "@corensystem/core-ui/pages/core-analytics-overview",
 		"export": "AnalyticsOverview"
 	},
 	"tags": [
@@ -58,7 +58,7 @@
 		"inside a Card or Dialog",
 		"as a small embeddable panel"
 	],
-	"minimalExample": "// CoreAnalyticsOverview is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {Banner} from \"@core/core-ui/banner\";\nimport {Table} from \"@core/core-ui/table\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"minimalExample": "// CoreAnalyticsOverview is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {Banner} from \"@corensystem/core-ui/banner\";\nimport {Table} from \"@corensystem/core-ui/table\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Promoted from the apps/web OverviewExamplePage (2026-07-08)",

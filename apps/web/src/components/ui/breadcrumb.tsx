@@ -6,5 +6,5 @@ export {
 	BreadcrumbPage,
 	BreadcrumbSeparator,
 	BreadcrumbEllipsis,
-} from "@core/core-ui/breadcrumb";
-export type {BreadcrumbMenuItem} from "@core/core-ui/breadcrumb";
+} from "@corensystem/core-ui/breadcrumb";
+export type {BreadcrumbMenuItem} from "@corensystem/core-ui/breadcrumb";

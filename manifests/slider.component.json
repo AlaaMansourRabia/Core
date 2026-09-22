@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/slider.tsx",
-		"import": "@core/core-ui/slider",
+		"import": "@corensystem/core-ui/slider",
 		"export": "Slider"
 	},
 	"tags": [

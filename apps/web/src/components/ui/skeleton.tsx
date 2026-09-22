@@ -1,1 +1,1 @@
-export {Skeleton} from "@core/core-ui/skeleton";
+export {Skeleton} from "@corensystem/core-ui/skeleton";

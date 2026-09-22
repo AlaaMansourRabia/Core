@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {MoreMenu} from "@core/core-ui/more-menu";
+import {MoreMenu} from "@corensystem/core-ui/more-menu";
 
 const meta = {
 	title: "Components/Primitives/MoreMenu",

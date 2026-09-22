@@ -1,2 +1,2 @@
-export {FloatingAssistant} from "@core/core-ui/floating-assistant";
-export type {FloatingAssistantProps} from "@core/core-ui/floating-assistant";
+export {FloatingAssistant} from "@corensystem/core-ui/floating-assistant";
+export type {FloatingAssistantProps} from "@corensystem/core-ui/floating-assistant";

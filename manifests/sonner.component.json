@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/sonner.tsx",
-		"import": "@core/core-ui/sonner",
+		"import": "@corensystem/core-ui/sonner",
 		"export": "Sonner"
 	},
 	"tags": [

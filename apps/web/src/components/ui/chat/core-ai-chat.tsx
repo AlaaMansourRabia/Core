@@ -1,1 +1,1 @@
-export {AIChat} from "@core/core-ui/chat/core-ai-chat";
+export {AIChat} from "@corensystem/core-ui/chat/core-ai-chat";

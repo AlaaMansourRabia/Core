@@ -34,7 +34,7 @@ export function validateCatalog(catalog, {fileExists}) {
 	const cataloguedImports = new Set(catalog.components.map((c) => c.import));
 	for (const spec of catalog.exportsSet) {
 		if (spec === catalog.coreUi) continue;
-		const sub = spec.slice(catalog.coreUi.length + 1); // after "@core/core-ui/"
+		const sub = spec.slice(catalog.coreUi.length + 1); // after "@corensystem/core-ui/"
 		const isInternal = sub.includes("/") || /^(styles|types|data|services)/.test(sub);
 		if (!isInternal && !cataloguedImports.has(spec)) {
 			warnings.push(`export "${spec}" has no library-index.json entry (catalog may be incomplete).`);

@@ -1,4 +1,4 @@
-import {Card, DataTable} from "@core/core-ui";
+import {Card, DataTable} from "@corensystem/core-ui";
 
 import {AppShell} from "./AppShell";
 

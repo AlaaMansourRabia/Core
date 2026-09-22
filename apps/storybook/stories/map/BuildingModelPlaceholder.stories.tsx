@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {type BuildingModelFloor, BuildingModelPlaceholder} from "@core/core-ui/building-model-placeholder";
+import {type BuildingModelFloor, BuildingModelPlaceholder} from "@corensystem/core-ui/building-model-placeholder";
 import {useState} from "react";
 
 const FLOORS: BuildingModelFloor[] = [

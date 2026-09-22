@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/observations-map.tsx",
-		"import": "@core/core-ui/observations-map"
+		"import": "@corensystem/core-ui/observations-map"
 	},
 	"tags": [
 		"badge",

@@ -1,34 +1,34 @@
 import type {ReactNode} from "react";
 
-import {MOCK_ORGANIZATIONS, getProjectsByOrg} from "@core/core-ui/data/mock-data";
-// Renders any Core template by id (route /templates/:id) — the real @core/core-ui
+import {MOCK_ORGANIZATIONS, getProjectsByOrg} from "@corensystem/core-ui/data/mock-data";
+// Renders any Core template by id (route /templates/:id) — the real @corensystem/core-ui
 // page with representative mock data, so the Designer Hub's Templates section shows the live template.
-import {ErrorPage} from "@core/core-ui/error-page";
-import {FragmentViewer, FragmentViewerProvider} from "@core/core-ui/fragment-viewer";
-import {AdminPanel} from "@core/core-ui/pages/core-admin-panel";
-import {AnalyticsOverview} from "@core/core-ui/pages/core-analytics-overview";
-import {AppInstaller} from "@core/core-ui/pages/core-app-installer";
-import {BlueprintViewer} from "@core/core-ui/pages/core-blueprint-viewer";
-import {BlueprintViewer3} from "@core/core-ui/pages/core-blueprint-viewer-3";
-import {Clinic} from "@core/core-ui/pages/core-clinic";
-import {CoreConnect} from "@core/core-ui/pages/core-core-connect";
-import {CoreConnectV3} from "@core/core-ui/pages/core-core-connect-v3";
-import {DesignCanvas} from "@core/core-ui/pages/core-design-canvas";
-import {LoginPage} from "@core/core-ui/pages/core-login-page";
-import {MapCompareLayout} from "@core/core-ui/pages/core-map-compare-layout";
-import {OrgWorkforceIntelligence} from "@core/core-ui/pages/core-org-workforce-intelligence";
-import {ProgressDetails} from "@core/core-ui/pages/core-progress-details";
-import {ProjectOverview} from "@core/core-ui/pages/core-project-overview";
-import {ProjectRealityCapture} from "@core/core-ui/pages/core-project-reality-capture";
-import {ProjectScheduleCost} from "@core/core-ui/pages/core-project-schedule-cost";
-import {ProjectSetup} from "@core/core-ui/pages/core-project-setup";
-import {ProjectWorkforceSafety} from "@core/core-ui/pages/core-project-workforce-safety";
-import {SafetyManager} from "@core/core-ui/pages/core-safety-manager";
-import {VerifyTimeCommandCenter} from "@core/core-ui/pages/core-verifytime-command-center";
-import {WC3Workspace} from "@core/core-ui/pages/core-wc3-workspace";
-import {WorkPermit} from "@core/core-ui/pages/core-work-permit";
-import {Workforce} from "@core/core-ui/pages/core-workforce";
-import {TooltipProvider} from "@core/core-ui/tooltip";
+import {ErrorPage} from "@corensystem/core-ui/error-page";
+import {FragmentViewer, FragmentViewerProvider} from "@corensystem/core-ui/fragment-viewer";
+import {AdminPanel} from "@corensystem/core-ui/pages/core-admin-panel";
+import {AnalyticsOverview} from "@corensystem/core-ui/pages/core-analytics-overview";
+import {AppInstaller} from "@corensystem/core-ui/pages/core-app-installer";
+import {BlueprintViewer} from "@corensystem/core-ui/pages/core-blueprint-viewer";
+import {BlueprintViewer3} from "@corensystem/core-ui/pages/core-blueprint-viewer-3";
+import {Clinic} from "@corensystem/core-ui/pages/core-clinic";
+import {CoreConnect} from "@corensystem/core-ui/pages/core-core-connect";
+import {CoreConnectV3} from "@corensystem/core-ui/pages/core-core-connect-v3";
+import {DesignCanvas} from "@corensystem/core-ui/pages/core-design-canvas";
+import {LoginPage} from "@corensystem/core-ui/pages/core-login-page";
+import {MapCompareLayout} from "@corensystem/core-ui/pages/core-map-compare-layout";
+import {OrgWorkforceIntelligence} from "@corensystem/core-ui/pages/core-org-workforce-intelligence";
+import {ProgressDetails} from "@corensystem/core-ui/pages/core-progress-details";
+import {ProjectOverview} from "@corensystem/core-ui/pages/core-project-overview";
+import {ProjectRealityCapture} from "@corensystem/core-ui/pages/core-project-reality-capture";
+import {ProjectScheduleCost} from "@corensystem/core-ui/pages/core-project-schedule-cost";
+import {ProjectSetup} from "@corensystem/core-ui/pages/core-project-setup";
+import {ProjectWorkforceSafety} from "@corensystem/core-ui/pages/core-project-workforce-safety";
+import {SafetyManager} from "@corensystem/core-ui/pages/core-safety-manager";
+import {VerifyTimeCommandCenter} from "@corensystem/core-ui/pages/core-verifytime-command-center";
+import {WC3Workspace} from "@corensystem/core-ui/pages/core-wc3-workspace";
+import {WorkPermit} from "@corensystem/core-ui/pages/core-work-permit";
+import {Workforce} from "@corensystem/core-ui/pages/core-workforce";
+import {TooltipProvider} from "@corensystem/core-ui/tooltip";
 import workerUrl from "@thatopen/fragments/worker?url";
 import {useParams} from "react-router-dom";
 

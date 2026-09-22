@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@core/core-ui/badge";
-import {Button} from "@core/core-ui/button";
-import {SearchFilterBar, type SearchFilterBarFilter} from "@core/core-ui/search-filter-bar";
-import {TreeRow} from "@core/core-ui/tree-row";
-import {cn} from "@core/core-utils";
+import {Badge} from "@corensystem/core-ui/badge";
+import {Button} from "@corensystem/core-ui/button";
+import {SearchFilterBar, type SearchFilterBarFilter} from "@corensystem/core-ui/search-filter-bar";
+import {TreeRow} from "@corensystem/core-ui/tree-row";
+import {cn} from "@corensystem/core-utils";
 import {ChevronsDown, ChevronsUp, Paperclip} from "lucide-react";
 import {useState} from "react";
 

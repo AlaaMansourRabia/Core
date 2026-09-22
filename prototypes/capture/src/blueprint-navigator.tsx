@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {ArrowLeft, Maximize2, Minimize2} from "lucide-react";
 import {useEffect, useMemo, useRef, useState} from "react";
 
@@ -9,13 +9,13 @@ import {
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
-} from "@core/core-ui/breadcrumb";
-import {Button} from "@core/core-ui/button";
-import {CanvasNavigator, type CanvasNavigatorNode, type CanvasNavigatorSize} from "@core/core-ui/canvas-navigator";
-import {type LegendTab, TabbedLegend} from "@core/core-ui/legend";
-import {ProgressComparison} from "@core/core-ui/progress-comparison";
-import {VerticalZoomTools} from "@core/core-ui/vertical-zoom-tools";
-import {WeekSelector, type WeekSelectorWeek} from "@core/core-ui/week-selector";
+} from "@corensystem/core-ui/breadcrumb";
+import {Button} from "@corensystem/core-ui/button";
+import {CanvasNavigator, type CanvasNavigatorNode, type CanvasNavigatorSize} from "@corensystem/core-ui/canvas-navigator";
+import {type LegendTab, TabbedLegend} from "@corensystem/core-ui/legend";
+import {ProgressComparison} from "@corensystem/core-ui/progress-comparison";
+import {VerticalZoomTools} from "@corensystem/core-ui/vertical-zoom-tools";
+import {WeekSelector, type WeekSelectorWeek} from "@corensystem/core-ui/week-selector";
 
 import {SingleHouseView} from "./house-view";
 

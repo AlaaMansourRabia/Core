@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/wizard-dialog.tsx",
-		"import": "@core/core-ui/wizard-dialog",
+		"import": "@corensystem/core-ui/wizard-dialog",
 		"export": "WizardDialog"
 	},
 	"tags": ["wizard", "stepper", "dialog", "modal", "multi-step", "create", "validation", "authoring"],
@@ -83,7 +83,7 @@
 	"composedOf": ["Dialog", "Stepper", "Button"],
 	"allowedPlacement": ["list page toolbars", "catalogue create actions", "install and provisioning flows"],
 	"forbiddenPlacement": ["nested inside another dialog", "as a page-level onboarding flow"],
-	"minimalExample": "import {WizardDialog} from \"@core/core-ui/wizard-dialog\";\n\n<WizardDialog\n\topen={open}\n\tonOpenChange={setOpen}\n\ttitle=\"New object type\"\n\tsteps={[\n\t\t{label: \"Metadata\", valid: name.trim().length > 0, content: ({attempted}) => <MetadataStep attempted={attempted} />},\n\t\t{label: \"Review\", content: <ReviewStep />},\n\t]}\n\tsubmitLabel=\"Create object type\"\n\tonSubmit={commit}\n\tonReset={reset}\n/>",
+	"minimalExample": "import {WizardDialog} from \"@corensystem/core-ui/wizard-dialog\";\n\n<WizardDialog\n\topen={open}\n\tonOpenChange={setOpen}\n\ttitle=\"New object type\"\n\tsteps={[\n\t\t{label: \"Metadata\", valid: name.trim().length > 0, content: ({attempted}) => <MetadataStep attempted={attempted} />},\n\t\t{label: \"Review\", content: <ReviewStep />},\n\t]}\n\tsubmitLabel=\"Create object type\"\n\tonSubmit={commit}\n\tonReset={reset}\n/>",
 	"evaluationCriteria": [
 		"Next is never rendered disabled.",
 		"Only the current step is mounted.",

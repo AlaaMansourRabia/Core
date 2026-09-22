@@ -1,4 +1,4 @@
-import {ArrowLeft, Button, CoreAiChat, PromptInput} from "@core/core-ui";
+import {ArrowLeft, Button, CoreAiChat, PromptInput} from "@corensystem/core-ui";
 
 export function EmailAssistant() {
 	return (

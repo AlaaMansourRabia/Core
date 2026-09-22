@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {HardHat, type LucideIcon, Maximize2, Pause, Play, Ruler, X} from "lucide-react";
 import {useEffect, useRef, useState} from "react";
 

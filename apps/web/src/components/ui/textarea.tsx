@@ -1,1 +1,1 @@
-export {Textarea} from "@core/core-ui/textarea";
+export {Textarea} from "@corensystem/core-ui/textarea";

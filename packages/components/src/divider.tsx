@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
 import * as React from "react";
 

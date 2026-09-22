@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {HouseShape} from "@core/core-ui/house-shape";
+import {HouseShape} from "@corensystem/core-ui/house-shape";
 
 const meta = {
 	title: "Components/Data Display/HouseShape",

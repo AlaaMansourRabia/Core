@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {ChevronDown, Folder, FolderOpen, Plus} from "lucide-react";
 import {useMemo, useState} from "react";
 

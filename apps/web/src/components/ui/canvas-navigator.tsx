@@ -1,2 +1,6 @@
-export {CanvasNavigator} from "@core/core-ui/canvas-navigator";
-export type {CanvasNavigatorNode, CanvasNavigatorProps, CanvasNavigatorSize} from "@core/core-ui/canvas-navigator";
+export {CanvasNavigator} from "@corensystem/core-ui/canvas-navigator";
+export type {
+	CanvasNavigatorNode,
+	CanvasNavigatorProps,
+	CanvasNavigatorSize,
+} from "@corensystem/core-ui/canvas-navigator";

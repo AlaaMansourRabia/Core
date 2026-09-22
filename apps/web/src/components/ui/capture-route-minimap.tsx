@@ -3,5 +3,5 @@ export {
 	CaptureRouteMinimap,
 	captureRouteForFloor,
 	FloorPlan,
-} from "@core/core-ui/capture-route-minimap";
-export type {CapturePoint, CaptureRouteMinimapProps} from "@core/core-ui/capture-route-minimap";
+} from "@corensystem/core-ui/capture-route-minimap";
+export type {CapturePoint, CaptureRouteMinimapProps} from "@corensystem/core-ui/capture-route-minimap";

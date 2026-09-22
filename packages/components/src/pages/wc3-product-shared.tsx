@@ -1,6 +1,6 @@
 import type {ReactElement} from "react";
 
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {Box, Check, Search} from "lucide-react";
 
 import {Badge} from "../badge";

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/kbd.tsx",
-		"import": "@core/core-ui/kbd",
+		"import": "@corensystem/core-ui/kbd",
 		"export": "Kbd"
 	},
 	"tags": [

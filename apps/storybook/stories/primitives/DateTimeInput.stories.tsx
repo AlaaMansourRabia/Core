@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {DateTimeInput} from "@core/core-ui/date-time-input";
+import {DateTimeInput} from "@corensystem/core-ui/date-time-input";
 import {useState} from "react";
 
 const meta = {

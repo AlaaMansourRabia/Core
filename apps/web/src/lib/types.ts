@@ -1,1 +1,1 @@
-export * from "@core/core-ui/types";
+export * from "@corensystem/core-ui/types";

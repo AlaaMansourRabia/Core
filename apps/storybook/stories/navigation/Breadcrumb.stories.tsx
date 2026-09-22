@@ -8,7 +8,7 @@ import {
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
-} from "@core/core-ui/breadcrumb";
+} from "@corensystem/core-ui/breadcrumb";
 
 const meta = {
 	title: "Components/Navigation/Breadcrumb",

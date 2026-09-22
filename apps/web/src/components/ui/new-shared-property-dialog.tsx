@@ -1,1 +1,1 @@
-export * from "@core/core-ui/new-shared-property-dialog";
+export * from "@corensystem/core-ui/new-shared-property-dialog";

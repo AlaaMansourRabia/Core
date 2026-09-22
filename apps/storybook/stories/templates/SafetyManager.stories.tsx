@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {SafetyManager} from "@core/core-ui/pages/core-safety-manager";
+import {SafetyManager} from "@corensystem/core-ui/pages/core-safety-manager";
 
 import manifest from "../../../../manifests/safety-manager.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

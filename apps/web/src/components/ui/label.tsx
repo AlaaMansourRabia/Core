@@ -1,1 +1,1 @@
-export {Label} from "@core/core-ui/label";
+export {Label} from "@corensystem/core-ui/label";

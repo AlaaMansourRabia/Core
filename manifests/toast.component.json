@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/toast.tsx",
-		"import": "@core/core-ui/toast",
+		"import": "@corensystem/core-ui/toast",
 		"export": "Toast"
 	},
 	"tags": [

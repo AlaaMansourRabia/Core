@@ -14,4 +14,4 @@ export {
 	ContextMenuSubContent,
 	ContextMenuSubTrigger,
 	ContextMenuRadioGroup,
-} from "@core/core-ui/context-menu";
+} from "@corensystem/core-ui/context-menu";

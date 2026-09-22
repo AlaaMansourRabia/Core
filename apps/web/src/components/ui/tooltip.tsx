@@ -1,1 +1,1 @@
-export {Tooltip, TooltipTrigger, TooltipContent, TooltipProvider} from "@core/core-ui/tooltip";
+export {Tooltip, TooltipTrigger, TooltipContent, TooltipProvider} from "@corensystem/core-ui/tooltip";

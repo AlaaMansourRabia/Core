@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/app-marketplace-shared.tsx",
-		"import": "@core/core-ui/pages/app-marketplace",
+		"import": "@corensystem/core-ui/pages/app-marketplace",
 		"export": "useAppInstallation"
 	},
 	"subcomponents": [
@@ -99,7 +99,7 @@
 	"forbiddenPlacement": [
 		"a record detail page"
 	],
-	"minimalExample": "import {useAppInstallation, installedAppsGroup} from \"@core/core-ui/pages/app-marketplace\";\n\nconst install = useAppInstallation({initialInstalled: [\"safety\", \"workforce\"]});",
+	"minimalExample": "import {useAppInstallation, installedAppsGroup} from \"@corensystem/core-ui/pages/app-marketplace\";\n\nconst install = useAppInstallation({initialInstalled: [\"safety\", \"workforce\"]});",
 	"evaluationCriteria": [
 		"The nav group is derived from install state, never declared twice.",
 		"Lifecycle stage is treated as nav metadata, not behaviour."

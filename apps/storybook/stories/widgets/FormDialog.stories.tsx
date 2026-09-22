@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
-import {Combobox} from "@core/core-ui/combobox";
-import {FormDialog, FormDialogField, FormDialogNote, FormDialogRow} from "@core/core-ui/form-dialog";
-import {Input} from "@core/core-ui/input";
-import {Textarea} from "@core/core-ui/textarea";
-import {ToggleGroup, ToggleGroupItem} from "@core/core-ui/toggle-group";
+import {Button} from "@corensystem/core-ui/button";
+import {Combobox} from "@corensystem/core-ui/combobox";
+import {FormDialog, FormDialogField, FormDialogNote, FormDialogRow} from "@corensystem/core-ui/form-dialog";
+import {Input} from "@corensystem/core-ui/input";
+import {Textarea} from "@corensystem/core-ui/textarea";
+import {ToggleGroup, ToggleGroupItem} from "@corensystem/core-ui/toggle-group";
 import {useState} from "react";
 
 const OBJECT_TYPES = [

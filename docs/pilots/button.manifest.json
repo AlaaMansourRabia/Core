@@ -10,7 +10,7 @@
 
   "source": {
     "path": "packages/components/src/button.tsx",
-    "import": "@core/core-ui/button"
+    "import": "@corensystem/core-ui/button"
   },
   "description": "An interactive element that triggers an action when clicked.",
 
@@ -60,7 +60,7 @@
   "commonMistakes": [
     { "wrong": "<Button size=\"icon\">", "why": "Button has no \"icon\" size; sizes are default|sm|lg. Icon buttons use the boolean `icon` prop.", "right": "<Button icon variant=\"ghost\" aria-label=\"…\"><SomeIcon /></Button>" }
   ],
-  "minimalExample": "import { Button } from \"@core/core-ui/button\";\n<Button variant=\"destructive\">Delete</Button>",
+  "minimalExample": "import { Button } from \"@corensystem/core-ui/button\";\n<Button variant=\"destructive\">Delete</Button>",
 
   "evaluationCriteria": [
     { "id": "selection",      "check": "chosen for a discrete action (not Link for navigation, not ToggleGroup for state)", "metric": "selection" },

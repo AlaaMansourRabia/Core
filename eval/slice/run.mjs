@@ -115,7 +115,7 @@ function instanceToSnippet(instance) {
 	const cards = items
 		.map((it) => `<Card><CardHeader><TypographyMuted>${it.data.label}</TypographyMuted></CardHeader><CardContent><TypographyH3>${val(it.data)}</TypographyH3></CardContent></Card>`)
 		.join("\n      ");
-	return `import { Card, CardContent, CardHeader } from "@core/core-ui/card";\nimport { TypographyH3, TypographyMuted } from "@core/core-ui/typography";\nexport default function Page() {\n  return (<div>\n      ${cards}\n  </div>);\n}\n`;
+	return `import { Card, CardContent, CardHeader } from "@corensystem/core-ui/card";\nimport { TypographyH3, TypographyMuted } from "@corensystem/core-ui/typography";\nexport default function Page() {\n  return (<div>\n      ${cards}\n  </div>);\n}\n`;
 }
 
 // ── 7. EVALUATION ────────────────────────────────────────────────────────────────────────────────

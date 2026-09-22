@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@core/core-ui/badge";
-import {Button} from "@core/core-ui/button";
-import {Input} from "@core/core-ui/input";
-import {Textarea} from "@core/core-ui/textarea";
-import {WizardDialog} from "@core/core-ui/wizard-dialog";
+import {Badge} from "@corensystem/core-ui/badge";
+import {Button} from "@corensystem/core-ui/button";
+import {Input} from "@corensystem/core-ui/input";
+import {Textarea} from "@corensystem/core-ui/textarea";
+import {WizardDialog} from "@corensystem/core-ui/wizard-dialog";
 import {useState} from "react";
 
 const label = "wwc:text-xs wwc:font-semibold wwc:tracking-wide wwc:text-muted-foreground wwc:uppercase";

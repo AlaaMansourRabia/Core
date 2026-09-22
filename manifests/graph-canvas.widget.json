@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/graph-canvas.tsx",
-		"import": "@core/core-ui/graph-canvas",
+		"import": "@corensystem/core-ui/graph-canvas",
 		"export": "GraphCanvas"
 	},
 	"tags": [
@@ -131,7 +131,7 @@
 	"forbiddenPlacement": [
 		"a container with no resolved height — the canvas collapses to a 0px strip"
 	],
-	"minimalExample": "import {GraphCanvas} from \"@core/core-ui/graph-canvas\";\n\n<GraphCanvas nodes={nodes} edges={edges} nodeTypes={NODE_TYPES} onNodeClick={select} />",
+	"minimalExample": "import {GraphCanvas} from \"@corensystem/core-ui/graph-canvas\";\n\n<GraphCanvas nodes={nodes} edges={edges} nodeTypes={NODE_TYPES} onNodeClick={select} />",
 	"evaluationCriteria": [
 		"The xyflow attribution stays visible — MIT terms depend on it.",
 		"The canvas sits in a container with a resolved height.",

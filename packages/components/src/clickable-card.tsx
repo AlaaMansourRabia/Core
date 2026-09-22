@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {type VariantProps, cva} from "class-variance-authority";
 import {ChevronRight} from "lucide-react";
 import * as React from "react";

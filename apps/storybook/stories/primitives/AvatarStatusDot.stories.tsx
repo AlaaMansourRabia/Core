@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Avatar, AvatarFallback, AvatarImage} from "@core/core-ui/avatar";
-import {AvatarStatusDot} from "@core/core-ui/avatar-status-dot";
+import {Avatar, AvatarFallback, AvatarImage} from "@corensystem/core-ui/avatar";
+import {AvatarStatusDot} from "@corensystem/core-ui/avatar-status-dot";
 
 const meta = {
 	title: "Components/Primitives/AvatarStatusDot",

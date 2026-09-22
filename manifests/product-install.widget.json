@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/wc3-product-install-dialog.tsx",
-		"import": "@core/core-ui/pages/install-product-dialog",
+		"import": "@corensystem/core-ui/pages/install-product-dialog",
 		"export": "InstallProductDialog"
 	},
 	"subcomponents": [
@@ -110,7 +110,7 @@
 	"forbiddenPlacement": [
 		"inside another dialog"
 	],
-	"minimalExample": "import {InstallProductDialog, computeInstallPlan} from \"@core/core-ui/pages/install-product-dialog\";\n\n<InstallProductDialog open={open} onOpenChange={setOpen} product={product} />",
+	"minimalExample": "import {InstallProductDialog, computeInstallPlan} from \"@corensystem/core-ui/pages/install-product-dialog\";\n\n<InstallProductDialog open={open} onOpenChange={setOpen} product={product} />",
 	"evaluationCriteria": [
 		"The dialog mutates nothing — apply hands the record to the host.",
 		"Blockers do not stop navigation; the block lands once, on Apply.",

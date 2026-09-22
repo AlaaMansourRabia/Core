@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Legend, type LegendItem, type LegendTab, TabbedLegend} from "@core/core-ui/legend";
+import {Legend, type LegendItem, type LegendTab, TabbedLegend} from "@corensystem/core-ui/legend";
 import {useState} from "react";
 
 const MILESTONES: LegendItem[] = [

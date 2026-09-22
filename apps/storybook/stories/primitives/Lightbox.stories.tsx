@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
-import {Lightbox} from "@core/core-ui/lightbox";
+import {Button} from "@corensystem/core-ui/button";
+import {Lightbox} from "@corensystem/core-ui/lightbox";
 import {useState} from "react";
 
 const meta = {

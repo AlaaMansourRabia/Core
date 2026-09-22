@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {NEUTRAL_TONE, TONES} from "@core/core-ui/tones";
+import {NEUTRAL_TONE, TONES} from "@corensystem/core-ui/tones";
 import {Layers} from "lucide-react";
 
 // Approximate OKLCH hue of each Tailwind family at 500 — what the palette's order walks around, and
@@ -79,7 +79,7 @@ function TonesStory() {
 			</div>
 
 			<pre className="wwc:mt-8 wwc:overflow-x-auto wwc:rounded-lg wwc:bg-muted wwc:p-4 wwc:text-[11px] wwc:text-foreground">
-				{`import {toneFor, TONE_BY_ID, NEUTRAL_TONE} from "@core/core-ui/tones";
+				{`import {toneFor, TONE_BY_ID, NEUTRAL_TONE} from "@corensystem/core-ui/tones";
 
 // By position — consecutive items are never neighbouring hues.
 // \`offset\` keeps two sections from opening on the same one.

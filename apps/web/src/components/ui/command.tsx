@@ -8,4 +8,4 @@ export {
 	CommandItem,
 	CommandShortcut,
 	CommandSeparator,
-} from "@core/core-ui/command";
+} from "@corensystem/core-ui/command";

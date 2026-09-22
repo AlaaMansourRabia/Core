@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/skeleton.tsx",
-		"import": "@core/core-ui/skeleton",
+		"import": "@corensystem/core-ui/skeleton",
 		"export": "Skeleton"
 	},
 	"tags": [

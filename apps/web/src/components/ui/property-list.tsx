@@ -4,4 +4,4 @@ export {
 	PropertyRow,
 	type PropertyListProps,
 	type PropertyRowProps,
-} from "@core/core-ui/property-list";
+} from "@corensystem/core-ui/property-list";

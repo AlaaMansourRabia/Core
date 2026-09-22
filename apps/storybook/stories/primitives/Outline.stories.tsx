@@ -1,7 +1,7 @@
-import type {OutlineItem} from "@core/core-ui/outline";
+import type {OutlineItem} from "@corensystem/core-ui/outline";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Outline} from "@core/core-ui/outline";
+import {Outline} from "@corensystem/core-ui/outline";
 import {useState} from "react";
 
 const meta = {

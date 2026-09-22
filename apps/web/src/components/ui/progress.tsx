@@ -1,1 +1,1 @@
-export {Progress} from "@core/core-ui/progress";
+export {Progress} from "@corensystem/core-ui/progress";

@@ -10,8 +10,8 @@
 	},
 	"dependencies": {
 		"@tanstack/react-table": "^8.21.3",
-		"@core/core-tokens": "^0.1.0",
-		"@core/core-ui": "^0.0.2",
+		"@corensystem/core-tokens": "^0.1.0",
+		"@corensystem/core-ui": "^0.0.2",
 		"lucide-react": "^1.8.0",
 		"react": "^19.3.0",
 		"react-dom": "^19.3.0",

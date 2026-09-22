@@ -1,1 +1,1 @@
-export {OrgWorkforceIntelligence} from "@core/core-ui/pages/core-org-workforce-intelligence";
+export {OrgWorkforceIntelligence} from "@corensystem/core-ui/pages/core-org-workforce-intelligence";

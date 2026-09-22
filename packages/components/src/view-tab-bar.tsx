@@ -1,6 +1,6 @@
 import type {ComponentType, ReactNode} from "react";
 
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 
 import {HoverTooltip, TooltipProvider} from "./tooltip";
 import {WeekSelector, type WeekSelectorProps} from "./week-selector";

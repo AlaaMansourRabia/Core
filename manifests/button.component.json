@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/button.tsx",
-		"import": "@core/core-ui/button",
+		"import": "@corensystem/core-ui/button",
 		"export": "Button"
 	},
 	"tags": [

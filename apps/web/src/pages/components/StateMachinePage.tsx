@@ -1,5 +1,5 @@
-import {DEMO_ACTIONS, DEMO_EFFECTS, demoInstancesFor} from "@core/core-ui/pages/state-machine-fixtures";
-import {seedProcesses} from "@core/core-ui/pages/wc3-process-views";
+import {DEMO_ACTIONS, DEMO_EFFECTS, demoInstancesFor} from "@corensystem/core-ui/pages/state-machine-fixtures";
+import {seedProcesses} from "@corensystem/core-ui/pages/wc3-process-views";
 import {useState} from "react";
 
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";

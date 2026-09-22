@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {CommentComposer} from "@core/core-ui/comment-composer";
+import {CommentComposer} from "@corensystem/core-ui/comment-composer";
 import {useState} from "react";
 
 const meta = {

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {SingleHouseView} from "@core/core-ui/single-house-view";
+import {SingleHouseView} from "@corensystem/core-ui/single-house-view";
 
 const meta = {
 	title: "Components/Data Display/SingleHouseView",

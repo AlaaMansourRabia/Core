@@ -1,17 +1,17 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Avatar, AvatarFallback} from "@core/core-ui/avatar";
-import {Badge} from "@core/core-ui/badge";
-import {Button} from "@core/core-ui/button";
+import {Avatar, AvatarFallback} from "@corensystem/core-ui/avatar";
+import {Badge} from "@corensystem/core-ui/badge";
+import {Button} from "@corensystem/core-ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@core/core-ui/dropdown-menu";
-import {Input} from "@core/core-ui/input";
-import {Label} from "@core/core-ui/label";
+} from "@corensystem/core-ui/dropdown-menu";
+import {Input} from "@corensystem/core-ui/input";
+import {Label} from "@corensystem/core-ui/label";
 import {
 	PushPanel,
 	PushPanelClose,
@@ -25,9 +25,9 @@ import {
 	PushPanelProvider,
 	PushPanelTitle,
 	PushPanelTrigger,
-} from "@core/core-ui/push-panel";
-import {Separator} from "@core/core-ui/separator";
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@core/core-ui/tabs";
+} from "@corensystem/core-ui/push-panel";
+import {Separator} from "@corensystem/core-ui/separator";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@corensystem/core-ui/tabs";
 import {
 	Award,
 	Calendar,

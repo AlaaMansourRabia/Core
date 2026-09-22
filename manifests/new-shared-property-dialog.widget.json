@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/wc3-shared-property-wizard.tsx",
-		"import": "@core/core-ui/new-shared-property-dialog",
+		"import": "@corensystem/core-ui/new-shared-property-dialog",
 		"export": "NewSharedPropertyDialog"
 	},
 	"tags": [
@@ -98,7 +98,7 @@
 	"forbiddenPlacement": [
 		"inside another dialog"
 	],
-	"minimalExample": "import {NewSharedPropertyDialog} from \"@core/core-ui/new-shared-property-dialog\";\n\n<NewSharedPropertyDialog open={open} onOpenChange={setOpen} onCreate={addSharedProperty} />",
+	"minimalExample": "import {NewSharedPropertyDialog} from \"@corensystem/core-ui/new-shared-property-dialog\";\n\n<NewSharedPropertyDialog open={open} onOpenChange={setOpen} onCreate={addSharedProperty} />",
 	"evaluationCriteria": [
 		"The host's validate rules are reported in the order the host gave them."
 	],

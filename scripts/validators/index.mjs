@@ -101,7 +101,7 @@ export function gradeFileSet(files, task = {}, catalog = loadCatalog()) {
 			? `${tokenProvenance.issues.length} CSS variable usage(s) do not terminate in a recognized Core token.`
 			: "All CSS variable usages terminate in recognized Core tokens.",
 		suggestedFix: tokenProvenance.issues.length
-			? "Replace literal-backed, unresolved, or cyclic variables with aliases that terminate in @core/core-tokens variables."
+			? "Replace literal-backed, unresolved, or cyclic variables with aliases that terminate in @corensystem/core-tokens variables."
 			: "",
 		source: tokenProvenance.issues[0]
 			? `${tokenProvenance.issues[0].path}:${tokenProvenance.issues[0].line}`

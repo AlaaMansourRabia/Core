@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Avatar, AvatarFallback} from "@core/core-ui/avatar";
-import {Badge} from "@core/core-ui/badge";
-import {OverflowList} from "@core/core-ui/overflow-list";
+import {Avatar, AvatarFallback} from "@corensystem/core-ui/avatar";
+import {Badge} from "@corensystem/core-ui/badge";
+import {OverflowList} from "@corensystem/core-ui/overflow-list";
 
 const meta = {
 	title: "Components/Primitives/OverflowList",

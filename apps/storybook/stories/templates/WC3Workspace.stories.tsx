@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {WC3Workspace} from "@core/core-ui/pages/core-wc3-workspace";
+import {WC3Workspace} from "@corensystem/core-ui/pages/core-wc3-workspace";
 
 import manifest from "../../../../manifests/wc3-workspace.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

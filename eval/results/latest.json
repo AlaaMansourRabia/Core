@@ -46,8 +46,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Drawer, Button, Input, Select, Checkbox, DatePicker from \"@core/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Drawer } from \"@core/core-ui/drawer\".",
+            "reason": "Barrel import of Drawer, Button, Input, Select, Checkbox, DatePicker from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Drawer } from \"@corensystem/core-ui/drawer\".",
             "source": "fm-prim-1"
           },
           {
@@ -85,7 +85,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @core/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -131,8 +131,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Button, Toast, useToast from \"@core/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@core/core-ui/button\".",
+            "reason": "Barrel import of Button, Toast, useToast from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@corensystem/core-ui/button\".",
             "source": "fm-prim-1"
           },
           {
@@ -170,7 +170,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @core/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -216,8 +216,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Table, Input, Pagination, Card from \"@core/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Table } from \"@core/core-ui/table\".",
+            "reason": "Barrel import of Table, Input, Pagination, Card from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Table } from \"@corensystem/core-ui/table\".",
             "source": "fm-prim-1"
           },
           {
@@ -255,7 +255,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @core/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -301,8 +301,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Button from \"@core/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@core/core-ui/button\".",
+            "reason": "Barrel import of Button from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@corensystem/core-ui/button\".",
             "source": "fm-prim-1"
           },
           {
@@ -340,7 +340,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @core/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -386,8 +386,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Tooltip from \"@core/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Tooltip } from \"@core/core-ui/tooltip\".",
+            "reason": "Barrel import of Tooltip from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Tooltip } from \"@corensystem/core-ui/tooltip\".",
             "source": "fm-prim-1"
           },
           {
@@ -425,7 +425,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @core/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -471,8 +471,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Sidebar, Card, Avatar from \"@core/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Sidebar } from \"@core/core-ui/sidebar\".",
+            "reason": "Barrel import of Sidebar, Card, Avatar from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Sidebar } from \"@corensystem/core-ui/sidebar\".",
             "source": "fm-prim-1"
           },
           {
@@ -510,7 +510,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @core/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -556,8 +556,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Form, Input, Textarea, Button, Card from \"@core/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Form } from \"@core/core-ui/form\".",
+            "reason": "Barrel import of Form, Input, Textarea, Button, Card from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Form } from \"@corensystem/core-ui/form\".",
             "source": "fm-prim-1"
           },
           {
@@ -595,7 +595,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @core/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -641,8 +641,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Card, Typography, Skeleton, Badge from \"@core/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Card } from \"@core/core-ui/card\".",
+            "reason": "Barrel import of Card, Typography, Skeleton, Badge from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Card } from \"@corensystem/core-ui/card\".",
             "source": "fm-prim-1"
           },
           {
@@ -680,7 +680,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @core/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -726,8 +726,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Button, Input, Card, Badge, Avatar from \"@core/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@core/core-ui/button\".",
+            "reason": "Barrel import of Button, Input, Card, Badge, Avatar from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@corensystem/core-ui/button\".",
             "source": "fm-prim-1"
           },
           {
@@ -765,7 +765,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @core/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -811,8 +811,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Button from \"@core/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@core/core-ui/button\".",
+            "reason": "Barrel import of Button from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@corensystem/core-ui/button\".",
             "source": "fm-prim-1"
           },
           {
@@ -850,7 +850,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @core/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },

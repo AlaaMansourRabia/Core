@@ -1,1 +1,1 @@
-export {Avatar, AvatarImage, AvatarFallback} from "@core/core-ui/avatar";
+export {Avatar, AvatarImage, AvatarFallback} from "@corensystem/core-ui/avatar";

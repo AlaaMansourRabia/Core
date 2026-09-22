@@ -11,7 +11,7 @@ import {
 	SelectSeparator,
 	SelectTrigger,
 	SelectValue,
-} from "@core/core-ui/select";
+} from "@corensystem/core-ui/select";
 import * as React from "react";
 import {expect, screen, userEvent, within} from "storybook/test";
 

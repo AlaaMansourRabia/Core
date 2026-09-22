@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/copy-button.tsx",
-		"import": "@core/core-ui/copy-button",
+		"import": "@corensystem/core-ui/copy-button",
 		"export": "CopyButton"
 	},
 	"tags": [

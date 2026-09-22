@@ -1,1 +1,1 @@
-export * from "@core/core-ui/pages/state-machine";
+export * from "@corensystem/core-ui/pages/state-machine";

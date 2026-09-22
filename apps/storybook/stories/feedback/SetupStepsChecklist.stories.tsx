@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {SetupStepsChecklist, type SetupStep} from "@core/core-ui/setup-steps-checklist";
+import {SetupStepsChecklist, type SetupStep} from "@corensystem/core-ui/setup-steps-checklist";
 import {useState} from "react";
 
 const meta = {

@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {AppShell, AppShellHeader, AppShellSidebar, AppShellMain, AppShellFooter} from "@core/core-ui/app-shell";
-import {Button} from "@core/core-ui/button";
-import {Input} from "@core/core-ui/input";
+import {AppShell, AppShellHeader, AppShellSidebar, AppShellMain, AppShellFooter} from "@corensystem/core-ui/app-shell";
+import {Button} from "@corensystem/core-ui/button";
+import {Input} from "@corensystem/core-ui/input";
 import {Home, Settings, Users, FileText, Bell, Search, Menu} from "lucide-react";
 
 const meta = {

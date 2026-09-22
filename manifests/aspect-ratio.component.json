@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/aspect-ratio.tsx",
-		"import": "@core/core-ui/aspect-ratio",
+		"import": "@corensystem/core-ui/aspect-ratio",
 		"export": "AspectRatio"
 	},
 	"tags": [

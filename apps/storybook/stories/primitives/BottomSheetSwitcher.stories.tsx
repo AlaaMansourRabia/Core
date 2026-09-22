@@ -1,8 +1,8 @@
-import type {BottomSheetSwitcherSheet} from "@core/core-ui/bottom-sheet-switcher";
+import type {BottomSheetSwitcherSheet} from "@corensystem/core-ui/bottom-sheet-switcher";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {BottomSheetSwitcher} from "@core/core-ui/bottom-sheet-switcher";
-import {Button} from "@core/core-ui/button";
+import {BottomSheetSwitcher} from "@corensystem/core-ui/bottom-sheet-switcher";
+import {Button} from "@corensystem/core-ui/button";
 import {Menu} from "lucide-react";
 import {useState} from "react";
 

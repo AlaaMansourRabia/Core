@@ -8,7 +8,7 @@ import {
 	NavigationMenuList,
 	NavigationMenuTrigger,
 	navigationMenuTriggerStyle,
-} from "@core/core-ui/navigation-menu";
+} from "@corensystem/core-ui/navigation-menu";
 
 const meta = {
 	title: "Components/Navigation/Navigation Menu",

@@ -1,9 +1,9 @@
-import {cn} from "@core/core-utils";
-import {Badge} from "@core/core-ui/badge";
-import {Card} from "@core/core-ui/card";
-import {Input} from "@core/core-ui/input";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@core/core-ui/select";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@core/core-ui/table";
+import {cn} from "@corensystem/core-utils";
+import {Badge} from "@corensystem/core-ui/badge";
+import {Card} from "@corensystem/core-ui/card";
+import {Input} from "@corensystem/core-ui/input";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@corensystem/core-ui/select";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@corensystem/core-ui/table";
 import {ChevronDown, Search} from "lucide-react";
 import {useState} from "react";
 

@@ -1,2 +1,2 @@
-export {MultiSelect} from "@core/core-ui/multi-select";
-export type {MultiSelectOption, MultiSelectProps} from "@core/core-ui/multi-select";
+export {MultiSelect} from "@corensystem/core-ui/multi-select";
+export type {MultiSelectOption, MultiSelectProps} from "@corensystem/core-ui/multi-select";

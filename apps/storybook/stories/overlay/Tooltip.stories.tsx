@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@core/core-ui/tooltip";
+import {Button} from "@corensystem/core-ui/button";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@corensystem/core-ui/tooltip";
 import {expect, screen, userEvent, waitFor, within} from "storybook/test";
 
 const meta = {

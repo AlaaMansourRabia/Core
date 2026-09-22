@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {FileInput} from "@core/core-ui/file-input";
+import {FileInput} from "@corensystem/core-ui/file-input";
 import {useState} from "react";
 
 const meta = {

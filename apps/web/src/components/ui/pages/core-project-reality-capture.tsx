@@ -1,1 +1,1 @@
-export {ProjectRealityCapture} from "@core/core-ui/pages/core-project-reality-capture";
+export {ProjectRealityCapture} from "@corensystem/core-ui/pages/core-project-reality-capture";

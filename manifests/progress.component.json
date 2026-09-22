@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/progress.tsx",
-		"import": "@core/core-ui/progress",
+		"import": "@corensystem/core-ui/progress",
 		"export": "Progress"
 	},
 	"tags": [

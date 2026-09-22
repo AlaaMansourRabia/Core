@@ -10,5 +10,5 @@ export {
 	GanttMilestone,
 	useGantt,
 	getDatePosition,
-} from "@core/core-ui/gantt";
-export type {GanttTask, GanttResource, GanttHeaderProps} from "@core/core-ui/gantt";
+} from "@corensystem/core-ui/gantt";
+export type {GanttTask, GanttResource, GanttHeaderProps} from "@corensystem/core-ui/gantt";

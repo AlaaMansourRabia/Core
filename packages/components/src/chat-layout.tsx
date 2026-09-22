@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import * as React from "react";
 
 export interface ChatLayoutProps extends React.HTMLAttributes<HTMLDivElement> {

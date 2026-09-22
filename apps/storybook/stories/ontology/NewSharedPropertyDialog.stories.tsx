@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
-import {NewSharedPropertyDialog} from "@core/core-ui/new-shared-property-dialog";
+import {Button} from "@corensystem/core-ui/button";
+import {NewSharedPropertyDialog} from "@corensystem/core-ui/new-shared-property-dialog";
 import {useState} from "react";
 
 const meta = {

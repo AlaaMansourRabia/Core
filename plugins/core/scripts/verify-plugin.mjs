@@ -114,7 +114,7 @@ export function validateCorePlugin() {
 	for (const marker of [
 		"React",
 		"TSX",
-		"@core/core-ui",
+		"@corensystem/core-ui",
 		"Prepare the workspace",
 		"scaffold a React + TypeScript app",
 		"NODE_AUTH_TOKEN",

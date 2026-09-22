@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Divider} from "@core/core-ui/divider";
+import {Divider} from "@corensystem/core-ui/divider";
 
 const meta = {
 	title: "Components/Primitives/Divider",

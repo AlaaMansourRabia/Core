@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {List, ListItem} from "@core/core-ui/list";
+import {List, ListItem} from "@corensystem/core-ui/list";
 
 const meta = {
 	title: "Components/Primitives/List",

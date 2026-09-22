@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/camera-detail-panel.tsx",
-		"import": "@core/core-ui/camera-detail-panel"
+		"import": "@corensystem/core-ui/camera-detail-panel"
 	},
 	"tags": [
 		"camera",

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/badge.tsx",
-		"import": "@core/core-ui/badge",
+		"import": "@corensystem/core-ui/badge",
 		"export": "Badge"
 	},
 	"tags": [

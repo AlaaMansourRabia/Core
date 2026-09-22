@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/setup-steps-checklist.tsx",
-		"import": "@core/core-ui/setup-steps-checklist"
+		"import": "@corensystem/core-ui/setup-steps-checklist"
 	},
 	"tags": [
 		"onboarding",

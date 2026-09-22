@@ -1,4 +1,4 @@
-// Canonical template seeds — the single source of truth for "template.id → the real @core/core-ui
+// Canonical template seeds — the single source of truth for "template.id → the real @corensystem/core-ui
 // page source that renders it." Both the read-only preview (server/preview.ts) and the workspace
 // materializer (server/workspace.ts) build from these: preview compiles the source in memory; the
 // materializer writes it to a workspace's src/page.tsx as the editable seed the external editor owns.
@@ -56,8 +56,8 @@ const FILE_SEEDS: Record<string, FileSeed> = {
 	"task-monitor": {file: "pages/core-task-monitor.tsx", render: "<TaskMonitorWorkspace />"},
 };
 
-const SEED_HEADER = `import {TooltipProvider as __WCTP} from "@core/core-ui/tooltip";
-import {MOCK_ORGANIZATIONS as __WC_ORGS, getProjectsByOrg as __WC_PROJ} from "@core/core-ui/data/mock-data";
+const SEED_HEADER = `import {TooltipProvider as __WCTP} from "@corensystem/core-ui/tooltip";
+import {MOCK_ORGANIZATIONS as __WC_ORGS, getProjectsByOrg as __WC_PROJ} from "@corensystem/core-ui/data/mock-data";
 `;
 const seedFooter = (render: string) => `
 const __WC_PROJECT = __WC_ORGS.length ? __WC_PROJ(__WC_ORGS[0].id)[0] : undefined;

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Code, CodeBlock} from "@core/core-ui/code";
+import {Code, CodeBlock} from "@corensystem/core-ui/code";
 
 const meta = {
 	title: "Components/Primitives/Code",
@@ -47,7 +47,7 @@ export const MultilineBlock: Story = {
 	render: () => (
 		<CodeBlock>
 			{`import React from 'react';
-import { Button } from '@core/core-ui/button';
+import { Button } from '@corensystem/core-ui/button';
 
 export function MyComponent() {
   const [count, setCount] = React.useState(0);

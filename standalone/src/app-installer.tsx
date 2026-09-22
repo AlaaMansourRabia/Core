@@ -1,8 +1,8 @@
 import {StrictMode} from "react";
 import {createRoot} from "react-dom/client";
 
-import {AppInstaller} from "@core/core-ui/pages/core-app-installer";
-import "@core/core-ui/styles.css";
+import {AppInstaller} from "@corensystem/core-ui/pages/core-app-installer";
+import "@corensystem/core-ui/styles.css";
 import "./fonts.css";
 
 createRoot(document.getElementById("root")!).render(

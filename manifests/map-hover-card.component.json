@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/map-hover-card.tsx",
-		"import": "@core/core-ui/map-hover-card",
+		"import": "@corensystem/core-ui/map-hover-card",
 		"export": "MapHoverCard"
 	},
 	"tags": ["map", "hover", "card", "preview", "overlay"],

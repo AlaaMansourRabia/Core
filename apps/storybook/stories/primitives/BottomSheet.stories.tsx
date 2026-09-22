@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {BottomSheet} from "@core/core-ui/bottom-sheet";
-import {Button} from "@core/core-ui/button";
+import {BottomSheet} from "@corensystem/core-ui/bottom-sheet";
+import {Button} from "@corensystem/core-ui/button";
 import {useState} from "react";
 
 const meta = {

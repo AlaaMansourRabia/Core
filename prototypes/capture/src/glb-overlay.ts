@@ -1,4 +1,4 @@
-import {useFragmentViewer} from "@core/core-ui/fragment-viewer";
+import {useFragmentViewer} from "@corensystem/core-ui/fragment-viewer";
 import {useEffect} from "react";
 import * as THREE from "three";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";

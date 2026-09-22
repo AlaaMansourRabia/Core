@@ -1,5 +1,5 @@
-import {TabbedLegend} from "@core/core-ui/legend";
-import {cn} from "@core/core-utils";
+import {TabbedLegend} from "@corensystem/core-ui/legend";
+import {cn} from "@corensystem/core-utils";
 import {type MouseEvent as ReactMouseEvent, useEffect, useMemo, useRef, useState} from "react";
 
 import {type ShapeStyle, styleForVilla} from "./milestone-ramp";

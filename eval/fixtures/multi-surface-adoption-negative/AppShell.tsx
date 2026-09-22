@@ -1,4 +1,4 @@
-import {CoreAppSidebar} from "@core/core-ui";
+import {CoreAppSidebar} from "@corensystem/core-ui";
 
 export function AppShell({children}: {children: React.ReactNode}) {
 	return (

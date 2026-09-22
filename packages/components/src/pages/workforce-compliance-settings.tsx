@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {Plus, ShieldCheck, SquarePen, Trash2} from "lucide-react";
 import {useEffect, useMemo, useState} from "react";
 

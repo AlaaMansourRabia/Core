@@ -1,8 +1,8 @@
-import type {CommandPaletteGroup} from "@core/core-ui/command-palette";
+import type {CommandPaletteGroup} from "@corensystem/core-ui/command-palette";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
-import {CommandPalette, CommandPaletteTrigger} from "@core/core-ui/command-palette";
+import {Button} from "@corensystem/core-ui/button";
+import {CommandPalette, CommandPaletteTrigger} from "@corensystem/core-ui/command-palette";
 import {Home, Settings, User, FileText, Search, Moon, Sun, LogOut} from "lucide-react";
 import {useState} from "react";
 

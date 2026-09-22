@@ -9,11 +9,11 @@
 // near-black text on a near-black pill. TSX has no markdown layer, and <Unstyled> keeps the docs
 // stylesheet off this subtree entirely.
 //
-// It also *is* Core: the badges and the CTA are the real Badge and Button from @core/core-ui,
+// It also *is* Core: the badges and the CTA are the real Badge and Button from @corensystem/core-ui,
 // and every colour is a token, so the block follows the light/dark toolbar toggle.
 
-import {Badge} from "@core/core-ui/badge";
-import {Button} from "@core/core-ui/button";
+import {Badge} from "@corensystem/core-ui/badge";
+import {Button} from "@corensystem/core-ui/button";
 import {Unstyled} from "@storybook/addon-docs/blocks";
 
 // Docs pages render inside Storybook's own chrome, so this block sets its own type scale instead of

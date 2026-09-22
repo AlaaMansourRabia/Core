@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {KioskBody} from "@core/core-ui/kiosk-body";
+import {KioskBody} from "@corensystem/core-ui/kiosk-body";
 import {fn} from "storybook/test";
 
 const meta = {

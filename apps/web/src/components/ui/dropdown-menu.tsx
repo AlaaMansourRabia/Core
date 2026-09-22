@@ -14,4 +14,4 @@ export {
 	DropdownMenuSubContent,
 	DropdownMenuSubTrigger,
 	DropdownMenuRadioGroup,
-} from "@core/core-ui/dropdown-menu";
+} from "@corensystem/core-ui/dropdown-menu";

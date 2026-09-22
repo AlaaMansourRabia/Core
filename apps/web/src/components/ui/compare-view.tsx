@@ -1,2 +1,2 @@
-export {CompareView} from "@core/core-ui/compare-view";
-export type {CompareViewProps, CompareMode, CompareViewApi} from "@core/core-ui/compare-view";
+export {CompareView} from "@corensystem/core-ui/compare-view";
+export type {CompareViewProps, CompareMode, CompareViewApi} from "@corensystem/core-ui/compare-view";

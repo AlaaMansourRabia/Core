@@ -1,4 +1,4 @@
-import {Sidebar, SidebarContent, SidebarHeader, Toolbar, ZoomTools} from "@core/core-ui";
+import {Sidebar, SidebarContent, SidebarHeader, Toolbar, ZoomTools} from "@corensystem/core-ui";
 
 export const Studio = () => (
 	<div className="studio-shell">

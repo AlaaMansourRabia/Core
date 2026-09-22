@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/navigation/core-dashboard-header.tsx",
-		"import": "@core/core-ui/navigation/core-dashboard-header",
+		"import": "@corensystem/core-ui/navigation/core-dashboard-header",
 		"export": "CoreDashboardHeader"
 	},
 	"tags": ["header", "navigation", "dashboard", "top-bar"],

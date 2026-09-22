@@ -1,6 +1,6 @@
 import type {Connection, Edge, FinalConnectionState, Node, NodeProps} from "@xyflow/react";
 
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {Handle, Position, useEdgesState, useNodesState} from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import {ArrowLeft, ArrowRight, CheckCircle2, Download, Play, Trash2, TriangleAlert, XCircle} from "lucide-react";

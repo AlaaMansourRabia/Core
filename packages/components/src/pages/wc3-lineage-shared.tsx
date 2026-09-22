@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {Download, LayoutGrid, Map, Plane, Radar, Ruler, SlidersHorizontal, Tag, Upload, Workflow} from "lucide-react";
 import {useEffect, useRef} from "react";
 

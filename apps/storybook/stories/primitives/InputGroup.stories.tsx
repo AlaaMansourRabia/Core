@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Input} from "@core/core-ui/input";
-import {InputGroup, InputGroupText} from "@core/core-ui/input-group";
+import {Input} from "@corensystem/core-ui/input";
+import {InputGroup, InputGroupText} from "@corensystem/core-ui/input-group";
 
 const meta = {
 	title: "Components/Primitives/InputGroup",

@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import {type VariantProps, cva} from "class-variance-authority";
 import * as React from "react";

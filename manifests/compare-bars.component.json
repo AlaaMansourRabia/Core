@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/compare-bars.tsx",
-		"import": "@core/core-ui/compare-bars",
+		"import": "@corensystem/core-ui/compare-bars",
 		"export": "CompareBars"
 	},
 	"tags": [

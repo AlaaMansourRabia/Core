@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
-import {CreateProcessDialog} from "@core/core-ui/pages/create-process-dialog";
-import {seedProcesses} from "@core/core-ui/pages/wc3-process-views";
+import {Button} from "@corensystem/core-ui/button";
+import {CreateProcessDialog} from "@corensystem/core-ui/pages/create-process-dialog";
+import {seedProcesses} from "@corensystem/core-ui/pages/wc3-process-views";
 import {useState} from "react";
 
 const meta = {

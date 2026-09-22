@@ -1,5 +1,5 @@
 {
-	"name": "@core/mcp",
+	"name": "@corensystem/mcp",
 	"version": "1.0.0",
 	"private": true,
 	"type": "module",
@@ -16,6 +16,6 @@
 	],
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "1.29.0",
-		"@core/sdk": "workspace:*"
+		"@corensystem/sdk": "workspace:*"
 	}
 }

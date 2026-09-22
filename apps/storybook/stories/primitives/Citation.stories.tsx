@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Blockquote} from "@core/core-ui/blockquote";
-import {Citation} from "@core/core-ui/citation";
+import {Blockquote} from "@corensystem/core-ui/blockquote";
+import {Citation} from "@corensystem/core-ui/citation";
 
 const meta = {
 	title: "Components/Primitives/Citation",

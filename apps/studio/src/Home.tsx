@@ -1,4 +1,4 @@
-import {Input} from "@core/core-ui/input";
+import {Input} from "@corensystem/core-ui/input";
 import {Layers, RefreshCw, Search} from "lucide-react";
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 

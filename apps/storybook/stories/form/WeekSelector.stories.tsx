@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {WeekSelector, type WeekSelectorWeek} from "@core/core-ui/week-selector";
+import {WeekSelector, type WeekSelectorWeek} from "@corensystem/core-ui/week-selector";
 import {addDays, getISOWeek, startOfWeek} from "date-fns";
 import {useMemo, useState} from "react";
 

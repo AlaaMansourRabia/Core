@@ -1,1 +1,1 @@
-export * from "@core/core-ui/pages/install-product-dialog";
+export * from "@corensystem/core-ui/pages/install-product-dialog";
