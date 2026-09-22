@@ -1,12 +1,7 @@
 import {MoreHorizontal, MoreVertical} from "lucide-react";
 import * as React from "react";
 
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger,
-} from "./dropdown-menu";
+import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "./dropdown-menu";
 import {IconButton} from "./icon-button";
 
 export interface MoreMenuOption {

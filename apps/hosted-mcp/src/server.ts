@@ -2,8 +2,8 @@
 // use THIS — one tool surface, one behavior. Each tool is a thin wrapper: validate + envelope live in
 // @core/knowledge (callTool), so the transport layer only marshals to/from MCP content.
 
-import {McpServer} from "@modelcontextprotocol/sdk/server/mcp.js";
 import {INPUT_SCHEMAS, type Knowledge} from "@core/knowledge";
+import {McpServer} from "@modelcontextprotocol/sdk/server/mcp.js";
 
 import type {Logger} from "./obs/logger";
 import type {Metrics} from "./obs/metrics";

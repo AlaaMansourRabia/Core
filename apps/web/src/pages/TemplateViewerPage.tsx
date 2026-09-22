@@ -1,6 +1,5 @@
 import type {ReactNode} from "react";
 
-import workerUrl from "@thatopen/fragments/worker?url";
 import {MOCK_ORGANIZATIONS, getProjectsByOrg} from "@core/core-ui/data/mock-data";
 // Renders any Core template by id (route /templates/:id) — the real @core/core-ui
 // page with representative mock data, so the Designer Hub's Templates section shows the live template.
@@ -12,6 +11,8 @@ import {AppInstaller} from "@core/core-ui/pages/core-app-installer";
 import {BlueprintViewer} from "@core/core-ui/pages/core-blueprint-viewer";
 import {BlueprintViewer3} from "@core/core-ui/pages/core-blueprint-viewer-3";
 import {Clinic} from "@core/core-ui/pages/core-clinic";
+import {CoreConnect} from "@core/core-ui/pages/core-core-connect";
+import {CoreConnectV3} from "@core/core-ui/pages/core-core-connect-v3";
 import {DesignCanvas} from "@core/core-ui/pages/core-design-canvas";
 import {LoginPage} from "@core/core-ui/pages/core-login-page";
 import {MapCompareLayout} from "@core/core-ui/pages/core-map-compare-layout";
@@ -24,12 +25,11 @@ import {ProjectSetup} from "@core/core-ui/pages/core-project-setup";
 import {ProjectWorkforceSafety} from "@core/core-ui/pages/core-project-workforce-safety";
 import {SafetyManager} from "@core/core-ui/pages/core-safety-manager";
 import {VerifyTimeCommandCenter} from "@core/core-ui/pages/core-verifytime-command-center";
-import {CoreConnect} from "@core/core-ui/pages/core-core-connect";
-import {CoreConnectV3} from "@core/core-ui/pages/core-core-connect-v3";
 import {WC3Workspace} from "@core/core-ui/pages/core-wc3-workspace";
 import {WorkPermit} from "@core/core-ui/pages/core-work-permit";
 import {Workforce} from "@core/core-ui/pages/core-workforce";
 import {TooltipProvider} from "@core/core-ui/tooltip";
+import workerUrl from "@thatopen/fragments/worker?url";
 import {useParams} from "react-router-dom";
 
 import {SiteRealityStage} from "@/components/SiteRealityStage";

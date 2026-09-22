@@ -53,8 +53,7 @@ export const Alignment: Story = {
 			<Text align="center">Center aligned text</Text>
 			<Text align="right">Right aligned text</Text>
 			<Text align="justify">
-				Justified text that stretches to fill the full width of the container, creating even edges on
-				both sides.
+				Justified text that stretches to fill the full width of the container, creating even edges on both sides.
 			</Text>
 		</div>
 	),
@@ -63,9 +62,11 @@ export const Alignment: Story = {
 export const AsSpan: Story = {
 	render: () => (
 		<p>
-			This is a paragraph with <Text as="span" variant="accent" weight="semibold">
+			This is a paragraph with{" "}
+			<Text as="span" variant="accent" weight="semibold">
 				inline styled text
-			</Text> inside it.
+			</Text>{" "}
+			inside it.
 		</p>
 	),
 };

@@ -28,8 +28,7 @@ const thumbnailVariants = cva(
 );
 
 export interface ThumbnailProps
-	extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src">,
-		VariantProps<typeof thumbnailVariants> {
+	extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src">, VariantProps<typeof thumbnailVariants> {
 	/** Image source URL */
 	src?: string;
 	/** Fallback content when image fails to load or is not provided */

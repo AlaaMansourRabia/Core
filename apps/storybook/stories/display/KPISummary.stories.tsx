@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {Badge} from "@core/core-ui/badge";
 import {Card, CardContent, CardDescription, CardHeader} from "@core/core-ui/card";
 import {KPISummary} from "@core/core-ui/kpi-summary";
+import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {AlertTriangle, HardHat, Shield, Users} from "lucide-react";
 
 import kpiSummaryManifest from "../../../../manifests/kpi-summary.widget.json";

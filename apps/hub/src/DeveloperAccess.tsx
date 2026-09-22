@@ -206,9 +206,9 @@ export default function DeveloperAccess() {
 						<div className="wwc:min-w-0 wwc:max-w-xl">
 							<h2 className="wwc:text-lg wwc:font-semibold">Install Core in Codex Desktop</h2>
 							<p className="wwc:mt-2 wwc:text-sm wwc:leading-relaxed wwc:text-muted-foreground">
-								Open Plugins, add the Core Git marketplace using the source, ref, and sparse paths below, then
-								install Core. The plugin can bootstrap an empty React/TSX app and prevents matching templates from
-								being replaced with standalone HTML/CSS.
+								Open Plugins, add the Core Git marketplace using the source, ref, and sparse paths below, then install
+								Core. The plugin can bootstrap an empty React/TSX app and prevents matching templates from being
+								replaced with standalone HTML/CSS.
 							</p>
 						</div>
 						<CopyButton label="Copy install details" text={PLUGIN_INSTALL} variant="outline" />
@@ -224,8 +224,8 @@ export default function DeveloperAccess() {
 						<div className="wwc:min-w-0 wwc:max-w-xl">
 							<h2 className="wwc:text-lg wwc:font-semibold">Connect an MCP client</h2>
 							<p className="wwc:mt-2 wwc:text-sm wwc:leading-relaxed wwc:text-muted-foreground">
-								Choose your agent and copy one setup prompt. Paste it into that agent — it should add the Core
-								server and verify access without you touching config.
+								Choose your agent and copy one setup prompt. Paste it into that agent — it should add the Core server
+								and verify access without you touching config.
 							</p>
 						</div>
 						<div className="wwc:flex wwc:flex-wrap wwc:gap-1 wwc:rounded-lg wwc:border wwc:border-border wwc:bg-muted/40 wwc:p-0.5">

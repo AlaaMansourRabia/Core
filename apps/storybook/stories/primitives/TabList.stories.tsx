@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
-import {useState} from "react";
 
 import {TabList, TabItem} from "@core/core-ui/tab-list";
 import {Home, Settings, User, Bell} from "lucide-react";
+import {useState} from "react";
 
 const meta = {
 	title: "Components/Primitives/TabList",

@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
+import {Button} from "@core/core-ui/button";
 import {ChatLayout, ChatHeader, ChatFooter, ChatMessagesContainer} from "@core/core-ui/chat-layout";
 import {ChatMessage, ChatSystemMessage} from "@core/core-ui/chat-message";
-import {Button} from "@core/core-ui/button";
 import {Input} from "@core/core-ui/input";
 import {MoreHorizontal, Phone, Video} from "lucide-react";
 

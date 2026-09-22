@@ -2,20 +2,17 @@ import {cn} from "@core/core-utils";
 import {type VariantProps, cva} from "class-variance-authority";
 import * as React from "react";
 
-const codeVariants = cva(
-	"wwc:relative wwc:rounded wwc:px-1.5 wwc:py-0.5 wwc:font-mono wwc:text-sm",
-	{
-		variants: {
-			variant: {
-				default: "wwc:bg-muted wwc:text-foreground",
-				outline: "wwc:border wwc:border-border wwc:bg-background wwc:text-foreground",
-			},
-		},
-		defaultVariants: {
-			variant: "default",
+const codeVariants = cva("wwc:relative wwc:rounded wwc:px-1.5 wwc:py-0.5 wwc:font-mono wwc:text-sm", {
+	variants: {
+		variant: {
+			default: "wwc:bg-muted wwc:text-foreground",
+			outline: "wwc:border wwc:border-border wwc:bg-background wwc:text-foreground",
 		},
 	},
-);
+	defaultVariants: {
+		variant: "default",
+	},
+});
 
 export interface CodeProps extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof codeVariants> {}
 

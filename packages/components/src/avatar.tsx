@@ -1,39 +1,35 @@
-import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import {cn} from "@core/core-utils";
+import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import {type VariantProps, cva} from "class-variance-authority";
 import * as React from "react";
 
-const avatarVariants = cva(
-	"wwc:relative wwc:flex wwc:shrink-0 wwc:overflow-hidden",
-	{
-		variants: {
-			size: {
-				xs: "wwc:h-6 wwc:w-6",
-				sm: "wwc:h-8 wwc:w-8",
-				md: "wwc:h-10 wwc:w-10",
-				lg: "wwc:h-12 wwc:w-12",
-				xl: "wwc:h-16 wwc:w-16",
-				"2xl": "wwc:h-20 wwc:w-20",
-				"3xl": "wwc:h-24 wwc:w-24",
-			},
-			shape: {
-				circle: "wwc:rounded-full",
-				square: "wwc:rounded-md",
-				rounded: "wwc:rounded-lg",
-			},
+const avatarVariants = cva("wwc:relative wwc:flex wwc:shrink-0 wwc:overflow-hidden", {
+	variants: {
+		size: {
+			xs: "wwc:h-6 wwc:w-6",
+			sm: "wwc:h-8 wwc:w-8",
+			md: "wwc:h-10 wwc:w-10",
+			lg: "wwc:h-12 wwc:w-12",
+			xl: "wwc:h-16 wwc:w-16",
+			"2xl": "wwc:h-20 wwc:w-20",
+			"3xl": "wwc:h-24 wwc:w-24",
 		},
-		defaultVariants: {
-			size: "md",
-			shape: "circle",
+		shape: {
+			circle: "wwc:rounded-full",
+			square: "wwc:rounded-md",
+			rounded: "wwc:rounded-lg",
 		},
 	},
-);
+	defaultVariants: {
+		size: "md",
+		shape: "circle",
+	},
+});
 
 export type AvatarSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
 
 export interface AvatarProps
-	extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>,
-		VariantProps<typeof avatarVariants> {}
+	extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>, VariantProps<typeof avatarVariants> {}
 
 /** An image element with a fallback for representing the user. */
 const Avatar = React.forwardRef<React.ElementRef<typeof AvatarPrimitive.Root>, AvatarProps>(
@@ -72,7 +68,8 @@ const avatarFallbackVariants = cva(
 );
 
 export interface AvatarFallbackProps
-	extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>,
+	extends
+		React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>,
 		VariantProps<typeof avatarFallbackVariants> {}
 
 const AvatarFallback = React.forwardRef<React.ElementRef<typeof AvatarPrimitive.Fallback>, AvatarFallbackProps>(
@@ -104,7 +101,7 @@ const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
 						? React.cloneElement(child, {
 								key: index,
 								className: cn("wwc:border-2 wwc:border-background", child.props.className),
-						  } as React.Attributes)
+							} as React.Attributes)
 						: child,
 				)}
 				{showOverflow && (
@@ -138,4 +135,3 @@ const AvatarWithStatus = React.forwardRef<HTMLDivElement, AvatarWithStatusProps>
 AvatarWithStatus.displayName = "AvatarWithStatus";
 
 export {Avatar, AvatarImage, AvatarFallback, AvatarGroup, AvatarWithStatus, avatarVariants};
-export type {AvatarGroupProps};

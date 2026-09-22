@@ -1,5 +1,5 @@
-import * as TabsPrimitive from "@radix-ui/react-tabs";
 import {cn} from "@core/core-utils";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
 import {type VariantProps, cva} from "class-variance-authority";
 import {ChevronDown} from "lucide-react";
 import * as React from "react";

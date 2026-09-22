@@ -25,6 +25,7 @@ import {Card, CardContent} from "../../card";
 import {Checkbox} from "../../checkbox";
 import {Label} from "../../label";
 import {AttachmentInput} from "./AttachmentInput";
+import {CoreForm} from "./coreRjsfTheme";
 import {deriveAllValues} from "./dataSources";
 import {DataSourceSelect} from "./DataSourceSelect";
 import {DerivedCountDisplay} from "./DerivedCountDisplay";
@@ -36,7 +37,6 @@ import {RatingInput} from "./RatingInput";
 import {schemaToJsonSchema} from "./schemaToJsonSchema";
 import {SignaturePad} from "./SignaturePad";
 import {TableInput} from "./TableInput";
-import {CoreForm} from "./coreRjsfTheme";
 
 // ── Conditional logic → JSON Schema ───────────────────────────────────────────
 // RJSF renders whatever JSON Schema it's given, so we make it logic-aware by rebuilding the schema on

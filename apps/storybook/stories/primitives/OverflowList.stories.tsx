@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {OverflowList} from "@core/core-ui/overflow-list";
-import {Badge} from "@core/core-ui/badge";
 import {Avatar, AvatarFallback} from "@core/core-ui/avatar";
+import {Badge} from "@core/core-ui/badge";
+import {OverflowList} from "@core/core-ui/overflow-list";
 
 const meta = {
 	title: "Components/Primitives/OverflowList",
@@ -18,11 +18,7 @@ const users = ["Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Hen
 
 export const Default: Story = {
 	render: () => (
-		<OverflowList
-			items={tags}
-			maxVisible={3}
-			renderItem={(tag) => <Badge variant="secondary">{tag}</Badge>}
-		/>
+		<OverflowList items={tags} maxVisible={3} renderItem={(tag) => <Badge variant="secondary">{tag}</Badge>} />
 	),
 };
 
@@ -53,10 +49,6 @@ export const CustomOverflow: Story = {
 
 export const MoreVisible: Story = {
 	render: () => (
-		<OverflowList
-			items={tags}
-			maxVisible={5}
-			renderItem={(tag) => <Badge variant="secondary">{tag}</Badge>}
-		/>
+		<OverflowList items={tags} maxVisible={5} renderItem={(tag) => <Badge variant="secondary">{tag}</Badge>} />
 	),
 };

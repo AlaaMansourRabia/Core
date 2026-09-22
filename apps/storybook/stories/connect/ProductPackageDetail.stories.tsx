@@ -7,9 +7,9 @@ import type {
 } from "@core/core-ui/product-package-detail";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {CoreAppTopBar} from "@core/core-ui/navigation/core-app-top-bar";
 import {ProductPackageDetail} from "@core/core-ui/product-package-detail";
+import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {useState} from "react";
 
 import productPackageManifest from "../../../../manifests/product-package-detail.widget.json";

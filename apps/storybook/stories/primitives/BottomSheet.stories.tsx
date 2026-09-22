@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
-import {useState} from "react";
 
 import {BottomSheet} from "@core/core-ui/bottom-sheet";
 import {Button} from "@core/core-ui/button";
+import {useState} from "react";
 
 const meta = {
 	title: "Components/Primitives/BottomSheet",
@@ -19,7 +19,12 @@ export const Default: Story = {
 		return (
 			<>
 				<Button onClick={() => setOpen(true)}>Open Bottom Sheet</Button>
-				<BottomSheet open={open} onClose={() => setOpen(false)} title="Bottom Sheet" description="This is a bottom sheet">
+				<BottomSheet
+					open={open}
+					onClose={() => setOpen(false)}
+					title="Bottom Sheet"
+					description="This is a bottom sheet"
+				>
 					<div className="wwc:space-y-4">
 						<p>Content goes here</p>
 						<Button onClick={() => setOpen(false)}>Close</Button>

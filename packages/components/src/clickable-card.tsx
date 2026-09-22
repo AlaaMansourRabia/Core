@@ -26,8 +26,7 @@ const clickableCardVariants = cva(
 );
 
 export interface ClickableCardProps
-	extends React.HTMLAttributes<HTMLDivElement>,
-		VariantProps<typeof clickableCardVariants> {
+	extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof clickableCardVariants> {
 	/** Disable the card */
 	disabled?: boolean;
 	/** Show a chevron indicator */

@@ -46,18 +46,16 @@ function OverflowList<T>({
 				<Popover>
 					<PopoverTrigger asChild>
 						<button className="wwc:text-sm wwc:text-muted-foreground wwc:hover:text-foreground wwc:transition-colors">
-							{renderOverflow ? (
-								renderOverflow(overflowItems.length)
-							) : (
-								<span>+{overflowItems.length} more</span>
-							)}
+							{renderOverflow ? renderOverflow(overflowItems.length) : <span>+{overflowItems.length} more</span>}
 						</button>
 					</PopoverTrigger>
 					<PopoverContent className="wwc:w-auto wwc:p-2">
 						<div className="wwc:space-y-1">
 							{overflowItems.map((item, index) => (
 								<div key={index}>
-									{renderOverflowItem ? renderOverflowItem(item, index + maxVisible) : renderItem(item, index + maxVisible)}
+									{renderOverflowItem
+										? renderOverflowItem(item, index + maxVisible)
+										: renderItem(item, index + maxVisible)}
 								</div>
 							))}
 						</div>

@@ -73,9 +73,7 @@ const AppShell = React.forwardRef<HTMLDivElement, AppShellProps>(
 					)}
 				</div>
 
-				{footer && (
-					<footer className="wwc:border-t wwc:border-border wwc:bg-background">{footer}</footer>
-				)}
+				{footer && <footer className="wwc:border-t wwc:border-border wwc:bg-background">{footer}</footer>}
 			</div>
 		);
 	},
@@ -85,13 +83,11 @@ AppShell.displayName = "AppShell";
 export interface AppShellHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 /** Header component for AppShell. */
-const AppShellHeader = React.forwardRef<HTMLDivElement, AppShellHeaderProps>(
-	({className, children, ...props}, ref) => (
-		<div ref={ref} className={cn("wwc:flex wwc:h-14 wwc:items-center wwc:px-4 wwc:gap-4", className)} {...props}>
-			{children}
-		</div>
-	),
-);
+const AppShellHeader = React.forwardRef<HTMLDivElement, AppShellHeaderProps>(({className, children, ...props}, ref) => (
+	<div ref={ref} className={cn("wwc:flex wwc:h-14 wwc:items-center wwc:px-4 wwc:gap-4", className)} {...props}>
+		{children}
+	</div>
+));
 AppShellHeader.displayName = "AppShellHeader";
 
 export interface AppShellSidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -119,13 +115,11 @@ AppShellMain.displayName = "AppShellMain";
 export interface AppShellFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 /** Footer component for AppShell. */
-const AppShellFooter = React.forwardRef<HTMLDivElement, AppShellFooterProps>(
-	({className, children, ...props}, ref) => (
-		<div ref={ref} className={cn("wwc:flex wwc:h-14 wwc:items-center wwc:px-4", className)} {...props}>
-			{children}
-		</div>
-	),
-);
+const AppShellFooter = React.forwardRef<HTMLDivElement, AppShellFooterProps>(({className, children, ...props}, ref) => (
+	<div ref={ref} className={cn("wwc:flex wwc:h-14 wwc:items-center wwc:px-4", className)} {...props}>
+		{children}
+	</div>
+));
 AppShellFooter.displayName = "AppShellFooter";
 
 export {AppShell, AppShellHeader, AppShellSidebar, AppShellMain, AppShellFooter};

@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
-import {useState} from "react";
 
 import {ResizeHandle} from "@core/core-ui/resize-handle";
+import {useState} from "react";
 
 const meta = {
 	title: "Components/Primitives/ResizeHandle",

@@ -46,8 +46,8 @@ export function ProgressDetailsPage() {
 						A progress-details workspace: a three-bar header (app navigation, period context, search &amp; filter), a
 						WBS Navigator, and a content list that drills the hierarchy — zone → category → division → task → object.
 						Every row is the shared <code className="wwc:text-xs">ProgressListItem</code> component (generic / task /
-						object variants), built on Core primitives (Badge, Progress, icons); an object opens the Operations
-						Drawer to review its operations.
+						object variants), built on Core primitives (Badge, Progress, icons); an object opens the Operations Drawer
+						to review its operations.
 					</p>
 				</div>
 				{/* This fullscreen trigger is host-page chrome — the component itself has no such button. */}

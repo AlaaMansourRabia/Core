@@ -273,9 +273,7 @@ export default function App() {
 					className="wwc:flex-1 wwc:overflow-hidden"
 					data-core-content-scroll
 					data-core-scroll-owner="route-content"
-					data-core-region={
-						active === "designer" && designerTemplateId ? `${designerTemplateId}-template` : "catalog"
-					}
+					data-core-region={active === "designer" && designerTemplateId ? `${designerTemplateId}-template` : "catalog"}
 					data-core-artifact={active === "designer" ? designerTemplateId : undefined}
 					data-core-interaction={
 						active === "designer" && designerTemplateId ? "open template from Designer navigation" : undefined
@@ -297,8 +295,8 @@ export default function App() {
 							startCommand="WC3=1 pnpm hub"
 							hint={
 								<>
-									Clone <code>core/wc3-engineering-viewer</code> and <code>core/wc3-example-dataset</code> beside
-									your Core checkout first — see <code>apps/hub/README.md</code>.
+									Clone <code>core/wc3-engineering-viewer</code> and <code>core/wc3-example-dataset</code> beside your
+									Core checkout first — see <code>apps/hub/README.md</code>.
 								</>
 							}
 						/>

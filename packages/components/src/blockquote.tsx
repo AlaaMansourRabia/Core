@@ -15,17 +15,12 @@ const Blockquote = React.forwardRef<HTMLQuoteElement, BlockquoteProps>(
 			<blockquote
 				ref={ref}
 				cite={cite}
-				className={cn(
-					"wwc:border-l-4 wwc:border-primary wwc:pl-4 wwc:italic wwc:text-muted-foreground",
-					className,
-				)}
+				className={cn("wwc:border-l-4 wwc:border-primary wwc:pl-4 wwc:italic wwc:text-muted-foreground", className)}
 				{...props}
 			>
 				{children}
 				{attribution && (
-					<footer className="wwc:mt-2 wwc:text-sm wwc:not-italic wwc:text-foreground">
-						— {attribution}
-					</footer>
+					<footer className="wwc:mt-2 wwc:text-sm wwc:not-italic wwc:text-foreground">— {attribution}</footer>
 				)}
 			</blockquote>
 		);

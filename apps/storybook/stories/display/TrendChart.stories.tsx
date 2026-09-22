@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {TrendChart} from "@core/core-ui/trend-chart";
+import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 
 import trendChartManifest from "../../../../manifests/trend-chart.widget.json";
 import {ComponentKnowledge} from "../_docs/ComponentKnowledge";

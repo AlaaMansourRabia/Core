@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
-import {useState} from "react";
 
 import {BottomSheetSwitcher, BottomSheetSwitcherSheet} from "@core/core-ui/bottom-sheet-switcher";
 import {Button} from "@core/core-ui/button";
 import {Menu} from "lucide-react";
+import {useState} from "react";
 
 const meta = {
 	title: "Components/Primitives/BottomSheetSwitcher",
@@ -181,12 +181,7 @@ export const HalfHeight: Story = {
 		return (
 			<div>
 				<Button onClick={() => setOpen(true)}>Open Half Height</Button>
-				<BottomSheetSwitcher
-					open={open}
-					onClose={() => setOpen(false)}
-					sheets={sheets}
-					height="half"
-				/>
+				<BottomSheetSwitcher open={open} onClose={() => setOpen(false)} sheets={sheets} height="half" />
 			</div>
 		);
 	},

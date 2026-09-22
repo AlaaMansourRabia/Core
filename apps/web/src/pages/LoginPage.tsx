@@ -51,11 +51,7 @@ export function LoginPage() {
 	return (
 		<div className="wwc:flex wwc:h-screen wwc:items-center wwc:justify-center wwc:bg-background wwc:p-6 wwc:text-foreground">
 			<div className="wwc:flex wwc:w-full wwc:max-w-sm wwc:flex-col wwc:items-center wwc:text-center">
-				<img
-					src="/core-large.svg"
-					alt="Core"
-					className="wwc:mb-8 wwc:h-6 wwc:w-auto wwc:invert wwc:dark:invert-0"
-				/>
+				<img src="/core-large.svg" alt="Core" className="wwc:mb-8 wwc:h-6 wwc:w-auto wwc:invert wwc:dark:invert-0" />
 
 				<h1 className="wwc:text-lg wwc:font-semibold">Sign in to Core</h1>
 				<p className="wwc:mt-2 wwc:text-sm wwc:text-muted-foreground">

@@ -19,8 +19,8 @@
 		"format:check": "oxfmt --check ."
 	},
 	"dependencies": {
-		"@modelcontextprotocol/sdk": "1.29.0",
-		"@core/knowledge": "workspace:*"
+		"@core/knowledge": "workspace:*",
+		"@modelcontextprotocol/sdk": "1.29.0"
 	},
 	"devDependencies": {
 		"tsdown": "latest"

@@ -2,7 +2,16 @@ import {cn} from "@core/core-utils";
 import {Search} from "lucide-react";
 import * as React from "react";
 
-import {Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator} from "./command";
+import {
+	Command,
+	CommandDialog,
+	CommandEmpty,
+	CommandGroup,
+	CommandInput,
+	CommandItem,
+	CommandList,
+	CommandSeparator,
+} from "./command";
 
 export interface CommandPaletteItem {
 	id: string;
@@ -65,15 +74,11 @@ const CommandPalette = ({
 									onSelect={() => handleSelect(item)}
 									className="wwc:gap-2"
 								>
-									{item.icon && (
-										<span className="wwc:flex-shrink-0 wwc:text-muted-foreground">{item.icon}</span>
-									)}
+									{item.icon && <span className="wwc:flex-shrink-0 wwc:text-muted-foreground">{item.icon}</span>}
 									<div className="wwc:flex-1 wwc:min-w-0">
 										<div className="wwc:truncate">{item.label}</div>
 										{item.description && (
-											<div className="wwc:text-xs wwc:text-muted-foreground wwc:truncate">
-												{item.description}
-											</div>
+											<div className="wwc:text-xs wwc:text-muted-foreground wwc:truncate">{item.description}</div>
 										)}
 									</div>
 									{item.shortcut && (

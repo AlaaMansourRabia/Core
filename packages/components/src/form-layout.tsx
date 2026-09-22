@@ -24,8 +24,7 @@ const formLayoutVariants = cva("wwc:w-full", {
 });
 
 export interface FormLayoutProps
-	extends React.FormHTMLAttributes<HTMLFormElement>,
-		VariantProps<typeof formLayoutVariants> {}
+	extends React.FormHTMLAttributes<HTMLFormElement>, VariantProps<typeof formLayoutVariants> {}
 
 /** Layout container for forms with consistent spacing and sizing. */
 const FormLayout = React.forwardRef<HTMLFormElement, FormLayoutProps>(

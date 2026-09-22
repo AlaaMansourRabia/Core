@@ -16,19 +16,7 @@ export interface ChatLayoutProps extends React.HTMLAttributes<HTMLDivElement> {
 
 /** Layout container for chat interfaces with header, scrollable messages, and footer. */
 const ChatLayout = React.forwardRef<HTMLDivElement, ChatLayoutProps>(
-	(
-		{
-			className,
-			header,
-			footer,
-			sidebar,
-			sidebarPosition = "left",
-			sidebarWidth = "280px",
-			children,
-			...props
-		},
-		ref,
-	) => (
+	({className, header, footer, sidebar, sidebarPosition = "left", sidebarWidth = "280px", children, ...props}, ref) => (
 		<div ref={ref} className={cn("wwc:flex wwc:h-full wwc:w-full", className)} {...props}>
 			{sidebar && sidebarPosition === "left" && (
 				<div
@@ -39,13 +27,9 @@ const ChatLayout = React.forwardRef<HTMLDivElement, ChatLayoutProps>(
 				</div>
 			)}
 			<div className="wwc:flex wwc:flex-1 wwc:flex-col wwc:min-w-0">
-				{header && (
-					<div className="wwc:flex-shrink-0 wwc:border-b wwc:border-border">{header}</div>
-				)}
+				{header && <div className="wwc:flex-shrink-0 wwc:border-b wwc:border-border">{header}</div>}
 				<div className="wwc:flex-1 wwc:overflow-y-auto">{children}</div>
-				{footer && (
-					<div className="wwc:flex-shrink-0 wwc:border-t wwc:border-border">{footer}</div>
-				)}
+				{footer && <div className="wwc:flex-shrink-0 wwc:border-t wwc:border-border">{footer}</div>}
 			</div>
 			{sidebar && sidebarPosition === "right" && (
 				<div

@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
-import {Heart, Search, Settings, Star, Trash} from "lucide-react";
 
 import {IconButton} from "@core/core-ui/icon-button";
+import {Heart, Search, Settings, Star, Trash} from "lucide-react";
 
 const meta = {
 	title: "Components/Primitives/IconButton",

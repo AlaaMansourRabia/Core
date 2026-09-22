@@ -31,13 +31,15 @@ export const Conversation: Story = {
 				What's the weather like today?
 			</ChatMessage>
 			<ChatMessage variant="assistant" avatarFallback="AI" timestamp={new Date()}>
-				I don't have access to real-time weather data, but I can help you find weather information if you tell me your location!
+				I don't have access to real-time weather data, but I can help you find weather information if you tell me your
+				location!
 			</ChatMessage>
 			<ChatMessage variant="user" avatarFallback="JD" timestamp={new Date()}>
 				I'm in San Francisco.
 			</ChatMessage>
 			<ChatMessage variant="assistant" avatarFallback="AI" timestamp={new Date()}>
-				San Francisco typically has mild weather year-round. The average temperature ranges from 50-65°F. You can check the current conditions at weather.gov or a weather app.
+				San Francisco typically has mild weather year-round. The average temperature ranges from 50-65°F. You can check
+				the current conditions at weather.gov or a weather app.
 			</ChatMessage>
 		</div>
 	),

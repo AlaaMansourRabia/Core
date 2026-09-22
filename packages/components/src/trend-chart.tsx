@@ -29,12 +29,7 @@ export interface TrendChartProps {
 const TrendChart = React.forwardRef<HTMLDivElement, TrendChartProps>(
 	({title, actions, value, header, option, seriesThemes, height = 240, className}, ref) => {
 		return (
-			<WidgetCard
-				ref={ref}
-				className={className}
-				data-core-artifact="trend-chart"
-				data-core-surface-owner="artifact"
-			>
+			<WidgetCard ref={ref} className={className} data-core-artifact="trend-chart" data-core-surface-owner="artifact">
 				{(title || actions) && (
 					<WidgetCardHeader>
 						{title ? <WidgetCardTitle>{title}</WidgetCardTitle> : <span />}

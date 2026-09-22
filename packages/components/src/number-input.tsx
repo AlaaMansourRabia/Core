@@ -21,21 +21,7 @@ export interface NumberInputProps extends Omit<React.InputHTMLAttributes<HTMLInp
 
 /** A numeric input with optional stepper controls. */
 const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
-	(
-		{
-			className,
-			min,
-			max,
-			step = 1,
-			precision,
-			onChange,
-			value,
-			showControls = true,
-			disabled,
-			...props
-		},
-		ref,
-	) => {
+	({className, min, max, step = 1, precision, onChange, value, showControls = true, disabled, ...props}, ref) => {
 		const [internalValue, setInternalValue] = React.useState<string>(value?.toString() || "");
 
 		React.useEffect(() => {

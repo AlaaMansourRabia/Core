@@ -1,7 +1,6 @@
 import type {ColumnDef, Row, SortingState} from "@tanstack/react-table";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {Badge} from "@core/core-ui/badge";
 import {Button} from "@core/core-ui/button";
 import {Checkbox} from "@core/core-ui/checkbox";
@@ -31,6 +30,7 @@ import {
 import {Separator} from "@core/core-ui/separator";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@core/core-ui/table";
 import {cn} from "@core/core-utils";
+import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {Copy, Download, Edit, FileCode, FileImage, FileText, Folder, MoreHorizontal, Trash2} from "lucide-react";
 import * as React from "react";
 

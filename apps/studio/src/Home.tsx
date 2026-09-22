@@ -70,11 +70,7 @@ export function Home({onOpen}: {onOpen: (templateId: string) => void}) {
 				{/* Header — the read-only front door to Core */}
 				<div className="wwc:pt-10 wwc:text-center">
 					<div className="wwc:mb-4 wwc:flex wwc:items-center wwc:justify-center wwc:gap-2">
-						<img
-							src="/core-small.svg"
-							alt="Core"
-							className="wwc:h-12 wwc:w-auto wwc:invert wwc:dark:invert-0"
-						/>
+						<img src="/core-small.svg" alt="Core" className="wwc:h-12 wwc:w-auto wwc:invert wwc:dark:invert-0" />
 						<span className="wwc:rounded-full wwc:border wwc:border-border wwc:px-2 wwc:py-0.5 wwc:text-[10px] wwc:font-semibold wwc:uppercase wwc:tracking-wide wwc:text-muted-foreground">
 							Beta
 						</span>
@@ -98,9 +94,7 @@ export function Home({onOpen}: {onOpen: (templateId: string) => void}) {
 				</div>
 
 				{error && (
-					<div className="wwc:mt-8 wwc:text-center wwc:text-sm wwc:text-destructive">
-						Couldn't load Core: {error}
-					</div>
+					<div className="wwc:mt-8 wwc:text-center wwc:text-sm wwc:text-destructive">Couldn't load Core: {error}</div>
 				)}
 
 				{/* Templates — canonical cards */}

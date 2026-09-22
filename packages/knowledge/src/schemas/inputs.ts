@@ -8,12 +8,7 @@ import {z} from "zod";
 import {ARTIFACT_RESPONSIVE_BEHAVIORS} from "../model/record";
 
 const TIERS = ["template", "widget", "component", "pattern", "utility"] as const;
-const IMPLEMENTATION_GOALS = [
-	"product-ui",
-	"core-showcase",
-	"component-evaluation",
-	"visual-reproduction",
-] as const;
+const IMPLEMENTATION_GOALS = ["product-ui", "core-showcase", "component-evaluation", "visual-reproduction"] as const;
 const VALIDATION_MODES = [
 	"standard",
 	"core-only",

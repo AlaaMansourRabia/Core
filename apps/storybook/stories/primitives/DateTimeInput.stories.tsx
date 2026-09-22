@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
-import {useState} from "react";
 
 import {DateTimeInput} from "@core/core-ui/date-time-input";
+import {useState} from "react";
 
 const meta = {
 	title: "Components/Primitives/DateTimeInput",
@@ -18,9 +18,7 @@ export const Default: Story = {
 		return (
 			<div className="wwc:w-80">
 				<DateTimeInput value={value} onChange={setValue} />
-				<p className="wwc:mt-2 wwc:text-sm wwc:text-muted-foreground">
-					Selected: {value?.toLocaleString() || "None"}
-				</p>
+				<p className="wwc:mt-2 wwc:text-sm wwc:text-muted-foreground">Selected: {value?.toLocaleString() || "None"}</p>
 			</div>
 		);
 	},

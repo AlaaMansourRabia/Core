@@ -17,25 +17,21 @@ const chatMessageVariants = cva("wwc:flex wwc:gap-3 wwc:py-4", {
 	},
 });
 
-const chatMessageBubbleVariants = cva(
-	"wwc:rounded-2xl wwc:px-4 wwc:py-2.5 wwc:max-w-[80%]",
-	{
-		variants: {
-			variant: {
-				user: "wwc:bg-primary wwc:text-primary-foreground wwc:rounded-br-sm",
-				assistant: "wwc:bg-muted wwc:text-foreground wwc:rounded-bl-sm",
-				system: "wwc:bg-transparent wwc:text-muted-foreground wwc:text-sm wwc:italic",
-			},
-		},
-		defaultVariants: {
-			variant: "assistant",
+const chatMessageBubbleVariants = cva("wwc:rounded-2xl wwc:px-4 wwc:py-2.5 wwc:max-w-[80%]", {
+	variants: {
+		variant: {
+			user: "wwc:bg-primary wwc:text-primary-foreground wwc:rounded-br-sm",
+			assistant: "wwc:bg-muted wwc:text-foreground wwc:rounded-bl-sm",
+			system: "wwc:bg-transparent wwc:text-muted-foreground wwc:text-sm wwc:italic",
 		},
 	},
-);
+	defaultVariants: {
+		variant: "assistant",
+	},
+});
 
 export interface ChatMessageProps
-	extends React.HTMLAttributes<HTMLDivElement>,
-		VariantProps<typeof chatMessageVariants> {
+	extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof chatMessageVariants> {
 	/** Message content */
 	children: React.ReactNode;
 	/** Avatar image URL */

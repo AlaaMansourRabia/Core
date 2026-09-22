@@ -1,12 +1,5 @@
 import {Button} from "@core/core-ui/button";
-import {
-	Dialog,
-	DialogContent,
-	DialogDescription,
-	DialogFooter,
-	DialogHeader,
-	DialogTitle,
-} from "@core/core-ui/dialog";
+import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle} from "@core/core-ui/dialog";
 import {Input} from "@core/core-ui/input";
 import {ScrollArea} from "@core/core-ui/scroll-area";
 import {cn} from "@core/core-utils";

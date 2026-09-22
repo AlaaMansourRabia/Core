@@ -541,87 +541,84 @@ const CanvasNavigator = React.forwardRef<HTMLDivElement, CanvasNavigatorProps>(
 				)}
 				{...rest}
 			>
-				{header &&
-					isCollapsed && (
-						// Collapsed: a segmented bar — back to the parent level, a sibling pager, and expand — with
-						// dividers between each segment.
-						<div className="wwc:flex wwc:h-9 wwc:shrink-0 wwc:items-stretch wwc:divide-x wwc:divide-border">
-							<div className="wwc:flex wwc:items-center wwc:px-0.5">
-								<Button
-									type="button"
-									variant="ghost"
-									icon
-									size="sm"
-									aria-label="Back to parent level"
-									disabled={!valueParent}
-									onClick={() => valueParent && setSelected(valueParent.id)}
-								>
-									<ArrowLeft className="wwc:h-4 wwc:w-4" />
-								</Button>
-							</div>
-							{/* Sibling pager: prev + label + next as one segment (no inner dividers). */}
-							<div className="wwc:flex wwc:min-w-0 wwc:flex-1 wwc:items-center wwc:gap-1 wwc:px-0.5">
-								<Button
-									type="button"
-									variant="ghost"
-									icon
-									size="sm"
-									aria-label="Previous item"
-									disabled={prevIndex < 0}
-									onClick={() => stepTo(prevIndex)}
-								>
-									<ChevronLeft className="wwc:h-4 wwc:w-4" />
-								</Button>
-								<span className="wwc:flex wwc:min-w-0 wwc:flex-1 wwc:items-baseline wwc:justify-start wwc:gap-1.5 wwc:px-1">
-									<span className={cn("wwc:truncate wwc:font-medium", textCls)}>{activeNode?.label ?? title}</span>
-									{activeIndex >= 0 && siblings.length > 0 && (
-										<span className="wwc:shrink-0 wwc:font-mono wwc:text-xs wwc:text-muted-foreground">
-											{activeIndex + 1}/{siblings.length}
-										</span>
-									)}
-								</span>
-								<Button
-									type="button"
-									variant="ghost"
-									icon
-									size="sm"
-									aria-label="Next item"
-									disabled={nextIndex < 0}
-									onClick={() => stepTo(nextIndex)}
-								>
-									<ChevronRight className="wwc:h-4 wwc:w-4" />
-								</Button>
-							</div>
-							<div className="wwc:flex wwc:items-center wwc:px-0.5">
-								<Button
-									type="button"
-									variant="ghost"
-									icon
-									size="sm"
-									aria-pressed={true}
-									aria-label="Expand navigator"
-									onClick={() => setSize("default")}
-								>
-									<ChevronDown className="wwc:h-4 wwc:w-4" />
-								</Button>
-							</div>
+				{header && isCollapsed && (
+					// Collapsed: a segmented bar — back to the parent level, a sibling pager, and expand — with
+					// dividers between each segment.
+					<div className="wwc:flex wwc:h-9 wwc:shrink-0 wwc:items-stretch wwc:divide-x wwc:divide-border">
+						<div className="wwc:flex wwc:items-center wwc:px-0.5">
+							<Button
+								type="button"
+								variant="ghost"
+								icon
+								size="sm"
+								aria-label="Back to parent level"
+								disabled={!valueParent}
+								onClick={() => valueParent && setSelected(valueParent.id)}
+							>
+								<ArrowLeft className="wwc:h-4 wwc:w-4" />
+							</Button>
 						</div>
-					)}
+						{/* Sibling pager: prev + label + next as one segment (no inner dividers). */}
+						<div className="wwc:flex wwc:min-w-0 wwc:flex-1 wwc:items-center wwc:gap-1 wwc:px-0.5">
+							<Button
+								type="button"
+								variant="ghost"
+								icon
+								size="sm"
+								aria-label="Previous item"
+								disabled={prevIndex < 0}
+								onClick={() => stepTo(prevIndex)}
+							>
+								<ChevronLeft className="wwc:h-4 wwc:w-4" />
+							</Button>
+							<span className="wwc:flex wwc:min-w-0 wwc:flex-1 wwc:items-baseline wwc:justify-start wwc:gap-1.5 wwc:px-1">
+								<span className={cn("wwc:truncate wwc:font-medium", textCls)}>{activeNode?.label ?? title}</span>
+								{activeIndex >= 0 && siblings.length > 0 && (
+									<span className="wwc:shrink-0 wwc:font-mono wwc:text-xs wwc:text-muted-foreground">
+										{activeIndex + 1}/{siblings.length}
+									</span>
+								)}
+							</span>
+							<Button
+								type="button"
+								variant="ghost"
+								icon
+								size="sm"
+								aria-label="Next item"
+								disabled={nextIndex < 0}
+								onClick={() => stepTo(nextIndex)}
+							>
+								<ChevronRight className="wwc:h-4 wwc:w-4" />
+							</Button>
+						</div>
+						<div className="wwc:flex wwc:items-center wwc:px-0.5">
+							<Button
+								type="button"
+								variant="ghost"
+								icon
+								size="sm"
+								aria-pressed={true}
+								aria-label="Expand navigator"
+								onClick={() => setSize("default")}
+							>
+								<ChevronDown className="wwc:h-4 wwc:w-4" />
+							</Button>
+						</div>
+					</div>
+				)}
 
-				{header &&
-					showFocused &&
-					focusedNode && (
-						// Drilled into the last level: back button + the level's label.
-						<div className="wwc:flex wwc:h-9 wwc:shrink-0 wwc:items-center wwc:justify-between wwc:gap-2 wwc:border-b wwc:px-2">
-							<div className="wwc:flex wwc:min-w-0 wwc:items-center wwc:gap-1">
-								<Button type="button" variant="ghost" icon size="sm" aria-label="Back" onClick={goBack}>
-									<ChevronLeft className="wwc:h-4 wwc:w-4" />
-								</Button>
-								<span className={cn("wwc:truncate wwc:font-medium", textCls)}>{focusedNode.label}</span>
-							</div>
-							{sizeControls}
+				{header && showFocused && focusedNode && (
+					// Drilled into the last level: back button + the level's label.
+					<div className="wwc:flex wwc:h-9 wwc:shrink-0 wwc:items-center wwc:justify-between wwc:gap-2 wwc:border-b wwc:px-2">
+						<div className="wwc:flex wwc:min-w-0 wwc:items-center wwc:gap-1">
+							<Button type="button" variant="ghost" icon size="sm" aria-label="Back" onClick={goBack}>
+								<ChevronLeft className="wwc:h-4 wwc:w-4" />
+							</Button>
+							<span className={cn("wwc:truncate wwc:font-medium", textCls)}>{focusedNode.label}</span>
 						</div>
-					)}
+						{sizeControls}
+					</div>
+				)}
 
 				{/* Standard header: title + size controls (non-searchable variant). */}
 				{header && !searchable && !isCollapsed && !showFocused && (

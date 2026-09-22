@@ -18,15 +18,7 @@ export interface ResizeHandleProps extends React.HTMLAttributes<HTMLDivElement> 
 /** Draggable handle for resizing panels or containers. */
 const ResizeHandle = React.forwardRef<HTMLDivElement, ResizeHandleProps>(
 	(
-		{
-			className,
-			orientation = "vertical",
-			showGrip = true,
-			isResizing = false,
-			onResizeStart,
-			onResizeEnd,
-			...props
-		},
+		{className, orientation = "vertical", showGrip = true, isResizing = false, onResizeStart, onResizeEnd, ...props},
 		ref,
 	) => {
 		const GripIcon = orientation === "vertical" ? GripVertical : GripHorizontal;

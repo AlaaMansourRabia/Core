@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
-import {useState} from "react";
-import {Grid, List, LayoutGrid} from "lucide-react";
 
 import {SegmentedControl} from "@core/core-ui/segmented-control";
+import {Grid, List, LayoutGrid} from "lucide-react";
+import {useState} from "react";
 
 const meta = {
 	title: "Components/Primitives/SegmentedControl",

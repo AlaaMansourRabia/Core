@@ -1,6 +1,5 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {Badge} from "@core/core-ui/badge";
 import {Button} from "@core/core-ui/button";
 import {
@@ -12,6 +11,7 @@ import {
 } from "@core/core-ui/dropdown-menu";
 import {Separator} from "@core/core-ui/separator";
 import {WorkerProfile, type WorkerProfileTabId} from "@core/core-ui/worker-profile";
+import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {Ellipsis, Plus, RefreshCw, Smartphone, Trash2} from "lucide-react";
 import {useState} from "react";
 

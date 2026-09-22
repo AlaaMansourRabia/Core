@@ -30,12 +30,10 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement>, 
 }
 
 /** Semantic heading element with consistent typography. */
-const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
-	({className, level, variant, as, ...props}, ref) => {
-		const Component = as || level || "h2";
-		return <Component ref={ref} className={cn(headingVariants({level: level || as, variant, className}))} {...props} />;
-	},
-);
+const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(({className, level, variant, as, ...props}, ref) => {
+	const Component = as || level || "h2";
+	return <Component ref={ref} className={cn(headingVariants({level: level || as, variant, className}))} {...props} />;
+});
 Heading.displayName = "Heading";
 
 export {Heading, headingVariants};

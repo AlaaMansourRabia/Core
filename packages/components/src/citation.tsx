@@ -20,9 +20,7 @@ const citationVariants = cva("wwc:text-muted-foreground", {
 	},
 });
 
-export interface CitationProps
-	extends React.HTMLAttributes<HTMLElement>,
-		VariantProps<typeof citationVariants> {
+export interface CitationProps extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof citationVariants> {
 	/** URL or reference for the citation */
 	href?: string;
 	/** Author of the cited work */

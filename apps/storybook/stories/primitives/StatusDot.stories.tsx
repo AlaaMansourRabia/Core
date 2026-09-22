@@ -72,7 +72,9 @@ export const Sizes: Story = {
 export const Shapes: Story = {
 	render: () => (
 		<div className="wwc:flex wwc:flex-col wwc:gap-4">
-			<p className="wwc:text-sm wwc:text-muted-foreground">Shapes provide accessibility - status is not conveyed by color alone (WCAG 1.4.1)</p>
+			<p className="wwc:text-sm wwc:text-muted-foreground">
+				Shapes provide accessibility - status is not conveyed by color alone (WCAG 1.4.1)
+			</p>
 			<div className="wwc:flex wwc:items-center wwc:gap-6">
 				<div className="wwc:flex wwc:items-center wwc:gap-2">
 					<StatusDot variant="success" shape="filled" size="lg" />

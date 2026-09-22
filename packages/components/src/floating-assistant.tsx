@@ -4,10 +4,10 @@ import * as React from "react";
 
 import {AIChat, type AIChatSession} from "./chat/core-ai-chat";
 import type {AIChatHeaderAction} from "./chat/core-ai-chat-header";
+import {CoreMark} from "./core-mark";
 import type {PromptContextItem} from "./prompt-input";
 import {PushPanel, PushPanelContainer, PushPanelMain, PushPanelProvider} from "./push-panel";
 import type {Message} from "./types/chat";
-import {CoreMark} from "./core-mark";
 
 export interface FloatingAssistantProps {
 	/** Conversation messages (controlled). */

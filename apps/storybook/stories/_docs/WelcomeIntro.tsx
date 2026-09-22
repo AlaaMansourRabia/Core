@@ -12,9 +12,9 @@
 // It also *is* Core: the badges and the CTA are the real Badge and Button from @core/core-ui,
 // and every colour is a token, so the block follows the light/dark toolbar toggle.
 
-import {Unstyled} from "@storybook/addon-docs/blocks";
 import {Badge} from "@core/core-ui/badge";
 import {Button} from "@core/core-ui/button";
+import {Unstyled} from "@storybook/addon-docs/blocks";
 
 // Docs pages render inside Storybook's own chrome, so this block sets its own type scale instead of
 // inheriting one. Tokens (not hex) so the light/dark toolbar toggle carries the whole page.
@@ -165,8 +165,8 @@ export function WelcomeIntro() {
 				<section style={{marginTop: 32}}>
 					<h2 style={sectionTitle}>Components, Widgets and Templates — know the difference</h2>
 					<p style={{...body, margin: "10px 0 0", maxWidth: "72ch"}}>
-						Core ships these as <span style={strong}>distinct kinds of building material</span>. The single most
-						common mistake is treating a Template like a Component you can import.
+						Core ships these as <span style={strong}>distinct kinds of building material</span>. The single most common
+						mistake is treating a Template like a Component you can import.
 					</p>
 
 					<div style={{display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", margin: "18px 0 16px"}}>

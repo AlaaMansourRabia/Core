@@ -1,6 +1,5 @@
 import type {FragmentMarker} from "@core/core-ui/fragment-viewer";
 
-import workerUrl from "@thatopen/fragments/worker?url";
 import {Badge} from "@core/core-ui/badge";
 import {
 	FragmentViewer,
@@ -12,6 +11,7 @@ import {SiteReality} from "@core/core-ui/pages/core-site-reality";
 import {PropertyList, PropertyRow} from "@core/core-ui/property-list";
 import {SectionPanel} from "@core/core-ui/section-panel";
 import {ViewerToolbar} from "@core/core-ui/viewer-toolbar";
+import workerUrl from "@thatopen/fragments/worker?url";
 import {Scan} from "lucide-react";
 import {useEffect, useState} from "react";
 

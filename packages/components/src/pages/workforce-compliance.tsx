@@ -408,8 +408,7 @@ function complianceGeneral(row: ComplianceRow): WorkerProfileFieldGroup[] {
 
 function complianceCompliance(row: ComplianceRow, onUpload: (id: string) => void): WorkerProfileCompliance {
 	const validDocs =
-		[row.background, row.sst, row.apexId].filter((d) => d.kind === "valid").length +
-		(row.core.kind === "yes" ? 1 : 0);
+		[row.background, row.sst, row.apexId].filter((d) => d.kind === "valid").length + (row.core.kind === "yes" ? 1 : 0);
 	return {
 		score: {value: validDocs, total: 4},
 		items: [

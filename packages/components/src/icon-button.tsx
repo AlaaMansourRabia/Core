@@ -1,5 +1,5 @@
-import {Slot} from "@radix-ui/react-slot";
 import {cn} from "@core/core-utils";
+import {Slot} from "@radix-ui/react-slot";
 import {type VariantProps, cva} from "class-variance-authority";
 import * as React from "react";
 
@@ -32,8 +32,7 @@ const iconButtonVariants = cva(
 );
 
 export interface IconButtonProps
-	extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-		VariantProps<typeof iconButtonVariants> {
+	extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof iconButtonVariants> {
 	asChild?: boolean;
 	loading?: boolean;
 	/** Hover/focus hint. Icon-only buttons must always set this for accessibility. */
@@ -44,11 +43,30 @@ export interface IconButtonProps
 
 /** A button that displays only an icon. Requires a tooltip for accessibility. */
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-	({className, variant, size, asChild = false, loading = false, children, disabled, tooltip, tooltipSide = "top", ...props}, ref) => {
+	(
+		{
+			className,
+			variant,
+			size,
+			asChild = false,
+			loading = false,
+			children,
+			disabled,
+			tooltip,
+			tooltipSide = "top",
+			...props
+		},
+		ref,
+	) => {
 		const Comp = asChild ? Slot : "button";
 
 		const button = (
-			<Comp className={cn(iconButtonVariants({variant, size, className}))} ref={ref} disabled={disabled || loading} {...props}>
+			<Comp
+				className={cn(iconButtonVariants({variant, size, className}))}
+				ref={ref}
+				disabled={disabled || loading}
+				{...props}
+			>
 				{loading ? <Spinner className="wwc:h-4 wwc:w-4" /> : children}
 			</Comp>
 		);

@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
-import {useState} from "react";
 
 import {SelectableCard, SelectableCardGroup} from "@core/core-ui/selectable-card";
+import {useState} from "react";
 
 const meta = {
 	title: "Components/Primitives/SelectableCard",

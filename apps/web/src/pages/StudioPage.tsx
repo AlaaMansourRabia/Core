@@ -16,8 +16,8 @@ export function StudioPage() {
 					</span>
 				</div>
 				<p className="wwc:mt-3 wwc:text-sm wwc:leading-relaxed wwc:text-muted-foreground">
-					Compose and preview pages from the Core library, then hand the work off to your editor. Studio is on its
-					way to the hub — check back soon.
+					Compose and preview pages from the Core library, then hand the work off to your editor. Studio is on its way
+					to the hub — check back soon.
 				</p>
 			</div>
 		</div>

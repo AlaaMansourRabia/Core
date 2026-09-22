@@ -6,15 +6,15 @@ This is the product; MCP (`core-hosted-mcp`) is one transport over it.
 It builds an in-memory index from the canonical repo data (`manifests/*.json` +
 `library-index.json` + `eval/contracts/component-api.json`) and answers seven capabilities:
 
-| Capability                   | What it answers                                                                 |
-| ---------------------------- | ------------------------------------------------------------------------------- |
-| `resolve_template`           | Which template best matches this intent? (ranked, with confidence + next-path)  |
-| `create_implementation_plan` | Which import/adaptation/composition path, setup, and gate must be used?         |
-| `resolve_widgets`            | Which widgets/components compose this template? (deterministic graph-walk)      |
-| `resolve_component`          | Which component, what import, which variants/props, an example?                 |
-| `search`                     | Semantic search across templates/widgets/components/patterns/utilities          |
-| `validate`                   | Is this generated **code** valid Core usage? (authoritative, deterministic) |
-| `explain`                    | Why does this artifact exist? When (not) to use it? Alternatives?               |
+| Capability                   | What it answers                                                                |
+| ---------------------------- | ------------------------------------------------------------------------------ |
+| `resolve_template`           | Which template best matches this intent? (ranked, with confidence + next-path) |
+| `create_implementation_plan` | Which import/adaptation/composition path, setup, and gate must be used?        |
+| `resolve_widgets`            | Which widgets/components compose this template? (deterministic graph-walk)     |
+| `resolve_component`          | Which component, what import, which variants/props, an example?                |
+| `search`                     | Semantic search across templates/widgets/components/patterns/utilities         |
+| `validate`                   | Is this generated **code** valid Core usage? (authoritative, deterministic)    |
+| `explain`                    | Why does this artifact exist? When (not) to use it? Alternatives?              |
 
 ## Usage
 

@@ -25,11 +25,11 @@ node apps/hosted-mcp/dist/main.mjs --stdio
 
 ## Configuration (env)
 
-| Var                      | Default     | Meaning                                                     |
-| ------------------------ | ----------- | ----------------------------------------------------------- |
-| `PORT`                   | `4100`      | HTTP port                                                   |
-| `HOST`                   | `127.0.0.1` | HTTP bind address                                           |
-| `LOG_LEVEL`              | `info`      | `debug` \| `info` \| `warn` \| `error` (JSON logs → stderr) |
+| Var                  | Default     | Meaning                                                     |
+| -------------------- | ----------- | ----------------------------------------------------------- |
+| `PORT`               | `4100`      | HTTP port                                                   |
+| `HOST`               | `127.0.0.1` | HTTP bind address                                           |
+| `LOG_LEVEL`          | `info`      | `debug` \| `info` \| `warn` \| `error` (JSON logs → stderr) |
 | `CORE_ROOT`          | auto-detect | repo root for the knowledge index                           |
 | `CORE_MCP_TRANSPORT` | `http`      | `stdio` to force stdio (same as `--stdio`)                  |
 

@@ -108,7 +108,9 @@ const DateTimeInput = React.forwardRef<HTMLDivElement, DateTimeInputProps>(
 			onChange?.(newDate);
 		};
 
-		const displayValue = value ? format(value, `${dateFormat} ${timeFormat === "12h" ? "h:mm a" : "HH:mm"}`) : placeholder;
+		const displayValue = value
+			? format(value, `${dateFormat} ${timeFormat === "12h" ? "h:mm a" : "HH:mm"}`)
+			: placeholder;
 
 		return (
 			<div ref={ref} className={cn("wwc:grid wwc:gap-2", className)} {...props}>

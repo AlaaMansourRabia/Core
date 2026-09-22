@@ -15,9 +15,13 @@ export const Default: Story = {
 	render: () => (
 		<Markdown>
 			<h1>Heading 1</h1>
-			<p>This is a paragraph with some <strong>bold text</strong> and <em>italic text</em>.</p>
+			<p>
+				This is a paragraph with some <strong>bold text</strong> and <em>italic text</em>.
+			</p>
 			<h2>Heading 2</h2>
-			<p>Here is a <a href="#">link to somewhere</a>.</p>
+			<p>
+				Here is a <a href="#">link to somewhere</a>.
+			</p>
 			<h3>Heading 3</h3>
 			<ul>
 				<li>First item</li>
@@ -31,10 +35,14 @@ export const Default: Story = {
 export const WithCode: Story = {
 	render: () => (
 		<Markdown>
-			<p>Inline code: <code>const x = 42;</code></p>
-			<pre><code>{`function hello() {
+			<p>
+				Inline code: <code>const x = 42;</code>
+			</p>
+			<pre>
+				<code>{`function hello() {
   console.log("Hello, World!");
-}`}</code></pre>
+}`}</code>
+			</pre>
 		</Markdown>
 	),
 };

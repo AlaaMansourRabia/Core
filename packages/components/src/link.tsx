@@ -1,5 +1,5 @@
-import {Slot} from "@radix-ui/react-slot";
 import {cn} from "@core/core-utils";
+import {Slot} from "@radix-ui/react-slot";
 import {type VariantProps, cva} from "class-variance-authority";
 import * as React from "react";
 
@@ -24,12 +24,10 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
 }
 
 /** A styled anchor element for navigation. */
-const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-	({className, variant, asChild = false, ...props}, ref) => {
-		const Comp = asChild ? Slot : "a";
-		return <Comp className={cn(linkVariants({variant, className}))} ref={ref} {...props} />;
-	},
-);
+const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(({className, variant, asChild = false, ...props}, ref) => {
+	const Comp = asChild ? Slot : "a";
+	return <Comp className={cn(linkVariants({variant, className}))} ref={ref} {...props} />;
+});
 Link.displayName = "Link";
 
 export {Link, linkVariants};

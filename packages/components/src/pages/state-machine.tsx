@@ -2800,21 +2800,20 @@ export function StateMachine({
 						/>
 					)}
 					{!authoring && <SlaModelBadge process={process} />}
-					{!authoring &&
-						facts.lint.length > 0 && (
-							// GUIDANCE, not breakage: a process created from scratch is born failing L5 until its
-							// first transition lands, and that must read as the next step.
-							<HoverTooltip content={facts.lint.map((error) => `${error.rule}: ${error.msg}`).join(" ")}>
-								{/* Badge forwards refs; this span is here because the tooltip's asChild trigger needs one
+					{!authoring && facts.lint.length > 0 && (
+						// GUIDANCE, not breakage: a process created from scratch is born failing L5 until its
+						// first transition lands, and that must read as the next step.
+						<HoverTooltip content={facts.lint.map((error) => `${error.rule}: ${error.msg}`).join(" ")}>
+							{/* Badge forwards refs; this span is here because the tooltip's asChild trigger needs one
 							    that does. */}
-								<span>
-									<Badge variant="warningSoft" className="wwc:gap-1 wwc:font-normal">
-										<TriangleAlert className="wwc:h-3 wwc:w-3" />
-										{facts.lint.length} lint
-									</Badge>
-								</span>
-							</HoverTooltip>
-						)}
+							<span>
+								<Badge variant="warningSoft" className="wwc:gap-1 wwc:font-normal">
+									<TriangleAlert className="wwc:h-3 wwc:w-3" />
+									{facts.lint.length} lint
+								</Badge>
+							</span>
+						</HoverTooltip>
+					)}
 					{!authoring && (
 						<span className="wwc:hidden wwc:truncate wwc:text-[11px] wwc:text-muted-foreground wwc:lg:inline">
 							{facts.stateCount} states · {facts.transitionCount} transitions · {facts.openCount} open tokens

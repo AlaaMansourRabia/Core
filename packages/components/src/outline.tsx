@@ -25,19 +25,7 @@ export interface OutlineProps extends React.HTMLAttributes<HTMLElement> {
 
 /** Document outline navigation component for table of contents. */
 const Outline = React.forwardRef<HTMLElement, OutlineProps>(
-	(
-		{
-			className,
-			items,
-			activeId,
-			onItemClick,
-			maxLevel = 6,
-			indentSize = 16,
-			showLines = false,
-			...props
-		},
-		ref,
-	) => {
+	({className, items, activeId, onItemClick, maxLevel = 6, indentSize = 16, showLines = false, ...props}, ref) => {
 		const renderItem = (item: OutlineItem) => {
 			if (item.level > maxLevel) return null;
 
@@ -58,18 +46,14 @@ const Outline = React.forwardRef<HTMLElement, OutlineProps>(
 						className={cn(
 							"wwc:w-full wwc:text-left wwc:py-1.5 wwc:px-2 wwc:rounded-md wwc:text-sm wwc:transition-colors",
 							"hover:wwc:bg-accent hover:wwc:text-accent-foreground",
-							isActive
-								? "wwc:bg-accent wwc:text-accent-foreground wwc:font-medium"
-								: "wwc:text-muted-foreground",
+							isActive ? "wwc:bg-accent wwc:text-accent-foreground wwc:font-medium" : "wwc:text-muted-foreground",
 						)}
 						style={{paddingLeft: `${indent + 8}px`}}
 					>
 						{item.label}
 					</button>
 					{item.children && item.children.length > 0 && (
-						<ul className="wwc:list-none wwc:m-0 wwc:p-0">
-							{item.children.map(renderItem)}
-						</ul>
+						<ul className="wwc:list-none wwc:m-0 wwc:p-0">{item.children.map(renderItem)}</ul>
 					)}
 				</li>
 			);

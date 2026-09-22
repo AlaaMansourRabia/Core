@@ -101,13 +101,9 @@ const BottomSheet = React.forwardRef<HTMLDivElement, BottomSheetProps>(
 						<div className="wwc:flex wwc:items-start wwc:justify-between wwc:gap-4 wwc:p-6 wwc:pb-4">
 							<div className="wwc:space-y-1">
 								{title && (
-									<h2 className="wwc:text-lg wwc:font-semibold wwc:leading-none wwc:tracking-tight">
-										{title}
-									</h2>
+									<h2 className="wwc:text-lg wwc:font-semibold wwc:leading-none wwc:tracking-tight">{title}</h2>
 								)}
-								{description && (
-									<p className="wwc:text-sm wwc:text-muted-foreground">{description}</p>
-								)}
+								{description && <p className="wwc:text-sm wwc:text-muted-foreground">{description}</p>}
 							</div>
 							<IconButton variant="ghost" size="sm" onClick={onClose} tooltip="Close">
 								<X />
@@ -117,10 +113,7 @@ const BottomSheet = React.forwardRef<HTMLDivElement, BottomSheetProps>(
 
 					<div
 						ref={sheetRef}
-						className={cn(
-							"wwc:overflow-y-auto",
-							title || description ? "wwc:p-6 wwc:pt-0" : "wwc:p-6",
-						)}
+						className={cn("wwc:overflow-y-auto", title || description ? "wwc:p-6 wwc:pt-0" : "wwc:p-6")}
 					>
 						{children}
 					</div>

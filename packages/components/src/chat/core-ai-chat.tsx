@@ -2,13 +2,13 @@ import {cn} from "@core/core-utils";
 import {Check, Clock, Copy} from "lucide-react";
 import {useCallback, useEffect, useRef, useState} from "react";
 
+import {CoreMark} from "../core-mark";
 import {PromptInput, type PromptAttachment, type PromptContextItem} from "../prompt-input";
 import {ScrollArea} from "../scroll-area";
 import {generateId, sendChatMessage} from "../services/chatService";
 import {ThinkingPill} from "../thinking-pill";
 import {TurnTimer} from "../turn-timer";
 import type {ChartData, ChartMessage, Message, TextMessage} from "../types/chat";
-import {CoreMark} from "../core-mark";
 import {
 	AIChatHeader,
 	type AIChatHeaderAction,

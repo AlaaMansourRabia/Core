@@ -30,18 +30,7 @@ export interface LightboxProps {
 
 /** A lightbox component for viewing images in fullscreen. */
 const Lightbox = React.forwardRef<HTMLDivElement, LightboxProps>(
-	(
-		{
-			open,
-			onClose,
-			images,
-			currentIndex = 0,
-			onIndexChange,
-			showControls = true,
-			showZoom = true,
-		},
-		ref,
-	) => {
+	({open, onClose, images, currentIndex = 0, onIndexChange, showControls = true, showZoom = true}, ref) => {
 		const [index, setIndex] = React.useState(currentIndex);
 		const [zoom, setZoom] = React.useState(1);
 
@@ -102,10 +91,7 @@ const Lightbox = React.forwardRef<HTMLDivElement, LightboxProps>(
 		return (
 			<>
 				<Overlay open={open} onClose={onClose} variant="dark" />
-				<div
-					ref={ref}
-					className="wwc:fixed wwc:inset-0 wwc:z-50 wwc:flex wwc:items-center wwc:justify-center wwc:p-4"
-				>
+				<div ref={ref} className="wwc:fixed wwc:inset-0 wwc:z-50 wwc:flex wwc:items-center wwc:justify-center wwc:p-4">
 					{/* Close Button */}
 					<div className="wwc:absolute wwc:top-4 wwc:right-4 wwc:z-10">
 						<IconButton variant="ghost" size="lg" onClick={onClose} tooltip="Close (Esc)">
@@ -132,12 +118,7 @@ const Lightbox = React.forwardRef<HTMLDivElement, LightboxProps>(
 					{showControls && images.length > 1 && (
 						<>
 							<div className="wwc:absolute wwc:left-4 wwc:top-1/2 wwc:-translate-y-1/2">
-								<IconButton
-									variant="ghost"
-									size="lg"
-									onClick={handlePrevious}
-									tooltip="Previous (←)"
-								>
+								<IconButton variant="ghost" size="lg" onClick={handlePrevious} tooltip="Previous (←)">
 									<ChevronLeft className="wwc:text-white wwc:h-8 wwc:w-8" />
 								</IconButton>
 							</div>

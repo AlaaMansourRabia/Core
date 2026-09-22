@@ -39,17 +39,18 @@ const textVariants = cva("", {
 	},
 });
 
-export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement>, VariantProps<typeof textVariants> {
+export interface TextProps extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof textVariants> {
 	/** Render as a different HTML element */
 	as?: "p" | "span" | "div" | "label";
 }
 
 /** Styled text element with consistent typography. */
-const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
+const Text = React.forwardRef<HTMLElement, TextProps>(
 	({className, size, weight, variant, align, as: Component = "p", ...props}, ref) => {
 		return (
 			<Component
-				ref={ref}
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
+				ref={ref as any}
 				className={cn(textVariants({size, weight, variant, align, className}))}
 				{...props}
 			/>

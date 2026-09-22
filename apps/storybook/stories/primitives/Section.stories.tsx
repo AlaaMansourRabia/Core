@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Section} from "@core/core-ui/section";
 import {Button} from "@core/core-ui/button";
+import {Section} from "@core/core-ui/section";
 import {Text} from "@core/core-ui/text";
 
 const meta = {

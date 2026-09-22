@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
-import {useState} from "react";
 
 import {FileInput} from "@core/core-ui/file-input";
+import {useState} from "react";
 
 const meta = {
 	title: "Components/Primitives/FileInput",

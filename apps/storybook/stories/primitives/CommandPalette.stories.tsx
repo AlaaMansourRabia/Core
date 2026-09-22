@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
-import {useState} from "react";
 
-import {CommandPalette, CommandPaletteTrigger, CommandPaletteGroup} from "@core/core-ui/command-palette";
 import {Button} from "@core/core-ui/button";
+import {CommandPalette, CommandPaletteTrigger, CommandPaletteGroup} from "@core/core-ui/command-palette";
 import {Home, Settings, User, FileText, Search, Moon, Sun, LogOut} from "lucide-react";
+import {useState} from "react";
 
 const meta = {
 	title: "Components/Primitives/CommandPalette",
@@ -25,17 +25,25 @@ const sampleGroups: CommandPaletteGroup[] = [
 	{
 		heading: "Settings",
 		items: [
-			{id: "profile", label: "Profile Settings", icon: <User className="wwc:h-4 wwc:w-4" />, description: "Manage your profile"},
-			{id: "preferences", label: "Preferences", icon: <Settings className="wwc:h-4 wwc:w-4" />, description: "App preferences"},
+			{
+				id: "profile",
+				label: "Profile Settings",
+				icon: <User className="wwc:h-4 wwc:w-4" />,
+				description: "Manage your profile",
+			},
+			{
+				id: "preferences",
+				label: "Preferences",
+				icon: <Settings className="wwc:h-4 wwc:w-4" />,
+				description: "App preferences",
+			},
 			{id: "theme-dark", label: "Dark Mode", icon: <Moon className="wwc:h-4 wwc:w-4" />},
 			{id: "theme-light", label: "Light Mode", icon: <Sun className="wwc:h-4 wwc:w-4" />},
 		],
 	},
 	{
 		heading: "Account",
-		items: [
-			{id: "logout", label: "Log Out", icon: <LogOut className="wwc:h-4 wwc:w-4" />, shortcut: ["⌘", "Q"]},
-		],
+		items: [{id: "logout", label: "Log Out", icon: <LogOut className="wwc:h-4 wwc:w-4" />, shortcut: ["⌘", "Q"]}],
 	},
 ];
 
@@ -61,9 +69,7 @@ export const WithTrigger: Story = {
 		const [open, setOpen] = useState(false);
 		return (
 			<div>
-				<CommandPaletteTrigger onClick={() => setOpen(true)}>
-					Search commands...
-				</CommandPaletteTrigger>
+				<CommandPaletteTrigger onClick={() => setOpen(true)}>Search commands...</CommandPaletteTrigger>
 				<CommandPalette open={open} onOpenChange={setOpen} groups={sampleGroups} />
 			</div>
 		);

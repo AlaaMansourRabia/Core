@@ -29,8 +29,7 @@ const selectableCardVariants = cva(
 );
 
 export interface SelectableCardProps
-	extends Omit<React.HTMLAttributes<HTMLDivElement>, "onSelect">,
-		VariantProps<typeof selectableCardVariants> {
+	extends Omit<React.HTMLAttributes<HTMLDivElement>, "onSelect">, VariantProps<typeof selectableCardVariants> {
 	/** Whether the card is selected */
 	selected?: boolean;
 	/** Callback when selection changes */
@@ -142,12 +141,7 @@ const SelectableCardGroup = React.forwardRef<HTMLDivElement, SelectableCardGroup
 		};
 
 		return (
-			<div
-				ref={ref}
-				role="group"
-				className={cn("wwc:grid wwc:gap-4", className)}
-				{...props}
-			>
+			<div ref={ref} role="group" className={cn("wwc:grid wwc:gap-4", className)} {...props}>
 				{React.Children.map(children, (child) => {
 					if (React.isValidElement<SelectableCardProps>(child) && child.type === SelectableCard) {
 						const cardValue = child.props.value;

@@ -2,21 +2,18 @@ import {cn} from "@core/core-utils";
 import {type VariantProps, cva} from "class-variance-authority";
 import * as React from "react";
 
-const segmentedControlVariants = cva(
-	"wwc:inline-flex wwc:items-center wwc:rounded-lg wwc:bg-muted wwc:p-1",
-	{
-		variants: {
-			size: {
-				sm: "wwc:h-8 wwc:text-xs",
-				md: "wwc:h-9 wwc:text-sm",
-				lg: "wwc:h-10 wwc:text-base",
-			},
-		},
-		defaultVariants: {
-			size: "md",
+const segmentedControlVariants = cva("wwc:inline-flex wwc:items-center wwc:rounded-lg wwc:bg-muted wwc:p-1", {
+	variants: {
+		size: {
+			sm: "wwc:h-8 wwc:text-xs",
+			md: "wwc:h-9 wwc:text-sm",
+			lg: "wwc:h-10 wwc:text-base",
 		},
 	},
-);
+	defaultVariants: {
+		size: "md",
+	},
+});
 
 const segmentVariants = cva(
 	"wwc:inline-flex wwc:items-center wwc:justify-center wwc:whitespace-nowrap wwc:rounded-md wwc:px-3 wwc:transition-all wwc:focus-visible:outline-none wwc:focus-visible:ring-1 wwc:focus-visible:ring-ring wwc:disabled:pointer-events-none wwc:disabled:opacity-50",
@@ -46,8 +43,7 @@ export interface SegmentedControlOption {
 }
 
 export interface SegmentedControlProps
-	extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange">,
-		VariantProps<typeof segmentedControlVariants> {
+	extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange">, VariantProps<typeof segmentedControlVariants> {
 	/** Available options */
 	options: SegmentedControlOption[];
 	/** Currently selected value */
@@ -62,12 +58,7 @@ export interface SegmentedControlProps
 const SegmentedControl = React.forwardRef<HTMLDivElement, SegmentedControlProps>(
 	({className, size, options, value, onChange, name, ...props}, ref) => {
 		return (
-			<div
-				ref={ref}
-				role="radiogroup"
-				className={cn(segmentedControlVariants({size, className}))}
-				{...props}
-			>
+			<div ref={ref} role="radiogroup" className={cn(segmentedControlVariants({size, className}))} {...props}>
 				{options.map((option) => {
 					const isActive = value === option.value;
 					return (

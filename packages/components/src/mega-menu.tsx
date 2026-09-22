@@ -61,9 +61,7 @@ const MegaMenu = React.forwardRef<HTMLDivElement, MegaMenuProps>(
 				<NavigationMenuList>
 					{categories.map((category) => (
 						<NavigationMenuItem key={category.label}>
-							<NavigationMenuTrigger className="wwc:h-9">
-								{category.label}
-							</NavigationMenuTrigger>
+							<NavigationMenuTrigger className="wwc:h-9">{category.label}</NavigationMenuTrigger>
 							<NavigationMenuContent>
 								<div className="wwc:grid wwc:gap-3 wwc:p-6 wwc:w-[400px] wwc:md:w-[500px] wwc:lg:w-[600px] wwc:lg:grid-cols-[.75fr_1fr]">
 									{category.featured && (
@@ -80,9 +78,7 @@ const MegaMenu = React.forwardRef<HTMLDivElement, MegaMenuProps>(
 															className="wwc:mb-4 wwc:rounded wwc:object-cover"
 														/>
 													)}
-													<div className="wwc:mb-2 wwc:text-lg wwc:font-medium">
-														{category.featured.title}
-													</div>
+													<div className="wwc:mb-2 wwc:text-lg wwc:font-medium">{category.featured.title}</div>
 													<p className="wwc:text-sm wwc:leading-tight wwc:text-muted-foreground">
 														{category.featured.description}
 													</p>
@@ -107,14 +103,10 @@ const MegaMenu = React.forwardRef<HTMLDivElement, MegaMenuProps>(
 																	className="wwc:flex wwc:items-start wwc:gap-3 wwc:rounded-md wwc:p-2 wwc:hover:bg-accent wwc:hover:text-accent-foreground"
 																>
 																	{item.icon && (
-																		<div className="wwc:flex-shrink-0 wwc:text-muted-foreground">
-																			{item.icon}
-																		</div>
+																		<div className="wwc:flex-shrink-0 wwc:text-muted-foreground">{item.icon}</div>
 																	)}
 																	<div>
-																		<div className="wwc:text-sm wwc:font-medium wwc:leading-none">
-																			{item.title}
-																		</div>
+																		<div className="wwc:text-sm wwc:font-medium wwc:leading-none">{item.title}</div>
 																		{item.description && (
 																			<p className="wwc:mt-1 wwc:text-xs wwc:text-muted-foreground wwc:line-clamp-2">
 																				{item.description}

@@ -22,8 +22,8 @@ sources:
 
 Two chart systems. Choose based on use case:
 
-| Use case                                        | System           | Import                                      |
-| ----------------------------------------------- | ---------------- | ------------------------------------------- |
+| Use case                                        | System           | Import                                   |
+| ----------------------------------------------- | ---------------- | ---------------------------------------- |
 | Custom product charts with design token colours | `ChartContainer` | `@core/core-ui/chart`                    |
 | Rendering AI-generated `ChartData` payloads     | `ChartRenderer`  | `@core/core-ui/chat/core-chart-renderer` |
 | Direct ECharts or canvas (need RGB from OKLCH)  | utils            | `@core/core-utils`                       |

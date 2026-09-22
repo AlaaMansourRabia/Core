@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
-import {useState} from "react";
 
 import {Tokenizer} from "@core/core-ui/tokenizer";
+import {useState} from "react";
 
 const meta = {
 	title: "Components/Primitives/Tokenizer",

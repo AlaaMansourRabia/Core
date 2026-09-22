@@ -21,8 +21,8 @@ const meta = {
 					manifest={manifest}
 					family={
 						<>
-							Core Connect V1, end-user portal. Connect V1 is a two-portal product: this is where an end user lands
-							and installs apps from the marketplace, and <code>WC3 Workspace</code> is the admin portal where an admin
+							Core Connect V1, end-user portal. Connect V1 is a two-portal product: this is where an end user lands and
+							installs apps from the marketplace, and <code>WC3 Workspace</code> is the admin portal where an admin
 							manages everything. Canonical: <code>app-installer</code>. A marketplace app shell — CoreAppSidebar +
 							CoreAppTopBar with a single "Home" entry plus the shared "App Store" plus below it. Everyone lands on
 							Home: a welcome hero (greeting + Browse App Store CTA) while nothing is installed, an app launcher once

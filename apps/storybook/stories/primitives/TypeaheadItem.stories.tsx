@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
-import {useState} from "react";
 
 import {TypeaheadItem, TypeaheadGroup, TypeaheadEmpty} from "@core/core-ui/typeahead-item";
 import {User, Building, MapPin} from "lucide-react";
+import {useState} from "react";
 
 const meta = {
 	title: "Components/Primitives/TypeaheadItem",

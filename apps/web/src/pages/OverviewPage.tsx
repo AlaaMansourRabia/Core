@@ -55,8 +55,8 @@ export function OverviewPage() {
 			<div>
 				<h1 className="wwc:text-3xl wwc:font-bold">Overview</h1>
 				<p className="wwc:text-muted-foreground wwc:mt-2">
-					Every theme token, component, widget, and template in the Core design system — grouped exactly as they
-					appear in the sidebar.
+					Every theme token, component, widget, and template in the Core design system — grouped exactly as they appear
+					in the sidebar.
 				</p>
 			</div>
 

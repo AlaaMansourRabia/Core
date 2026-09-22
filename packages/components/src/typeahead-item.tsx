@@ -80,9 +80,7 @@ const TypeaheadItem = React.forwardRef<HTMLDivElement, TypeaheadItemProps>(
 					{children || (
 						<>
 							<div className="wwc:truncate">{label || value}</div>
-							{description && (
-								<div className="wwc:text-xs wwc:text-muted-foreground wwc:truncate">{description}</div>
-							)}
+							{description && <div className="wwc:text-xs wwc:text-muted-foreground wwc:truncate">{description}</div>}
 						</>
 					)}
 				</div>
@@ -112,13 +110,11 @@ TypeaheadGroup.displayName = "TypeaheadGroup";
 export interface TypeaheadEmptyProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 /** Empty state for typeahead when no results are found. */
-const TypeaheadEmpty = React.forwardRef<HTMLDivElement, TypeaheadEmptyProps>(
-	({className, children, ...props}, ref) => (
-		<div ref={ref} className={cn("wwc:py-6 wwc:text-center wwc:text-sm wwc:text-muted-foreground", className)} {...props}>
-			{children || "No results found."}
-		</div>
-	),
-);
+const TypeaheadEmpty = React.forwardRef<HTMLDivElement, TypeaheadEmptyProps>(({className, children, ...props}, ref) => (
+	<div ref={ref} className={cn("wwc:py-6 wwc:text-center wwc:text-sm wwc:text-muted-foreground", className)} {...props}>
+		{children || "No results found."}
+	</div>
+));
 TypeaheadEmpty.displayName = "TypeaheadEmpty";
 
 export {TypeaheadItem, TypeaheadGroup, TypeaheadEmpty};

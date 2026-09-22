@@ -22,10 +22,7 @@ test("ViewTabBar is transparent by default and supports an explicit card surface
 		"transparent",
 	);
 	await rerender(<ViewTabBar {...props} surface="card" />);
-	expect(container.querySelector('[data-core-artifact="view-tab-bar"]')).toHaveAttribute(
-		"data-core-surface",
-		"card",
-	);
+	expect(container.querySelector('[data-core-artifact="view-tab-bar"]')).toHaveAttribute("data-core-surface", "card");
 });
 
 test("ContextToolbar keeps actions accessible and moves excess actions to overflow", async () => {

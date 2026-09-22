@@ -1,3 +1,5 @@
+import type {EChartsOption} from "echarts-for-react";
+
 import ReactECharts from "echarts-for-react";
 
 import type {ChartData} from "../types/chat";
@@ -69,7 +71,7 @@ export function ChartRenderer({chartData, height = 220, className = ""}: ChartRe
 		},
 	};
 
-	const buildOption = (): echarts.EChartsOption | null => {
+	const buildOption = (): EChartsOption | null => {
 		switch (chartType) {
 			case "line":
 				return {

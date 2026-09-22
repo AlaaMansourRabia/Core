@@ -54,8 +54,7 @@ export interface TabItem {
 }
 
 export interface TabListProps
-	extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange">,
-		VariantProps<typeof tabListVariants> {
+	extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange">, VariantProps<typeof tabListVariants> {
 	/** Tab items */
 	items: TabItem[];
 	/** Currently active tab value */
@@ -80,12 +79,7 @@ const TabList = React.forwardRef<HTMLDivElement, TabListProps>(
 		};
 
 		return (
-			<div
-				ref={ref}
-				role="tablist"
-				className={cn(tabListVariants({variant, size}), className)}
-				{...props}
-			>
+			<div ref={ref} role="tablist" className={cn(tabListVariants({variant, size}), className)} {...props}>
 				{items.map((item) => (
 					<button
 						key={item.value}

@@ -24,11 +24,7 @@ export function StorybookPreviewPage({title, storyId}: StorybookPreviewPageProps
 	const storyUrl = `${base}/?path=/story/${encodeURIComponent(storyId)}`;
 
 	return (
-		<section
-			data-core-region="storybook-catalog-preview"
-			data-core-surface-owner="route"
-			className="wwc:space-y-4"
-		>
+		<section data-core-region="storybook-catalog-preview" data-core-surface-owner="route" className="wwc:space-y-4">
 			<Card>
 				<CardHeader className="wwc:flex wwc:flex-row wwc:items-start wwc:justify-between wwc:gap-4">
 					<div>

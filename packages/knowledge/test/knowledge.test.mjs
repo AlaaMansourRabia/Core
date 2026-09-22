@@ -262,11 +262,7 @@ test("core-only validation rejects standalone approximations and requires the ex
 		template: "timesheet",
 		code: `import {Card} from "@core/core-ui/card";\nexport default () => <Card>Workers</Card>;`,
 	});
-	assert.equal(
-		wrongCoreComponent.data.compliant,
-		false,
-		"a generic Core component cannot replace the template",
-	);
+	assert.equal(wrongCoreComponent.data.compliant, false, "a generic Core component cannot replace the template");
 
 	const pathWithoutExport = await kb.callTool("validate", {
 		mode: "core-only",

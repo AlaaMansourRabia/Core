@@ -1,9 +1,9 @@
 import {createElement} from "react";
 import {addons, types} from "storybook/manager-api";
 
+import {coreLight} from "./core-theme";
 import {HtmlExportTool} from "./html-export/HtmlExportTool";
 import {RootLabelWithCount} from "./sidebar/RootItemCount";
-import {coreLight} from "./core-theme";
 import "./manager.css";
 
 // Keep storybook manager UI always in light mode

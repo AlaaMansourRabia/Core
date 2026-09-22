@@ -1,6 +1,5 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {Button} from "@core/core-ui/button";
 import {
 	ErrorPage,
@@ -9,6 +8,7 @@ import {
 	ErrorPageDescription,
 	ErrorPageTitle,
 } from "@core/core-ui/error-page";
+import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 
 import errorPageManifest from "../../../../manifests/error-page.template.json";
 import {ComponentKnowledge} from "../_docs/ComponentKnowledge";

@@ -34,8 +34,8 @@ export const Variants: Story = {
 export const InText: Story = {
 	render: () => (
 		<p className="wwc:text-sm">
-			This is a paragraph with a <Link href="#">link inside it</Link> that demonstrates how links appear in
-			running text.
+			This is a paragraph with a <Link href="#">link inside it</Link> that demonstrates how links appear in running
+			text.
 		</p>
 	),
 };

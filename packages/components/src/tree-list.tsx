@@ -58,9 +58,7 @@ const TreeList = React.forwardRef<HTMLDivElement, TreeListProps>(
 		const expandedIds = controlledExpandedIds ?? internalExpandedIds;
 
 		const toggleExpand = (id: string) => {
-			const newExpandedIds = expandedIds.includes(id)
-				? expandedIds.filter((eid) => eid !== id)
-				: [...expandedIds, id];
+			const newExpandedIds = expandedIds.includes(id) ? expandedIds.filter((eid) => eid !== id) : [...expandedIds, id];
 
 			if (controlledExpandedIds === undefined) {
 				setInternalExpandedIds(newExpandedIds);
@@ -91,9 +89,7 @@ const TreeList = React.forwardRef<HTMLDivElement, TreeListProps>(
 						className={cn(
 							"wwc:flex wwc:items-center wwc:gap-1 wwc:py-1 wwc:pr-2 wwc:rounded-md wwc:cursor-pointer wwc:transition-colors",
 							"wwc:focus-visible:outline-none wwc:focus-visible:ring-1 wwc:focus-visible:ring-ring",
-							isSelected
-								? "wwc:bg-accent wwc:text-accent-foreground"
-								: "hover:wwc:bg-accent/50",
+							isSelected ? "wwc:bg-accent wwc:text-accent-foreground" : "hover:wwc:bg-accent/50",
 							item.disabled && "wwc:opacity-50 wwc:cursor-not-allowed",
 						)}
 						style={{paddingLeft: `${indent + 4}px`}}

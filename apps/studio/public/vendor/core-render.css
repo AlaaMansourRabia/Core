@@ -2149,14 +2149,14 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 }
 .wwc\:via-amber-400 {
 	--tw-gradient-via: var(--wwc-color-amber-400);
-	--tw-gradient-via-stops: 
+	--tw-gradient-via-stops:
 		var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position),
 		var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
 	--tw-gradient-stops: var(--tw-gradient-via-stops);
 }
 .wwc\:via-pink-500 {
 	--tw-gradient-via: var(--wwc-color-pink-500);
-	--tw-gradient-via-stops: 
+	--tw-gradient-via-stops:
 		var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position),
 		var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
 	--tw-gradient-stops: var(--tw-gradient-via-stops);
@@ -2753,12 +2753,12 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 	opacity: 100%;
 }
 .wwc\:shadow {
-	--tw-shadow: 
+	--tw-shadow:
 		0 1px 3px 0 var(--tw-shadow-color, rgba(0, 0, 0, 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgba(0, 0, 0, 0.1));
 }
 .wwc\:shadow,
 .wwc\:shadow-\[0_8px_32px_rgba\(0\,0\,0\,0\.15\)\] {
-	box-shadow: 
+	box-shadow:
 		var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 		var(--tw-shadow);
 }
@@ -2766,18 +2766,18 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 	--tw-shadow: 0 8px 32px var(--tw-shadow-color, rgba(0, 0, 0, 0.15));
 }
 .wwc\:shadow-lg {
-	--tw-shadow: 
+	--tw-shadow:
 		0 10px 15px -3px var(--tw-shadow-color, rgba(0, 0, 0, 0.1)),
 		0 4px 6px -4px var(--tw-shadow-color, rgba(0, 0, 0, 0.1));
 }
 .wwc\:shadow-lg,
 .wwc\:shadow-md {
-	box-shadow: 
+	box-shadow:
 		var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 		var(--tw-shadow);
 }
 .wwc\:shadow-md {
-	--tw-shadow: 
+	--tw-shadow:
 		0 4px 6px -1px var(--tw-shadow-color, rgba(0, 0, 0, 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgba(0, 0, 0, 0.1));
 }
 .wwc\:shadow-none {
@@ -2785,22 +2785,22 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 }
 .wwc\:shadow-none,
 .wwc\:shadow-sm {
-	box-shadow: 
+	box-shadow:
 		var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 		var(--tw-shadow);
 }
 .wwc\:shadow-sm {
-	--tw-shadow: 
+	--tw-shadow:
 		0 1px 3px 0 var(--tw-shadow-color, rgba(0, 0, 0, 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgba(0, 0, 0, 0.1));
 }
 .wwc\:shadow-xl {
-	--tw-shadow: 
+	--tw-shadow:
 		0 20px 25px -5px var(--tw-shadow-color, rgba(0, 0, 0, 0.1)),
 		0 8px 10px -6px var(--tw-shadow-color, rgba(0, 0, 0, 0.1));
 }
 .wwc\:ring-0,
 .wwc\:shadow-xl {
-	box-shadow: 
+	box-shadow:
 		var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 		var(--tw-shadow);
 }
@@ -2810,7 +2810,7 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 .wwc\:ring-2 {
 	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width))
 		var(--tw-ring-color, currentcolor);
-	box-shadow: 
+	box-shadow:
 		var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 		var(--tw-shadow);
 }
@@ -2836,7 +2836,7 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 		var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
 }
 .wwc\:transition {
-	transition-property: 
+	transition-property:
 		color,
 		background-color,
 		border-color,
@@ -2874,7 +2874,7 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 	transition-duration: var(--tw-duration, var(--wwc-default-transition-duration));
 }
 .wwc\:transition-colors {
-	transition-property: 
+	transition-property:
 		color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from,
 		--tw-gradient-via, --tw-gradient-to;
 	transition-timing-function: var(--tw-ease, var(--wwc-default-transition-timing-function));
@@ -3009,10 +3009,10 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 }
 .wwc\:group-\[\.toaster\]\:shadow-lg {
 	&:is(:where(.wwc\:group):is(.toaster) *) {
-		--tw-shadow: 
+		--tw-shadow:
 			0 10px 15px -3px var(--tw-shadow-color, rgba(0, 0, 0, 0.1)),
 			0 4px 6px -4px var(--tw-shadow-color, rgba(0, 0, 0, 0.1));
-		box-shadow: 
+		box-shadow:
 			var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 			var(--tw-shadow);
 	}
@@ -3172,7 +3172,7 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 	&:focus-within {
 		--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width))
 			var(--tw-ring-color, currentcolor);
-		box-shadow: 
+		box-shadow:
 			var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 			var(--tw-shadow);
 	}
@@ -3181,7 +3181,7 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 	&:focus-within {
 		--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width))
 			var(--tw-ring-color, currentcolor);
-		box-shadow: 
+		box-shadow:
 			var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 			var(--tw-shadow);
 	}
@@ -3515,10 +3515,10 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 .wwc\:hover\:shadow-md {
 	&:hover {
 		@media (hover: hover) {
-			--tw-shadow: 
+			--tw-shadow:
 				0 4px 6px -1px var(--tw-shadow-color, rgba(0, 0, 0, 0.1)),
 				0 2px 4px -2px var(--tw-shadow-color, rgba(0, 0, 0, 0.1));
-			box-shadow: 
+			box-shadow:
 				var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 				var(--tw-shadow);
 		}
@@ -3614,7 +3614,7 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 .wwc\:focus\:ring-0 {
 	&:focus {
 		--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
-		box-shadow: 
+		box-shadow:
 			var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 			var(--tw-shadow);
 	}
@@ -3623,7 +3623,7 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 	&:focus {
 		--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width))
 			var(--tw-ring-color, currentcolor);
-		box-shadow: 
+		box-shadow:
 			var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 			var(--tw-shadow);
 	}
@@ -3632,7 +3632,7 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 	&:focus {
 		--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width))
 			var(--tw-ring-color, currentcolor);
-		box-shadow: 
+		box-shadow:
 			var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 			var(--tw-shadow);
 	}
@@ -3691,7 +3691,7 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 .wwc\:focus-visible\:ring-0 {
 	&:focus-visible {
 		--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
-		box-shadow: 
+		box-shadow:
 			var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 			var(--tw-shadow);
 	}
@@ -3700,7 +3700,7 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 	&:focus-visible {
 		--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width))
 			var(--tw-ring-color, currentcolor);
-		box-shadow: 
+		box-shadow:
 			var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 			var(--tw-shadow);
 	}
@@ -3709,7 +3709,7 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 	&:focus-visible {
 		--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width))
 			var(--tw-ring-color, currentcolor);
-		box-shadow: 
+		box-shadow:
 			var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 			var(--tw-shadow);
 	}
@@ -3969,9 +3969,9 @@ input:where([type="button"], [type="reset"], [type="submit"]) {
 }
 .wwc\:data-\[state\=active\]\:shadow {
 	&[data-state="active"] {
-		--tw-shadow: 
+		--tw-shadow:
 			0 1px 3px 0 var(--tw-shadow-color, rgba(0, 0, 0, 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgba(0, 0, 0, 0.1));
-		box-shadow: 
+		box-shadow:
 			var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
 			var(--tw-shadow);
 	}
@@ -5042,8 +5042,8 @@ body {
 /*! tailwindcss v4.2.2 | MIT License | https://tailwindcss.com */
 .wwc\:bg-violet-500\/10 {
 	background-color: var(--wwc-color-violet-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-violet-500) 10%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-violet-500) 10%, transparent);
 	}
 }
 .wwc\:text-violet-700 {
@@ -5051,35 +5051,35 @@ body {
 }
 .wwc\:bg-cyan-500\/10 {
 	background-color: var(--wwc-color-cyan-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-cyan-500) 10%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-cyan-500) 10%, transparent);
 	}
 }
 .wwc\:text-cyan-700 {
 	color: var(--wwc-color-cyan-700);
 }
 .wwc\:dark\:text-blue-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-blue-400);
 	}
 }
 .wwc\:dark\:text-violet-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-violet-400);
 	}
 }
 .wwc\:dark\:text-emerald-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-emerald-400);
 	}
 }
 .wwc\:dark\:text-amber-500 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-amber-500);
 	}
 }
 .wwc\:dark\:text-cyan-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-cyan-400);
 	}
 }
@@ -5097,247 +5097,247 @@ body {
 }
 .wwc\:bg-sky-500\/10 {
 	background-color: var(--wwc-color-sky-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-sky-500) 10%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-sky-500) 10%, transparent);
 	}
 }
 .wwc\:text-sky-700 {
 	color: var(--wwc-color-sky-700);
 }
 .wwc\:dark\:text-sky-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-sky-400);
 	}
 }
 .wwc\:bg-indigo-500\/10 {
 	background-color: var(--wwc-color-indigo-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-indigo-500) 10%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-indigo-500) 10%, transparent);
 	}
 }
 .wwc\:text-indigo-700 {
 	color: var(--wwc-color-indigo-700);
 }
 .wwc\:dark\:text-indigo-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-indigo-400);
 	}
 }
 .wwc\:bg-purple-500\/10 {
 	background-color: var(--wwc-color-purple-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-purple-500) 10%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-purple-500) 10%, transparent);
 	}
 }
 .wwc\:text-purple-700 {
 	color: var(--wwc-color-purple-700);
 }
 .wwc\:dark\:text-purple-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-purple-400);
 	}
 }
 .wwc\:bg-fuchsia-500\/10 {
 	background-color: var(--wwc-color-fuchsia-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-fuchsia-500) 10%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-fuchsia-500) 10%, transparent);
 	}
 }
 .wwc\:text-fuchsia-700 {
 	color: var(--wwc-color-fuchsia-700);
 }
 .wwc\:dark\:text-fuchsia-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-fuchsia-400);
 	}
 }
 .wwc\:bg-teal-500\/10 {
 	background-color: var(--wwc-color-teal-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-teal-500) 10%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-teal-500) 10%, transparent);
 	}
 }
 .wwc\:text-teal-700 {
 	color: var(--wwc-color-teal-700);
 }
 .wwc\:dark\:text-teal-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-teal-400);
 	}
 }
 .wwc\:bg-green-500\/10 {
 	background-color: var(--wwc-color-green-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-green-500) 10%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-green-500) 10%, transparent);
 	}
 }
 .wwc\:text-green-700 {
 	color: var(--wwc-color-green-700);
 }
 .wwc\:dark\:text-green-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-green-400);
 	}
 }
 .wwc\:bg-orange-500\/10 {
 	background-color: var(--wwc-color-orange-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-orange-500) 10%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-orange-500) 10%, transparent);
 	}
 }
 .wwc\:text-orange-700 {
 	color: var(--wwc-color-orange-700);
 }
 .wwc\:dark\:text-orange-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-orange-400);
 	}
 }
 .wwc\:bg-yellow-500\/10 {
 	background-color: var(--wwc-color-yellow-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-yellow-500) 10%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-yellow-500) 10%, transparent);
 	}
 }
 .wwc\:text-yellow-700 {
 	color: var(--wwc-color-yellow-700);
 }
 .wwc\:dark\:text-yellow-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-yellow-400);
 	}
 }
 .wwc\:bg-rose-500\/10 {
 	background-color: var(--wwc-color-rose-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-rose-500) 10%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-rose-500) 10%, transparent);
 	}
 }
 .wwc\:text-rose-700 {
 	color: var(--wwc-color-rose-700);
 }
 .wwc\:dark\:text-rose-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-rose-400);
 	}
 }
 .wwc\:bg-blue-500\/25 {
 	background-color: var(--wwc-color-blue-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-blue-500) 25%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-blue-500) 25%, transparent);
 	}
 }
 .wwc\:bg-cyan-500\/25 {
 	background-color: var(--wwc-color-cyan-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-cyan-500) 25%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-cyan-500) 25%, transparent);
 	}
 }
 .wwc\:bg-fuchsia-500\/25 {
 	background-color: var(--wwc-color-fuchsia-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-fuchsia-500) 25%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-fuchsia-500) 25%, transparent);
 	}
 }
 .wwc\:bg-green-500\/25 {
 	background-color: var(--wwc-color-green-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-green-500) 25%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-green-500) 25%, transparent);
 	}
 }
 .wwc\:bg-indigo-500\/25 {
 	background-color: var(--wwc-color-indigo-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-indigo-500) 25%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-indigo-500) 25%, transparent);
 	}
 }
 .wwc\:bg-lime-500\/10 {
 	background-color: var(--wwc-color-lime-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-lime-500) 10%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-lime-500) 10%, transparent);
 	}
 }
 .wwc\:bg-orange-500\/25 {
 	background-color: var(--wwc-color-orange-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-orange-500) 25%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-orange-500) 25%, transparent);
 	}
 }
 .wwc\:bg-pink-500\/10 {
 	background-color: var(--wwc-color-pink-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-pink-500) 10%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-pink-500) 10%, transparent);
 	}
 }
 .wwc\:bg-rose-500\/25 {
 	background-color: var(--wwc-color-rose-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-rose-500) 25%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-rose-500) 25%, transparent);
 	}
 }
 .wwc\:bg-yellow-500\/25 {
 	background-color: var(--wwc-color-yellow-500);
-	@supports (color:color-mix(in lab,red,red)) {
-		background-color: color-mix(in oklab,var(--wwc-color-yellow-500) 25%,transparent);
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-yellow-500) 25%, transparent);
 	}
 }
 .wwc\:dark\:text-amber-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-amber-400);
 	}
 }
 .wwc\:dark\:text-blue-300 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-blue-300);
 	}
 }
 .wwc\:dark\:text-cyan-300 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-cyan-300);
 	}
 }
 .wwc\:dark\:text-fuchsia-300 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-fuchsia-300);
 	}
 }
 .wwc\:dark\:text-green-300 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-green-300);
 	}
 }
 .wwc\:dark\:text-indigo-300 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-indigo-300);
 	}
 }
 .wwc\:dark\:text-lime-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-lime-400);
 	}
 }
 .wwc\:dark\:text-orange-300 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-orange-300);
 	}
 }
 .wwc\:dark\:text-pink-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-pink-400);
 	}
 }
 .wwc\:dark\:text-red-400 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-red-400);
 	}
 }
 .wwc\:dark\:text-rose-300 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-rose-300);
 	}
 }
 .wwc\:dark\:text-yellow-300 {
-	&:where(.dark,.dark *) {
+	&:where(.dark, .dark *) {
 		color: var(--wwc-color-yellow-300);
 	}
 }
@@ -5372,19 +5372,21 @@ body {
 	height: 18px;
 }
 .wwc\:shadow-\[0_4px_12px_rgba\(0\,0\,0\,0\.06\)\] {
-	--tw-shadow: 0 4px 12px var(--tw-shadow-color,rgba(0,0,0,.06));
+	--tw-shadow: 0 4px 12px var(--tw-shadow-color, rgba(0, 0, 0, 0.06));
 }
 .wwc\:shadow-\[0_4px_12px_rgba\(0\,0\,0\,0\.06\)\] {
-	box-shadow: var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow);
+	box-shadow:
+		var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+		var(--tw-shadow);
 }
 .wwc\:ring-card {
 	--tw-ring-color: var(--wwc-color-card);
 }
 .wwc\:-right-0\.5 {
-	right: calc(var(--wwc-spacing)*-.5);
+	right: calc(var(--wwc-spacing)*-0.5);
 }
 .wwc\:-top-0\.5 {
-	top: calc(var(--wwc-spacing)*-.5);
+	top: calc(var(--wwc-spacing)*-0.5);
 }
 .wwc\:min-w-\[14px\] {
 	min-width: 14px;
@@ -5393,7 +5395,7 @@ body {
 	min-width: 13px;
 }
 .wwc\:top-0\.5 {
-	top: calc(var(--wwc-spacing)*.5);
+	top: calc(var(--wwc-spacing)*0.5);
 }
 .wwc\:h-\[340px\] {
 	height: 340px;
@@ -5406,7 +5408,9 @@ body {
 }
 .wwc\:bg-muted\/60 {
 	background-color: var(--wwc-color-muted);
-	@supports (color:color-mix(in lab,red,red)){background-color:color-mix(in oklab,var(--wwc-color-muted) 60%,transparent)};
+	@supports (color: color-mix(in lab, red, red)) {
+		background-color: color-mix(in oklab, var(--wwc-color-muted) 60%, transparent);
+	}
 }
 .wwc\:py-px {
 	padding-block: 1px;

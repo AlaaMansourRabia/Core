@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
-import {useState} from "react";
 
 import {Outline, OutlineItem} from "@core/core-ui/outline";
+import {useState} from "react";
 
 const meta = {
 	title: "Components/Primitives/Outline",

@@ -19,16 +19,16 @@ const meta = {
 					manifest={manifest}
 					family={
 						<>
-							Core Connect V2, unified portal. Where V1 split Connect into an admin portal (
-							<code>wc3-workspace</code>) and an end-user portal (<code>app-installer</code>), V2 collapses both into
-							one app. Canonical: <code>core-connect</code>. A single CoreAppSidebar, branded "Core Connect",
-							stacks Home with the installed apps directly beneath it, then the admin perspectives under a "Studio"
-							label, then a pinned Marketplace entry — with every divider falling out of CoreAppSidebar's own group
-							separators, expanded and collapsed alike. Home is always present and behaves like the standalone
-							installer's: an install CTA while nothing is installed, an app launcher once apps exist, which is why no
-							divider splits it from the apps below. Installing an app from the Marketplace adds it to the apps section
-							without leaving the app. Implemented as <code>CoreWC3Workspace</code> with <code>withMarketplace</code>{" "}
-							set, so V1 and V2 share one implementation and cannot drift.
+							Core Connect V2, unified portal. Where V1 split Connect into an admin portal (<code>wc3-workspace</code>)
+							and an end-user portal (<code>app-installer</code>), V2 collapses both into one app. Canonical:{" "}
+							<code>core-connect</code>. A single CoreAppSidebar, branded "Core Connect", stacks Home with the installed
+							apps directly beneath it, then the admin perspectives under a "Studio" label, then a pinned Marketplace
+							entry — with every divider falling out of CoreAppSidebar's own group separators, expanded and collapsed
+							alike. Home is always present and behaves like the standalone installer's: an install CTA while nothing is
+							installed, an app launcher once apps exist, which is why no divider splits it from the apps below.
+							Installing an app from the Marketplace adds it to the apps section without leaving the app. Implemented as{" "}
+							<code>CoreWC3Workspace</code> with <code>withMarketplace</code> set, so V1 and V2 share one implementation
+							and cannot drift.
 						</>
 					}
 				/>

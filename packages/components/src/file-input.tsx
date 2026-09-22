@@ -102,16 +102,9 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
 							>
 								<div className="wwc:flex-1 wwc:min-w-0">
 									<p className="wwc:text-sm wwc:font-medium wwc:truncate">{file.name}</p>
-									<p className="wwc:text-xs wwc:text-muted-foreground">
-										{formatFileSize(file.size)}
-									</p>
+									<p className="wwc:text-xs wwc:text-muted-foreground">{formatFileSize(file.size)}</p>
 								</div>
-								<IconButton
-									variant="ghost"
-									size="sm"
-									onClick={() => removeFile(index)}
-									tooltip="Remove file"
-								>
+								<IconButton variant="ghost" size="sm" onClick={() => removeFile(index)} tooltip="Remove file">
 									<X />
 								</IconButton>
 							</div>
