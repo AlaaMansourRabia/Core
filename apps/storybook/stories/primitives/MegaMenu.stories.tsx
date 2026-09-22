@@ -1,7 +1,8 @@
+import type {MegaMenuCategory} from "@core/core-ui/mega-menu";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
 import {Button} from "@core/core-ui/button";
-import {MegaMenu, MegaMenuCategory} from "@core/core-ui/mega-menu";
+import {MegaMenu} from "@core/core-ui/mega-menu";
 import {Code, FileText, Layers, Settings, Users, Zap} from "lucide-react";
 
 const meta = {

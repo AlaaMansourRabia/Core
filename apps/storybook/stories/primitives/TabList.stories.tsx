@@ -1,6 +1,7 @@
+import type {TabItem} from "@core/core-ui/tab-list";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {TabList, TabItem} from "@core/core-ui/tab-list";
+import {TabList} from "@core/core-ui/tab-list";
 import {Home, Settings, User, Bell} from "lucide-react";
 import {useState} from "react";
 

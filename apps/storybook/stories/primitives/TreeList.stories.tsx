@@ -1,6 +1,7 @@
+import type {TreeListItem} from "@core/core-ui/tree-list";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {TreeList, TreeListItem} from "@core/core-ui/tree-list";
+import {TreeList} from "@core/core-ui/tree-list";
 import {Folder, File, FileText, Image} from "lucide-react";
 import {useState} from "react";
 
