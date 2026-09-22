@@ -91,4 +91,5 @@ const DateRangeInput = React.forwardRef<HTMLDivElement, DateRangeInputProps>(
 DateRangeInput.displayName = "DateRangeInput";
 
 export {DateRangeInput};
-export type {DateRange};
+export type {DateRange} from "react-day-picker";
+export type {DateRangeInputProps};

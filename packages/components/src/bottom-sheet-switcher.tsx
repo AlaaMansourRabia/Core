@@ -89,3 +89,4 @@ const BottomSheetSwitcher = ({
 BottomSheetSwitcher.displayName = "BottomSheetSwitcher";
 
 export {BottomSheetSwitcher};
+export type {BottomSheetSwitcherSheet, BottomSheetSwitcherProps};
