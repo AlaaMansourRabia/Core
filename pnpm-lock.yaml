@@ -12,7 +12,7 @@ importers:
 
   .:
     dependencies:
-      '@core/knowledge':
+      '@corensystem/knowledge':
         specifier: workspace:*
         version: link:packages/knowledge
       '@modelcontextprotocol/sdk':
@@ -73,7 +73,7 @@ importers:
 
   apps/hosted-mcp:
     dependencies:
-      '@core/knowledge':
+      '@corensystem/knowledge':
         specifier: workspace:*
         version: link:../../packages/knowledge
       '@modelcontextprotocol/sdk':
@@ -86,13 +86,13 @@ importers:
 
   apps/hub:
     dependencies:
-      '@core/core-tokens':
+      '@corensystem/core-tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
-      '@core/core-ui':
+      '@corensystem/core-ui':
         specifier: workspace:*
         version: link:../../packages/components
-      '@core/core-utils':
+      '@corensystem/core-utils':
         specifier: workspace:*
         version: link:../../packages/utils
       lucide-react:
@@ -129,13 +129,13 @@ importers:
 
   apps/storybook:
     dependencies:
-      '@core/core-tokens':
+      '@corensystem/core-tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
-      '@core/core-ui':
+      '@corensystem/core-ui':
         specifier: workspace:*
         version: link:../../packages/components
-      '@core/core-utils':
+      '@corensystem/core-utils':
         specifier: workspace:*
         version: link:../../packages/utils
       '@thatopen/components':
@@ -235,16 +235,16 @@ importers:
 
   apps/studio:
     dependencies:
-      '@core/core-tokens':
+      '@corensystem/core-tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
-      '@core/core-ui':
+      '@corensystem/core-ui':
         specifier: workspace:*
         version: link:../../packages/components
-      '@core/core-utils':
+      '@corensystem/core-utils':
         specifier: workspace:*
         version: link:../../packages/utils
-      '@core/sdk':
+      '@corensystem/sdk':
         specifier: workspace:*
         version: link:../../packages/sdk
       lucide-react:
@@ -281,13 +281,13 @@ importers:
 
   apps/web:
     dependencies:
-      '@core/core-tokens':
+      '@corensystem/core-tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
-      '@core/core-ui':
+      '@corensystem/core-ui':
         specifier: workspace:*
         version: link:../../packages/components
-      '@core/core-utils':
+      '@corensystem/core-utils':
         specifier: workspace:*
         version: link:../../packages/utils
       '@hookform/resolvers':
@@ -489,10 +489,10 @@ importers:
       3d-tiles-renderer:
         specifier: ^0.4.9
         version: 0.4.28(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(three@0.182.0)
-      '@core/core-tokens':
+      '@corensystem/core-tokens':
         specifier: workspace:*
         version: link:../tokens
-      '@core/core-utils':
+      '@corensystem/core-utils':
         specifier: workspace:*
         version: link:../utils
       '@radix-ui/react-accordion':
@@ -746,7 +746,7 @@ importers:
 
   packages/mcp:
     dependencies:
-      '@core/sdk':
+      '@corensystem/sdk':
         specifier: workspace:*
         version: link:../sdk
       '@modelcontextprotocol/sdk':
