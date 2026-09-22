@@ -26,7 +26,7 @@ export const Relative: Story = {
 	),
 };
 
-export const Date: Story = {
+export const DateFormat: Story = {
 	render: () => <Timestamp date={new Date("2024-01-15")} format="date" />,
 };
 
