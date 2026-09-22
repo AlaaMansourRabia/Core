@@ -5,6 +5,7 @@ export const coreLight = create({
 	brandTitle: "Core",
 	brandUrl: "https://core.com",
 	brandTarget: "_self",
+	brandImage: "core-logo.png",
 
 	// Typography
 	fontBase: '"Figtree", ui-sans-serif, sans-serif, system-ui',
@@ -48,6 +49,7 @@ export const coreDark = create({
 	brandTitle: "Core",
 	brandUrl: "https://core.com",
 	brandTarget: "_self",
+	brandImage: "core-logo.png",
 
 	fontBase: '"Figtree", ui-sans-serif, sans-serif, system-ui',
 	fontCode: '"IBM Plex Mono", ui-monospace, monospace',

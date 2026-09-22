@@ -1,7 +1,10 @@
 import {ChevronLeft, ChevronRight, Edit2, Minus, PenTool, Pencil, Plus, Square, Trash2, X} from "lucide-react";
+import type {Feature, GeoJsonProperties, Geometry} from "geojson";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import {useEffect, useRef, useState} from "react";
+
+type MapFeature = Feature<Geometry, GeoJsonProperties> & {id?: string | number};
 
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
@@ -487,7 +490,7 @@ export function DrawingPage() {
 			// Don't select if we're in drawing mode or zone edit mode
 			if (isDrawingMode || isDrawingZone || isZoneEditMode) return;
 
-			const feature = e.features?.[0];
+			const feature = e.features?.[0] as MapFeature | undefined;
 			if (feature?.properties?.id) {
 				const spaceId = feature.properties.id;
 				const space = spaces.find((s) => s.id === spaceId);
@@ -502,7 +505,7 @@ export function DrawingPage() {
 			// Don't select if we're in drawing mode or zone edit mode
 			if (isDrawingMode || isDrawingZone || isZoneEditMode) return;
 
-			const feature = e.features?.[0];
+			const feature = e.features?.[0] as MapFeature | undefined;
 			if (feature?.properties?.id && feature.properties?.spaceId) {
 				const zoneId = feature.properties.id;
 				const spaceId = feature.properties.spaceId;
