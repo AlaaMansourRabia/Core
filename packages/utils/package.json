@@ -1,9 +1,6 @@
 {
 	"name": "@core/core-utils",
 	"version": "1.0.0",
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com"
-	},
 	"bin": {
 		"intent": "./bin/intent.js"
 	},
@@ -22,6 +19,9 @@
 			"types": "./dist/index.d.mts",
 			"import": "./dist/index.mjs"
 		}
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
 	},
 	"scripts": {
 		"build": "tsc src/index.ts --outDir dist --module ESNext --moduleResolution bundler --declaration --target ES2022 && mv dist/index.js dist/index.mjs && mv dist/index.d.ts dist/index.d.mts",

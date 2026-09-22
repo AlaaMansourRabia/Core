@@ -1,9 +1,6 @@
 {
 	"name": "@core/core-ui",
 	"version": "1.0.0",
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com"
-	},
 	"bin": {
 		"intent": "./bin/intent.js"
 	},
@@ -1648,6 +1645,9 @@
 			"types": "./dist/command-palette.d.mts",
 			"import": "./dist/command-palette.mjs"
 		}
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
 	},
 	"scripts": {
 		"build": "tsdown && pnpm build:css",
