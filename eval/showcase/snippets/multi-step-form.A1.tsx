@@ -1,9 +1,9 @@
 // A1 — illustrative fair-baseline (hand-authored, NOT model-captured).
 // Package-only knowledge: one long flat form, all fields at once — no steps, no progress,
 // no back/next. Core guidance (A4) would compose a Stepper + sectioned steps + validation.
-import {Button} from "@core/core-ui/button";
-import {Input} from "@core/core-ui/input";
-import {Label} from "@core/core-ui/label";
+import {Button} from "@corensystem/core-ui/button";
+import {Input} from "@corensystem/core-ui/input";
+import {Label} from "@corensystem/core-ui/label";
 
 export default function CreateProjectForm() {
 	return (

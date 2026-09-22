@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import {Check, Minus} from "lucide-react";
 import * as React from "react";

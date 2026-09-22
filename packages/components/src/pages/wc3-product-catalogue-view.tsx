@@ -1,7 +1,7 @@
 import type {ColumnDef, Row} from "@tanstack/react-table";
 import type {ReactNode} from "react";
 
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {
 	CircleCheck,
 	ClipboardList,

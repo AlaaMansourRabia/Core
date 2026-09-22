@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 
 // Thin progress bar anchored to the bottom edge of a relatively-positioned floor row.
 export function FloorProgressBar({pct, showTrack, className}: {pct: number; showTrack?: boolean; className?: string}) {

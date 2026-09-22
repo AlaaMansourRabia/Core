@@ -1,4 +1,4 @@
-export {PromptInput} from "@core/core-ui/prompt-input";
+export {PromptInput} from "@corensystem/core-ui/prompt-input";
 export type {
 	PromptAddAction,
 	PromptAttachment,
@@ -7,4 +7,4 @@ export type {
 	PromptModel,
 	PromptSuggestion,
 	PromptTool,
-} from "@core/core-ui/prompt-input";
+} from "@corensystem/core-ui/prompt-input";

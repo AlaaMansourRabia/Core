@@ -1,15 +1,15 @@
-import {Button} from "@core/core-ui/button";
-import {Popover, PopoverContent, PopoverTrigger} from "@core/core-ui/popover";
-import {Slider} from "@core/core-ui/slider";
+import {Button} from "@corensystem/core-ui/button";
+import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/core-ui/popover";
+import {Slider} from "@corensystem/core-ui/slider";
 import {
 	Toolbar,
 	ToolbarButton,
 	ToolbarMenuButton,
 	type ToolbarMenuOption,
 	ToolbarSeparator,
-} from "@core/core-ui/toolbar";
-import {ToolbarColorPicker} from "@core/core-ui/toolbar-color-picker";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@core/core-ui/tooltip";
+} from "@corensystem/core-ui/toolbar";
+import {ToolbarColorPicker} from "@corensystem/core-ui/toolbar-color-picker";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@corensystem/core-ui/tooltip";
 import {
 	Blend,
 	Box,

@@ -1,7 +1,7 @@
-import type {Villa} from "@core/core-ui/site-image-viewer";
+import type {Villa} from "@corensystem/core-ui/site-image-viewer";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ProgressSheet, type TimelineWeek} from "@core/core-ui/progress-sheet";
+import {ProgressSheet, type TimelineWeek} from "@corensystem/core-ui/progress-sheet";
 import {useState} from "react";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];

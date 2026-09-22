@@ -1,5 +1,5 @@
-import {Button} from "@core/core-ui/button";
-import {Tooltip, TooltipContent, TooltipTrigger} from "@core/core-ui/tooltip";
+import {Button} from "@corensystem/core-ui/button";
+import {Tooltip, TooltipContent, TooltipTrigger} from "@corensystem/core-ui/tooltip";
 
 export function RefreshButton() {
 	return (

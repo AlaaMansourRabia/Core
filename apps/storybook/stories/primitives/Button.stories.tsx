@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Banner} from "@core/core-ui/banner";
-import {Button} from "@core/core-ui/button";
-import {ButtonGroup, ButtonGroupItem} from "@core/core-ui/button-group";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@core/core-ui/card";
+import {Banner} from "@corensystem/core-ui/banner";
+import {Button} from "@corensystem/core-ui/button";
+import {ButtonGroup, ButtonGroupItem} from "@corensystem/core-ui/button-group";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@corensystem/core-ui/card";
 import {
 	Dialog,
 	DialogContent,
@@ -12,10 +12,10 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-} from "@core/core-ui/dialog";
-import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@core/core-ui/dropdown-menu";
-import {Input} from "@core/core-ui/input";
-import {Label} from "@core/core-ui/label";
+} from "@corensystem/core-ui/dialog";
+import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@corensystem/core-ui/dropdown-menu";
+import {Input} from "@corensystem/core-ui/input";
+import {Label} from "@corensystem/core-ui/label";
 import {
 	Bold,
 	ChevronDown,

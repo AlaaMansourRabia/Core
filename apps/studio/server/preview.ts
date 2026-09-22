@@ -2,7 +2,7 @@ import type {Connect, Plugin} from "vite";
 
 import * as esbuild from "esbuild";
 
-// The canonical preview seam. Every Core template is REAL page source (seeded from @core/core-ui);
+// The canonical preview seam. Every Core template is REAL page source (seeded from @corensystem/core-ui);
 // esbuild bundles it (React externalized) and the Core renderer evaluates the bundle live. Studio is
 // read-only: it renders an approved, canonical template and writes nothing to disk. There is no agent,
 // no workspace, no session — editing happens externally and reaches Studio only after review + merge.

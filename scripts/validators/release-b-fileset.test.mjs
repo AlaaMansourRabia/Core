@@ -11,8 +11,8 @@ describe("Release B file-set validator", () => {
 		const result = gradeFileSet(
 			{
 				"src/App.tsx":
-					'import { Button as Action } from "@core/core-ui/button";\nexport {Panel} from "./Panel";\nexport const App=()=> <Action>Save</Action>;',
-				"src/Panel.tsx": 'import { Card } from "@core/core-ui/card";\nexport const Panel=()=> <Card>Panel</Card>;',
+					'import { Button as Action } from "@corensystem/core-ui/button";\nexport {Panel} from "./Panel";\nexport const App=()=> <Action>Save</Action>;',
+				"src/Panel.tsx": 'import { Card } from "@corensystem/core-ui/card";\nexport const Panel=()=> <Card>Panel</Card>;',
 			},
 			{},
 			catalog,
@@ -26,7 +26,7 @@ describe("Release B file-set validator", () => {
 
 	it("reports hard-coded CSS values with category and location", () => {
 		const result = gradeFileSet({
-			"src/App.tsx": 'import { Button } from "@core/core-ui/button"; export const App=()=> <Button>Save</Button>;',
+			"src/App.tsx": 'import { Button } from "@corensystem/core-ui/button"; export const App=()=> <Button>Save</Button>;',
 			"src/app.css":
 				".panel { color: #123456; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px #000; font-size: 14px; }",
 		});
@@ -40,7 +40,7 @@ describe("Release B file-set validator", () => {
 
 	it("treats Core variables as tokenized and supports narrow exceptions", () => {
 		const result = gradeFileSet({
-			"src/App.tsx": 'import { Card } from "@core/core-ui/card"; export const App=()=> <Card />;',
+			"src/App.tsx": 'import { Card } from "@corensystem/core-ui/card"; export const App=()=> <Card />;',
 			"src/app.css": [
 				".panel {",
 				"  color: var(--color-foreground);",
@@ -61,8 +61,8 @@ describe("Release B file-set validator", () => {
 	it("marks hidden and near-zero component renders as not visibly exercised", () => {
 		const result = gradeFileSet({
 			"src/App.tsx": [
-				'import { Button } from "@core/core-ui/button";',
-				'import { Card } from "@core/core-ui/card";',
+				'import { Button } from "@corensystem/core-ui/button";',
+				'import { Card } from "@corensystem/core-ui/card";',
 				'export const App=()=> <><Button className="hidden">Save</Button><Card style={{ width: 1 }} /></>;',
 			].join("\n"),
 		});

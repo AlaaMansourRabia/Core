@@ -7,4 +7,4 @@ export {
 	TableHead,
 	TableCell,
 	TableCaption,
-} from "@core/core-ui/table";
+} from "@corensystem/core-ui/table";

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ToolCall} from "@core/core-ui/tool-call";
+import {ToolCall} from "@corensystem/core-ui/tool-call";
 import {useState} from "react";
 
 const meta = {

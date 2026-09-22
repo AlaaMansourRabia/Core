@@ -1,1 +1,1 @@
-export {Popover, PopoverTrigger, PopoverContent, PopoverAnchor} from "@core/core-ui/popover";
+export {Popover, PopoverTrigger, PopoverContent, PopoverAnchor} from "@corensystem/core-ui/popover";

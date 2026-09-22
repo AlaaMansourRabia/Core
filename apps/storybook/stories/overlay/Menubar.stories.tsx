@@ -16,7 +16,7 @@ import {
 	MenubarSubContent,
 	MenubarSubTrigger,
 	MenubarTrigger,
-} from "@core/core-ui/menubar";
+} from "@corensystem/core-ui/menubar";
 import {useState} from "react";
 
 const meta = {

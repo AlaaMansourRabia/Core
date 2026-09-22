@@ -1,2 +1,2 @@
-export {MapCompareLayout} from "@core/core-ui/map-compare-layout";
-export type {MapCompareLayoutProps} from "@core/core-ui/map-compare-layout";
+export {MapCompareLayout} from "@corensystem/core-ui/map-compare-layout";
+export type {MapCompareLayoutProps} from "@corensystem/core-ui/map-compare-layout";

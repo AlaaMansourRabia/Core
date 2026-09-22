@@ -1,7 +1,7 @@
-import type {DrawingToolId, LineKind, PinKind, ShapeKind} from "@core/core-ui/drawing-actions";
+import type {DrawingToolId, LineKind, PinKind, ShapeKind} from "@corensystem/core-ui/drawing-actions";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {CanvasToolbar, type CanvasToolbarBlueprint} from "@core/core-ui/canvas-toolbar";
+import {CanvasToolbar, type CanvasToolbarBlueprint} from "@corensystem/core-ui/canvas-toolbar";
 import {useState} from "react";
 
 const meta = {

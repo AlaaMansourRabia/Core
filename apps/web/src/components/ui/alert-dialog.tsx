@@ -10,4 +10,4 @@ export {
 	AlertDialogDescription,
 	AlertDialogAction,
 	AlertDialogCancel,
-} from "@core/core-ui/alert-dialog";
+} from "@corensystem/core-ui/alert-dialog";

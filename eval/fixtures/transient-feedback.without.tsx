@@ -1,5 +1,5 @@
-import {Alert, AlertDescription, AlertTitle} from "@core/core-ui/alert";
-import {Button} from "@core/core-ui/button";
+import {Alert, AlertDescription, AlertTitle} from "@corensystem/core-ui/alert";
+import {Button} from "@corensystem/core-ui/button";
 import {useState} from "react";
 
 export function SettingsForm() {

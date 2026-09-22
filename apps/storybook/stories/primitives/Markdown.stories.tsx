@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Markdown} from "@core/core-ui/markdown";
+import {Markdown} from "@corensystem/core-ui/markdown";
 
 const meta = {
 	title: "Components/Primitives/Markdown",

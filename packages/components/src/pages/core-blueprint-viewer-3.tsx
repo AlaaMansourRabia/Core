@@ -1,5 +1,5 @@
 // Blueprint Viewer v3 — a self-contained, editable duplicate of the published Blueprint Viewer
-// (@core/core-ui/pages/core-blueprint-viewer) for iterating on a v3 design. Edit freely here; it
+// (@corensystem/core-ui/pages/core-blueprint-viewer) for iterating on a v3 design. Edit freely here; it
 // does not affect the published component or the #2 demo. Promote to the package later if it sticks.
 import {ChevronDown, Maximize2, Minimize2, PanelRight, X} from "lucide-react";
 import {useEffect, useMemo, useRef, useState} from "react";

@@ -9,4 +9,4 @@ export {
 	SheetFooter,
 	SheetTitle,
 	SheetDescription,
-} from "@core/core-ui/sheet";
+} from "@corensystem/core-ui/sheet";

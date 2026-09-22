@@ -1,13 +1,13 @@
 import type {ReactElement} from "react";
 import type {TimelineControls, TimelineState} from "./types";
 
-import {Badge} from "@core/core-ui/badge";
-import {Button} from "@core/core-ui/button";
-import {Progress} from "@core/core-ui/progress";
-import {Separator} from "@core/core-ui/separator";
-import {Slider} from "@core/core-ui/slider";
-import {HoverTooltip} from "@core/core-ui/tooltip";
-import {ToggleGroup, ToggleGroupItem} from "@core/core-ui/toggle-group";
+import {Badge} from "@corensystem/core-ui/badge";
+import {Button} from "@corensystem/core-ui/button";
+import {Progress} from "@corensystem/core-ui/progress";
+import {Separator} from "@corensystem/core-ui/separator";
+import {Slider} from "@corensystem/core-ui/slider";
+import {HoverTooltip} from "@corensystem/core-ui/tooltip";
+import {ToggleGroup, ToggleGroupItem} from "@corensystem/core-ui/toggle-group";
 import {ChevronLeft, ChevronRight, Loader2, Pause, Play, Rotate3d, SkipBack, SkipForward, X} from "lucide-react";
 
 import {TRADE_BY_KEY} from "./trades";

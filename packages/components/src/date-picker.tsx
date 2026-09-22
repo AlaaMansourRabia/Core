@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {addDays, format} from "date-fns";
 import {Calendar as CalendarIcon} from "lucide-react";
 import * as React from "react";

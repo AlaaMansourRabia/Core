@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Card} from "@core/core-ui/card";
-import {GraphCanvas} from "@core/core-ui/graph-canvas";
+import {Card} from "@corensystem/core-ui/card";
+import {GraphCanvas} from "@corensystem/core-ui/graph-canvas";
 import {Handle, type NodeProps, Position} from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 

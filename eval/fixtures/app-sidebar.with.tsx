@@ -1,4 +1,4 @@
-import {Sidebar, SidebarContent, SidebarProvider, SidebarTrigger} from "@core/core-ui/sidebar";
+import {Sidebar, SidebarContent, SidebarProvider, SidebarTrigger} from "@corensystem/core-ui/sidebar";
 
 export function AppShell({children}) {
 	return (

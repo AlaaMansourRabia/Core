@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@core/core-ui/badge";
-import {Button} from "@core/core-ui/button";
-import {Card} from "@core/core-ui/card";
-import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@core/core-ui/collapsible";
+import {Badge} from "@corensystem/core-ui/badge";
+import {Button} from "@corensystem/core-ui/button";
+import {Card} from "@corensystem/core-ui/card";
+import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@corensystem/core-ui/collapsible";
 import {
 	Dialog,
 	DialogClose,
@@ -13,12 +13,12 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-} from "@core/core-ui/dialog";
-import {RadioGroup, RadioGroupItem} from "@core/core-ui/radio-group";
-import {ScrollArea} from "@core/core-ui/scroll-area";
-import {SearchFilterBar} from "@core/core-ui/search-filter-bar";
-import {Separator} from "@core/core-ui/separator";
-import {cn} from "@core/core-utils";
+} from "@corensystem/core-ui/dialog";
+import {RadioGroup, RadioGroupItem} from "@corensystem/core-ui/radio-group";
+import {ScrollArea} from "@corensystem/core-ui/scroll-area";
+import {SearchFilterBar} from "@corensystem/core-ui/search-filter-bar";
+import {Separator} from "@corensystem/core-ui/separator";
+import {cn} from "@corensystem/core-utils";
 import {ArrowLeft, ArrowUpRight, ChevronDown, ChevronRight} from "lucide-react";
 import {useMemo, useState} from "react";
 import {expect, screen, userEvent, waitFor, within} from "storybook/test";

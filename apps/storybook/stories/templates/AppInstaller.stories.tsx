@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {AppInstaller} from "@core/core-ui/pages/core-app-installer";
+import {AppInstaller} from "@corensystem/core-ui/pages/core-app-installer";
 
 import manifest from "../../../../manifests/app-installer.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

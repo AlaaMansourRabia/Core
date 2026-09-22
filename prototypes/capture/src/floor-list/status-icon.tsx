@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {Check, CircleDashed, Clock} from "lucide-react";
 
 import type {FloorStatus} from "./types";

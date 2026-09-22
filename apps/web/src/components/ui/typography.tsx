@@ -10,4 +10,4 @@ export {
 	TypographyLarge,
 	TypographySmall,
 	TypographyMuted,
-} from "@core/core-ui/typography";
+} from "@corensystem/core-ui/typography";

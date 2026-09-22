@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {SelectableCard, SelectableCardGroup} from "@core/core-ui/selectable-card";
+import {SelectableCard, SelectableCardGroup} from "@corensystem/core-ui/selectable-card";
 import {useState} from "react";
 
 const meta = {

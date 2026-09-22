@@ -4,11 +4,11 @@ import type {
 	ProductPackageInstallReceipt,
 	ProductPackageOutput,
 	ProductPackagePermission,
-} from "@core/core-ui/product-package-detail";
+} from "@corensystem/core-ui/product-package-detail";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {CoreAppTopBar} from "@core/core-ui/navigation/core-app-top-bar";
-import {ProductPackageDetail} from "@core/core-ui/product-package-detail";
+import {CoreAppTopBar} from "@corensystem/core-ui/navigation/core-app-top-bar";
+import {ProductPackageDetail} from "@corensystem/core-ui/product-package-detail";
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {useState} from "react";
 

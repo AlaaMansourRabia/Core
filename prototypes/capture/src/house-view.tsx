@@ -1,14 +1,14 @@
-import type {FragmentMarker} from "@core/core-ui/fragment-viewer";
+import type {FragmentMarker} from "@corensystem/core-ui/fragment-viewer";
 
 import workerUrl from "@thatopen/fragments/worker?url";
-import {Badge} from "@core/core-ui/badge";
+import {Badge} from "@corensystem/core-ui/badge";
 import {
 	FragmentViewer,
 	FragmentViewerProvider,
 	type FragmentSelection,
 	useFragmentViewer,
-} from "@core/core-ui/fragment-viewer";
-import {ToolButton, ViewerToolbar} from "@core/core-ui/viewer-toolbar";
+} from "@corensystem/core-ui/fragment-viewer";
+import {ToolButton, ViewerToolbar} from "@corensystem/core-ui/viewer-toolbar";
 import {Boxes, CalendarClock, MapPin, Users, X} from "lucide-react";
 import {Component, type ReactNode, useEffect, useRef, useState} from "react";
 

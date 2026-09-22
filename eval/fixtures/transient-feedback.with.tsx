@@ -1,6 +1,6 @@
-import {Button} from "@core/core-ui/button";
-import {toast} from "@core/core-ui/sonner";
-import {Toaster} from "@core/core-ui/toaster";
+import {Button} from "@corensystem/core-ui/button";
+import {toast} from "@corensystem/core-ui/sonner";
+import {Toaster} from "@corensystem/core-ui/toaster";
 
 export function SettingsForm() {
 	return (

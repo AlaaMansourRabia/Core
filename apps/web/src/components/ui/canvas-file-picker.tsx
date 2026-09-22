@@ -1,2 +1,2 @@
-export {CanvasFilePicker} from "@core/core-ui/canvas-file-picker";
-export type {CanvasFile, CanvasFilePickerProps} from "@core/core-ui/canvas-file-picker";
+export {CanvasFilePicker} from "@corensystem/core-ui/canvas-file-picker";
+export type {CanvasFile, CanvasFilePickerProps} from "@corensystem/core-ui/canvas-file-picker";

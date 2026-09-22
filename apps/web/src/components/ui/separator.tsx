@@ -1,1 +1,1 @@
-export {Separator} from "@core/core-ui/separator";
+export {Separator} from "@corensystem/core-ui/separator";

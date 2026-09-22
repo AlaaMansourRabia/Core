@@ -1,7 +1,7 @@
 import type {ColumnDef, Row} from "@tanstack/react-table";
 import type {ReactElement} from "react";
 
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {ArrowUpRight, Plus} from "lucide-react";
 import {useCallback, useMemo, useState} from "react";
 

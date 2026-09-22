@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import * as React from "react";
 
 export interface SectionProps extends Omit<React.HTMLAttributes<HTMLElement>, "title"> {

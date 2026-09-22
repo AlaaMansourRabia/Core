@@ -40,7 +40,7 @@ function catalogTier(catalog, name) {
 }
 
 /** Parse named imports, retaining aliases, from Core modules. */
-export function coreImports(files, coreUi = "@core/core-ui") {
+export function coreImports(files, coreUi = "@corensystem/core-ui") {
 	const imports = [];
 	for (const file of sourceFiles(files)) {
 		const re = /import\s+([\s\S]*?)\s+from\s+["']([^"']+)["']/g;

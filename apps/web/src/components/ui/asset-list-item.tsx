@@ -1,2 +1,2 @@
-export {AssetListItem} from "@core/core-ui/asset-list-item";
-export type {AssetListItemProps} from "@core/core-ui/asset-list-item";
+export {AssetListItem} from "@corensystem/core-ui/asset-list-item";
+export type {AssetListItemProps} from "@corensystem/core-ui/asset-list-item";

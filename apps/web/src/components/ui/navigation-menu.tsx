@@ -8,4 +8,4 @@ export {
 	NavigationMenuLink,
 	NavigationMenuIndicator,
 	NavigationMenuViewport,
-} from "@core/core-ui/navigation-menu";
+} from "@corensystem/core-ui/navigation-menu";

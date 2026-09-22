@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Build the Core renderer bundle (browser IIFE) from src/entry.tsx. Bundles @core/core-ui page
+// Build the Core renderer bundle (browser IIFE) from src/entry.tsx. Bundles @corensystem/core-ui page
 // components + React into a single global (window.Core.render). React/react-dom are aliased to the
 // repo-root copies so core-ui's nested react doesn't produce "two copies of React" at runtime.
 

@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {AppCard} from "@core/core-ui/app-card";
-import {Badge} from "@core/core-ui/badge";
-import {Button} from "@core/core-ui/button";
+import {AppCard} from "@corensystem/core-ui/app-card";
+import {Badge} from "@corensystem/core-ui/badge";
+import {Button} from "@corensystem/core-ui/button";
 import {Calendar, HardHat, Plus, Users} from "lucide-react";
 
 const meta = {

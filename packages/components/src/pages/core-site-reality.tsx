@@ -42,7 +42,7 @@ import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "../
 // `stage` prop - a FragmentViewer, Map, or any engine - and stays empty when nothing is passed,
 // so the template itself carries no rendering dependency.
 //
-// Everything visible is an existing @core/core-ui component — KPIBar, SectionPanel,
+// Everything visible is an existing @corensystem/core-ui component — KPIBar, SectionPanel,
 // SectionPanelRow, KPISummary, PropertyList, Select, Input, Button, Badge, ScrollArea,
 // PushPanel. This file contributes layout and fixture data only; it defines no new UI
 // primitive. Every figure is a placeholder.

@@ -1,5 +1,5 @@
-import {ObjectAnalysisView} from "@core/core-ui/pages/wc3-analysis-object-view";
-import {seedAnalysisSession, type Wc3AnalysisSession} from "@core/core-ui/pages/wc3-analysis-views";
+import {ObjectAnalysisView} from "@corensystem/core-ui/pages/wc3-analysis-object-view";
+import {seedAnalysisSession, type Wc3AnalysisSession} from "@corensystem/core-ui/pages/wc3-analysis-views";
 import * as React from "react";
 
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";

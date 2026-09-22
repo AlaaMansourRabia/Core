@@ -1,5 +1,5 @@
-import {Button} from "@core/core-ui/button";
-import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@core/core-ui/dialog";
+import {Button} from "@corensystem/core-ui/button";
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@corensystem/core-ui/dialog";
 
 export function FilterPanel() {
 	return (

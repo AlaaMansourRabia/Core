@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Skeleton} from "@core/core-ui/skeleton";
+import {Skeleton} from "@corensystem/core-ui/skeleton";
 
 const meta = {
 	title: "Components/Primitives/Skeleton",

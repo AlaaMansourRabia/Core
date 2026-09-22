@@ -1,2 +1,2 @@
-export {WeekSelector} from "@core/core-ui/week-selector";
-export type {WeekSelectorProps, WeekSelectorWeek} from "@core/core-ui/week-selector";
+export {WeekSelector} from "@corensystem/core-ui/week-selector";
+export type {WeekSelectorProps, WeekSelectorWeek} from "@corensystem/core-ui/week-selector";

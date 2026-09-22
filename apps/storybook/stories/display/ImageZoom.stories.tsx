@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ImageZoom} from "@core/core-ui/image-zoom";
+import {ImageZoom} from "@corensystem/core-ui/image-zoom";
 
 const meta = {
 	title: "Components/Data Display/Image Zoom",

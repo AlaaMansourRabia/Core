@@ -1,13 +1,13 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
+import {Button} from "@corensystem/core-ui/button";
 import {
 	ErrorPage,
 	ErrorPageAction,
 	ErrorPageCode,
 	ErrorPageDescription,
 	ErrorPageTitle,
-} from "@core/core-ui/error-page";
+} from "@corensystem/core-ui/error-page";
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 
 import errorPageManifest from "../../../../manifests/error-page.template.json";
@@ -34,7 +34,7 @@ function ErrorPageDocsPage() {
 
 const meta = {
 	// First promoted TEMPLATE (see docs/ARTIFACT-CLASSIFICATION.md + manifests/error-page.template.json).
-	// File and export are unchanged (@core/core-ui/error-page); only the story title moved to Templates/.
+	// File and export are unchanged (@corensystem/core-ui/error-page); only the story title moved to Templates/.
 	title: "Templates/Error Page",
 	component: ErrorPage,
 	tags: ["autodocs"],

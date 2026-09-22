@@ -62,7 +62,7 @@
 // `searchOpen` is the one lifted value (host drives the BuildingViewer Layers offset from it) — the widget
 // requests it via `onSearchOpenChange` and mirrors the `searchOpen` prop in render.
 
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {
 	ArrowUpDown,
 	ArrowUpRight,

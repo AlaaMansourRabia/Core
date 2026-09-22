@@ -24,7 +24,7 @@ const AGENTS_MD = `# Core workspace — agent policy
 Core is the source of truth; reuse before you build. Edit \`src/page.tsx\` (keep its default \`Page\`
 export). Read \`.core/\` for context (advisory seed + validation target — never hand-edit it). Use the
 \`core\` MCP (resolve_template → resolve_widgets → validate_page) before adding UI. Import artifacts from
-\`@core/core-ui/<kebab-name>\`. Only write custom code when Core has nothing suitable, and say so.
+\`@corensystem/core-ui/<kebab-name>\`. Only write custom code when Core has nothing suitable, and say so.
 `;
 
 export type WorkspaceMeta = {

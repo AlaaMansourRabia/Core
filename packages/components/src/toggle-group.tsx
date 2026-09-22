@@ -1,6 +1,6 @@
 import type {VariantProps} from "class-variance-authority";
 
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 import * as React from "react";
 

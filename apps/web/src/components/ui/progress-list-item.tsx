@@ -1,8 +1,8 @@
-export {ProgressListItem} from "@core/core-ui/progress-list-item";
+export {ProgressListItem} from "@corensystem/core-ui/progress-list-item";
 export type {
 	ProgressListItemBadge,
 	ProgressListItemProps,
 	ProgressListItemVariant,
 	ProgressMetric,
 	ProgressMetricTone,
-} from "@core/core-ui/progress-list-item";
+} from "@corensystem/core-ui/progress-list-item";

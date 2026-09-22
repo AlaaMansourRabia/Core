@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@core/core-ui/badge";
-import {Button} from "@core/core-ui/button";
+import {Badge} from "@corensystem/core-ui/badge";
+import {Button} from "@corensystem/core-ui/button";
 import {
 	Filter,
 	FilterCategory,
@@ -9,7 +9,7 @@ import {
 	FilterOption,
 	FilterTrigger,
 	type FilterValue,
-} from "@core/core-ui/filter";
+} from "@corensystem/core-ui/filter";
 import * as React from "react";
 
 const meta = {

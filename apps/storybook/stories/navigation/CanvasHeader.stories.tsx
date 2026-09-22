@@ -8,10 +8,10 @@ import {
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
-} from "@core/core-ui/breadcrumb";
-import {Button} from "@core/core-ui/button";
-import {CanvasHeader} from "@core/core-ui/canvas-header";
-import {type WeekSelectorWeek} from "@core/core-ui/week-selector";
+} from "@corensystem/core-ui/breadcrumb";
+import {Button} from "@corensystem/core-ui/button";
+import {CanvasHeader} from "@corensystem/core-ui/canvas-header";
+import {type WeekSelectorWeek} from "@corensystem/core-ui/week-selector";
 import {Maximize2} from "lucide-react";
 import {useState} from "react";
 

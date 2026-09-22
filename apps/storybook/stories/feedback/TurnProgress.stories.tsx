@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
-import {ThinkingPill} from "@core/core-ui/thinking-pill";
-import {TurnTimer} from "@core/core-ui/turn-timer";
+import {Button} from "@corensystem/core-ui/button";
+import {ThinkingPill} from "@corensystem/core-ui/thinking-pill";
+import {TurnTimer} from "@corensystem/core-ui/turn-timer";
 import {LineChart, Search, Sparkles} from "lucide-react";
 import {useState} from "react";
 

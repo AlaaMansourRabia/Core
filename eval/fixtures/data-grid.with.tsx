@@ -1,4 +1,4 @@
-import {DataTable} from "@core/core-ui/data-table";
+import {DataTable} from "@corensystem/core-ui/data-table";
 
 const columns = [
 	{accessorKey: "name", header: "Name"},

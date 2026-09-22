@@ -13,9 +13,9 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@core/core-tokens": "workspace:*",
-		"@core/core-ui": "workspace:*",
-		"@core/core-utils": "workspace:*",
+		"@corensystem/core-tokens": "workspace:*",
+		"@corensystem/core-ui": "workspace:*",
+		"@corensystem/core-utils": "workspace:*",
 		"@hookform/resolvers": "^5.2.2",
 		"@radix-ui/react-accordion": "^1.2.12",
 		"@radix-ui/react-alert-dialog": "^1.1.15",

@@ -1,1 +1,1 @@
-export * from "@core/core-ui/new-interface-dialog";
+export * from "@corensystem/core-ui/new-interface-dialog";

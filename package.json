@@ -37,7 +37,7 @@
 		"fetch:3d-assets": "node scripts/fetch-3d-assets.mjs"
 	},
 	"dependencies": {
-		"@core/knowledge": "workspace:*",
+		"@corensystem/knowledge": "workspace:*",
 		"@modelcontextprotocol/sdk": "1.29.0"
 	},
 	"devDependencies": {

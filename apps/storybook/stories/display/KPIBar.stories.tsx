@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {KPIBar} from "@core/core-ui/kpi-bar";
+import {KPIBar} from "@corensystem/core-ui/kpi-bar";
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {AlertTriangle, Users} from "lucide-react";
 

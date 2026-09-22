@@ -1,2 +1,2 @@
-export {ToolCall} from "@core/core-ui/tool-call";
-export type {ToolCallProps, ToolCallStatus} from "@core/core-ui/tool-call";
+export {ToolCall} from "@corensystem/core-ui/tool-call";
+export type {ToolCallProps, ToolCallStatus} from "@corensystem/core-ui/tool-call";

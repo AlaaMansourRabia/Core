@@ -1,9 +1,9 @@
-import type {ViewTabItem} from "@core/core-ui/view-tab-bar";
+import type {ViewTabItem} from "@corensystem/core-ui/view-tab-bar";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Avatar, AvatarFallback} from "@core/core-ui/avatar";
-import {Badge} from "@core/core-ui/badge";
-import {PageContentHeader, type PageContentHeaderAction} from "@core/core-ui/page-content-header";
+import {Avatar, AvatarFallback} from "@corensystem/core-ui/avatar";
+import {Badge} from "@corensystem/core-ui/badge";
+import {PageContentHeader, type PageContentHeaderAction} from "@corensystem/core-ui/page-content-header";
 import {
 	Bell,
 	BotMessageSquare,

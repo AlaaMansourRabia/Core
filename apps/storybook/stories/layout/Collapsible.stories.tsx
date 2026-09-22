@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
-import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@core/core-ui/collapsible";
+import {Button} from "@corensystem/core-ui/button";
+import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@corensystem/core-ui/collapsible";
 import {ChevronsUpDown} from "lucide-react";
 
 const meta = {

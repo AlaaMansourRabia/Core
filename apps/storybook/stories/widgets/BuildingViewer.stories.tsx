@@ -1,4 +1,4 @@
-import type {MapMode} from "@core/core-ui/site-image-viewer";
+import type {MapMode} from "@corensystem/core-ui/site-image-viewer";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
 import {
@@ -7,9 +7,9 @@ import {
 	type LevelId,
 	type ViewId,
 	type ViewMode,
-} from "@core/core-ui/building-viewer";
-import {ALMANAR_SITE_META, ALMANAR_VILLAS} from "@core/core-ui/site-image-viewer-fixtures";
-import {TooltipProvider} from "@core/core-ui/tooltip";
+} from "@corensystem/core-ui/building-viewer";
+import {ALMANAR_SITE_META, ALMANAR_VILLAS} from "@corensystem/core-ui/site-image-viewer-fixtures";
+import {TooltipProvider} from "@corensystem/core-ui/tooltip";
 import {useState} from "react";
 
 // The canvas widget: it composes the 2D site-image-viewer (Plan mode) and the projected-footprints

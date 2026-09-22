@@ -1,1 +1,1 @@
-export {OrgProjectSwitcher} from "@core/core-ui/navigation/core-org-project-switcher";
+export {OrgProjectSwitcher} from "@corensystem/core-ui/navigation/core-org-project-switcher";

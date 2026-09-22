@@ -1,1 +1,1 @@
-export * from "@core/core-ui/pages/create-process-dialog";
+export * from "@corensystem/core-ui/pages/create-process-dialog";

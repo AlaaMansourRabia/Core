@@ -8,7 +8,7 @@ import {
 	PaginationLink,
 	PaginationNext,
 	PaginationPrevious,
-} from "@core/core-ui/pagination";
+} from "@corensystem/core-ui/pagination";
 
 const meta = {
 	title: "Components/Navigation/Pagination",

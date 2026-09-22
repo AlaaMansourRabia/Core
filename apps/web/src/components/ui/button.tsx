@@ -1,2 +1,2 @@
-export {Button, buttonVariants} from "@core/core-ui/button";
-export type {ButtonProps} from "@core/core-ui/button";
+export {Button, buttonVariants} from "@corensystem/core-ui/button";
+export type {ButtonProps} from "@corensystem/core-ui/button";

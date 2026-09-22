@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
-import {Section} from "@core/core-ui/section";
-import {Text} from "@core/core-ui/text";
+import {Button} from "@corensystem/core-ui/button";
+import {Section} from "@corensystem/core-ui/section";
+import {Text} from "@corensystem/core-ui/text";
 
 const meta = {
 	title: "Components/Primitives/Section",

@@ -1,7 +1,7 @@
-import type {CanvasFile} from "@core/core-ui/canvas-file-picker";
+import type {CanvasFile} from "@corensystem/core-ui/canvas-file-picker";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {CanvasFilePicker} from "@core/core-ui/canvas-file-picker";
+import {CanvasFilePicker} from "@corensystem/core-ui/canvas-file-picker";
 import {useState} from "react";
 
 const meta = {

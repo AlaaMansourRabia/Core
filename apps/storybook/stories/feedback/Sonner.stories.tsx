@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Alert, AlertDescription, AlertTitle} from "@core/core-ui/alert";
-import {Button} from "@core/core-ui/button";
-import {Toaster, toast} from "@core/core-ui/sonner";
+import {Alert, AlertDescription, AlertTitle} from "@corensystem/core-ui/alert";
+import {Button} from "@corensystem/core-ui/button";
+import {Toaster, toast} from "@corensystem/core-ui/sonner";
 
 // NOTE: toasts are transient and triggered by interaction, so a static Chromatic snapshot shows the
 // TRIGGER, not a floating toast (toasts animate + auto-dismiss — deliberately not snapshotted). Click
@@ -27,7 +27,7 @@ const meta = {
 					"**When to use:** brief, non-blocking confirmation of an action that should NOT take permanent page space " +
 					'("Settings saved", "Invite sent"). **When NOT to use:** persistent/contextual messages that belong in the ' +
 					"page — use `Alert` (inline) or `Banner` (page/section). **Wiring:** mount a single `<Toaster/>` at the app " +
-					"root and call `toast()` — both from `@core/core-ui/sonner`. Related: `Alert`, `Banner`, `Toast` (lower-level).",
+					"root and call `toast()` — both from `@corensystem/core-ui/sonner`. Related: `Alert`, `Banner`, `Toast` (lower-level).",
 			},
 		},
 	},
@@ -89,7 +89,7 @@ export const ToasterSetup: Story = {
 			description: {
 				story:
 					"**Required wiring.** Mount exactly one `<Toaster/>` near the app root; trigger toasts from anywhere with " +
-					"`toast()`. Both come from `@core/core-ui/sonner`. In these stories a decorator mounts the `<Toaster/>` for you.",
+					"`toast()`. Both come from `@corensystem/core-ui/sonner`. In these stories a decorator mounts the `<Toaster/>` for you.",
 			},
 		},
 	},
@@ -97,11 +97,11 @@ export const ToasterSetup: Story = {
 		<div className="wwc:flex wwc:flex-col wwc:gap-3 wwc:max-w-md">
 			<pre className="wwc:text-[12px] wwc:bg-muted wwc:rounded-md wwc:p-3 wwc:overflow-x-auto">
 				{`// app root (once)
-import { Toaster } from "@core/core-ui/sonner";
+import { Toaster } from "@corensystem/core-ui/sonner";
 <Toaster />
 
 // anywhere
-import { toast } from "@core/core-ui/sonner";
+import { toast } from "@corensystem/core-ui/sonner";
 toast.success("Settings saved");`}
 			</pre>
 			<Button variant="outline" onClick={() => toast.success("Settings saved")}>
@@ -116,8 +116,8 @@ export const CommonMistake: Story = {
 		docs: {
 			description: {
 				story:
-					"**Avoid: mixing toast systems.** `toast()` from `@core/core-ui/sonner` is rendered only by the Sonner " +
-					"`<Toaster/>` from the *same* package. Mounting the lower-level Radix `Toaster` (from `@core/core-ui/toaster`) " +
+					"**Avoid: mixing toast systems.** `toast()` from `@corensystem/core-ui/sonner` is rendered only by the Sonner " +
+					"`<Toaster/>` from the *same* package. Mounting the lower-level Radix `Toaster` (from `@corensystem/core-ui/toaster`) " +
 					"while calling Sonner's `toast()` — or forgetting the `<Toaster/>` entirely — means nothing appears. One Sonner " +
 					"`<Toaster/>`, one `toast()` import, same package.",
 			},

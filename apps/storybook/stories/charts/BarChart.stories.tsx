@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ChartContainer} from "@core/core-ui/chart";
+import {ChartContainer} from "@corensystem/core-ui/chart";
 
 const meta = {
 	title: "Widgets/Charts/Bar Chart",

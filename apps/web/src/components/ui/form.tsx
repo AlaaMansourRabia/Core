@@ -7,4 +7,4 @@ export {
 	FormDescription,
 	FormMessage,
 	FormField,
-} from "@core/core-ui/form";
+} from "@corensystem/core-ui/form";

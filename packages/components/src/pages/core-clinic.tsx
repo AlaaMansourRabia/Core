@@ -1,7 +1,7 @@
 import type {ColumnDef} from "@tanstack/react-table";
 import type {EChartsOption} from "echarts";
 
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {
 	Activity,
 	Archive,

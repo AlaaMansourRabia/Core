@@ -1,1 +1,1 @@
-export {InputGroup, InputGroupText} from "@core/core-ui/input-group";
+export {InputGroup, InputGroupText} from "@corensystem/core-ui/input-group";

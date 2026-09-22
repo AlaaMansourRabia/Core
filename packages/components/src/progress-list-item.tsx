@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {ChevronRight, ListTree} from "lucide-react";
 
 import {Badge} from "./badge";

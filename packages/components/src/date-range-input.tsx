@@ -1,6 +1,6 @@
 import type {DateRange} from "react-day-picker";
 
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {format} from "date-fns";
 import {CalendarIcon} from "lucide-react";
 import * as React from "react";

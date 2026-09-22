@@ -1,5 +1,5 @@
 {
-	"name": "@core/knowledge",
+	"name": "@corensystem/knowledge",
 	"version": "1.0.0",
 	"private": true,
 	"description": "Core Knowledge Platform — the versioned, transport-agnostic API over Core knowledge (resolve/search/validate/explain). Built from the canonical manifests + library-index; MCP is just one transport over this.",

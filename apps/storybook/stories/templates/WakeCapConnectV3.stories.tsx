@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {CoreConnectV3} from "@core/core-ui/pages/core-core-connect-v3";
+import {CoreConnectV3} from "@corensystem/core-ui/pages/core-core-connect-v3";
 
 import manifest from "../../../../manifests/core-connect-v3.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

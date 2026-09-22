@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {MapTransitionSurface, useMapTransition} from "@core/core-ui/map-transition";
+import {MapTransitionSurface, useMapTransition} from "@corensystem/core-ui/map-transition";
 import {useState} from "react";
 
 // The capture canvas "reload" transition (zoom-out → blur → spinner → zoom-back-in) as a standalone,

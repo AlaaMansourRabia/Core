@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 
 /** A placeholder animation shown while content is loading. */
 function Skeleton({className, ...props}: React.HTMLAttributes<HTMLDivElement>) {

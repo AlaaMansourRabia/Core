@@ -1,4 +1,4 @@
-export {Comment, CommentThread} from "@core/core-ui/comment-thread";
+export {Comment, CommentThread} from "@corensystem/core-ui/comment-thread";
 export type {
 	CommentAttachment,
 	CommentAuthor,
@@ -9,4 +9,4 @@ export type {
 	CommentProps,
 	CommentReaction,
 	CommentThreadProps,
-} from "@core/core-ui/comment-thread";
+} from "@corensystem/core-ui/comment-thread";

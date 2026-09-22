@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Heading} from "@core/core-ui/heading";
+import {Heading} from "@corensystem/core-ui/heading";
 
 const meta = {
 	title: "Components/Primitives/Heading",

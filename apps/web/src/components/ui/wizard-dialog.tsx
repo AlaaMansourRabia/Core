@@ -1,2 +1,2 @@
-export {WizardDialog} from "@core/core-ui/wizard-dialog";
-export type {WizardDialogProps, WizardStep} from "@core/core-ui/wizard-dialog";
+export {WizardDialog} from "@corensystem/core-ui/wizard-dialog";
+export type {WizardDialogProps, WizardStep} from "@corensystem/core-ui/wizard-dialog";

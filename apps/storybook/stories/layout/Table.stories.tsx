@@ -9,7 +9,7 @@ import {
 	TableHead,
 	TableHeader,
 	TableRow,
-} from "@core/core-ui/table";
+} from "@corensystem/core-ui/table";
 
 const meta = {
 	title: "Components/Layout/Table",

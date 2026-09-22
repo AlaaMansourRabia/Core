@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {PermissionMatrix, type PermissionMatrixCategory} from "@core/core-ui/permission-matrix";
+import {PermissionMatrix, type PermissionMatrixCategory} from "@corensystem/core-ui/permission-matrix";
 import {useState} from "react";
 
 const categories: PermissionMatrixCategory[] = [

@@ -1,1 +1,1 @@
-export {Tabs, TabsList, TabsTrigger, TabsContent} from "@core/core-ui/tabs";
+export {Tabs, TabsList, TabsTrigger, TabsContent} from "@corensystem/core-ui/tabs";

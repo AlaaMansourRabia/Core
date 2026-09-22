@@ -16,7 +16,7 @@ import {
 	ContextMenuSubContent,
 	ContextMenuSubTrigger,
 	ContextMenuTrigger,
-} from "@core/core-ui/context-menu";
+} from "@corensystem/core-ui/context-menu";
 import {useState} from "react";
 
 const meta = {

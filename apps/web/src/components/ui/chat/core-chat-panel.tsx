@@ -1,1 +1,1 @@
-export {ChatPanel} from "@core/core-ui/chat/core-chat-panel";
+export {ChatPanel} from "@corensystem/core-ui/chat/core-chat-panel";

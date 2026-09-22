@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import {X} from "lucide-react";
 import * as React from "react";

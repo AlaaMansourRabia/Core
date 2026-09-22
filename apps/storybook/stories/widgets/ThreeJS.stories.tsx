@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {FragmentViewer, FragmentViewerProvider} from "@core/core-ui/fragment-viewer";
-import {ViewerToolbar} from "@core/core-ui/viewer-toolbar";
+import {FragmentViewer, FragmentViewerProvider} from "@corensystem/core-ui/fragment-viewer";
+import {ViewerToolbar} from "@corensystem/core-ui/viewer-toolbar";
 import workerUrl from "@thatopen/fragments/worker?url";
 
 import manifest from "../../../../manifests/fragment-viewer.widget.json";

@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {ChevronDown, ChevronUp, GripVertical, Plus, Trash2} from "lucide-react";
 import * as React from "react";
 

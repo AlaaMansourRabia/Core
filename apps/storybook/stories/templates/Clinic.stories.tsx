@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Clinic} from "@core/core-ui/pages/core-clinic";
+import {Clinic} from "@corensystem/core-ui/pages/core-clinic";
 
 import manifest from "../../../../manifests/clinic.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {BrowserTabs, type BrowserTabItem} from "@core/core-ui/browser-tabs";
+import {BrowserTabs, type BrowserTabItem} from "@corensystem/core-ui/browser-tabs";
 import {Activity, BarChart3, FileText, Folder, Settings} from "lucide-react";
 import {useState} from "react";
 

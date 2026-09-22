@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {ArrowUpRight, Check, Copy, X} from "lucide-react";
 import {useState} from "react";
 

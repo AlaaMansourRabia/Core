@@ -19,7 +19,7 @@
 		"format:check": "oxfmt --check ."
 	},
 	"dependencies": {
-		"@core/knowledge": "workspace:*",
+		"@corensystem/knowledge": "workspace:*",
 		"@modelcontextprotocol/sdk": "1.29.0"
 	},
 	"devDependencies": {

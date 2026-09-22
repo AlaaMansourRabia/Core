@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 // Star rating control — Core has no rating primitive, so this is a small purpose-built
 // widget composed from lucide's Star + the repo's prefixed Tailwind utilities + cn. Keyboard-accessible
 // (arrow keys / number keys), controlled via value/onChange.

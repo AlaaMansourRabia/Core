@@ -1,8 +1,8 @@
 {
-	"name": "@core/core-tokens",
+	"name": "@corensystem/core-tokens",
 	"version": "1.0.0",
 	"publishConfig": {
-		"registry": "https://npm.pkg.github.com"
+		"access": "public"
 	},
 	"type": "module",
 	"sideEffects": [

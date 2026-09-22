@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
+import {Button} from "@corensystem/core-ui/button";
 import {
 	Filter,
 	FilterCategory,
@@ -8,8 +8,8 @@ import {
 	FilterOption,
 	FilterTrigger,
 	type FilterValue,
-} from "@core/core-ui/filter";
-import {SearchFilterBar, type SearchFilterBarFilter} from "@core/core-ui/search-filter-bar";
+} from "@corensystem/core-ui/filter";
+import {SearchFilterBar, type SearchFilterBarFilter} from "@corensystem/core-ui/search-filter-bar";
 import {Plus} from "lucide-react";
 import {useState} from "react";
 

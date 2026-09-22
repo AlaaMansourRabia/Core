@@ -1,1 +1,1 @@
-export {Field, FieldLabel, FieldDescription, FieldError} from "@core/core-ui/field";
+export {Field, FieldLabel, FieldDescription, FieldError} from "@corensystem/core-ui/field";

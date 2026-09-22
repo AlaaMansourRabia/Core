@@ -1,6 +1,6 @@
 import type {ComponentType, ReactElement, SVGProps} from "react";
 
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import {ClipboardList, FileText, Flag, Search, Workflow} from "lucide-react";
 
 import {Badge} from "../badge";

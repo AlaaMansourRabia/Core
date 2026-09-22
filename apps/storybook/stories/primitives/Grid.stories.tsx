@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Grid} from "@core/core-ui/grid";
+import {Grid} from "@corensystem/core-ui/grid";
 
 const meta = {
 	title: "Components/Primitives/Grid",

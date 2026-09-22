@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {HealthView} from "@core/core-ui/pages/health-view";
+import {HealthView} from "@corensystem/core-ui/pages/health-view";
 
 const meta = {
 	title: "Widgets/Connect/Health View",

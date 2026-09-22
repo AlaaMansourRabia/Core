@@ -1,1 +1,1 @@
-export {BlueprintViewer} from "@core/core-ui/pages/core-blueprint-viewer";
+export {BlueprintViewer} from "@corensystem/core-ui/pages/core-blueprint-viewer";

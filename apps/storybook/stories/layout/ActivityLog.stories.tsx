@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ActivityActor, ActivityItem, ActivityLog, ActivityRef} from "@core/core-ui/activity-log";
+import {ActivityActor, ActivityItem, ActivityLog, ActivityRef} from "@corensystem/core-ui/activity-log";
 import {Link2, MessageSquare, Paperclip, Reply, Trash2} from "lucide-react";
 
 const meta = {

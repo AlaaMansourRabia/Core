@@ -1,5 +1,5 @@
 {
-	"name": "@core/core-utils",
+	"name": "@corensystem/core-utils",
 	"version": "1.0.0",
 	"bin": {
 		"intent": "./bin/intent.js"
@@ -21,7 +21,7 @@
 		}
 	},
 	"publishConfig": {
-		"registry": "https://npm.pkg.github.com"
+		"access": "public"
 	},
 	"scripts": {
 		"build": "tsc src/index.ts --outDir dist --module ESNext --moduleResolution bundler --declaration --target ES2022 && mv dist/index.js dist/index.mjs && mv dist/index.d.ts dist/index.d.mts",

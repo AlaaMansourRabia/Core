@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Slider} from "@core/core-ui/slider";
+import {Slider} from "@corensystem/core-ui/slider";
 import {expect, userEvent, within} from "storybook/test";
 
 const meta = {

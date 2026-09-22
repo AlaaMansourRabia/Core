@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@core/core-ui/accordion";
+import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@corensystem/core-ui/accordion";
 import {expect, userEvent, within} from "storybook/test";
 
 const meta = {

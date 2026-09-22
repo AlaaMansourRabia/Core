@@ -1,1 +1,1 @@
-export {MapControls, mapStyles, MAPBOX_TOKEN} from "@core/core-ui/map-controls";
+export {MapControls, mapStyles, MAPBOX_TOKEN} from "@corensystem/core-ui/map-controls";

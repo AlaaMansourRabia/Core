@@ -12,7 +12,7 @@ import {
 	TypographyMuted,
 	TypographyP,
 	TypographySmall,
-} from "@core/core-ui/typography";
+} from "@corensystem/core-ui/typography";
 
 const meta = {
 	title: "Components/Data Display/Typography",
@@ -129,7 +129,7 @@ export const FontResources: Story = {
 		docs: {
 			description: {
 				story:
-					"Every declared family, rendered from the WOFF2 files bundled in `@core/core-tokens` — no runtime request to a third-party host. If the fonts ever stop resolving, this story falls back to a system stack and the diff shows it.",
+					"Every declared family, rendered from the WOFF2 files bundled in `@corensystem/core-tokens` — no runtime request to a third-party host. If the fonts ever stop resolving, this story falls back to a system stack and the diff shows it.",
 			},
 		},
 	},

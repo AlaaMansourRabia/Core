@@ -1,8 +1,8 @@
 import {StrictMode} from "react";
 import {createRoot} from "react-dom/client";
 
-import {Workforce} from "@core/core-ui/pages/core-workforce";
-import "@core/core-ui/styles.css";
+import {Workforce} from "@corensystem/core-ui/pages/core-workforce";
+import "@corensystem/core-ui/styles.css";
 import "./fonts.css";
 
 // `mapStage` is omitted deliberately: the Map View tab needs a 3D/map engine mounted by the host app,

@@ -1,4 +1,4 @@
-import {cn} from "@core/core-utils";
+import {cn} from "@corensystem/core-utils";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 import * as React from "react";
 

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {StatusDot} from "@core/core-ui/status-dot";
+import {StatusDot} from "@corensystem/core-ui/status-dot";
 
 const meta = {
 	title: "Components/Primitives/StatusDot",

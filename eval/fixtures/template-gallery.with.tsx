@@ -1,6 +1,6 @@
-import {Card, CardContent, CardTitle} from "@core/core-ui/card";
-import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@core/core-ui/dialog";
-import {SearchFilterBar} from "@core/core-ui/search-filter-bar";
+import {Card, CardContent, CardTitle} from "@corensystem/core-ui/card";
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@corensystem/core-ui/dialog";
+import {SearchFilterBar} from "@corensystem/core-ui/search-filter-bar";
 
 export function TemplateGallery({templates, onSearch}) {
 	return (

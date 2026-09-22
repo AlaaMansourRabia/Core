@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {TooltipProvider} from "@core/core-ui/tooltip";
+import {TooltipProvider} from "@corensystem/core-ui/tooltip";
 
 // Renders the standalone Site Viewer (prototypes/capture) — the site-level model with the villa
 // colour-selection options and a click-into-a-villa → full house-level 3D transition.

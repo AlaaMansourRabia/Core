@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@core/core-ui/button";
-import {Toaster, toast} from "@core/core-ui/sonner";
+import {Button} from "@corensystem/core-ui/button";
+import {Toaster, toast} from "@corensystem/core-ui/sonner";
 
 const meta = {
 	title: "Components/Feedback/Toast",

@@ -1,2 +1,2 @@
-export {Badge, badgeVariants} from "@core/core-ui/badge";
-export type {BadgeProps} from "@core/core-ui/badge";
+export {Badge, badgeVariants} from "@corensystem/core-ui/badge";
+export type {BadgeProps} from "@corensystem/core-ui/badge";
