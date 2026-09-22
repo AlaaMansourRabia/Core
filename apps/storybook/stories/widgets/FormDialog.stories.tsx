@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {Combobox} from "@wakecap/core-ui/combobox";
-import {FormDialog, FormDialogField, FormDialogNote, FormDialogRow} from "@wakecap/core-ui/form-dialog";
-import {Input} from "@wakecap/core-ui/input";
-import {Textarea} from "@wakecap/core-ui/textarea";
-import {ToggleGroup, ToggleGroupItem} from "@wakecap/core-ui/toggle-group";
+import {Button} from "@core/core-ui/button";
+import {Combobox} from "@core/core-ui/combobox";
+import {FormDialog, FormDialogField, FormDialogNote, FormDialogRow} from "@core/core-ui/form-dialog";
+import {Input} from "@core/core-ui/input";
+import {Textarea} from "@core/core-ui/textarea";
+import {ToggleGroup, ToggleGroupItem} from "@core/core-ui/toggle-group";
 import {useState} from "react";
 
 const OBJECT_TYPES = [

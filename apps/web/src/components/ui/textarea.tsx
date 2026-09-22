@@ -1,1 +1,1 @@
-export {Textarea} from "@wakecap/core-ui/textarea";
+export {Textarea} from "@core/core-ui/textarea";

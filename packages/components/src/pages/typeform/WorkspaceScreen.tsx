@@ -1,4 +1,4 @@
-// Workspace / forms dashboard — the entry point. Lists the user's forms (Wakecore DataTable with
+// Workspace / forms dashboard — the entry point. Lists the user's forms (Core DataTable with
 // sortable columns) and starts a new one.
 import type {ColumnDef} from "@tanstack/react-table";
 

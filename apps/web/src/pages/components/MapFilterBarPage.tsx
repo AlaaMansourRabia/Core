@@ -33,7 +33,7 @@ export function MapFilterBarPage() {
 				<p className="wwc:mt-2 wwc:max-w-2xl wwc:text-muted-foreground">
 					A horizontal, Airbnb-style filter bar for a map: a leading <strong>Filters</strong> button with an
 					active-count badge, a divider, and a horizontally scrollable row of toggleable filter chips. Composed from
-					stock WakeCore components — <code className="wwc:rounded wwc:bg-muted wwc:px-1 wwc:text-xs">Button</code>,{" "}
+					stock Core components — <code className="wwc:rounded wwc:bg-muted wwc:px-1 wwc:text-xs">Button</code>,{" "}
 					<code className="wwc:rounded wwc:bg-muted wwc:px-1 wwc:text-xs">Badge</code>,{" "}
 					<code className="wwc:rounded wwc:bg-muted wwc:px-1 wwc:text-xs">ToolbarSeparator</code>, and{" "}
 					<code className="wwc:rounded wwc:bg-muted wwc:px-1 wwc:text-xs">Chip</code> — used as-is.

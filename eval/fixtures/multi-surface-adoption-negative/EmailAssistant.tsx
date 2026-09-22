@@ -1,8 +1,8 @@
-import {ArrowLeft, Button, CoreAiChat, PromptInput} from "@wakecap/core-ui";
+import {ArrowLeft, Button, CoreAiChat, PromptInput} from "@core/core-ui";
 
 export function EmailAssistant() {
 	return (
-		<main data-wakecore-region="email-assistant">
+		<main data-core-region="email-assistant">
 			<Button onClick={() => window.location.assign("/")}>
 				<ArrowLeft /> Back
 			</Button>

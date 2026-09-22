@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/types";
+export * from "@core/core-ui/types";

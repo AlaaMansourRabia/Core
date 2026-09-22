@@ -1,2 +1,2 @@
-export {Calendar} from "@wakecap/core-ui/calendar";
-export type {CalendarProps} from "@wakecap/core-ui/calendar";
+export {Calendar} from "@core/core-ui/calendar";
+export type {CalendarProps} from "@core/core-ui/calendar";

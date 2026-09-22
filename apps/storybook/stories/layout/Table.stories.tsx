@@ -9,7 +9,7 @@ import {
 	TableHead,
 	TableHeader,
 	TableRow,
-} from "@wakecap/core-ui/table";
+} from "@core/core-ui/table";
 
 const meta = {
 	title: "Components/Layout/Table",

@@ -1,17 +1,17 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import workerUrl from "@thatopen/fragments/worker?url";
-import {Badge} from "@wakecap/core-ui/badge";
+import {Badge} from "@core/core-ui/badge";
 import {
 	FragmentViewer,
 	FragmentViewerProvider,
 	useFragmentViewer,
 	type FragmentSelection,
-} from "@wakecap/core-ui/fragment-viewer";
-import {SiteReality} from "@wakecap/core-ui/pages/core-site-reality";
-import {PropertyList, PropertyRow} from "@wakecap/core-ui/property-list";
-import {SectionPanel} from "@wakecap/core-ui/section-panel";
-import {ViewerToolbar} from "@wakecap/core-ui/viewer-toolbar";
+} from "@core/core-ui/fragment-viewer";
+import {SiteReality} from "@core/core-ui/pages/core-site-reality";
+import {PropertyList, PropertyRow} from "@core/core-ui/property-list";
+import {SectionPanel} from "@core/core-ui/section-panel";
+import {ViewerToolbar} from "@core/core-ui/viewer-toolbar";
+import workerUrl from "@thatopen/fragments/worker?url";
 import {Boxes} from "lucide-react";
 
 import manifest from "../../../../manifests/site-reality.template.json";

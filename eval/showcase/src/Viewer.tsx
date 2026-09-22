@@ -153,7 +153,7 @@ function TaskCard({task, onFull}: {task: Task; onFull: (title: string, file: str
 
 			<div style={{display: "flex", gap: 16, padding: 20, flexWrap: "wrap", alignItems: "stretch"}}>
 				<Panel label="A1 · package only (fair baseline)" arm={task.arms.A1} onFull={() => task.arms.A1.file && onFull(`${task.title} · A1`, task.arms.A1.file)} />
-				<Panel label="A4 · with WakeCore knowledge" arm={task.arms.A4} onFull={() => task.arms.A4.file && onFull(`${task.title} · A4`, task.arms.A4.file)} />
+				<Panel label="A4 · with Core knowledge" arm={task.arms.A4} onFull={() => task.arms.A4.file && onFull(`${task.title} · A4`, task.arms.A4.file)} />
 			</div>
 
 			<div style={{padding: "0 20px 18px"}}>
@@ -182,9 +182,9 @@ export function Viewer() {
 	return (
 		<div style={{width: "100%", padding: "28px 32px 60px", boxSizing: "border-box"}}>
 			<header style={{margin: "0 0 24px"}}>
-				<h1 style={{margin: "0 0 6px", font: "700 24px system-ui"}}>WakeCore Showcase — A1 vs A4</h1>
+				<h1 style={{margin: "0 0 6px", font: "700 24px system-ui"}}>Core Showcase — A1 vs A4</h1>
 				<p style={{margin: "0 0 4px", font: "14px system-ui", color: "#444"}}>
-					Local visual comparison: package-only baseline (A1) vs full WakeCore knowledge (A4), same prompt and theme. Use <strong>⛶ Full screen</strong> on any output to inspect overlays (Sheet/Dialog/Toast) and wide tables at true size.
+					Local visual comparison: package-only baseline (A1) vs full Core knowledge (A4), same prompt and theme. Use <strong>⛶ Full screen</strong> on any output to inspect overlays (Sheet/Dialog/Toast) and wide tables at true size.
 				</p>
 				<p style={{margin: 0, font: "13px system-ui", color: "#a15", background: "#fff4f6", border: "1px solid #f3d3da", borderRadius: 6, padding: "8px 10px"}}>
 					This is a visual example, not statistical proof. Aggregate evidence lives in <code>eval/EVIDENCE.md</code>.

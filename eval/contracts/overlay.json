@@ -6,7 +6,7 @@
 			"commonMistakes": [
 				{"wrong": "<Button size=\"icon\">", "why": "Button has no \"icon\" size; sizes are default|sm|lg. Icon buttons use the boolean `icon` prop.", "right": "<Button icon variant=\"ghost\" aria-label=\"…\"><SomeIcon /></Button>"}
 			],
-			"minimalExample": "import { Button } from \"@wakecap/core-ui/button\";\n<Button variant=\"destructive\">Delete</Button>"
+			"minimalExample": "import { Button } from \"@core/core-ui/button\";\n<Button variant=\"destructive\">Delete</Button>"
 		},
 		"Form": {
 			"forbiddenProps": [],
@@ -30,14 +30,14 @@
 				{"wrong": "searchKey that is not a real column id", "why": "searchKey must match a column accessorKey/id, or filtering silently does nothing.", "right": "columns include { accessorKey: \"name\" } → searchKey=\"name\""},
 				{"wrong": "using plain Table for sortable/filterable/paged data", "why": "DataTable provides sorting/filtering/pagination built-in.", "right": "<DataTable columns={cols} data={rows} searchKey=\"name\" />"}
 			],
-			"minimalExample": "import { DataTable } from \"@wakecap/core-ui/data-table\";\n<DataTable columns={columns} data={data} searchKey=\"name\" />"
+			"minimalExample": "import { DataTable } from \"@core/core-ui/data-table\";\n<DataTable columns={columns} data={data} searchKey=\"name\" />"
 		},
 		"Stepper": {
 			"forbiddenProps": ["activeStep"],
 			"commonMistakes": [
 				{"wrong": "<Stepper activeStep={n}>", "why": "There is no activeStep prop — it leaks onto a DOM node. The current step is `value` (number); each StepperItem takes `step` (number).", "right": "<Stepper value={current}> <StepperItem step={0}>…</StepperItem> </Stepper>"}
 			],
-			"minimalExample": "import { Stepper, StepperItem, StepperIndicator, StepperLabel } from \"@wakecap/core-ui/stepper\";\n<Stepper value={current}>\n  <StepperItem step={0}><StepperIndicator /><StepperLabel>Details</StepperLabel></StepperItem>\n</Stepper>"
+			"minimalExample": "import { Stepper, StepperItem, StepperIndicator, StepperLabel } from \"@core/core-ui/stepper\";\n<Stepper value={current}>\n  <StepperItem step={0}><StepperIndicator /><StepperLabel>Details</StepperLabel></StepperItem>\n</Stepper>"
 		},
 		"ChartContainer": {
 			"forbiddenProps": [],
@@ -45,19 +45,19 @@
 				{"wrong": "import ReactECharts from \"echarts-for-react\" (or using echarts directly)", "why": "Use ChartContainer — it owns theming and the echarts instance (fm-chart-1).", "right": "<ChartContainer option={echartsOption} />"},
 				{"wrong": "<ChartContainer> without `option`", "why": "option (EChartsOption) is required.", "right": "<ChartContainer option={{ xAxis, yAxis, series }} height={300} />"}
 			],
-			"minimalExample": "import { ChartContainer } from \"@wakecap/core-ui/chart\";\n<ChartContainer height={300} option={{ xAxis: { type: \"category\", data: months }, yAxis: { type: \"value\" }, series: [{ type: \"line\", data: values }] }} />"
+			"minimalExample": "import { ChartContainer } from \"@core/core-ui/chart\";\n<ChartContainer height={300} option={{ xAxis: { type: \"category\", data: months }, yAxis: { type: \"value\" }, series: [{ type: \"line\", data: values }] }} />"
 		},
 		"Sheet": {
 			"commonMistakes": [
 				{"wrong": "using Dialog for an edge/side panel", "why": "Sheet slides in from an edge; Dialog is a centered modal.", "right": "<Sheet><SheetTrigger asChild>…</SheetTrigger><SheetContent side=\"right\">…</SheetContent></Sheet>"}
 			],
-			"minimalExample": "import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from \"@wakecap/core-ui/sheet\";\n<Sheet><SheetTrigger asChild><Button>Open</Button></SheetTrigger><SheetContent side=\"right\"><SheetHeader><SheetTitle>Edit</SheetTitle></SheetHeader></SheetContent></Sheet>"
+			"minimalExample": "import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from \"@core/core-ui/sheet\";\n<Sheet><SheetTrigger asChild><Button>Open</Button></SheetTrigger><SheetContent side=\"right\"><SheetHeader><SheetTitle>Edit</SheetTitle></SheetHeader></SheetContent></Sheet>"
 		},
 		"Dialog": {
 			"commonMistakes": [
 				{"wrong": "<DialogContent> without a <Dialog> root", "why": "DialogContent must live inside Dialog (with DialogTrigger or controlled open).", "right": "<Dialog><DialogTrigger asChild>…</DialogTrigger><DialogContent>…</DialogContent></Dialog>"}
 			],
-			"minimalExample": "import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from \"@wakecap/core-ui/dialog\";\n<Dialog><DialogTrigger asChild><Button>Open</Button></DialogTrigger><DialogContent><DialogHeader><DialogTitle>Title</DialogTitle></DialogHeader></DialogContent></Dialog>"
+			"minimalExample": "import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from \"@core/core-ui/dialog\";\n<Dialog><DialogTrigger asChild><Button>Open</Button></DialogTrigger><DialogContent><DialogHeader><DialogTitle>Title</DialogTitle></DialogHeader></DialogContent></Dialog>"
 		}
 	}
 }

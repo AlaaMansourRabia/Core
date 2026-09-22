@@ -1,7 +1,7 @@
 // A1 — illustrative fair-baseline (hand-authored, NOT model-captured).
 // Package-only knowledge: a plain static Table — no sorting, no filter, no pagination.
-// WakeCore guidance (A4) would choose DataTable, which provides those built in.
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@wakecap/core-ui/table";
+// Core guidance (A4) would choose DataTable, which provides those built in.
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@core/core-ui/table";
 
 const workers = [
 	{name: "Aisha Khan", role: "Foreman", site: "Tower A"},

@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
+import {BuildingViewer} from "@core/core-ui/pages/core-building-viewer";
 import workerUrl from "@thatopen/fragments/worker?url";
-import {BuildingViewer} from "@wakecap/core-ui/pages/core-building-viewer";
 
 // The "Main Views" variation of the Building Viewer template's 3D Viewer — the 3D sibling of the
 // Blueprint Viewer, built from the main core-ui views (BuildingProgress + WeekSelector chrome). The

@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import * as React from "react";
 
 import {Progress, type ProgressTone} from "./progress";

@@ -1,7 +1,7 @@
 import type {ColumnDef, Row} from "@tanstack/react-table";
 import type {ReactElement} from "react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {ArrowUpRight, Plus} from "lucide-react";
 import {useCallback, useMemo, useState} from "react";
 
@@ -178,7 +178,7 @@ function GraphMarkers({facts}: {facts: Wc3ProcessFacts}): ReactElement | null {
 		<span className="wwc:flex wwc:items-center wwc:gap-1">
 			{facts.customStateCount > 0 ? (
 				<HoverTooltip
-					content={`${facts.customStateCount} state(s) added on top of wakecap-standard-v1 — not part of the vendor default graph.`}
+					content={`${facts.customStateCount} state(s) added on top of core-standard-v1 — not part of the vendor default graph.`}
 				>
 					<span>
 						<CustomTag />

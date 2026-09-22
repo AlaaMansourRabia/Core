@@ -1,1 +1,1 @@
-export {Skeleton} from "@wakecap/core-ui/skeleton";
+export {Skeleton} from "@core/core-ui/skeleton";

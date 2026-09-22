@@ -1,5 +1,5 @@
+import {cn} from "@core/core-utils";
 import {Slot} from "@radix-ui/react-slot";
-import {cn} from "@wakecap/core-utils";
 import {ChevronRight, MoreHorizontal} from "lucide-react";
 import * as React from "react";
 

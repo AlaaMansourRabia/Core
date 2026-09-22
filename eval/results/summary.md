@@ -1,4 +1,4 @@
-# WakeCore agent eval — with vs without the knowledge layer
+# Core agent eval — with vs without the knowledge layer
 
 > ℹ️ **Regrade** — recomputed from the raw generations in `eval/results/runs/2026-06-18T11-47-48-077Z` with the current graders (no new model calls). Provenance: a live claude-opus-4-8 run.
 

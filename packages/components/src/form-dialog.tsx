@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import * as React from "react";
 
 import {Button} from "./button";
@@ -132,7 +132,7 @@ export function FormDialog({
 	return (
 		<Dialog open={open} onOpenChange={close}>
 			<DialogContent
-				data-wakecore-artifact="form-dialog"
+				data-core-artifact="form-dialog"
 				className={cn("wwc:w-[calc(100vw-2rem)]", className)}
 				style={{maxWidth: width}}
 			>

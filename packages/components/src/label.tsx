@@ -1,5 +1,5 @@
+import {cn} from "@core/core-utils";
 import * as LabelPrimitive from "@radix-ui/react-label";
-import {cn} from "@wakecap/core-utils";
 import {type VariantProps, cva} from "class-variance-authority";
 import * as React from "react";
 

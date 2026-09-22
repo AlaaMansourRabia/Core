@@ -23,8 +23,8 @@
  * ── Adding to it ─────────────────────────────────────────────────────────────
  * A new tone must be appended, never inserted — inserting renumbers every consumer and silently
  * recolours surfaces that had nothing to do with the change. New class strings also need adding to the
- * two hand-maintained prebuilt stylesheets (`apps/studio/public/vendor/wakecore-render.css` and
- * `integrations/open-design/renderer/wakecore-render.css`), which have no generator — miss them and
+ * two hand-maintained prebuilt stylesheets (`apps/studio/public/vendor/core-render.css` and
+ * `integrations/open-design/renderer/core-render.css`), which have no generator — miss them and
  * Studio and open-design render the chip unstyled.
  */
 export type Tone = {

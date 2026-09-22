@@ -1,14 +1,14 @@
-import {Button} from "@wakecap/core-ui/button";
-import {CoreAppSidebar, type SidebarNavGroup} from "@wakecap/core-ui/navigation/core-app-sidebar";
-import {CoreAppTopBar} from "@wakecap/core-ui/navigation/core-app-top-bar";
+import {Button} from "@core/core-ui/button";
+import {CoreAppSidebar, type SidebarNavGroup} from "@core/core-ui/navigation/core-app-sidebar";
+import {CoreAppTopBar} from "@core/core-ui/navigation/core-app-top-bar";
 import {Blocks, BookOpen, Boxes, ExternalLink, Github, Moon, Palette, Shapes, Sun, Terminal, Wand2} from "lucide-react";
 import {useEffect, useRef, useState} from "react";
 
 import DeveloperAccess from "./DeveloperAccess";
 
-// The Hub: one localhost (:4000), built from WakeCore's own app shell —
+// The Hub: one localhost (:4000), built from Core's own app shell —
 // CoreAppSidebar (the 3 feature tabs) + CoreAppTopBar. Each tab swaps the stage:
-//  - Studio       → the WakeCore Studio, embedded live (runs on :5001)
+//  - Studio       → the Core Studio, embedded live (runs on :5001)
 //  - Storybook    → a page holding just the Storybook link (runs on :6006)
 //  - Designers Hub → the web showcase, embedded live (runs on :5002)
 //  - WC3 Viewers  → the wc3-engineering-viewer workspace shell, embedded live (runs on :5180)
@@ -34,7 +34,7 @@ function readEnv(key: string): string | undefined {
 const STUDIO_URL = readEnv("VITE_STUDIO_URL") ?? "http://localhost:5001";
 const STORYBOOK_URL = readEnv("VITE_STORYBOOK_URL") ?? "http://localhost:6006";
 const DESIGNER_URL = readEnv("VITE_DESIGNER_URL") ?? "http://localhost:5002";
-// The WC3 3D/BIM spikes live in a separate repo (wakecap/wc3-engineering-viewer). Its workspace shell
+// The WC3 3D/BIM spikes live in a separate repo (core/wc3-engineering-viewer). Its workspace shell
 // already navigates between the eight viewers, so the hub embeds that one URL instead of each viewer.
 const WC3_SHELL_URL = readEnv("VITE_WC3_SHELL_URL") ?? "http://127.0.0.1:5180";
 // The upstream That Open (github.com/ThatOpen) repos, served straight from their own dev servers so
@@ -66,7 +66,7 @@ const TOC_SOURCES = [
 const IMG2THREE_URL = readEnv("VITE_IMG2THREE_URL") ?? "http://127.0.0.1:5401";
 const THEME_KEY = "wc-hub-theme";
 
-export const wakecoreInventory = {
+export const coreInventory = {
 	templates: ["MapCompareLayout"],
 	widgets: ["CoreAppSidebar", "CoreAppTopBar", "FragmentViewer", "ToolbarStats", "WorkerProfile"],
 	components: ["AppCard", "Card", "ImageZoom", "Sidebar", "TimeScrubber", "TreeRow"],
@@ -185,27 +185,27 @@ export default function App() {
 
 	const activeLabel =
 		active === "studio" && studioLabel
-			? `WakeCore / Studio / ${studioLabel}`
+			? `Core / Studio / ${studioLabel}`
 			: active === "designer" && designerLabel
-				? `WakeCore / Designers Hub / ${designerLabel}`
-				: `WakeCore / ${feature.label}`;
+				? `Core / Designers Hub / ${designerLabel}`
+				: `Core / ${feature.label}`;
 
 	return (
 		<div
 			className="wwc:flex wwc:h-screen wwc:bg-background wwc:text-foreground"
-			data-wakecore-shell="wakecore-catalog-shell"
-			data-wakecore-density="comfortable"
-			data-wakecore-brand="wakecore"
-			data-wakecore-navigation-fingerprint="wakecore-catalog-navigation"
-			data-wakecore-provider-owner="application-root"
+			data-core-shell="core-catalog-shell"
+			data-core-density="comfortable"
+			data-core-brand="core"
+			data-core-navigation-fingerprint="core-catalog-navigation"
+			data-core-provider-owner="application-root"
 		>
 			<div
 				className="wwc:border-r wwc:border-border wwc:flex-shrink-0"
-				data-wakecore-sidebar="catalog-navigation"
-				data-wakecore-artifact="core-app-sidebar"
-				data-wakecore-density="comfortable"
-				data-wakecore-navigation-fingerprint="wakecore-catalog-navigation"
-				data-wakecore-region="catalog"
+				data-core-sidebar="catalog-navigation"
+				data-core-artifact="core-app-sidebar"
+				data-core-density="comfortable"
+				data-core-navigation-fingerprint="core-catalog-navigation"
+				data-core-region="catalog"
 			>
 				<CoreAppSidebar
 					seamless
@@ -214,19 +214,19 @@ export default function App() {
 					showFooter={false}
 					logo={
 						<img
-							src="/wakecore-large.svg"
-							alt="WakeCore"
+							src="/core-large.svg"
+							alt="Core"
 							className="wwc:h-5 wwc:w-auto wwc:max-w-full wwc:invert wwc:dark:invert-0"
 						/>
 					}
 					logoCollapsed={
-						<img src="/wakecore-small.svg" alt="WakeCore" className="wwc:h-6 wwc:w-auto wwc:invert wwc:dark:invert-0" />
+						<img src="/core-small.svg" alt="Core" className="wwc:h-6 wwc:w-auto wwc:invert wwc:dark:invert-0" />
 					}
 					viewLevel="project"
 					projectGroups={NAV_GROUPS}
 					footerContent={
 						<div className="wwc:rounded-lg wwc:bg-muted/40 wwc:p-3">
-							<div className="wwc:text-xs wwc:font-semibold wwc:text-foreground">WakeCore</div>
+							<div className="wwc:text-xs wwc:font-semibold wwc:text-foreground">Core</div>
 							<p className="wwc:mt-1 wwc:text-[11px] wwc:leading-relaxed wwc:text-muted-foreground">
 								One artifact library — tokens, components, widgets, templates — behind Studio, Storybook, and the
 								Designers Hub.
@@ -251,9 +251,9 @@ export default function App() {
 					rightContent={
 						<div className="wwc:ml-auto wwc:flex wwc:items-center wwc:gap-1">
 							<Button variant="outline" size="sm" asChild className="wwc:h-8 wwc:rounded-full">
-								<a href="https://github.com/wakecap/Wakecore" target="_blank" rel="noopener noreferrer">
+								<a href="https://github.com/core/Core" target="_blank" rel="noopener noreferrer">
 									<Github />
-									Wakecore
+									Core
 								</a>
 							</Button>
 							<Button
@@ -271,22 +271,20 @@ export default function App() {
 
 				<main
 					className="wwc:flex-1 wwc:overflow-hidden"
-					data-wakecore-content-scroll
-					data-wakecore-scroll-owner="route-content"
-					data-wakecore-region={
-						active === "designer" && designerTemplateId ? `${designerTemplateId}-template` : "catalog"
-					}
-					data-wakecore-artifact={active === "designer" ? designerTemplateId : undefined}
-					data-wakecore-interaction={
+					data-core-content-scroll
+					data-core-scroll-owner="route-content"
+					data-core-region={active === "designer" && designerTemplateId ? `${designerTemplateId}-template` : "catalog"}
+					data-core-artifact={active === "designer" ? designerTemplateId : undefined}
+					data-core-interaction={
 						active === "designer" && designerTemplateId ? "open template from Designer navigation" : undefined
 					}
-					data-wakecore-surface-owner="route"
-					data-wakecore-canvas-capabilities={
+					data-core-surface-owner="route"
+					data-core-canvas-capabilities={
 						active === "designer" ? "render-fragment-model,fallback-model,unbranded-canvas" : undefined
 					}
-					data-wakecore-observable-state-changed={active === "designer" ? "true" : undefined}
+					data-core-observable-state-changed={active === "designer" ? "true" : undefined}
 				>
-					{active === "studio" && <Embed title="WakeCore Studio" url={STUDIO_URL} dark={dark} />}
+					{active === "studio" && <Embed title="Core Studio" url={STUDIO_URL} dark={dark} />}
 					{active === "storybook" && <StorybookLink dark={dark} />}
 					{active === "designer" && <Embed title="Designers Hub" url={designerSrc} dark={dark} />}
 					{active === "viewers" && (
@@ -297,8 +295,8 @@ export default function App() {
 							startCommand="WC3=1 pnpm hub"
 							hint={
 								<>
-									Clone <code>wakecap/wc3-engineering-viewer</code> and <code>wakecap/wc3-example-dataset</code> beside
-									your Wakecore checkout first — see <code>apps/hub/README.md</code>.
+									Clone <code>core/wc3-engineering-viewer</code> and <code>core/wc3-example-dataset</code> beside your
+									Core checkout first — see <code>apps/hub/README.md</code>.
 								</>
 							}
 						/>
@@ -384,7 +382,7 @@ function Embed({
 
 // The That Open reference material is three separate dev servers rather than one, so the tab carries its
 // own source switcher above the stage. Deliberately thin chrome: the point is to see their surfaces
-// unedited, not a Wakecore restatement of them.
+// unedited, not a Core restatement of them.
 function ThatOpen({dark}: {dark: boolean}) {
 	const [sourceId, setSourceId] = useState<(typeof TOC_SOURCES)[number]["id"]>("examples");
 	const source = TOC_SOURCES.find((s) => s.id === sourceId)!;
@@ -423,7 +421,7 @@ function ThatOpen({dark}: {dark: boolean}) {
 					hint={
 						<>
 							Clone <code>ThatOpen/engine_components</code>, <code>engine_ui-components</code> and{" "}
-							<code>engine_templates</code> into a <code>thatopen/</code> folder beside your Wakecore checkout — see{" "}
+							<code>engine_templates</code> into a <code>thatopen/</code> folder beside your Core checkout — see{" "}
 							<code>apps/hub/README.md</code>.
 						</>
 					}
@@ -509,10 +507,10 @@ function StorybookLink({dark}: {dark: boolean}) {
 		return (
 			<div
 				className="wwc:h-full"
-				data-wakecore-region={isTimesheetStory ? "timesheet-template" : "storybook-preview"}
-				data-wakecore-artifact={isTimesheetStory ? "timesheet" : undefined}
-				data-wakecore-surface-owner={isTimesheetStory ? "artifact" : "route"}
-				data-wakecore-interaction={
+				data-core-region={isTimesheetStory ? "timesheet-template" : "storybook-preview"}
+				data-core-artifact={isTimesheetStory ? "timesheet" : undefined}
+				data-core-surface-owner={isTimesheetStory ? "artifact" : "route"}
+				data-core-interaction={
 					isTimesheetStory ? "render existing command center without behavioral changes" : undefined
 				}
 			>
@@ -531,7 +529,7 @@ function StorybookLink({dark}: {dark: boolean}) {
 				/>
 				<h3 className="wwc:mt-4 wwc:text-lg wwc:font-semibold">Storybook</h3>
 				<p className="wwc:mt-2 wwc:text-sm wwc:text-muted-foreground">
-					Browse every WakeCore component story in an isolated workbench.
+					Browse every Core component story in an isolated workbench.
 				</p>
 				{localOnly ? (
 					<p className="wwc:mt-4 wwc:text-sm wwc:text-muted-foreground">

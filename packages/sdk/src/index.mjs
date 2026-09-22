@@ -1,7 +1,7 @@
-// @wakecap/sdk — the WakeCore "brain": deterministic resolution + validation + PageInstance
-// generation over the real WakeCore catalog (manifests/*.json + library-index.json).
+// @core/sdk — the Core "brain": deterministic resolution + validation + PageInstance
+// generation over the real Core catalog (manifests/*.json + library-index.json).
 //
-// This is the single source-of-truth SDK the whole platform consumes. WakeCore Studio drives it
+// This is the single source-of-truth SDK the whole platform consumes. Core Studio drives it
 // through an LLM planner; a future MCP server / Open Design engine can consume the exact same API.
 // Nothing here is coupled to any client.
 

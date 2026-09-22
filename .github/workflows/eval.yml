@@ -1,6 +1,6 @@
 name: Agent Evals — knowledge-layer A/B
 
-# Measures whether the WakeCore knowledge layer lifts an agent's pass-rate.
+# Measures whether the Core knowledge layer lifts an agent's pass-rate.
 #
 #   On PRs        → offline FIXTURE eval only (no API key, deterministic, green).
 #                   Validates the harness + validators + scorecard pipeline.

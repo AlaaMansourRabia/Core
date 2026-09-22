@@ -94,7 +94,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - name: Build all packages
-        run: pnpm --filter "@wakecap/core-*" build
+        run: pnpm --filter "@core/core-*" build
 
       - name: Typecheck
         run: pnpm typecheck
@@ -123,7 +123,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - name: Build all packages
-        run: pnpm --filter "@wakecap/core-*" build
+        run: pnpm --filter "@core/core-*" build
 
       - name: Install Playwright browsers
         run: pnpm --filter apps-storybook exec playwright install chromium
@@ -157,7 +157,7 @@ jobs:
         run: pnpm validate:catalog
 
       - name: Hosted assets reachable (logo gate)
-        # Catches the two ways a hosted image turns into a broken <img> on core.wakecap.com:
+        # Catches the two ways a hosted image turns into a broken <img> on core.core.com:
         # a root-absolute Storybook asset that escapes the /storybook/ base, and a login-screen
         # image left inside the auth gate (which answers with login HTML, not the image).
         run: pnpm validate:hosted-assets

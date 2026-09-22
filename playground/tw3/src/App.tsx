@@ -11,11 +11,11 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
-import { Badge } from "@wakecap/core-ui/badge";
-import { Banner } from "@wakecap/core-ui/banner";
-import { Button } from "@wakecap/core-ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@wakecap/core-ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@wakecap/core-ui/table";
+import { Badge } from "@core/core-ui/badge";
+import { Banner } from "@core/core-ui/banner";
+import { Button } from "@core/core-ui/button";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@core/core-ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@core/core-ui/table";
 
 // ── KPICard ──
 

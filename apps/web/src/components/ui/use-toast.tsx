@@ -1,1 +1,1 @@
-export {useToast, toast, reducer} from "@wakecap/core-ui/use-toast";
+export {useToast, toast, reducer} from "@core/core-ui/use-toast";

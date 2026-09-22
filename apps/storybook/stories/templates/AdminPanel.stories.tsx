@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {AdminPanel} from "@wakecap/core-ui/pages/core-admin-panel";
+import {AdminPanel} from "@core/core-ui/pages/core-admin-panel";
 
 import manifest from "../../../../manifests/admin-panel.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

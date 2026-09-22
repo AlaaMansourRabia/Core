@@ -10,7 +10,7 @@ import {getCookie, verifySession} from "./api/auth/_session.mjs";
 // plain <img>/<link> requests, and gating them answers with the login HTML instead of an image —
 // which is exactly how the logo renders broken. Keep this list in sync with `config.matcher`
 // below (scripts/validate-hosted-assets.mjs fails the build if they drift apart).
-const BRAND = ["/wakecap.svg", "/wakecore-"]; // "/wakecore-" covers wakecore-large.svg + -small.svg
+const BRAND = ["/core.svg", "/core-"]; // "/core-" covers core-large.svg + -small.svg
 const PUBLIC = ["/login", "/api/auth/", "/mcp", "/health", "/ready", "/schemas", ...BRAND];
 
 export default async function middleware(req) {
@@ -31,5 +31,5 @@ export default async function middleware(req) {
 export const config = {
 	// Vite-emitted bundles live under assets/, Storybook owns storybook/, and the brand files are
 	// the login screen's own images (see BRAND above) — none of them are gated.
-	matcher: ["/((?!assets/|favicon|storybook/|wakecap.svg|wakecore-).*)"],
+	matcher: ["/((?!assets/|favicon|storybook/|core.svg|core-).*)"],
 };

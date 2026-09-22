@@ -1,1 +1,1 @@
-export {Input} from "@wakecap/core-ui/input";
+export {Input} from "@core/core-ui/input";

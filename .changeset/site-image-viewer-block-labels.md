@@ -1,5 +1,5 @@
 ---
-"@wakecap/core-ui": minor
+"@core/core-ui": minor
 ---
 
 `SiteImageViewer`: block-name labels while zoomed out, villa labels once zoomed in (mirrors the 3D view)

@@ -1,1 +1,1 @@
-export {Collapsible, CollapsibleTrigger, CollapsibleContent} from "@wakecap/core-ui/collapsible";
+export {Collapsible, CollapsibleTrigger, CollapsibleContent} from "@core/core-ui/collapsible";

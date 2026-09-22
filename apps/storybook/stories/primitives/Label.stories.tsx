@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Input} from "@wakecap/core-ui/input";
-import {Label} from "@wakecap/core-ui/label";
+import {Input} from "@core/core-ui/input";
+import {Label} from "@core/core-ui/label";
 
 const meta = {
 	title: "Components/Primitives/Label",

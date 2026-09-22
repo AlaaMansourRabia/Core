@@ -1,19 +1,18 @@
 name: Component / Widget gap or request
-description: A Wakecore Component or Widget is missing a prop, variant, or behavior you need.
+description: A Core Component or Widget is missing a prop, variant, or behavior you need.
 title: "[component/widget]: "
 labels: ["enhancement"]
 assignees:
-  - hamedafarag
-  - alaa-hue
+  - AlaaMansourRabia
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for helping improve Wakecore.
+        Thanks for helping improve Core.
 
         Use this when a **Component** or **Widget** you are consuming can't do what you need — for
         example, it should support a prop it doesn't. Don't silently fork or work around it: file it
-        here and the code owners (@hamedafarag, @alaa-hue) will decide how it gets fixed.
+        here and the code owner (@AlaaMansourRabia) will decide how it gets fixed.
 
         **Templates** are prototypes you build against, not published blocks — this form is for
         Components and Widgets.
@@ -32,7 +31,7 @@ body:
     attributes:
       label: Component / Widget name
       description: The import you are using.
-      placeholder: "@wakecap/core-ui/button"
+      placeholder: "@core/core-ui/button"
     validations:
       required: true
   - type: textarea
@@ -55,7 +54,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: "@wakecap/core-ui version"
+      label: "@core/core-ui version"
       placeholder: "0.0.x"
   - type: checkboxes
     id: checks

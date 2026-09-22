@@ -1,15 +1,15 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Field, FieldError, FieldLabel} from "@wakecap/core-ui/field";
-import {Input} from "@wakecap/core-ui/input";
-import {Label} from "@wakecap/core-ui/label";
+import {Field, FieldError, FieldLabel} from "@core/core-ui/field";
+import {Input} from "@core/core-ui/input";
+import {Label} from "@core/core-ui/label";
 import {expect, userEvent, within} from "storybook/test";
 
 const meta = {
 	title: "Components/Primitives/Input",
 	component: Input,
 	tags: ["autodocs"],
-	excludeStories: ["wakecoreInventory"],
+	excludeStories: ["coreInventory"],
 	argTypes: {
 		type: {
 			control: "select",
@@ -39,7 +39,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const wakecoreInventory = {
+export const coreInventory = {
 	templates: [],
 	widgets: [],
 	components: ["Field", "FieldError", "FieldLabel", "Input", "Label"],
@@ -99,9 +99,9 @@ export const ErrorState: Story = {
 	render: () => (
 		<Field
 			className="wwc:max-w-xs"
-			data-wakecore-region="input-error-state"
-			data-wakecore-surface-owner="input"
-			data-wakecore-interaction="inspect invalid outline"
+			data-core-region="input-error-state"
+			data-core-surface-owner="input"
+			data-core-interaction="inspect invalid outline"
 		>
 			<FieldLabel htmlFor="email-err">Email</FieldLabel>
 			<Input
@@ -109,8 +109,8 @@ export const ErrorState: Story = {
 				type="email"
 				defaultValue="not-an-email"
 				aria-invalid="true"
-				data-wakecore-artifact="input"
-				data-wakecore-interaction="focus invalid input"
+				data-core-artifact="input"
+				data-core-interaction="focus invalid input"
 			/>
 			<FieldError>Enter a valid email address.</FieldError>
 		</Field>

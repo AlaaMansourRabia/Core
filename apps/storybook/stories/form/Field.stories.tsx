@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Field, FieldDescription, FieldError, FieldLabel} from "@wakecap/core-ui/field";
-import {Input} from "@wakecap/core-ui/input";
-import {Textarea} from "@wakecap/core-ui/textarea";
+import {Field, FieldDescription, FieldError, FieldLabel} from "@core/core-ui/field";
+import {Input} from "@core/core-ui/input";
+import {Textarea} from "@core/core-ui/textarea";
 
 const meta = {
 	title: "Components/Forms/Field",
@@ -34,7 +34,7 @@ export const WithDescription: Story = {
 	render: () => (
 		<Field className="wwc:w-[320px]">
 			<FieldLabel>Username</FieldLabel>
-			<Input placeholder="wakecap-user" />
+			<Input placeholder="core-user" />
 			<FieldDescription>This is your public display name.</FieldDescription>
 		</Field>
 	),

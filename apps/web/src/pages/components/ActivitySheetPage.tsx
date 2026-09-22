@@ -1,6 +1,6 @@
-import type {ChangeEntry, NotificationItem} from "@wakecap/core-ui/notification-center";
+import type {ChangeEntry, NotificationItem} from "@core/core-ui/notification-center";
 
-import {ActivitySheet, type ActivityView} from "@wakecap/core-ui/activity-sheet";
+import {ActivitySheet, type ActivityView} from "@core/core-ui/activity-sheet";
 import {useState} from "react";
 
 import {Button} from "@/components/ui/button";

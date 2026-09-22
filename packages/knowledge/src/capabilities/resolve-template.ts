@@ -42,7 +42,7 @@ export interface ResolveTemplateData {
 		mayImplement: true;
 		strategy: "direct-template" | "adapt-template" | "compose";
 		selectedTemplateId?: string;
-		fallbackOrder: Array<"adapt-template" | "compose-widgets" | "compose-components" | "create-with-wakecore">;
+		fallbackOrder: Array<"adapt-template" | "compose-widgets" | "compose-components" | "create-with-core">;
 		message: string;
 	};
 }
@@ -51,7 +51,7 @@ const FALLBACK_ORDER: ResolveTemplateData["selectionGate"]["fallbackOrder"] = [
 	"adapt-template",
 	"compose-widgets",
 	"compose-components",
-	"create-with-wakecore",
+	"create-with-core",
 ];
 
 export const resolveTemplate: CapabilityFn<ResolveTemplateInput, ResolveTemplateData> = (
@@ -95,8 +95,8 @@ export const resolveTemplate: CapabilityFn<ResolveTemplateInput, ResolveTemplate
 					t.source.import && confidence !== "low" ? {path: t.source.import, export: t.source.export} : undefined,
 				minimalExample: t.minimalExample,
 				forbiddenApproaches: [
-					"Do not recreate an available WakeCore template with standalone HTML/CSS.",
-					"Do not substitute generic or hand-built UI for an available WakeCore template or component.",
+					"Do not recreate an available Core template with standalone HTML/CSS.",
+					"Do not substitute generic or hand-built UI for an available Core template or component.",
 				],
 				requiredNextTool: "create_implementation_plan",
 			},
@@ -112,7 +112,7 @@ export const resolveTemplate: CapabilityFn<ResolveTemplateInput, ResolveTemplate
 					strategy: "compose",
 					fallbackOrder: FALLBACK_ORDER,
 					message:
-						"No WakeCore template matched. Continue without confirmation by composing WakeCore widgets/components, then create WakeCore-aligned application UI if the catalog has no suitable artifact.",
+						"No Core template matched. Continue without confirmation by composing Core widgets/components, then create Core-aligned application UI if the catalog has no suitable artifact.",
 				}
 			: top.confidence === "low" || top.implementationContract.mode !== "direct-template"
 				? {
@@ -122,7 +122,7 @@ export const resolveTemplate: CapabilityFn<ResolveTemplateInput, ResolveTemplate
 						selectedTemplateId: top.ref.id,
 						fallbackOrder: FALLBACK_ORDER,
 						message:
-							"No exact template match is required. Use the nearest template as a structural reference, then automatically fall back through WakeCore widgets, components, and WakeCore-aligned custom application UI.",
+							"No exact template match is required. Use the nearest template as a structural reference, then automatically fall back through Core widgets, components, and Core-aligned custom application UI.",
 					}
 				: {
 						status: "ready",

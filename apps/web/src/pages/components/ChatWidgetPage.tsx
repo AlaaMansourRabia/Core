@@ -64,7 +64,7 @@ export function ChatWidgetPage() {
 				</CardHeader>
 				<CardContent>
 					<pre className="wwc:bg-muted wwc:p-4 wwc:rounded-lg wwc:text-sm wwc:overflow-x-auto">
-						{`import {ChatWidget} from "@wakecap/core-ui/chat/core-chat-widget";
+						{`import {ChatWidget} from "@core/core-ui/chat/core-chat-widget";
 
 <ChatWidget
   userName="Demo User"

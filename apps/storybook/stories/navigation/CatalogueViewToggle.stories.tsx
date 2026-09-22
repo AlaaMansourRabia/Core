@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Card} from "@wakecap/core-ui/card";
-import {CatalogueCardGrid, CatalogueViewToggle, type CatalogueViewMode} from "@wakecap/core-ui/catalogue-view-toggle";
+import {Card} from "@core/core-ui/card";
+import {CatalogueCardGrid, CatalogueViewToggle, type CatalogueViewMode} from "@core/core-ui/catalogue-view-toggle";
 import {useState} from "react";
 
 const ROWS = [

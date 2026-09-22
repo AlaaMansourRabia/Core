@@ -1,1 +1,1 @@
-export {ScrollArea, ScrollBar} from "@wakecap/core-ui/scroll-area";
+export {ScrollArea, ScrollBar} from "@core/core-ui/scroll-area";

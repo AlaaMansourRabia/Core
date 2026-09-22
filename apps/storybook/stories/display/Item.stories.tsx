@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {Item, ItemContent, ItemDescription, ItemTitle} from "@wakecap/core-ui/item";
+import {Button} from "@core/core-ui/button";
+import {Item, ItemContent, ItemDescription, ItemTitle} from "@core/core-ui/item";
 
 const meta = {
 	title: "Components/Data Display/Item",

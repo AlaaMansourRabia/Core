@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/new-shared-property-dialog";
+export * from "@core/core-ui/new-shared-property-dialog";

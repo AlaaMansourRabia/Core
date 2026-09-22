@@ -1,1 +1,1 @@
-export {ContextTabs} from "@wakecap/core-ui/navigation/core-context-tabs";
+export {ContextTabs} from "@core/core-ui/navigation/core-context-tabs";

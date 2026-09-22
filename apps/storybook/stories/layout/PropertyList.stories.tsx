@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Avatar, AvatarFallback} from "@wakecap/core-ui/avatar";
-import {PropertyEmpty, PropertyList, PropertyRow} from "@wakecap/core-ui/property-list";
+import {Avatar, AvatarFallback} from "@core/core-ui/avatar";
+import {PropertyEmpty, PropertyList, PropertyRow} from "@core/core-ui/property-list";
 import {
 	Calendar,
 	CalendarCheck,

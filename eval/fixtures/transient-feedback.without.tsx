@@ -1,5 +1,5 @@
-import {Alert, AlertDescription, AlertTitle} from "@wakecap/core-ui/alert";
-import {Button} from "@wakecap/core-ui/button";
+import {Alert, AlertDescription, AlertTitle} from "@core/core-ui/alert";
+import {Button} from "@core/core-ui/button";
 import {useState} from "react";
 
 export function SettingsForm() {

@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {Combobox} from "@wakecap/core-ui/combobox";
-import {Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle} from "@wakecap/core-ui/dialog";
+import {Button} from "@core/core-ui/button";
+import {Combobox} from "@core/core-ui/combobox";
+import {Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle} from "@core/core-ui/dialog";
 import * as React from "react";
 import {expect, screen, userEvent, waitFor, within} from "storybook/test";
 

@@ -1,5 +1,5 @@
+import {cn} from "@core/core-utils";
 import * as SliderPrimitive from "@radix-ui/react-slider";
-import {cn} from "@wakecap/core-utils";
 import * as React from "react";
 
 /** An input where the user selects a value from within a given range. */

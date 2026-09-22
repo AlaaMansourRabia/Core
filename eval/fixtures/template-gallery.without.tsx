@@ -1,4 +1,4 @@
-import {Card, CardContent, CardTitle, Dialog, DialogContent} from "@wakecap/core-ui";
+import {Card, CardContent, CardTitle, Dialog, DialogContent} from "@core/core-ui";
 
 export function TemplateGallery({templates, open}) {
 	return (

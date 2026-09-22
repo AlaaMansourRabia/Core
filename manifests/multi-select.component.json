@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/multi-select.tsx",
-		"import": "@wakecap/core-ui/multi-select",
+		"import": "@core/core-ui/multi-select",
 		"export": "MultiSelect"
 	},
 	"tags": [
@@ -48,7 +48,7 @@
 	"requiredProviders": [],
 	"lineage": {
 		"origin": "promoted",
-		"authoredBy": "wakecore issue #180 (multi-select promotion)",
+		"authoredBy": "core issue #180 (multi-select promotion)",
 		"derivedFrom": {
 			"source": "packages/components/src/pages/core-admin-panel.tsx",
 			"extracted": [
@@ -62,7 +62,7 @@
 		"supersedes": null,
 		"lastValidated": "2026-07-20",
 		"notes": [
-			"resolves wakecap/Wakecore#180: removes the hand-composed MultiSelect in frontend-2.0-admin"
+			"resolves core/Core#180: removes the hand-composed MultiSelect in frontend-2.0-admin"
 		]
 	}
 }

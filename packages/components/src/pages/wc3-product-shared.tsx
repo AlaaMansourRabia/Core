@@ -1,6 +1,6 @@
 import type {ReactElement} from "react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {Box, Check, Search} from "lucide-react";
 
 import {Badge} from "../badge";
@@ -360,7 +360,7 @@ export function ProductNotFound({productKey, onBack}: {productKey: string; onBac
 		<Empty
 			icon={<Box className="wwc:h-6 wwc:w-6" />}
 			title="No such product"
-			description={`There is no product with key “${productKey}” in the WakeCap first-party catalogue (17 products).`}
+			description={`There is no product with key “${productKey}” in the Core first-party catalogue (17 products).`}
 			action={<Button onClick={onBack}>Back to the catalogue</Button>}
 		/>
 	);

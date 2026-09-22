@@ -11,7 +11,7 @@ import {CatalogSidebar} from "./Sidebar";
 interface LayoutProps {
 	darkMode: boolean;
 	onToggleDarkMode: () => void;
-	// When rendered inside the WakeCore Hub shell (native mount, App.tsx), the hub's top bar already
+	// When rendered inside the Core Hub shell (native mount, App.tsx), the hub's top bar already
 	// carries the GitHub link + theme toggle — hide this app's own so they aren't duplicated. Also true
 	// in a legacy iframe embed (window.self !== window.top).
 	embedded?: boolean;
@@ -31,19 +31,19 @@ export function Layout({darkMode, onToggleDarkMode, embedded}: LayoutProps) {
 	return (
 		<TooltipProvider>
 			<div
-				data-wakecore-shell="designers-hub"
-				data-wakecore-density="comfortable"
-				data-wakecore-brand="wakecore"
-				data-wakecore-provider-owner="designers-hub-root"
+				data-core-shell="designers-hub"
+				data-core-density="comfortable"
+				data-core-brand="core"
+				data-core-provider-owner="designers-hub-root"
 				className="wwc:flex wwc:h-dvh wwc:overflow-hidden"
 			>
 				<CatalogSidebar collapsed={sidebarCollapsed} />
 				<div className="wwc:flex wwc:flex-1 wwc:flex-col wwc:overflow-hidden wwc:transition-all wwc:duration-300 wwc:ease-in-out">
 					{/* Top Nav Bar */}
 					<header
-						data-wakecore-top-bar="designers-hub-top-bar"
-						data-wakecore-artifact="designers-hub-top-bar"
-						data-wakecore-density="comfortable"
+						data-core-top-bar="designers-hub-top-bar"
+						data-core-artifact="designers-hub-top-bar"
+						data-core-density="comfortable"
 						className="wwc:flex wwc:h-14 wwc:items-center wwc:justify-between wwc:border-b wwc:bg-background wwc:px-4"
 					>
 						<div className="wwc:flex wwc:items-center wwc:gap-3">
@@ -79,9 +79,9 @@ export function Layout({darkMode, onToggleDarkMode, embedded}: LayoutProps) {
 							{/* When embedded in the Hub, this lives in the Hub's top nav instead (avoid duplication). */}
 							{!isEmbedded && (
 								<Button variant="outline" size="sm" asChild className="wwc:h-8 wwc:rounded-full">
-									<a href="https://github.com/wakecap/Wakecore" target="_blank" rel="noopener noreferrer">
+									<a href="https://github.com/core/Core" target="_blank" rel="noopener noreferrer">
 										<Github />
-										Wakecore
+										Core
 									</a>
 								</Button>
 							)}
@@ -115,11 +115,11 @@ export function Layout({darkMode, onToggleDarkMode, embedded}: LayoutProps) {
 					</header>
 					{/* Main Content */}
 					{isFullBleed ? (
-						<main data-wakecore-content-scroll className="wwc:min-h-0 wwc:flex-1 wwc:overflow-hidden">
+						<main data-core-content-scroll className="wwc:min-h-0 wwc:flex-1 wwc:overflow-hidden">
 							<Outlet />
 						</main>
 					) : (
-						<main data-wakecore-content-scroll className="wwc:min-h-0 wwc:flex-1 wwc:overflow-auto">
+						<main data-core-content-scroll className="wwc:min-h-0 wwc:flex-1 wwc:overflow-auto">
 							<div className="wwc:container wwc:max-w-6xl wwc:py-8 wwc:px-8 wwc:mx-auto">
 								<Outlet />
 								<PageNavigation />

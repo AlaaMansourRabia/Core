@@ -1,5 +1,5 @@
+import {cn} from "@core/core-utils";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
-import {cn} from "@wakecap/core-utils";
 import * as React from "react";
 
 /** Visually or semantically separates content. */

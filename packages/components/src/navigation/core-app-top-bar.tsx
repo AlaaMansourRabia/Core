@@ -209,10 +209,10 @@ export function CoreAppTopBar({
 
 	return (
 		<div
-			data-wakecore-artifact="core-app-top-bar"
-			data-wakecore-surface-owner="artifact"
-			data-wakecore-border-owner="bottom"
-			data-wakecore-density={density}
+			data-core-artifact="core-app-top-bar"
+			data-core-surface-owner="artifact"
+			data-core-border-owner="bottom"
+			data-core-density={density}
 			className={`${t.root} wwc:@container wwc:bg-card wwc:text-card-foreground wwc:border-b wwc:border-border wwc:grid wwc:grid-cols-[minmax(0,1fr)_minmax(0,auto)_minmax(0,1fr)] wwc:items-center wwc:gap-2 wwc:flex-shrink-0 wwc:relative`}
 		>
 			{/* Left. min-w-0 so a long project name truncates instead of shoving the breadcrumb. */}

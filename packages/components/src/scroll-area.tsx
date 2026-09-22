@@ -1,5 +1,5 @@
+import {cn} from "@core/core-utils";
 import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
-import {cn} from "@wakecap/core-utils";
 import * as React from "react";
 
 /** A custom scrollable area with styled scrollbars built on Radix. */

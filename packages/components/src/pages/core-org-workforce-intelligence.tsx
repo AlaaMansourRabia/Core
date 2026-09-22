@@ -37,7 +37,7 @@ import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "../
 import type {Organization} from "../types";
 import type {DashboardWidget} from "../types/chat";
 
-// Wakecore Chart Colors (orange/amber palette from theme)
+// Core Chart Colors (orange/amber palette from theme)
 const CHART_COLORS = {
 	chart1: "#f5d4a8", // lightest amber
 	chart2: "#e8b573", // light amber
@@ -118,7 +118,7 @@ const productivityTrendsData = [
 	{date: "Sun", planned: 2500, actual: 2480, efficiency: 99.2},
 ];
 
-// Mock data for workforce by trade - using Wakecore orange/amber palette
+// Mock data for workforce by trade - using Core orange/amber palette
 const workforceByTradeData = [
 	{name: "Civil", value: 1245, color: CHART_COLORS.chart1},
 	{name: "Electrical", value: 856, color: CHART_COLORS.chart2},
@@ -985,7 +985,7 @@ export function OrgWorkforceIntelligence({selectedOrg, addedWidgets = []}: OrgWo
 
 				{/* Data Sources Footer */}
 				<div className="wwc:text-xs wwc:text-muted-foreground wwc:text-center wwc:pb-4">
-					{selectedOrg.name} • Last updated: {currentTime.toLocaleTimeString()} • Data sources: WakeCap IoT Sensors •
+					{selectedOrg.name} • Last updated: {currentTime.toLocaleTimeString()} • Data sources: Core IoT Sensors •
 					Refresh: Real-time
 				</div>
 			</div>

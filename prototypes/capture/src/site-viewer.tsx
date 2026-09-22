@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {useEffect, useRef, useState} from "react";
 
 import {villaColorMap} from "./data/villa-progress";

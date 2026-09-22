@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
+import {Button} from "@core/core-ui/button";
 import {
 	Drawer,
 	DrawerClose,
@@ -10,7 +10,7 @@ import {
 	DrawerHeader,
 	DrawerTitle,
 	DrawerTrigger,
-} from "@wakecap/core-ui/drawer";
+} from "@core/core-ui/drawer";
 
 const meta = {
 	title: "Components/Overlay/Drawer",

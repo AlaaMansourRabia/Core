@@ -1,4 +1,4 @@
-// @wakecap/core-ui - Component library
+// @core/core-ui - Component library
 
 // Types
 export * from "./types";

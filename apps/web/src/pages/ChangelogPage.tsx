@@ -55,9 +55,7 @@ export function ChangelogPage() {
 			{/* Page Title */}
 			<div>
 				<h1 className="wwc:text-3xl wwc:font-bold">Changelog</h1>
-				<p className="wwc:text-muted-foreground wwc:mt-2">
-					Track all changes and updates to the Wakecore design system.
-				</p>
+				<p className="wwc:text-muted-foreground wwc:mt-2">Track all changes and updates to the Core design system.</p>
 			</div>
 
 			{/* Timeline */}

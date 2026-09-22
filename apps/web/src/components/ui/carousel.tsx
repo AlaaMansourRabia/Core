@@ -5,4 +5,4 @@ export {
 	CarouselItem,
 	CarouselPrevious,
 	CarouselNext,
-} from "@wakecap/core-ui/carousel";
+} from "@core/core-ui/carousel";

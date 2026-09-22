@@ -3,14 +3,14 @@
  * fetch-3d-assets — pull heavy 3D model/mockup assets into apps/storybook/public/ at DEPLOY time.
  *
  * The meshes/models are hundreds of MB, so they are NOT committed here and NOT shipped in the
- * @wakecap/core-ui npm package. They live in the internal repo wakecap/wakecore-3d-assets and are
+ * @core/core-ui npm package. They live in the internal repo core/core-3d-assets and are
  * copied into the Storybook's static dir just before it builds, so the deployed (GitHub-login-gated)
  * Storybook serves them same-origin. The browser never fetches them cross-origin from GitHub.
  *
  * Usage:
  *   ASSETS_REPO_TOKEN=<token-with-read-access> node scripts/fetch-3d-assets.mjs
  *
- * - Token: a PAT / fine-grained token / GitHub App token with READ access to wakecap/wakecore-3d-assets.
+ * - Token: a PAT / fine-grained token / GitHub App token with READ access to core/core-3d-assets.
  *   In CI, add it as a secret (ASSETS_REPO_TOKEN); the default Actions GITHUB_TOKEN only sees the current repo.
  * - NON-FATAL by default: if the token is missing or the clone fails, it logs and exits 0 so the DS still
  *   builds for people without asset access (the 3D views just show their "unavailable" fallback).

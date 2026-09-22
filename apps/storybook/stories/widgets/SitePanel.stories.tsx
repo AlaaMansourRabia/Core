@@ -10,7 +10,7 @@ import {
 	type SitePanelVilla,
 	type ViewId,
 	type ViewMode,
-} from "@wakecap/core-ui/site-panel";
+} from "@core/core-ui/site-panel";
 import {LayoutGrid} from "lucide-react";
 import {useState} from "react";
 
@@ -48,7 +48,7 @@ const NAV_NODES: CanvasNavigatorNode[] = [
 
 const ACTIVE_LEVEL = {id: "batch" as LevelId, label: "Batch", icon: LayoutGrid};
 
-// The left rail as a controlled Wakecore widget: search + villa list + zone progress + distribution, and the
+// The left rail as a controlled Core widget: search + villa list + zone progress + distribution, and the
 // villa detail rail on selection. This harness owns the same state the host template owns and feeds it back
 // through the semantic callbacks.
 const meta = {

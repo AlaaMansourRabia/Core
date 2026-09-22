@@ -37,7 +37,7 @@ export interface AdoptionResult {
 	};
 }
 
-const strictModes = new Set(["wakecore-product", "wakecore-showcase", "wakecore-template-strict"]);
+const strictModes = new Set(["core-product", "core-showcase", "core-template-strict"]);
 
 function sourceText(input: ValidateInput): string {
 	return input.files?.map((file) => file.content).join("\n") ?? input.code ?? "";
@@ -247,7 +247,7 @@ export function validateArtifactAdoption(input: ValidateInput, ctx: CapabilityCo
 				metric: "artifact-contract",
 				pass: false,
 				level: "error",
-				message: `Required artifact ${entry.id} is not present in the WakeCore catalog.`,
+				message: `Required artifact ${entry.id} is not present in the Core catalog.`,
 				fix: "Regenerate the implementation plan against the current catalog.",
 				source: "artifact-contract",
 			});
@@ -393,17 +393,17 @@ export function validateArtifactAdoption(input: ValidateInput, ctx: CapabilityCo
 		});
 	}
 
-	if (input.mode === "wakecore-showcase" && !/export\s+const\s+wakecoreInventory\b/.test(code)) {
+	if (input.mode === "core-showcase" && !/export\s+const\s+coreInventory\b/.test(code)) {
 		findings.push({
 			metric: "showcase-inventory",
 			pass: false,
 			level: "error",
-			message: "WakeCore showcase implementations must export a machine-readable wakecoreInventory.",
-			fix: "Export wakecoreInventory with templates, widgets, components, and tokens used by the implementation.",
-			source: "wakecore-showcase",
+			message: "Core showcase implementations must export a machine-readable coreInventory.",
+			fix: "Export coreInventory with templates, widgets, components, and tokens used by the implementation.",
+			source: "core-showcase",
 		});
 	}
-	if (input.mode === "wakecore-showcase" && plan) {
+	if (input.mode === "core-showcase" && plan) {
 		const applicable = [...required.map((entry) => entry.id), ...recommended]
 			.map((id) => artifactRecord(ctx, id))
 			.filter((record): record is NormalizedRecord => Boolean(record));
@@ -425,7 +425,7 @@ export function validateArtifactAdoption(input: ValidateInput, ctx: CapabilityCo
 				metric: "showcase-utility-coverage",
 				pass: false,
 				level: "error",
-				message: "No applicable WakeCore layout utility is rendered.",
+				message: "No applicable Core layout utility is rendered.",
 				fix: `Use ${applicableUtilities.map((record) => record.name).join(" or ")}.`,
 				source: "artifact-contract",
 			});

@@ -13,13 +13,13 @@ import {
 	SidebarMenuItem,
 	SidebarProvider,
 	SidebarTrigger,
-} from "@wakecap/core-ui/sidebar";
+} from "@core/core-ui/sidebar";
 import {Home, type LucideIcon, Settings, Users} from "lucide-react";
 
 // The generic, composable Sidebar PRIMITIVE set (SidebarProvider + Sidebar + SidebarMenu…). This is
 // the component layer; the branded product sidebar is the CoreAppSidebar *widget* (see
 // "Layout/Sidebar"). Use these primitives to build a custom sidebar; use CoreAppSidebar for the
-// standard WakeCap shell. Stories render expanded (deterministic); use the trigger to collapse live.
+// standard Core shell. Stories render expanded (deterministic); use the trigger to collapse live.
 const meta = {
 	title: "Components/Layout/Sidebar Primitive",
 	component: Sidebar,
@@ -30,7 +30,7 @@ const meta = {
 				component:
 					"The composable sidebar primitive set. **When to use:** building a custom collapsible app sidebar from parts " +
 					"(`SidebarProvider`, `Sidebar`, `SidebarHeader/Content/Footer`, `SidebarGroup`, `SidebarMenu`/`MenuItem`/" +
-					"`MenuButton`, `SidebarTrigger`). **When NOT to use:** for the standard WakeCap product sidebar, use the " +
+					"`MenuButton`, `SidebarTrigger`). **When NOT to use:** for the standard Core product sidebar, use the " +
 					"`CoreAppSidebar` widget instead of re-assembling these. **Requires** a `SidebarProvider` ancestor. Related: " +
 					"`CoreAppSidebar`, `NavigationMenu`, `Tabs`.",
 			},

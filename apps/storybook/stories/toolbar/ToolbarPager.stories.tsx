@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ToolbarPager} from "@wakecap/core-ui/toolbar-pager";
+import {ToolbarPager} from "@core/core-ui/toolbar-pager";
 import {useState} from "react";
 
 const meta = {

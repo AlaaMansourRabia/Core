@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Label} from "@wakecap/core-ui/label";
-import {RadioGroup, RadioGroupItem} from "@wakecap/core-ui/radio-group";
+import {Label} from "@core/core-ui/label";
+import {RadioGroup, RadioGroupItem} from "@core/core-ui/radio-group";
 import {expect, userEvent, within} from "storybook/test";
 
 const meta = {

@@ -17,14 +17,10 @@ test("FormActionBar renders status and actions", async () => {
 
 test("FormActionBar is sticky by default and static when opted out", async () => {
 	const sticky = await render(<FormActionBar status="x" />);
-	expect(sticky.container.querySelector("[data-wakecore-artifact='form-action-bar']")?.className).toContain(
-		"wwc:sticky",
-	);
+	expect(sticky.container.querySelector("[data-core-artifact='form-action-bar']")?.className).toContain("wwc:sticky");
 
 	const flow = await render(<FormActionBar status="x" sticky={false} />);
-	expect(flow.container.querySelector("[data-wakecore-artifact='form-action-bar']")?.className).not.toContain(
-		"wwc:sticky",
-	);
+	expect(flow.container.querySelector("[data-core-artifact='form-action-bar']")?.className).not.toContain("wwc:sticky");
 });
 
 test("FormActionBar renders without a status", async () => {

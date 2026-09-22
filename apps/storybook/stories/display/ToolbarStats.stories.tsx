@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ToolbarStats, type ToolbarStat} from "@wakecap/core-ui/toolbar-stats";
+import {ToolbarStats, type ToolbarStat} from "@core/core-ui/toolbar-stats";
 
 const EV_GROUPS: ToolbarStat[][] = [
 	[

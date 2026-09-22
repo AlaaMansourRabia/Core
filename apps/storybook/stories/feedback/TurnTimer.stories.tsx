@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {TurnTimer} from "@wakecap/core-ui/turn-timer";
+import {TurnTimer} from "@core/core-ui/turn-timer";
 
 const meta = {
 	title: "Components/Feedback/Turn Timer",

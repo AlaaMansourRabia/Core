@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {WorkItemCard, type WorkItemAssignee} from "@wakecap/core-ui/work-item-card";
+import {WorkItemCard, type WorkItemAssignee} from "@core/core-ui/work-item-card";
 
 const meta = {
 	title: "Widgets/Activity/Work Item Card",

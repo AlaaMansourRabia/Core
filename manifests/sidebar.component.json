@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/sidebar.tsx",
-		"import": "@wakecap/core-ui/sidebar",
+		"import": "@core/core-ui/sidebar",
 		"export": "Sidebar"
 	},
 	"tags": [
@@ -29,7 +29,7 @@
 	"chooseOver": [
 		{
 			"component": "CoreAppSidebar",
-			"because": "CoreAppSidebar is the ready-made WakeCap product sidebar (org switcher, search, nav, profile)"
+			"because": "CoreAppSidebar is the ready-made Core product sidebar (org switcher, search, nav, profile)"
 		}
 	],
 	"pairsWith": [

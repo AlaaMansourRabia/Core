@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/new-object-type-dialog";
+export * from "@core/core-ui/new-object-type-dialog";

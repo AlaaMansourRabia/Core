@@ -1,7 +1,7 @@
 import type {ColumnDef, Row} from "@tanstack/react-table";
 import type {ReactNode} from "react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {
 	CircleCheck,
 	ClipboardList,
@@ -436,7 +436,7 @@ export function ProductCatalogueView({
 				},
 			},
 			{
-				// Hidden by default: the value is "wakecap" on all 17 rows.
+				// Hidden by default: the value is "core" on all 17 rows.
 				id: "enclave",
 				accessorFn: (p) => p.ownerEnclaveId,
 				header: "Enclave",
@@ -684,7 +684,7 @@ export function ProductCatalogueView({
 								<>
 									<Badge
 										variant="neutralSoft"
-										title="Every product below is first-party WakeCap. There is no third-party listing in WC3."
+										title="Every product below is first-party Core. There is no third-party listing in WC3."
 									>
 										<ShieldCheck />
 										First-party only

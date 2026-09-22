@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/chat/core-chart-renderer.tsx",
-		"import": "@wakecap/core-ui/chat/core-chart-renderer"
+		"import": "@core/core-ui/chat/core-chart-renderer"
 	},
 	"tags": [
 		"chart",

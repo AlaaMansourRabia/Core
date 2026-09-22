@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {RNGLF_ZONES} from "@wakecap/core-ui/data/rnglf-zones";
-import {ObservationsMap} from "@wakecap/core-ui/observations-map";
-import {ObservationsMapView} from "@wakecap/core-ui/pages/core-observations-map-view";
+import {RNGLF_ZONES} from "@core/core-ui/data/rnglf-zones";
+import {ObservationsMap} from "@core/core-ui/observations-map";
+import {ObservationsMapView} from "@core/core-ui/pages/core-observations-map-view";
 
 const meta = {
 	title: "Widgets/Map/Observations Map",

@@ -1,1 +1,1 @@
-export {ProjectQualityIssues} from "@wakecap/core-ui/pages/core-project-quality-issues";
+export {ProjectQualityIssues} from "@core/core-ui/pages/core-project-quality-issues";

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/button-group.tsx",
-		"import": "@wakecap/core-ui/button-group",
+		"import": "@core/core-ui/button-group",
 		"export": "ButtonGroup"
 	},
 	"tags": [

@@ -14,4 +14,4 @@ export {
 	ContextMenuSubContent,
 	ContextMenuSubTrigger,
 	ContextMenuRadioGroup,
-} from "@wakecap/core-ui/context-menu";
+} from "@core/core-ui/context-menu";

@@ -14,7 +14,7 @@ import {
 	type MarketApp,
 } from "./app-marketplace-shared";
 
-// App Installer — WakeCap Connect V1's end-user portal: a marketplace template built on the shared app
+// App Installer — Core Connect V1's end-user portal: a marketplace template built on the shared app
 // shell (CoreAppSidebar + CoreAppTopBar). The sidebar's "Home" and "App Store" entries are shared
 // CoreAppSidebar affordances (present on every skeleton app); between them sit the installed apps (each
 // with a green status dot) under "Your apps". Everyone lands on Home: a welcome hero that nudges toward
@@ -23,7 +23,7 @@ import {
 // Installed Apps tabs.
 //
 // The catalogue, the install lifecycle and the store surface all live in app-marketplace-shared.tsx,
-// shared with the V2 merged template (WakeCapConnect) so the two releases can never drift apart.
+// shared with the V2 merged template (CoreConnect) so the two releases can never drift apart.
 
 // Surface: Home (landing), the App Store, or an installed app's (empty) workspace.
 type Surface = "home" | "marketplace" | "app";

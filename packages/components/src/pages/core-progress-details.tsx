@@ -1,7 +1,7 @@
 // Progress Details — Variant I (Compact Work Items). A self-contained progress-details workspace:
 // a three-bar header (app nav → period context → search/filter), a WBS Navigator sidebar, and a main
 // panel of compact two-line work-item rows. Mock data only. The pencil file was a layout reference only —
-// styling comes from Wakecore components + semantic tokens.
+// styling comes from Core components + semantic tokens.
 //
 // FULLSCREEN: the ProgressDetails component intentionally ships WITHOUT a fullscreen button.
 // Fullscreen is a concern of the host/spec page (ProgressDetailsPage), which owns the toggle and

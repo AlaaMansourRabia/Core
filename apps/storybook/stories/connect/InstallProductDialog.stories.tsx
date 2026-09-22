@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {InstallProductDialog, computeInstallPlan} from "@wakecap/core-ui/pages/install-product-dialog";
-import {WC3_INSTALLS} from "@wakecap/core-ui/pages/wc3-lineage-data";
-import {WC3_PRODUCTS} from "@wakecap/core-ui/pages/wc3-product-data";
-import {WC3_PERSONAS} from "@wakecap/core-ui/pages/wc3-product-shared";
+import {Button} from "@core/core-ui/button";
+import {InstallProductDialog, computeInstallPlan} from "@core/core-ui/pages/install-product-dialog";
+import {WC3_INSTALLS} from "@core/core-ui/pages/wc3-lineage-data";
+import {WC3_PRODUCTS} from "@core/core-ui/pages/wc3-product-data";
+import {WC3_PERSONAS} from "@core/core-ui/pages/wc3-product-shared";
 import {useState} from "react";
 
 const ADMIN = WC3_PERSONAS[0];

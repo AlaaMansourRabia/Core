@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {RotateCcw} from "lucide-react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -85,7 +85,7 @@ export interface Observation {
 	label?: string;
 	/** Secondary popup line, e.g. the trade or the reporter. */
 	description?: string;
-	/** Marker fill. Default `#f97316` (WakeCap orange). */
+	/** Marker fill. Default `#f97316` (Core orange). */
 	color?: string;
 }
 

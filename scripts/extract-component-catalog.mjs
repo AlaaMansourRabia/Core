@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-// Read-only structural extractor for the @wakecap/core-ui component catalog.
+// Read-only structural extractor for the @core/core-ui component catalog.
 //
 // Walks the package's `exports` map (the authoritative list of importable
 // components), and for each source file extracts:
 //   - the real source path           (packages/components/src/...)
-//   - the deep-path import specifier  (@wakecap/core-ui/<key>)
+//   - the deep-path import specifier  (@core/core-ui/<key>)
 //   - cva() variant axes + values     (variant / size / ... )
 //   - defaultVariants
 //   - the leading JSDoc one-liner
@@ -136,7 +136,7 @@ for (const [expKey, val] of Object.entries(pkg.exports)) {
 		name: pascalFromKey(sub),
 		key: sub,
 		path: `packages/components/${rel}`,
-		import: `@wakecap/core-ui/${sub}`,
+		import: `@core/core-ui/${sub}`,
 		description: firstJsdoc(code),
 	};
 	if (axes.variant) entry.variants = axes.variant;

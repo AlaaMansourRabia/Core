@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {Bell, Check, ChevronRight, ChevronsUpDown, LayoutGrid, MessageSquare, Search} from "lucide-react";
 import * as React from "react";
 
@@ -75,9 +75,9 @@ export function DashboardHeader({
 	return (
 		<TooltipProvider>
 			<header
-				data-wakecore-artifact="core-dashboard-header"
-				data-wakecore-surface-owner="artifact"
-				data-wakecore-responsive-header
+				data-core-artifact="core-dashboard-header"
+				data-core-surface-owner="artifact"
+				data-core-responsive-header
 				className="wwc:sticky wwc:top-0 wwc:z-50 wwc:w-full wwc:border-b wwc:bg-card"
 			>
 				{/* Top bar */}
@@ -199,7 +199,7 @@ export function DashboardHeader({
 							<DropdownMenuLabel>
 								<div className="wwc:flex wwc:flex-col wwc:space-y-1">
 									<p className="wwc:text-sm wwc:font-medium">Alaa Rabia</p>
-									<p className="wwc:text-xs wwc:text-muted-foreground">alaa@wakecap.com</p>
+									<p className="wwc:text-xs wwc:text-muted-foreground">alaa@core.com</p>
 								</div>
 							</DropdownMenuLabel>
 							<DropdownMenuSeparator />

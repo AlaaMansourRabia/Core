@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@wakecap/core-ui/resizable";
+import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@core/core-ui/resizable";
 
 const meta = {
 	title: "Components/Layout/Resizable",

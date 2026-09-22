@@ -1,2 +1,2 @@
-export {Banner} from "@wakecap/core-ui/banner";
-export type {BannerProps} from "@wakecap/core-ui/banner";
+export {Banner} from "@core/core-ui/banner";
+export type {BannerProps} from "@core/core-ui/banner";

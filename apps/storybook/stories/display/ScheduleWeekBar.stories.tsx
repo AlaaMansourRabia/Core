@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ScheduleWeekBar} from "@wakecap/core-ui/schedule-week-bar";
+import {ScheduleWeekBar} from "@core/core-ui/schedule-week-bar";
 import {fn} from "storybook/test";
 
 const meta = {

@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/pages/app-marketplace";
+export * from "@core/core-ui/pages/app-marketplace";

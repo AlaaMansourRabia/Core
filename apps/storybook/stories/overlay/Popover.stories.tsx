@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {Popover, PopoverContent, PopoverTrigger} from "@wakecap/core-ui/popover";
+import {Button} from "@core/core-ui/button";
+import {Popover, PopoverContent, PopoverTrigger} from "@core/core-ui/popover";
 
 const meta = {
 	title: "Components/Overlay/Popover",

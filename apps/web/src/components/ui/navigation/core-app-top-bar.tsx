@@ -1,1 +1,1 @@
-export {CoreAppTopBar} from "@wakecap/core-ui/navigation/core-app-top-bar";
+export {CoreAppTopBar} from "@core/core-ui/navigation/core-app-top-bar";

@@ -114,10 +114,10 @@ export function ChatWidget({onAddWidget, apiEndpoint, userName}: ChatWidgetProps
 					<button
 						onClick={handleOpen}
 						className="wwc:flex wwc:items-center wwc:gap-2 wwc:px-4 wwc:py-3 wwc:rounded-full wwc:bg-white wwc:text-gray-800 wwc:transition-all wwc:duration-300 wwc:hover:bg-gray-50 wwc:active:scale-95"
-						aria-label="Open Wakecap Assistant"
+						aria-label="Open Core Assistant"
 					>
 						<Sparkles className="wwc:h-5 wwc:w-5 wwc:text-violet-600" fill="currentColor" />
-						<span className="wwc:text-sm wwc:font-medium">Wakecap Assistant</span>
+						<span className="wwc:text-sm wwc:font-medium">Core Assistant</span>
 					</button>
 				</div>
 			</div>

@@ -1,5 +1,5 @@
-import {cn} from "@wakecap/core-utils";
-// Star rating control — Wakecore has no rating primitive, so this is a small purpose-built
+import {cn} from "@core/core-utils";
+// Star rating control — Core has no rating primitive, so this is a small purpose-built
 // widget composed from lucide's Star + the repo's prefixed Tailwind utilities + cn. Keyboard-accessible
 // (arrow keys / number keys), controlled via value/onChange.
 import {Star} from "lucide-react";

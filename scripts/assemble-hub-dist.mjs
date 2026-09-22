@@ -2,7 +2,7 @@
 // Copy the Storybook static build into the app's dist as a subpath, so the app can link to
 // /storybook/ (opened in a new tab) from the same deployment — no separate Vercel project, no CORS.
 //
-//   apps/web/dist/            → the app (core.wakecap.com/)
+//   apps/web/dist/            → the app (core.core.com/)
 //   apps/web/dist/storybook/  ← apps/storybook/dist  (built with SB_BASE=/storybook/)
 //   apps/web/dist/.agents/    ← .agents                (Codex marketplace manifest)
 //   apps/web/dist/plugins/    ← plugins                (Codex plugin archives)

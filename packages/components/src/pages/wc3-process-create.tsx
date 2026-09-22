@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {useMemo, useState} from "react";
 
 import {Combobox} from "../combobox";

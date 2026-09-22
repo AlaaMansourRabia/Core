@@ -80,7 +80,7 @@ export function ActivityLogPage() {
 				<div className="wwc:max-w-2xl wwc:rounded-xl wwc:border wwc:border-border wwc:bg-card wwc:p-6">
 					<ActivityLog>
 						<ActivityItem icon={<MessageSquare className="wwc:h-4 wwc:w-4" />} timestamp="just now">
-							<ActivityActor>alaa@wakecap.com</ActivityActor> created this work item.
+							<ActivityActor>alaa@core.com</ActivityActor> created this work item.
 						</ActivityItem>
 					</ActivityLog>
 				</div>

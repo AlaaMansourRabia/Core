@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/progress-list-item.tsx",
-		"import": "@wakecap/core-ui/progress-list-item",
+		"import": "@core/core-ui/progress-list-item",
 		"export": "ProgressListItem"
 	},
 	"tags": [

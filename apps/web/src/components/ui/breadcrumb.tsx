@@ -6,5 +6,5 @@ export {
 	BreadcrumbPage,
 	BreadcrumbSeparator,
 	BreadcrumbEllipsis,
-} from "@wakecap/core-ui/breadcrumb";
-export type {BreadcrumbMenuItem} from "@wakecap/core-ui/breadcrumb";
+} from "@core/core-ui/breadcrumb";
+export type {BreadcrumbMenuItem} from "@core/core-ui/breadcrumb";

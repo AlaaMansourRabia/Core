@@ -1,4 +1,4 @@
-import {Card, CardContent, CardHeader, CardTitle} from "@wakecap/core-ui";
+import {Card, CardContent, CardHeader, CardTitle} from "@core/core-ui";
 
 export function OrgOverview({kpis}) {
 	return (

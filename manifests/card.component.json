@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/card.tsx",
-		"import": "@wakecap/core-ui/card",
+		"import": "@core/core-ui/card",
 		"export": "Card"
 	},
 	"tags": [

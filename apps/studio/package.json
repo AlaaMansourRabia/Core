@@ -12,19 +12,19 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@wakecap/core-tokens": "workspace:*",
-		"@wakecap/core-ui": "workspace:*",
-		"@wakecap/core-utils": "workspace:*",
-		"@wakecap/sdk": "workspace:*",
+		"@core/core-tokens": "workspace:*",
+		"@core/core-ui": "workspace:*",
+		"@core/core-utils": "workspace:*",
+		"@core/sdk": "workspace:*",
 		"lucide-react": "^0.562.0",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"react": "^19.3.0",
+		"react-dom": "^19.3.0"
 	},
 	"devDependencies": {
 		"@tailwindcss/vite": "^4.1.18",
 		"@types/node": "^24.10.1",
-		"@types/react": "^18.3.0",
-		"@types/react-dom": "^18.3.0",
+		"@types/react": "18.3.28",
+		"@types/react-dom": "18.3.7",
 		"@vitejs/plugin-react": "^5.1.1",
 		"tailwindcss": "^4.1.18",
 		"vite": "^7.2.4"

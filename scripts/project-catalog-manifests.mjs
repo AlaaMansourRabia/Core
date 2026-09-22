@@ -72,7 +72,7 @@ const normChooseOver = (list) =>
 	Array.isArray(list) ? list.map((c) => ({component: c.component, because: c.because})) : list;
 
 // Fields copied verbatim from manifest -> catalog entry.
-// `product` groups artifacts into a named product release (for example WakeCap Connect V1: an admin
+// `product` groups artifacts into a named product release (for example Core Connect V1: an admin
 // portal plus an end-user portal), so the catalog and MCP can answer "what ships in this version".
 const DIRECT_FIELDS = ["subcomponents", "product", "tags", "intent", "when", "insteadUse", "variantIntent", "ownership"];
 

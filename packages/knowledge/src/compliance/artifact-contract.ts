@@ -1,8 +1,8 @@
 import type {ArtifactOwnership, NormalizedRecord, RegionRecord, Tier, WidgetPlacement} from "../model/record";
 import type {ImplementationGoal} from "./implementation-goal";
 
-export const ARTIFACT_CONTRACT_VERSION = "wakecore-artifact-contract/1";
-export const ARTIFACT_CONTRACT_VERSION_V2 = "wakecore-artifact-contract/2";
+export const ARTIFACT_CONTRACT_VERSION = "core-artifact-contract/1";
+export const ARTIFACT_CONTRACT_VERSION_V2 = "core-artifact-contract/2";
 
 export interface ArtifactRequirement {
 	id: string;
@@ -88,7 +88,7 @@ export function createArtifactContract(input: ContractInput): ArtifactContract {
 		const templateRequirement = requirement(
 			template,
 			input.strategy === "direct-template"
-				? "Render the selected authoritative WakeCore template."
+				? "Render the selected authoritative Core template."
 				: "Use this catalog template as the structural and interaction reference.",
 		);
 		if (input.strategy === "direct-template") required.push(templateRequirement);
@@ -116,7 +116,7 @@ export function createArtifactContract(input: ContractInput): ArtifactContract {
 
 	const candidates = input.compositionCandidates;
 	const requiredCandidateCount =
-		input.goal === "wakecore-showcase"
+		input.goal === "core-showcase"
 			? Math.min(3, candidates.length)
 			: input.goal === "component-evaluation"
 				? Math.min(2, candidates.length)

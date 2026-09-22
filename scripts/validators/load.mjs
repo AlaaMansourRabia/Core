@@ -3,7 +3,7 @@
 // The validators are PURE: they take a `catalog` object (the data below) plus a
 // code string and return Finding[]. This loader is the ONLY place that touches the
 // filesystem, so the validator logic stays portable — ready to extract into a
-// shippable `@wakecap/validate` package later (the catalog can then be bundled or
+// shippable `@core/validate` package later (the catalog can then be bundled or
 // passed in by the consumer).
 //
 // Sources of truth (never duplicated, always derived):
@@ -18,7 +18,7 @@ import {parse as parseYaml} from "yaml";
 
 export const repoRoot = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 
-const CORE_UI = "@wakecap/core-ui";
+const CORE_UI = "@core/core-ui";
 
 /** Flatten the category-keyed `components` object into a single array. */
 function flattenComponents(index) {
@@ -29,7 +29,7 @@ function flattenComponents(index) {
 	return out;
 }
 
-/** Build the set of valid `@wakecap/core-ui/...` import specifiers from the exports map. */
+/** Build the set of valid `@core/core-ui/...` import specifiers from the exports map. */
 function buildExportsSet(pkg) {
 	const set = new Set();
 	for (const key of Object.keys(pkg.exports ?? {})) {

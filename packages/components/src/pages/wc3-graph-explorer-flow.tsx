@@ -47,7 +47,7 @@ const shortCardinality = (c: string) =>
 type OntologyNodeData = {objectType: Wc3ObjectType; dimmed: boolean};
 
 /**
- * A node rendered with Wakecore's own tokens rather than React Flow's default chrome, so the canvas
+ * A node rendered with Core's own tokens rather than React Flow's default chrome, so the canvas
  * reads as part of the design system. Handles are transparent — edges attach, but no dots show.
  */
 function OntologyNode({data, selected}: NodeProps) {

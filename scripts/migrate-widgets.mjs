@@ -142,7 +142,7 @@ for (const name of names) {
 		console.error(`  ✗ ${name}: tier=${e.tier}, not a widget`);
 		process.exit(1);
 	}
-	const id = e.import.replace("@wakecap/core-ui/", "").split("/").pop(); // manifests are flat, by basename
+	const id = e.import.replace("@core/core-ui/", "").split("/").pop(); // manifests are flat, by basename
 	const mf = join(repoRoot, "manifests", `${id}.widget.json`);
 	const m = JSON.parse(readFileSync(mf, "utf8"));
 

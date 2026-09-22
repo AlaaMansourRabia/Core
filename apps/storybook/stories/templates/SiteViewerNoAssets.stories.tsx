@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {TooltipProvider} from "@wakecap/core-ui/tooltip";
+import {TooltipProvider} from "@core/core-ui/tooltip";
 
 // Renders the Site Viewer (prototypes/capture) in its "No Assets" representation: instead of the detailed
 // walls/slabs site model, each villa is drawn as a single massing block over the satellite ortho. Same

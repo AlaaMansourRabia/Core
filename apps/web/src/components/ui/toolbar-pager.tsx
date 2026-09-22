@@ -1,2 +1,2 @@
-export {ToolbarPager} from "@wakecap/core-ui/toolbar-pager";
-export type {ToolbarPagerProps} from "@wakecap/core-ui/toolbar-pager";
+export {ToolbarPager} from "@core/core-ui/toolbar-pager";
+export type {ToolbarPagerProps} from "@core/core-ui/toolbar-pager";

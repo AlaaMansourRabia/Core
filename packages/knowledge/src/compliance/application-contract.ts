@@ -153,7 +153,7 @@ function resolveArtifact(
 	region?: string,
 ): ArtifactRequirement {
 	const record = resolve(ref);
-	if (!record) throw new Error(`Unknown WakeCore catalog artifact "${ref}".`);
+	if (!record) throw new Error(`Unknown Core catalog artifact "${ref}".`);
 	return {id: record.id, name: record.name, tier: record.tier, reason, region};
 }
 
@@ -168,7 +168,7 @@ function uniqueRequirements(values: ArtifactRequirement[]): ArtifactRequirement[
 
 export function createApplicationContract(input: ApplicationContractInput): ApplicationContract {
 	const shellInput = input.shell ?? {};
-	const shellId = shellInput.id ?? "wakecore-shared-shell";
+	const shellId = shellInput.id ?? "core-shared-shell";
 	const sidebarRef = shellInput.sidebar ?? (shellInput.topBar ? "CoreAppSidebar" : undefined);
 	const topBarRef = shellInput.topBar ?? (shellInput.sidebar ? "CoreAppTopBar" : undefined);
 	const sidebar = sidebarRef
@@ -214,7 +214,7 @@ export function createApplicationContract(input: ApplicationContractInput): Appl
 	const routes = input.routes.map((route): RouteContract => {
 		const template = route.template ? input.resolve(route.template) : undefined;
 		if (route.template && (!template || template.tier !== "template"))
-			throw new Error(`Unknown WakeCore catalog template "${route.template}" for route "${route.id}".`);
+			throw new Error(`Unknown Core catalog template "${route.template}" for route "${route.id}".`);
 		if (route.moduleBoundaryId && !boundaryIds.has(route.moduleBoundaryId))
 			throw new Error(`Route "${route.id}" references unknown module boundary "${route.moduleBoundaryId}".`);
 		return {
@@ -312,8 +312,8 @@ export function createApplicationContract(input: ApplicationContractInput): Appl
 			sidebar,
 			topBar,
 			density: shellInput.density ?? "comfortable",
-			brandKey: shellInput.brandKey ?? "wakecore",
-			navigationFingerprint: shellInput.navigationFingerprint ?? "wakecore-primary-navigation",
+			brandKey: shellInput.brandKey ?? "core",
+			navigationFingerprint: shellInput.navigationFingerprint ?? "core-primary-navigation",
 			footerFingerprint: shellInput.footerFingerprint,
 			providerOwner: shellInput.providerOwner ?? "application-root",
 			allowedRouteMutations: [

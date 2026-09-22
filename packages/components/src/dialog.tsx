@@ -1,5 +1,5 @@
+import {cn} from "@core/core-utils";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import {cn} from "@wakecap/core-utils";
 import {X} from "lucide-react";
 import * as React from "react";
 

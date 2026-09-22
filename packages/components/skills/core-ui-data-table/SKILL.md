@@ -1,7 +1,7 @@
 ---
 name: core-ui-data-table
 description: >
-  DataTable from @wakecap/core-ui/data-table with @tanstack/react-table
+  DataTable from @core/core-ui/data-table with @tanstack/react-table
   ColumnDef. Sorting, text filtering via searchKey, pagination, column
   visibility toggle. Expandable detail rows (renderSubComponent +
   getRowCanExpand). Tree/nested rows (getSubRows + getSubRows). Collapsible
@@ -9,18 +9,18 @@ description: >
   Sort header button (DataTableColumnHeader). Load when building any table view.
 metadata:
   type: core
-  library: wakecore
+  library: core
   library_version: "0.0.1"
 sources:
-  - "wakecap/Wakecore:packages/components/src/data-table.tsx"
+  - "core/Core:packages/components/src/data-table.tsx"
 ---
 
-# @wakecap/core-ui — Data Table
+# @core/core-ui — Data Table
 
 ## Setup
 
 ```tsx
-import {DataTable, DataTableColumnHeader} from "@wakecap/core-ui/data-table";
+import {DataTable, DataTableColumnHeader} from "@core/core-ui/data-table";
 import type {ColumnDef} from "@tanstack/react-table";
 
 interface Worker {
@@ -56,7 +56,7 @@ export function WorkersTable({data}: {data: Worker[]}) {
 ### Expandable detail panel (renderSubComponent)
 
 ```tsx
-import {DataTable, DataTableDetailPanel} from "@wakecap/core-ui/data-table";
+import {DataTable, DataTableDetailPanel} from "@core/core-ui/data-table";
 
 <DataTable
 	columns={columns}
@@ -98,8 +98,8 @@ collapse/expand. `DataTableRowGroup` renders as a `<Collapsible>` wrapping
 `TableRow` children:
 
 ```tsx
-import {DataTableRowGroup} from "@wakecap/core-ui/data-table";
-import {TableRow, TableCell} from "@wakecap/core-ui/table";
+import {DataTableRowGroup} from "@core/core-ui/data-table";
+import {TableRow, TableCell} from "@core/core-ui/table";
 
 // Render inside a table body, not via DataTable directly
 <DataTableRowGroup title="Zone A" colSpan={columns.length} defaultOpen={true}>

@@ -16,13 +16,13 @@ export interface Config {
 }
 
 export function loadConfig(argv: string[] = process.argv.slice(2)): Config {
-	const stdio = argv.includes("--stdio") || process.env.WAKECORE_MCP_TRANSPORT === "stdio";
+	const stdio = argv.includes("--stdio") || process.env.CORE_MCP_TRANSPORT === "stdio";
 	return {
 		transport: stdio ? "stdio" : "http",
 		host: process.env.HOST ?? "127.0.0.1",
 		port: Number(process.env.PORT ?? 4100),
 		logLevel: (process.env.LOG_LEVEL as LogLevel) ?? "info",
-		rootDir: process.env.WAKECORE_ROOT,
+		rootDir: process.env.CORE_ROOT,
 		store: "filesystem",
 	};
 }

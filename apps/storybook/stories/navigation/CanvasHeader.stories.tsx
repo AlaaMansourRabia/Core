@@ -8,10 +8,10 @@ import {
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
-} from "@wakecap/core-ui/breadcrumb";
-import {Button} from "@wakecap/core-ui/button";
-import {CanvasHeader} from "@wakecap/core-ui/canvas-header";
-import {type WeekSelectorWeek} from "@wakecap/core-ui/week-selector";
+} from "@core/core-ui/breadcrumb";
+import {Button} from "@core/core-ui/button";
+import {CanvasHeader} from "@core/core-ui/canvas-header";
+import {type WeekSelectorWeek} from "@core/core-ui/week-selector";
 import {Maximize2} from "lucide-react";
 import {useState} from "react";
 

@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {addMinutes, format} from "date-fns";
 import {ChevronDown, ChevronUp, Pause, Play, RotateCcw} from "lucide-react";
 import * as React from "react";
@@ -548,7 +548,7 @@ export function TimeScrubber({
 							</div>
 						)}
 
-						{/* Styled hover tooltip for the bar under the pointer (Wakecore tooltip look). */}
+						{/* Styled hover tooltip for the bar under the pointer (Core tooltip look). */}
 						{hoveredBar && (
 							<div
 								className="wwc:pointer-events-none wwc:absolute wwc:bottom-full wwc:z-50 wwc:mb-1.5 wwc:-translate-x-1/2 wwc:whitespace-nowrap wwc:rounded-md wwc:bg-primary wwc:px-2 wwc:py-1 wwc:text-[11px] wwc:font-medium wwc:text-primary-foreground wwc:shadow-md"

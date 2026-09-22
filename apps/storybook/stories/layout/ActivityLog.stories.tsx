@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ActivityActor, ActivityItem, ActivityLog, ActivityRef} from "@wakecap/core-ui/activity-log";
+import {ActivityActor, ActivityItem, ActivityLog, ActivityRef} from "@core/core-ui/activity-log";
 import {Link2, MessageSquare, Paperclip, Reply, Trash2} from "lucide-react";
 
 const meta = {
@@ -62,7 +62,7 @@ export const SingleItem: Story = {
 		<div className="wwc:max-w-2xl wwc:rounded-xl wwc:border wwc:border-border wwc:bg-card wwc:p-6">
 			<ActivityLog>
 				<ActivityItem icon={<MessageSquare className="wwc:h-4 wwc:w-4" />} timestamp="just now">
-					<ActivityActor>alaa@wakecap.com</ActivityActor> created this work item.
+					<ActivityActor>alaa@core.com</ActivityActor> created this work item.
 				</ActivityItem>
 			</ActivityLog>
 		</div>

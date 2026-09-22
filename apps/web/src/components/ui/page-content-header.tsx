@@ -1,4 +1,4 @@
-export {PageContentHeader} from "@wakecap/core-ui/page-content-header";
+export {PageContentHeader} from "@core/core-ui/page-content-header";
 export type {
 	PageContentHeaderAction,
 	PageContentHeaderActionPriority,
@@ -6,4 +6,4 @@ export type {
 	PageContentHeaderProps,
 	PageContentHeaderSplitAction,
 	PageContentHeaderVariant,
-} from "@wakecap/core-ui/page-content-header";
+} from "@core/core-ui/page-content-header";

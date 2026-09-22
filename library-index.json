@@ -2,13 +2,13 @@
 	"_generated": "GENERATED from manifests/ — do NOT edit by hand. Edit the manifest, run `pnpm generate:catalog`; CI enforces sync via `pnpm validate:manifests`.",
 	"version": "2.0.0",
 	"lastUpdated": "2026-09-19",
-	"description": "Wakecore (@wakecap/core-ui) component & composition index — semantic catalog for agents",
+	"description": "Core (@core/core-ui) component & composition index — semantic catalog for agents",
 	"components": {
 		"primitives": [
 			{
 				"name": "Button",
 				"path": "packages/components/src/button.tsx",
-				"import": "@wakecap/core-ui/button",
+				"import": "@core/core-ui/button",
 				"tier": "component",
 				"manifest": "manifests/button.component.json",
 				"manifestStatus": "complete",
@@ -69,7 +69,7 @@
 			{
 				"name": "ButtonGroup",
 				"path": "packages/components/src/button-group.tsx",
-				"import": "@wakecap/core-ui/button-group",
+				"import": "@core/core-ui/button-group",
 				"tier": "component",
 				"manifest": "manifests/button-group.component.json",
 				"manifestStatus": "complete",
@@ -104,7 +104,7 @@
 			{
 				"name": "Input",
 				"path": "packages/components/src/input.tsx",
-				"import": "@wakecap/core-ui/input",
+				"import": "@core/core-ui/input",
 				"tier": "component",
 				"manifest": "manifests/input.component.json",
 				"manifestStatus": "complete",
@@ -145,7 +145,7 @@
 			{
 				"name": "InputGroup",
 				"path": "packages/components/src/input-group.tsx",
-				"import": "@wakecap/core-ui/input-group",
+				"import": "@core/core-ui/input-group",
 				"tier": "component",
 				"manifest": "manifests/input-group.component.json",
 				"manifestStatus": "complete",
@@ -173,7 +173,7 @@
 			{
 				"name": "Textarea",
 				"path": "packages/components/src/textarea.tsx",
-				"import": "@wakecap/core-ui/textarea",
+				"import": "@core/core-ui/textarea",
 				"tier": "component",
 				"manifest": "manifests/textarea.component.json",
 				"manifestStatus": "complete",
@@ -203,7 +203,7 @@
 			{
 				"name": "Select",
 				"path": "packages/components/src/select.tsx",
-				"import": "@wakecap/core-ui/select",
+				"import": "@core/core-ui/select",
 				"tier": "component",
 				"manifest": "manifests/select.component.json",
 				"manifestStatus": "complete",
@@ -245,7 +245,7 @@
 			{
 				"name": "Checkbox",
 				"path": "packages/components/src/checkbox.tsx",
-				"import": "@wakecap/core-ui/checkbox",
+				"import": "@core/core-ui/checkbox",
 				"tier": "component",
 				"manifest": "manifests/checkbox.component.json",
 				"manifestStatus": "complete",
@@ -284,7 +284,7 @@
 			{
 				"name": "RadioGroup",
 				"path": "packages/components/src/radio-group.tsx",
-				"import": "@wakecap/core-ui/radio-group",
+				"import": "@core/core-ui/radio-group",
 				"tier": "component",
 				"manifest": "manifests/radio-group.component.json",
 				"manifestStatus": "complete",
@@ -325,7 +325,7 @@
 			{
 				"name": "Switch",
 				"path": "packages/components/src/switch.tsx",
-				"import": "@wakecap/core-ui/switch",
+				"import": "@core/core-ui/switch",
 				"tier": "component",
 				"manifest": "manifests/switch.component.json",
 				"manifestStatus": "complete",
@@ -362,7 +362,7 @@
 			{
 				"name": "Toggle",
 				"path": "packages/components/src/toggle.tsx",
-				"import": "@wakecap/core-ui/toggle",
+				"import": "@core/core-ui/toggle",
 				"tier": "component",
 				"manifest": "manifests/toggle.component.json",
 				"manifestStatus": "complete",
@@ -408,7 +408,7 @@
 			{
 				"name": "ToggleGroup",
 				"path": "packages/components/src/toggle-group.tsx",
-				"import": "@wakecap/core-ui/toggle-group",
+				"import": "@core/core-ui/toggle-group",
 				"tier": "component",
 				"manifest": "manifests/toggle-group.component.json",
 				"manifestStatus": "complete",
@@ -453,7 +453,7 @@
 			{
 				"name": "Slider",
 				"path": "packages/components/src/slider.tsx",
-				"import": "@wakecap/core-ui/slider",
+				"import": "@core/core-ui/slider",
 				"tier": "component",
 				"manifest": "manifests/slider.component.json",
 				"manifestStatus": "complete",
@@ -475,7 +475,7 @@
 			{
 				"name": "Label",
 				"path": "packages/components/src/label.tsx",
-				"import": "@wakecap/core-ui/label",
+				"import": "@core/core-ui/label",
 				"tier": "component",
 				"manifest": "manifests/label.component.json",
 				"manifestStatus": "complete",
@@ -499,7 +499,7 @@
 			{
 				"name": "Badge",
 				"path": "packages/components/src/badge.tsx",
-				"import": "@wakecap/core-ui/badge",
+				"import": "@core/core-ui/badge",
 				"tier": "component",
 				"manifest": "manifests/badge.component.json",
 				"manifestStatus": "complete",
@@ -550,7 +550,7 @@
 			{
 				"name": "Avatar",
 				"path": "packages/components/src/avatar.tsx",
-				"import": "@wakecap/core-ui/avatar",
+				"import": "@core/core-ui/avatar",
 				"tier": "component",
 				"manifest": "manifests/avatar.component.json",
 				"manifestStatus": "complete",
@@ -572,7 +572,7 @@
 			{
 				"name": "Kbd",
 				"path": "packages/components/src/kbd.tsx",
-				"import": "@wakecap/core-ui/kbd",
+				"import": "@core/core-ui/kbd",
 				"tier": "component",
 				"manifest": "manifests/kbd.component.json",
 				"manifestStatus": "complete",
@@ -593,7 +593,7 @@
 			{
 				"name": "Spinner",
 				"path": "packages/components/src/spinner.tsx",
-				"import": "@wakecap/core-ui/spinner",
+				"import": "@core/core-ui/spinner",
 				"tier": "component",
 				"manifest": "manifests/spinner.component.json",
 				"manifestStatus": "complete",
@@ -631,7 +631,7 @@
 			{
 				"name": "Progress",
 				"path": "packages/components/src/progress.tsx",
-				"import": "@wakecap/core-ui/progress",
+				"import": "@core/core-ui/progress",
 				"tier": "component",
 				"manifest": "manifests/progress.component.json",
 				"manifestStatus": "complete",
@@ -659,7 +659,7 @@
 			{
 				"name": "Skeleton",
 				"path": "packages/components/src/skeleton.tsx",
-				"import": "@wakecap/core-ui/skeleton",
+				"import": "@core/core-ui/skeleton",
 				"tier": "component",
 				"manifest": "manifests/skeleton.component.json",
 				"manifestStatus": "complete",
@@ -695,7 +695,7 @@
 			{
 				"name": "Separator",
 				"path": "packages/components/src/separator.tsx",
-				"import": "@wakecap/core-ui/separator",
+				"import": "@core/core-ui/separator",
 				"tier": "component",
 				"manifest": "manifests/separator.component.json",
 				"manifestStatus": "complete",
@@ -718,7 +718,7 @@
 			{
 				"name": "Card",
 				"path": "packages/components/src/card.tsx",
-				"import": "@wakecap/core-ui/card",
+				"import": "@core/core-ui/card",
 				"tier": "component",
 				"manifest": "manifests/card.component.json",
 				"manifestStatus": "complete",
@@ -762,7 +762,7 @@
 			{
 				"name": "Table",
 				"path": "packages/components/src/table.tsx",
-				"import": "@wakecap/core-ui/table",
+				"import": "@core/core-ui/table",
 				"tier": "component",
 				"manifest": "manifests/table.component.json",
 				"manifestStatus": "complete",
@@ -803,7 +803,7 @@
 			{
 				"name": "DataTable",
 				"path": "packages/components/src/data-table.tsx",
-				"import": "@wakecap/core-ui/data-table",
+				"import": "@core/core-ui/data-table",
 				"tier": "widget",
 				"manifest": "manifests/data-table.widget.json",
 				"manifestStatus": "complete",
@@ -839,7 +839,7 @@
 			{
 				"name": "Tabs",
 				"path": "packages/components/src/tabs.tsx",
-				"import": "@wakecap/core-ui/tabs",
+				"import": "@core/core-ui/tabs",
 				"tier": "component",
 				"manifest": "manifests/tabs.component.json",
 				"manifestStatus": "complete",
@@ -896,7 +896,7 @@
 			{
 				"name": "Accordion",
 				"path": "packages/components/src/accordion.tsx",
-				"import": "@wakecap/core-ui/accordion",
+				"import": "@core/core-ui/accordion",
 				"tier": "component",
 				"manifest": "manifests/accordion.component.json",
 				"manifestStatus": "complete",
@@ -933,7 +933,7 @@
 			{
 				"name": "Collapsible",
 				"path": "packages/components/src/collapsible.tsx",
-				"import": "@wakecap/core-ui/collapsible",
+				"import": "@core/core-ui/collapsible",
 				"tier": "component",
 				"manifest": "manifests/collapsible.component.json",
 				"manifestStatus": "complete",
@@ -959,7 +959,7 @@
 			{
 				"name": "ScrollArea",
 				"path": "packages/components/src/scroll-area.tsx",
-				"import": "@wakecap/core-ui/scroll-area",
+				"import": "@core/core-ui/scroll-area",
 				"tier": "component",
 				"manifest": "manifests/scroll-area.component.json",
 				"manifestStatus": "complete",
@@ -980,7 +980,7 @@
 			{
 				"name": "AspectRatio",
 				"path": "packages/components/src/aspect-ratio.tsx",
-				"import": "@wakecap/core-ui/aspect-ratio",
+				"import": "@core/core-ui/aspect-ratio",
 				"tier": "component",
 				"manifest": "manifests/aspect-ratio.component.json",
 				"manifestStatus": "complete",
@@ -1002,7 +1002,7 @@
 			{
 				"name": "Resizable",
 				"path": "packages/components/src/resizable.tsx",
-				"import": "@wakecap/core-ui/resizable",
+				"import": "@core/core-ui/resizable",
 				"tier": "component",
 				"manifest": "manifests/resizable.component.json",
 				"manifestStatus": "complete",
@@ -1023,7 +1023,7 @@
 			{
 				"name": "Sidebar",
 				"path": "packages/components/src/sidebar.tsx",
-				"import": "@wakecap/core-ui/sidebar",
+				"import": "@core/core-ui/sidebar",
 				"tier": "component",
 				"manifest": "manifests/sidebar.component.json",
 				"manifestStatus": "complete",
@@ -1046,7 +1046,7 @@
 				"chooseOver": [
 					{
 						"component": "CoreAppSidebar",
-						"because": "CoreAppSidebar is the ready-made WakeCap product sidebar (org switcher, search, nav, profile)"
+						"because": "CoreAppSidebar is the ready-made Core product sidebar (org switcher, search, nav, profile)"
 					}
 				],
 				"requires": [
@@ -1062,7 +1062,7 @@
 			{
 				"name": "Item",
 				"path": "packages/components/src/item.tsx",
-				"import": "@wakecap/core-ui/item",
+				"import": "@core/core-ui/item",
 				"tier": "component",
 				"manifest": "manifests/item.component.json",
 				"manifestStatus": "complete",
@@ -1095,7 +1095,7 @@
 			{
 				"name": "PushPanel",
 				"path": "packages/components/src/push-panel.tsx",
-				"import": "@wakecap/core-ui/push-panel",
+				"import": "@core/core-ui/push-panel",
 				"tier": "component",
 				"manifest": "manifests/push-panel.component.json",
 				"manifestStatus": "complete",
@@ -1137,7 +1137,7 @@
 			{
 				"name": "RecordDetailShell",
 				"path": "packages/components/src/record-detail-shell.tsx",
-				"import": "@wakecap/core-ui/record-detail-shell",
+				"import": "@core/core-ui/record-detail-shell",
 				"tier": "widget",
 				"manifest": "manifests/record-detail-shell.widget.json",
 				"manifestStatus": "complete",
@@ -1174,7 +1174,7 @@
 			{
 				"name": "Dialog",
 				"path": "packages/components/src/dialog.tsx",
-				"import": "@wakecap/core-ui/dialog",
+				"import": "@core/core-ui/dialog",
 				"tier": "component",
 				"manifest": "manifests/dialog.component.json",
 				"manifestStatus": "complete",
@@ -1234,7 +1234,7 @@
 			{
 				"name": "AlertDialog",
 				"path": "packages/components/src/alert-dialog.tsx",
-				"import": "@wakecap/core-ui/alert-dialog",
+				"import": "@core/core-ui/alert-dialog",
 				"tier": "component",
 				"manifest": "manifests/alert-dialog.component.json",
 				"manifestStatus": "complete",
@@ -1273,7 +1273,7 @@
 			{
 				"name": "Sheet",
 				"path": "packages/components/src/sheet.tsx",
-				"import": "@wakecap/core-ui/sheet",
+				"import": "@core/core-ui/sheet",
 				"tier": "component",
 				"manifest": "manifests/sheet.component.json",
 				"manifestStatus": "complete",
@@ -1323,7 +1323,7 @@
 			{
 				"name": "Drawer",
 				"path": "packages/components/src/drawer.tsx",
-				"import": "@wakecap/core-ui/drawer",
+				"import": "@core/core-ui/drawer",
 				"tier": "component",
 				"manifest": "manifests/drawer.component.json",
 				"manifestStatus": "complete",
@@ -1356,7 +1356,7 @@
 			{
 				"name": "Popover",
 				"path": "packages/components/src/popover.tsx",
-				"import": "@wakecap/core-ui/popover",
+				"import": "@core/core-ui/popover",
 				"tier": "component",
 				"manifest": "manifests/popover.component.json",
 				"manifestStatus": "complete",
@@ -1404,7 +1404,7 @@
 			{
 				"name": "Tooltip",
 				"path": "packages/components/src/tooltip.tsx",
-				"import": "@wakecap/core-ui/tooltip",
+				"import": "@core/core-ui/tooltip",
 				"tier": "component",
 				"manifest": "manifests/tooltip.component.json",
 				"manifestStatus": "complete",
@@ -1442,7 +1442,7 @@
 			{
 				"name": "HoverCard",
 				"path": "packages/components/src/hover-card.tsx",
-				"import": "@wakecap/core-ui/hover-card",
+				"import": "@core/core-ui/hover-card",
 				"tier": "component",
 				"manifest": "manifests/hover-card.component.json",
 				"manifestStatus": "complete",
@@ -1479,7 +1479,7 @@
 			{
 				"name": "DropdownMenu",
 				"path": "packages/components/src/dropdown-menu.tsx",
-				"import": "@wakecap/core-ui/dropdown-menu",
+				"import": "@core/core-ui/dropdown-menu",
 				"tier": "component",
 				"manifest": "manifests/dropdown-menu.component.json",
 				"manifestStatus": "complete",
@@ -1532,7 +1532,7 @@
 			{
 				"name": "ContextMenu",
 				"path": "packages/components/src/context-menu.tsx",
-				"import": "@wakecap/core-ui/context-menu",
+				"import": "@core/core-ui/context-menu",
 				"tier": "component",
 				"manifest": "manifests/context-menu.component.json",
 				"manifestStatus": "complete",
@@ -1566,7 +1566,7 @@
 			{
 				"name": "Menubar",
 				"path": "packages/components/src/menubar.tsx",
-				"import": "@wakecap/core-ui/menubar",
+				"import": "@core/core-ui/menubar",
 				"tier": "component",
 				"manifest": "manifests/menubar.component.json",
 				"manifestStatus": "complete",
@@ -1604,7 +1604,7 @@
 			{
 				"name": "NavigationMenu",
 				"path": "packages/components/src/navigation-menu.tsx",
-				"import": "@wakecap/core-ui/navigation-menu",
+				"import": "@core/core-ui/navigation-menu",
 				"tier": "component",
 				"manifest": "manifests/navigation-menu.component.json",
 				"manifestStatus": "complete",
@@ -1629,7 +1629,7 @@
 					},
 					{
 						"component": "CoreContextTabs",
-						"because": "CoreContextTabs inside the WakeCap shell"
+						"because": "CoreContextTabs inside the Core shell"
 					}
 				],
 				"requires": [],
@@ -1641,7 +1641,7 @@
 			{
 				"name": "Breadcrumb",
 				"path": "packages/components/src/breadcrumb.tsx",
-				"import": "@wakecap/core-ui/breadcrumb",
+				"import": "@core/core-ui/breadcrumb",
 				"tier": "component",
 				"manifest": "manifests/breadcrumb.component.json",
 				"manifestStatus": "complete",
@@ -1664,7 +1664,7 @@
 			{
 				"name": "Pagination",
 				"path": "packages/components/src/pagination.tsx",
-				"import": "@wakecap/core-ui/pagination",
+				"import": "@core/core-ui/pagination",
 				"tier": "component",
 				"manifest": "manifests/pagination.component.json",
 				"manifestStatus": "complete",
@@ -1690,7 +1690,7 @@
 			{
 				"name": "Command",
 				"path": "packages/components/src/command.tsx",
-				"import": "@wakecap/core-ui/command",
+				"import": "@core/core-ui/command",
 				"tier": "component",
 				"manifest": "manifests/command.component.json",
 				"manifestStatus": "complete",
@@ -1717,7 +1717,7 @@
 			{
 				"name": "CoreContextTabs",
 				"path": "packages/components/src/navigation/core-context-tabs.tsx",
-				"import": "@wakecap/core-ui/navigation/core-context-tabs",
+				"import": "@core/core-ui/navigation/core-context-tabs",
 				"tier": "widget",
 				"manifest": "manifests/core-context-tabs.widget.json",
 				"manifestStatus": "stub",
@@ -1746,7 +1746,7 @@
 			{
 				"name": "CoreFilterStrip",
 				"path": "packages/components/src/navigation/core-filter-strip.tsx",
-				"import": "@wakecap/core-ui/navigation/core-filter-strip",
+				"import": "@core/core-ui/navigation/core-filter-strip",
 				"tier": "widget",
 				"manifest": "manifests/core-filter-strip.widget.json",
 				"manifestStatus": "stub",
@@ -1770,7 +1770,7 @@
 			{
 				"name": "CoreDashboardHeader",
 				"path": "packages/components/src/navigation/core-dashboard-header.tsx",
-				"import": "@wakecap/core-ui/navigation/core-dashboard-header",
+				"import": "@core/core-ui/navigation/core-dashboard-header",
 				"tier": "widget",
 				"manifest": "manifests/core-dashboard-header.widget.json",
 				"manifestStatus": "stub",
@@ -1816,7 +1816,7 @@
 			{
 				"name": "CoreOrgProjectSwitcher",
 				"path": "packages/components/src/navigation/core-org-project-switcher.tsx",
-				"import": "@wakecap/core-ui/navigation/core-org-project-switcher",
+				"import": "@core/core-ui/navigation/core-org-project-switcher",
 				"tier": "widget",
 				"manifest": "manifests/core-org-project-switcher.widget.json",
 				"manifestStatus": "stub",
@@ -1844,7 +1844,7 @@
 			{
 				"name": "CoreAppSidebar",
 				"path": "packages/components/src/navigation/core-app-sidebar.tsx",
-				"import": "@wakecap/core-ui/navigation/core-app-sidebar",
+				"import": "@core/core-ui/navigation/core-app-sidebar",
 				"tier": "widget",
 				"manifest": "manifests/core-app-sidebar.widget.json",
 				"manifestStatus": "stub",
@@ -1859,9 +1859,9 @@
 					"breadcrumbable-groups"
 				],
 				"knowledgeLevel": "full",
-				"intent": "The standard WakeCap product sidebar: branded shell with a pinned block of shell surfaces (Search, a `pinnedTop` entry, Home, Notifications) over grouped nav, plus profile, density, and collapse to an icon rail with sub-tab flyouts. Search is a ROW that hands off to a search surface of the consumer's choosing, not an inline filter. Groups are navigable in their own right: give a group an `icon` and it renders as a tree — parent-sized header, a spine down to the last item, an elbow into each — and folds in the collapsed rail to that one icon, whose flyout lists its items using the same flyout an `expandable` item's `subMenu` gets. `collapsible` makes the WHOLE header fold the group — name, icon and chevron are one control, so no group name is a link and none underlines — while `activeGroupId` marks a group (and its rail icon) as the active surface and `onGroupSelect` fires only from the collapsed rail's flyout title. `variant` names the two shapes — `\"list\"` (default) for the flat, ruled, all-open list and `\"tree\"` for grouped sections that fold to their icon — and supplies the defaults for `showGroupDividers` and `groupsCollapsedByDefault`, both of which still override it. `brandName`, `showHomeDivider`, `dividerBefore` and `showSearch` tune the chrome independently of the variant; expanding and folding animate.",
+				"intent": "The standard Core product sidebar: branded shell with a pinned block of shell surfaces (Search, a `pinnedTop` entry, Home, Notifications) over grouped nav, plus profile, density, and collapse to an icon rail with sub-tab flyouts. Search is a ROW that hands off to a search surface of the consumer's choosing, not an inline filter. Groups are navigable in their own right: give a group an `icon` and it renders as a tree — parent-sized header, a spine down to the last item, an elbow into each — and folds in the collapsed rail to that one icon, whose flyout lists its items using the same flyout an `expandable` item's `subMenu` gets. `collapsible` makes the WHOLE header fold the group — name, icon and chevron are one control, so no group name is a link and none underlines — while `activeGroupId` marks a group (and its rail icon) as the active surface and `onGroupSelect` fires only from the collapsed rail's flyout title. `variant` names the two shapes — `\"list\"` (default) for the flat, ruled, all-open list and `\"tree\"` for grouped sections that fold to their icon — and supplies the defaults for `showGroupDividers` and `groupsCollapsedByDefault`, both of which still override it. `brandName`, `showHomeDivider`, `dividerBefore` and `showSearch` tune the chrome independently of the variant; expanding and folding animate.",
 				"when": [
-					"Any standard WakeCap product app shell",
+					"Any standard Core product app shell",
 					"A sidebar whose GROUPS are destinations too, not just headings over a list",
 					"A nav that must stay legible collapsed — one icon per section, its items in a flyout",
 					"A long nav that should open as a short list of section headers and expand on demand"
@@ -1892,7 +1892,7 @@
 			{
 				"name": "CoreAppTopBar",
 				"path": "packages/components/src/navigation/core-app-top-bar.tsx",
-				"import": "@wakecap/core-ui/navigation/core-app-top-bar",
+				"import": "@core/core-ui/navigation/core-app-top-bar",
 				"tier": "widget",
 				"manifest": "manifests/core-app-top-bar.widget.json",
 				"manifestStatus": "stub",
@@ -1904,7 +1904,7 @@
 				"knowledgeLevel": "full",
 				"intent": "The product top bar: project/org switcher, breadcrumb/title, feedback and actions, with density matching CoreAppSidebar.",
 				"when": [
-					"The header row of the WakeCap app shell"
+					"The header row of the Core app shell"
 				],
 				"chooseOver": [
 					{
@@ -1932,7 +1932,7 @@
 			{
 				"name": "Stepper",
 				"path": "packages/components/src/stepper.tsx",
-				"import": "@wakecap/core-ui/stepper",
+				"import": "@core/core-ui/stepper",
 				"tier": "component",
 				"manifest": "manifests/stepper.component.json",
 				"manifestStatus": "complete",
@@ -1971,7 +1971,7 @@
 			{
 				"name": "BrowserTabs",
 				"path": "packages/components/src/browser-tabs.tsx",
-				"import": "@wakecap/core-ui/browser-tabs",
+				"import": "@core/core-ui/browser-tabs",
 				"tier": "component",
 				"manifest": "manifests/browser-tabs.component.json",
 				"manifestStatus": "complete",
@@ -2001,7 +2001,7 @@
 			{
 				"name": "ViewTabBar",
 				"path": "packages/components/src/view-tab-bar.tsx",
-				"import": "@wakecap/core-ui/view-tab-bar",
+				"import": "@core/core-ui/view-tab-bar",
 				"tier": "component",
 				"manifest": "manifests/view-tab-bar.component.json",
 				"manifestStatus": "complete",
@@ -2039,7 +2039,7 @@
 			{
 				"name": "CatalogueViewToggle",
 				"path": "packages/components/src/catalogue-view-toggle.tsx",
-				"import": "@wakecap/core-ui/catalogue-view-toggle",
+				"import": "@core/core-ui/catalogue-view-toggle",
 				"tier": "component",
 				"manifest": "manifests/catalogue-view-toggle.component.json",
 				"manifestStatus": "complete",
@@ -2084,7 +2084,7 @@
 			{
 				"name": "Form",
 				"path": "packages/components/src/form.tsx",
-				"import": "@wakecap/core-ui/form",
+				"import": "@core/core-ui/form",
 				"tier": "component",
 				"manifest": "manifests/form.component.json",
 				"manifestStatus": "complete",
@@ -2128,7 +2128,7 @@
 			{
 				"name": "Field",
 				"path": "packages/components/src/field.tsx",
-				"import": "@wakecap/core-ui/field",
+				"import": "@core/core-ui/field",
 				"tier": "component",
 				"manifest": "manifests/field.component.json",
 				"manifestStatus": "complete",
@@ -2155,7 +2155,7 @@
 			{
 				"name": "InputOTP",
 				"path": "packages/components/src/input-otp.tsx",
-				"import": "@wakecap/core-ui/input-otp",
+				"import": "@core/core-ui/input-otp",
 				"tier": "component",
 				"manifest": "manifests/input-otp.component.json",
 				"manifestStatus": "complete",
@@ -2182,7 +2182,7 @@
 			{
 				"name": "Combobox",
 				"path": "packages/components/src/combobox.tsx",
-				"import": "@wakecap/core-ui/combobox",
+				"import": "@core/core-ui/combobox",
 				"tier": "component",
 				"manifest": "manifests/combobox.component.json",
 				"manifestStatus": "complete",
@@ -2218,7 +2218,7 @@
 			{
 				"name": "DatePicker",
 				"path": "packages/components/src/date-picker.tsx",
-				"import": "@wakecap/core-ui/date-picker",
+				"import": "@core/core-ui/date-picker",
 				"tier": "component",
 				"manifest": "manifests/date-picker.component.json",
 				"manifestStatus": "complete",
@@ -2252,7 +2252,7 @@
 			{
 				"name": "Calendar",
 				"path": "packages/components/src/calendar.tsx",
-				"import": "@wakecap/core-ui/calendar",
+				"import": "@core/core-ui/calendar",
 				"tier": "component",
 				"manifest": "manifests/calendar.component.json",
 				"manifestStatus": "complete",
@@ -2278,7 +2278,7 @@
 			{
 				"name": "Chip",
 				"path": "packages/components/src/chip.tsx",
-				"import": "@wakecap/core-ui/chip",
+				"import": "@core/core-ui/chip",
 				"tier": "component",
 				"manifest": "manifests/chip.component.json",
 				"manifestStatus": "complete",
@@ -2326,7 +2326,7 @@
 			{
 				"name": "Filter",
 				"path": "packages/components/src/filter.tsx",
-				"import": "@wakecap/core-ui/filter",
+				"import": "@core/core-ui/filter",
 				"tier": "widget",
 				"manifest": "manifests/filter.widget.json",
 				"manifestStatus": "stub",
@@ -2366,7 +2366,7 @@
 			{
 				"name": "SearchFilterBar",
 				"path": "packages/components/src/search-filter-bar.tsx",
-				"import": "@wakecap/core-ui/search-filter-bar",
+				"import": "@core/core-ui/search-filter-bar",
 				"tier": "widget",
 				"manifest": "manifests/search-filter-bar.widget.json",
 				"manifestStatus": "stub",
@@ -2397,7 +2397,7 @@
 			{
 				"name": "FormDialog",
 				"path": "packages/components/src/form-dialog.tsx",
-				"import": "@wakecap/core-ui/form-dialog",
+				"import": "@core/core-ui/form-dialog",
 				"tier": "widget",
 				"manifest": "manifests/form-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2442,7 +2442,7 @@
 			{
 				"name": "WizardDialog",
 				"path": "packages/components/src/wizard-dialog.tsx",
-				"import": "@wakecap/core-ui/wizard-dialog",
+				"import": "@core/core-ui/wizard-dialog",
 				"tier": "widget",
 				"manifest": "manifests/wizard-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2485,7 +2485,7 @@
 			{
 				"name": "NewActionTypeDialog",
 				"path": "packages/components/src/pages/wc3-action-type-wizard.tsx",
-				"import": "@wakecap/core-ui/new-action-type-dialog",
+				"import": "@core/core-ui/new-action-type-dialog",
 				"tier": "widget",
 				"manifest": "manifests/new-action-type-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2521,7 +2521,7 @@
 			{
 				"name": "NewInterfaceDialog",
 				"path": "packages/components/src/pages/wc3-interface-wizard.tsx",
-				"import": "@wakecap/core-ui/new-interface-dialog",
+				"import": "@core/core-ui/new-interface-dialog",
 				"tier": "widget",
 				"manifest": "manifests/new-interface-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2554,7 +2554,7 @@
 			{
 				"name": "NewLinkTypeDialog",
 				"path": "packages/components/src/link-type-wizard.tsx",
-				"import": "@wakecap/core-ui/new-link-type-dialog",
+				"import": "@core/core-ui/new-link-type-dialog",
 				"tier": "widget",
 				"manifest": "manifests/new-link-type-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2588,7 +2588,7 @@
 			{
 				"name": "NewObjectTypeDialog",
 				"path": "packages/components/src/object-type-wizard.tsx",
-				"import": "@wakecap/core-ui/new-object-type-dialog",
+				"import": "@core/core-ui/new-object-type-dialog",
 				"tier": "widget",
 				"manifest": "manifests/new-object-type-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2623,7 +2623,7 @@
 			{
 				"name": "NewSharedPropertyDialog",
 				"path": "packages/components/src/pages/wc3-shared-property-wizard.tsx",
-				"import": "@wakecap/core-ui/new-shared-property-dialog",
+				"import": "@core/core-ui/new-shared-property-dialog",
 				"tier": "widget",
 				"manifest": "manifests/new-shared-property-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2656,7 +2656,7 @@
 			{
 				"name": "NewTypeGroupDialog",
 				"path": "packages/components/src/pages/wc3-group-wizard.tsx",
-				"import": "@wakecap/core-ui/new-type-group-dialog",
+				"import": "@core/core-ui/new-type-group-dialog",
 				"tier": "widget",
 				"manifest": "manifests/new-type-group-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2690,7 +2690,7 @@
 			{
 				"name": "Alert",
 				"path": "packages/components/src/alert.tsx",
-				"import": "@wakecap/core-ui/alert",
+				"import": "@core/core-ui/alert",
 				"tier": "component",
 				"manifest": "manifests/alert.component.json",
 				"manifestStatus": "complete",
@@ -2739,7 +2739,7 @@
 			{
 				"name": "Toast",
 				"path": "packages/components/src/toast.tsx",
-				"import": "@wakecap/core-ui/toast",
+				"import": "@core/core-ui/toast",
 				"tier": "component",
 				"manifest": "manifests/toast.component.json",
 				"manifestStatus": "complete",
@@ -2774,7 +2774,7 @@
 			{
 				"name": "Toaster",
 				"path": "packages/components/src/toaster.tsx",
-				"import": "@wakecap/core-ui/toaster",
+				"import": "@core/core-ui/toaster",
 				"tier": "utility",
 				"manifest": "manifests/toaster.utility.json",
 				"manifestStatus": "complete",
@@ -2796,7 +2796,7 @@
 			{
 				"name": "useToast",
 				"path": "packages/components/src/use-toast.tsx",
-				"import": "@wakecap/core-ui/use-toast",
+				"import": "@core/core-ui/use-toast",
 				"tier": "utility",
 				"manifest": "manifests/use-toast.utility.json",
 				"manifestStatus": "complete",
@@ -2822,7 +2822,7 @@
 			{
 				"name": "Sonner",
 				"path": "packages/components/src/sonner.tsx",
-				"import": "@wakecap/core-ui/sonner",
+				"import": "@core/core-ui/sonner",
 				"tier": "component",
 				"manifest": "manifests/sonner.component.json",
 				"manifestStatus": "complete",
@@ -2864,7 +2864,7 @@
 			{
 				"name": "Empty",
 				"path": "packages/components/src/empty.tsx",
-				"import": "@wakecap/core-ui/empty",
+				"import": "@core/core-ui/empty",
 				"tier": "component",
 				"manifest": "manifests/empty.component.json",
 				"manifestStatus": "complete",
@@ -2901,7 +2901,7 @@
 			{
 				"name": "ErrorPage",
 				"path": "packages/components/src/error-page.tsx",
-				"import": "@wakecap/core-ui/error-page",
+				"import": "@core/core-ui/error-page",
 				"tier": "template",
 				"manifest": "manifests/error-page.template.json",
 				"manifestStatus": "complete",
@@ -2937,7 +2937,7 @@
 			{
 				"name": "Banner",
 				"path": "packages/components/src/banner.tsx",
-				"import": "@wakecap/core-ui/banner",
+				"import": "@core/core-ui/banner",
 				"tier": "component",
 				"manifest": "manifests/banner.component.json",
 				"manifestStatus": "complete",
@@ -2983,7 +2983,7 @@
 			{
 				"name": "Carousel",
 				"path": "packages/components/src/carousel.tsx",
-				"import": "@wakecap/core-ui/carousel",
+				"import": "@core/core-ui/carousel",
 				"tier": "component",
 				"manifest": "manifests/carousel.component.json",
 				"manifestStatus": "complete",
@@ -3005,7 +3005,7 @@
 			{
 				"name": "Chart",
 				"path": "packages/components/src/chart.tsx",
-				"import": "@wakecap/core-ui/chart",
+				"import": "@core/core-ui/chart",
 				"tier": "widget",
 				"manifest": "manifests/chart.widget.json",
 				"manifestStatus": "complete",
@@ -3016,7 +3016,7 @@
 					"data"
 				],
 				"knowledgeLevel": "full",
-				"intent": "ECharts-backed chart widget that owns the chart instance lifecycle, responsive resizing, and canvas-safe translation of WakeCore semantic tokens.",
+				"intent": "ECharts-backed chart widget that owns the chart instance lifecycle, responsive resizing, and canvas-safe translation of Core semantic tokens.",
 				"when": [
 					"Build a theme-aware data visualization",
 					"Render any of the chart-family examples"
@@ -3047,7 +3047,7 @@
 			{
 				"name": "TrendChart",
 				"path": "packages/components/src/trend-chart.tsx",
-				"import": "@wakecap/core-ui/trend-chart",
+				"import": "@core/core-ui/trend-chart",
 				"tier": "widget",
 				"manifest": "manifests/trend-chart.widget.json",
 				"manifestStatus": "complete",
@@ -3096,7 +3096,7 @@
 			{
 				"name": "Typography",
 				"path": "packages/components/src/typography.tsx",
-				"import": "@wakecap/core-ui/typography",
+				"import": "@core/core-ui/typography",
 				"tier": "component",
 				"manifest": "manifests/typography.component.json",
 				"manifestStatus": "complete",
@@ -3118,7 +3118,7 @@
 			{
 				"name": "Gantt",
 				"path": "packages/components/src/gantt.tsx",
-				"import": "@wakecap/core-ui/gantt",
+				"import": "@core/core-ui/gantt",
 				"tier": "widget",
 				"manifest": "manifests/gantt.widget.json",
 				"manifestStatus": "stub",
@@ -3141,7 +3141,7 @@
 			{
 				"name": "Map",
 				"path": "packages/components/src/map.tsx",
-				"import": "@wakecap/core-ui/map",
+				"import": "@core/core-ui/map",
 				"tier": "widget",
 				"manifest": "manifests/map.widget.json",
 				"manifestStatus": "stub",
@@ -3166,7 +3166,7 @@
 			{
 				"name": "MapControls",
 				"path": "packages/components/src/map-controls.tsx",
-				"import": "@wakecap/core-ui/map-controls",
+				"import": "@core/core-ui/map-controls",
 				"tier": "widget",
 				"manifest": "manifests/map-controls.widget.json",
 				"manifestStatus": "stub",
@@ -3191,7 +3191,7 @@
 			{
 				"name": "TreeRow",
 				"path": "packages/components/src/tree-row.tsx",
-				"import": "@wakecap/core-ui/tree-row",
+				"import": "@core/core-ui/tree-row",
 				"tier": "component",
 				"manifest": "manifests/tree-row.component.json",
 				"manifestStatus": "complete",
@@ -3224,7 +3224,7 @@
 			{
 				"name": "CalendarView",
 				"path": "packages/components/src/calendar-view.tsx",
-				"import": "@wakecap/core-ui/calendar-view",
+				"import": "@core/core-ui/calendar-view",
 				"tier": "widget",
 				"manifest": "manifests/calendar-view.widget.json",
 				"manifestStatus": "stub",
@@ -3255,7 +3255,7 @@
 			{
 				"name": "ActivityLog",
 				"path": "packages/components/src/activity-log.tsx",
-				"import": "@wakecap/core-ui/activity-log",
+				"import": "@core/core-ui/activity-log",
 				"tier": "widget",
 				"manifest": "manifests/activity-log.widget.json",
 				"manifestStatus": "stub",
@@ -3280,7 +3280,7 @@
 			{
 				"name": "ActivitySheet",
 				"path": "packages/components/src/activity-sheet.tsx",
-				"import": "@wakecap/core-ui/activity-sheet",
+				"import": "@core/core-ui/activity-sheet",
 				"tier": "widget",
 				"manifest": "manifests/activity-sheet.widget.json",
 				"manifestStatus": "stub",
@@ -3317,7 +3317,7 @@
 			{
 				"name": "PropertyList",
 				"path": "packages/components/src/property-list.tsx",
-				"import": "@wakecap/core-ui/property-list",
+				"import": "@core/core-ui/property-list",
 				"tier": "component",
 				"manifest": "manifests/property-list.component.json",
 				"manifestStatus": "complete",
@@ -3342,7 +3342,7 @@
 			{
 				"name": "WorkItemCard",
 				"path": "packages/components/src/work-item-card.tsx",
-				"import": "@wakecap/core-ui/work-item-card",
+				"import": "@core/core-ui/work-item-card",
 				"tier": "widget",
 				"manifest": "manifests/work-item-card.widget.json",
 				"manifestStatus": "stub",
@@ -3368,7 +3368,7 @@
 			{
 				"name": "MetricCard",
 				"path": "packages/components/src/metric-card.tsx",
-				"import": "@wakecap/core-ui/metric-card",
+				"import": "@core/core-ui/metric-card",
 				"tier": "widget",
 				"manifest": "manifests/metric-card.widget.json",
 				"manifestStatus": "complete",
@@ -3400,7 +3400,7 @@
 			{
 				"name": "KPISummary",
 				"path": "packages/components/src/kpi-summary.tsx",
-				"import": "@wakecap/core-ui/kpi-summary",
+				"import": "@core/core-ui/kpi-summary",
 				"tier": "widget",
 				"manifest": "manifests/kpi-summary.widget.json",
 				"manifestStatus": "complete",
@@ -3436,7 +3436,7 @@
 			{
 				"name": "KPIBar",
 				"path": "packages/components/src/kpi-bar.tsx",
-				"import": "@wakecap/core-ui/kpi-bar",
+				"import": "@core/core-ui/kpi-bar",
 				"tier": "widget",
 				"manifest": "manifests/kpi-bar.widget.json",
 				"manifestStatus": "complete",
@@ -3473,7 +3473,7 @@
 			{
 				"name": "CanvasToolbar",
 				"path": "packages/components/src/canvas-toolbar.tsx",
-				"import": "@wakecap/core-ui/canvas-toolbar",
+				"import": "@core/core-ui/canvas-toolbar",
 				"tier": "widget",
 				"manifest": "manifests/canvas-toolbar.widget.json",
 				"manifestStatus": "stub",
@@ -3497,7 +3497,7 @@
 			{
 				"name": "DrawingActions",
 				"path": "packages/components/src/drawing-actions.tsx",
-				"import": "@wakecap/core-ui/drawing-actions",
+				"import": "@core/core-ui/drawing-actions",
 				"tier": "widget",
 				"manifest": "manifests/drawing-actions.widget.json",
 				"manifestStatus": "stub",
@@ -3520,7 +3520,7 @@
 			{
 				"name": "ZoomTools",
 				"path": "packages/components/src/zoom-tools.tsx",
-				"import": "@wakecap/core-ui/zoom-tools",
+				"import": "@core/core-ui/zoom-tools",
 				"tier": "component",
 				"manifest": "manifests/zoom-tools.component.json",
 				"manifestStatus": "complete",
@@ -3544,7 +3544,7 @@
 			{
 				"name": "CommentThread",
 				"path": "packages/components/src/comment-thread.tsx",
-				"import": "@wakecap/core-ui/comment-thread",
+				"import": "@core/core-ui/comment-thread",
 				"tier": "widget",
 				"manifest": "manifests/comment-thread.widget.json",
 				"manifestStatus": "stub",
@@ -3567,7 +3567,7 @@
 			{
 				"name": "CommentComposer",
 				"path": "packages/components/src/comment-composer.tsx",
-				"import": "@wakecap/core-ui/comment-composer",
+				"import": "@core/core-ui/comment-composer",
 				"tier": "widget",
 				"manifest": "manifests/comment-composer.widget.json",
 				"manifestStatus": "stub",
@@ -3593,7 +3593,7 @@
 			{
 				"name": "InlineCommentComposer",
 				"path": "packages/components/src/inline-comment-composer.tsx",
-				"import": "@wakecap/core-ui/inline-comment-composer",
+				"import": "@core/core-ui/inline-comment-composer",
 				"tier": "widget",
 				"manifest": "manifests/inline-comment-composer.widget.json",
 				"manifestStatus": "stub",
@@ -3621,7 +3621,7 @@
 			{
 				"name": "CopyButton",
 				"path": "packages/components/src/copy-button.tsx",
-				"import": "@wakecap/core-ui/copy-button",
+				"import": "@core/core-ui/copy-button",
 				"tier": "component",
 				"manifest": "manifests/copy-button.component.json",
 				"manifestStatus": "complete",
@@ -3642,7 +3642,7 @@
 			{
 				"name": "SetupStepsChecklist",
 				"path": "packages/components/src/setup-steps-checklist.tsx",
-				"import": "@wakecap/core-ui/setup-steps-checklist",
+				"import": "@core/core-ui/setup-steps-checklist",
 				"tier": "widget",
 				"manifest": "manifests/setup-steps-checklist.widget.json",
 				"manifestStatus": "stub",
@@ -3668,7 +3668,7 @@
 			{
 				"name": "BuildingProgress",
 				"path": "packages/components/src/building-progress.tsx",
-				"import": "@wakecap/core-ui/building-progress",
+				"import": "@core/core-ui/building-progress",
 				"tier": "widget",
 				"manifest": "manifests/building-progress.widget.json",
 				"manifestStatus": "stub",
@@ -3688,7 +3688,7 @@
 			{
 				"name": "CanvasFilePicker",
 				"path": "packages/components/src/canvas-file-picker.tsx",
-				"import": "@wakecap/core-ui/canvas-file-picker",
+				"import": "@core/core-ui/canvas-file-picker",
 				"tier": "component",
 				"manifest": "manifests/canvas-file-picker.component.json",
 				"manifestStatus": "stub",
@@ -3709,7 +3709,7 @@
 			{
 				"name": "CanvasNavigator",
 				"path": "packages/components/src/canvas-navigator.tsx",
-				"import": "@wakecap/core-ui/canvas-navigator",
+				"import": "@core/core-ui/canvas-navigator",
 				"tier": "widget",
 				"manifest": "manifests/canvas-navigator.widget.json",
 				"manifestStatus": "stub",
@@ -3730,7 +3730,7 @@
 			{
 				"name": "CompareView",
 				"path": "packages/components/src/compare-view.tsx",
-				"import": "@wakecap/core-ui/compare-view",
+				"import": "@core/core-ui/compare-view",
 				"tier": "widget",
 				"manifest": "manifests/compare-view.widget.json",
 				"manifestStatus": "stub",
@@ -3749,7 +3749,7 @@
 			{
 				"name": "Legend",
 				"path": "packages/components/src/legend.tsx",
-				"import": "@wakecap/core-ui/legend",
+				"import": "@core/core-ui/legend",
 				"tier": "component",
 				"manifest": "manifests/legend.component.json",
 				"manifestStatus": "stub",
@@ -3770,13 +3770,13 @@
 			{
 				"name": "MapCompareLayout",
 				"path": "packages/components/src/map-compare-layout.tsx",
-				"import": "@wakecap/core-ui/map-compare-layout",
+				"import": "@core/core-ui/map-compare-layout",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "MapCompass",
 				"path": "packages/components/src/map-compass.tsx",
-				"import": "@wakecap/core-ui/map-compass",
+				"import": "@core/core-ui/map-compass",
 				"tier": "component",
 				"manifest": "manifests/map-compass.component.json",
 				"manifestStatus": "stub",
@@ -3796,7 +3796,7 @@
 			{
 				"name": "MapMinimap",
 				"path": "packages/components/src/map-minimap.tsx",
-				"import": "@wakecap/core-ui/map-minimap",
+				"import": "@core/core-ui/map-minimap",
 				"tier": "component",
 				"manifest": "manifests/map-minimap.component.json",
 				"manifestStatus": "stub",
@@ -3816,7 +3816,7 @@
 			{
 				"name": "MapToolbar",
 				"path": "packages/components/src/map-toolbar.tsx",
-				"import": "@wakecap/core-ui/map-toolbar",
+				"import": "@core/core-ui/map-toolbar",
 				"tier": "widget",
 				"manifest": "manifests/map-toolbar.widget.json",
 				"manifestStatus": "stub",
@@ -3836,13 +3836,13 @@
 			{
 				"name": "ObjectDrawingToolbar",
 				"path": "packages/components/src/object-drawing-toolbar.tsx",
-				"import": "@wakecap/core-ui/object-drawing-toolbar",
+				"import": "@core/core-ui/object-drawing-toolbar",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "ProgressComparison",
 				"path": "packages/components/src/progress-comparison.tsx",
-				"import": "@wakecap/core-ui/progress-comparison",
+				"import": "@core/core-ui/progress-comparison",
 				"tier": "widget",
 				"manifest": "manifests/progress-comparison.widget.json",
 				"manifestStatus": "stub",
@@ -3862,7 +3862,7 @@
 			{
 				"name": "TimelineRangeSelector",
 				"path": "packages/components/src/timeline-range-selector.tsx",
-				"import": "@wakecap/core-ui/timeline-range-selector",
+				"import": "@core/core-ui/timeline-range-selector",
 				"tier": "component",
 				"manifest": "manifests/timeline-range-selector.component.json",
 				"manifestStatus": "stub",
@@ -3882,7 +3882,7 @@
 			{
 				"name": "TimestampPicker",
 				"path": "packages/components/src/timestamp-picker.tsx",
-				"import": "@wakecap/core-ui/timestamp-picker",
+				"import": "@core/core-ui/timestamp-picker",
 				"tier": "component",
 				"manifest": "manifests/timestamp-picker.component.json",
 				"manifestStatus": "stub",
@@ -3902,7 +3902,7 @@
 			{
 				"name": "Toolbar",
 				"path": "packages/components/src/toolbar.tsx",
-				"import": "@wakecap/core-ui/toolbar",
+				"import": "@core/core-ui/toolbar",
 				"tier": "component",
 				"manifest": "manifests/toolbar.component.json",
 				"manifestStatus": "stub",
@@ -3922,7 +3922,7 @@
 			{
 				"name": "ToolbarColorPicker",
 				"path": "packages/components/src/toolbar-color-picker.tsx",
-				"import": "@wakecap/core-ui/toolbar-color-picker",
+				"import": "@core/core-ui/toolbar-color-picker",
 				"tier": "component",
 				"manifest": "manifests/toolbar-color-picker.component.json",
 				"manifestStatus": "stub",
@@ -3942,7 +3942,7 @@
 			{
 				"name": "ToolbarPager",
 				"path": "packages/components/src/toolbar-pager.tsx",
-				"import": "@wakecap/core-ui/toolbar-pager",
+				"import": "@core/core-ui/toolbar-pager",
 				"tier": "component",
 				"manifest": "manifests/toolbar-pager.component.json",
 				"manifestStatus": "stub",
@@ -3962,7 +3962,7 @@
 			{
 				"name": "ToolbarStats",
 				"path": "packages/components/src/toolbar-stats.tsx",
-				"import": "@wakecap/core-ui/toolbar-stats",
+				"import": "@core/core-ui/toolbar-stats",
 				"tier": "widget",
 				"manifest": "manifests/toolbar-stats.widget.json",
 				"manifestStatus": "complete",
@@ -3996,7 +3996,7 @@
 			{
 				"name": "VerticalZoomTools",
 				"path": "packages/components/src/vertical-zoom-tools.tsx",
-				"import": "@wakecap/core-ui/vertical-zoom-tools",
+				"import": "@core/core-ui/vertical-zoom-tools",
 				"tier": "component",
 				"manifest": "manifests/vertical-zoom-tools.component.json",
 				"manifestStatus": "stub",
@@ -4016,7 +4016,7 @@
 			{
 				"name": "WeekSelector",
 				"path": "packages/components/src/week-selector.tsx",
-				"import": "@wakecap/core-ui/week-selector",
+				"import": "@core/core-ui/week-selector",
 				"tier": "component",
 				"manifest": "manifests/week-selector.component.json",
 				"manifestStatus": "stub",
@@ -4036,7 +4036,7 @@
 			{
 				"name": "FloatingAssistant",
 				"path": "packages/components/src/floating-assistant.tsx",
-				"import": "@wakecap/core-ui/floating-assistant",
+				"import": "@core/core-ui/floating-assistant",
 				"tier": "widget",
 				"manifest": "manifests/floating-assistant.widget.json",
 				"manifestStatus": "stub",
@@ -4047,7 +4047,7 @@
 					"chat"
 				],
 				"knowledgeLevel": "concise",
-				"intent": "An AI assistant that docks to the right of the page: an icon-only, corner-anchored trigger opens a full-height chat panel powered by `AIChat`. The panel takes layout width rather than floating over the page — pass the page content as `children` and it narrows to make room (built on `PushPanel`). The conversation is controlled by the consumer (`messages` + `onSendMessage`), so any domain logic can drive the replies. The trigger is the bare WakeCap brand mark with no chrome behind it — it takes `currentColor` from `foreground`, so it inverts with the theme. Pass `icon` to swap in any other glyph. A detach control in the panel header lifts the conversation out of the layout into a floating card anchored above the trigger, and docks it back; the transition fades and scales over 200ms.",
+				"intent": "An AI assistant that docks to the right of the page: an icon-only, corner-anchored trigger opens a full-height chat panel powered by `AIChat`. The panel takes layout width rather than floating over the page — pass the page content as `children` and it narrows to make room (built on `PushPanel`). The conversation is controlled by the consumer (`messages` + `onSendMessage`), so any domain logic can drive the replies. The trigger is the bare Core brand mark with no chrome behind it — it takes `currentColor` from `foreground`, so it inverts with the theme. Pass `icon` to swap in any other glyph. A detach control in the panel header lifts the conversation out of the layout into a floating card anchored above the trigger, and docks it back; the transition fades and scales over 200ms.",
 				"when": [],
 				"chooseOver": [],
 				"requires": [],
@@ -4056,7 +4056,7 @@
 			{
 				"name": "SectionPanel",
 				"path": "packages/components/src/section-panel.tsx",
-				"import": "@wakecap/core-ui/section-panel",
+				"import": "@core/core-ui/section-panel",
 				"tier": "widget",
 				"manifest": "manifests/section-panel.widget.json",
 				"manifestStatus": "complete",
@@ -4092,7 +4092,7 @@
 			{
 				"name": "ContextToolbar",
 				"path": "packages/components/src/context-toolbar.tsx",
-				"import": "@wakecap/core-ui/context-toolbar",
+				"import": "@core/core-ui/context-toolbar",
 				"tier": "component",
 				"manifest": "manifests/context-toolbar.component.json",
 				"manifestStatus": "complete",
@@ -4112,7 +4112,7 @@
 				"chooseOver": [
 					{
 						"component": "Toolbar",
-						"because": "ContextToolbar supplies WakeCore context/title/status semantics and responsive action overflow rather than only primitive toolbar behavior."
+						"because": "ContextToolbar supplies Core context/title/status semantics and responsive action overflow rather than only primitive toolbar behavior."
 					},
 					{
 						"component": "PageContentHeader",
@@ -4141,7 +4141,7 @@
 			{
 				"name": "PageContentHeader",
 				"path": "packages/components/src/page-content-header.tsx",
-				"import": "@wakecap/core-ui/page-content-header",
+				"import": "@core/core-ui/page-content-header",
 				"tier": "widget",
 				"manifest": "manifests/page-content-header.widget.json",
 				"manifestStatus": "complete",
@@ -4200,7 +4200,7 @@
 			{
 				"name": "PermissionMatrix",
 				"path": "packages/components/src/permission-matrix.tsx",
-				"import": "@wakecap/core-ui/permission-matrix",
+				"import": "@core/core-ui/permission-matrix",
 				"tier": "widget",
 				"manifest": "manifests/permission-matrix.widget.json",
 				"manifestStatus": "complete",
@@ -4237,7 +4237,7 @@
 			{
 				"name": "SideMenu",
 				"path": "packages/components/src/side-menu.tsx",
-				"import": "@wakecap/core-ui/side-menu",
+				"import": "@core/core-ui/side-menu",
 				"tier": "widget",
 				"manifest": "manifests/side-menu.widget.json",
 				"manifestStatus": "complete",
@@ -4273,7 +4273,7 @@
 			{
 				"name": "ExportDialog",
 				"path": "packages/components/src/export-dialog.tsx",
-				"import": "@wakecap/core-ui/export-dialog",
+				"import": "@core/core-ui/export-dialog",
 				"tier": "component",
 				"manifest": "manifests/export-dialog.component.json",
 				"manifestStatus": "complete",
@@ -4316,7 +4316,7 @@
 			{
 				"name": "WorkerProfile",
 				"path": "packages/components/src/worker-profile.tsx",
-				"import": "@wakecap/core-ui/worker-profile",
+				"import": "@core/core-ui/worker-profile",
 				"tier": "widget",
 				"manifest": "manifests/worker-profile.widget.json",
 				"manifestStatus": "draft",
@@ -4350,7 +4350,7 @@
 			{
 				"name": "AddObservationDialog",
 				"path": "packages/components/src/add-observation-dialog.tsx",
-				"import": "@wakecap/core-ui/add-observation-dialog",
+				"import": "@core/core-ui/add-observation-dialog",
 				"tier": "widget",
 				"manifest": "manifests/add-observation-dialog.widget.json",
 				"manifestStatus": "stub",
@@ -4371,7 +4371,7 @@
 			{
 				"name": "ConfirmDialog",
 				"path": "packages/components/src/confirm-dialog.tsx",
-				"import": "@wakecap/core-ui/confirm-dialog",
+				"import": "@core/core-ui/confirm-dialog",
 				"tier": "component",
 				"manifest": "manifests/confirm-dialog.component.json",
 				"manifestStatus": "draft",
@@ -4404,7 +4404,7 @@
 			{
 				"name": "MultiSelect",
 				"path": "packages/components/src/multi-select.tsx",
-				"import": "@wakecap/core-ui/multi-select",
+				"import": "@core/core-ui/multi-select",
 				"tier": "component",
 				"manifest": "manifests/multi-select.component.json",
 				"manifestStatus": "complete",
@@ -4448,7 +4448,7 @@
 			{
 				"name": "FormActionBar",
 				"path": "packages/components/src/form-action-bar.tsx",
-				"import": "@wakecap/core-ui/form-action-bar",
+				"import": "@core/core-ui/form-action-bar",
 				"tier": "component",
 				"manifest": "manifests/form-action-bar.component.json",
 				"manifestStatus": "complete",
@@ -4502,7 +4502,7 @@
 			{
 				"name": "WidgetCard",
 				"path": "packages/components/src/widget-card.tsx",
-				"import": "@wakecap/core-ui/widget-card",
+				"import": "@core/core-ui/widget-card",
 				"tier": "component",
 				"manifest": "manifests/widget-card.component.json",
 				"manifestStatus": "stub",
@@ -4523,7 +4523,7 @@
 			{
 				"name": "FragmentViewer",
 				"path": "packages/components/src/fragment-viewer.tsx",
-				"import": "@wakecap/core-ui/fragment-viewer",
+				"import": "@core/core-ui/fragment-viewer",
 				"tier": "widget",
 				"manifest": "manifests/fragment-viewer.widget.json",
 				"manifestStatus": "draft",
@@ -4560,7 +4560,7 @@
 			{
 				"name": "ViewerToolbar",
 				"path": "packages/components/src/viewer-toolbar.tsx",
-				"import": "@wakecap/core-ui/viewer-toolbar",
+				"import": "@core/core-ui/viewer-toolbar",
 				"tier": "widget",
 				"manifest": "manifests/viewer-toolbar.widget.json",
 				"manifestStatus": "draft",
@@ -4583,7 +4583,7 @@
 				"chooseOver": [
 					{
 						"component": "Building buttons against the That Open SDK directly",
-						"because": "ViewerToolbar keeps engine wiring in one place and renders entirely from Wakecore components, so it themes with the rest of the product."
+						"because": "ViewerToolbar keeps engine wiring in one place and renders entirely from Core components, so it themes with the rest of the product."
 					}
 				],
 				"requires": [
@@ -4598,7 +4598,7 @@
 			{
 				"name": "AddClinicLocationDialog",
 				"path": "packages/components/src/add-clinic-location-dialog.tsx",
-				"import": "@wakecap/core-ui/add-clinic-location-dialog",
+				"import": "@core/core-ui/add-clinic-location-dialog",
 				"tier": "widget",
 				"manifest": "manifests/add-clinic-location-dialog.widget.json",
 				"manifestStatus": "stub",
@@ -4618,7 +4618,7 @@
 			{
 				"name": "AddClinicVisitDialog",
 				"path": "packages/components/src/add-clinic-visit-dialog.tsx",
-				"import": "@wakecap/core-ui/add-clinic-visit-dialog",
+				"import": "@core/core-ui/add-clinic-visit-dialog",
 				"tier": "widget",
 				"manifest": "manifests/add-clinic-visit-dialog.widget.json",
 				"manifestStatus": "stub",
@@ -4639,7 +4639,7 @@
 			{
 				"name": "AssignDoctorDialog",
 				"path": "packages/components/src/assign-doctor-dialog.tsx",
-				"import": "@wakecap/core-ui/assign-doctor-dialog",
+				"import": "@core/core-ui/assign-doctor-dialog",
 				"tier": "widget",
 				"manifest": "manifests/assign-doctor-dialog.widget.json",
 				"manifestStatus": "stub",
@@ -4660,7 +4660,7 @@
 			{
 				"name": "AttentionList",
 				"path": "packages/components/src/attention-list.tsx",
-				"import": "@wakecap/core-ui/attention-list",
+				"import": "@core/core-ui/attention-list",
 				"tier": "widget",
 				"manifest": "manifests/attention-list.widget.json",
 				"manifestStatus": "stub",
@@ -4681,7 +4681,7 @@
 			{
 				"name": "ProgressStat",
 				"path": "packages/components/src/progress-stat.tsx",
-				"import": "@wakecap/core-ui/progress-stat",
+				"import": "@core/core-ui/progress-stat",
 				"tier": "component",
 				"manifest": "manifests/progress-stat.component.json",
 				"manifestStatus": "stub",
@@ -4702,7 +4702,7 @@
 			{
 				"name": "RuleRow",
 				"path": "packages/components/src/rule-row.tsx",
-				"import": "@wakecap/core-ui/rule-row",
+				"import": "@core/core-ui/rule-row",
 				"tier": "component",
 				"manifest": "manifests/rule-row.component.json",
 				"manifestStatus": "stub",
@@ -4723,7 +4723,7 @@
 			{
 				"name": "ScoreGauge",
 				"path": "packages/components/src/score-gauge.tsx",
-				"import": "@wakecap/core-ui/score-gauge",
+				"import": "@core/core-ui/score-gauge",
 				"tier": "component",
 				"manifest": "manifests/score-gauge.component.json",
 				"manifestStatus": "stub",
@@ -4744,7 +4744,7 @@
 			{
 				"name": "SectionHeader",
 				"path": "packages/components/src/section-header.tsx",
-				"import": "@wakecap/core-ui/section-header",
+				"import": "@core/core-ui/section-header",
 				"tier": "component",
 				"manifest": "manifests/section-header.component.json",
 				"manifestStatus": "stub",
@@ -4765,7 +4765,7 @@
 			{
 				"name": "BlueprintSegment",
 				"path": "packages/components/src/blueprint-segment.tsx",
-				"import": "@wakecap/core-ui/blueprint-segment",
+				"import": "@core/core-ui/blueprint-segment",
 				"tier": "component",
 				"manifest": "manifests/blueprint-segment.component.json",
 				"manifestStatus": "complete",
@@ -4797,7 +4797,7 @@
 			{
 				"name": "BuildingModelPlaceholder",
 				"path": "packages/components/src/building-model-placeholder.tsx",
-				"import": "@wakecap/core-ui/building-model-placeholder",
+				"import": "@core/core-ui/building-model-placeholder",
 				"tier": "component",
 				"manifest": "manifests/building-model-placeholder.component.json",
 				"manifestStatus": "complete",
@@ -4828,7 +4828,7 @@
 			{
 				"name": "CanvasHeader",
 				"path": "packages/components/src/canvas-header.tsx",
-				"import": "@wakecap/core-ui/canvas-header",
+				"import": "@core/core-ui/canvas-header",
 				"tier": "component",
 				"manifest": "manifests/canvas-header.component.json",
 				"manifestStatus": "complete",
@@ -4862,7 +4862,7 @@
 			{
 				"name": "CaptureRouteMinimap",
 				"path": "packages/components/src/capture-route-minimap.tsx",
-				"import": "@wakecap/core-ui/capture-route-minimap",
+				"import": "@core/core-ui/capture-route-minimap",
 				"tier": "component",
 				"manifest": "manifests/capture-route-minimap.component.json",
 				"manifestStatus": "complete",
@@ -4895,7 +4895,7 @@
 			{
 				"name": "CompareBars",
 				"path": "packages/components/src/compare-bars.tsx",
-				"import": "@wakecap/core-ui/compare-bars",
+				"import": "@core/core-ui/compare-bars",
 				"tier": "component",
 				"manifest": "manifests/compare-bars.component.json",
 				"manifestStatus": "complete",
@@ -4927,7 +4927,7 @@
 			{
 				"name": "MilestoneTable",
 				"path": "packages/components/src/milestone-table.tsx",
-				"import": "@wakecap/core-ui/milestone-table",
+				"import": "@core/core-ui/milestone-table",
 				"tier": "component",
 				"manifest": "manifests/milestone-table.component.json",
 				"manifestStatus": "complete",
@@ -4959,7 +4959,7 @@
 			{
 				"name": "OperationsDrawer",
 				"path": "packages/components/src/operations-drawer.tsx",
-				"import": "@wakecap/core-ui/operations-drawer",
+				"import": "@core/core-ui/operations-drawer",
 				"tier": "component",
 				"manifest": "manifests/operations-drawer.component.json",
 				"manifestStatus": "complete",
@@ -4994,7 +4994,7 @@
 			{
 				"name": "ProgressListItem",
 				"path": "packages/components/src/progress-list-item.tsx",
-				"import": "@wakecap/core-ui/progress-list-item",
+				"import": "@core/core-ui/progress-list-item",
 				"tier": "component",
 				"manifest": "manifests/progress-list-item.component.json",
 				"manifestStatus": "complete",
@@ -5028,7 +5028,7 @@
 			{
 				"name": "WalkthroughModal",
 				"path": "packages/components/src/walkthrough-modal.tsx",
-				"import": "@wakecap/core-ui/walkthrough-modal",
+				"import": "@core/core-ui/walkthrough-modal",
 				"tier": "component",
 				"manifest": "manifests/walkthrough-modal.component.json",
 				"manifestStatus": "complete",
@@ -5061,7 +5061,7 @@
 			{
 				"name": "AppCard",
 				"path": "packages/components/src/app-card.tsx",
-				"import": "@wakecap/core-ui/app-card",
+				"import": "@core/core-ui/app-card",
 				"tier": "component",
 				"manifest": "manifests/app-card.component.json",
 				"manifestStatus": "stub",
@@ -5081,7 +5081,7 @@
 			{
 				"name": "ImageZoom",
 				"path": "packages/components/src/image-zoom.tsx",
-				"import": "@wakecap/core-ui/image-zoom",
+				"import": "@core/core-ui/image-zoom",
 				"tier": "component",
 				"manifest": "manifests/image-zoom.component.json",
 				"manifestStatus": "stub",
@@ -5101,7 +5101,7 @@
 			{
 				"name": "TimeScrubber",
 				"path": "packages/components/src/time-scrubber.tsx",
-				"import": "@wakecap/core-ui/time-scrubber",
+				"import": "@core/core-ui/time-scrubber",
 				"tier": "component",
 				"manifest": "manifests/time-scrubber.component.json",
 				"manifestStatus": "stub",
@@ -5130,7 +5130,7 @@
 			{
 				"name": "TaskMonitor",
 				"path": "packages/components/src/task-monitor.tsx",
-				"import": "@wakecap/core-ui/task-monitor",
+				"import": "@core/core-ui/task-monitor",
 				"tier": "widget",
 				"manifest": "manifests/task-monitor.widget.json",
 				"manifestStatus": "stub",
@@ -5150,7 +5150,7 @@
 			{
 				"name": "GraphCanvas",
 				"path": "packages/components/src/graph-canvas.tsx",
-				"import": "@wakecap/core-ui/graph-canvas",
+				"import": "@core/core-ui/graph-canvas",
 				"tier": "widget",
 				"manifest": "manifests/graph-canvas.widget.json",
 				"manifestStatus": "complete",
@@ -5189,7 +5189,7 @@
 			{
 				"name": "AssetListItem",
 				"path": "packages/components/src/asset-list-item.tsx",
-				"import": "@wakecap/core-ui/asset-list-item",
+				"import": "@core/core-ui/asset-list-item",
 				"tier": "component",
 				"manifest": "manifests/asset-list-item.component.json",
 				"manifestStatus": "complete",
@@ -5224,7 +5224,7 @@
 			{
 				"name": "FloorProgressBar",
 				"path": "packages/components/src/floor-progress-bar.tsx",
-				"import": "@wakecap/core-ui/floor-progress-bar",
+				"import": "@core/core-ui/floor-progress-bar",
 				"tier": "component",
 				"manifest": "manifests/floor-progress-bar.component.json",
 				"manifestStatus": "stub",
@@ -5244,7 +5244,7 @@
 			{
 				"name": "HouseShape",
 				"path": "packages/components/src/house-shape.tsx",
-				"import": "@wakecap/core-ui/house-shape",
+				"import": "@core/core-ui/house-shape",
 				"tier": "component",
 				"manifest": "manifests/house-shape.component.json",
 				"manifestStatus": "stub",
@@ -5271,7 +5271,7 @@
 			{
 				"name": "KioskBody",
 				"path": "packages/components/src/kiosk-body.tsx",
-				"import": "@wakecap/core-ui/kiosk-body",
+				"import": "@core/core-ui/kiosk-body",
 				"tier": "widget",
 				"manifest": "manifests/kiosk-body.widget.json",
 				"manifestStatus": "stub",
@@ -5291,7 +5291,7 @@
 			{
 				"name": "Minimap",
 				"path": "packages/components/src/minimap.tsx",
-				"import": "@wakecap/core-ui/minimap",
+				"import": "@core/core-ui/minimap",
 				"tier": "component",
 				"manifest": "manifests/minimap.component.json",
 				"manifestStatus": "stub",
@@ -5316,7 +5316,7 @@
 			{
 				"name": "NeighborhoodScene",
 				"path": "packages/components/src/neighborhood-scene.tsx",
-				"import": "@wakecap/core-ui/neighborhood-scene",
+				"import": "@core/core-ui/neighborhood-scene",
 				"tier": "widget",
 				"manifest": "manifests/neighborhood-scene.widget.json",
 				"manifestStatus": "stub",
@@ -5336,7 +5336,7 @@
 			{
 				"name": "NotificationCenter",
 				"path": "packages/components/src/notification-center.tsx",
-				"import": "@wakecap/core-ui/notification-center",
+				"import": "@core/core-ui/notification-center",
 				"tier": "widget",
 				"manifest": "manifests/notification-center.widget.json",
 				"manifestStatus": "stub",
@@ -5356,7 +5356,7 @@
 			{
 				"name": "ScheduleWeekBar",
 				"path": "packages/components/src/schedule-week-bar.tsx",
-				"import": "@wakecap/core-ui/schedule-week-bar",
+				"import": "@core/core-ui/schedule-week-bar",
 				"tier": "widget",
 				"manifest": "manifests/schedule-week-bar.widget.json",
 				"manifestStatus": "stub",
@@ -5377,7 +5377,7 @@
 			{
 				"name": "SingleHouseView",
 				"path": "packages/components/src/single-house-view.tsx",
-				"import": "@wakecap/core-ui/single-house-view",
+				"import": "@core/core-ui/single-house-view",
 				"tier": "widget",
 				"manifest": "manifests/single-house-view.widget.json",
 				"manifestStatus": "stub",
@@ -5398,7 +5398,7 @@
 			{
 				"name": "StageContent",
 				"path": "packages/components/src/stage-content.tsx",
-				"import": "@wakecap/core-ui/stage-content",
+				"import": "@core/core-ui/stage-content",
 				"tier": "widget",
 				"manifest": "manifests/stage-content.widget.json",
 				"manifestStatus": "stub",
@@ -5419,7 +5419,7 @@
 			{
 				"name": "WalkthroughTile",
 				"path": "packages/components/src/walkthrough-tile.tsx",
-				"import": "@wakecap/core-ui/walkthrough-tile",
+				"import": "@core/core-ui/walkthrough-tile",
 				"tier": "widget",
 				"manifest": "manifests/walkthrough-tile.widget.json",
 				"manifestStatus": "stub",
@@ -5439,7 +5439,7 @@
 			{
 				"name": "ObservationsMap",
 				"path": "packages/components/src/observations-map.tsx",
-				"import": "@wakecap/core-ui/observations-map",
+				"import": "@core/core-ui/observations-map",
 				"tier": "widget",
 				"manifest": "manifests/observations-map.widget.json",
 				"manifestStatus": "stub",
@@ -5502,7 +5502,7 @@
 			{
 				"name": "MapControlPanel",
 				"path": "packages/components/src/map-control-panel.tsx",
-				"import": "@wakecap/core-ui/map-control-panel",
+				"import": "@core/core-ui/map-control-panel",
 				"tier": "widget",
 				"manifest": "manifests/map-control-panel.widget.json",
 				"manifestStatus": "stub",
@@ -5535,7 +5535,7 @@
 			{
 				"name": "ObservationDetailPanel",
 				"path": "packages/components/src/observation-detail-panel.tsx",
-				"import": "@wakecap/core-ui/observation-detail-panel",
+				"import": "@core/core-ui/observation-detail-panel",
 				"tier": "widget",
 				"manifest": "manifests/observation-detail-panel.widget.json",
 				"manifestStatus": "stub",
@@ -5570,7 +5570,7 @@
 			{
 				"name": "CameraDetailPanel",
 				"path": "packages/components/src/camera-detail-panel.tsx",
-				"import": "@wakecap/core-ui/camera-detail-panel",
+				"import": "@core/core-ui/camera-detail-panel",
 				"tier": "widget",
 				"manifest": "manifests/camera-detail-panel.widget.json",
 				"manifestStatus": "stub",
@@ -5607,13 +5607,13 @@
 			{
 				"name": "DetailPanelShell",
 				"path": "packages/components/src/detail-panel-shell.tsx",
-				"import": "@wakecap/core-ui/detail-panel-shell",
+				"import": "@core/core-ui/detail-panel-shell",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "ResponderDetailPanel",
 				"path": "packages/components/src/responder-detail-panel.tsx",
-				"import": "@wakecap/core-ui/responder-detail-panel",
+				"import": "@core/core-ui/responder-detail-panel",
 				"tier": "widget",
 				"manifest": "manifests/responder-detail-panel.widget.json",
 				"manifestStatus": "stub",
@@ -5645,7 +5645,7 @@
 			{
 				"name": "ViolationList",
 				"path": "packages/components/src/violation-list.tsx",
-				"import": "@wakecap/core-ui/violation-list",
+				"import": "@core/core-ui/violation-list",
 				"tier": "component",
 				"manifest": "manifests/violation-list.component.json",
 				"manifestStatus": "complete",
@@ -5674,7 +5674,7 @@
 			{
 				"name": "MapLegend",
 				"path": "packages/components/src/map-legend.tsx",
-				"import": "@wakecap/core-ui/map-legend",
+				"import": "@core/core-ui/map-legend",
 				"tier": "widget",
 				"manifest": "manifests/map-legend.widget.json",
 				"manifestStatus": "stub",
@@ -5706,7 +5706,7 @@
 			{
 				"name": "MapHoverCard",
 				"path": "packages/components/src/map-hover-card.tsx",
-				"import": "@wakecap/core-ui/map-hover-card",
+				"import": "@core/core-ui/map-hover-card",
 				"tier": "component",
 				"manifest": "manifests/map-hover-card.component.json",
 				"manifestStatus": "complete",
@@ -5741,7 +5741,7 @@
 			{
 				"name": "NodeGraph",
 				"path": "packages/components/src/node-graph.tsx",
-				"import": "@wakecap/core-ui/node-graph",
+				"import": "@core/core-ui/node-graph",
 				"tier": "widget",
 				"manifest": "manifests/node-graph.widget.json",
 				"manifestStatus": "complete",
@@ -5787,7 +5787,7 @@
 			{
 				"name": "ProductPackageDetail",
 				"path": "packages/components/src/product-package-detail.tsx",
-				"import": "@wakecap/core-ui/product-package-detail",
+				"import": "@core/core-ui/product-package-detail",
 				"tier": "widget",
 				"manifest": "manifests/product-package-detail.widget.json",
 				"manifestStatus": "complete",
@@ -5825,7 +5825,7 @@
 			{
 				"name": "FileSystem",
 				"path": "packages/components/src/file-system/file-system.tsx",
-				"import": "@wakecap/core-ui/file-system",
+				"import": "@core/core-ui/file-system",
 				"tier": "widget",
 				"manifest": "manifests/file-system.widget.json",
 				"manifestStatus": "draft",
@@ -5874,25 +5874,25 @@
 			{
 				"name": "BuildingViewer",
 				"path": "packages/components/src/building-viewer.tsx",
-				"import": "@wakecap/core-ui/building-viewer",
+				"import": "@core/core-ui/building-viewer",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "MapTransition",
 				"path": "packages/components/src/map-transition.tsx",
-				"import": "@wakecap/core-ui/map-transition",
+				"import": "@core/core-ui/map-transition",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "ProgressSheet",
 				"path": "packages/components/src/progress-sheet.tsx",
-				"import": "@wakecap/core-ui/progress-sheet",
+				"import": "@core/core-ui/progress-sheet",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "SiteImageViewer",
 				"path": "packages/components/src/site-image-viewer.tsx",
-				"import": "@wakecap/core-ui/site-image-viewer",
+				"import": "@core/core-ui/site-image-viewer",
 				"tier": "widget",
 				"manifest": "manifests/site-image-viewer.widget.json",
 				"manifestStatus": "complete",
@@ -5932,13 +5932,13 @@
 			{
 				"name": "SitePanel",
 				"path": "packages/components/src/site-panel.tsx",
-				"import": "@wakecap/core-ui/site-panel",
+				"import": "@core/core-ui/site-panel",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "SiteToolbar",
 				"path": "packages/components/src/site-toolbar.tsx",
-				"import": "@wakecap/core-ui/site-toolbar",
+				"import": "@core/core-ui/site-toolbar",
 				"knowledgeLevel": "generated"
 			}
 		],
@@ -5946,7 +5946,7 @@
 			{
 				"name": "CoreChatWidget",
 				"path": "packages/components/src/chat/core-chat-widget.tsx",
-				"import": "@wakecap/core-ui/chat/core-chat-widget",
+				"import": "@core/core-ui/chat/core-chat-widget",
 				"tier": "widget",
 				"manifest": "manifests/core-chat-widget.widget.json",
 				"manifestStatus": "stub",
@@ -5971,7 +5971,7 @@
 			{
 				"name": "CoreChatPanel",
 				"path": "packages/components/src/chat/core-chat-panel.tsx",
-				"import": "@wakecap/core-ui/chat/core-chat-panel",
+				"import": "@core/core-ui/chat/core-chat-panel",
 				"tier": "widget",
 				"manifest": "manifests/core-chat-panel.widget.json",
 				"manifestStatus": "stub",
@@ -5998,7 +5998,7 @@
 			{
 				"name": "CoreChatInput",
 				"path": "packages/components/src/chat/core-chat-input.tsx",
-				"import": "@wakecap/core-ui/chat/core-chat-input",
+				"import": "@core/core-ui/chat/core-chat-input",
 				"tier": "widget",
 				"manifest": "manifests/core-chat-input.widget.json",
 				"manifestStatus": "stub",
@@ -6020,7 +6020,7 @@
 			{
 				"name": "CoreChatMessage",
 				"path": "packages/components/src/chat/core-chat-message.tsx",
-				"import": "@wakecap/core-ui/chat/core-chat-message",
+				"import": "@core/core-ui/chat/core-chat-message",
 				"tier": "widget",
 				"manifest": "manifests/core-chat-message.widget.json",
 				"manifestStatus": "stub",
@@ -6042,7 +6042,7 @@
 			{
 				"name": "CoreChartRenderer",
 				"path": "packages/components/src/chat/core-chart-renderer.tsx",
-				"import": "@wakecap/core-ui/chat/core-chart-renderer",
+				"import": "@core/core-ui/chat/core-chart-renderer",
 				"tier": "widget",
 				"manifest": "manifests/core-chart-renderer.widget.json",
 				"manifestStatus": "stub",
@@ -6069,7 +6069,7 @@
 			{
 				"name": "CoreAiChat",
 				"path": "packages/components/src/chat/core-ai-chat.tsx",
-				"import": "@wakecap/core-ui/chat/core-ai-chat",
+				"import": "@core/core-ui/chat/core-ai-chat",
 				"tier": "widget",
 				"manifest": "manifests/core-ai-chat.widget.json",
 				"manifestStatus": "stub",
@@ -6099,7 +6099,7 @@
 			{
 				"name": "CoreAiChatHeader",
 				"path": "packages/components/src/chat/core-ai-chat-header.tsx",
-				"import": "@wakecap/core-ui/chat/core-ai-chat-header",
+				"import": "@core/core-ui/chat/core-ai-chat-header",
 				"tier": "widget",
 				"manifest": "manifests/core-ai-chat-header.widget.json",
 				"manifestStatus": "stub",
@@ -6122,7 +6122,7 @@
 			{
 				"name": "CoreAiChatMessage",
 				"path": "packages/components/src/chat/core-ai-chat-message.tsx",
-				"import": "@wakecap/core-ui/chat/core-ai-chat-message",
+				"import": "@core/core-ui/chat/core-ai-chat-message",
 				"tier": "widget",
 				"manifest": "manifests/core-ai-chat-message.widget.json",
 				"manifestStatus": "stub",
@@ -6145,7 +6145,7 @@
 			{
 				"name": "ToolCall",
 				"path": "packages/components/src/tool-call.tsx",
-				"import": "@wakecap/core-ui/tool-call",
+				"import": "@core/core-ui/tool-call",
 				"tier": "component",
 				"manifest": "manifests/tool-call.component.json",
 				"manifestStatus": "complete",
@@ -6168,7 +6168,7 @@
 			{
 				"name": "ThinkingPill",
 				"path": "packages/components/src/thinking-pill.tsx",
-				"import": "@wakecap/core-ui/thinking-pill",
+				"import": "@core/core-ui/thinking-pill",
 				"tier": "component",
 				"manifest": "manifests/thinking-pill.component.json",
 				"manifestStatus": "complete",
@@ -6194,7 +6194,7 @@
 			{
 				"name": "TurnTimer",
 				"path": "packages/components/src/turn-timer.tsx",
-				"import": "@wakecap/core-ui/turn-timer",
+				"import": "@core/core-ui/turn-timer",
 				"tier": "component",
 				"manifest": "manifests/turn-timer.component.json",
 				"manifestStatus": "complete",
@@ -6215,7 +6215,7 @@
 			{
 				"name": "PromptInput",
 				"path": "packages/components/src/prompt-input.tsx",
-				"import": "@wakecap/core-ui/prompt-input",
+				"import": "@core/core-ui/prompt-input",
 				"tier": "component",
 				"manifest": "manifests/prompt-input.component.json",
 				"manifestStatus": "complete",
@@ -6243,7 +6243,7 @@
 			{
 				"name": "CoreContentArea",
 				"path": "packages/components/src/pages/core-content-area.tsx",
-				"import": "@wakecap/core-ui/pages/core-content-area",
+				"import": "@core/core-ui/pages/core-content-area",
 				"tier": "utility",
 				"manifest": "manifests/core-content-area.utility.json",
 				"manifestStatus": "complete",
@@ -6267,7 +6267,7 @@
 			{
 				"name": "CoreLoginPage",
 				"path": "packages/components/src/pages/core-login-page.tsx",
-				"import": "@wakecap/core-ui/pages/core-login-page",
+				"import": "@core/core-ui/pages/core-login-page",
 				"tier": "template",
 				"manifest": "manifests/login-page.template.json",
 				"manifestStatus": "complete",
@@ -6281,7 +6281,7 @@
 				"intent": "The authentication entry page: a split-screen layout with a brand visual and an email/password sign-in form (with show/hide password, a forgot-password link, and a legal footer).",
 				"when": [
 					"The app's sign-in screen",
-					"Email/password authentication with WakeCap branding"
+					"Email/password authentication with Core branding"
 				],
 				"chooseOver": [
 					{
@@ -6295,7 +6295,7 @@
 			{
 				"name": "CoreOrgWorkforceIntelligence",
 				"path": "packages/components/src/pages/core-org-workforce-intelligence.tsx",
-				"import": "@wakecap/core-ui/pages/core-org-workforce-intelligence",
+				"import": "@core/core-ui/pages/core-org-workforce-intelligence",
 				"tier": "template",
 				"manifest": "manifests/core-org-workforce-intelligence.template.json",
 				"manifestStatus": "variant",
@@ -6320,7 +6320,7 @@
 			{
 				"name": "CoreProjectOverview",
 				"path": "packages/components/src/pages/core-project-overview.tsx",
-				"import": "@wakecap/core-ui/pages/core-project-overview",
+				"import": "@core/core-ui/pages/core-project-overview",
 				"tier": "template",
 				"manifest": "manifests/core-project-overview.template.json",
 				"manifestStatus": "variant",
@@ -6345,7 +6345,7 @@
 			{
 				"name": "CoreProjectRealityCapture",
 				"path": "packages/components/src/pages/core-project-reality-capture.tsx",
-				"import": "@wakecap/core-ui/pages/core-project-reality-capture",
+				"import": "@core/core-ui/pages/core-project-reality-capture",
 				"tier": "template",
 				"manifest": "manifests/core-project-reality-capture.template.json",
 				"manifestStatus": "variant",
@@ -6369,7 +6369,7 @@
 			{
 				"name": "CoreProjectScheduleCost",
 				"path": "packages/components/src/pages/core-project-schedule-cost.tsx",
-				"import": "@wakecap/core-ui/pages/core-project-schedule-cost",
+				"import": "@core/core-ui/pages/core-project-schedule-cost",
 				"tier": "template",
 				"manifest": "manifests/core-project-schedule-cost.template.json",
 				"manifestStatus": "variant",
@@ -6394,7 +6394,7 @@
 			{
 				"name": "CoreProjectWorkforceSafety",
 				"path": "packages/components/src/pages/core-project-workforce-safety.tsx",
-				"import": "@wakecap/core-ui/pages/core-project-workforce-safety",
+				"import": "@core/core-ui/pages/core-project-workforce-safety",
 				"tier": "template",
 				"manifest": "manifests/core-project-workforce-safety.template.json",
 				"manifestStatus": "variant",
@@ -6419,7 +6419,7 @@
 			{
 				"name": "CoreAnalyticsOverview",
 				"path": "packages/components/src/pages/core-analytics-overview.tsx",
-				"import": "@wakecap/core-ui/pages/core-analytics-overview",
+				"import": "@core/core-ui/pages/core-analytics-overview",
 				"tier": "template",
 				"manifest": "manifests/analytics-overview.template.json",
 				"manifestStatus": "complete",
@@ -6453,7 +6453,7 @@
 			{
 				"name": "CoreDesignCanvas",
 				"path": "packages/components/src/pages/core-design-canvas.tsx",
-				"import": "@wakecap/core-ui/pages/core-design-canvas",
+				"import": "@core/core-ui/pages/core-design-canvas",
 				"tier": "template",
 				"manifest": "manifests/design-canvas.template.json",
 				"manifestStatus": "complete",
@@ -6487,7 +6487,7 @@
 			{
 				"name": "CoreProjectSetup",
 				"path": "packages/components/src/pages/core-project-setup.tsx",
-				"import": "@wakecap/core-ui/pages/core-project-setup",
+				"import": "@core/core-ui/pages/core-project-setup",
 				"tier": "template",
 				"manifest": "manifests/project-setup.template.json",
 				"manifestStatus": "complete",
@@ -6520,25 +6520,25 @@
 			{
 				"name": "CoreTaskMonitor",
 				"path": "packages/components/src/pages/core-task-monitor.tsx",
-				"import": "@wakecap/core-ui/pages/core-task-monitor",
+				"import": "@core/core-ui/pages/core-task-monitor",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreBlueprintViewer",
 				"path": "packages/components/src/pages/core-blueprint-viewer.tsx",
-				"import": "@wakecap/core-ui/pages/core-blueprint-viewer",
+				"import": "@core/core-ui/pages/core-blueprint-viewer",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreMapCompareLayout",
 				"path": "packages/components/src/pages/core-map-compare-layout.tsx",
-				"import": "@wakecap/core-ui/pages/core-map-compare-layout",
+				"import": "@core/core-ui/pages/core-map-compare-layout",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreAdminPanel",
 				"path": "packages/components/src/pages/core-admin-panel.tsx",
-				"import": "@wakecap/core-ui/pages/core-admin-panel",
+				"import": "@core/core-ui/pages/core-admin-panel",
 				"tier": "template",
 				"manifest": "manifests/admin-panel.template.json",
 				"manifestStatus": "complete",
@@ -6576,7 +6576,7 @@
 			{
 				"name": "CoreSafetyManager",
 				"path": "packages/components/src/pages/core-safety-manager.tsx",
-				"import": "@wakecap/core-ui/pages/core-safety-manager",
+				"import": "@core/core-ui/pages/core-safety-manager",
 				"tier": "template",
 				"manifest": "manifests/safety-manager.template.json",
 				"manifestStatus": "draft",
@@ -6614,7 +6614,7 @@
 			{
 				"name": "CoreWorkforce",
 				"path": "packages/components/src/pages/core-workforce.tsx",
-				"import": "@wakecap/core-ui/pages/core-workforce",
+				"import": "@core/core-ui/pages/core-workforce",
 				"tier": "template",
 				"manifest": "manifests/workforce.template.json",
 				"manifestStatus": "draft",
@@ -6654,12 +6654,12 @@
 			{
 				"name": "AppInstaller",
 				"path": "packages/components/src/pages/core-app-installer.tsx",
-				"import": "@wakecap/core-ui/pages/core-app-installer",
+				"import": "@core/core-ui/pages/core-app-installer",
 				"tier": "template",
 				"manifest": "manifests/app-installer.template.json",
 				"manifestStatus": "draft",
 				"product": {
-					"name": "WakeCap Connect",
+					"name": "Core Connect",
 					"release": "V1",
 					"role": "User Portal",
 					"pairedWith": [
@@ -6683,7 +6683,7 @@
 				"knowledgeLevel": "full",
 				"intent": "Marketplace / app-installer scaffold: a full app shell (CoreAppSidebar + CoreAppTopBar) with a single \"Home\" sidebar entry plus the shared \"App Store\" plus below it. Home is the landing surface — a welcome hero greeting the user with a Browse App Store CTA while nothing is installed, and an app launcher grid once apps exist. The App Store surface is a PageContentHeader with two tabs (App Store / Installed Apps), a scrollable category pill filter, search with match highlighting, and a responsive grid of app cards (icon, category, blurb, Installed badge) each carrying a Details dialog and an Install / Uninstall action.",
 				"when": [
-					"Building the marketplace / app-installer surface where users browse and install WakeCap apps",
+					"Building the marketplace / app-installer surface where users browse and install Core apps",
 					"A catalog surface that owns its own app shell and organizes content by a peer tab set in the header"
 				],
 				"chooseOver": [
@@ -6707,7 +6707,7 @@
 			{
 				"name": "CoreSiteReality",
 				"path": "packages/components/src/pages/core-site-reality.tsx",
-				"import": "@wakecap/core-ui/pages/core-site-reality",
+				"import": "@core/core-ui/pages/core-site-reality",
 				"tier": "template",
 				"manifest": "manifests/site-reality.template.json",
 				"manifestStatus": "draft",
@@ -6755,7 +6755,7 @@
 			{
 				"name": "CoreClinic",
 				"path": "packages/components/src/pages/core-clinic.tsx",
-				"import": "@wakecap/core-ui/pages/core-clinic",
+				"import": "@core/core-ui/pages/core-clinic",
 				"tier": "template",
 				"manifest": "manifests/clinic.template.json",
 				"manifestStatus": "draft",
@@ -6802,37 +6802,37 @@
 			{
 				"name": "CoreBlueprintViewer3",
 				"path": "packages/components/src/pages/core-blueprint-viewer-3.tsx",
-				"import": "@wakecap/core-ui/pages/core-blueprint-viewer-3",
+				"import": "@core/core-ui/pages/core-blueprint-viewer-3",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreProgressDetails",
 				"path": "packages/components/src/pages/core-progress-details.tsx",
-				"import": "@wakecap/core-ui/pages/core-progress-details",
+				"import": "@core/core-ui/pages/core-progress-details",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreAppInstaller",
 				"path": "packages/components/src/pages/core-app-installer.tsx",
-				"import": "@wakecap/core-ui/pages/core-app-installer",
+				"import": "@core/core-ui/pages/core-app-installer",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreOrgPerformance",
 				"path": "packages/components/src/pages/core-org-performance.tsx",
-				"import": "@wakecap/core-ui/pages/core-org-performance",
+				"import": "@core/core-ui/pages/core-org-performance",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreProjectQualityIssues",
 				"path": "packages/components/src/pages/core-project-quality-issues.tsx",
-				"import": "@wakecap/core-ui/pages/core-project-quality-issues",
+				"import": "@core/core-ui/pages/core-project-quality-issues",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreTimesheet",
 				"path": "packages/components/src/pages/core-timesheet.tsx",
-				"import": "@wakecap/core-ui/pages/core-timesheet",
+				"import": "@core/core-ui/pages/core-timesheet",
 				"tier": "template",
 				"manifest": "manifests/timesheet.template.json",
 				"manifestStatus": "complete",
@@ -6868,12 +6868,12 @@
 			{
 				"name": "CoreWC3Workspace",
 				"path": "packages/components/src/pages/core-wc3-workspace.tsx",
-				"import": "@wakecap/core-ui/pages/core-wc3-workspace",
+				"import": "@core/core-ui/pages/core-wc3-workspace",
 				"tier": "template",
 				"manifest": "manifests/wc3-workspace.template.json",
 				"manifestStatus": "complete",
 				"product": {
-					"name": "WakeCap Connect",
+					"name": "Core Connect",
 					"release": "V1",
 					"role": "Admin Portal",
 					"pairedWith": [
@@ -6896,7 +6896,7 @@
 				"when": [
 					"Standing up an admin workspace whose sidebar switches perspectives and whose top tabs switch sections within one",
 					"Demonstrating an ontology-backed admin: object/link/action types, lineage, products, pipelines, processes and analysis in one shell",
-					"Comparing the Wakecore rendering of the unified-workspace IA against the HTML prototype"
+					"Comparing the Core rendering of the unified-workspace IA against the HTML prototype"
 				],
 				"chooseOver": [
 					{
@@ -6913,14 +6913,14 @@
 				]
 			},
 			{
-				"name": "WakeCapConnect",
-				"path": "packages/components/src/pages/core-wakecap-connect.tsx",
-				"import": "@wakecap/core-ui/pages/core-wakecap-connect",
+				"name": "CoreConnect",
+				"path": "packages/components/src/pages/core-core-connect.tsx",
+				"import": "@core/core-ui/pages/core-core-connect",
 				"tier": "template",
-				"manifest": "manifests/wakecap-connect.template.json",
+				"manifest": "manifests/core-connect.template.json",
 				"manifestStatus": "draft",
 				"product": {
-					"name": "WakeCap Connect",
+					"name": "Core Connect",
 					"release": "V2",
 					"role": "Unified Portal",
 					"supersedes": [
@@ -6929,7 +6929,7 @@
 					]
 				},
 				"tags": [
-					"wakecap-connect",
+					"core-connect",
 					"app-shell",
 					"sidebar",
 					"top-bar",
@@ -6944,9 +6944,9 @@
 					"unified"
 				],
 				"knowledgeLevel": "full",
-				"intent": "WakeCap Connect V2: the WC3 admin workspace and the app marketplace merged into one app. A single CoreAppSidebar, branded \"WakeCap Connect\", stacks a pinned Home with the installed apps directly beneath it (no divider — Home lands on those apps), then the admin perspectives under a \"Studio\" label, then a pinned Marketplace entry — separated by the dividers CoreAppSidebar draws between nav groups, in the expanded sidebar and the collapsed rail alike. Home is always present and behaves like the standalone installer's: an install CTA while nothing is installed, an app launcher once apps exist. Installing an app from the Marketplace adds it straight to the apps section, so the end-user and admin journeys share one shell instead of the two portals V1 shipped.",
+				"intent": "Core Connect V2: the WC3 admin workspace and the app marketplace merged into one app. A single CoreAppSidebar, branded \"Core Connect\", stacks a pinned Home with the installed apps directly beneath it (no divider — Home lands on those apps), then the admin perspectives under a \"Studio\" label, then a pinned Marketplace entry — separated by the dividers CoreAppSidebar draws between nav groups, in the expanded sidebar and the collapsed rail alike. Home is always present and behaves like the standalone installer's: an install CTA while nothing is installed, an app launcher once apps exist. Installing an app from the Marketplace adds it straight to the apps section, so the end-user and admin journeys share one shell instead of the two portals V1 shipped.",
 				"when": [
-					"Showing WakeCap Connect as one product rather than a separate admin portal and end-user portal",
+					"Showing Core Connect as one product rather than a separate admin portal and end-user portal",
 					"A workspace whose sidebar must carry a Home, installed apps, its own admin nav, and a marketplace entry at once",
 					"Demonstrating install-to-sidebar: an app installed from the store appears in the nav without leaving the app",
 					"A sidebar whose section boundaries must stay legible when collapsed to an icon rail"
@@ -6954,11 +6954,11 @@
 				"chooseOver": [
 					{
 						"component": "WC3 Workspace",
-						"because": "WC3 Workspace is the V1 admin portal alone. WakeCap Connect adds the installed-apps section and the Marketplace surface to the same rail, so admin and end-user journeys live in one app."
+						"because": "WC3 Workspace is the V1 admin portal alone. Core Connect adds the installed-apps section and the Marketplace surface to the same rail, so admin and end-user journeys live in one app."
 					},
 					{
 						"component": "AppInstaller",
-						"because": "AppInstaller is the V1 end-user portal, where the store is the entire app. WakeCap Connect keeps the same store as one surface beside the admin perspectives."
+						"because": "AppInstaller is the V1 end-user portal, where the store is the entire app. Core Connect keeps the same store as one surface beside the admin perspectives."
 					}
 				],
 				"requires": [],
@@ -6973,22 +6973,22 @@
 				]
 			},
 			{
-				"name": "WakeCapConnectV3",
-				"path": "packages/components/src/pages/core-wakecap-connect-v3.tsx",
-				"import": "@wakecap/core-ui/pages/core-wakecap-connect-v3",
+				"name": "CoreConnectV3",
+				"path": "packages/components/src/pages/core-core-connect-v3.tsx",
+				"import": "@core/core-ui/pages/core-core-connect-v3",
 				"tier": "template",
-				"manifest": "manifests/wakecap-connect-v3.template.json",
+				"manifest": "manifests/core-connect-v3.template.json",
 				"manifestStatus": "draft",
 				"product": {
-					"name": "WakeCap Connect",
+					"name": "Core Connect",
 					"release": "V3",
 					"role": "Unified Portal",
 					"supersedes": [
-						"wakecap-connect"
+						"core-connect"
 					]
 				},
 				"tags": [
-					"wakecap-connect",
+					"core-connect",
 					"app-shell",
 					"sidebar",
 					"top-bar",
@@ -7005,7 +7005,7 @@
 					"unified"
 				],
 				"knowledgeLevel": "full",
-				"intent": "WakeCap Connect V3: V2's merged workspace re-cut around the project lifecycle. The sidebar keeps a pinned Home with the installed apps directly beneath it, but replaces V2's single \"Your apps\" heading with one labelled group per lifecycle stage — Design, Plan, Capture, Pay — each carrying an icon that stands for the whole stage: collapsed, the rail shows the four group icons instead of every app, and clicking one opens a flyout of the apps under it, reusing the same drill-in an expandable nav item already has. Each stage header carries two distinct targets: its name opens a page about that stage (its purpose, the apps installed under it, and what else the Marketplace offers for it), and a chevron on the far right folds those apps away. The workspace opens as a project already kitted out, with nine of the thirteen catalogue apps installed across the four stages, and the rest available to add from the Marketplace, where anything can also be uninstalled. The Marketplace moves out of the shell's pinned slot and becomes the last item of the Studio group, so browsing and installing apps reads as studio work rather than a permanent fixture. The top-bar switcher moves up a rung with it: where V1 and V2 pick a project there, V3 picks the ORGANIZATION, since the rail beneath it is already cut by project lifecycle and the project is chosen further in. The project is chosen in Files, the other thing V3 adds: one flat list, reached from a Files entry pinned under the nav search and ruled off from Home and the app stages below it, of every record the workspace holds in the selected organization, each carrying its folder path. Facets down the left — type, project and tag, each with a count — narrow it; there is no folder tree, because the folder is already printed under every row and a facet answers “show me the pipelines” in one click where a tree cannot. Opening a file navigates to the app that owns it and drills to that record; every app listing shows, beside each record, the folder it lives in, and clicking that reopens Files narrowed to it. The file system is a reference layer with no records of its own. Every other surface, and the install lifecycle behind it, is unchanged from V2.",
+				"intent": "Core Connect V3: V2's merged workspace re-cut around the project lifecycle. The sidebar keeps a pinned Home with the installed apps directly beneath it, but replaces V2's single \"Your apps\" heading with one labelled group per lifecycle stage — Design, Plan, Capture, Pay — each carrying an icon that stands for the whole stage: collapsed, the rail shows the four group icons instead of every app, and clicking one opens a flyout of the apps under it, reusing the same drill-in an expandable nav item already has. Each stage header carries two distinct targets: its name opens a page about that stage (its purpose, the apps installed under it, and what else the Marketplace offers for it), and a chevron on the far right folds those apps away. The workspace opens as a project already kitted out, with nine of the thirteen catalogue apps installed across the four stages, and the rest available to add from the Marketplace, where anything can also be uninstalled. The Marketplace moves out of the shell's pinned slot and becomes the last item of the Studio group, so browsing and installing apps reads as studio work rather than a permanent fixture. The top-bar switcher moves up a rung with it: where V1 and V2 pick a project there, V3 picks the ORGANIZATION, since the rail beneath it is already cut by project lifecycle and the project is chosen further in. The project is chosen in Files, the other thing V3 adds: one flat list, reached from a Files entry pinned under the nav search and ruled off from Home and the app stages below it, of every record the workspace holds in the selected organization, each carrying its folder path. Facets down the left — type, project and tag, each with a count — narrow it; there is no folder tree, because the folder is already printed under every row and a facet answers “show me the pipelines” in one click where a tree cannot. Opening a file navigates to the app that owns it and drills to that record; every app listing shows, beside each record, the folder it lives in, and clicking that reopens Files narrowed to it. The file system is a reference layer with no records of its own. Every other surface, and the install lifecycle behind it, is unchanged from V2.",
 				"when": [
 					"Organising a Connect sidebar by project lifecycle stage rather than one undifferentiated app list",
 					"A shell where browsing the app catalogue belongs inside the admin studio rather than pinned to the frame",
@@ -7016,8 +7016,8 @@
 				],
 				"chooseOver": [
 					{
-						"component": "WakeCapConnect",
-						"because": "WakeCapConnect is the V2 cut: one \"Your apps\" list and a Marketplace pinned to the shell. V3 groups the same apps by lifecycle stage and folds Marketplace into Studio."
+						"component": "CoreConnect",
+						"because": "CoreConnect is the V2 cut: one \"Your apps\" list and a Marketplace pinned to the shell. V3 groups the same apps by lifecycle stage and folds Marketplace into Studio."
 					},
 					{
 						"component": "AppInstaller",
@@ -7039,7 +7039,7 @@
 			{
 				"name": "AnalysisWorkbench",
 				"path": "packages/components/src/pages/wc3-analysis-shared.tsx",
-				"import": "@wakecap/core-ui/pages/analysis-workbench",
+				"import": "@core/core-ui/pages/analysis-workbench",
 				"tier": "widget",
 				"manifest": "manifests/analysis-workbench.widget.json",
 				"manifestStatus": "complete",
@@ -7081,7 +7081,7 @@
 			{
 				"name": "AppMarketplace",
 				"path": "packages/components/src/pages/app-marketplace-shared.tsx",
-				"import": "@wakecap/core-ui/pages/app-marketplace",
+				"import": "@core/core-ui/pages/app-marketplace",
 				"tier": "widget",
 				"manifest": "manifests/app-marketplace.widget.json",
 				"manifestStatus": "complete",
@@ -7124,7 +7124,7 @@
 			{
 				"name": "CreateProcessDialog",
 				"path": "packages/components/src/pages/wc3-process-create.tsx",
-				"import": "@wakecap/core-ui/pages/create-process-dialog",
+				"import": "@core/core-ui/pages/create-process-dialog",
 				"tier": "widget",
 				"manifest": "manifests/process-create.widget.json",
 				"manifestStatus": "complete",
@@ -7159,7 +7159,7 @@
 			{
 				"name": "HealthView",
 				"path": "packages/components/src/pages/wc3-health-view.tsx",
-				"import": "@wakecap/core-ui/pages/health-view",
+				"import": "@core/core-ui/pages/health-view",
 				"tier": "widget",
 				"manifest": "manifests/lint-findings.widget.json",
 				"manifestStatus": "complete",
@@ -7197,7 +7197,7 @@
 			{
 				"name": "InstallProductDialog",
 				"path": "packages/components/src/pages/wc3-product-install-dialog.tsx",
-				"import": "@wakecap/core-ui/pages/install-product-dialog",
+				"import": "@core/core-ui/pages/install-product-dialog",
 				"tier": "widget",
 				"manifest": "manifests/product-install.widget.json",
 				"manifestStatus": "complete",
@@ -7235,7 +7235,7 @@
 			{
 				"name": "LineageImpactView",
 				"path": "packages/components/src/pages/wc3-lineage-impact-view.tsx",
-				"import": "@wakecap/core-ui/pages/lineage-impact-view",
+				"import": "@core/core-ui/pages/lineage-impact-view",
 				"tier": "widget",
 				"manifest": "manifests/impact-preview.widget.json",
 				"manifestStatus": "complete",
@@ -7270,7 +7270,7 @@
 			{
 				"name": "RunActionDialog",
 				"path": "packages/components/src/pages/wc3-action-type-run-dialog.tsx",
-				"import": "@wakecap/core-ui/pages/run-action-dialog",
+				"import": "@core/core-ui/pages/run-action-dialog",
 				"tier": "widget",
 				"manifest": "manifests/action-run.widget.json",
 				"manifestStatus": "complete",
@@ -7303,63 +7303,63 @@
 				]
 			},
 			{
-				"name": "CoreWakecapConnect",
-				"path": "packages/components/src/pages/core-wakecap-connect.tsx",
-				"import": "@wakecap/core-ui/pages/core-wakecap-connect",
+				"name": "CoreCoreConnect",
+				"path": "packages/components/src/pages/core-core-connect.tsx",
+				"import": "@core/core-ui/pages/core-core-connect",
 				"knowledgeLevel": "generated"
 			},
 			{
-				"name": "CoreWakecapConnectV3",
-				"path": "packages/components/src/pages/core-wakecap-connect-v3.tsx",
-				"import": "@wakecap/core-ui/pages/core-wakecap-connect-v3",
+				"name": "CoreCoreConnectV3",
+				"path": "packages/components/src/pages/core-core-connect-v3.tsx",
+				"import": "@core/core-ui/pages/core-core-connect-v3",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "ProcessBottlenecks",
 				"path": "packages/components/src/pages/wc3-process-bottlenecks.tsx",
-				"import": "@wakecap/core-ui/pages/process-bottlenecks",
+				"import": "@core/core-ui/pages/process-bottlenecks",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "Wc3AnalysisObjectView",
 				"path": "packages/components/src/pages/wc3-analysis-object-view.tsx",
-				"import": "@wakecap/core-ui/pages/wc3-analysis-object-view",
+				"import": "@core/core-ui/pages/wc3-analysis-object-view",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "Wc3ObjectTypeDetail",
 				"path": "packages/components/src/pages/wc3-object-type-detail.tsx",
-				"import": "@wakecap/core-ui/pages/wc3-object-type-detail",
+				"import": "@core/core-ui/pages/wc3-object-type-detail",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "Wc3OntologyViews",
 				"path": "packages/components/src/pages/wc3-ontology-views.tsx",
-				"import": "@wakecap/core-ui/pages/wc3-ontology-views",
+				"import": "@core/core-ui/pages/wc3-ontology-views",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "Wc3ProcessShared",
 				"path": "packages/components/src/pages/wc3-process-shared.tsx",
-				"import": "@wakecap/core-ui/pages/wc3-process-shared",
+				"import": "@core/core-ui/pages/wc3-process-shared",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "Wc3ProductShared",
 				"path": "packages/components/src/pages/wc3-product-shared.tsx",
-				"import": "@wakecap/core-ui/pages/wc3-product-shared",
+				"import": "@core/core-ui/pages/wc3-product-shared",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreObservationsMapView",
 				"path": "packages/components/src/pages/core-observations-map-view.tsx",
-				"import": "@wakecap/core-ui/pages/core-observations-map-view",
+				"import": "@core/core-ui/pages/core-observations-map-view",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreWorkPermit",
 				"path": "packages/components/src/pages/core-work-permit.tsx",
-				"import": "@wakecap/core-ui/pages/core-work-permit",
+				"import": "@core/core-ui/pages/core-work-permit",
 				"tier": "template",
 				"manifest": "manifests/work-permit.template.json",
 				"manifestStatus": "draft",
@@ -7401,31 +7401,31 @@
 			{
 				"name": "WorkPermitTemplates",
 				"path": "packages/components/src/pages/work-permit-templates.tsx",
-				"import": "@wakecap/core-ui/pages/work-permit-templates",
+				"import": "@core/core-ui/pages/work-permit-templates",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "PermitPolicy",
 				"path": "packages/components/src/pages/wc3-permit-policy.tsx",
-				"import": "@wakecap/core-ui/pages/permit-policy",
+				"import": "@core/core-ui/pages/permit-policy",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreBuildingViewer",
 				"path": "packages/components/src/pages/core-building-viewer.tsx",
-				"import": "@wakecap/core-ui/pages/core-building-viewer",
+				"import": "@core/core-ui/pages/core-building-viewer",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreBuildingViewerCapture",
 				"path": "packages/components/src/pages/core-building-viewer-capture.tsx",
-				"import": "@wakecap/core-ui/pages/core-building-viewer-capture",
+				"import": "@core/core-ui/pages/core-building-viewer-capture",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "StateMachine",
 				"path": "packages/components/src/pages/state-machine.tsx",
-				"import": "@wakecap/core-ui/pages/state-machine",
+				"import": "@core/core-ui/pages/state-machine",
 				"tier": "widget",
 				"manifest": "manifests/state-machine.widget.json",
 				"manifestStatus": "complete",
@@ -7442,7 +7442,7 @@
 					"studio"
 				],
 				"knowledgeLevel": "full",
-				"intent": "The state-machine authoring surface, whole: a header band, a left section rail, the graph on a full-bleed canvas, the editing panel beside it and a live validity footer under it. ONE widget, FOUR surfaces — two products crossed with two record ages. variant is the PRODUCT CUT (connect for WakeCap Connect V3, through ProcessDetail; work-permit for the Digital Work Permit template register) and authoring is the AGE (a record created in this session versus one that has run). Neither product owns a copy; both are callers.",
+				"intent": "The state-machine authoring surface, whole: a header band, a left section rail, the graph on a full-bleed canvas, the editing panel beside it and a live validity footer under it. ONE widget, FOUR surfaces — two products crossed with two record ages. variant is the PRODUCT CUT (connect for Core Connect V3, through ProcessDetail; work-permit for the Digital Work Permit template register) and authoring is the AGE (a record created in this session versus one that has run). Neither product owns a copy; both are callers.",
 				"when": [
 					"A process, workflow or approval chain has to be drawn and edited as states and transitions",
 					"A surface needs the graph of a process alongside the panel that mutates it",
@@ -7467,14 +7467,14 @@
 					"ConfirmDialog"
 				],
 				"variantIntent": {
-					"connect": "WakeCap Connect V3's process page: header band, section rail (Canvas / Instances / Bottlenecks / Settings), canvas and editing panel. What ProcessDetail mounts.",
+					"connect": "Core Connect V3's process page: header band, section rail (Canvas / Instances / Bottlenecks / Settings), canvas and editing panel. What ProcessDetail mounts.",
 					"work-permit": "The Digital Work Permit cut. The same canvas, the same editing panel and the same guards — the LEFT RAIL is the whole difference today: General, Canvas, Form, Policy, then a rule, then Instances and Bottlenecks. General is the Settings section renamed, carrying the permit's type and description beside the record's own name and icon."
 				}
 			},
 			{
 				"name": "CaptureUiEnhanced",
 				"path": "packages/components/src/pages/capture-ui-enhanced.tsx",
-				"import": "@wakecap/core-ui/pages/capture-ui-enhanced",
+				"import": "@core/core-ui/pages/capture-ui-enhanced",
 				"tier": "template",
 				"manifest": "manifests/capture-ui-enhanced.template.json",
 				"manifestStatus": "complete",
@@ -7508,7 +7508,7 @@
 	"patterns": [
 		{
 			"name": "app-shell",
-			"intent": "Standard WakeCap product shell with collapsible sidebar and top bar.",
+			"intent": "Standard Core product shell with collapsible sidebar and top bar.",
 			"when": "Any authenticated full-page product screen.",
 			"components": [
 				"SidebarProvider",

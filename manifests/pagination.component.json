@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pagination.tsx",
-		"import": "@wakecap/core-ui/pagination",
+		"import": "@core/core-ui/pagination",
 		"export": "Pagination"
 	},
 	"tags": [

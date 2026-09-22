@@ -8,7 +8,7 @@ import {
 	NavigationMenuList,
 	NavigationMenuTrigger,
 	navigationMenuTriggerStyle,
-} from "@wakecap/core-ui/navigation-menu";
+} from "@core/core-ui/navigation-menu";
 
 const meta = {
 	title: "Components/Navigation/Navigation Menu",
@@ -41,9 +41,9 @@ export const Default: Story = {
 										className="wwc:flex wwc:h-full wwc:w-full wwc:select-none wwc:flex-col wwc:justify-end wwc:rounded-md wwc:bg-gradient-to-b wwc:from-muted/50 wwc:to-muted wwc:p-6 wwc:no-underline wwc:outline-none wwc:focus:shadow-md"
 										href="#"
 									>
-										<div className="wwc:mb-2 wwc:mt-4 wwc:text-lg wwc:font-medium">Wakecore</div>
+										<div className="wwc:mb-2 wwc:mt-4 wwc:text-lg wwc:font-medium">Core</div>
 										<p className="wwc:text-sm wwc:leading-tight wwc:text-muted-foreground">
-											Design system and component library for WakeCap applications.
+											Design system and component library for Core applications.
 										</p>
 									</a>
 								</NavigationMenuLink>
@@ -56,7 +56,7 @@ export const Default: Story = {
 									>
 										<div className="wwc:text-sm wwc:font-medium wwc:leading-none">Installation</div>
 										<p className="wwc:line-clamp-2 wwc:text-sm wwc:leading-snug wwc:text-muted-foreground">
-											How to install and set up Wakecore.
+											How to install and set up Core.
 										</p>
 									</a>
 								</NavigationMenuLink>

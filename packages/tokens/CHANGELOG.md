@@ -1,22 +1,22 @@
-# @wakecap/core-tokens
+# @core/core-tokens
 
 ## 0.8.0
 
 ### Minor Changes
 
-- fb43898: Menu items get a highlight you can actually see, and a pointer cursor ([#279](https://github.com/wakecap/Wakecore/issues/279))
+- fb43898: Menu items get a highlight you can actually see, and a pointer cursor ([#279](https://github.com/core/Core/issues/279))
 
   Hovering a menu item gave no feedback at all. Radix focuses an item on pointer-over, so `focus:bg-accent`
   was the highlight — but light `--accent` is `oklch(0.975 0 0)` against a white `--popover`, a 0.025 L step
   that measures 1.07:1 and reads as nothing. The items also carried `cursor-default`, so there was no pointer
   either. Menu rows looked inert.
 
-  - **`@wakecap/core-tokens`** adds `--menu-highlight` / `--menu-highlight-foreground` — `oklch(0.94 0 0)` in
+  - **`@core/core-tokens`** adds `--menu-highlight` / `--menu-highlight-foreground` — `oklch(0.94 0 0)` in
     light, `oklch(0.28 0.007 70)` in dark. `--accent` could not simply be darkened: it is also the
     selected-state fill for Calendar's day and Toggle's on-state, so a value dark enough for a menu row
     repaints those. No existing token changes value, so nothing else in the system moves a pixel. Dark mode
     was already at the edge of perceptible and its step widens slightly.
-  - **`@wakecap/core-ui`** repoints DropdownMenu, ContextMenu, Menubar, Select, Command and
+  - **`@core/core-ui`** repoints DropdownMenu, ContextMenu, Menubar, Select, Command and
     NavigationMenu at the new token and swaps `cursor-default` for `cursor-pointer`, covering submenu
     triggers, checkbox and radio items, and the hand-rolled SearchableSelect / MultiSelect option rows.
     The menubar and submenu triggers carry no `data-[disabled]` rule of their own, so they take an
@@ -38,10 +38,10 @@
   validity footer — is a single widget that both products mount, rather than a "process builder" one
   product had and another borrowed. What it authors is a state machine whatever the record is called.
 
-  - `@wakecap/core-ui/pages/process-builder` → `@wakecap/core-ui/pages/state-machine`
+  - `@core/core-ui/pages/process-builder` → `@core/core-ui/pages/state-machine`
   - `ProcessBuilder` → `StateMachine`; `ProcessBuilderVariant` / `ProcessBuilderSection` /
     `ProcessBuilderProps` → `StateMachineVariant` / `StateMachineSection` / `StateMachineProps`
-  - `variant="full"` → `variant="connect"` (WakeCap Connect V3's process page, what `ProcessDetail`
+  - `variant="full"` → `variant="connect"` (Core Connect V3's process page, what `ProcessDetail`
     mounts). `variant="work-permit"` is unchanged. The variant axis is now the PRODUCT CUT, and today
     the two cuts differ in the left rail alone — sections, order, labels, and whether General carries
     the permit fields. That is a traits table, not a branch, so a canvas that needs to diverge later
@@ -101,14 +101,14 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
     publish unbound moved from `checkTransition` to lint rule L7.
   - The canvas is full-bleed between the section rail and the editing panel, which is now a panel
     mirroring the shell's left one. The validity footer is centred, and shimmers while it rechecks
-    (`--animate-text-shimmer`, new in `@wakecap/core-tokens`).
+    (`--animate-text-shimmer`, new in `@core/core-tokens`).
   - `GraphCanvas` follows the host's `dark` class through React Flow's `colorMode`.
 
 ## 0.7.0
 
 ### Minor Changes
 
-- 37c3f65: Self-host the WakeCore typefaces (#208).
+- 37c3f65: Self-host the Core typefaces (#208).
 
   The tokens declared `Figtree` / `IBM Plex Mono` / `Lora`, but the only thing that loaded them was an
   `@import` from the Google Fonts CDN. That made the declared typography a **runtime dependency on a
@@ -116,8 +116,8 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
   system fallback while still looking token-compliant, and screenshots varied by whether the host
   happened to have the font installed.
 
-  All three families now ship as WOFF2 inside `@wakecap/core-tokens` (latin + latin-ext, ~290 KB), and
-  `@wakecap/core-ui` copies them beside its pre-built CSS so `styles.css` resolves them relative to
+  All three families now ship as WOFF2 inside `@core/core-tokens` (latin + latin-ext, ~290 KB), and
+  `@core/core-ui` copies them beside its pre-built CSS so `styles.css` resolves them relative to
   itself. No external request, and `font-src 'self'` is sufficient.
 
   - `node scripts/vendor-fonts.mjs` re-vendors the files and regenerates `fonts.css`.
@@ -163,7 +163,7 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 ### Minor Changes
 
-- 3788864: Self-host the WakeCore typefaces (#208).
+- 3788864: Self-host the Core typefaces (#208).
 
   The tokens declared `Figtree` / `IBM Plex Mono` / `Lora`, but the only thing that loaded them was an
   `@import` from the Google Fonts CDN. That made the declared typography a **runtime dependency on a
@@ -171,8 +171,8 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
   system fallback while still looking token-compliant, and screenshots varied by whether the host
   happened to have the font installed.
 
-  All three families now ship as WOFF2 inside `@wakecap/core-tokens` (latin + latin-ext, ~290 KB), and
-  `@wakecap/core-ui` copies them beside its pre-built CSS so `styles.css` resolves them relative to
+  All three families now ship as WOFF2 inside `@core/core-tokens` (latin + latin-ext, ~290 KB), and
+  `@core/core-ui` copies them beside its pre-built CSS so `styles.css` resolves them relative to
   itself. No external request, and `font-src 'self'` is sufficient.
 
   - `node scripts/vendor-fonts.mjs` re-vendors the files and regenerates `fonts.css`.
@@ -302,23 +302,23 @@ whitespace-nowrap` — so a squeezed action column can never draw a stray "…" 
 
 - 5816c1b: Add consumer CSS compatibility for Tailwind 3 and Tailwind 4 projects.
 
-  **@wakecap/core-tokens:**
+  **@core/core-tokens:**
 
   - Restructure: extract `theme.css` as single source of truth for design tokens
-  - Add `@wakecap/core-tokens/theme` export for TW4 consumers (no Tailwind import, no prefix)
-  - Add `@wakecap/core-tokens/tailwind3-preset` export for TW3 consumers
+  - Add `@core/core-tokens/theme` export for TW4 consumers (no Tailwind import, no prefix)
+  - Add `@core/core-tokens/tailwind3-preset` export for TW3 consumers
   - `index.css` now imports `theme.css` internally (monorepo use unchanged)
 
-  **@wakecap/core-ui:**
+  **@core/core-ui:**
 
   - Add `flatten-css.mjs` build script (PostCSS + cssnano) producing two CSS outputs:
     - `styles.css` — for no-Tailwind and TW3 consumers (flattened, includes reset)
     - `styles.tw4.css` — for TW4 consumers (keeps @layer, no reset)
-  - Add `@wakecap/core-ui/styles.tw4.css` export
+  - Add `@core/core-ui/styles.tw4.css` export
   - Add `postcss` and `cssnano` as devDependencies
 
 ## 0.1.0
 
 ### Minor Changes
 
-- ea8a1d2: Separate Google Fonts loading into opt-in `@wakecap/core-tokens/fonts` import. Consumers must add `@import "@wakecap/core-tokens/fonts"` to load Figtree, Lora, and IBM Plex Mono from Google Fonts.
+- ea8a1d2: Separate Google Fonts loading into opt-in `@core/core-tokens/fonts` import. Consumers must add `@import "@core/core-tokens/fonts"` to load Figtree, Lora, and IBM Plex Mono from Google Fonts.

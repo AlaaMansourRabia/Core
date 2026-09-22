@@ -1,6 +1,6 @@
 {
-	"name": "@wakecap/core-utils",
-	"version": "0.0.1",
+	"name": "@core/core-utils",
+	"version": "1.0.0",
 	"bin": {
 		"intent": "./bin/intent.js"
 	},
@@ -24,7 +24,7 @@
 		"registry": "https://npm.pkg.github.com"
 	},
 	"scripts": {
-		"build": "tsdown",
+		"build": "tsc src/index.ts --outDir dist --module ESNext --moduleResolution bundler --declaration --target ES2022 && mv dist/index.js dist/index.mjs && mv dist/index.d.ts dist/index.d.mts",
 		"typecheck": "tsgo --noEmit",
 		"lint": "oxlint .",
 		"format": "oxfmt .",

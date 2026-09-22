@@ -1,10 +1,10 @@
 import type {KeyboardEvent as ReactKeyboardEvent, ReactElement} from "react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 
-// Renders a single question's answer input from Wakecore primitives. Shared by BOTH the builder
+// Renders a single question's answer input from Core primitives. Shared by BOTH the builder
 // canvas preview and the Typeform filler, so what an author sees is exactly what a respondent gets.
-// Each control's value-change wiring follows the Wakecore inventory (native onChange vs Radix
+// Each control's value-change wiring follows the Core inventory (native onChange vs Radix
 // onValueChange vs onCheckedChange vs onDateChange).
 import {Checkbox} from "../../checkbox";
 import {DatePicker} from "../../date-picker";

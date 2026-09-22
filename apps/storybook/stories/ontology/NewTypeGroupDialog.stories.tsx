@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {NewTypeGroupDialog} from "@wakecap/core-ui/new-type-group-dialog";
+import {Button} from "@core/core-ui/button";
+import {NewTypeGroupDialog} from "@core/core-ui/new-type-group-dialog";
 import {useState} from "react";
 
 const meta = {

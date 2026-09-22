@@ -1,4 +1,4 @@
-export {Legend, TabbedLegend} from "@wakecap/core-ui/legend";
+export {Legend, TabbedLegend} from "@core/core-ui/legend";
 export type {
 	LegendItem,
 	LegendPlacement,
@@ -6,4 +6,4 @@ export type {
 	LegendShape,
 	LegendTab,
 	TabbedLegendProps,
-} from "@wakecap/core-ui/legend";
+} from "@core/core-ui/legend";

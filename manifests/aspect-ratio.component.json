@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/aspect-ratio.tsx",
-		"import": "@wakecap/core-ui/aspect-ratio",
+		"import": "@core/core-ui/aspect-ratio",
 		"export": "AspectRatio"
 	},
 	"tags": [

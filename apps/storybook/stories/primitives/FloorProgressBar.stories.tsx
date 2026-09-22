@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {FloorProgressBar} from "@wakecap/core-ui/floor-progress-bar";
+import {FloorProgressBar} from "@core/core-ui/floor-progress-bar";
 
 const meta = {
 	title: "Components/Primitives/FloorProgressBar",

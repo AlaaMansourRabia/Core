@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {Minus} from "lucide-react";
 import * as React from "react";
 

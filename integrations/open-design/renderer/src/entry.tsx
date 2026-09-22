@@ -1,9 +1,9 @@
-// WakeCore renderer — the code-eval path. Every template is REAL editable page source, compiled on
+// Core renderer — the code-eval path. Every template is REAL editable page source, compiled on
 // the server by esbuild (CJS, React externalized) and evaluated here against one shared React, so a
-// chat edit to the source shows up live. Exposes window.WakeCore.renderModule(compiledCjs, el).
+// chat edit to the source shows up live. Exposes window.Core.renderModule(compiledCjs, el).
 //
 // This replaces the old canonical-by-id / composition renderers: a single mechanism that renders any
-// compiled WakeCore page, which is what makes ALL templates editable "as if building with a chat".
+// compiled Core page, which is what makes ALL templates editable "as if building with a chat".
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as ReactDOMClient from "react-dom/client";
@@ -53,7 +53,7 @@ function evalModule(code: string): React.ComponentType {
 
 let root: Root | undefined;
 
-(window as unknown as {WakeCore: {renderModule: (code: string, el: HTMLElement) => void}}).WakeCore = {
+(window as unknown as {Core: {renderModule: (code: string, el: HTMLElement) => void}}).Core = {
 	renderModule(code, el) {
 		try {
 			const Comp = evalModule(code);

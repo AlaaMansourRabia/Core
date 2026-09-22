@@ -10,7 +10,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/capture-ui-enhanced.tsx",
-		"import": "@wakecap/core-ui/pages/capture-ui-enhanced",
+		"import": "@core/core-ui/pages/capture-ui-enhanced",
 		"export": "CaptureUiEnhanced"
 	},
 	"tags": [
@@ -59,7 +59,7 @@
 		{
 			"id": "map",
 			"role": "The real ROSHN Almanar site aerial (\"Zone 1 - A\") with the real villa footprint polygons coloured by construction progress, its own hover progress card, and a SPA/Construction legend",
-			"source": "SiteImageViewer widget (@wakecap/core-ui/site-image-viewer), fed the real footprints from @wakecap/core-ui/site-image-viewer-fixtures",
+			"source": "SiteImageViewer widget (@core/core-ui/site-image-viewer), fed the real footprints from @core/core-ui/site-image-viewer-fixtures",
 			"required": true,
 			"recommended": ["SiteImageViewer"]
 		},
@@ -212,7 +212,7 @@
 			"fix": "Use the CanvasHeader widget with left (Breadcrumb), weekSelector, and right slots."
 		}
 	],
-	"minimalExample": "import {CaptureUiEnhanced} from \"@wakecap/core-ui/pages/capture-ui-enhanced\";\n\n<div className=\"wwc:h-screen\">\n\t<CaptureUiEnhanced />\n</div>",
+	"minimalExample": "import {CaptureUiEnhanced} from \"@core/core-ui/pages/capture-ui-enhanced\";\n\n<div className=\"wwc:h-screen\">\n\t<CaptureUiEnhanced />\n</div>",
 	"evaluationCriteria": [
 		{
 			"id": "tier-selection",

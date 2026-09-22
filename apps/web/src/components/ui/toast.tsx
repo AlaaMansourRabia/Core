@@ -8,4 +8,4 @@ export {
 	ToastDescription,
 	ToastClose,
 	ToastAction,
-} from "@wakecap/core-ui/toast";
+} from "@core/core-ui/toast";

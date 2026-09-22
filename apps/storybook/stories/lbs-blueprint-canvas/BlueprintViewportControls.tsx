@@ -1,6 +1,6 @@
-import {Toolbar, ToolbarButton} from "@wakecap/core-ui/toolbar";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@wakecap/core-ui/tooltip";
-import {VerticalZoomTools} from "@wakecap/core-ui/vertical-zoom-tools";
+import {Toolbar, ToolbarButton} from "@core/core-ui/toolbar";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@core/core-ui/tooltip";
+import {VerticalZoomTools} from "@core/core-ui/vertical-zoom-tools";
 import {Maximize} from "lucide-react";
 
 import {

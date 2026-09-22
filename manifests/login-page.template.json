@@ -10,7 +10,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/core-login-page.tsx",
-		"import": "@wakecap/core-ui/pages/core-login-page",
+		"import": "@core/core-ui/pages/core-login-page",
 		"export": "LoginPage"
 	},
 	"tags": [
@@ -22,7 +22,7 @@
 	"intent": "The authentication entry page: a split-screen layout with a brand visual and an email/password sign-in form (with show/hide password, a forgot-password link, and a legal footer).",
 	"when": [
 		"The app's sign-in screen",
-		"Email/password authentication with WakeCap branding"
+		"Email/password authentication with Core branding"
 	],
 	"whenNot": [
 		"A full-page error/permission state -> use ErrorPage",
@@ -142,7 +142,7 @@
 			"fix": "Render it full-screen and pre-auth, outside CoreAppSidebar/CoreAppTopBar."
 		}
 	],
-	"minimalExample": "import {LoginPage} from \"@wakecap/core-ui/pages/core-login-page\";\n\n<LoginPage onLogin={(email, password) => signIn(email, password)} />",
+	"minimalExample": "import {LoginPage} from \"@core/core-ui/pages/core-login-page\";\n\n<LoginPage onLogin={(email, password) => signIn(email, password)} />",
 	"evaluationCriteria": [
 		{
 			"id": "tier-selection",

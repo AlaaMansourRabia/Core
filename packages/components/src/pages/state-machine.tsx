@@ -1,7 +1,7 @@
 import type {ColumnDef} from "@tanstack/react-table";
 import type {CSSProperties, ReactNode} from "react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {
 	ArrowLeft,
 	ArrowRight,
@@ -34,9 +34,9 @@ import {Combobox} from "../combobox";
 import {ConfirmDialog} from "../confirm-dialog";
 import {DataTable, DataTableColumnHeader} from "../data-table";
 import {Empty} from "../empty";
-// Everything React Flow comes through GraphCanvas — the Wakecore component that owns the
+// Everything React Flow comes through GraphCanvas — the Core component that owns the
 // dependency, its stylesheet and its version. This file names no third-party package, which is the
-// point: the canvas is a Wakecore surface, not a React Flow integration that happens to live here.
+// point: the canvas is a Core surface, not a React Flow integration that happens to live here.
 import type {Connection, Edge, FinalConnectionState, Node, NodeProps} from "../graph-canvas";
 import {
 	GraphCanvas,
@@ -114,7 +114,7 @@ import {
 
 // StateMachine — the whole state-machine authoring surface: header band, left section rail, canvas,
 // editing panel and validity footer. ONE widget, and the two products that author a state machine
-// both mount it: WakeCap Connect V3's process page (variant="connect", via ProcessDetail) and the
+// both mount it: Core Connect V3's process page (variant="connect", via ProcessDetail) and the
 // Digital Work Permit template register (variant="work-permit"). Neither owns a copy — the widget is
 // the source and the templates are its callers, which is what keeps a fix to the canvas from having
 // to be made twice.
@@ -167,7 +167,7 @@ const WC3_PROCESS_NODE_TINT = "14%";
 // They are props now, and they DEFAULT TO EMPTY rather than to the fixture. Empty is the honest
 // default for a library: it means "the host has not told me", which is a different thing from "the
 // host has these seven permit effects". The demo vocabularies moved to
-// `@wakecap/core-ui/pages/state-machine-fixtures`, which the stories import and nothing else does —
+// `@core/core-ui/pages/state-machine-fixtures`, which the stories import and nothing else does —
 // so they stop riding along in every consumer's bundle.
 //
 // Reaching the deep pieces (both inspectors, both add-forms, the entry lists) through context
@@ -1656,7 +1656,7 @@ function WorkflowStatus({lint, graphKey}: {lint: Wc3ProcessFacts["lint"]; graphK
 /**
  * The variant axis: which PRODUCT is authoring the state machine.
  *
- * - `connect` — WakeCap Connect V3's process page: header band, section rail (Canvas / Instances /
+ * - `connect` — Core Connect V3's process page: header band, section rail (Canvas / Instances /
  *   Bottlenecks / Settings), canvas and editing rail. This is what {@link ProcessDetail} mounts.
  * - `work-permit` — the Digital Work Permit cut. The same widget, re-cut: General (the Settings
  *   section, renamed, carrying the permit's type and description beside the record's own name and
@@ -2800,21 +2800,20 @@ export function StateMachine({
 						/>
 					)}
 					{!authoring && <SlaModelBadge process={process} />}
-					{!authoring &&
-						facts.lint.length > 0 && (
-							// GUIDANCE, not breakage: a process created from scratch is born failing L5 until its
-							// first transition lands, and that must read as the next step.
-							<HoverTooltip content={facts.lint.map((error) => `${error.rule}: ${error.msg}`).join(" ")}>
-								{/* Badge forwards refs; this span is here because the tooltip's asChild trigger needs one
+					{!authoring && facts.lint.length > 0 && (
+						// GUIDANCE, not breakage: a process created from scratch is born failing L5 until its
+						// first transition lands, and that must read as the next step.
+						<HoverTooltip content={facts.lint.map((error) => `${error.rule}: ${error.msg}`).join(" ")}>
+							{/* Badge forwards refs; this span is here because the tooltip's asChild trigger needs one
 							    that does. */}
-								<span>
-									<Badge variant="warningSoft" className="wwc:gap-1 wwc:font-normal">
-										<TriangleAlert className="wwc:h-3 wwc:w-3" />
-										{facts.lint.length} lint
-									</Badge>
-								</span>
-							</HoverTooltip>
-						)}
+							<span>
+								<Badge variant="warningSoft" className="wwc:gap-1 wwc:font-normal">
+									<TriangleAlert className="wwc:h-3 wwc:w-3" />
+									{facts.lint.length} lint
+								</Badge>
+							</span>
+						</HoverTooltip>
+					)}
 					{!authoring && (
 						<span className="wwc:hidden wwc:truncate wwc:text-[11px] wwc:text-muted-foreground wwc:lg:inline">
 							{facts.stateCount} states · {facts.transitionCount} transitions · {facts.openCount} open tokens

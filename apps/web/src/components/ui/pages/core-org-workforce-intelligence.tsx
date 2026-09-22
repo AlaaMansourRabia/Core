@@ -1,1 +1,1 @@
-export {OrgWorkforceIntelligence} from "@wakecap/core-ui/pages/core-org-workforce-intelligence";
+export {OrgWorkforceIntelligence} from "@core/core-ui/pages/core-org-workforce-intelligence";

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Build the WakeCore renderer bundle (browser IIFE) from src/entry.tsx. Bundles @wakecap/core-ui page
-// components + React into a single global (window.WakeCore.render). React/react-dom are aliased to the
+// Build the Core renderer bundle (browser IIFE) from src/entry.tsx. Bundles @core/core-ui page
+// components + React into a single global (window.Core.render). React/react-dom are aliased to the
 // repo-root copies so core-ui's nested react doesn't produce "two copies of React" at runtime.
 
 import * as esbuild from "esbuild";
@@ -15,11 +15,11 @@ await esbuild.build({
 	entryPoints: [join(HERE, "src", "entry.tsx")],
 	bundle: true,
 	format: "iife",
-	outfile: join(HERE, "wakecore-render.js"),
+	outfile: join(HERE, "core-render.js"),
 	jsx: "automatic",
 	minify: true,
 	define: {"process.env.NODE_ENV": '"production"'},
-	loader: {".css": "empty"}, // component CSS is served separately (wakecore-render.css)
+	loader: {".css": "empty"}, // component CSS is served separately (core-render.css)
 	alias: {
 		react: nm("react"),
 		"react-dom": nm("react-dom"),
@@ -27,4 +27,4 @@ await esbuild.build({
 	},
 	logLevel: "info",
 });
-console.error("[build] wrote wakecore-render.js");
+console.error("[build] wrote core-render.js");

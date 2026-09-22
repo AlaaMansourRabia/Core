@@ -10,14 +10,14 @@ export function StudioPage() {
 					<Wand2 className="wwc:h-6 wwc:w-6" />
 				</div>
 				<div className="wwc:mt-4 wwc:inline-flex wwc:items-center wwc:gap-2">
-					<h1 className="wwc:text-2xl wwc:font-semibold wwc:tracking-tight">WakeCore Studio</h1>
+					<h1 className="wwc:text-2xl wwc:font-semibold wwc:tracking-tight">Core Studio</h1>
 					<span className="wwc:rounded-full wwc:border wwc:border-border wwc:bg-muted/50 wwc:px-2.5 wwc:py-0.5 wwc:text-[11px] wwc:font-medium wwc:uppercase wwc:tracking-wide wwc:text-muted-foreground">
 						Coming soon
 					</span>
 				</div>
 				<p className="wwc:mt-3 wwc:text-sm wwc:leading-relaxed wwc:text-muted-foreground">
-					Compose and preview pages from the WakeCore library, then hand the work off to your editor. Studio is on its
-					way to the hub — check back soon.
+					Compose and preview pages from the Core library, then hand the work off to your editor. Studio is on its way
+					to the hub — check back soon.
 				</p>
 			</div>
 		</div>

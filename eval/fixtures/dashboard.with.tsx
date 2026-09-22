@@ -1,6 +1,6 @@
-import {Card, CardContent, CardHeader, CardTitle} from "@wakecap/core-ui/card";
-import {ChartContainer} from "@wakecap/core-ui/chart";
-import {Skeleton} from "@wakecap/core-ui/skeleton";
+import {Card, CardContent, CardHeader, CardTitle} from "@core/core-ui/card";
+import {ChartContainer} from "@core/core-ui/chart";
+import {Skeleton} from "@core/core-ui/skeleton";
 
 export function OrgOverview({kpis, loading, chartOption}) {
 	if (loading) return <Skeleton className="wwc:h-40" />;

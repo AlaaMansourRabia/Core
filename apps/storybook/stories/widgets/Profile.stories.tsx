@@ -1,17 +1,17 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
-import {Badge} from "@wakecap/core-ui/badge";
-import {Button} from "@wakecap/core-ui/button";
+import {Badge} from "@core/core-ui/badge";
+import {Button} from "@core/core-ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@wakecap/core-ui/dropdown-menu";
-import {Separator} from "@wakecap/core-ui/separator";
-import {WorkerProfile, type WorkerProfileTabId} from "@wakecap/core-ui/worker-profile";
+} from "@core/core-ui/dropdown-menu";
+import {Separator} from "@core/core-ui/separator";
+import {WorkerProfile, type WorkerProfileTabId} from "@core/core-ui/worker-profile";
+import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {Ellipsis, Plus, RefreshCw, Smartphone, Trash2} from "lucide-react";
 import {useState} from "react";
 
@@ -133,8 +133,8 @@ export const Default: Story = {
 					uploadable: true,
 				},
 				{
-					id: "wakecap-asset",
-					title: "WakeCap Asset",
+					id: "core-asset",
+					title: "Core Asset",
 					auto: true,
 					status: (
 						<Badge variant="successSoft" className="wwc:h-5 wwc:text-xs">
@@ -212,8 +212,8 @@ export const ComplianceFirst: Story = {
 					uploadable: true,
 				},
 				{
-					id: "wakecap-asset",
-					title: "WakeCap Asset",
+					id: "core-asset",
+					title: "Core Asset",
 					auto: true,
 					status: (
 						<Badge variant="successSoft" className="wwc:h-5 wwc:text-xs">

@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {StateMachine} from "@wakecap/core-ui/pages/state-machine";
-import {DEMO_ACTIONS, DEMO_EFFECTS, demoInstancesFor} from "@wakecap/core-ui/pages/state-machine-fixtures";
-import {createProcess} from "@wakecap/core-ui/pages/wc3-process-shared";
-import {seedProcesses} from "@wakecap/core-ui/pages/wc3-process-views";
-import {defaultTemplateGraph} from "@wakecap/core-ui/pages/work-permit-templates";
+import {StateMachine} from "@core/core-ui/pages/state-machine";
+import {DEMO_ACTIONS, DEMO_EFFECTS, demoInstancesFor} from "@core/core-ui/pages/state-machine-fixtures";
+import {createProcess} from "@core/core-ui/pages/wc3-process-shared";
+import {seedProcesses} from "@core/core-ui/pages/wc3-process-views";
+import {defaultTemplateGraph} from "@core/core-ui/pages/work-permit-templates";
 import {useState} from "react";
 
 const meta = {
@@ -23,7 +23,7 @@ const meta = {
 					"axes crossed. Both products are callers; neither owns a copy, which is what stops a fix to the canvas " +
 					"from having to be made twice.\n\n" +
 					"| | new | existing |\n| --- | --- | --- |\n" +
-					'| **WakeCap Connect V3** | `variant="connect" authoring` | `variant="connect"` |\n' +
+					'| **Core Connect V3** | `variant="connect" authoring` | `variant="connect"` |\n' +
 					'| **Work Permit template** | `variant="work-permit" authoring` | `variant="work-permit"` |\n\n' +
 					"`variant` is the PRODUCT CUT and today it changes the left rail alone — which sections, in what order, " +
 					"under what labels, and whether General carries the permit fields. `authoring` is the AGE of the record: " +
@@ -68,7 +68,7 @@ const newPermitTemplate = () => defaultTemplateGraph("Hot Work Permit v1");
 
 /**
  * **A third product**, with none of this repo's fixtures — the case
- * [#251](https://github.com/wakecap/Wakecore/issues/251) filed.
+ * [#251](https://github.com/core/Core/issues/251) filed.
  *
  * Nothing here is `connect` or `work-permit`. The rail is declared through `sections`, the binding
  * vocabulary through `actions`, the tokens through `instances`. No PR into core-ui, no key added to
@@ -150,7 +150,7 @@ export const ReadOnly: Story = {
 };
 
 /**
- * **WakeCap Connect V3 — new process.** What the Processes list drills into the moment Create
+ * **Core Connect V3 — new process.** What the Processes list drills into the moment Create
  * process is confirmed.
  *
  * Opens on the **Canvas**, and that is the point: the graph is the only thing there is yet. The rail
@@ -189,7 +189,7 @@ export const NewProcess: Story = {
 };
 
 /**
- * **WakeCap Connect V3 — existing process.** The single-process page, which is exactly what
+ * **Core Connect V3 — existing process.** The single-process page, which is exactly what
  * `ProcessDetail` mounts.
  *
  * Everything the new cut strips is back, because here the numbers are real: the glyph, the product

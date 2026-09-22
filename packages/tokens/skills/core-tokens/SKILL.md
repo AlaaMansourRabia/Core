@@ -1,7 +1,7 @@
 ---
 name: core-tokens
 description: >
-  @wakecap/core-tokens CSS-only package. OKLCH custom properties: --background,
+  @core/core-tokens CSS-only package. OKLCH custom properties: --background,
   --foreground, --primary, --secondary, --muted, --accent, --destructive, --success, --warning,
   --border, --input, --ring, --chart-1..5, sidebar variants. Radius:
   --radius-sm/md/lg/xl. Fonts: --font-sans/serif/mono. Shadows and spacing.
@@ -10,29 +10,29 @@ description: >
   pre-built CSS option, and font CDN opt-in.
 metadata:
   type: core
-  library: wakecore
+  library: core
   library_version: "0.0.1"
 sources:
-  - "wakecap/Wakecore:packages/tokens/src/index.css"
-  - "wakecap/Wakecore:packages/tokens/src/fonts.css"
-  - "wakecap/Wakecore:packages/tokens/package.json"
+  - "core/Core:packages/tokens/src/index.css"
+  - "core/Core:packages/tokens/src/fonts.css"
+  - "core/Core:packages/tokens/package.json"
 ---
 
-# @wakecap/core-tokens — Design Tokens
+# @core/core-tokens — Design Tokens
 
 ## Setup
 
 ```tsx
 // App entry point — must run before any component renders
-import "@wakecap/core-tokens";
+import "@core/core-tokens";
 
 // Typefaces (Figtree, Lora, IBM Plex Mono). Self-hosted WOFF2 bundled in the package —
 // no CDN, no runtime request, so this is safe air-gapped and under `font-src 'self'`.
 // Skip it only if you deliberately want the system fallback stack.
-import "@wakecap/core-tokens/fonts";
+import "@core/core-tokens/fonts";
 ```
 
-`@wakecap/core-tokens` provides:
+`@core/core-tokens` provides:
 - CSS custom properties on `:root` and `.dark`
 - Tailwind 4 `@theme inline` bridge with `wwc:` prefix (maps `wwc:bg-primary` → `var(--primary)` etc.)
 - `body` base styles (`background-color`, `color`, `font-family`, `antialiasing`)
@@ -40,10 +40,10 @@ import "@wakecap/core-tokens/fonts";
 
 **Consumer-facing exports** (for external projects, not monorepo apps):
 
-- `@wakecap/core-tokens/theme` — TW4 consumers: `@theme` + `:root` + `.dark` (no Tailwind import, no prefix)
-- `@wakecap/core-tokens/tailwind3-preset` — TW3 consumers: `.cjs` preset mapping tokens to TW3 theme
-- `@wakecap/core-ui/styles.css` — Pre-built CSS for no-TW / TW3 (~80 KB, flattened, includes reset)
-- `@wakecap/core-ui/styles.tw4.css` — Pre-built CSS for TW4 (~80 KB, keeps `@layer`, no reset)
+- `@core/core-tokens/theme` — TW4 consumers: `@theme` + `:root` + `.dark` (no Tailwind import, no prefix)
+- `@core/core-tokens/tailwind3-preset` — TW3 consumers: `.cjs` preset mapping tokens to TW3 theme
+- `@core/core-ui/styles.css` — Pre-built CSS for no-TW / TW3 (~80 KB, flattened, includes reset)
+- `@core/core-ui/styles.tw4.css` — Pre-built CSS for TW4 (~80 KB, keeps `@layer`, no reset)
 
 ## Core Patterns
 
@@ -120,7 +120,7 @@ Full colour token reference:
 ```
 
 System fallbacks are included — components render with acceptable fonts even
-without `@wakecap/core-tokens/fonts`.
+without `@core/core-tokens/fonts`.
 
 ### Dark mode toggle
 
@@ -187,13 +187,13 @@ Wrong:
 
 ```tsx
 import "./my-component-styles.css";  // uses bg-primary, text-foreground
-import "@wakecap/core-tokens";       // imported after — @theme not yet defined
+import "@core/core-tokens";       // imported after — @theme not yet defined
 ```
 
 Correct:
 
 ```tsx
-import "@wakecap/core-tokens";       // first — defines @theme inline and :root vars
+import "@core/core-tokens";       // first — defines @theme inline and :root vars
 import "./my-component-styles.css";
 ```
 
@@ -210,7 +210,7 @@ Source: `packages/tokens/src/index.css:1`
 Wrong:
 
 ```tsx
-// Consumer project that never installed @wakecap/core-tokens
+// Consumer project that never installed @core/core-tokens
 <div className="wwc:bg-sidebar wwc:text-sidebar-foreground" />
 // These classes emit no styles — Tailwind 4 doesn't know about sidebar tokens
 ```
@@ -219,21 +219,21 @@ Correct (option A — pre-built CSS, simplest):
 
 ```css
 /* your-app/src/index.css */
-@import "@wakecap/core-ui/styles.css";
+@import "@core/core-ui/styles.css";
 ```
 
 Correct (option B — Tailwind 4, full control):
 
 ```bash
-pnpm add @wakecap/core-tokens
+pnpm add @core/core-tokens
 ```
 
 ```tsx
 // In app entry point
-import "@wakecap/core-tokens";
+import "@core/core-tokens";
 ```
 
-Tailwind 4 does not include `--sidebar`, `--chart-1..5`, or other Wakecore
+Tailwind 4 does not include `--sidebar`, `--chart-1..5`, or other Core
 tokens by default. The `@theme inline` block in `index.css` registers them.
 Without importing the package (or using the pre-built CSS), these utilities
 compile to empty rules.

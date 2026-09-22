@@ -1,5 +1,5 @@
+import {cn} from "@core/core-utils";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
-import {cn} from "@wakecap/core-utils";
 import * as React from "react";
 
 import {useDialogContainer} from "./dialog";

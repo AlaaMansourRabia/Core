@@ -1,1 +1,1 @@
-export {Toggle, toggleVariants} from "@wakecap/core-ui/toggle";
+export {Toggle, toggleVariants} from "@core/core-ui/toggle";

@@ -1,4 +1,4 @@
-// Standalone proof that the WakeCore MCP server speaks MCP correctly — mirrors what Open Design's
+// Standalone proof that the Core MCP server speaks MCP correctly — mirrors what Open Design's
 // client does: spawn the stdio server, list tools, and call the generate path end to end.
 import {Client} from "@modelcontextprotocol/sdk/client/index.js";
 import {StdioClientTransport} from "@modelcontextprotocol/sdk/client/stdio.js";

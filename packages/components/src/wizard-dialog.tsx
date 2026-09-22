@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import * as React from "react";
 
 import {Button} from "./button";
@@ -134,7 +134,7 @@ export function WizardDialog({
 	return (
 		<Dialog open={open} onOpenChange={close}>
 			<DialogContent
-				data-wakecore-artifact="wizard-dialog"
+				data-core-artifact="wizard-dialog"
 				className={cn(
 					"wwc:flex wwc:max-h-[92vh] wwc:w-[calc(100vw-2rem)] wwc:flex-col wwc:gap-0 wwc:overflow-hidden",
 					className,

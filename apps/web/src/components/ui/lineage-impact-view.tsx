@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/pages/lineage-impact-view";
+export * from "@core/core-ui/pages/lineage-impact-view";

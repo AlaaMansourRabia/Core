@@ -7,7 +7,7 @@ import {
 	type SiteToolbarModeTab,
 	type ViewId,
 	type ViewMode,
-} from "@wakecap/core-ui/site-toolbar";
+} from "@core/core-ui/site-toolbar";
 import {Box, LayoutGrid, Layers, Map as MapIcon} from "lucide-react";
 import {useState} from "react";
 
@@ -27,7 +27,7 @@ const MODE_TABS: SiteToolbarModeTab[] = [
 	{id: "plan", label: "Plan", icon: MapIcon, thumb: THUMB},
 ];
 
-// The top-centre canvas toolbar as a controlled Wakecore widget: LEFT level-nav pill (Villa + Batch
+// The top-centre canvas toolbar as a controlled Core widget: LEFT level-nav pill (Villa + Batch
 // dropdown) and RIGHT view-mode switcher (Reality / Plan). This harness owns the same state the host
 // template owns (view / mode / level) and feeds it back through the three semantic callbacks.
 const meta = {

@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {format} from "date-fns";
 import {Calendar as CalendarIcon, ChevronLeft, ChevronRight} from "lucide-react";
 import * as React from "react";

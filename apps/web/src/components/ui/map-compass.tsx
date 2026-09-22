@@ -1,2 +1,2 @@
-export {MapCompass} from "@wakecap/core-ui/map-compass";
-export type {MapCompassProps} from "@wakecap/core-ui/map-compass";
+export {MapCompass} from "@core/core-ui/map-compass";
+export type {MapCompassProps} from "@core/core-ui/map-compass";

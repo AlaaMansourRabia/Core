@@ -20,14 +20,14 @@ describe("Release E token provenance and CSS ownership", () => {
 		);
 	});
 
-	it("accepts recursive aliases that terminate in a documented WakeCore token", () => {
+	it("accepts recursive aliases that terminate in a documented Core token", () => {
 		const result = gradeFileSet({
 			"src/app.css":
 				":root { --app-fg: var(--surface-fg); --surface-fg: var(--wwc-color-foreground); }\n.panel { color: var(--app-fg); gap: var(--wwc-spacing-4); }",
 		});
 		assert.equal(result.metrics["token-provenance"], true);
 		assert.equal(result.tokens.overall.score, 1);
-		assert.equal(result.tokenProvenance.usages[0].status, "wakecore-token");
+		assert.equal(result.tokenProvenance.usages[0].status, "core-token");
 	});
 
 	it("rejects unresolved and cyclic aliases", () => {

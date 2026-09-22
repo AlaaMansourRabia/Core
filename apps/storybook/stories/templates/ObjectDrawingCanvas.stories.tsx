@@ -1,7 +1,7 @@
-import type {DrawingTool} from "@wakecap/core-ui/object-drawing-toolbar";
+import type {DrawingTool} from "@core/core-ui/object-drawing-toolbar";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
+import {Button} from "@core/core-ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -9,9 +9,9 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@wakecap/core-ui/dropdown-menu";
-import {ObjectDrawingToolbar} from "@wakecap/core-ui/object-drawing-toolbar";
-import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@wakecap/core-ui/resizable";
+} from "@core/core-ui/dropdown-menu";
+import {ObjectDrawingToolbar} from "@core/core-ui/object-drawing-toolbar";
+import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@core/core-ui/resizable";
 import {
 	Link2,
 	Link2Off,

@@ -13,4 +13,4 @@ export {
 	SidebarSeparator,
 	SidebarTrigger,
 	useSidebar,
-} from "@wakecap/core-ui/sidebar";
+} from "@core/core-ui/sidebar";

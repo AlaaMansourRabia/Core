@@ -52,7 +52,7 @@ export function ChatPanel({
 				onClick={onMaximize}
 			>
 				<Sparkles className="wwc:h-5 wwc:w-5" fill="currentColor" />
-				<span className="wwc:text-sm wwc:font-medium">Wakecap Assistant</span>
+				<span className="wwc:text-sm wwc:font-medium">Core Assistant</span>
 				<Button
 					icon
 					variant="ghost"
@@ -83,7 +83,7 @@ export function ChatPanel({
 						<Sparkles className="wwc:h-4 wwc:w-4" fill="currentColor" />
 					</div>
 					<div>
-						<h3 className="wwc:text-sm wwc:font-semibold">Wakecap Assistant</h3>
+						<h3 className="wwc:text-sm wwc:font-semibold">Core Assistant</h3>
 						<p className="wwc:text-xs wwc:text-muted-foreground">Ask about your data</p>
 					</div>
 				</div>
@@ -106,7 +106,7 @@ export function ChatPanel({
 							<div className="wwc:flex wwc:h-16 wwc:w-16 wwc:items-center wwc:justify-center wwc:rounded-full wwc:bg-primary/10 wwc:mb-4">
 								<Sparkles className="wwc:h-8 wwc:w-8 wwc:text-primary" fill="currentColor" />
 							</div>
-							<h4 className="wwc:text-sm wwc:font-medium wwc:mb-1">Welcome to Wakecap Assistant</h4>
+							<h4 className="wwc:text-sm wwc:font-medium wwc:mb-1">Welcome to Core Assistant</h4>
 							<p className="wwc:text-xs wwc:text-muted-foreground wwc:mb-4 wwc:max-w-[280px]">
 								Ask me about your data and I'll create visualizations for you
 							</p>

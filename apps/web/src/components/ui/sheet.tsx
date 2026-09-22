@@ -9,4 +9,4 @@ export {
 	SheetFooter,
 	SheetTitle,
 	SheetDescription,
-} from "@wakecap/core-ui/sheet";
+} from "@core/core-ui/sheet";

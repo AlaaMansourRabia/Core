@@ -1,7 +1,7 @@
 import type {ColumnDef, Row} from "@tanstack/react-table";
 import type {ReactElement, ReactNode} from "react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {ChevronDown, ChevronRight, LayoutGrid, List, Play, Workflow, XCircle} from "lucide-react";
 import {useCallback, useMemo, useState} from "react";
 

@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {Network, RotateCcw, TriangleAlert} from "lucide-react";
 import * as React from "react";
 
@@ -273,7 +273,7 @@ function NodeGraphNodeCard({data, selected, isConnectable}: NodeProps) {
 	);
 }
 
-const NODE_TYPES = {wakecore: NodeGraphNodeCard};
+const NODE_TYPES = {core: NodeGraphNodeCard};
 
 // ─── States ──────────────────────────────────────────────────────────────────
 
@@ -350,7 +350,7 @@ function NodeGraphInner<TNode, TEdge>({
 		() =>
 			nodes.map((node) => ({
 				id: node.id,
-				type: "wakecore",
+				type: "core",
 				position: dragged[node.id] ?? node.position,
 				selected: node.id === activeId,
 				selectable: node.selectable ?? selectable,

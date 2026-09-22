@@ -1,6 +1,6 @@
 import type {ColumnDef} from "@tanstack/react-table";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {
 	Archive,
 	ArchiveRestore,
@@ -397,7 +397,7 @@ function makeProjectColumns(
 							<Eye className="wwc:h-4 wwc:w-4" />
 							View details
 						</DropdownMenuItem>
-						<DropdownMenuItem onClick={() => window.open("https://wakecap.com", "_blank", "noopener")}>
+						<DropdownMenuItem onClick={() => window.open("https://core.com", "_blank", "noopener")}>
 							<ExternalLink className="wwc:h-4 wwc:w-4" />
 							Open project
 						</DropdownMenuItem>
@@ -882,7 +882,7 @@ const USERS: User[] = [
 		id: "u8",
 		status: "Invitation Sent",
 		name: "Mubashir SCC Operator",
-		email: "mubshir.irfan+yanbu-scc@wakecap.com",
+		email: "mubshir.irfan+yanbu-scc@core.com",
 		role: "Crew Lead",
 		linkedPeople: [],
 		lastLogin: "07 Jul 2026",
@@ -906,7 +906,7 @@ const USERS: User[] = [
 		id: "u10",
 		status: "Active",
 		name: "Layla Nasser",
-		email: "layla.n@wakecap.com",
+		email: "layla.n@core.com",
 		role: "WeCare Admin",
 		linkedPeople: ["Layla Nasser"],
 		lastLogin: "12 Jul 2026",
@@ -918,7 +918,7 @@ const USERS: User[] = [
 		id: "u11",
 		status: "Active",
 		name: "Omar Farouk",
-		email: "omar.f@wakecap.com",
+		email: "omar.f@core.com",
 		role: "Compliance Officer",
 		linkedPeople: [],
 		lastLogin: "10 Jul 2026",
@@ -930,7 +930,7 @@ const USERS: User[] = [
 		id: "u12",
 		status: "Active",
 		name: "Sara Idris",
-		email: "sara.i@wakecap.com",
+		email: "sara.i@core.com",
 		role: "Network Administrator",
 		linkedPeople: ["Sara Idris"],
 		lastLogin: "09 Jul 2026",
@@ -1038,7 +1038,7 @@ function makeUserColumns(
 							{u.status === "Invitation Sent" ? (
 								<DropdownMenuItem
 									onClick={() => {
-										navigator.clipboard?.writeText(`https://app.wakecap.com/register-user/${u.id}`).catch(() => {});
+										navigator.clipboard?.writeText(`https://app.core.com/register-user/${u.id}`).catch(() => {});
 										toast.success("Invitation link copied");
 									}}
 								>
@@ -1878,7 +1878,7 @@ function EditOrgDialog({
 	);
 }
 
-// The WakeCap brand mark (same glyph as the app sidebar), for the standalone organizations page.
+// The Core brand mark (same glyph as the app sidebar), for the standalone organizations page.
 function WakeMark({className}: {className?: string}) {
 	return (
 		<svg
@@ -2157,7 +2157,7 @@ function OrgCard({
 
 const ORG_STATUS_TABS = ["Active", "Archived"] as const;
 
-// Standalone "all organizations" page — only a WakeCap-branded top bar (logo + back), then org cards + add.
+// Standalone "all organizations" page — only a Core-branded top bar (logo + back), then org cards + add.
 function AllOrganizationsView({
 	orgs,
 	onSelectOrg,
@@ -2176,7 +2176,7 @@ function AllOrganizationsView({
 	const [statusTab, setStatusTab] = useState<(typeof ORG_STATUS_TABS)[number]>("Active");
 	const [query, setQuery] = useState("");
 	const [pendingArchive, setPendingArchive] = useState<Org | null>(null);
-	// Simulate a fetch so the cards show wakecore skeletons while "loading" (re-runs on tab change).
+	// Simulate a fetch so the cards show core skeletons while "loading" (re-runs on tab change).
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
 		setLoading(true);
@@ -2189,7 +2189,7 @@ function AllOrganizationsView({
 
 	return (
 		<div className="wwc:flex wwc:h-full wwc:min-h-0 wwc:flex-col wwc:bg-background wwc:text-foreground">
-			{/* Top nav — WakeCap logo + back to the admin panel. No sidebar. */}
+			{/* Top nav — Core logo + back to the admin panel. No sidebar. */}
 			<header className="wwc:flex wwc:h-14 wwc:shrink-0 wwc:items-center wwc:gap-3 wwc:border-b wwc:border-border wwc:bg-card wwc:px-4 wwc:text-card-foreground">
 				<Button variant="ghost" size="sm" onClick={onBack} className="wwc:-ml-1">
 					<ChevronLeft className="wwc:h-4 wwc:w-4" />
@@ -2197,7 +2197,7 @@ function AllOrganizationsView({
 				</Button>
 				<div className="wwc:h-5 wwc:w-px wwc:bg-border" />
 				<WakeMark className="wwc:h-5 wwc:w-auto wwc:text-foreground" />
-				<span className="wwc:text-sm wwc:font-semibold">WakeCap</span>
+				<span className="wwc:text-sm wwc:font-semibold">Core</span>
 			</header>
 
 			<main className="wwc:min-h-0 wwc:flex-1 wwc:overflow-auto wwc:p-6">

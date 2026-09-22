@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {type VariantProps, cva} from "class-variance-authority";
 import * as React from "react";
 
@@ -23,7 +23,7 @@ function polyStr(...points: Point[]): string {
 
 // The palette is driven by the root `text-*` colour; each face uses `fill-current`
 // with an SVG `fillOpacity` to express depth (lit wall → shaded side → roof → shaded
-// roof), so a house re-themes with the rest of Wakecore instead of using raw hex.
+// roof), so a house re-themes with the rest of Core instead of using raw hex.
 const houseShapeVariants = cva("wwc:overflow-visible", {
 	variants: {
 		variant: {

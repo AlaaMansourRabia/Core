@@ -8,4 +8,4 @@ export {
 	NavigationMenuLink,
 	NavigationMenuIndicator,
 	NavigationMenuViewport,
-} from "@wakecap/core-ui/navigation-menu";
+} from "@core/core-ui/navigation-menu";

@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {ChevronDown, ChevronRight} from "lucide-react";
 import {type MouseEvent, type ReactNode, type RefObject, useLayoutEffect, useRef, useState} from "react";
 

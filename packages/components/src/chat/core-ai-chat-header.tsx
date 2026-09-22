@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {ArrowLeft, Loader2, Menu, MoreVertical, PanelLeft, PanelLeftClose} from "lucide-react";
 import * as React from "react";
 

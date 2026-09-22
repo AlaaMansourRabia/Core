@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/form-action-bar.tsx",
-		"import": "@wakecap/core-ui/form-action-bar",
+		"import": "@core/core-ui/form-action-bar",
 		"export": "FormActionBar"
 	},
 	"tags": [
@@ -58,7 +58,7 @@
 	},
 	"lineage": {
 		"origin": "promoted",
-		"authoredBy": "wakecore issue #179 (form action bar promotion)",
+		"authoredBy": "core issue #179 (form action bar promotion)",
 		"derivedFrom": {
 			"source": "packages/components/src/pages/core-admin-panel.tsx",
 			"extracted": [
@@ -72,7 +72,7 @@
 		"supersedes": null,
 		"lastValidated": "2026-07-20",
 		"notes": [
-			"resolves wakecap/Wakecore#179: removes the hand-rolled sticky footer and its padding-coupled negative margins in frontend-2.0-admin",
+			"resolves core/Core#179: removes the hand-rolled sticky footer and its padding-coupled negative margins in frontend-2.0-admin",
 			"layers at z-30; DataTable's bulk-actions pill is z-50 and intentionally floats above it"
 		]
 	}

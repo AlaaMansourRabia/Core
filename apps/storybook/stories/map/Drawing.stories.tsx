@@ -1,13 +1,13 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {Card, CardContent, CardHeader, CardTitle} from "@wakecap/core-ui/card";
-import {Input} from "@wakecap/core-ui/input";
+import {Button} from "@core/core-ui/button";
+import {Card, CardContent, CardHeader, CardTitle} from "@core/core-ui/card";
+import {Input} from "@core/core-ui/input";
 import "mapbox-gl/dist/mapbox-gl.css";
-import {Label} from "@wakecap/core-ui/label";
-import {Map} from "@wakecap/core-ui/map";
-import {MapControls} from "@wakecap/core-ui/map-controls";
-import {MAPBOX_TOKEN} from "@wakecap/core-ui/mapbox-token";
+import {Label} from "@core/core-ui/label";
+import {Map} from "@core/core-ui/map";
+import {MapControls} from "@core/core-ui/map-controls";
+import {MAPBOX_TOKEN} from "@core/core-ui/mapbox-token";
 import {
 	PushPanel,
 	PushPanelContainer,
@@ -19,8 +19,8 @@ import {
 	PushPanelMain,
 	PushPanelProvider,
 	PushPanelTitle,
-} from "@wakecap/core-ui/push-panel";
-import {Textarea} from "@wakecap/core-ui/textarea";
+} from "@core/core-ui/push-panel";
+import {Textarea} from "@core/core-ui/textarea";
 import {ChevronLeft, ChevronRight, Edit2, Minus, PenTool, Pencil, Plus, Square, Trash2, X} from "lucide-react";
 import mapboxgl from "mapbox-gl";
 import {useEffect, useRef, useState} from "react";

@@ -1,5 +1,5 @@
-@import "@wakecap/core-tokens/fonts";
-@import "@wakecap/core-tokens";
+@import "@core/core-tokens/fonts";
+@import "@core/core-tokens";
 /* Enter/exit animation utilities (animate-in, slide-in-from-*, fade-*, zoom-*). Sheet,
    Dialog, AlertDialog, Popover and friends all name these; without this import they
    compile to nothing and every overlay appears instantly. */

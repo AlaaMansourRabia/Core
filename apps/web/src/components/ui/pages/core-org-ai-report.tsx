@@ -1,1 +1,1 @@
-export {OrgAIReport} from "@wakecap/core-ui/pages/core-org-ai-report";
+export {OrgAIReport} from "@core/core-ui/pages/core-org-ai-report";

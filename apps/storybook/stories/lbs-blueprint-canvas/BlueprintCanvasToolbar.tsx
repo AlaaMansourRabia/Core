@@ -1,15 +1,15 @@
-import {Button} from "@wakecap/core-ui/button";
-import {Popover, PopoverContent, PopoverTrigger} from "@wakecap/core-ui/popover";
-import {Slider} from "@wakecap/core-ui/slider";
+import {Button} from "@core/core-ui/button";
+import {Popover, PopoverContent, PopoverTrigger} from "@core/core-ui/popover";
+import {Slider} from "@core/core-ui/slider";
 import {
 	Toolbar,
 	ToolbarButton,
 	ToolbarMenuButton,
 	type ToolbarMenuOption,
 	ToolbarSeparator,
-} from "@wakecap/core-ui/toolbar";
-import {ToolbarColorPicker} from "@wakecap/core-ui/toolbar-color-picker";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@wakecap/core-ui/tooltip";
+} from "@core/core-ui/toolbar";
+import {ToolbarColorPicker} from "@core/core-ui/toolbar-color-picker";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@core/core-ui/tooltip";
 import {
 	Blend,
 	Box,

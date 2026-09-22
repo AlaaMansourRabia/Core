@@ -107,11 +107,11 @@ export function tokenColorRole(name) {
 	return undefined;
 }
 
-export function wakecoreTokenType(name) {
+export function coreTokenType(name) {
 	return tokenColorRole(name) ? "complete-color" : "scalar";
 }
 
-export function isKnownWakeCoreToken(name) {
+export function isKnownCoreToken(name) {
 	const bare = bareName(name);
 	if (SEMANTIC_COLORS.has(bare)) return true;
 	if (bare.startsWith("color-") && SEMANTIC_COLORS.has(bare.slice("color-".length))) return true;
@@ -126,4 +126,4 @@ export function isKnownWakeCoreToken(name) {
 	);
 }
 
-export const WAKECORE_SEMANTIC_COLOR_TOKENS = [...SEMANTIC_COLORS];
+export const CORE_SEMANTIC_COLOR_TOKENS = [...SEMANTIC_COLORS];

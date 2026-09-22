@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {ChevronDown} from "lucide-react";
 import {useState} from "react";
 
@@ -44,7 +44,7 @@ export interface SiteLegendProps {
 /**
  * The Site Image Viewer legend: a SPA/Construction segmented toggle, a header (title · caption), the
  * colour ramp laid out horizontally with a label under each bucket, and the non-ramp states as footnotes.
- * Built from Wakecore semantic tokens; the swatch colours come from the milestone/variance ramp data.
+ * Built from Core semantic tokens; the swatch colours come from the milestone/variance ramp data.
  * Collapsible — collapsed by default to a small "Legend" pill; click to expand.
  */
 export function SiteLegend({

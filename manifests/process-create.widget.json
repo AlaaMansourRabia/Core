@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/wc3-process-create.tsx",
-		"import": "@wakecap/core-ui/pages/create-process-dialog",
+		"import": "@core/core-ui/pages/create-process-dialog",
 		"export": "CreateProcessDialog"
 	},
 	"tags": [
@@ -95,7 +95,7 @@
 	"forbiddenPlacement": [
 		"inside another dialog"
 	],
-	"minimalExample": "import {CreateProcessDialog} from \"@wakecap/core-ui/pages/create-process-dialog\";\n\n<CreateProcessDialog open={open} onOpenChange={setOpen} processes={processes} onCreate={(draft) => open(createProcess(draft))} />",
+	"minimalExample": "import {CreateProcessDialog} from \"@core/core-ui/pages/create-process-dialog\";\n\n<CreateProcessDialog open={open} onOpenChange={setOpen} processes={processes} onCreate={(draft) => open(createProcess(draft))} />",
 	"evaluationCriteria": [
 		"Create is never disabled.",
 		"The status property is pre-filled once an object type is chosen.",

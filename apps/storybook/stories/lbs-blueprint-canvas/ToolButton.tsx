@@ -1,7 +1,7 @@
 import type {ReactNode} from "react";
 
-import {Tooltip, TooltipContent, TooltipTrigger} from "@wakecap/core-ui/tooltip";
-import {cn} from "@wakecap/core-utils";
+import {Tooltip, TooltipContent, TooltipTrigger} from "@core/core-ui/tooltip";
+import {cn} from "@core/core-utils";
 
 import {BLUEPRINT_TOOL_BUTTON_SIZE_CLASS} from "./constants";
 

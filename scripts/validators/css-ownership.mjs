@@ -42,7 +42,7 @@ export function analyzeCssOwnership(files) {
 			)
 				variantIntegrity.push({...location, kind: "hybrid-tab-variant"});
 			if (
-				/(?:data-table|datatable|\[data-wakecore-artifact=["']data-table)[^,{]*(?:\btable\b|\bth\b|\btd\b)/i.test(
+				/(?:data-table|datatable|\[data-core-artifact=["']data-table)[^,{]*(?:\btable\b|\bth\b|\btd\b)/i.test(
 					selector,
 				) ||
 				(/(?:chart|trend-chart)/i.test(selector) && /background(?:-color)?\s*:/i.test(declarations))
@@ -51,10 +51,10 @@ export function analyzeCssOwnership(files) {
 					...location,
 					kind: /chart/i.test(selector) ? "chart-surface" : "data-table-internals",
 				});
-			if (/(?:app-shell|wakecore-shell|main-shell|route-content|content-scroll)/i.test(selector))
+			if (/(?:app-shell|core-shell|main-shell|route-content|content-scroll)/i.test(selector))
 				shellLayout.active = true;
 			if (
-				/(?:app-shell|wakecore-shell)/i.test(selector) &&
+				/(?:app-shell|core-shell)/i.test(selector) &&
 				/height\s*:\s*100dvh/i.test(declarations) &&
 				/overflow\s*:\s*hidden/i.test(declarations)
 			)

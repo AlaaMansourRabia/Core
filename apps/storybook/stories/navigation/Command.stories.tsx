@@ -9,7 +9,7 @@ import {
 	CommandList,
 	CommandSeparator,
 	CommandShortcut,
-} from "@wakecap/core-ui/command";
+} from "@core/core-ui/command";
 import {Calculator, Calendar, CreditCard, Settings, Smile, User} from "lucide-react";
 
 const meta = {

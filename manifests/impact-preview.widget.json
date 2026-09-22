@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/wc3-lineage-impact-view.tsx",
-		"import": "@wakecap/core-ui/pages/lineage-impact-view",
+		"import": "@core/core-ui/pages/lineage-impact-view",
 		"export": "LineageImpactView"
 	},
 	"tags": [
@@ -91,7 +91,7 @@
 	"forbiddenPlacement": [
 		"a dashboard tile"
 	],
-	"minimalExample": "import {LineageImpactView} from \"@wakecap/core-ui/pages/lineage-impact-view\";\n\n<LineageImpactView objectTypeId=\"ot_permit\" onNavigate={goTo} />",
+	"minimalExample": "import {LineageImpactView} from \"@core/core-ui/pages/lineage-impact-view\";\n\n<LineageImpactView objectTypeId=\"ot_permit\" onNavigate={goTo} />",
 	"evaluationCriteria": [
 		"All three downstream registries are walked, not just one."
 	],

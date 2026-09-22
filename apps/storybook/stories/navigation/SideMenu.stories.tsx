@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {SideMenu, type SideMenuGroup} from "@wakecap/core-ui/side-menu";
+import {SideMenu, type SideMenuGroup} from "@core/core-ui/side-menu";
 import {
 	Bell,
 	ClipboardCheck,

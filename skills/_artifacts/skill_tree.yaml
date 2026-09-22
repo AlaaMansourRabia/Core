@@ -1,11 +1,11 @@
 # skills/_artifacts/skill_tree.yaml
 library:
-  name: wakecore
+  name: core
   version: "0.0.1"
-  repository: "github.com/wakecap/Wakecore"
+  repository: "github.com/core/Core"
   description: >
-    WakeCap's internal design system. React 19 UI components, OKLCH design tokens,
-    and className utilities for WakeCap product feature development. All Tailwind
+    Core's internal design system. React 19 UI components, OKLCH design tokens,
+    and className utilities for Core product feature development. All Tailwind
     utility classes use the wwc: prefix to avoid consumer style collisions.
 generated_from:
   domain_map: "skills/_artifacts/domain_map.yaml"
@@ -20,15 +20,15 @@ skills:
     path: skills/core-ui-quickstart/SKILL.md
     package: packages/tokens
     description: >
-      First-time installation and setup for Wakecore. GitHub Packages .npmrc
-      authentication, installing @wakecap/core-ui/@wakecap/core-tokens/
-      @wakecap/core-utils, three CSS setup paths (pre-built, Tailwind 4,
+      First-time installation and setup for Core. GitHub Packages .npmrc
+      authentication, installing @core/core-ui/@core/core-tokens/
+      @core/core-utils, three CSS setup paths (pre-built, Tailwind 4,
       Tailwind 3), the wwc: class prefix, and rendering a first component.
     sources:
-      - "wakecap/Wakecore:README.md"
-      - "wakecap/Wakecore:packages/tokens/src/index.css"
-      - "wakecap/Wakecore:packages/tokens/src/fonts.css"
-      - "wakecap/Wakecore:packages/components/package.json"
+      - "core/Core:README.md"
+      - "core/Core:packages/tokens/src/index.css"
+      - "core/Core:packages/tokens/src/fonts.css"
+      - "core/Core:packages/components/package.json"
 
   - name: core-ui-components
     slug: core-ui-components
@@ -37,16 +37,16 @@ skills:
     path: skills/core-ui-components/SKILL.md
     package: packages/components
     description: >
-      Importing and using @wakecap/core-ui component primitives. Deep-path
+      Importing and using @core/core-ui component primitives. Deep-path
       imports, Button variants and sizes, asChild delegation, loading state,
       SidebarProvider layout setup, TooltipProvider context requirement,
       cn() className merging, cva/VariantProps for custom variants.
     sources:
-      - "wakecap/Wakecore:packages/components/src/button.tsx"
-      - "wakecap/Wakecore:packages/components/src/sidebar.tsx"
-      - "wakecap/Wakecore:packages/components/src/index.ts"
-      - "wakecap/Wakecore:packages/components/package.json"
-      - "wakecap/Wakecore:packages/utils/src/index.ts"
+      - "core/Core:packages/components/src/button.tsx"
+      - "core/Core:packages/components/src/sidebar.tsx"
+      - "core/Core:packages/components/src/index.ts"
+      - "core/Core:packages/components/package.json"
+      - "core/Core:packages/utils/src/index.ts"
 
   - name: core-ui-forms
     slug: core-ui-forms
@@ -55,13 +55,13 @@ skills:
     path: skills/core-ui-forms/SKILL.md
     package: packages/components
     description: >
-      Building validated forms with @wakecap/core-ui/form, react-hook-form, zod,
+      Building validated forms with @core/core-ui/form, react-hook-form, zod,
       and @hookform/resolvers/zod. Form/FormField/FormItem/FormLabel/FormControl/
       FormDescription/FormMessage composition, useForm with zodResolver, field
       registration, error display via FormMessage.
     sources:
-      - "wakecap/Wakecore:packages/components/src/form.tsx"
-      - "wakecap/Wakecore:packages/components/package.json"
+      - "core/Core:packages/components/src/form.tsx"
+      - "core/Core:packages/components/package.json"
 
   - name: core-ui-data-table
     slug: core-ui-data-table
@@ -70,13 +70,13 @@ skills:
     path: skills/core-ui-data-table/SKILL.md
     package: packages/components
     description: >
-      DataTable from @wakecap/core-ui/data-table with @tanstack/react-table
+      DataTable from @core/core-ui/data-table with @tanstack/react-table
       ColumnDef. Sorting, filtering via searchKey, pagination, column visibility
       toggle. Expandable detail rows (renderSubComponent + getRowCanExpand),
       tree/nested rows (getSubRows), DataTableRowGroup collapsible sections,
       DataTableTreeCell indented rows, DataTableColumnHeader sort button.
     sources:
-      - "wakecap/Wakecore:packages/components/src/data-table.tsx"
+      - "core/Core:packages/components/src/data-table.tsx"
 
   - name: core-ui-charts
     slug: core-ui-charts
@@ -86,15 +86,15 @@ skills:
     package: packages/components
     description: >
       Two chart systems: ChartContainer (ECharts wrapper + useChartTheme hook)
-      from @wakecap/core-ui/chart, and ChartRenderer (lightweight ECharts for
+      from @core/core-ui/chart, and ChartRenderer (lightweight ECharts for
       AI-generated charts, ChartData type, ChartType bar/line/area/pie/scatter)
-      from @wakecap/core-ui/chat/core-chart-renderer. getCssVarAsRgb and
-      getChartColors from @wakecap/core-utils for direct ECharts consumers.
+      from @core/core-ui/chat/core-chart-renderer. getCssVarAsRgb and
+      getChartColors from @core/core-utils for direct ECharts consumers.
     sources:
-      - "wakecap/Wakecore:packages/components/src/chart.tsx"
-      - "wakecap/Wakecore:packages/components/src/chat/core-chart-renderer.tsx"
-      - "wakecap/Wakecore:packages/utils/src/index.ts"
-      - "wakecap/Wakecore:packages/tokens/src/index.css"
+      - "core/Core:packages/components/src/chart.tsx"
+      - "core/Core:packages/components/src/chat/core-chart-renderer.tsx"
+      - "core/Core:packages/utils/src/index.ts"
+      - "core/Core:packages/tokens/src/index.css"
 
   - name: core-ui-chat
     slug: core-ui-chat
@@ -103,18 +103,18 @@ skills:
     path: skills/core-ui-chat/SKILL.md
     package: packages/components
     description: >
-      ChatWidget floating AI assistant from @wakecap/core-ui/chat/core-chat-widget.
+      ChatWidget floating AI assistant from @core/core-ui/chat/core-chat-widget.
       onAddWidget callback for add-to-page, apiEndpoint prop, minimize/close state.
       ChatPanel, ChatMessage, ChatInput, ChartRenderer sub-components.
       Message/TextMessage/ChartMessage/DashboardWidget types from
-      @wakecap/core-ui/types/chat. sendChatMessage service stub from
-      @wakecap/core-ui/services/chatService.
+      @core/core-ui/types/chat. sendChatMessage service stub from
+      @core/core-ui/services/chatService.
     sources:
-      - "wakecap/Wakecore:packages/components/src/chat/core-chat-widget.tsx"
-      - "wakecap/Wakecore:packages/components/src/chat/core-chat-panel.tsx"
-      - "wakecap/Wakecore:packages/components/src/chat/core-chat-message.tsx"
-      - "wakecap/Wakecore:packages/components/src/services/chatService.ts"
-      - "wakecap/Wakecore:packages/components/src/types/chat.ts"
+      - "core/Core:packages/components/src/chat/core-chat-widget.tsx"
+      - "core/Core:packages/components/src/chat/core-chat-panel.tsx"
+      - "core/Core:packages/components/src/chat/core-chat-message.tsx"
+      - "core/Core:packages/components/src/services/chatService.ts"
+      - "core/Core:packages/components/src/types/chat.ts"
 
   - name: core-tokens
     slug: core-tokens
@@ -123,15 +123,15 @@ skills:
     path: skills/core-tokens/SKILL.md
     package: packages/tokens
     description: >
-      @wakecap/core-tokens CSS-only package. OKLCH custom properties for colors
+      @core/core-tokens CSS-only package. OKLCH custom properties for colors
       (--primary, --background, --chart-1..5, sidebar variants), radius
       (--radius-sm/md/lg/xl), fonts (--font-sans/serif/mono), shadows, spacing.
       Tailwind 4 @theme inline bridge with wwc: prefix. Dark mode via .dark
-      class. Pre-built CSS alternative via @wakecap/core-ui/styles.css.
+      class. Pre-built CSS alternative via @core/core-ui/styles.css.
     sources:
-      - "wakecap/Wakecore:packages/tokens/src/index.css"
-      - "wakecap/Wakecore:packages/tokens/src/fonts.css"
-      - "wakecap/Wakecore:packages/tokens/package.json"
+      - "core/Core:packages/tokens/src/index.css"
+      - "core/Core:packages/tokens/src/fonts.css"
+      - "core/Core:packages/tokens/package.json"
 
   - name: core-utils
     slug: core-utils
@@ -140,14 +140,14 @@ skills:
     path: skills/core-utils/SKILL.md
     package: packages/utils
     description: >
-      @wakecap/core-utils exports: cn() (clsx + tailwind-merge with wwc: prefix
+      @core/core-utils exports: cn() (clsx + tailwind-merge with wwc: prefix
       config, resolves conflicting wwc:-prefixed Tailwind utilities), cva and
       VariantProps (re-exported from class-variance-authority),
       cssColorToRgb/getChartColors/getCssVarAsRgb (browser-only OKLCH-to-RGB
       converters for ECharts or canvas).
     sources:
-      - "wakecap/Wakecore:packages/utils/src/index.ts"
-      - "wakecap/Wakecore:packages/utils/package.json"
+      - "core/Core:packages/utils/src/index.ts"
+      - "core/Core:packages/utils/package.json"
 
   - name: core-ui-composition
     slug: core-ui-composition
@@ -156,12 +156,12 @@ skills:
     path: skills/core-ui-composition/SKILL.md
     package: packages/components
     description: >
-      Choosing and composing @wakecap/core-ui components: which overlay/action/
+      Choosing and composing @core/core-ui components: which overlay/action/
       input/data/navigation/feedback component to use when, required provider/
       ancestor wiring, valid nesting, variant semantics, and workflow recipes
       (app shell, dashboard, form-in-dialog, template gallery, data view with
       filters). The machine-readable when/why catalog lives in library-index.json.
     sources:
-      - "wakecap/Wakecore:library-index.json"
-      - "wakecap/Wakecore:packages/components/src/dialog.tsx"
-      - "wakecap/Wakecore:packages/components/src/navigation/core-app-sidebar.tsx"
+      - "core/Core:library-index.json"
+      - "core/Core:packages/components/src/dialog.tsx"
+      - "core/Core:packages/components/src/navigation/core-app-sidebar.tsx"

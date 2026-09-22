@@ -6,4 +6,4 @@ export {
 	type WorkItemPriority,
 	type WorkItemStatus,
 	type WorkItemTone,
-} from "@wakecap/core-ui/work-item-card";
+} from "@core/core-ui/work-item-card";

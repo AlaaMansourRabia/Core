@@ -1,5 +1,5 @@
+import {cn} from "@core/core-utils";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
-import {cn} from "@wakecap/core-utils";
 import * as React from "react";
 
 export type ProgressTone = "primary" | "success" | "warning" | "danger";

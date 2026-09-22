@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// Serves the WakeCore renderer bundle with permissive CORS so an Open Design preview iframe can load
-// it by absolute URL and call window.WakeCore.render(pageInstance). The bundle carries its own React;
-// running it inside OD's sandboxed srcdoc iframe keeps it isolated. Port overridable via WAKECORE_RENDERER_PORT.
+// Serves the Core renderer bundle with permissive CORS so an Open Design preview iframe can load
+// it by absolute URL and call window.Core.render(pageInstance). The bundle carries its own React;
+// running it inside OD's sandboxed srcdoc iframe keeps it isolated. Port overridable via CORE_RENDERER_PORT.
 
 import {createServer} from "node:http";
 import {readFileSync} from "node:fs";
@@ -9,11 +9,11 @@ import {dirname, join} from "node:path";
 import {fileURLToPath} from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const PORT = Number(process.env.WAKECORE_RENDERER_PORT ?? 8787);
+const PORT = Number(process.env.CORE_RENDERER_PORT ?? 8787);
 
 const files = {
-	"/wakecore-render.js": {type: "text/javascript", body: readFileSync(join(HERE, "wakecore-render.js"))},
-	"/wakecore-render.css": {type: "text/css", body: readFileSync(join(HERE, "wakecore-render.css"))},
+	"/core-render.js": {type: "text/javascript", body: readFileSync(join(HERE, "core-render.js"))},
+	"/core-render.css": {type: "text/css", body: readFileSync(join(HERE, "core-render.css"))},
 };
 
 createServer((req, res) => {
@@ -32,4 +32,4 @@ createServer((req, res) => {
 	}
 	res.writeHead(200, {"content-type": f.type});
 	res.end(f.body);
-}).listen(PORT, () => console.error(`[wakecore-renderer] serving on http://localhost:${PORT} (CORS *)`));
+}).listen(PORT, () => console.error(`[core-renderer] serving on http://localhost:${PORT} (CORS *)`));

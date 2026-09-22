@@ -1,9 +1,9 @@
-import {cn} from "@wakecap/core-utils";
-import {Badge} from "@wakecap/core-ui/badge";
-import {Card} from "@wakecap/core-ui/card";
-import {Input} from "@wakecap/core-ui/input";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@wakecap/core-ui/select";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@wakecap/core-ui/table";
+import {cn} from "@core/core-utils";
+import {Badge} from "@core/core-ui/badge";
+import {Card} from "@core/core-ui/card";
+import {Input} from "@core/core-ui/input";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@core/core-ui/select";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@core/core-ui/table";
 import {ChevronDown, Search} from "lucide-react";
 import {useState} from "react";
 
@@ -165,7 +165,7 @@ function DivisionSection({division}: {division: Division}) {
 // ─── BOQ Dictionary ──────────────────────────────────────────────────────────
 
 /** BOQ Dictionary mockup: contract selector, KPI cards, search + status filters, and a
- * division-grouped BOQ table. Data is mock. Composed from Wakecore Card/Input/Select/Table/Badge. */
+ * division-grouped BOQ table. Data is mock. Composed from Core Card/Input/Select/Table/Badge. */
 export function BoqViewer() {
 	const [status, setStatus] = useState("All");
 

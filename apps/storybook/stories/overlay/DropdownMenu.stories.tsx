@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
+import {Button} from "@core/core-ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuCheckboxItem,
@@ -17,7 +17,7 @@ import {
 	DropdownMenuSubContent,
 	DropdownMenuSubTrigger,
 	DropdownMenuTrigger,
-} from "@wakecap/core-ui/dropdown-menu";
+} from "@core/core-ui/dropdown-menu";
 import {
 	Cloud,
 	CreditCard,

@@ -1,4 +1,4 @@
-# WakeCore artifact classification — Components → Widgets → Templates
+# Core artifact classification — Components → Widgets → Templates
 
 > Architectural audit of the **entire current export surface** (122 export subpaths → 118 UI artifacts
 >
@@ -25,7 +25,7 @@
 | **Utility / Pattern**                                                         | **3** (+4 non-UI exports → 7 total) |
 | _— of which **flagged Unclear** (provisional call given, needs ratification)_ |                                 _9_ |
 
-**Biggest finding.** The widget and template tiers already physically exist inside `@wakecap/core-ui`
+**Biggest finding.** The widget and template tiers already physically exist inside `@core/core-ui`
 — and the codebase _already half-admits it_ through three export namespaces:
 
 - `pages/*` contains the page-level surface. Most are template candidates, while `CoreOrgOverview`,
@@ -44,7 +44,7 @@ aren't generic) but was soft and fuzzy in three places. Corrections:
 
 1. **Chat tier split — the prior audit was wrong to call all 12 chat exports widgets.** Four of them —
    `ToolCall`, `ThinkingPill`, `TurnTimer`, `PromptInput` — are **generic AI primitives** (they'd exist
-   in _any_ AI design system; they carry no WakeCap product meaning) and are even **exported flat**, not
+   in _any_ AI design system; they carry no Core product meaning) and are even **exported flat**, not
    under `chat/`. They are **Components**. Only the 8 `Core*` chat surfaces are widgets. (−4 widgets.)
 2. **`Chart` is a Widget; `Timeline` remains a Component.** Chart owns the ECharts lifecycle, responsive
    resizing, and semantic theme-to-canvas color translation. `CoreChartRenderer` remains the specialized
@@ -66,7 +66,7 @@ The library is more disciplined than the prior audit implied, and the widget set
 
 ## 2. Full classification table
 
-Export paths are relative to `@wakecap/core-ui`. "Loc" = current library-index category. Confidence:
+Export paths are relative to `@core/core-ui`. "Loc" = current library-index category. Confidence:
 **H**igh / **M**edium / **L**ow. ⚠ = flagged Unclear (see §5).
 
 ### 2a. Components (71)
@@ -246,7 +246,7 @@ their actual Regular Dashboard, Detail, or System families.
 
 **AI-chat primitives — `prompt-input`, `tool-call`, `thinking-pill`, `turn-timer`.**
 _Decision:_ are these **generic AI components** or **chat widgets**? My call: **Components** (they'd exist
-in any AI design system; no WakeCap product meaning; exported flat). The decision matters because it sets
+in any AI design system; no Core product meaning; exported flat). The decision matters because it sets
 where the _line_ between "AI primitive" and "AI product widget" sits. If you plan a shipped AI design
 system, keep them components; if AI chat is treated as one product feature, you might fold them into a
 `chat` widget bundle. **Recommend: Component.**
@@ -338,7 +338,7 @@ widget/template stories once the tier field lands (mechanical, like the prior IA
 
 **Eventual packages/folders (only when justified, not now).** Internal folders first:
 `src/components/`, `src/widgets/`, `src/templates/` (the `chat/`, `navigation/core-*`, `pages/*` namespaces
-already approximate this). Split into separate packages (`@wakecap/core-widgets`, `@wakecap/core-templates`)
+already approximate this). Split into separate packages (`@core/core-widgets`, `@core/core-templates`)
 **only** when release cadence or the dependency direction (widgets→components, templates→widgets) actually
 demands it. Premature package splits buy nothing but coordination cost. Keep export paths stable; if you
 later move, ship re-export shims for one minor.

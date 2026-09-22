@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/carousel.tsx",
-		"import": "@wakecap/core-ui/carousel",
+		"import": "@core/core-ui/carousel",
 		"export": "Carousel"
 	},
 	"tags": [

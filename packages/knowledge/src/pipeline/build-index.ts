@@ -1,4 +1,4 @@
-// The indexing pipeline. Reads the canonical WakeCore sources and projects them into the unified
+// The indexing pipeline. Reads the canonical Core sources and projects them into the unified
 // NormalizedRecord[] + derived lookup structures. This is the ONE place that knows the on-disk layout;
 // swapping it (or the Store that wraps it) for a database changes nothing above.
 //

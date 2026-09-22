@@ -5,8 +5,8 @@ import {
 	type CapturePoint,
 	CaptureRouteMinimap,
 	FloorPlan,
-} from "@wakecap/core-ui/capture-route-minimap";
-import {WalkthroughModal} from "@wakecap/core-ui/walkthrough-modal";
+} from "@core/core-ui/capture-route-minimap";
+import {WalkthroughModal} from "@core/core-ui/walkthrough-modal";
 import {useState} from "react";
 
 // The "main view" the mini-viewer floats over — a large site/map surface (grid + roads + buildings).

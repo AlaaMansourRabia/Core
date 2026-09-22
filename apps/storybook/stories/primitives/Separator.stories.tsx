@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Separator} from "@wakecap/core-ui/separator";
+import {Separator} from "@core/core-ui/separator";
 
 const meta = {
 	title: "Components/Primitives/Separator",
@@ -28,7 +28,7 @@ export const Horizontal: Story = {
 	render: () => (
 		<div className="wwc:w-[300px]">
 			<div className="wwc:space-y-1">
-				<h4 className="wwc:text-sm wwc:font-medium wwc:leading-none">Wakecore UI</h4>
+				<h4 className="wwc:text-sm wwc:font-medium wwc:leading-none">Core UI</h4>
 				<p className="wwc:text-sm wwc:text-muted-foreground">An open-source UI component library.</p>
 			</div>
 			<Separator className="wwc:my-4" />

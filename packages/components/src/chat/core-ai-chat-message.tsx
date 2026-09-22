@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {AtSign, Paperclip} from "lucide-react";
 
 import {Card, CardContent} from "../card";

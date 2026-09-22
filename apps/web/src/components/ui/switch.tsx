@@ -1,1 +1,1 @@
-export {Switch} from "@wakecap/core-ui/switch";
+export {Switch} from "@core/core-ui/switch";

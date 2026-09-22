@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/collapsible.tsx",
-		"import": "@wakecap/core-ui/collapsible",
+		"import": "@core/core-ui/collapsible",
 		"export": "Collapsible"
 	},
 	"tags": [

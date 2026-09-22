@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {AppInstaller} from "@wakecap/core-ui/pages/core-app-installer";
+import {AppInstaller} from "@core/core-ui/pages/core-app-installer";
 
 import manifest from "../../../../manifests/app-installer.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";
@@ -8,9 +8,9 @@ import {TemplateDocsPage} from "../_docs/TemplateDocsPage";
 // App Installer — the marketplace scaffold, built on the same bones as Workforce: CoreAppSidebar +
 // CoreAppTopBar. Its sidebar carries no app entries, so the only icon is the shared "Marketplace" plus
 // (added to CoreAppSidebar for every app shell). The content is a browsable, installable app catalog.
-// WakeCap Connect V1 pairs this end-user portal with WC3 Workspace as the admin portal.
+// Core Connect V1 pairs this end-user portal with WC3 Workspace as the admin portal.
 const meta = {
-	title: "Templates/WakeCap Connect/V1/AppInstaller",
+	title: "Templates/Core Connect/V1/AppInstaller",
 	component: AppInstaller,
 	tags: ["autodocs"],
 	parameters: {
@@ -21,8 +21,8 @@ const meta = {
 					manifest={manifest}
 					family={
 						<>
-							WakeCap Connect V1, end-user portal. Connect V1 is a two-portal product: this is where an end user lands
-							and installs apps from the marketplace, and <code>WC3 Workspace</code> is the admin portal where an admin
+							Core Connect V1, end-user portal. Connect V1 is a two-portal product: this is where an end user lands and
+							installs apps from the marketplace, and <code>WC3 Workspace</code> is the admin portal where an admin
 							manages everything. Canonical: <code>app-installer</code>. A marketplace app shell — CoreAppSidebar +
 							CoreAppTopBar with a single "Home" entry plus the shared "App Store" plus below it. Everyone lands on
 							Home: a welcome hero (greeting + Browse App Store CTA) while nothing is installed, an app launcher once
@@ -36,7 +36,7 @@ const meta = {
 			),
 			description: {
 				component:
-					"The end-user portal of WakeCap Connect V1 — where an end user lands and installs apps from the " +
+					"The end-user portal of Core Connect V1 — where an end user lands and installs apps from the " +
 					"marketplace, paired with WC3 Workspace as the admin portal. The marketplace scaffold. It owns its own app shell and lands on a Home surface — a welcome hero " +
 					"(greeting + Browse App Store CTA) while nothing is installed, an app launcher once apps exist — plus an " +
 					"App Store surface with two tabs (App Store / Installed Apps), scrollable category pills, search with match " +

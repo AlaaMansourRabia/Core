@@ -1,5 +1,5 @@
-import {Button} from "@wakecap/core-ui/button";
-import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@wakecap/core-ui/sheet";
+import {Button} from "@core/core-ui/button";
+import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@core/core-ui/sheet";
 
 export function FilterPanel() {
 	return (

@@ -1,1 +1,1 @@
-export {ChartRenderer} from "@wakecap/core-ui/chat/core-chart-renderer";
+export {ChartRenderer} from "@core/core-ui/chat/core-chart-renderer";

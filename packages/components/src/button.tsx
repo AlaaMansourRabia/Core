@@ -1,5 +1,5 @@
+import {cn} from "@core/core-utils";
 import {Slot} from "@radix-ui/react-slot";
-import {cn} from "@wakecap/core-utils";
 import {type VariantProps, cva} from "class-variance-authority";
 import * as React from "react";
 

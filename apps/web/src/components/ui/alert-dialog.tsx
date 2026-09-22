@@ -10,4 +10,4 @@ export {
 	AlertDialogDescription,
 	AlertDialogAction,
 	AlertDialogCancel,
-} from "@wakecap/core-ui/alert-dialog";
+} from "@core/core-ui/alert-dialog";

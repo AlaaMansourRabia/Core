@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {BlueprintViewer} from "@wakecap/core-ui/pages/core-blueprint-viewer";
+import {BlueprintViewer} from "@core/core-ui/pages/core-blueprint-viewer";
 
 import manifest from "../../../../manifests/blueprint-viewer.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

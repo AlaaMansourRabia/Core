@@ -15,7 +15,7 @@ const applicationInput = {
 		topBar: "core-app-top-bar",
 		persistentAcrossRoutes: true,
 		density: "comfortable",
-		brandKey: "wakecap-operations",
+		brandKey: "core-operations",
 		navigationFingerprint: "operations-primary-nav-v1",
 		footerFingerprint: "operations-footer-v1",
 		providerOwner: "src/AppShell.tsx",
@@ -72,13 +72,13 @@ const applicationInput = {
 test("contract v2 binds the shared shell and Home/Monitoring/Studio regions to catalog ids", async () => {
 	const result = await kb.callTool("create_implementation_plan", applicationInput);
 	assert.equal(result.ok, true);
-	assert.equal(result.data.contractVersion, "wakecore-artifact-contract/2");
+	assert.equal(result.data.contractVersion, "core-artifact-contract/2");
 	assert.equal(result.data.artifactContract.contractVersion, result.data.contractVersion);
 	assert.equal(result.data.artifactContract.shell.id, "operations-shell");
 	assert.equal(result.data.artifactContract.shell.sidebar.id, "core-app-sidebar");
 	assert.equal(result.data.artifactContract.shell.topBar.id, "core-app-top-bar");
 	assert.equal(result.data.artifactContract.shell.density, "comfortable");
-	assert.equal(result.data.artifactContract.shell.brandKey, "wakecap-operations");
+	assert.equal(result.data.artifactContract.shell.brandKey, "core-operations");
 	assert.equal(result.data.artifactContract.shell.navigationFingerprint, "operations-primary-nav-v1");
 	assert.deepEqual(result.data.artifactContract.shell.allowedRouteMutations, ["activeItemId", "breadcrumbs"]);
 	assert.deepEqual(
@@ -120,8 +120,8 @@ test("single-screen planning remains on contract v1", async () => {
 		strategy: "compose",
 	});
 	assert.equal(result.ok, true);
-	assert.equal(result.data.contractVersion, "wakecore-artifact-contract/1");
-	assert.equal(result.data.artifactContract.contractVersion, "wakecore-artifact-contract/1");
+	assert.equal(result.data.contractVersion, "core-artifact-contract/1");
+	assert.equal(result.data.artifactContract.contractVersion, "core-artifact-contract/1");
 	assert.equal("routes" in result.data.artifactContract, false);
 });
 
@@ -143,7 +143,7 @@ test("contract v2 records an explicit second-product module boundary", async () 
 			sidebar: "CoreAppSidebar",
 			topBar: "CoreAppTopBar",
 			density: "compact",
-			brandKey: "wakecap-studio",
+			brandKey: "core-studio",
 			navigationFingerprint: "studio-primary-nav-v1",
 			providerOwner: "src/studio/StudioShell.tsx",
 			entryBehavior: "Client-side transition from the primary shell.",
@@ -196,7 +196,7 @@ test("visual reproduction requires a pre-template reference analysis and binds r
 				sourceBrandTraitsToReplace: ["source palette", "source card geometry"],
 			},
 		],
-		intentionalDifferences: ["Use WakeCore navigation semantics"],
+		intentionalDifferences: ["Use Core navigation semantics"],
 	};
 	input.shell.density = "compact";
 	input.routes[0].regions[0].ownerArtifact = "DataTable";

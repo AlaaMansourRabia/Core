@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/activity-sheet.tsx",
-		"import": "@wakecap/core-ui/activity-sheet"
+		"import": "@core/core-ui/activity-sheet"
 	},
 	"tags": ["activity", "notifications", "changeset", "sheet", "panel", "app-shell"],
 	"intent": "The app shell's activity panel as an ordinary right-hand Sheet: two tabbed streams behind one surface — transient notifications you dismiss, and a changeset of edits that accumulate until applied or discarded — rendered with standard cards and buttons rather than a bespoke translucent surface. Reuses NotificationCenter's NotificationItem and ChangeEntry types so a shell can feed both from the state it already keeps.",
@@ -39,7 +39,7 @@
 	],
 	"lineage": {
 		"origin": "authored",
-		"authoredBy": "WakeCap Connect V3 (2026-08-24)",
+		"authoredBy": "Core Connect V3 (2026-08-24)",
 		"derivedFrom": {
 			"source": "NotificationCenter",
 			"extracted": [
@@ -53,7 +53,7 @@
 		"supersedes": null,
 		"lastValidated": "2026-08-24",
 		"notes": [
-			"Promoted out of the WakeCap Connect V3 template so any shell can use it, rather than staying template-local",
+			"Promoted out of the Core Connect V3 template so any shell can use it, rather than staying template-local",
 			"pilot: false"
 		]
 	}

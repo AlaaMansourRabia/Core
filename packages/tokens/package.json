@@ -1,6 +1,9 @@
 {
-	"name": "@wakecap/core-tokens",
-	"version": "0.8.0",
+	"name": "@core/core-tokens",
+	"version": "1.0.0",
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
 	"type": "module",
 	"sideEffects": [
 		"*.css"
@@ -31,9 +34,6 @@
 		"!skills/_artifacts",
 		"bin"
 	],
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com"
-	},
 	"scripts": {
 		"build": "mkdir -p dist && cp src/index.css dist/index.css && cp src/theme.css dist/theme.css && cp src/fonts.css dist/fonts.css && cp -R src/fonts dist/fonts && cp src/tailwind3-preset.cjs dist/tailwind3-preset.cjs"
 	},

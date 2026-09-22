@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// WakeCore vertical slice — the tracer bullet. Runs the WHOLE flywheel end to end, OFFLINE
+// Core vertical slice — the tracer bullet. Runs the WHOLE flywheel end to end, OFFLINE
 // (no Anthropic, no key, deterministic), proving every subsystem connects and the loop closes:
 //
 //   retrieve → agent decision → artifact selection → instantiate → render → evaluate
@@ -115,7 +115,7 @@ function instanceToSnippet(instance) {
 	const cards = items
 		.map((it) => `<Card><CardHeader><TypographyMuted>${it.data.label}</TypographyMuted></CardHeader><CardContent><TypographyH3>${val(it.data)}</TypographyH3></CardContent></Card>`)
 		.join("\n      ");
-	return `import { Card, CardContent, CardHeader } from "@wakecap/core-ui/card";\nimport { TypographyH3, TypographyMuted } from "@wakecap/core-ui/typography";\nexport default function Page() {\n  return (<div>\n      ${cards}\n  </div>);\n}\n`;
+	return `import { Card, CardContent, CardHeader } from "@core/core-ui/card";\nimport { TypographyH3, TypographyMuted } from "@core/core-ui/typography";\nexport default function Page() {\n  return (<div>\n      ${cards}\n  </div>);\n}\n`;
 }
 
 // ── 7. EVALUATION ────────────────────────────────────────────────────────────────────────────────
@@ -197,7 +197,7 @@ async function main() {
 		{ key: "safetyPct", label: "Safety compliance", format: "percent" },
 	];
 
-	log("WakeCore vertical slice — end-to-end flywheel (offline, deterministic)\n");
+	log("Core vertical slice — end-to-end flywheel (offline, deterministic)\n");
 
 	// ARM A — no learning yet. Expect a tier-selection FAILURE (raw Cards).
 	const a = await arm("A (no learning)", "Show three key organization metrics across the top of a dashboard.", kpis);

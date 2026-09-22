@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/building-model-placeholder.tsx",
-		"import": "@wakecap/core-ui/building-model-placeholder",
+		"import": "@core/core-ui/building-model-placeholder",
 		"export": "BuildingModelPlaceholder"
 	},
 	"tags": [

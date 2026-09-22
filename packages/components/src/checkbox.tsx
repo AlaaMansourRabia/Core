@@ -1,5 +1,5 @@
+import {cn} from "@core/core-utils";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import {cn} from "@wakecap/core-utils";
 import {Check, Minus} from "lucide-react";
 import * as React from "react";
 

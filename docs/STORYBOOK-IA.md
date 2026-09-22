@@ -1,6 +1,6 @@
-# Storybook information architecture — WakeCore as a knowledge portal
+# Storybook information architecture — Core as a knowledge portal
 
-> Redesigns Storybook so it reflects what WakeCore is *becoming* (a knowledge platform: components →
+> Redesigns Storybook so it reflects what Core is *becoming* (a knowledge platform: components →
 > widgets → templates + knowledge/evaluation/visual-proof), not just a component library. Reuses
 > existing Storybook + autodocs + MDX + Chromatic — no reinvention. This pass **implemented the
 > structure**; the per-component page redesign is planned (see §7, it's a generation problem, not a
@@ -104,7 +104,7 @@ generated knowledge** — the same data, surfaced on each component's own Docs p
 
 **Challenge #1 — don't hand-author 124 component pages. ✅ IMPLEMENTED.** Your spec lists ~14 sections per component
 (Purpose / When / When-not / Choose over / Related / Common mistakes / AI Knowledge / …). Hand-writing
-those as MDX, 124 times, duplicates `library-index.json` and will rot. Per `WAKECORE-NEXT.md` ("author
+those as MDX, 124 times, duplicates `library-index.json` and will rot. Per `CORE-NEXT.md` ("author
 manifests; generate everything else"), the component Docs page should be a **projection of the
 manifest**: a shared `<ComponentKnowledge name="Button"/>` MDX block (or an autodocs enhancement) that
 reads `library-index.json` and renders When/Why/`chooseOver`/`avoid`/Related/Variants on *every*

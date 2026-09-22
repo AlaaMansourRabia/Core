@@ -6,7 +6,7 @@ import {createKnowledge} from "../dist/index.mjs";
 import {analyzeRouteAdoption} from "../dist/validate/route-adoption.mjs";
 
 const routePlan = (routes, shellContinuity) => ({
-	contractVersion: "wakecore-artifact-contract/2",
+	contractVersion: "core-artifact-contract/2",
 	implementationMode: "compose",
 	goal: "product-ui",
 	artifactContract: {
@@ -32,10 +32,10 @@ const fixtureFile = (name) => ({
 
 test("contract v1 receives neutral route scores and no route findings", () => {
 	const result = analyzeRouteAdoption({
-		mode: "wakecore-product",
+		mode: "core-product",
 		code: "export default () => null",
 		implementationPlan: {
-			contractVersion: "wakecore-artifact-contract/1",
+			contractVersion: "core-artifact-contract/1",
 			implementationMode: "compose",
 			artifactContract: {
 				required: [],
@@ -61,7 +61,7 @@ test("contract v1 receives neutral route scores and no route findings", () => {
 
 test("artifacts rendered on another route do not satisfy an owned route region", () => {
 	const result = analyzeRouteAdoption({
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan: routePlan(
 			[
 				{
@@ -118,7 +118,7 @@ test("artifacts rendered on another route do not satisfy an owned route region",
 
 test("route analysis detects broken shell continuity, custom topbars, and reload navigation", () => {
 	const result = analyzeRouteAdoption({
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan: routePlan([
 			{id: "one", file: "src/One.tsx", regions: []},
 			{id: "two", file: "src/Two.tsx", regions: []},
@@ -155,7 +155,7 @@ test("declared module boundaries use their own paired shell density", () => {
 		moduleBoundaries: [{id: "studio-product", density: "compact", routes: ["studio"]}],
 	};
 	const result = analyzeRouteAdoption({
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan: plan,
 		files: [
 			{
@@ -177,7 +177,7 @@ test("declared module boundaries use their own paired shell density", () => {
 
 test("owned regions detect primitive chat, filter, tab, monitoring, and canvas replacements", () => {
 	const result = analyzeRouteAdoption({
-		mode: "wakecore-showcase",
+		mode: "core-showcase",
 		implementationPlan: routePlan(
 			[
 				{
@@ -248,7 +248,7 @@ test("reviewed substitutions are bound to their declared route region and catalo
 		},
 	];
 	const accepted = analyzeRouteAdoption({
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan: plan,
 		files: [
 			{
@@ -266,7 +266,7 @@ test("reviewed substitutions are bound to their declared route region and catalo
 
 	plan.substitutions[0].reviewStatus = "rejected";
 	const rejected = analyzeRouteAdoption({
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan: plan,
 		files: [
 			{
@@ -282,7 +282,7 @@ test("reviewed substitutions are bound to their declared route region and catalo
 test("unknown adapt-template replacement requires a structured catalog-gap declaration", async () => {
 	const kb = createKnowledge();
 	const result = await kb.callTool("validate", {
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan: {
 			contractVersion: "artifact-contract/1",
 			goal: "product-ui",
@@ -298,7 +298,7 @@ test("unknown adapt-template replacement requires a structured catalog-gap decla
 			substitutions: [{templateRegion: "content", replacement: "LocalPanel", reason: "No match"}],
 		},
 		code: `
-			import {Button} from "@wakecap/core-ui/button";
+			import {Button} from "@core/core-ui/button";
 			export default () => <LocalPanel><Button>Go</Button></LocalPanel>;
 		`,
 	});
@@ -312,7 +312,7 @@ test("unknown adapt-template replacement requires a structured catalog-gap decla
 
 test("the minimized multi-surface experiment fixture remains a failing adoption baseline", () => {
 	const result = analyzeRouteAdoption({
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan: routePlan(
 			[
 				{id: "home", files: ["src/Home.tsx"], regions: [{id: "work-items", requiredArtifacts: ["data-table"]}]},

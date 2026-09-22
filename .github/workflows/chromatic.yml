@@ -42,9 +42,9 @@ jobs:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
       - name: Build packages
-        run: pnpm --filter "@wakecap/core-*" build
+        run: pnpm --filter "@core/core-*" build
 
-      # Heavy 3D mesh/model assets live in the internal repo wakecap/wakecore-3d-assets and are pulled
+      # Heavy 3D mesh/model assets live in the internal repo core/core-3d-assets and are pulled
       # into apps/storybook/public/ here so the published Storybook renders the 3D views. Only on push
       # (the deployed build), not on every PR, to avoid the ~300 MB pull. Non-fatal until the
       # ASSETS_REPO_TOKEN secret exists — add `REQUIRE_3D_ASSETS: "1"` under env once it does, to enforce.

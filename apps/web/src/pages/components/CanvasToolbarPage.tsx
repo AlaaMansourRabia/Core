@@ -1,4 +1,4 @@
-import type {DrawingToolId, LineKind, PinKind, ShapeKind} from "@wakecap/core-ui/drawing-actions";
+import type {DrawingToolId, LineKind, PinKind, ShapeKind} from "@core/core-ui/drawing-actions";
 
 import {useState} from "react";
 

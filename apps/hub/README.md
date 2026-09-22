@@ -1,7 +1,7 @@
-# WakeCore Hub
+# Core Hub
 
 The local dev launcher: one localhost (`http://localhost:4000`) that boots everything and puts each
-surface behind a sidebar tab. Built from WakeCore's own shell (`CoreAppSidebar` + `CoreAppTopBar`),
+surface behind a sidebar tab. Built from Core's own shell (`CoreAppSidebar` + `CoreAppTopBar`),
 so it dogfoods the library it launches.
 
 ```bash
@@ -17,7 +17,7 @@ pnpm hub
 | That Open SDK    | `:5301`–`:5303` | embedded iframe + source switcher, opt-in (see below) |
 | Developer Access | —               | local page (MCP setup)                                |
 
-This app is **local-only**. The deployed hub at `core.wakecap.com` is `apps/web`, built by
+This app is **local-only**. The deployed hub at `core.core.com` is `apps/web`, built by
 `scripts/vercel-build.mjs`, which deliberately skips `apps/hub`.
 
 Embedded URLs are env-overridable: `VITE_STUDIO_URL`, `VITE_STORYBOOK_URL`, `VITE_DESIGNER_URL`,
@@ -25,16 +25,16 @@ Embedded URLs are env-overridable: `VITE_STUDIO_URL`, `VITE_STORYBOOK_URL`, `VIT
 
 ## WC3 Viewers (opt-in)
 
-The 3D / BIM / geospatial spikes live in two separate repos and are **not** vendored into Wakecore.
+The 3D / BIM / geospatial spikes live in two separate repos and are **not** vendored into Core.
 `apps/workspace-shell` in the viewer repo already navigates between the eight viewers (Framework Map,
 That Open SDK, IFC-Lite, xeokit, CesiumJS, Site Reality, Work Packages, APS Reference), so the hub
 embeds that one shell rather than a tab per viewer.
 
-One-time setup — clone both repos **beside each other**, and beside your Wakecore checkout:
+One-time setup — clone both repos **beside each other**, and beside your Core checkout:
 
 ```bash
-git clone git@github.com:wakecap/wc3-example-dataset.git
-git clone git@github.com:wakecap/wc3-engineering-viewer.git
+git clone git@github.com:core/wc3-example-dataset.git
+git clone git@github.com:core/wc3-engineering-viewer.git
 
 cd wc3-example-dataset && git lfs install --local && git lfs pull   # models are LFS objects (~300 MB)
 
@@ -59,7 +59,7 @@ APS `8972`.
 
 Environment overrides:
 
-- `WC3_DIR` — path to the viewer clone, if it isn't beside the Wakecore checkout.
+- `WC3_DIR` — path to the viewer clone, if it isn't beside the Core checkout.
 - `WC3_APS=1` — also start the APS Reference viewer. Excluded by default because it exits
   immediately without real `APS_CLIENT_ID` / `APS_CLIENT_SECRET` / `APS_*_URN` in the viewer repo's
   `.env.local`. (The hub starts each viewer as its own process rather than using the viewer repo's
@@ -77,7 +77,7 @@ The tab carries a three-way switcher:
 | **UI Components** | `:5302` | `engine_ui-components` — their BIM web component kit   |
 | **BIM App**       | `:5303` | `engine_templates/vanilla`, scaffolded into `bim-app/` |
 
-One-time setup — a `thatopen/` folder beside your Wakecore checkout:
+One-time setup — a `thatopen/` folder beside your Core checkout:
 
 ```bash
 mkdir thatopen && cd thatopen

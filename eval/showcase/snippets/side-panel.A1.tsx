@@ -1,9 +1,9 @@
 // A1 — illustrative fair-baseline (hand-authored, NOT model-captured).
 // Package-only knowledge: the agent reaches for a centered Dialog (the obvious modal) to edit
-// filters — it blocks the page. WakeCore guidance (A4) would choose a Sheet instead.
-import {Button} from "@wakecap/core-ui/button";
-import {Input} from "@wakecap/core-ui/input";
-import {Label} from "@wakecap/core-ui/label";
+// filters — it blocks the page. Core guidance (A4) would choose a Sheet instead.
+import {Button} from "@core/core-ui/button";
+import {Input} from "@core/core-ui/input";
+import {Label} from "@core/core-ui/label";
 import {
 	Dialog,
 	DialogContent,
@@ -11,7 +11,7 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-} from "@wakecap/core-ui/dialog";
+} from "@core/core-ui/dialog";
 
 export default function EditFiltersPanel() {
 	return (

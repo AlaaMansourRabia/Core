@@ -1,5 +1,5 @@
 {
-	"name": "wakecore-monorepo",
+	"name": "core-monorepo",
 	"private": true,
 	"scripts": {
 		"studio": "bash integrations/open-design/studio.sh",
@@ -15,7 +15,7 @@
 		"typecheck": "nx run-many --target=typecheck",
 		"test": "nx run-many --target=test",
 		"test:validators": "node --test scripts/validators/*.test.mjs",
-		"audit:runtime": "node scripts/wakecore-runtime-audit.mjs",
+		"audit:runtime": "node scripts/core-runtime-audit.mjs",
 		"eval": "node --env-file-if-exists=eval/.env.local eval/run.mjs",
 		"showcase:prepare": "node eval/showcase/prepare.mjs",
 		"showcase": "node eval/showcase/prepare.mjs && vite eval/showcase",
@@ -33,12 +33,12 @@
 		"postinstall": "npx @tanstack/intent install && (node scripts/fetch-3d-assets.mjs || true)",
 		"eval:resolution": "node eval/measure-resolution.mjs",
 		"mcp:bundle": "node scripts/build-mcp-bundle.mjs",
-		"validate:codex-plugin": "node plugins/wakecore/scripts/verify-plugin.mjs && node --test plugins/wakecore/scripts/verify-plugin.test.mjs",
+		"validate:codex-plugin": "node plugins/core/scripts/verify-plugin.mjs && node --test plugins/core/scripts/verify-plugin.test.mjs",
 		"fetch:3d-assets": "node scripts/fetch-3d-assets.mjs"
 	},
 	"dependencies": {
-		"@modelcontextprotocol/sdk": "1.29.0",
-		"@wakecap/knowledge": "workspace:*"
+		"@core/knowledge": "workspace:*",
+		"@modelcontextprotocol/sdk": "1.29.0"
 	},
 	"devDependencies": {
 		"@anthropic-ai/sdk": "^0.104.2",
@@ -49,12 +49,14 @@
 		"@types/react": "18.3.28",
 		"@types/react-dom": "18.3.7",
 		"@typescript/native-preview": "7.0.0-dev.20260211.1",
+		"chromatic": "^16.2.0",
 		"commitlint": "^20.4.2",
 		"husky": "^9.1.7",
 		"nx": "^21.1.2",
 		"oxfmt": "latest",
 		"oxlint": "latest",
 		"typescript": "~5.9.3",
+		"unrun": "^0.3.1",
 		"yaml": "^2.9.0"
 	},
 	"packageManager": "pnpm@10.6.0",

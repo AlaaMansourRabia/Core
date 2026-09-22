@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {TimelineRangeSelector, type TimelineDay, type TimelinePeriod} from "@wakecap/core-ui/timeline-range-selector";
+import {TimelineRangeSelector, type TimelineDay, type TimelinePeriod} from "@core/core-ui/timeline-range-selector";
 import {useState} from "react";
 
 // One year of daily activity ending on a fixed date, with a wavy count so bars vary in height.

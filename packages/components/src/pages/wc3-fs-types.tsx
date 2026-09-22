@@ -2,7 +2,7 @@ import {Box, FileText, Package, Share2, Sigma, Table2, Workflow, Zap} from "luci
 
 import type {FileSystemFileType} from "../file-system";
 
-// What a "file" means in WakeCap Connect: the product's own record kinds, declared for the file system
+// What a "file" means in Core Connect: the product's own record kinds, declared for the file system
 // widget, which knows none of them.
 //
 // The tints use the library's existing soft formula — a 10% fill with a colour that darkens in light

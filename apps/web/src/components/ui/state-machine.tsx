@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/pages/state-machine";
+export * from "@core/core-ui/pages/state-machine";

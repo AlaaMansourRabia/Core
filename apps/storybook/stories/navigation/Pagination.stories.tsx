@@ -8,7 +8,7 @@ import {
 	PaginationLink,
 	PaginationNext,
 	PaginationPrevious,
-} from "@wakecap/core-ui/pagination";
+} from "@core/core-ui/pagination";
 
 const meta = {
 	title: "Components/Navigation/Pagination",

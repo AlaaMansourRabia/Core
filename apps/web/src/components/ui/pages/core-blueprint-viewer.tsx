@@ -1,1 +1,1 @@
-export {BlueprintViewer} from "@wakecap/core-ui/pages/core-blueprint-viewer";
+export {BlueprintViewer} from "@core/core-ui/pages/core-blueprint-viewer";

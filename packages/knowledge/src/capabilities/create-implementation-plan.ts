@@ -1,6 +1,6 @@
 // create_implementation_plan — turns a template match or UI intent into an executable contract.
 // Exact matches bind to their authoritative import; all other requests receive a deterministic
-// WakeCore adaptation/composition ladder instead of a clarification gate.
+// Core adaptation/composition ladder instead of a clarification gate.
 
 import {createApplicationContract, type ApplicationContract} from "../compliance/application-contract";
 import {
@@ -32,13 +32,13 @@ export interface ImplementationPlanData {
 	workspaceRequirements: {
 		framework: "React";
 		sourceLanguage: "TSX";
-		package: "@wakecap/core-ui";
+		package: "@core/core-ui";
 		onMissingDependency: "setup-and-continue";
 		runtimeAudit: {
 			required: boolean;
-			producer: "wakecore-runtime-audit/4";
+			producer: "core-runtime-audit/4";
 			command: "pnpm audit:runtime -- --url <app-url> --plan <plan.json> --out <evidence.json>";
-			packageScript: "node scripts/wakecore-runtime-audit.mjs";
+			packageScript: "node scripts/core-runtime-audit.mjs";
 			requiredDevDependencies: ["playwright"];
 			requiredDataAttributes: string[];
 		};
@@ -61,12 +61,12 @@ export interface ImplementationPlanData {
 		minimalExample?: string;
 	}>;
 	artifactContract: ArtifactContract | ApplicationContract;
-	fallbackOrder: Array<"adapt-template" | "compose-widgets" | "compose-components" | "create-with-wakecore">;
+	fallbackOrder: Array<"adapt-template" | "compose-widgets" | "compose-components" | "create-with-core">;
 	forbiddenApproaches: string[];
 	completionGate: {
 		tool: "validate";
 		arguments: {
-			mode: "wakecore-product" | "wakecore-showcase" | "wakecore-template-strict";
+			mode: "core-product" | "core-showcase" | "core-template-strict";
 			template?: string;
 			requireFiles: true;
 			requireImplementationPlan: true;
@@ -110,7 +110,7 @@ export const createImplementationPlan: CapabilityFn<CreateImplementationPlanInpu
 			minimalExample: record?.minimalExample,
 		};
 	});
-	const intent = input.intent ?? usableTemplate?.intent ?? usableTemplate?.name ?? "WakeCore application interface";
+	const intent = input.intent ?? usableTemplate?.intent ?? usableTemplate?.name ?? "Core application interface";
 	const goal = input.goal ?? inferImplementationGoal(intent);
 	if (goal === "visual-reproduction" && !input.referenceAnalysis)
 		throw new CapabilityError(
@@ -176,13 +176,13 @@ export const createImplementationPlan: CapabilityFn<CreateImplementationPlanInpu
 	const planId = artifactContractPlanId(planIdentity);
 	const validationMode =
 		strategy === "direct-template"
-			? "wakecore-template-strict"
-			: goal === "wakecore-showcase" || goal === "component-evaluation"
-				? "wakecore-showcase"
-				: "wakecore-product";
+			? "core-template-strict"
+			: goal === "core-showcase" || goal === "component-evaluation"
+				? "core-showcase"
+				: "core-product";
 	const runtimeAuditRequired =
 		contractVersion === ARTIFACT_CONTRACT_VERSION_V2 &&
-		(validationMode === "wakecore-product" || validationMode === "wakecore-showcase" || goal === "visual-reproduction");
+		(validationMode === "core-product" || validationMode === "core-showcase" || goal === "visual-reproduction");
 
 	return {
 		data: {
@@ -201,30 +201,30 @@ export const createImplementationPlan: CapabilityFn<CreateImplementationPlanInpu
 			workspaceRequirements: {
 				framework: "React",
 				sourceLanguage: "TSX",
-				package: "@wakecap/core-ui",
+				package: "@core/core-ui",
 				onMissingDependency: "setup-and-continue",
 				runtimeAudit: {
 					required: runtimeAuditRequired,
-					producer: "wakecore-runtime-audit/4",
+					producer: "core-runtime-audit/4",
 					command: "pnpm audit:runtime -- --url <app-url> --plan <plan.json> --out <evidence.json>",
-					packageScript: "node scripts/wakecore-runtime-audit.mjs",
+					packageScript: "node scripts/core-runtime-audit.mjs",
 					requiredDevDependencies: ["playwright"],
 					requiredDataAttributes: [
-						"data-wakecore-shell",
-						"data-wakecore-artifact",
-						"data-wakecore-density",
-						"data-wakecore-brand",
-						"data-wakecore-navigation-fingerprint",
-						"data-wakecore-provider-owner",
-						"data-wakecore-content-scroll",
-						"data-wakecore-surface-owner",
-						"data-wakecore-affordance-purpose",
-						"data-wakecore-canvas-capabilities",
-						"data-wakecore-region",
-						"data-wakecore-interaction",
-						"data-wakecore-route-link",
-						"data-wakecore-responsive-group",
-						"data-wakecore-responsive-atomic",
+						"data-core-shell",
+						"data-core-artifact",
+						"data-core-density",
+						"data-core-brand",
+						"data-core-navigation-fingerprint",
+						"data-core-provider-owner",
+						"data-core-content-scroll",
+						"data-core-surface-owner",
+						"data-core-affordance-purpose",
+						"data-core-canvas-capabilities",
+						"data-core-region",
+						"data-core-interaction",
+						"data-core-route-link",
+						"data-core-responsive-group",
+						"data-core-responsive-atomic",
 					],
 				},
 			},
@@ -232,17 +232,17 @@ export const createImplementationPlan: CapabilityFn<CreateImplementationPlanInpu
 			pairedArtifacts,
 			compositionCandidates,
 			artifactContract,
-			fallbackOrder: ["adapt-template", "compose-widgets", "compose-components", "create-with-wakecore"],
+			fallbackOrder: ["adapt-template", "compose-widgets", "compose-components", "create-with-core"],
 			forbiddenApproaches: [
-				"Do not replace WakeCore with standalone HTML, CSS, SVG, canvas, or another UI library.",
+				"Do not replace Core with standalone HTML, CSS, SVG, canvas, or another UI library.",
 				"Do not wrap surface-owning artifacts in duplicate backgrounds, borders, height, or padding.",
 				"Do not use gap utilities on elements that are not flex or grid containers.",
-				"Use an exact template import only in direct-template mode; otherwise adapt or compose with WakeCore artifacts and design tokens.",
+				"Use an exact template import only in direct-template mode; otherwise adapt or compose with Core artifacts and design tokens.",
 				"Do not ask for confirmation solely because template confidence is low or no template matched.",
-				"Do not reproduce screenshot HTML, CSS, colors, geometry, or invalid navigation before assigning WakeCore region owners.",
+				"Do not reproduce screenshot HTML, CSS, colors, geometry, or invalid navigation before assigning Core region owners.",
 				"Do not repaint DataTable, chart, tab, card, or shell-owned surfaces through application descendant selectors.",
 				"Do not render duplicate composers or decorative canvas controls without functional viewport behavior.",
-				"Prepare missing React, TSX, and @wakecap/core-ui prerequisites before implementation; report only setup failures that cannot be recovered safely.",
+				"Prepare missing React, TSX, and @core/core-ui prerequisites before implementation; report only setup failures that cannot be recovered safely.",
 			],
 			completionGate: {
 				tool: "validate",

@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {MapCompareLayout} from "@wakecap/core-ui/map-compare-layout";
-import {type TimelineDay, type TimelinePeriod, TimelineRangeSelector} from "@wakecap/core-ui/timeline-range-selector";
-import {type TimestampEntry, TimestampPicker} from "@wakecap/core-ui/timestamp-picker";
+import {MapCompareLayout} from "@core/core-ui/map-compare-layout";
+import {type TimelineDay, type TimelinePeriod, TimelineRangeSelector} from "@core/core-ui/timeline-range-selector";
+import {type TimestampEntry, TimestampPicker} from "@core/core-ui/timestamp-picker";
 import * as React from "react";
 
 function MapScene({variant}: {variant: "planned" | "built"}) {

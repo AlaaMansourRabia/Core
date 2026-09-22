@@ -1,34 +1,34 @@
 ---
 name: core-ui-chat
 description: >
-  ChatWidget floating AI assistant from @wakecap/core-ui/chat/core-chat-widget.
+  ChatWidget floating AI assistant from @core/core-ui/chat/core-chat-widget.
   Props: onAddWidget (add-to-page callback), apiEndpoint, userName. Open/minimize/
   close state is internal. ChatPanel, ChatMessage, ChatInput, ChartRenderer
   sub-components. Message/TextMessage/ChartMessage/DashboardWidget types from
-  @wakecap/core-ui/types/chat. sendChatMessage service stub from
-  @wakecap/core-ui/services/chatService — must be replaced for production use.
+  @core/core-ui/types/chat. sendChatMessage service stub from
+  @core/core-ui/services/chatService — must be replaced for production use.
 metadata:
   type: core
-  library: wakecore
+  library: core
   library_version: "0.0.1"
 sources:
-  - "wakecap/Wakecore:packages/components/src/chat/core-chat-widget.tsx"
-  - "wakecap/Wakecore:packages/components/src/chat/core-chat-panel.tsx"
-  - "wakecap/Wakecore:packages/components/src/chat/core-chat-message.tsx"
-  - "wakecap/Wakecore:packages/components/src/services/chatService.ts"
-  - "wakecap/Wakecore:packages/components/src/types/chat.ts"
+  - "core/Core:packages/components/src/chat/core-chat-widget.tsx"
+  - "core/Core:packages/components/src/chat/core-chat-panel.tsx"
+  - "core/Core:packages/components/src/chat/core-chat-message.tsx"
+  - "core/Core:packages/components/src/services/chatService.ts"
+  - "core/Core:packages/components/src/types/chat.ts"
 ---
 
-# @wakecap/core-ui — Chat Widget
+# @core/core-ui — Chat Widget
 
 ## Setup
 
 ### Basic integration (demo/mock responses)
 
 ```tsx
-import {ChatWidget} from "@wakecap/core-ui/chat/core-chat-widget";
+import {ChatWidget} from "@core/core-ui/chat/core-chat-widget";
 
-// Renders a floating "Wakecap Assistant" button fixed bottom-right.
+// Renders a floating "Core Assistant" button fixed bottom-right.
 // Clicking opens the chat panel. sendChatMessage returns mock data.
 export function App() {
 	return (
@@ -43,8 +43,8 @@ export function App() {
 ### With add-to-page callback
 
 ```tsx
-import {ChatWidget} from "@wakecap/core-ui/chat/core-chat-widget";
-import type {DashboardWidget} from "@wakecap/core-ui/types/chat";
+import {ChatWidget} from "@core/core-ui/chat/core-chat-widget";
+import type {DashboardWidget} from "@core/core-ui/types/chat";
 import {useState} from "react";
 
 export function Dashboard() {
@@ -77,8 +77,8 @@ returns mock data. To connect a real backend, wrap `ChatPanel` directly and
 provide your own send handler, or replace the service at the application level:
 
 ```tsx
-import {ChatPanel} from "@wakecap/core-ui/chat/core-chat-panel";
-import type {Message, DashboardWidget} from "@wakecap/core-ui/types/chat";
+import {ChatPanel} from "@core/core-ui/chat/core-chat-panel";
+import type {Message, DashboardWidget} from "@core/core-ui/types/chat";
 import {useState} from "react";
 
 export function CustomChatWidget() {
@@ -133,7 +133,7 @@ export function CustomChatWidget() {
 ### Message type discrimination
 
 ```tsx
-import type {Message, TextMessage, ChartMessage} from "@wakecap/core-ui/types/chat";
+import type {Message, TextMessage, ChartMessage} from "@core/core-ui/types/chat";
 
 function processMessage(message: Message) {
 	if (message.type === "text") {
@@ -152,7 +152,7 @@ function processMessage(message: Message) {
 ### DashboardWidget structure from onAddWidget
 
 ```tsx
-import type {DashboardWidget} from "@wakecap/core-ui/types/chat";
+import type {DashboardWidget} from "@core/core-ui/types/chat";
 
 // Widget created when user clicks "Add to Page" on a chart message
 const widget: DashboardWidget = {

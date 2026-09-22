@@ -1,6 +1,6 @@
+import {cn} from "@core/core-utils";
 import {Slot} from "@radix-ui/react-slot";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import {cn} from "@wakecap/core-utils";
 import * as React from "react";
 
 const TooltipProvider: typeof TooltipPrimitive.Provider = TooltipPrimitive.Provider;

@@ -11,7 +11,7 @@ import {
 	SelectSeparator,
 	SelectTrigger,
 	SelectValue,
-} from "@wakecap/core-ui/select";
+} from "@core/core-ui/select";
 import * as React from "react";
 import {expect, screen, userEvent, within} from "storybook/test";
 

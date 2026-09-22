@@ -1,4 +1,4 @@
-export {PromptInput} from "@wakecap/core-ui/prompt-input";
+export {PromptInput} from "@core/core-ui/prompt-input";
 export type {
 	PromptAddAction,
 	PromptAttachment,
@@ -7,4 +7,4 @@ export type {
 	PromptModel,
 	PromptSuggestion,
 	PromptTool,
-} from "@wakecap/core-ui/prompt-input";
+} from "@core/core-ui/prompt-input";

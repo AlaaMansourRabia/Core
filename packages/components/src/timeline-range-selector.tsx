@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {format, isAfter, isBefore, subMonths, subYears} from "date-fns";
 import {ChevronDown} from "lucide-react";
 import * as React from "react";

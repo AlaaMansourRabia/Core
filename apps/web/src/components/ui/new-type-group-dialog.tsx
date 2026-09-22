@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/new-type-group-dialog";
+export * from "@core/core-ui/new-type-group-dialog";

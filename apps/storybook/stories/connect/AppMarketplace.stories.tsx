@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@wakecap/core-ui/badge";
-import {Button} from "@wakecap/core-ui/button";
-import {Card} from "@wakecap/core-ui/card";
-import {APP_LIFECYCLE_STAGES, APPS, AppDetailsDialog, useAppInstallation} from "@wakecap/core-ui/pages/app-marketplace";
+import {Badge} from "@core/core-ui/badge";
+import {Button} from "@core/core-ui/button";
+import {Card} from "@core/core-ui/card";
+import {APP_LIFECYCLE_STAGES, APPS, AppDetailsDialog, useAppInstallation} from "@core/core-ui/pages/app-marketplace";
 
 const meta = {
 	title: "Widgets/Connect/App Marketplace",

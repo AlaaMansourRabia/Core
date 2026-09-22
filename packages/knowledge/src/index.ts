@@ -1,5 +1,5 @@
-// @wakecap/knowledge — the WakeCore Knowledge Platform. A versioned, transport-agnostic API over
-// WakeCore knowledge, built from the canonical manifests + library-index. MCP is one transport over
+// @core/knowledge — the Core Knowledge Platform. A versioned, transport-agnostic API over
+// Core knowledge, built from the canonical manifests + library-index. MCP is one transport over
 // this; the knowledge model and capability API are the product.
 //
 // Usage:

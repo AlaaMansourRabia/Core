@@ -1,7 +1,7 @@
-# WakeCore Showcase Viewer (local-only)
+# Core Showcase Viewer (local-only)
 
-A local visual comparison tool: render **A1 (package-only baseline)** next to **A4 (full WakeCore
-knowledge)** for the same task, in a real browser with WakeCore theming. **No Anthropic calls, no
+A local visual comparison tool: render **A1 (package-only baseline)** next to **A4 (full Core
+knowledge)** for the same task, in a real browser with Core theming. **No Anthropic calls, no
 API key, no paid evals** — it only reads `.tsx` snippets already on disk (captured runs or manual
 drop-ins).
 

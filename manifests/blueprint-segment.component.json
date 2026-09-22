@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/blueprint-segment.tsx",
-		"import": "@wakecap/core-ui/blueprint-segment",
+		"import": "@core/core-ui/blueprint-segment",
 		"export": "BlueprintSegment"
 	},
 	"tags": [

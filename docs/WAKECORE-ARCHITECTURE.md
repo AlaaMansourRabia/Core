@@ -1,6 +1,6 @@
-# WakeCore — Architecture Blueprint
+# Core — Architecture Blueprint
 
-> The long-term reference for what WakeCore *is becoming*, not what to build next. Written from the
+> The long-term reference for what Core *is becoming*, not what to build next. Written from the
 > chief-architect seat. It favors simplicity over cleverness, and it challenges prior decisions where
 > the evidence we've gathered says they should change. Where it contradicts an earlier doc, this
 > document wins.
@@ -9,10 +9,10 @@
 
 ## The thesis (read this first)
 
-**WakeCore is not a design system. It is a substrate + knowledge platform for agent-built UI.**
+**Core is not a design system. It is a substrate + knowledge platform for agent-built UI.**
 
-A design system answers *"what does WakeCap look like?"* WakeCore answers a harder, more valuable
-question: *"how does a builder — human or agent — produce correct, on-brand WakeCap UI, and how does
+A design system answers *"what does Core look like?"* Core answers a harder, more valuable
+question: *"how does a builder — human or agent — produce correct, on-brand Core UI, and how does
 that ability measurably improve over time?"*
 
 The whole architecture collapses to **two orthogonal axes**:
@@ -29,7 +29,7 @@ The whole architecture collapses to **two orthogonal axes**:
 Every artifact tier has the **same four companions**: the artifact, machine-readable **knowledge**
 about it, an **evaluation** that proves agents use it correctly, and a **learning** loop that feeds
 verified findings back into the knowledge. That uniformity is the most important architectural idea in
-WakeCore — it's what lets the platform grow without re-inventing itself at each tier.
+Core — it's what lets the platform grow without re-inventing itself at each tier.
 
 The README's "four layers" (UI Platform / Design Knowledge / Product Intelligence / Agent Intelligence)
 are a *narrative slice* of these two axes, not a separate model. Keep the marketing framing; build to
@@ -91,16 +91,16 @@ validators + compile grader) are real and honest; the *upper artifact tiers* (wi
 - **Retrieval / knowledge-at-scale.** Today knowledge is injected *wholesale* (~62k tokens). Add widgets + templates + flows + accumulated learnings and that model breaks. **There is no retrieval layer.** This is the most important missing system.
 - **The learning store.** Capture exists; distill→verify→accept→store→retire does not. Without it, "learning" is aspirational.
 - **Versioning & migration across tiers.** A token change ripples to components→widgets→templates→instances. There's no story for it.
-- **Product/Flow knowledge.** ~0. The highest-value, least-captured knowledge (how WakeCap products are actually structured).
+- **Product/Flow knowledge.** ~0. The highest-value, least-captured knowledge (how Core products are actually structured).
 
 **Blurry responsibilities:**
 - *Knowledge vs Skills* — who owns the canonical "why"? (Pick structured.)
 - *Validator's three hats* — eval grader vs CI gate vs shipped package: same code, but the **source of truth is the eval**; the others are deployments of it. State it.
-- *Does WakeCore own the builder?* Today ambiguous. **It should not** (see §IX) — it ships manifests + a reference renderer; the builder is a consumer. Owning the builder turns a platform into an app.
+- *Does Core own the builder?* Today ambiguous. **It should not** (see §IX) — it ships manifests + a reference renderer; the builder is a consumer. Owning the builder turns a platform into an app.
 
 **Terminology to fix:**
 - "Experiences" → **Flows** (Experiences is marketing; Workflows collides with CI/agent workflows).
-- "Skills" (TanStack) overloads the agent-skills meaning — call WakeCore's narrative docs **knowledge guides** internally.
+- "Skills" (TanStack) overloads the agent-skills meaning — call Core's narrative docs **knowledge guides** internally.
 - "patterns[]" retires into Templates and **Product Patterns** (cross-cutting rules) — two different things share the word today.
 
 **Where scaling gets hard:** retrieval (above), the prompt-budget ceiling as tiers multiply, and the learning store's signal-to-noise as findings accumulate. All three are knowledge-plane problems — which is the tell that **the knowledge plane, not the artifact stack, is where the hard architecture lives.**
@@ -154,7 +154,7 @@ For each: purpose · responsibility/boundary · what knowledge belongs here · w
 ### Flows (proposed name for "Experiences")
 - **Should it exist? Yes — but last, and scoped tightly.** Templates are single-page and stateless across navigation. A flow is a **declarative sequence of templates with transitions and shared state** (onboarding, end-to-end "create project" across screens, an incident investigation). Templates alone can't express the *sequence*, the *guard conditions*, or the *state carried between pages* — that's real, encodable knowledge.
 - **What it represents:** a `FlowManifest` = ordered steps (each a template ref) + transitions (+ guards) + shared state contract + entry/exit. Knowledge: "which flow for this journey, what state it carries, what the steps are."
-- **The hard boundary [DECISION]:** WakeCore owns the **flow manifest + knowledge**, *not* a workflow runtime/engine. The builder/app orchestrates; WakeCore describes. Cross this line and WakeCore becomes an app framework — out of scope.
+- **The hard boundary [DECISION]:** Core owns the **flow manifest + knowledge**, *not* a workflow runtime/engine. The builder/app orchestrates; Core describes. Cross this line and Core becomes an app framework — out of scope.
 
 ---
 
@@ -179,7 +179,7 @@ Knowledge is **one logical body with two encodings and several types**, governed
 
 **Decision records are missing and worth adding** — short, append-only "why we chose X over Y" notes (e.g. "Sheet over Dialog for side panels because…"). They're the human rationale that `chooseOver` references but never stores. Cheap, high-trust, prevents re-litigation.
 
-**How it all connects:** every artifact has a manifest (structured); manifests carry typed knowledge fields; cross-cutting Product Patterns + failure modes + decision records sit beside them; learnings flow *into* these from the exercise loop; narrative guides are the readable projection. **The connective tissue WakeCore lacks is retrieval** — at component-only scale you inject everything; across five tiers + accumulated learnings you must *query* ("for this task, fetch the relevant knowledge"). Retrieval is the knowledge system's missing backbone (§IX, §XI).
+**How it all connects:** every artifact has a manifest (structured); manifests carry typed knowledge fields; cross-cutting Product Patterns + failure modes + decision records sit beside them; learnings flow *into* these from the exercise loop; narrative guides are the readable projection. **The connective tissue Core lacks is retrieval** — at component-only scale you inject everything; across five tiers + accumulated learnings you must *query* ("for this task, fetch the relevant knowledge"). Retrieval is the knowledge system's missing backbone (§IX, §XI).
 
 ---
 
@@ -211,7 +211,7 @@ KNOWLEDGE → agent EXERCISES it → EVALUATION grades it → EVIDENCE (captured
 - **Becomes organizational how:** because it's verified + provenance-tracked + shared in the repo, a learning one agent earns, every agent (and teammate) inherits — the opposite of tribal knowledge.
 - **Pollution prevention (the crux):** the held-out gate + provenance + regression check + decay. **A learning is never "true because an agent said so" — only because an eval it didn't author confirmed it.** This is the same teach-the-test discipline as the eval tier, applied to knowledge writes.
 
-This flywheel is *the* WakeCore differentiator. Everything else is table stakes; a design system that **measurably improves its own knowledge from use** is not.
+This flywheel is *the* Core differentiator. Everything else is table stakes; a design system that **measurably improves its own knowledge from use** is not.
 
 ---
 
@@ -225,7 +225,7 @@ This flywheel is *the* WakeCore differentiator. Everything else is table stakes;
 - **Qualitative eval:** structural+behavioral graders can't judge "is this a *good* dashboard." Add an **LLM-judge dimension** (the SkillOpt/skillify cross-LLM angle) for subjective quality — kept separate and clearly labeled, never conflated with the deterministic metrics.
 - **Browser eval:** promote render from SSR-floor to a real Chromium render + axe a11y (the repo already runs Playwright/Chromium for tests). This is where "correct = works" becomes true.
 - **Regression testing:** store per-cell distributions; a change regresses if the CI of (new − baseline) excludes zero on the bad side. Compare against last *green*, not last run.
-- **SkillOpt fit:** once held-out evals exist, the eval score *is* the objective function. SkillOpt = propose a knowledge edit → score on held-out → keep if better. WakeCore is an unusually good target because UI correctness is machine-checkable; the reward is cheap and objective. **SkillOpt is the last layer, not an early one — it presupposes a trustworthy held-out eval and a learning store.**
+- **SkillOpt fit:** once held-out evals exist, the eval score *is* the objective function. SkillOpt = propose a knowledge edit → score on held-out → keep if better. Core is an unusually good target because UI correctness is machine-checkable; the reward is cheap and objective. **SkillOpt is the last layer, not an early one — it presupposes a trustworthy held-out eval and a learning store.**
 
 ---
 
@@ -240,11 +240,11 @@ The manifest family is sound and consumption-validated. Validation by piece:
 | Data bindings (`{{source.path}}`) | **Sound** — resolves against `dataSources`, type-checks against `dataContract`. |
 | Slots / regions / configuration / serialization | **Sound** — the consumption walkthrough exercised these. |
 | Versioning | **Partial** — schemaVersion + per-manifest version exist; **instance version-drift (pin vs migrate) is an open decision.** |
-| **Builder runtime** | **Out of scope for WakeCore** — ship a *reference renderer* (proves manifests are renderable, powers the eval's browser tier) but let the open-source builder be the product. |
+| **Builder runtime** | **Out of scope for Core** — ship a *reference renderer* (proves manifests are renderable, powers the eval's browser tier) but let the open-source builder be the product. |
 | Agent interaction | **Designed** — highest-tier-first selection rule; needs retrieval to scale. |
-| Persistence | **The builder's concern**, not WakeCore's — WakeCore defines the instance *format*, not where it's stored. |
+| Persistence | **The builder's concern**, not Core's — Core defines the instance *format*, not where it's stored. |
 
-**Still missing before it's a solid open architecture:** a reference renderer (the contract test for "is this manifest actually buildable"), the instance version-drift policy, and a conformance spec ("what must a builder support to consume WakeCore manifests"). Without a conformance spec, "open architecture" is a hope, not a guarantee.
+**Still missing before it's a solid open architecture:** a reference renderer (the contract test for "is this manifest actually buildable"), the instance version-drift policy, and a conformance spec ("what must a builder support to consume Core manifests"). Without a conformance spec, "open architecture" is a hope, not a guarantee.
 
 ---
 
@@ -256,7 +256,7 @@ The manifest family is sound and consumption-validated. Validation by piece:
 4. **Versioning & migration** — how a token/component/manifest version change propagates to instances; pin-vs-migrate policy.
 5. **Provenance & freshness lifecycle** — every knowledge/learning entry: where it came from, when last verified, status. Partially present (`knowledgeLevel`); needs to be universal.
 6. **Held-out task authoring discipline** — a *process* system, not code: who authors verification tasks, kept separate from knowledge authors.
-7. **Conformance spec** — what a third-party builder/agent must support to consume WakeCore.
+7. **Conformance spec** — what a third-party builder/agent must support to consume Core.
 
 *Deliberately NOT recommended yet:* a full knowledge graph, vector search infra, an observability stack, a workflow engine. They're premature — solve retrieval simply first; graph/vectors only if simple indexing demonstrably fails.
 
@@ -301,18 +301,18 @@ eval — then expand tiers.**
 
 Stated explicitly, because the goal is the strongest architecture, not preserving prior work:
 
-1. **WakeCore is not "a design system with evals."** It's a knowledge+learning platform whose foundation happens to be a design system. Lead with that everywhere.
+1. **Core is not "a design system with evals."** It's a knowledge+learning platform whose foundation happens to be a design system. Lead with that everywhere.
 2. **Components should not be a bespoke knowledge format.** Unify them into the same manifest family as widgets. (`library-index.json` becomes a *generated projection* of per-component manifests, not the hand-authored source.)
 3. **Stop hand-maintaining two encodings of the same knowledge.** Structured is the source; narrative is generated/downstream.
 4. **Do not expand artifact tiers before knowledge is uniform + retrievable.** (The big one — §X.)
 5. **render-smoke: commit to a real browser or remove it.** No half-graders.
-6. **WakeCore must not own the builder runtime.** Ship manifests + a reference renderer + a conformance spec; the builder is a consumer.
+6. **Core must not own the builder runtime.** Ship manifests + a reference renderer + a conformance spec; the builder is a consumer.
 7. **Every accepted learning must pass a held-out gate.** No learning enters knowledge because an agent asserted it — only because an eval it didn't author confirmed it.
 8. **Retire overloaded words:** Experiences→Flows; patterns[]→Templates + Product Patterns; "skills"→knowledge guides (internally).
 
 ---
 
-## What WakeCore is becoming
+## What Core is becoming
 
 > A **substrate and knowledge platform for agent-built UI**: a stack of instantiable artifacts
 > (tokens → components → widgets → templates → flows) wrapped in a knowledge plane that *measures*
@@ -320,9 +320,9 @@ Stated explicitly, because the goal is the strongest architecture, not preservin
 >
 > The design system is the **floor**, not the product. The product is the **flywheel** — knowledge
 > that gets provably better every time an agent exercises it — and the **open manifest contract** that
-> lets builders, agents, and optimization frameworks grow on top of WakeCore without WakeCore having to
+> lets builders, agents, and optimization frameworks grow on top of Core without Core having to
 > anticipate them.
 
-If WakeCore nails one thing, it should be the flywheel with its held-out gate. A library of components
+If Core nails one thing, it should be the flywheel with its held-out gate. A library of components
 is a commodity. A design system whose knowledge **measurably compounds** — and can prove it — is not,
 and it's the only part of this architecture that gets *more* valuable, not less, as AI gets better.

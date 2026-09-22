@@ -97,7 +97,7 @@ export function AppMarketplacePage() {
 				<CardHeader>
 					<CardTitle>Four templates already share it</CardTitle>
 					<CardDescription>
-						<code>core-app-installer</code>, <code>core-wakecap-connect</code>,<code> core-wakecap-connect-v3</code> and{" "}
+						<code>core-app-installer</code>, <code>core-core-connect</code>,<code> core-core-connect-v3</code> and{" "}
 						<code>core-wc3-workspace</code> all import this module. It had earned widget tier by use long before it was
 						given one.
 					</CardDescription>

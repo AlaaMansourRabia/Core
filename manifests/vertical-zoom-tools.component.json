@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/vertical-zoom-tools.tsx",
-		"import": "@wakecap/core-ui/vertical-zoom-tools",
+		"import": "@core/core-ui/vertical-zoom-tools",
 		"export": "VerticalZoomTools"
 	},
 	"tags": [
@@ -36,7 +36,7 @@
 		"supersedes": null,
 		"lastValidated": "2026-08-26",
 		"notes": [
-			"Was exported from @wakecap/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
+			"Was exported from @core/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]

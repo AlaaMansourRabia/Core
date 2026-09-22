@@ -54,7 +54,7 @@ export function PageContentHeaderPage() {
 	];
 
 	return (
-		<div className="wwc:space-y-8" data-wakecore-region="page-content-header-showcase">
+		<div className="wwc:space-y-8" data-core-region="page-content-header-showcase">
 			<div className="wwc:flex wwc:items-start wwc:justify-between wwc:gap-4">
 				<div>
 					<div className="wwc:group wwc:flex wwc:items-center wwc:gap-3">
@@ -66,11 +66,11 @@ export function PageContentHeaderPage() {
 					</div>
 					<p className="wwc:mt-2 wwc:max-w-3xl wwc:text-muted-foreground">
 						A responsive route-content widget for identity, peer navigation, status, action priority, overflow, and
-						split-primary workflows. Every visible control is a WakeCore artifact.
+						split-primary workflows. Every visible control is a Core artifact.
 					</p>
 				</div>
 				<Button variant="outline" size="sm" asChild>
-					<Link to="/components/view-tab-bar" data-wakecore-route-link>
+					<Link to="/components/view-tab-bar" data-core-route-link>
 						View tab primitive
 					</Link>
 				</Button>
@@ -154,7 +154,7 @@ export function PageContentHeaderPage() {
 				<CardHeader>
 					<CardTitle>Title and workflow actions</CardTitle>
 					<CardDescription>
-						Comfortable title hierarchy with supporting controls and a WakeCore split-primary action.
+						Comfortable title hierarchy with supporting controls and a Core split-primary action.
 					</CardDescription>
 				</CardHeader>
 				<CardContent className="wwc:p-0">

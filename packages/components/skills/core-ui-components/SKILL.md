@@ -1,37 +1,37 @@
 ---
 name: core-ui-components
 description: >
-  Importing and composing @wakecap/core-ui component primitives. Deep-path
+  Importing and composing @core/core-ui component primitives. Deep-path
   imports, wwc: Tailwind class prefix, Button (variants: default/destructive/
   outline/secondary/ghost/link, sizes: default/sm/lg/icon, loading state,
   asChild), SidebarProvider layout wiring, TooltipProvider requirement, cn()
   className merging with wwc: prefix, cva/VariantProps for authoring custom
-  variants. Load when building UI with Wakecore primitives.
+  variants. Load when building UI with Core primitives.
 metadata:
   type: core
-  library: wakecore
+  library: core
   library_version: "0.0.1"
 sources:
-  - "wakecap/Wakecore:packages/components/src/button.tsx"
-  - "wakecap/Wakecore:packages/components/src/sidebar.tsx"
-  - "wakecap/Wakecore:packages/components/src/index.ts"
-  - "wakecap/Wakecore:packages/components/package.json"
-  - "wakecap/Wakecore:packages/utils/src/index.ts"
+  - "core/Core:packages/components/src/button.tsx"
+  - "core/Core:packages/components/src/sidebar.tsx"
+  - "core/Core:packages/components/src/index.ts"
+  - "core/Core:packages/components/package.json"
+  - "core/Core:packages/utils/src/index.ts"
 ---
 
-# @wakecap/core-ui — Component Primitives
+# @core/core-ui — Component Primitives
 
 ## Setup
 
 Each component has its own export path. Import only what is needed:
 
 ```tsx
-import {Button} from "@wakecap/core-ui/button";
-import {Input} from "@wakecap/core-ui/input";
-import {Card, CardHeader, CardTitle, CardContent, CardFooter} from "@wakecap/core-ui/card";
-import {Badge} from "@wakecap/core-ui/badge";
-import {Separator} from "@wakecap/core-ui/separator";
-import {cn} from "@wakecap/core-utils";
+import {Button} from "@core/core-ui/button";
+import {Input} from "@core/core-ui/input";
+import {Card, CardHeader, CardTitle, CardContent, CardFooter} from "@core/core-ui/card";
+import {Badge} from "@core/core-ui/badge";
+import {Separator} from "@core/core-ui/separator";
+import {cn} from "@core/core-utils";
 ```
 
 ## Core Patterns
@@ -39,7 +39,7 @@ import {cn} from "@wakecap/core-utils";
 ### Button — variants, sizes, loading, asChild
 
 ```tsx
-import { Button } from "@wakecap/core-ui/button";
+import { Button } from "@core/core-ui/button";
 
 // Variants: default | destructive | outline | secondary | ghost | link
 // Sizes:    default | sm | lg | icon
@@ -62,7 +62,7 @@ import { Link } from "react-router-dom";
 All Tailwind utilities passed to `cn()` must use the `wwc:` prefix:
 
 ```tsx
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 
 // Merges clsx conditions and resolves conflicting wwc:-prefixed utilities
 <Button className={cn("wwc:w-full", isActive && "wwc:ring-2 wwc:ring-primary")}>Submit</Button>;
@@ -75,8 +75,8 @@ cn("wwc:bg-primary wwc:text-primary-foreground", "wwc:bg-destructive");
 ### cva — authoring components with variants
 
 ```tsx
-import {cva, type VariantProps} from "@wakecap/core-utils";
-import {cn} from "@wakecap/core-utils";
+import {cva, type VariantProps} from "@core/core-utils";
+import {cn} from "@core/core-utils";
 
 const statusBadge = cva(
 	"wwc:inline-flex wwc:items-center wwc:rounded-full wwc:px-2.5 wwc:py-0.5 wwc:text-xs wwc:font-medium",
@@ -102,7 +102,7 @@ function StatusBadge({status, className, ...props}: StatusBadgeProps) {
 ### TooltipProvider — required context for all Tooltip usage
 
 ```tsx
-import {TooltipProvider, Tooltip, TooltipTrigger, TooltipContent} from "@wakecap/core-ui/tooltip";
+import {TooltipProvider, Tooltip, TooltipTrigger, TooltipContent} from "@core/core-ui/tooltip";
 
 // Wrap the layout or app root — one provider covers all descendant tooltips
 function AppLayout({children}: {children: React.ReactNode}) {
@@ -123,7 +123,7 @@ function AppLayout({children}: {children: React.ReactNode}) {
 ### SidebarProvider — full-page layout with collapsible sidebar
 
 ```tsx
-import {SidebarProvider} from "@wakecap/core-ui/sidebar";
+import {SidebarProvider} from "@core/core-ui/sidebar";
 import {
 	Sidebar,
 	SidebarHeader,
@@ -132,7 +132,7 @@ import {
 	SidebarMenu,
 	SidebarMenuItem,
 	SidebarMenuButton,
-} from "@wakecap/core-ui/sidebar";
+} from "@core/core-ui/sidebar";
 
 // Must wrap the entire page layout at root level
 function RootLayout({children}: {children: React.ReactNode}) {
@@ -162,18 +162,18 @@ function RootLayout({children}: {children: React.ReactNode}) {
 Wrong:
 
 ```tsx
-import {Button, Input, Card} from "@wakecap/core-ui";
+import {Button, Input, Card} from "@core/core-ui";
 ```
 
 Correct:
 
 ```tsx
-import {Button} from "@wakecap/core-ui/button";
-import {Input} from "@wakecap/core-ui/input";
-import {Card, CardHeader, CardContent} from "@wakecap/core-ui/card";
+import {Button} from "@core/core-ui/button";
+import {Input} from "@core/core-ui/input";
+import {Card, CardHeader, CardContent} from "@core/core-ui/card";
 ```
 
-`@wakecap/core-ui` barrel only re-exports types, mock-data, and chatService.
+`@core/core-ui` barrel only re-exports types, mock-data, and chatService.
 Component named exports are `undefined` at runtime — no error is thrown.
 
 Source: `packages/components/src/index.ts`
@@ -246,7 +246,7 @@ Source: `packages/components/src/sidebar.tsx:68`
 
 ---
 
-### HIGH Passing unprefixed className to Wakecore components
+### HIGH Passing unprefixed className to Core components
 
 Wrong:
 
@@ -262,7 +262,7 @@ Correct:
 <Button className="wwc:bg-red-500 wwc:w-full">Delete</Button>
 ```
 
-All Wakecore components use `wwc:`-prefixed classes internally and merge via
+All Core components use `wwc:`-prefixed classes internally and merge via
 `cn()` which is configured with `prefix: "wwc"`. Unprefixed overrides are
 treated as unknown custom classes — conflicts with the component's defaults
 are not resolved and CSS specificity determines the winner unpredictably.
@@ -283,7 +283,7 @@ Wrong:
 Correct:
 
 ```tsx
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 // cn() via tailwind-merge resolves wwc:bg-* conflict in favour of the last value
 <Button className={cn("wwc:bg-red-500")}>Delete</Button>;
 ```

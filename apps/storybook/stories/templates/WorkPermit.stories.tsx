@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {WorkPermit} from "@wakecap/core-ui/pages/core-work-permit";
+import {WorkPermit} from "@core/core-ui/pages/core-work-permit";
 
 import manifest from "../../../../manifests/work-permit.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

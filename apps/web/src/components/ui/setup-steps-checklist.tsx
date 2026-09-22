@@ -1,4 +1,4 @@
-export {SetupStepsChecklist} from "@wakecap/core-ui/setup-steps-checklist";
+export {SetupStepsChecklist} from "@core/core-ui/setup-steps-checklist";
 export type {
 	SetupStep,
 	SetupStepHeaderAction,
@@ -6,4 +6,4 @@ export type {
 	SetupStepSubItemAction,
 	SetupStepSubItemStatus,
 	SetupStepsChecklistProps,
-} from "@wakecap/core-ui/setup-steps-checklist";
+} from "@core/core-ui/setup-steps-checklist";

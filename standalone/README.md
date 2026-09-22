@@ -11,8 +11,8 @@ Output lands in `standalone/dist/`:
 
 | File                         | Template                                                     |
 | ---------------------------- | ------------------------------------------------------------ |
-| `wakecap-app-installer.html` | `AppInstaller` — `@wakecap/core-ui/pages/core-app-installer` |
-| `wakecap-workforce.html`     | `Workforce` — `@wakecap/core-ui/pages/core-workforce`        |
+| `core-app-installer.html` | `AppInstaller` — `@core/core-ui/pages/core-app-installer` |
+| `core-workforce.html`     | `Workforce` — `@core/core-ui/pages/core-workforce`        |
 
 ## What "self-contained" means here
 
@@ -23,10 +23,10 @@ requests, zero console errors, and the surfaces stay interactive (tabs, filters,
 ## The Storybook toolbar button (dev only)
 
 Storybook's **Export HTML** tool (`apps/storybook/.storybook/html-export/`) exports the selected
-story through this same builder. It POSTs to `/__wakecore/export-html`, which is **Vite dev-server
+story through this same builder. It POSTs to `/__core/export-html`, which is **Vite dev-server
 middleware** — every click runs a real Vite build over the story source.
 
-A built Storybook is static files, so that endpoint does not exist on core.wakecap.com: the request
+A built Storybook is static files, so that endpoint does not exist on core.core.com: the request
 comes back `405` and the button is deliberately disabled there, labelled _Export HTML (local only)_.
 Run `pnpm storybook` to export. Making it work on the hosted Storybook would mean either
 pre-generating the HTML for every story at build time (798 stories, one Vite build each) or standing
@@ -34,10 +34,10 @@ up a build service behind the endpoint — neither is a static-host change.
 
 ## Prerequisites
 
-`@wakecap/core-ui` must be built first, since the entries import from its `dist`:
+`@core/core-ui` must be built first, since the entries import from its `dist`:
 
 ```bash
-pnpm --filter @wakecap/core-ui build
+pnpm --filter @core/core-ui build
 ```
 
 ## Adding a template
@@ -67,7 +67,7 @@ pnpm export:html -- --story components-primitives-button--default
 Use `--theme dark` to export the dark Storybook global. `--out <directory>` changes the output
 directory; it defaults to `standalone/dist/`.
 
-The downloaded file keeps React as an internal implementation detail. JavaScript, WakeCore CSS,
+The downloaded file keeps React as an internal implementation detail. JavaScript, Core CSS,
 fonts, imported assets, and referenced files from `apps/storybook/public/` are folded into the HTML,
 so the recipient can double-click it without installing dependencies or starting a server.
 

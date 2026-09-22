@@ -18,7 +18,7 @@ it* — but **not the prop signatures**. So the model guesses the API. Contracts
 ```jsonc
 {
   "component": "Button",
-  "import": "@wakecap/core-ui/button",
+  "import": "@core/core-ui/button",
 
   // --- GENERATED from the .d.ts (source of truth = TypeScript types) ---
   "props": {
@@ -35,7 +35,7 @@ it* — but **not the prop signatures**. So the model guesses the API. Contracts
   "commonMistakes": [
     { "wrong": "size=\"icon\"", "why": "Button sizes are default|sm|lg; there is no \"icon\" size.", "right": "Use variant=\"ghost\" with an icon child (icon buttons), or size=\"sm\"." }
   ],
-  "minimalExample": "import { Button } from \"@wakecap/core-ui/button\";\n<Button variant=\"destructive\">Delete</Button>"
+  "minimalExample": "import { Button } from \"@core/core-ui/button\";\n<Button variant=\"destructive\">Delete</Button>"
 }
 ```
 
@@ -65,7 +65,7 @@ Rationale: keep the *mechanical, regenerable* part out of the hand-authored cata
 ```jsonc
 {
   "component": "Form",
-  "import": "@wakecap/core-ui/form",
+  "import": "@core/core-ui/form",
   "props": { "...": "spreads a react-hook-form form object: <Form {...form}>" },
   "requiredProps": ["the spread form object from useForm()"],
   "forbiddenProps": ["watch"],   // agents put react-hook-form methods on <Form>; they belong on the form object
@@ -81,7 +81,7 @@ Rationale: keep the *mechanical, regenerable* part out of the hand-authored cata
 ```jsonc
 {
   "component": "Stepper",
-  "import": "@wakecap/core-ui/stepper",
+  "import": "@core/core-ui/stepper",
   "commonMistakes": [
     { "wrong": "<Stepper activeStep={n}>", "why": "Unknown prop forwarded to a DOM node (React warns / it no-ops).", "right": "<check the real Stepper prop for current step from component-api.json>" }
   ]

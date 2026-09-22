@@ -1,9 +1,9 @@
 // A1 — illustrative fair-baseline (hand-authored, NOT model-captured).
 // Package-only knowledge: a permanent inline Alert that stays on the page and takes up space.
-// WakeCore guidance (A4) would use a transient toast (Sonner) with a root <Toaster/>.
+// Core guidance (A4) would use a transient toast (Sonner) with a root <Toaster/>.
 import {useState} from "react";
-import {Alert, AlertDescription, AlertTitle} from "@wakecap/core-ui/alert";
-import {Button} from "@wakecap/core-ui/button";
+import {Alert, AlertDescription, AlertTitle} from "@core/core-ui/alert";
+import {Button} from "@core/core-ui/button";
 
 export default function SaveSettings() {
 	const [saved, setSaved] = useState(false);

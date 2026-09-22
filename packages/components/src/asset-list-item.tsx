@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import * as React from "react";
 
 import {Card} from "./card";
@@ -43,7 +43,7 @@ export const AssetListItem = React.forwardRef<HTMLDivElement, AssetListItemProps
 	) => (
 		<Card
 			ref={ref}
-			data-wakecore-artifact="asset-list-item"
+			data-core-artifact="asset-list-item"
 			data-selected={selected || undefined}
 			className={cn(
 				"wwc:cursor-pointer wwc:overflow-hidden wwc:transition-all wwc:hover:shadow-md",

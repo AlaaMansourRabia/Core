@@ -1,7 +1,7 @@
-// stdio transport — the local path any editor can spawn (parity with @wakecap/mcp). stdout carries
+// stdio transport — the local path any editor can spawn (parity with @core/mcp). stdout carries
 // the MCP JSON-RPC channel; logs go to stderr (see obs/logger).
 
-import type {Knowledge} from "@wakecap/knowledge";
+import type {Knowledge} from "@core/knowledge";
 
 import {StdioServerTransport} from "@modelcontextprotocol/sdk/server/stdio.js";
 

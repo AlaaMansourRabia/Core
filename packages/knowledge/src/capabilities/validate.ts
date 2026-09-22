@@ -10,7 +10,7 @@ import {validateRuntimeAudit, type RuntimeAuditFinding} from "../validate/runtim
 import {type CapabilityContext, type CapabilityFn} from "./context";
 
 type ValidationMode = ValidateInput["mode"];
-type EffectiveMode = Exclude<ValidationMode, "wakecore-only">;
+type EffectiveMode = Exclude<ValidationMode, "core-only">;
 
 export interface ValidateFinding {
 	metric: string;
@@ -47,12 +47,12 @@ export interface ValidateData {
 	exceptions?: unknown[];
 }
 
-const WAKECORE_MODES = new Set<ValidationMode>([
-	"wakecore-only",
-	"wakecore-imports",
-	"wakecore-product",
-	"wakecore-showcase",
-	"wakecore-template-strict",
+const CORE_MODES = new Set<ValidationMode>([
+	"core-only",
+	"core-imports",
+	"core-product",
+	"core-showcase",
+	"core-template-strict",
 ]);
 
 const mapFinding = (finding: ValidatorFinding): ValidateFinding => ({
@@ -70,14 +70,14 @@ const mapAdoptionFinding = (finding: AdoptionFinding): ValidateFinding => ({...f
 const mapRuntimeFinding = (finding: RuntimeAuditFinding): ValidateFinding => ({...finding});
 
 function effectiveMode(mode: ValidationMode): EffectiveMode {
-	return mode === "wakecore-only" ? "wakecore-imports" : mode;
+	return mode === "core-only" ? "core-imports" : mode;
 }
 
 function complianceLevel(mode: EffectiveMode): ValidateData["complianceLevel"] {
-	if (mode === "wakecore-imports") return "imports-only";
-	if (mode === "wakecore-product") return "product";
-	if (mode === "wakecore-showcase") return "showcase";
-	if (mode === "wakecore-template-strict") return "template-strict";
+	if (mode === "core-imports") return "imports-only";
+	if (mode === "core-product") return "product";
+	if (mode === "core-showcase") return "showcase";
+	if (mode === "core-template-strict") return "template-strict";
 	return "standard";
 }
 
@@ -94,42 +94,41 @@ function expectedTemplate(input: ValidateInput): string | undefined {
 	);
 }
 
-function wakecoreFindings(input: ValidateInput, ctx: CapabilityContext): ValidateFinding[] {
-	if (!WAKECORE_MODES.has(input.mode)) return [];
+function coreFindings(input: ValidateInput, ctx: CapabilityContext): ValidateFinding[] {
+	if (!CORE_MODES.has(input.mode)) return [];
 	const code = allCode(input);
 	const findings: ValidateFinding[] = [];
-	const hasWakeCoreImport =
-		/from\s+["']@wakecap\/core-ui(?:\/|["'])/.test(code) ||
-		/import\s+["']@wakecap\/core-ui\/styles\.css["']/.test(code);
-	if (!hasWakeCoreImport)
+	const hasCoreImport =
+		/from\s+["']@core\/core-ui(?:\/|["'])/.test(code) || /import\s+["']@core\/core-ui\/styles\.css["']/.test(code);
+	if (!hasCoreImport)
 		findings.push({
-			metric: "wakecore-imports",
+			metric: "core-imports",
 			pass: false,
 			level: "error",
-			message: "No WakeCore import was found; this appears to be a manual or generic UI implementation.",
-			fix: "Use resolve_template/create_implementation_plan and import the selected WakeCore artifacts.",
-			source: "wakecore-imports",
+			message: "No Core import was found; this appears to be a manual or generic UI implementation.",
+			fix: "Use resolve_template/create_implementation_plan and import the selected Core artifacts.",
+			source: "core-imports",
 		});
 
 	if (/<!doctype\s+html|<html(?:\s|>)|<style(?:\s|>)/i.test(code))
 		findings.push({
-			metric: "wakecore-imports",
+			metric: "core-imports",
 			pass: false,
 			level: "error",
-			message: "Standalone HTML or embedded CSS was detected in a WakeCore implementation.",
+			message: "Standalone HTML or embedded CSS was detected in a Core implementation.",
 			fix: "Use TSX and include application CSS as a separate file in the validation file set.",
-			source: "wakecore-imports",
+			source: "core-imports",
 		});
 
 	const templateId = expectedTemplate(input);
-	if (input.mode === "wakecore-template-strict" && !templateId)
+	if (input.mode === "core-template-strict" && !templateId)
 		findings.push({
 			metric: "template-strict",
 			pass: false,
 			level: "error",
-			message: "wakecore-template-strict requires a selected template.",
+			message: "core-template-strict requires a selected template.",
 			fix: "Pass template or the direct-template implementation plan.",
-			source: "wakecore-template-strict",
+			source: "core-template-strict",
 		});
 
 	if (templateId) {
@@ -139,7 +138,7 @@ function wakecoreFindings(input: ValidateInput, ctx: CapabilityContext): Validat
 				metric: "template-adoption",
 				pass: false,
 				level: "error",
-				message: `Expected template "${templateId}" is not present in the WakeCore index.`,
+				message: `Expected template "${templateId}" is not present in the Core index.`,
 				fix: "Call resolve_template again and pass a valid template id.",
 				source: "template-adoption",
 			});
@@ -165,11 +164,11 @@ function wakecoreFindings(input: ValidateInput, ctx: CapabilityContext): Validat
 
 	if (findings.length === 0)
 		findings.push({
-			metric: "wakecore-imports",
+			metric: "core-imports",
 			pass: true,
 			level: "info",
-			message: "WakeCore import requirements are satisfied.",
-			source: "wakecore-imports",
+			message: "Core import requirements are satisfied.",
+			source: "core-imports",
 		});
 	return findings;
 }
@@ -205,10 +204,10 @@ export const validate: CapabilityFn<ValidateInput, ValidateData> = async (
 			const mapped = mapFinding(finding);
 			if (finding.metric.startsWith("tokens-")) mapped.level = "warning";
 			if (finding.metric === "artifact-visibility")
-				mapped.level = mode === "wakecore-showcase" && !finding.pass ? "error" : finding.pass ? "info" : "warning";
+				mapped.level = mode === "core-showcase" && !finding.pass ? "error" : finding.pass ? "info" : "warning";
 			return mapped;
 		}),
-		...wakecoreFindings(input, ctx),
+		...coreFindings(input, ctx),
 	];
 	if (input.implementationPlan?.goal === "visual-reproduction") {
 		const analysis = input.implementationPlan.referenceAnalysis;
@@ -239,15 +238,15 @@ export const validate: CapabilityFn<ValidateInput, ValidateData> = async (
 				pass: missing.length === 0,
 				level: missing.length ? "error" : "info",
 				message: missing.length
-					? `Reference regions lack planned WakeCore owners: ${missing.join(", ")}.`
+					? `Reference regions lack planned Core owners: ${missing.join(", ")}.`
 					: "Every analyzed reference region is represented in the route contract.",
-				fix: missing.length ? "Assign a WakeCore owner or approved catalog gap to every analyzed region." : undefined,
+				fix: missing.length ? "Assign a Core owner or approved catalog gap to every analyzed region." : undefined,
 				source: "implementation-plan",
 			});
 		}
 	}
 	const adoption =
-		mode === "wakecore-product" || mode === "wakecore-showcase" || mode === "wakecore-template-strict"
+		mode === "core-product" || mode === "core-showcase" || mode === "core-template-strict"
 			? validateArtifactAdoption(input, ctx)
 			: undefined;
 	if (adoption) findings.push(...adoption.findings.map(mapAdoptionFinding));
@@ -266,7 +265,7 @@ export const validate: CapabilityFn<ValidateInput, ValidateData> = async (
 		| undefined;
 	const rawVisibility = graded.visibility as {runtimeAuditRequired?: boolean} | undefined;
 	const tokenOverall = typeof rawTokens?.overall === "number" ? rawTokens.overall : rawTokens?.overall?.score;
-	const minimumTokenScore = mode === "wakecore-showcase" ? 0.8 : mode === "wakecore-product" ? 0.6 : undefined;
+	const minimumTokenScore = mode === "core-showcase" ? 0.8 : mode === "core-product" ? 0.6 : undefined;
 	if (minimumTokenScore !== undefined && tokenOverall !== undefined) {
 		const pass = tokenOverall >= minimumTokenScore;
 		findings.push({
@@ -276,7 +275,7 @@ export const validate: CapabilityFn<ValidateInput, ValidateData> = async (
 			message: `Application token compliance is ${tokenOverall}; ${mode} requires ${minimumTokenScore}.`,
 			fix: pass
 				? undefined
-				: "Replace application-authored color, spacing, typography, radius, and shadow values with WakeCore tokens.",
+				: "Replace application-authored color, spacing, typography, radius, and shadow values with Core tokens.",
 			source: "token-compliance",
 		});
 	}
@@ -292,9 +291,9 @@ export const validate: CapabilityFn<ValidateInput, ValidateData> = async (
 				typeof metrics[finding.metric] === "number"
 					? metrics[finding.metric]
 					: Boolean(metrics[finding.metric] ?? true) && finding.pass;
-	if (input.mode === "wakecore-only")
-		metrics["wakecore-compliance"] = findings
-			.filter((finding) => finding.metric === "wakecore-imports" || finding.metric === "template-adoption")
+	if (input.mode === "core-only")
+		metrics["core-compliance"] = findings
+			.filter((finding) => finding.metric === "core-imports" || finding.metric === "template-adoption")
 			.every((finding) => finding.pass);
 	const errors = findings.filter((finding) => !finding.pass && finding.level === "error").length;
 	const warningsCount = findings.filter((finding) => !finding.pass && finding.level === "warning").length;
@@ -304,11 +303,11 @@ export const validate: CapabilityFn<ValidateInput, ValidateData> = async (
 	const text = pass
 		? `${level} compliance passed.`
 		: level === "imports-only"
-			? "WakeCore import compliance failed."
-			: `WakeCore ${level} compliance failed with ${errors} blocking finding${errors === 1 ? "" : "s"}.`;
+			? "Core import compliance failed."
+			: `Core ${level} compliance failed with ${errors} blocking finding${errors === 1 ? "" : "s"}.`;
 	const warnings: Warning[] =
-		input.mode === "wakecore-only"
-			? [{code: "validation_mode.deprecated", message: "wakecore-only is deprecated; use wakecore-imports."}]
+		input.mode === "core-only"
+			? [{code: "validation_mode.deprecated", message: "core-only is deprecated; use core-imports."}]
 			: [];
 
 	return {

@@ -1,4 +1,4 @@
-# WakeCore ablation — which knowledge layer earns the lift
+# Core ablation — which knowledge layer earns the lift
 
 Pass-rate per arm (Wilson 95% CI). The **fair control is A1** (structural package facts a real developer has); A0 is the legacy information-starved reference only.
 

@@ -14,4 +14,4 @@ export {
 	DropdownMenuSubContent,
 	DropdownMenuSubTrigger,
 	DropdownMenuRadioGroup,
-} from "@wakecap/core-ui/dropdown-menu";
+} from "@core/core-ui/dropdown-menu";

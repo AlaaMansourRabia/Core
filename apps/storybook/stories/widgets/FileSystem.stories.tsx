@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {FileSystem, fsNodeFromDraft, type FileSystemFileType, type FileSystemNode} from "@wakecap/core-ui/file-system";
+import {FileSystem, fsNodeFromDraft, type FileSystemFileType, type FileSystemNode} from "@core/core-ui/file-system";
 import {Box, FileText, Share2, Table2, Workflow} from "lucide-react";
 import {useState} from "react";
 

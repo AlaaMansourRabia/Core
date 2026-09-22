@@ -3,5 +3,5 @@ export {
 	CaptureRouteMinimap,
 	captureRouteForFloor,
 	FloorPlan,
-} from "@wakecap/core-ui/capture-route-minimap";
-export type {CapturePoint, CaptureRouteMinimapProps} from "@wakecap/core-ui/capture-route-minimap";
+} from "@core/core-ui/capture-route-minimap";
+export type {CapturePoint, CaptureRouteMinimapProps} from "@core/core-ui/capture-route-minimap";

@@ -7,7 +7,7 @@
 	"version": "1.0.0",
 	"source": {
 		"path": "packages/components/src/data-table.tsx",
-		"import": "@wakecap/core-ui/data-table"
+		"import": "@core/core-ui/data-table"
 	},
 	"tags": [
 		"data",

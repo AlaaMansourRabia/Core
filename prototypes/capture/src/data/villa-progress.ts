@@ -6,11 +6,11 @@
 // source of truth. (Optional online refresh is described at the bottom of this file.)
 //
 // SNAPSHOT: point-in-time data, not live — period 111, ending 2026-07-03. Exported from the
-// WakeCap Capture owner dashboard for all 733 villas, keyed by `{model}-{plot}` (e.g. VL4-2275).
+// Core Capture owner dashboard for all 733 villas, keyed by `{model}-{plot}` (e.g. VL4-2275).
 
 import rawData from "./villa-progress-colors.json";
 
-/** WakeCap official milestone colour band. */
+/** Core official milestone colour band. */
 export type ProgressBand = "<M35" | "M35" | "M50" | "M65" | "M80" | "M95";
 
 /** A ramp stop: villas with actual% in `[prevUpTo, upToPercent)` get this band/colour. */
@@ -116,5 +116,5 @@ export function villaColorMap(metric: "actual" | "planned" = "actual"): Record<s
 // from the bundle first — an online refresh only *updates* a cache, it is never *required*.
 // Live source: GET {API}/project/926c85f7-b5b5-450b-b12e-d1a5dd744109/reports/
 //   updated-progress-by-villa/data?periodId=7752&page=N&pageSize=200
-//   ({API} = https://test.services.wakecap.com/capture/api; bearer token; paginate 733 rows).
+//   ({API} = https://test.services.core.com/capture/api; bearer token; paginate 733 rows).
 // Bucket each row's `actualProgress` through progressToColor().

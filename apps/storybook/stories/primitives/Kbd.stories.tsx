@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Kbd} from "@wakecap/core-ui/kbd";
+import {Kbd} from "@core/core-ui/kbd";
 
 const meta = {
 	title: "Components/Primitives/Kbd",

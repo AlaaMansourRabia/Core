@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ButtonGroup, ButtonGroupItem} from "@wakecap/core-ui/button-group";
+import {ButtonGroup, ButtonGroupItem} from "@core/core-ui/button-group";
 
 const meta = {
 	title: "Components/Primitives/ButtonGroup",

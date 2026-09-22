@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ZoomTools} from "@wakecap/core-ui/zoom-tools";
+import {ZoomTools} from "@core/core-ui/zoom-tools";
 import {useState} from "react";
 
 const meta = {

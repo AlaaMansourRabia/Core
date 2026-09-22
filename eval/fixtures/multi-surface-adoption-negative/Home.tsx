@@ -1,10 +1,10 @@
-import {Card, DataTable} from "@wakecap/core-ui";
+import {Card, DataTable} from "@core/core-ui";
 
 import {AppShell} from "./AppShell";
 
 export const Home = () => (
 	<AppShell>
-		<main data-wakecore-region="work-items">
+		<main data-core-region="work-items">
 			<Card>
 				<DataTable />
 			</Card>

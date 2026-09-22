@@ -1,6 +1,6 @@
-import {Button} from "@wakecap/core-ui/button";
-import {toast} from "@wakecap/core-ui/sonner";
-import {Toaster} from "@wakecap/core-ui/toaster";
+import {Button} from "@core/core-ui/button";
+import {toast} from "@core/core-ui/sonner";
+import {Toaster} from "@core/core-ui/toaster";
 
 export function SettingsForm() {
 	return (

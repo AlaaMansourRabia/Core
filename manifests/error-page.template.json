@@ -9,7 +9,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/error-page.tsx",
-		"import": "@wakecap/core-ui/error-page"
+		"import": "@core/core-ui/error-page"
 	},
 	"tags": [
 		"feedback",
@@ -166,7 +166,7 @@
 			"fix": "Set showCode={false} for non-HTTP errors."
 		}
 	],
-	"minimalExample": "import {ErrorPage} from \"@wakecap/core-ui/error-page\";\nimport {Button} from \"@wakecap/core-ui/button\";\n\n<ErrorPage\n  type=\"404\"\n  action={<Button asChild><a href=\"/\">Go home</a></Button>}\n/>",
+	"minimalExample": "import {ErrorPage} from \"@core/core-ui/error-page\";\nimport {Button} from \"@core/core-ui/button\";\n\n<ErrorPage\n  type=\"404\"\n  action={<Button asChild><a href=\"/\">Go home</a></Button>}\n/>",
 	"evaluationCriteria": [
 		{
 			"id": "tier-selection",

@@ -1,9 +1,9 @@
 name: Publish Pre-release (next)
 
 # On push to develop (via merged PR that already passed Quality Gate):
-# Publishes @wakecap/core-* pre-release packages to GitHub Packages.
+# Publishes @core/core-* pre-release packages to GitHub Packages.
 # Versions use the format: {package-version}-next.{YYYYMMDD}.{HHMMSS}.{short_sha}
-# Consumers install with: pnpm add @wakecap/core-ui@next
+# Consumers install with: pnpm add @core/core-ui@next
 
 on:
   push:
@@ -54,15 +54,15 @@ jobs:
           done
 
       - name: Build all packages
-        run: pnpm --filter "@wakecap/core-*" build
+        run: pnpm --filter "@core/core-*" build
 
       - name: Publish tokens
-        run: pnpm --filter @wakecap/core-tokens publish --no-git-checks --tag next
+        run: pnpm --filter @core/core-tokens publish --no-git-checks --tag next
 
       - name: Publish utils
-        run: pnpm --filter @wakecap/core-utils publish --no-git-checks --tag next
+        run: pnpm --filter @core/core-utils publish --no-git-checks --tag next
 
       - name: Publish components
-        run: pnpm --filter @wakecap/core-ui publish --no-git-checks --tag next
+        run: pnpm --filter @core/core-ui publish --no-git-checks --tag next
     env:
       NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -55,7 +55,7 @@ for (const representative of representativeStories) {
 		assert.ok(html.startsWith("<!doctype html>"), "starts with an HTML doctype");
 		assert.ok(html.includes("<style>"), "inlines the compiled stylesheet");
 		assert.ok(html.includes('<script type="module">'), "inlines the compiled module");
-		assert.ok(html.includes('data-wakecore-region="exported-story"'), "marks the exported WakeCore region");
+		assert.ok(html.includes('data-core-region="exported-story"'), "marks the exported Core region");
 		assert.ok(!documentShell.includes('<script type="module" src='), "has no external entry script");
 		assert.ok(!documentShell.includes('<link rel="stylesheet"'), "has no external stylesheet");
 		assert.ok(!html.includes("fonts.googleapis.com"), "does not rely on Google Fonts");

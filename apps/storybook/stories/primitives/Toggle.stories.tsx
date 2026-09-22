@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Toggle} from "@wakecap/core-ui/toggle";
+import {Toggle} from "@core/core-ui/toggle";
 import {expect, userEvent, within} from "storybook/test";
 
 const meta = {

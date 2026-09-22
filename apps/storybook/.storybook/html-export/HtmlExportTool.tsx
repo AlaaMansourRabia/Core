@@ -18,7 +18,7 @@ type StoryIndex = {
 
 // The export endpoint is Vite dev-server middleware (see ../html-export-plugin.mjs): each click
 // runs a real Vite build over the story source. A built Storybook is static files — on
-// core.wakecap.com the POST hits Vercel's static host and comes back 405, which used to surface as
+// core.core.com the POST hits Vercel's static host and comes back 405, which used to surface as
 // a bare "The clickable HTML export failed." Storybook stamps CONFIG_TYPE on the window at build
 // time, so we can tell the two apart up front and say what is actually going on.
 const IS_STATIC_BUILD = (globalThis as {CONFIG_TYPE?: string}).CONFIG_TYPE !== "DEVELOPMENT";
@@ -56,7 +56,7 @@ export function HtmlExportTool() {
 			const entry = index.entries[storyId];
 			if (!entry || entry.type !== "story") throw new Error("Select a story before exporting HTML.");
 
-			const response = await fetch(new URL("__wakecore/export-html", document.baseURI), {
+			const response = await fetch(new URL("__core/export-html", document.baseURI), {
 				method: "POST",
 				headers: {"Content-Type": "application/json"},
 				body: JSON.stringify({storyId, entry, theme: globals.theme === "dark" ? "dark" : "light"}),
@@ -93,7 +93,7 @@ export function HtmlExportTool() {
 	return (
 		<Button
 			ariaLabel={message}
-			ariaDescription="Downloads the selected WakeCore template, widget, or component story as a self-contained offline HTML file."
+			ariaDescription="Downloads the selected Core template, widget, or component story as a self-contained offline HTML file."
 			variant={status === "error" ? "outline" : "ghost"}
 			padding="small"
 			size="small"

@@ -27,7 +27,7 @@ export function analyzeInteractionSemantics(files) {
 			);
 
 		const purposes = new Map();
-		for (const match of source.matchAll(/data-wakecore-affordance-purpose=["']([^"']+)["']/g)) {
+		for (const match of source.matchAll(/data-core-affordance-purpose=["']([^"']+)["']/g)) {
 			const values = purposes.get(match[1]) ?? [];
 			values.push(match);
 			purposes.set(match[1], values);
@@ -75,7 +75,7 @@ export function analyzeInteractionSemantics(files) {
 		for (const match of backLike) {
 			const evidence = match[0];
 			if (
-				/(?:navigate\(\s*-1\s*\)|history\.back|data-wakecore-navigation-relationship=["'](?:parent|drill-in-origin|history)["'])/.test(
+				/(?:navigate\(\s*-1\s*\)|history\.back|data-core-navigation-relationship=["'](?:parent|drill-in-origin|history)["'])/.test(
 					evidence,
 				)
 			)
@@ -91,7 +91,7 @@ export function analyzeInteractionSemantics(files) {
 		const canvasLike =
 			/<(?:ZoomTools|CanvasToolbar)\b/.test(source) && /(?:\babsolute\b|position\s*:\s*["']absolute)/.test(source);
 		const functionalCanvas =
-			/(?:@xyflow|ReactFlow|onPan\b|onNodeDrag\b|onConnect\b|fitView\b|fitToView\b|onPointerDown\b|data-wakecore-canvas-capabilities=)/.test(
+			/(?:@xyflow|ReactFlow|onPan\b|onNodeDrag\b|onConnect\b|fitView\b|fitToView\b|onPointerDown\b|data-core-canvas-capabilities=)/.test(
 				source,
 			);
 		if (canvasLike && !functionalCanvas)

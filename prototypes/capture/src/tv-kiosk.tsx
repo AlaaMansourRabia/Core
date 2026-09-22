@@ -20,8 +20,8 @@ import type {Schedule, ScheduleObject, ScheduleTask} from "./timeline/types";
 
 import workerUrl from "@thatopen/fragments/worker?url";
 import * as OBC from "@thatopen/components";
-import {FragmentViewer, FragmentViewerProvider, useFragmentViewer} from "@wakecap/core-ui/fragment-viewer";
-import {cn} from "@wakecap/core-utils";
+import {FragmentViewer, FragmentViewerProvider, useFragmentViewer} from "@core/core-ui/fragment-viewer";
+import {cn} from "@core/core-utils";
 import * as THREE from "three";
 import {Component, type ReactNode, useEffect, useMemo, useRef, useState} from "react";
 

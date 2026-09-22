@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {FormActionBar} from "@wakecap/core-ui/form-action-bar";
-import {Input} from "@wakecap/core-ui/input";
-import {Label} from "@wakecap/core-ui/label";
+import {Button} from "@core/core-ui/button";
+import {FormActionBar} from "@core/core-ui/form-action-bar";
+import {Input} from "@core/core-ui/input";
+import {Label} from "@core/core-ui/label";
 import {Save} from "lucide-react";
 import * as React from "react";
 

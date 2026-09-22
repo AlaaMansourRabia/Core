@@ -28,14 +28,14 @@ test("AssetListItem shows the fallback when there is no thumbnail", async () => 
 
 test("AssetListItem marks selection in the DOM as well as the ring", async () => {
 	const {container} = await render(<AssetListItem title="Gate camera" selected />);
-	const card = container.querySelector("[data-wakecore-artifact='asset-list-item']");
+	const card = container.querySelector("[data-core-artifact='asset-list-item']");
 	expect(card?.getAttribute("data-selected")).toBe("true");
 	expect(card?.className).toContain("wwc:ring-2");
 });
 
 test("AssetListItem is unselected by default", async () => {
 	const {container} = await render(<AssetListItem title="Gate camera" />);
-	const card = container.querySelector("[data-wakecore-artifact='asset-list-item']");
+	const card = container.querySelector("[data-core-artifact='asset-list-item']");
 	expect(card?.getAttribute("data-selected")).toBeNull();
 	expect(card?.className).not.toContain("wwc:ring-2");
 });

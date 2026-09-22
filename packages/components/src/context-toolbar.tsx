@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {MoreHorizontal} from "lucide-react";
 import * as React from "react";
 
@@ -44,9 +44,9 @@ export const ContextToolbar = React.forwardRef<HTMLDivElement, ContextToolbarPro
 		return (
 			<div
 				ref={ref}
-				data-wakecore-artifact="context-toolbar"
-				data-wakecore-surface-owner="artifact"
-				data-wakecore-responsive-header
+				data-core-artifact="context-toolbar"
+				data-core-surface-owner="artifact"
+				data-core-responsive-header
 				className={cn(
 					"wwc:flex wwc:w-full wwc:min-w-0 wwc:items-center wwc:justify-between wwc:overflow-hidden wwc:border-b wwc:bg-card",
 					density === "compact"
@@ -57,18 +57,18 @@ export const ContextToolbar = React.forwardRef<HTMLDivElement, ContextToolbarPro
 				{...props}
 			>
 				<div
-					data-wakecore-responsive-group="context-title"
-					data-wakecore-responsive-priority="1"
-					data-wakecore-responsive-atomic
+					data-core-responsive-group="context-title"
+					data-core-responsive-priority="1"
+					data-core-responsive-atomic
 					className="wwc:flex wwc:min-w-0 wwc:flex-1 wwc:items-center wwc:gap-2"
 				>
 					{leadingIcon ? <span className="wwc:flex wwc:shrink-0 wwc:items-center">{leadingIcon}</span> : null}
 					<span className="wwc:truncate wwc:text-sm wwc:font-medium">{title}</span>
 				</div>
 				<div
-					data-wakecore-responsive-group="context-actions"
-					data-wakecore-responsive-priority="2"
-					data-wakecore-responsive-atomic
+					data-core-responsive-group="context-actions"
+					data-core-responsive-priority="2"
+					data-core-responsive-atomic
 					className="wwc:flex wwc:shrink-0 wwc:items-center wwc:gap-1.5"
 				>
 					{status ? <div className="wwc:flex wwc:items-center wwc:gap-1.5">{status}</div> : null}
@@ -81,7 +81,7 @@ export const ContextToolbar = React.forwardRef<HTMLDivElement, ContextToolbarPro
 							onClick={action.onSelect}
 							disabled={action.disabled}
 							aria-label={action.label}
-							data-wakecore-affordance-purpose={action.id}
+							data-core-affordance-purpose={action.id}
 							className="wwc:gap-1.5"
 						>
 							{action.icon}

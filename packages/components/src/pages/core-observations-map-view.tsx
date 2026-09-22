@@ -3,7 +3,7 @@
 // them. Sample data only, like the rest of the pages here; the point is the composition —
 // ObservationsMap under a set of floating panels, all of them controlled from this one component.
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {Eye} from "lucide-react";
 import * as React from "react";
 

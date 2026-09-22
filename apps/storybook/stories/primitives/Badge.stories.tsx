@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@wakecap/core-ui/badge";
+import {Badge} from "@core/core-ui/badge";
 import {Check, CircleAlert, Clock} from "lucide-react";
 
 const meta = {

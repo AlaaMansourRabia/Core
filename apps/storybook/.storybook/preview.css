@@ -24,7 +24,7 @@ body {
  * ── Docs pages (MDX + autodocs) ──
  *
  * Storybook ships its own type ramp for docs — Nunito Sans, blue-grey ink, a light 300-weight h1 —
- * which reads as "a Storybook page" rather than as Wakecore. These rules bind the docs surface to
+ * which reads as "a Storybook page" rather than as Core. These rules bind the docs surface to
  * the same tokens the components use, so every page follows the Welcome page: Figtree, token ink,
  * the grey canvas that white cards lift off, and one heading ramp.
  *

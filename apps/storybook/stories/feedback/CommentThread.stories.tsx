@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {type CommentItem, CommentThread} from "@wakecap/core-ui/comment-thread";
-import {InlineCommentComposer} from "@wakecap/core-ui/inline-comment-composer";
+import {type CommentItem, CommentThread} from "@core/core-ui/comment-thread";
+import {InlineCommentComposer} from "@core/core-ui/inline-comment-composer";
 import {Edit3, Flag, ThumbsUp, Trash2} from "lucide-react";
 import {useState} from "react";
 

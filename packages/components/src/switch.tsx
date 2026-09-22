@@ -1,5 +1,5 @@
+import {cn} from "@core/core-utils";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
-import {cn} from "@wakecap/core-utils";
 import * as React from "react";
 
 export interface SwitchProps extends Omit<React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>, "size"> {

@@ -1,2 +1,2 @@
-export {GraphCanvas} from "@wakecap/core-ui/graph-canvas";
-export type {GraphCanvasProps} from "@wakecap/core-ui/graph-canvas";
+export {GraphCanvas} from "@core/core-ui/graph-canvas";
+export type {GraphCanvasProps} from "@core/core-ui/graph-canvas";

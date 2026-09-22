@@ -1,7 +1,7 @@
 import type {EChartsOption} from "echarts";
 import type {ReactElement, ReactNode} from "react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {AlertTriangle, BarChart3, ChevronDown, Play, RotateCcw, Table2} from "lucide-react";
 import {useState} from "react";
 

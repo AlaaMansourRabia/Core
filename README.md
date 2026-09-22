@@ -1,14 +1,14 @@
-# WakeCore
+# Core
 
-**WakeCore is WakeCap's design system — but calling it a component library undersells it.**
+**Core is Core's design system — but calling it a component library undersells it.**
 
 It is a single **artifact library** (tokens → components → widgets → templates), a machine‑readable **knowledge layer** that explains how those artifacts should be used, and an **intelligence layer** that proves the knowledge actually helps — with **three products built on top of it**, one for engineers, one for designers, and one for anyone building software with AI.
 
-The point of the whole system is one sentence: **you build *from* WakeCore, never from scratch** — and so does the AI.
+The point of the whole system is one sentence: **you build *from* Core, never from scratch** — and so does the AI.
 
 Everything below is tagged by maturity and links to its evidence. The fastest overview of what's been measured is the **What we know now** summary in [`eval/EVIDENCE.md`](./eval/EVIDENCE.md).
 
-![WakeCore — one artifact library (Tokens → Components → Widgets → Templates → Knowledge → AI) powering three products: Storybook for engineers, Design Hub for designers, and Studio for builders](./docs/images/wakecore-overview.png)
+![Core — one artifact library (Tokens → Components → Widgets → Templates → Knowledge → AI) powering three products: Storybook for engineers, Design Hub for designers, and Studio for builders](./docs/images/core-overview.png)
 
 Nothing exists only in Studio. Nothing exists only in Storybook. Nothing exists only in the Designers Hub. **Every product is a different view of the same source.**
 
@@ -16,10 +16,10 @@ Nothing exists only in Studio. Nothing exists only in Storybook. Nothing exists 
 
 ## Contents
 
-- [Why WakeCore exists](#why-wakecore-exists)
+- [Why Core exists](#why-core-exists)
 - [One source of truth](#one-source-of-truth)
 - [Three products](#three-products)
-- [Studio — building from WakeCore, never from scratch](#studio--building-from-wakecore-never-from-scratch)
+- [Studio — building from Core, never from scratch](#studio--building-from-core-never-from-scratch)
   - [The golden rule](#the-golden-rule)
   - [The flywheel](#the-flywheel)
 - [Architecture — three pillars](#architecture--three-pillars)
@@ -32,16 +32,16 @@ Nothing exists only in Studio. Nothing exists only in Storybook. Nothing exists 
 
 ---
 
-## Why WakeCore exists
+## Why Core exists
 
 AI assistance made UI cheap to generate and hard to keep coherent:
 
 - Prototypes appeared quickly, but most couldn't be handed to engineering as‑is.
-- The visual language drifted — every screen a slightly different version of "WakeCap".
+- The visual language drifted — every screen a slightly different version of "Core".
 - The decisions that make a UI correct — which component, when, how to compose a screen — lived in people's heads, not in the code.
-- Agents could produce UI, but couldn't reliably follow WakeCap's patterns.
+- Agents could produce UI, but couldn't reliably follow Core's patterns.
 
-A component library alone doesn't solve this: it says *what exists*, not *what to build or why*. After studying Polar's [Orbit](https://polar.sh/blog/orbit-llm-safe-design-system) and working through how AI‑agent systems consume a design system, WakeCore grew a **knowledge layer** so those decisions travel with the code — for humans and agents alike.
+A component library alone doesn't solve this: it says *what exists*, not *what to build or why*. After studying Polar's [Orbit](https://polar.sh/blog/orbit-llm-safe-design-system) and working through how AI‑agent systems consume a design system, Core grew a **knowledge layer** so those decisions travel with the code — for humans and agents alike.
 
 The design was shaped by concrete engineering questions, which still frame the work:
 
@@ -50,13 +50,13 @@ The design was shaped by concrete engineering questions, which still frame the w
 - What would it take to *enforce* patterns without losing *enablement*?
 - How do we show agents follow guidance instead of going off the rails?
 
-WakeCore's answer is **measure first** — prove the knowledge helps before enforcing it.
+Core's answer is **measure first** — prove the knowledge helps before enforcing it.
 
 ## One source of truth
 
-WakeCore is not a component library with some tools bolted on. It is a **single artifact library** that everything else reads from. Each tier is composed from the one below, and the top of the stack is knowledge an agent can act on:
+Core is not a component library with some tools bolted on. It is a **single artifact library** that everything else reads from. Each tier is composed from the one below, and the top of the stack is knowledge an agent can act on:
 
-![The WakeCore artifact stack — Tokens (colour, spacing, typography, light/dark, one source for every consumer) → Components (generic UI primitives, no domain meaning) → Widgets (composed, domain-meaningful blocks with a data contract) → Templates (page-level compositions that own layout and regions) → Knowledge (intent / when / chooseOver / avoid / composition patterns / failure modes) → AI (resolves a request against the catalog and builds from it)](./docs/images/wakecore-artifact-stack.png)
+![The Core artifact stack — Tokens (colour, spacing, typography, light/dark, one source for every consumer) → Components (generic UI primitives, no domain meaning) → Widgets (composed, domain-meaningful blocks with a data contract) → Templates (page-level compositions that own layout and regions) → Knowledge (intent / when / chooseOver / avoid / composition patterns / failure modes) → AI (resolves a request against the catalog and builds from it)](./docs/images/core-artifact-stack.png)
 
 This is the invariant the whole repository is organized around: **an artifact is authored once, and every surface — the engineer's Storybook page, the designer's pattern doc, the AI's generation step — is downstream of that single definition.** Change the artifact and every product moves with it. There is no second copy to keep in sync.
 
@@ -68,7 +68,7 @@ Three audiences, three products, one library underneath.
 
 **Audience:** Engineers. **Purpose:** component documentation and implementation.
 
-[Storybook](./apps/storybook) is the visual browser for the artifact layer as engineers consume it — props, variants, states, real code. Its navigation mirrors the hierarchy — `Components/…`, `Widgets/…`, `Templates/…` (see [`docs/STORYBOOK-IA.md`](./docs/STORYBOOK-IA.md)) — and [Chromatic](./apps/storybook/LESSONS-LEARNED.md) runs visual‑regression on every story. Every artifact page also renders WakeCore's knowledge inline: a *Catalog knowledge* panel (from `library-index.json`) and, for widgets, a *Widget contract* panel (from the manifest). → [`ComponentKnowledge`](./apps/storybook/stories/_docs/ComponentKnowledge.tsx), [`WidgetManifestPanel`](./apps/storybook/stories/_docs/WidgetManifestPanel.tsx)
+[Storybook](./apps/storybook) is the visual browser for the artifact layer as engineers consume it — props, variants, states, real code. Its navigation mirrors the hierarchy — `Components/…`, `Widgets/…`, `Templates/…` (see [`docs/STORYBOOK-IA.md`](./docs/STORYBOOK-IA.md)) — and [Chromatic](./apps/storybook/LESSONS-LEARNED.md) runs visual‑regression on every story. Every artifact page also renders Core's knowledge inline: a *Catalog knowledge* panel (from `library-index.json`) and, for widgets, a *Widget contract* panel (from the manifest). → [`ComponentKnowledge`](./apps/storybook/stories/_docs/ComponentKnowledge.tsx), [`WidgetManifestPanel`](./apps/storybook/stories/_docs/WidgetManifestPanel.tsx)
 
 ### 2. Designers Hub — for designers
 
@@ -78,21 +78,21 @@ The [Designers Hub](./apps/web) is the same artifacts seen through a designer's 
 
 ### 3. Studio — for people building software
 
-**Audience:** Anyone building software. **Purpose:** describe software, and build applications from WakeCore — never from scratch, always from WakeCore.
+**Audience:** Anyone building software. **Purpose:** describe software, and build applications from Core — never from scratch, always from Core.
 
-[Studio](./apps/studio) is the read‑only front door to WakeCore — browse and preview the library, then build from it in an AI editor. It's covered in depth in the next section.
+[Studio](./apps/studio) is the read‑only front door to Core — browse and preview the library, then build from it in an AI editor. It's covered in depth in the next section.
 
 > **The Hub.** These three run behind one shell — [`apps/hub`](./apps/hub), a single localhost with Studio, Storybook, and the Designers Hub side by side, so the library and its three views are one place, not three tabs to hunt for.
 
-## Studio — building from WakeCore, never from scratch
+## Studio — building from Core, never from scratch
 
-Studio is the **third product**, and it is deliberately *not* another design tool — and not another AI chat. It is the **read‑only front door to WakeCore**: it browses and previews the canonical library, then hands off to an AI editor to build from it. Studio itself never edits, converses, or runs an agent. The intelligence — *deterministic template/widget resolution, validation, and PageInstance generation over the WakeCore catalog* — lives in [`@wakecap/sdk`](./packages/sdk) and is exposed to any AI editor through [`@wakecap/mcp`](./packages/mcp), the tool‑agnostic API that answers `resolve` / `validate` / `generate`.
+Studio is the **third product**, and it is deliberately *not* another design tool — and not another AI chat. It is the **read‑only front door to Core**: it browses and previews the canonical library, then hands off to an AI editor to build from it. Studio itself never edits, converses, or runs an agent. The intelligence — *deterministic template/widget resolution, validation, and PageInstance generation over the Core catalog* — lives in [`@core/sdk`](./packages/sdk) and is exposed to any AI editor through [`@core/mcp`](./packages/mcp), the tool‑agnostic API that answers `resolve` / `validate` / `generate`.
 
 The flow is preview → build → contribute:
 
-**Preview.** Browse or search the official templates, open one, and see it rendered live by the WakeCore renderer — light or dark, at any screen size. Nothing is edited yet; Studio shows only approved WakeCore.
+**Preview.** Browse or search the official templates, open one, and see it rendered live by the Core renderer — light or dark, at any screen size. Nothing is edited yet; Studio shows only approved Core.
 
-**Build with.** When you're ready, Studio launches a Claude Code session — in your browser (via Remote Control) or a terminal (VS Code included) — into an **isolated git worktree** of the repo. It opens already knowing the template, wired to the WakeCore MCP + SDK + skills and a reuse‑first brief, with a standalone preview of just that template running locally. You edit there; your changes stay on the session's branch and never touch the original.
+**Build with.** When you're ready, Studio launches a Claude Code session — in your browser (via Remote Control) or a terminal (VS Code included) — into an **isolated git worktree** of the repo. It opens already knowing the template, wired to the Core MCP + SDK + skills and a reuse‑first brief, with a standalone preview of just that template running locally. You edit there; your changes stay on the session's branch and never touch the original.
 
 **Contribute.** Edits reach Studio only through the normal flow — commit → PR → review → merge. Then the approved change appears in Studio's canonical view. The gap between "you edited it" and "Studio shows it" *is* the governance.
 
@@ -102,9 +102,9 @@ Either way, the answer is assembled from the library first, and code is a render
 
 **The AI never starts from an empty React project.** Before it writes anything, it asks one question:
 
-> *Can WakeCore already solve this?*
+> *Can Core already solve this?*
 
-and resolves the request in a fixed order — the exact resolution `@wakecap/sdk` performs over the catalog:
+and resolves the request in a fixed order — the exact resolution `@core/sdk` performs over the catalog:
 
 ```
 Templates   ── is there a page that already does this?
@@ -116,17 +116,17 @@ Components   ── can it be assembled from primitives?
 Generate    ── last resort, and only for what's genuinely missing
 ```
 
-Generation is the **last resort**, not the default. And every generated artifact is held to one standard: it should look and behave like WakeCore — so that later it can be **promoted into WakeCore itself** and stop being generated at all.
+Generation is the **last resort**, not the default. And every generated artifact is held to one standard: it should look and behave like Core — so that later it can be **promoted into Core itself** and stop being generated at all.
 
 ### The flywheel
 
-Because generation is a last resort *and* generated artifacts can be promoted, WakeCore improves itself with use:
+Because generation is a last resort *and* generated artifacts can be promoted, Core improves itself with use:
 
 ```
         Prompt
           │
           ▼
-   Search WakeCore ───────────────┐
+   Search Core ───────────────┐
           │                       │
           ▼                       │
   Reuse existing artifacts        │  (most requests end here)
@@ -138,7 +138,7 @@ Because generation is a last resort *and* generated artifacts can be promoted, W
   Promote useful artifacts ───────┘
           │
           ▼
-   WakeCore grows  →  future projects reuse them  →  fewer generations next time
+   Core grows  →  future projects reuse them  →  fewer generations next time
 ```
 
 The more it's used, the less it needs to generate — every promotion makes the next project start further ahead. Promotion is a real, gated path today (validated prototype → PR into the library), not an aspiration.
@@ -147,7 +147,7 @@ The more it's used, the less it needs to generate — every promotion makes the 
 
 ## Architecture — three pillars
 
-The three products above are the *surfaces*. Underneath, WakeCore is built as three pillars that build on one another:
+The three products above are the *surfaces*. Underneath, Core is built as three pillars that build on one another:
 
 > **Artifacts** are authored. **Knowledge** explains them. **Intelligence** validates and improves the knowledge.
 >
@@ -163,13 +163,13 @@ The hierarchy of reusable building blocks. Each tier is composed from the one be
 Tokens  →  Components  →  Widgets  →  Templates  →  Flows (future)
 ```
 
-- **Tokens** — OKLCH colour/spacing/typography (light/dark), one source for every consumer. → [`@wakecap/core-tokens`](./packages/tokens)
-- **Components** — generic UI primitives, no domain meaning (Button, Input, Card, Dialog). ~71 of the 118. → [`@wakecap/core-ui`](./packages/components)
+- **Tokens** — OKLCH colour/spacing/typography (light/dark), one source for every consumer. → [`@core/core-tokens`](./packages/tokens)
+- **Components** — generic UI primitives, no domain meaning (Button, Input, Card, Dialog). ~71 of the 118. → [`@core/core-ui`](./packages/components)
 - **Widgets** — composed, domain‑meaningful blocks with a data contract (DataTable, App Sidebar, Activity Log). ~30 logically promoted from the component set; `DataTable` is the first with a complete manifest. → [`docs/ARTIFACT-CLASSIFICATION.md`](./docs/ARTIFACT-CLASSIFICATION.md)
 - **Templates** — page‑level compositions that own layout/regions (Login Page, Org/Project dashboards, Error Page). ~12, today the `pages/*` exports. → [`docs/ARTIFACT-CLASSIFICATION.md`](./docs/ARTIFACT-CLASSIFICATION.md)
 - **Flows** — multi‑screen journeys. **Future**, not built.
 
-Plus [`@wakecap/core-utils`](./packages/utils) for shared helpers.
+Plus [`@core/core-utils`](./packages/utils) for shared helpers.
 
 **Browse them: [Storybook](./apps/storybook) is the visual browser for the artifact layer.** Its navigation mirrors the hierarchy — `Components/…`, `Widgets/…`, `Templates/…` (see [`docs/STORYBOOK-IA.md`](./docs/STORYBOOK-IA.md)) — and [Chromatic](./apps/storybook/LESSONS-LEARNED.md) runs visual‑regression on every story. Each tier has its own catalog: the **Component Catalog**, the **Widget Catalog**, and the **Template Catalog** (placeholder today), each a searchable index that links to the per‑artifact page.
 
@@ -187,7 +187,7 @@ Everything that teaches how artifacts should be used — **attached to the artif
 - **Lineage / provenance** — each manifest records where its knowledge came from and how it was derived/verified.
 - **Surfaced visually** — Storybook renders this knowledge on every artifact page: a *Catalog knowledge* panel (from `library-index.json`) and, for widgets, a *Widget contract* panel (from the manifest). → [`ComponentKnowledge`](./apps/storybook/stories/_docs/ComponentKnowledge.tsx), [`WidgetManifestPanel`](./apps/storybook/stories/_docs/WidgetManifestPanel.tsx)
 
-Knowledge answers: **what** to build, **when**, **why**, **with what**, and **what not to do**. This is the layer `@wakecap/sdk` reads to resolve a request, and the layer Studio's golden rule is built on.
+Knowledge answers: **what** to build, **when**, **why**, **with what**, and **what not to do**. This is the layer `@core/sdk` reads to resolve a request, and the layer Studio's golden rule is built on.
 
 - **Maturity:** Component‑level decision knowledge **authored, and proven to improve agent output** (see *What we know now*). Widget manifests **in pilot** (1 complete, 29 stub). Template / product knowledge **in progress**.
 
@@ -231,7 +231,7 @@ Findings from the evaluation work to date. One model (`claude-opus-4-8`); small 
 
 ## In progress
 
-- **Product knowledge.** Encoding how WakeCap products are structured — dashboards, analytics, monitoring, admin tools, multi‑step journeys — as templates and template manifests. → [`eval/V3-DESIGN.md`](./eval/V3-DESIGN.md)
+- **Product knowledge.** Encoding how Core products are structured — dashboards, analytics, monitoring, admin tools, multi‑step journeys — as templates and template manifests. → [`eval/V3-DESIGN.md`](./eval/V3-DESIGN.md)
 - **Manifest maturity.** Hardening the 29 widget‑manifest stubs into complete contracts (next: `core-app-sidebar`), and designing the template‑manifest schema. → [`manifests/`](./manifests), [`docs/ARTIFACT-CLASSIFICATION.md`](./docs/ARTIFACT-CLASSIFICATION.md)
 - **Behavioral validation.** Compile (`tsc`) and render‑smoke run as first‑class metrics; render‑smoke is a server‑render floor today, and accessibility (axe) plus full browser/runtime checks are not yet built. → [`eval/graders/`](./eval/graders)
 - **Enforcement.** A check is promoted from measurement to a gate only once evidence shows it helps. Nothing is enforced today.
@@ -242,11 +242,11 @@ Five installable packages: the artifact library and its consumers, plus the SDK 
 
 | Package | What it is |
 |---|---|
-| [`@wakecap/core-ui`](./packages/components) | 118 React artifacts — generic components, composed widgets, and page templates, classified by responsibility in [`docs/ARTIFACT-CLASSIFICATION.md`](./docs/ARTIFACT-CLASSIFICATION.md) |
-| [`@wakecap/core-tokens`](./packages/tokens) | OKLCH design tokens (light/dark); presets for Tailwind 4, Tailwind 3, or no Tailwind |
-| [`@wakecap/core-utils`](./packages/utils) | small shared helpers (`cn()`, etc.) |
-| [`@wakecap/sdk`](./packages/sdk) | deterministic template/widget resolution, validation, and PageInstance generation over the WakeCore catalog — the engine behind Studio's golden rule |
-| [`@wakecap/mcp`](./packages/mcp) | the tool‑agnostic intelligence API any AI editor consults to build UI from WakeCore (`resolve` / `validate` / `generate`); wraps `@wakecap/sdk` over stdio |
+| [`@core/core-ui`](./packages/components) | 118 React artifacts — generic components, composed widgets, and page templates, classified by responsibility in [`docs/ARTIFACT-CLASSIFICATION.md`](./docs/ARTIFACT-CLASSIFICATION.md) |
+| [`@core/core-tokens`](./packages/tokens) | OKLCH design tokens (light/dark); presets for Tailwind 4, Tailwind 3, or no Tailwind |
+| [`@core/core-utils`](./packages/utils) | small shared helpers (`cn()`, etc.) |
+| [`@core/sdk`](./packages/sdk) | deterministic template/widget resolution, validation, and PageInstance generation over the Core catalog — the engine behind Studio's golden rule |
+| [`@core/mcp`](./packages/mcp) | the tool‑agnostic intelligence API any AI editor consults to build UI from Core (`resolve` / `validate` / `generate`); wraps `@core/sdk` over stdio |
 
 On top of the artifacts sits a machine‑readable **knowledge layer** (`library-index.json`, widget/template manifests, loadable skills, a failure‑mode catalog) and an **intelligence layer** — the evaluation framework that measures whether that knowledge actually changes what an agent builds.
 
@@ -254,15 +254,15 @@ On top of the artifacts sits a machine‑readable **knowledge layer** (`library-
 
 ```
 packages/
-  components/   @wakecap/core-ui       artifact library (components → widgets → templates)
-  tokens/       @wakecap/core-tokens   OKLCH tokens + Tailwind 3/4/no‑Tailwind presets
-  utils/        @wakecap/core-utils    shared helpers
-  sdk/          @wakecap/sdk           catalog resolution / validation / PageInstance generation
-  mcp/          @wakecap/mcp           MCP server exposing the SDK to AI editors
+  components/   @core/core-ui       artifact library (components → widgets → templates)
+  tokens/       @core/core-tokens   OKLCH tokens + Tailwind 3/4/no‑Tailwind presets
+  utils/        @core/core-utils    shared helpers
+  sdk/          @core/sdk           catalog resolution / validation / PageInstance generation
+  mcp/          @core/mcp           MCP server exposing the SDK to AI editors
 apps/
   storybook/    Storybook              engineers — component docs + implementation
   web/          Designers Hub          designers — visual docs, patterns, templates, knowledge
-  studio/       Studio                 builders — read-only browser + preview; launches AI editing from WakeCore
+  studio/       Studio                 builders — read-only browser + preview; launches AI editing from Core
   hub/          Hub                    one shell that unifies Studio + Storybook + Designers Hub
   composer/     Composer               visual page editor (Puck) over the artifact library
 library-index.json                     per‑artifact decision knowledge (intent/when/avoid/…)
@@ -278,7 +278,7 @@ The knowledge and intelligence layers are first‑class directories, not afterth
 
 ## Getting started
 
-WakeCore is a pnpm + Nx monorepo (see [`CLAUDE.md`](./CLAUDE.md) for the full toolchain — Oxlint, Oxfmt, TypeScript 5.9, React, Tailwind 4, Vitest + Chromatic).
+Core is a pnpm + Nx monorepo (see [`CLAUDE.md`](./CLAUDE.md) for the full toolchain — Oxlint, Oxfmt, TypeScript 5.9, React, Tailwind 4, Vitest + Chromatic).
 
 ```bash
 pnpm install          # install; also loads the agent skills (postinstall)
@@ -292,7 +292,7 @@ pnpm hub              # the Hub — all three behind one localhost  (apps/hub)
 Working on the library or its knowledge:
 
 ```bash
-pnpm build            # build every @wakecap/core-* package
+pnpm build            # build every @core/core-* package
 pnpm typecheck        # tsc across the workspace
 pnpm test             # Vitest (browser mode)
 pnpm eval             # run the intelligence layer's ablation
@@ -302,4 +302,4 @@ pnpm generate:catalog     # regenerate library-index.json from source
 
 ## Vision
 
-**Knowledge → Measurement → Validation → Enforcement.** WakeCore aims to be where WakeCap's design decisions live — a single artifact library where **artifacts are authored, knowledge explains them, and intelligence continuously validates and improves them** — surfaced through three products for engineers, designers, and builders, and demonstrably helping both people and AI build correct, on‑brand UIs **from WakeCore, never from scratch**, with every step toward enforcement backed by evidence rather than assertion.
+**Knowledge → Measurement → Validation → Enforcement.** Core aims to be where Core's design decisions live — a single artifact library where **artifacts are authored, knowledge explains them, and intelligence continuously validates and improves them** — surfaced through three products for engineers, designers, and builders, and demonstrably helping both people and AI build correct, on‑brand UIs **from Core, never from scratch**, with every step toward enforcement backed by evidence rather than assertion.

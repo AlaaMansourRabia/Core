@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {AddObservationDialog, type AddObservationOption} from "@wakecap/core-ui/add-observation-dialog";
-import {Button} from "@wakecap/core-ui/button";
+import {AddObservationDialog, type AddObservationOption} from "@core/core-ui/add-observation-dialog";
+import {Button} from "@core/core-ui/button";
 import {Plus} from "lucide-react";
 import {useState} from "react";
 

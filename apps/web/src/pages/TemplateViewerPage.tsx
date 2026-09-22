@@ -1,35 +1,35 @@
 import type {ReactNode} from "react";
 
-import workerUrl from "@thatopen/fragments/worker?url";
-import {MOCK_ORGANIZATIONS, getProjectsByOrg} from "@wakecap/core-ui/data/mock-data";
-// Renders any WakeCore template by id (route /templates/:id) — the real @wakecap/core-ui
+import {MOCK_ORGANIZATIONS, getProjectsByOrg} from "@core/core-ui/data/mock-data";
+// Renders any Core template by id (route /templates/:id) — the real @core/core-ui
 // page with representative mock data, so the Designer Hub's Templates section shows the live template.
-import {ErrorPage} from "@wakecap/core-ui/error-page";
-import {FragmentViewer, FragmentViewerProvider} from "@wakecap/core-ui/fragment-viewer";
-import {AdminPanel} from "@wakecap/core-ui/pages/core-admin-panel";
-import {AnalyticsOverview} from "@wakecap/core-ui/pages/core-analytics-overview";
-import {AppInstaller} from "@wakecap/core-ui/pages/core-app-installer";
-import {BlueprintViewer} from "@wakecap/core-ui/pages/core-blueprint-viewer";
-import {BlueprintViewer3} from "@wakecap/core-ui/pages/core-blueprint-viewer-3";
-import {Clinic} from "@wakecap/core-ui/pages/core-clinic";
-import {DesignCanvas} from "@wakecap/core-ui/pages/core-design-canvas";
-import {LoginPage} from "@wakecap/core-ui/pages/core-login-page";
-import {MapCompareLayout} from "@wakecap/core-ui/pages/core-map-compare-layout";
-import {OrgWorkforceIntelligence} from "@wakecap/core-ui/pages/core-org-workforce-intelligence";
-import {ProgressDetails} from "@wakecap/core-ui/pages/core-progress-details";
-import {ProjectOverview} from "@wakecap/core-ui/pages/core-project-overview";
-import {ProjectRealityCapture} from "@wakecap/core-ui/pages/core-project-reality-capture";
-import {ProjectScheduleCost} from "@wakecap/core-ui/pages/core-project-schedule-cost";
-import {ProjectSetup} from "@wakecap/core-ui/pages/core-project-setup";
-import {ProjectWorkforceSafety} from "@wakecap/core-ui/pages/core-project-workforce-safety";
-import {SafetyManager} from "@wakecap/core-ui/pages/core-safety-manager";
-import {VerifyTimeCommandCenter} from "@wakecap/core-ui/pages/core-verifytime-command-center";
-import {WakeCapConnect} from "@wakecap/core-ui/pages/core-wakecap-connect";
-import {WakeCapConnectV3} from "@wakecap/core-ui/pages/core-wakecap-connect-v3";
-import {WC3Workspace} from "@wakecap/core-ui/pages/core-wc3-workspace";
-import {WorkPermit} from "@wakecap/core-ui/pages/core-work-permit";
-import {Workforce} from "@wakecap/core-ui/pages/core-workforce";
-import {TooltipProvider} from "@wakecap/core-ui/tooltip";
+import {ErrorPage} from "@core/core-ui/error-page";
+import {FragmentViewer, FragmentViewerProvider} from "@core/core-ui/fragment-viewer";
+import {AdminPanel} from "@core/core-ui/pages/core-admin-panel";
+import {AnalyticsOverview} from "@core/core-ui/pages/core-analytics-overview";
+import {AppInstaller} from "@core/core-ui/pages/core-app-installer";
+import {BlueprintViewer} from "@core/core-ui/pages/core-blueprint-viewer";
+import {BlueprintViewer3} from "@core/core-ui/pages/core-blueprint-viewer-3";
+import {Clinic} from "@core/core-ui/pages/core-clinic";
+import {CoreConnect} from "@core/core-ui/pages/core-core-connect";
+import {CoreConnectV3} from "@core/core-ui/pages/core-core-connect-v3";
+import {DesignCanvas} from "@core/core-ui/pages/core-design-canvas";
+import {LoginPage} from "@core/core-ui/pages/core-login-page";
+import {MapCompareLayout} from "@core/core-ui/pages/core-map-compare-layout";
+import {OrgWorkforceIntelligence} from "@core/core-ui/pages/core-org-workforce-intelligence";
+import {ProgressDetails} from "@core/core-ui/pages/core-progress-details";
+import {ProjectOverview} from "@core/core-ui/pages/core-project-overview";
+import {ProjectRealityCapture} from "@core/core-ui/pages/core-project-reality-capture";
+import {ProjectScheduleCost} from "@core/core-ui/pages/core-project-schedule-cost";
+import {ProjectSetup} from "@core/core-ui/pages/core-project-setup";
+import {ProjectWorkforceSafety} from "@core/core-ui/pages/core-project-workforce-safety";
+import {SafetyManager} from "@core/core-ui/pages/core-safety-manager";
+import {VerifyTimeCommandCenter} from "@core/core-ui/pages/core-verifytime-command-center";
+import {WC3Workspace} from "@core/core-ui/pages/core-wc3-workspace";
+import {WorkPermit} from "@core/core-ui/pages/core-work-permit";
+import {Workforce} from "@core/core-ui/pages/core-workforce";
+import {TooltipProvider} from "@core/core-ui/tooltip";
+import workerUrl from "@thatopen/fragments/worker?url";
 import {useParams} from "react-router-dom";
 
 import {SiteRealityStage} from "@/components/SiteRealityStage";
@@ -48,9 +48,9 @@ function WorkforceMapStage() {
 	return (
 		<div
 			className="wwc:absolute wwc:inset-0"
-			data-wakecore-region="workforce-model-canvas"
-			data-wakecore-surface-owner="artifact"
-			data-wakecore-canvas-capabilities="orbit,pan,zoom,fit-to-view,selection"
+			data-core-region="workforce-model-canvas"
+			data-core-surface-owner="artifact"
+			data-core-canvas-capabilities="orbit,pan,zoom,fit-to-view,selection"
 		>
 			<FragmentViewer
 				src="/models-bundled/uptown.frag"
@@ -101,8 +101,8 @@ const REGISTRY: Record<string, () => ReactNode> = {
 	"map-compare-layout": () => <MapCompareLayout />,
 	"object-drawing-canvas": () => <ObjectDrawingCanvasPage />,
 	"progress-details": () => <ProgressDetails />,
-	"wakecap-connect": () => <WakeCapConnect />,
-	"wakecap-connect-v3": () => <WakeCapConnectV3 />,
+	"core-connect": () => <CoreConnect />,
+	"core-connect-v3": () => <CoreConnectV3 />,
 	"wc3-workspace": () => <WC3Workspace />,
 	"work-permit": () => <WorkPermit />,
 	workforce: () => <WorkforceTemplate />,
@@ -115,9 +115,9 @@ export function TemplateViewerPage() {
 			<TooltipProvider>
 				<div
 					className="wwc:h-full wwc:min-h-0"
-					data-wakecore-region="timesheet-template"
-					data-wakecore-artifact="timesheet"
-					data-wakecore-surface-owner="artifact"
+					data-core-region="timesheet-template"
+					data-core-artifact="timesheet"
+					data-core-surface-owner="artifact"
 				>
 					<VerifytimeCommandCenter />
 				</div>
@@ -132,9 +132,9 @@ export function TemplateViewerPage() {
 		<TooltipProvider>
 			<div
 				className="wwc:h-full wwc:min-h-0"
-				data-wakecore-region={`${id}-template`}
-				data-wakecore-artifact={id}
-				data-wakecore-surface-owner="artifact"
+				data-core-region={`${id}-template`}
+				data-core-artifact={id}
+				data-core-surface-owner="artifact"
 			>
 				{render()}
 			</div>

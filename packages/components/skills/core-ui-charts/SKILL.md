@@ -1,39 +1,39 @@
 ---
 name: core-ui-charts
 description: >
-  Two chart systems in @wakecap/core-ui. ChartContainer (ECharts wrapper with
-  canvas-safe token conversion via createThemedChartOption/useChartTheme) from @wakecap/core-ui/chart.
+  Two chart systems in @core/core-ui. ChartContainer (ECharts wrapper with
+  canvas-safe token conversion via createThemedChartOption/useChartTheme) from @core/core-ui/chart.
   ChartRenderer (lightweight ECharts for AI-generated charts, ChartData,
   ChartType: bar/line/area/pie/scatter) from
-  @wakecap/core-ui/chat/core-chart-renderer. getCssVarAsRgb and getChartColors
-  from @wakecap/core-utils for direct ECharts/canvas consumers.
+  @core/core-ui/chat/core-chart-renderer. getCssVarAsRgb and getChartColors
+  from @core/core-utils for direct ECharts/canvas consumers.
 metadata:
   type: core
-  library: wakecore
+  library: core
   library_version: "0.0.1"
 sources:
-  - "wakecap/Wakecore:packages/components/src/chart.tsx"
-  - "wakecap/Wakecore:packages/components/src/chat/core-chart-renderer.tsx"
-  - "wakecap/Wakecore:packages/utils/src/index.ts"
-  - "wakecap/Wakecore:packages/tokens/src/index.css"
+  - "core/Core:packages/components/src/chart.tsx"
+  - "core/Core:packages/components/src/chat/core-chart-renderer.tsx"
+  - "core/Core:packages/utils/src/index.ts"
+  - "core/Core:packages/tokens/src/index.css"
 ---
 
-# @wakecap/core-ui — Charts
+# @core/core-ui — Charts
 
 Two chart systems. Choose based on use case:
 
-| Use case                                        | System           | Import                                      |
-| ----------------------------------------------- | ---------------- | ------------------------------------------- |
-| Custom product charts with design token colours | `ChartContainer` | `@wakecap/core-ui/chart`                    |
-| Rendering AI-generated `ChartData` payloads     | `ChartRenderer`  | `@wakecap/core-ui/chat/core-chart-renderer` |
-| Direct ECharts or canvas (need RGB from OKLCH)  | utils            | `@wakecap/core-utils`                       |
+| Use case                                        | System           | Import                                   |
+| ----------------------------------------------- | ---------------- | ---------------------------------------- |
+| Custom product charts with design token colours | `ChartContainer` | `@core/core-ui/chart`                    |
+| Rendering AI-generated `ChartData` payloads     | `ChartRenderer`  | `@core/core-ui/chat/core-chart-renderer` |
+| Direct ECharts or canvas (need RGB from OKLCH)  | utils            | `@core/core-utils`                       |
 
 ## Setup
 
 ### ChartContainer (ECharts + design tokens)
 
 ```tsx
-import {ChartContainer, createThemedChartOption, type ChartConfig} from "@wakecap/core-ui/chart";
+import {ChartContainer, createThemedChartOption, type ChartConfig} from "@core/core-ui/chart";
 
 const chartConfig: ChartConfig = {
 	workers: {label: "Workers", color: "var(--chart-1)"},
@@ -90,8 +90,8 @@ const seriesThemes = [
 ### ChartRenderer (AI-generated ChartData payloads)
 
 ```tsx
-import {ChartRenderer} from "@wakecap/core-ui/chat/core-chart-renderer";
-import type {ChartData} from "@wakecap/core-ui/types/chat";
+import {ChartRenderer} from "@core/core-ui/chat/core-chart-renderer";
+import type {ChartData} from "@core/core-ui/types/chat";
 
 const chartData: ChartData = {
 	chartType: "line",
@@ -114,7 +114,7 @@ const chartData: ChartData = {
 ### useChartTheme hook for theme-aware colours
 
 ```tsx
-import {useChartTheme} from "@wakecap/core-ui/chart";
+import {useChartTheme} from "@core/core-ui/chart";
 
 function MyChart() {
 	const {colors, textColor, mutedColor, borderColor, backgroundColor} = useChartTheme();
@@ -130,7 +130,7 @@ preference change), so an option built from its values is never stale. If you re
 other way and memoise the result, key that memo on `useThemeVersion()` from the same module:
 
 ```tsx
-import {useThemeVersion} from "@wakecap/core-ui/chart";
+import {useThemeVersion} from "@core/core-ui/chart";
 
 const themeVersion = useThemeVersion();
 const option = React.useMemo(() => buildOption(), [data, themeVersion]);
@@ -189,7 +189,7 @@ const colors = getChartColors();
 Correct:
 
 ```tsx
-import {getChartColors} from "@wakecap/core-utils";
+import {getChartColors} from "@core/core-utils";
 
 useEffect(() => {
 	const colors = getChartColors();

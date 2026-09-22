@@ -1,2 +1,2 @@
-export {ThinkingPill} from "@wakecap/core-ui/thinking-pill";
-export type {ThinkingPillProps} from "@wakecap/core-ui/thinking-pill";
+export {ThinkingPill} from "@core/core-ui/thinking-pill";
+export type {ThinkingPillProps} from "@core/core-ui/thinking-pill";

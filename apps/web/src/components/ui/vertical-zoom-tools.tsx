@@ -1,2 +1,2 @@
-export {VerticalZoomTools} from "@wakecap/core-ui/vertical-zoom-tools";
-export type {VerticalZoomToolsProps} from "@wakecap/core-ui/vertical-zoom-tools";
+export {VerticalZoomTools} from "@core/core-ui/vertical-zoom-tools";
+export type {VerticalZoomToolsProps} from "@core/core-ui/vertical-zoom-tools";

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/stepper.tsx",
-		"import": "@wakecap/core-ui/stepper",
+		"import": "@core/core-ui/stepper",
 		"export": "Stepper"
 	},
 	"tags": [

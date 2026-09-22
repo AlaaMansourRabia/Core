@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {NewLinkTypeDialog} from "@wakecap/core-ui/new-link-type-dialog";
+import {Button} from "@core/core-ui/button";
+import {NewLinkTypeDialog} from "@core/core-ui/new-link-type-dialog";
 import {useState} from "react";
 
 const OBJECT_TYPES = [

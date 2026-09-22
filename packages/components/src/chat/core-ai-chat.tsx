@@ -1,14 +1,14 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {Check, Clock, Copy} from "lucide-react";
 import {useCallback, useEffect, useRef, useState} from "react";
 
+import {CoreMark} from "../core-mark";
 import {PromptInput, type PromptAttachment, type PromptContextItem} from "../prompt-input";
 import {ScrollArea} from "../scroll-area";
 import {generateId, sendChatMessage} from "../services/chatService";
 import {ThinkingPill} from "../thinking-pill";
 import {TurnTimer} from "../turn-timer";
 import type {ChartData, ChartMessage, Message, TextMessage} from "../types/chat";
-import {WakecapMark} from "../wakecap-mark";
 import {
 	AIChatHeader,
 	type AIChatHeaderAction,
@@ -451,7 +451,7 @@ export function AIChat({
 					)
 				) : isEmpty ? (
 					<div className="wwc:flex wwc:h-full wwc:flex-col wwc:items-center wwc:justify-center wwc:gap-4 wwc:px-6 wwc:py-12 wwc:text-center">
-						<WakecapMark className="wwc:h-12 wwc:w-12 wwc:text-foreground" />
+						<CoreMark className="wwc:h-12 wwc:w-12 wwc:text-foreground" />
 						<div className="wwc:space-y-1">
 							<h3 className="wwc:text-base wwc:font-semibold wwc:text-foreground">{emptyTitle}</h3>
 							<p className="wwc:text-sm wwc:text-muted-foreground">{emptySubtitle}</p>

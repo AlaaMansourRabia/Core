@@ -4,12 +4,12 @@ import type {
 	ProductPackageInstallReceipt,
 	ProductPackageOutput,
 	ProductPackagePermission,
-} from "@wakecap/core-ui/product-package-detail";
+} from "@core/core-ui/product-package-detail";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
+import {CoreAppTopBar} from "@core/core-ui/navigation/core-app-top-bar";
+import {ProductPackageDetail} from "@core/core-ui/product-package-detail";
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
-import {CoreAppTopBar} from "@wakecap/core-ui/navigation/core-app-top-bar";
-import {ProductPackageDetail} from "@wakecap/core-ui/product-package-detail";
 import {useState} from "react";
 
 import productPackageManifest from "../../../../manifests/product-package-detail.widget.json";
@@ -34,16 +34,16 @@ function ProductPackageDocsPage() {
 const PACKAGE = {
 	id: "attendance",
 	name: "Attendance",
-	apiName: "wakecap.attendance",
+	apiName: "core.attendance",
 	version: "2.1.0",
 	description: "Shift attendance derived from badge reads, with an hourly projection for the site dashboard.",
-	publisher: "WakeCap Platform",
+	publisher: "Core Platform",
 	kind: "Data product",
 	channel: "Released",
 	publishedAt: "02 Sep, 2026",
 	details: [
 		{label: "Runtime", value: "Lakehouse · hourly"},
-		{label: "Support", value: "platform@wakecap.com"},
+		{label: "Support", value: "platform@core.com"},
 	],
 };
 

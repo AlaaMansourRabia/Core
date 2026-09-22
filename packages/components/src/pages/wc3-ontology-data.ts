@@ -1,5 +1,5 @@
 // WC3 ontology fixture — extracted verbatim from window.__STORE__ of the unified-workspace
-// prototype (wakecap/wc3-platform @ claude/wc3-ontology-prototypes-wvv4nf,
+// prototype (core/wc3-platform @ claude/wc3-ontology-prototypes-wvv4nf,
 // apps/wc3-platform-web/prototypes/ontology-manager/06-unified-workspace.html).
 //
 // Not hand-authored: dumped from the running prototype so the Ontology Manager surfaces render the
@@ -169,7 +169,7 @@ export const WC3_SHARED_PROPERTIES: Wc3SharedProperty[] = [
 		apiName: "geo_location",
 		displayName: "Geo location",
 		baseType: "geopoint",
-		description: "WGS84 point used by every locatable entity on a WakeCap site.",
+		description: "WGS84 point used by every locatable entity on a Core site.",
 		formatting: null,
 		typeClasses: ["spatial"],
 	},
@@ -259,7 +259,7 @@ export const WC3_TYPE_GROUPS: Wc3TypeGroup[] = [
 		id: "g_assets",
 		rid: "ri.ontology.main.type-group.00001024-499c",
 		name: "Assets & IoT",
-		description: "Plant, equipment and WakeCap hardware.",
+		description: "Plant, equipment and Core hardware.",
 		members: ["ot_equipment", "ot_sensor"],
 	},
 	{
@@ -392,7 +392,7 @@ export const WC3_OBJECT_TYPES: Wc3ObjectType[] = [
 		apiName: "project",
 		displayName: "Project",
 		pluralName: "Projects",
-		description: "A delivery contract WakeCap monitors end-to-end: one row per awarded construction project.",
+		description: "A delivery contract Core monitors end-to-end: one row per awarded construction project.",
 		icon: "crane",
 		color: "#3b82f6",
 		status: "Endorsed",
@@ -984,7 +984,7 @@ export const WC3_OBJECT_TYPES: Wc3ObjectType[] = [
 				apiName: "badge_id",
 				displayName: "Badge ID",
 				baseType: "string",
-				description: "WakeCap smart-badge serial currently paired to this worker.",
+				description: "Core smart-badge serial currently paired to this worker.",
 				required: false,
 				searchable: true,
 				sortable: true,
@@ -1111,7 +1111,7 @@ export const WC3_OBJECT_TYPES: Wc3ObjectType[] = [
 				id: "dsi_106",
 				catalogId: "ds_badge_stream",
 				kind: "stream",
-				name: "wakecap_badge_telemetry",
+				name: "core_badge_telemetry",
 				pkDuplicates: false,
 			},
 		],
@@ -1691,7 +1691,7 @@ export const WC3_OBJECT_TYPES: Wc3ObjectType[] = [
 		apiName: "equipment",
 		displayName: "Equipment",
 		pluralName: "Equipment",
-		description: "Owned or rented plant on site (cranes, hoists, generators) tracked by WakeCap asset tags.",
+		description: "Owned or rented plant on site (cranes, hoists, generators) tracked by Core asset tags.",
 		icon: "truck",
 		color: "#854d0e",
 		status: "Active",
@@ -1924,7 +1924,7 @@ export const WC3_OBJECT_TYPES: Wc3ObjectType[] = [
 		apiName: "sensor",
 		displayName: "Sensor",
 		pluralName: "Sensors",
-		description: "A WakeCap hardware unit (helmet node, gateway, crane sensor) emitting telemetry.",
+		description: "A Core hardware unit (helmet node, gateway, crane sensor) emitting telemetry.",
 		icon: "signal",
 		color: "#db2777",
 		status: "Active",
@@ -3162,7 +3162,7 @@ export const WC3_OBJECT_TYPES: Wc3ObjectType[] = [
 		displayName: "Work Permit",
 		pluralName: "Work Permits",
 		description:
-			"A digital work permit (permit-to-work) following the wakecap-standard-v1 lifecycle, plus a labeled custom 'suspended' state for the occupancy gate.",
+			"A digital work permit (permit-to-work) following the core-standard-v1 lifecycle, plus a labeled custom 'suspended' state for the occupancy gate.",
 		icon: "wrench",
 		color: "#dc2626",
 		status: "Active",
@@ -4959,7 +4959,7 @@ export const WC3_ACTION_TYPES: Wc3ActionType[] = [
 			],
 			webhooks: [
 				{
-					url: "https://hooks.wakecap.example/safety-intake",
+					url: "https://hooks.core.example/safety-intake",
 					method: "POST",
 					note: "Pushes the observation to the customer's HSE system",
 				},
@@ -5551,7 +5551,7 @@ export const WC3_ACTION_TYPES: Wc3ActionType[] = [
 			notifications: [],
 			webhooks: [
 				{
-					url: "https://hooks.wakecap.example/device-pairing",
+					url: "https://hooks.core.example/device-pairing",
 					method: "POST",
 					note: "Syncs the new pairing to the device manager",
 				},
@@ -6033,7 +6033,7 @@ export const WC3_ACTION_TYPES: Wc3ActionType[] = [
 			],
 			webhooks: [
 				{
-					url: "https://hooks.wakecap.example/dwp-issued",
+					url: "https://hooks.core.example/dwp-issued",
 					method: "POST",
 					note: "Publishes the issued permit to the geofence service",
 				},
@@ -8366,7 +8366,7 @@ export const WC3_DATASOURCE_CATALOG: Wc3CatalogSource[] = [
 	{
 		id: "ds_badge_stream",
 		kind: "stream",
-		name: "wakecap_badge_telemetry",
+		name: "core_badge_telemetry",
 		columns: ["badge_id", "last_seen_at", "zone_hint"],
 	},
 	{

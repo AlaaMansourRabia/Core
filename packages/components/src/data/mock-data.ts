@@ -1,7 +1,7 @@
 import type {Organization, Project} from "../types";
 
 export const MOCK_ORGANIZATIONS: Organization[] = [
-	{id: "org-1", name: "WakeCap Construction", plan: "enterprise"},
+	{id: "org-1", name: "Core Construction", plan: "enterprise"},
 	{id: "org-2", name: "BuildRight Inc", plan: "pro"},
 	{id: "org-3", name: "Metro Developers", plan: "free"},
 ];

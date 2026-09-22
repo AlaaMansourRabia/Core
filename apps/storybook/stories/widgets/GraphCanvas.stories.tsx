@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Card} from "@wakecap/core-ui/card";
-import {GraphCanvas} from "@wakecap/core-ui/graph-canvas";
+import {Card} from "@core/core-ui/card";
+import {GraphCanvas} from "@core/core-ui/graph-canvas";
 import {Handle, type NodeProps, Position} from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
@@ -54,7 +54,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					"The node-and-edge surface four Wakecore graph views had each re-typed — the process state machine, the pipeline wiring, the data lineage DAG and the ontology graph explorer. They had already started to diverge: three passed `fitViewOptions={{padding: 0.12}}` and one did not, so the odd one framed its graph tighter than its siblings for no reason anybody chose. This owns only the chrome and those defaults; nodes, edges, handlers and `nodeTypes` stay with the caller, since every `ReactFlowProps` is forwarded. **It needs a container with a resolved height** — in a container with none it collapses to a 0px strip.",
+					"The node-and-edge surface four Core graph views had each re-typed — the process state machine, the pipeline wiring, the data lineage DAG and the ontology graph explorer. They had already started to diverge: three passed `fitViewOptions={{padding: 0.12}}` and one did not, so the odd one framed its graph tighter than its siblings for no reason anybody chose. This owns only the chrome and those defaults; nodes, edges, handlers and `nodeTypes` stay with the caller, since every `ReactFlowProps` is forwarded. **It needs a container with a resolved height** — in a container with none it collapses to a 0px strip.",
 			},
 		},
 	},

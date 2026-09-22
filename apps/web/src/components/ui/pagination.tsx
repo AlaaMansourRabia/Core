@@ -6,4 +6,4 @@ export {
 	PaginationLink,
 	PaginationNext,
 	PaginationPrevious,
-} from "@wakecap/core-ui/pagination";
+} from "@core/core-ui/pagination";

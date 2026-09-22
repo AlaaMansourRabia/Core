@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {Minus, Plus, RefreshCw, Scan} from "lucide-react";
 import {
 	type MouseEvent as ReactMouseEvent,
@@ -128,7 +128,7 @@ function VillaLabel({
 export interface SiteImageViewerProps {
 	/** The background site-plan image (an aerial / blueprint). Hosted by the consumer. */
 	backgroundUrl: string;
-	/** Villa overlay data, in image-pixel space. See `@wakecap/core-ui/site-image-viewer-fixtures` for the real ROSHN Almanar set. */
+	/** Villa overlay data, in image-pixel space. See `@core/core-ui/site-image-viewer-fixtures` for the real ROSHN Almanar set. */
 	villas: Villa[];
 	/**
 	 * Optional block-level hull polygons (one per block), in the SAME image-pixel space as `villas`. When

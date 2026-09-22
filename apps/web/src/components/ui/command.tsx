@@ -8,4 +8,4 @@ export {
 	CommandItem,
 	CommandShortcut,
 	CommandSeparator,
-} from "@wakecap/core-ui/command";
+} from "@core/core-ui/command";

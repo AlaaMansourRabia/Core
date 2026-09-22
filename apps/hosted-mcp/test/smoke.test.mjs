@@ -2,10 +2,10 @@
 // tools/call). Proves an editor can actually talk to the hosted server. Runs against the built dist,
 // so `pnpm build` (knowledge + app) must run first.
 
+import {createKnowledge} from "@core/knowledge";
 import {Client} from "@modelcontextprotocol/sdk/client/index.js";
 import {StdioClientTransport} from "@modelcontextprotocol/sdk/client/stdio.js";
 import {StreamableHTTPClientTransport} from "@modelcontextprotocol/sdk/client/streamableHttp.js";
-import {createKnowledge} from "@wakecap/knowledge";
 import assert from "node:assert/strict";
 import {test} from "node:test";
 
@@ -36,7 +36,7 @@ test("stdio transport: initialize, list, and call tools", async () => {
 
 		const rt = await client.callTool({name: "resolve_template", arguments: {intent: "admin settings management page"}});
 		const env = envelopeOf(rt);
-		assert.equal(env.apiVersion, "wakecore-knowledge/2026-07");
+		assert.equal(env.apiVersion, "core-knowledge/2026-07");
 		assert.equal(env.ok, true);
 		assert.ok(env.data.candidates.some((c) => c.name === "CoreAdminPanel"));
 
@@ -78,7 +78,7 @@ test("http (Streamable) transport: initialize, list, and call tools", async () =
 
 		const bad = await client.callTool({
 			name: "validate",
-			arguments: {code: 'import {Button} from "@wakecap/core-ui";'},
+			arguments: {code: 'import {Button} from "@core/core-ui";'},
 		});
 		const env = envelopeOf(bad);
 		assert.equal(env.ok, true, "tool ran");
@@ -87,7 +87,7 @@ test("http (Streamable) transport: initialize, list, and call tools", async () =
 		const approximation = await client.callTool({
 			name: "validate",
 			arguments: {
-				mode: "wakecore-only",
+				mode: "core-only",
 				template: "timesheet",
 				code: "<!doctype html><html><style>.card{}</style><div>Workers</div></html>",
 			},

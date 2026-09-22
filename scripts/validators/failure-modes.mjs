@@ -12,7 +12,7 @@ import {stripComments, usesJsx} from "./util.mjs";
 
 const METRIC = "failure-mode";
 
-// Tailwind-ish utility roots that, when used WITHOUT the wwc: prefix on a Wakecore
+// Tailwind-ish utility roots that, when used WITHOUT the wwc: prefix on a Core
 // component, signal the unprefixed-className failure (fm-prim-5 / fm-setup-4 / fm-utils-3).
 const UNPREFIXED_UTIL =
 	/className=(?:"|'|\{?\s*(?:cn\()?["'])([^"'`]*\b(?:bg|text|p|px|py|m|mx|my|w|h|rounded|flex|grid|border)-[a-z0-9-]+)/;
@@ -37,7 +37,7 @@ const DETECTORS = [
 		id: "fm-form-3",
 		detect: (c) =>
 			/import\s*\{[^}]*\bForm(?:Field|Item|Control|Label|Message)?\b[^}]*\}\s*from\s*["']react-hook-form["']/.test(c),
-		fix: 'Import Form* components from "@wakecap/core-ui/form", not react-hook-form.',
+		fix: 'Import Form* components from "@core/core-ui/form", not react-hook-form.',
 	},
 	{
 		id: "fm-form-1",
@@ -57,7 +57,7 @@ const DETECTORS = [
 	{
 		id: "fm-chart-1",
 		detect: (c) => /from\s*["']echarts-for-react["']/.test(c) || usesJsx(c, "ReactECharts"),
-		fix: "Use <ChartContainer> from @wakecap/core-ui/chart instead of ReactECharts directly.",
+		fix: "Use <ChartContainer> from @core/core-ui/chart instead of ReactECharts directly.",
 	},
 	{
 		id: "fm-tok-1",
@@ -67,7 +67,7 @@ const DETECTORS = [
 	{
 		id: "fm-prim-5",
 		detect: hasUnprefixedUtility,
-		fix: "Prefix Tailwind utilities passed to Wakecore components with wwc: (e.g. wwc:bg-red-500).",
+		fix: "Prefix Tailwind utilities passed to Core components with wwc: (e.g. wwc:bg-red-500).",
 	},
 ];
 

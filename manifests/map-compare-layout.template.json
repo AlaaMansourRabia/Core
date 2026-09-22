@@ -10,7 +10,7 @@
   "manifestStatus": "complete",
   "source": {
     "path": "packages/components/src/pages/core-map-compare-layout.tsx",
-    "import": "@wakecap/core-ui/pages/core-map-compare-layout",
+    "import": "@core/core-ui/pages/core-map-compare-layout",
     "export": "MapCompareLayout"
   },
 
@@ -38,7 +38,7 @@
     {
       "id": "compare-surface",
       "role": "Two geo-aligned map sources (as-planned / as-built) in one pannable, zoomable compare view with swipe/split modes",
-      "source": "MapCompareLayout widget (@wakecap/core-ui/map-compare-layout) — map + compareMap slots wrapping a CompareView",
+      "source": "MapCompareLayout widget (@core/core-ui/map-compare-layout) — map + compareMap slots wrapping a CompareView",
       "required": true,
       "recommended": ["MapCompareLayout"]
     },
@@ -51,7 +51,7 @@
     {
       "id": "per-view-pickers",
       "role": "A TimestampPicker centered over each view (shown only while comparing) to scrub that side's capture date",
-      "source": "TimestampPicker (@wakecap/core-ui/timestamp-picker) in the mapCenter / compareMapCenter slots",
+      "source": "TimestampPicker (@core/core-ui/timestamp-picker) in the mapCenter / compareMapCenter slots",
       "required": true,
       "recommended": ["TimestampPicker"]
     },
@@ -65,7 +65,7 @@
     {
       "id": "session-timeline",
       "role": "A bottom-docked TimelineRangeSelector (shown only while comparing) whose two handles scrub the compared dates, kept in sync with the per-view pickers",
-      "source": "TimelineRangeSelector (@wakecap/core-ui/timeline-range-selector) in the bottomBar slot",
+      "source": "TimelineRangeSelector (@core/core-ui/timeline-range-selector) in the bottomBar slot",
       "required": false,
       "recommended": ["TimelineRangeSelector"],
       "note": "Enabled via the withSessionTimeline prop."
@@ -172,7 +172,7 @@
     }
   ],
 
-  "minimalExample": "// MapCompareLayout is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {TimestampPicker} from \"@wakecap/core-ui/timestamp-picker\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+  "minimalExample": "// MapCompareLayout is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {TimestampPicker} from \"@core/core-ui/timestamp-picker\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 
   "evaluationCriteria": [
     {"id": "tier-selection", "metric": "tier-selection", "check": "MapWorkspace chosen for a two-source map comparison — not a Dashboard (KPIs + list + map) or a plain single Map."},

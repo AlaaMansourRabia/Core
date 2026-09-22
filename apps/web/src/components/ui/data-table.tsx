@@ -6,5 +6,5 @@ export {
 	DataTableRowGroup,
 	DataTableTreeCell,
 	DataTableDetailPanel,
-} from "@wakecap/core-ui/data-table";
-export type {DataTableProps, BulkAction} from "@wakecap/core-ui/data-table";
+} from "@core/core-ui/data-table";
+export type {DataTableProps, BulkAction} from "@core/core-ui/data-table";

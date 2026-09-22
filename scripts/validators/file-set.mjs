@@ -1,4 +1,4 @@
-// Dependency-free normalization and WakeCore artifact coverage for multi-file input.
+// Dependency-free normalization and Core artifact coverage for multi-file input.
 
 const SOURCE_RE = /\.(?:[cm]?[jt]sx?)$/i;
 const CSS_RE = /\.(?:css|scss|sass|less)$/i;
@@ -39,8 +39,8 @@ function catalogTier(catalog, name) {
 	return "unknown";
 }
 
-/** Parse named imports, retaining aliases, from WakeCore modules. */
-export function wakecoreImports(files, coreUi = "@wakecap/core-ui") {
+/** Parse named imports, retaining aliases, from Core modules. */
+export function coreImports(files, coreUi = "@core/core-ui") {
 	const imports = [];
 	for (const file of sourceFiles(files)) {
 		const re = /import\s+([\s\S]*?)\s+from\s+["']([^"']+)["']/g;
@@ -63,7 +63,7 @@ export function wakecoreImports(files, coreUi = "@wakecap/core-ui") {
 }
 
 export function analyzeCoverage(files, catalog, visibility) {
-	const importedRecords = wakecoreImports(files, catalog?.coreUi);
+	const importedRecords = coreImports(files, catalog?.coreUi);
 	const renderedRecords = [];
 	for (const imported of importedRecords) {
 		const renderedIn = sourceFiles(files)
@@ -93,7 +93,7 @@ export function analyzeCoverage(files, catalog, visibility) {
 }
 
 export function extractInventory(files) {
-	const candidates = files.filter((file) => /(?:wakecore[-_.]?)?inventory\.json$/i.test(file.path));
+	const candidates = files.filter((file) => /(?:core[-_.]?)?inventory\.json$/i.test(file.path));
 	const parsed = [];
 	for (const file of candidates) {
 		try {

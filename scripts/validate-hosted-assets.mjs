@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-// Guards the two ways a hosted image silently turns into a broken <img> on core.wakecap.com.
-// Both bit the Wakecore logo before: the Storybook sidebar mark and the /login screen's mark.
+// Guards the two ways a hosted image silently turns into a broken <img> on core.core.com.
+// Both bit the Core logo before: the Storybook sidebar mark and the /login screen's mark.
 //
 //   1. SUBPATH — Storybook is built with SB_BASE=/storybook/ and embedded under that prefix. A
-//      root-absolute src ("/wakecore-large.svg") leaves Storybook entirely and lands on the app
+//      root-absolute src ("/core-large.svg") leaves Storybook entirely and lands on the app
 //      root, which does not serve Storybook's public/ files. Assets the Storybook chrome points at
 //      must be relative so they resolve against the manager's <base href="/storybook/">.
 //
@@ -27,18 +27,18 @@ const ASSET_REF = /["'`](\/[A-Za-z0-9_./-]+\.(?:svg|png|jpe?g|webp|avif|gif|ico)
 const refsIn = (file) => [...new Set([...read(file).matchAll(ASSET_REF)].map((m) => m[1]))];
 
 // ── 1. Storybook chrome assets must be subpath-safe ──────────────────────────────────────────────
-const THEME = "apps/storybook/.storybook/wakecap-theme.ts";
+const THEME = "apps/storybook/.storybook/core-theme.ts";
 const theme = read(THEME);
 const brandImages = [...theme.matchAll(/brandImage:\s*["'`]([^"'`]+)["'`]/g)].map((m) => m[1]);
 
-if (brandImages.length === 0) fail(`${THEME}: no brandImage found — expected the Wakecore mark.`);
+if (brandImages.length === 0) fail(`${THEME}: no brandImage found — expected the Core mark.`);
 
 for (const src of brandImages) {
 	if (/^(https?:|data:)/.test(src)) continue; // absolute URL / inlined — immune to the base path
 	if (src.startsWith("/")) {
 		fail(
 			`${THEME}: brandImage "${src}" is root-absolute. Hosted, it resolves to ` +
-				`core.wakecap.com${src} — outside /storybook/ — and renders broken. Drop the leading slash.`,
+				`core.core.com${src} — outside /storybook/ — and renders broken. Drop the leading slash.`,
 		);
 		continue;
 	}

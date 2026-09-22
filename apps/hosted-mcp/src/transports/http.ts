@@ -7,7 +7,7 @@
 //   GET /metrics  in-memory per-capability counters
 // stdout is free here (HTTP, not stdio), but we still log to stderr for consistency.
 
-import type {Knowledge} from "@wakecap/knowledge";
+import type {Knowledge} from "@core/knowledge";
 
 import {StreamableHTTPServerTransport} from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import {randomUUID} from "node:crypto";

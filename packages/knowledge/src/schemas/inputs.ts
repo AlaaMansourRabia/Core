@@ -8,19 +8,14 @@ import {z} from "zod";
 import {ARTIFACT_RESPONSIVE_BEHAVIORS} from "../model/record";
 
 const TIERS = ["template", "widget", "component", "pattern", "utility"] as const;
-const IMPLEMENTATION_GOALS = [
-	"product-ui",
-	"wakecore-showcase",
-	"component-evaluation",
-	"visual-reproduction",
-] as const;
+const IMPLEMENTATION_GOALS = ["product-ui", "core-showcase", "component-evaluation", "visual-reproduction"] as const;
 const VALIDATION_MODES = [
 	"standard",
-	"wakecore-only",
-	"wakecore-imports",
-	"wakecore-product",
-	"wakecore-showcase",
-	"wakecore-template-strict",
+	"core-only",
+	"core-imports",
+	"core-product",
+	"core-showcase",
+	"core-template-strict",
 ] as const;
 
 const implementationGoal = z.enum(IMPLEMENTATION_GOALS);
@@ -119,8 +114,8 @@ const moduleBoundaryInput = z.object({
 const shellContractInput = z.object({
 	id: z.string().min(1).optional(),
 	persistentAcrossRoutes: z.boolean().optional(),
-	sidebar: z.string().min(1).optional().describe("WakeCore catalog id or name for the shared sidebar."),
-	topBar: z.string().min(1).optional().describe("WakeCore catalog id or name for the shared top bar."),
+	sidebar: z.string().min(1).optional().describe("Core catalog id or name for the shared sidebar."),
+	topBar: z.string().min(1).optional().describe("Core catalog id or name for the shared top bar."),
 	density: shellDensity.optional(),
 	brandKey: z.string().min(1).optional(),
 	navigationFingerprint: z.string().min(1).optional(),
@@ -163,7 +158,7 @@ const routeContractInput = z.object({
 	id: z.string().min(1),
 	path: z.string().min(1).optional(),
 	intent: z.string().min(1).optional(),
-	template: z.string().min(1).optional().describe("WakeCore catalog template id or name for this route."),
+	template: z.string().min(1).optional().describe("Core catalog template id or name for this route."),
 	files: z
 		.array(z.string().min(1))
 		.optional()
@@ -174,7 +169,7 @@ const routeContractInput = z.object({
 });
 
 const artifactContractV2 = artifactContractV1.extend({
-	contractVersion: z.literal("wakecore-artifact-contract/2"),
+	contractVersion: z.literal("core-artifact-contract/2"),
 	shell: z.object({
 		id: z.string().min(1),
 		persistentAcrossRoutes: z.boolean(),
@@ -462,18 +457,18 @@ export const validateInput = z
 			.enum(VALIDATION_MODES)
 			.optional()
 			.default("standard")
-			.describe("Validation level. wakecore-only is a deprecated alias for wakecore-imports."),
+			.describe("Validation level. core-only is a deprecated alias for core-imports."),
 		template: z
 			.string()
 			.min(1)
 			.optional()
 			.describe(
-				"Expected WakeCore template id/name for direct-template mode. Omit for adapt-template or composition plans.",
+				"Expected Core template id/name for direct-template mode. Omit for adapt-template or composition plans.",
 			),
 		implementationPlan: implementationPlan
 			.optional()
 			.describe("Plan and artifact contract returned before implementation."),
-		runtimeAudit: runtimeAudit.optional().describe("WakeCore-owned runtime evidence tied to the implementation plan."),
+		runtimeAudit: runtimeAudit.optional().describe("Core-owned runtime evidence tied to the implementation plan."),
 	})
 	.refine((input) => Boolean(input.code || input.files?.length), {message: "Provide `code` or `files`."})
 	.superRefine((input, ctx) => {

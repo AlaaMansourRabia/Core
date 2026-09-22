@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import * as React from "react";
 
 import {SideMenu, type SideMenuGroup} from "./side-menu";
@@ -57,7 +57,7 @@ export function RecordDetailShell({
 }: RecordDetailShellProps) {
 	return (
 		<div
-			data-wakecore-artifact="record-detail-shell"
+			data-core-artifact="record-detail-shell"
 			className={cn("wwc:flex wwc:min-h-0 wwc:flex-1 wwc:flex-col wwc:md:flex-row", className)}
 		>
 			{/* The rail never searches: a record has a handful of sections, and a search box over six

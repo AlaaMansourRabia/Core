@@ -1,1 +1,1 @@
-export {ChatPanel} from "@wakecap/core-ui/chat/core-chat-panel";
+export {ChatPanel} from "@core/core-ui/chat/core-chat-panel";

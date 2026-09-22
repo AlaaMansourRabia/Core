@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
+import {MetricCard} from "@core/core-ui/metric-card";
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
-import {MetricCard} from "@wakecap/core-ui/metric-card";
 import {Activity, CheckCircle2, Shield, Users} from "lucide-react";
 
 import metricCardManifest from "../../../../manifests/metric-card.widget.json";

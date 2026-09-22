@@ -1,7 +1,7 @@
-import type {Villa} from "@wakecap/core-ui/site-image-viewer";
+import type {Villa} from "@core/core-ui/site-image-viewer";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ProgressSheet, type TimelineWeek} from "@wakecap/core-ui/progress-sheet";
+import {ProgressSheet, type TimelineWeek} from "@core/core-ui/progress-sheet";
 import {useState} from "react";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -48,7 +48,7 @@ const ALL_VILLAS: Villa[] = Array.from({length: 48}, (_, i) => {
 
 const SELECTED = TIMELINE[18];
 
-// The bottom Progress Overview sheet as a controlled Wakecore widget: a week-timeline scrubber in the
+// The bottom Progress Overview sheet as a controlled Core widget: a week-timeline scrubber in the
 // bottom toolbar plus the pull-up Reports sheet (§1 milestone-progression waffle + §3 plan-vs-reality
 // timing band). This harness owns `capture` + `reportsOpen` and feeds them back through the callbacks.
 const meta = {

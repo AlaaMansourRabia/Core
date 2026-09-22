@@ -1,6 +1,6 @@
 import type {Connection, Edge, FinalConnectionState, Node, NodeProps} from "@xyflow/react";
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {Handle, Position, useEdgesState, useNodesState} from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import {ArrowLeft, ArrowRight, CheckCircle2, Download, Play, Trash2, TriangleAlert, XCircle} from "lucide-react";
@@ -102,7 +102,7 @@ const portTop = (index: number, count: number) => 20 + index * 18 + (count === 1
 const shortLabel = (label: string) => (label.length > 18 ? `${label.slice(0, 18)}…` : label);
 
 /**
- * A node on the canvas. Same visual language as the two read-only canvases (a plain div on Wakecore
+ * A node on the canvas. Same visual language as the two read-only canvases (a plain div on Core
  * tokens, never React Flow chrome) with ONE deliberate difference: handles are VISIBLE and carry the
  * port's identity colour. Colour is the only type affordance a wiring UI has, so hiding the handles
  * the way wc3-graph-explorer-flow.tsx and wc3-lineage-data-view.tsx do would make typed ports

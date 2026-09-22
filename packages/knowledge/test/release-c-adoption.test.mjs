@@ -20,14 +20,14 @@ const productPlan = {
 	substitutions: [],
 };
 
-test("wakecore-imports remains a compatibility-level import check even with authored CSS", async () => {
+test("core-imports remains a compatibility-level import check even with authored CSS", async () => {
 	const result = await kb.callTool("validate", {
-		mode: "wakecore-imports",
+		mode: "core-imports",
 		files: [
 			{
 				path: "src/App.tsx",
 				language: "tsx",
-				content: 'import {Button} from "@wakecap/core-ui/button"; export default () => <Button>Go</Button>;',
+				content: 'import {Button} from "@core/core-ui/button"; export default () => <Button>Go</Button>;',
 			},
 			{path: "src/app.css", language: "css", content: ".app { color: #123456; }"},
 		],
@@ -39,13 +39,13 @@ test("wakecore-imports remains a compatibility-level import check even with auth
 
 test("product validation rejects primitive-only output against its artifact contract", async () => {
 	const result = await kb.callTool("validate", {
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan: productPlan,
 		files: [
 			{
 				path: "src/App.tsx",
 				language: "tsx",
-				content: 'import {Button} from "@wakecap/core-ui/button"; export default () => <Button>Go</Button>;',
+				content: 'import {Button} from "@core/core-ui/button"; export default () => <Button>Go</Button>;',
 			},
 		],
 	});
@@ -56,10 +56,10 @@ test("product validation rejects primitive-only output against its artifact cont
 
 test("product validation detects a manually recreated standard sidebar", async () => {
 	const result = await kb.callTool("validate", {
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan: productPlan,
 		code: `
-			import {Sidebar, SidebarHeader, SidebarContent, SidebarMenu, SidebarFooter} from "@wakecap/core-ui/sidebar";
+			import {Sidebar, SidebarHeader, SidebarContent, SidebarMenu, SidebarFooter} from "@core/core-ui/sidebar";
 			export default () => <Sidebar><SidebarHeader/><SidebarContent/><SidebarMenu/><SidebarFooter/></Sidebar>;
 		`,
 	});
@@ -69,11 +69,11 @@ test("product validation detects a manually recreated standard sidebar", async (
 
 test("a full contracted showcase passes with relevant widgets, utility, inventory, and token CSS", async () => {
 	const result = await kb.callTool("validate", {
-		mode: "wakecore-showcase",
+		mode: "core-showcase",
 		implementationPlan: {
 			planId: "plan_showcase_fixture",
 			contractVersion: "artifact-contract/1",
-			goal: "wakecore-showcase",
+			goal: "core-showcase",
 			implementationMode: "adapt-template",
 			referenceTemplate: "analytics-overview",
 			artifactContract: {
@@ -95,11 +95,11 @@ test("a full contracted showcase passes with relevant widgets, utility, inventor
 				path: "src/App.tsx",
 				language: "tsx",
 				content: `
-					import {CoreAppSidebar} from "@wakecap/core-ui/navigation/core-app-sidebar";
-					import {CoreAppTopBar} from "@wakecap/core-ui/navigation/core-app-top-bar";
-					import {TrendChart} from "@wakecap/core-ui/trend-chart";
-					import {CoreContentArea} from "@wakecap/core-ui/pages/core-content-area";
-					export const wakecoreInventory = {templates: [], widgets: ["CoreAppSidebar", "CoreAppTopBar", "TrendChart"], components: [], tokens: ["color.background.surface"]};
+					import {CoreAppSidebar} from "@core/core-ui/navigation/core-app-sidebar";
+					import {CoreAppTopBar} from "@core/core-ui/navigation/core-app-top-bar";
+					import {TrendChart} from "@core/core-ui/trend-chart";
+					import {CoreContentArea} from "@core/core-ui/pages/core-content-area";
+					export const coreInventory = {templates: [], widgets: ["CoreAppSidebar", "CoreAppTopBar", "TrendChart"], components: [], tokens: ["color.background.surface"]};
 					export default () => <CoreContentArea><CoreAppSidebar/><CoreAppTopBar/><TrendChart/></CoreContentArea>;
 				`,
 			},
@@ -115,12 +115,12 @@ test("a full contracted showcase passes with relevant widgets, utility, inventor
 	assert.equal(result.data.scores.widgetCoverage, 1);
 });
 
-test("wakecore-only reports its deprecation alias", async () => {
+test("core-only reports its deprecation alias", async () => {
 	const result = await kb.callTool("validate", {
-		mode: "wakecore-only",
-		code: 'import {Button} from "@wakecap/core-ui/button"; export default () => <Button>Go</Button>;',
+		mode: "core-only",
+		code: 'import {Button} from "@core/core-ui/button"; export default () => <Button>Go</Button>;',
 	});
-	assert.equal(result.data.effectiveMode, "wakecore-imports");
+	assert.equal(result.data.effectiveMode, "core-imports");
 	assert.ok(result.warnings.some((warning) => warning.code === "validation_mode.deprecated"));
 });
 
@@ -133,9 +133,9 @@ test("product validation detects a plan contract changed after planning", async 
 	const tampered = structuredClone(planned.data);
 	tampered.artifactContract.required = [];
 	const result = await kb.callTool("validate", {
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan: tampered,
-		code: 'import {Button} from "@wakecap/core-ui/button"; export default () => <Button>Go</Button>;',
+		code: 'import {Button} from "@core/core-ui/button"; export default () => <Button>Go</Button>;',
 	});
 	assert.equal(result.data.compliant, false);
 	assert.ok(result.data.findings.some((finding) => finding.metric === "artifact-contract-integrity"));

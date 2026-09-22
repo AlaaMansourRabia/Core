@@ -1,4 +1,4 @@
-import {Input} from "@wakecap/core-ui/input";
+import {Input} from "@core/core-ui/input";
 import {Check, Copy, ExternalLink, GitBranch, Loader2, SquareArrowOutUpRight, TriangleAlert} from "lucide-react";
 import {useEffect, useRef, useState} from "react";
 
@@ -24,7 +24,7 @@ function launchMessage(label: string, launch: LaunchResult): string {
 }
 
 // The Edit launcher. For Claude Code, Studio opens a BROWSER Remote Control session bound to the local
-// WakeCore repo (isolated git worktree) — the session already has the template + WakeCore knowledge (MCP,
+// Core repo (isolated git worktree) — the session already has the template + Core knowledge (MCP,
 // SDK, skills, CLAUDE.md) from the repo itself. For other editors it materializes a local workspace. Either
 // way Studio only prepares + launches, then steps out — it never watches or previews the editing session.
 export function EditLauncher({templateId}: {templateId: string}) {
@@ -133,8 +133,8 @@ export function EditLauncher({templateId}: {templateId: string}) {
 							<p className="wwc:mt-1 wwc:text-xs wwc:text-muted-foreground">
 								{isClaude
 									? mode === "browser"
-										? "Opens Claude Code in your browser, in an isolated copy of WakeCore that already knows this template. Your edits stay on their own branch."
-										: "Opens Claude Code in a terminal (VS Code too), in an isolated copy of WakeCore that already knows this template."
+										? "Opens Claude Code in your browser, in an isolated copy of Core that already knows this template. Your edits stay on their own branch."
+										: "Opens Claude Code in a terminal (VS Code too), in an isolated copy of Core that already knows this template."
 									: "Creates a separate workspace and opens it in your editor. Changes appear in Studio only after review and merge."}
 							</p>
 
@@ -207,7 +207,7 @@ export function EditLauncher({templateId}: {templateId: string}) {
 											id="wc-ws-location"
 											value={location}
 											onChange={(e) => setLocation(e.target.value)}
-											placeholder="~/wakecore-workspaces/…"
+											placeholder="~/core-workspaces/…"
 											className="wwc:mt-1 wwc:font-mono wwc:text-xs"
 											spellCheck={false}
 										/>
@@ -275,9 +275,9 @@ export function EditLauncher({templateId}: {templateId: string}) {
 								{session.error
 									? `${session.error} `
 									: session.launch.target === "terminal"
-										? "Working in an isolated worktree of the WakeCore repo. Run the command below in any terminal — Terminal.app, iTerm, or VS Code's integrated terminal. Your edits stay on this session's branch and never touch the original."
+										? "Working in an isolated worktree of the Core repo. Run the command below in any terminal — Terminal.app, iTerm, or VS Code's integrated terminal. Your edits stay on this session's branch and never touch the original."
 										: session.launch.launched
-											? "Opened in your browser, working in an isolated worktree of the WakeCore repo. Your edits stay on this session's branch and never touch the original template."
+											? "Opened in your browser, working in an isolated worktree of the Core repo. Your edits stay on this session's branch and never touch the original template."
 											: ""}
 							</p>
 							{session.branch && (

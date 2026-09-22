@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/new-interface-dialog";
+export * from "@core/core-ui/new-interface-dialog";

@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/pages/run-action-dialog";
+export * from "@core/core-ui/pages/run-action-dialog";

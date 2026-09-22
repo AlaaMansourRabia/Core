@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {OperationsDrawer} from "@wakecap/core-ui/operations-drawer";
+import {OperationsDrawer} from "@core/core-ui/operations-drawer";
 import {useState} from "react";
 
 const meta = {
@@ -11,7 +11,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					"A drawer for reviewing and updating the operations under a single object. The header carries the object identifier, its WBS path, an overall progress bar, and a walkthrough button; a compact table lists each operation with its WT / PREV / BAC / EV metrics and an editable progress field; the footer discards or saves the changes (Save stays disabled until a progress value changes). Composed from Wakecore Table, Progress, Input, and Button.",
+					"A drawer for reviewing and updating the operations under a single object. The header carries the object identifier, its WBS path, an overall progress bar, and a walkthrough button; a compact table lists each operation with its WT / PREV / BAC / EV metrics and an editable progress field; the footer discards or saves the changes (Save stays disabled until a progress value changes). Composed from Core Table, Progress, Input, and Button.",
 			},
 		},
 	},

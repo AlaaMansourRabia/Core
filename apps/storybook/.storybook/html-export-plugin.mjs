@@ -1,6 +1,6 @@
 import {buildStoryHtml} from "../../../standalone/story-html.mjs";
 
-const ENDPOINT = "/__wakecore/export-html";
+const ENDPOINT = "/__core/export-html";
 const MAX_BODY_BYTES = 64 * 1024;
 
 function readJsonBody(request) {
@@ -28,9 +28,9 @@ function filenameFor(entry) {
 		.replace(/^-+|-+$/g, "")}.html`;
 }
 
-export function wakecoreHtmlExportPlugin() {
+export function coreHtmlExportPlugin() {
 	return {
-		name: "wakecore-clickable-html-export",
+		name: "core-clickable-html-export",
 		configureServer(server) {
 			server.middlewares.use(ENDPOINT, async (request, response) => {
 				if (request.method !== "POST") {

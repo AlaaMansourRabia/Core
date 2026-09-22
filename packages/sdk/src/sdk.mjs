@@ -1,4 +1,4 @@
-// Phase 6 prototype — the WakeCore SDK (subset), implementing the Phase 2 capability contract against
+// Phase 6 prototype — the Core SDK (subset), implementing the Phase 2 capability contract against
 // the real catalog and emitting the Phase 5 PageInstance (page-instance/0.1). Deterministic; no LLM.
 // Implements: loadManifest, resolveTemplate, resolveWidgets, validateComposition, generatePageInstance,
 // validatePage. Advisory (resolve*) vs authoritative (validate*) is preserved.
@@ -28,7 +28,7 @@ const norm = (w) => (typeof w === "string" ? {name: w} : w);
 
 export function createSdk(cat) {
 	const prov = (arts) => ({
-		sdkVersion: "wakecore-sdk/1",
+		sdkVersion: "core-sdk/1",
 		manifestSchema: "artifact-manifest/0.2",
 		pageInstanceSchema: "page-instance/0.1",
 		knowledge: {status: "candidate", confidence: "unset"},

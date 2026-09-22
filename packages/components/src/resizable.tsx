@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {GripVertical} from "lucide-react";
 import {Group, Panel, Separator} from "react-resizable-panels";
 

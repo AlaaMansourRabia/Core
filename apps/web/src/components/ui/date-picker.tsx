@@ -6,7 +6,7 @@ export {
 	DateTimePicker,
 	DateRangePicker,
 	DateRangeTimePicker,
-} from "@wakecap/core-ui/date-picker";
+} from "@core/core-ui/date-picker";
 export type {
 	DatePickerProps,
 	DatePickerWithPresetsProps,
@@ -15,4 +15,4 @@ export type {
 	DateTimePickerProps,
 	DateRangePickerProps,
 	DateRangeTimePickerProps,
-} from "@wakecap/core-ui/date-picker";
+} from "@core/core-ui/date-picker";

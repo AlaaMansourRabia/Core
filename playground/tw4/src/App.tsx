@@ -1,6 +1,6 @@
-import { Button } from "@wakecap/core-ui/button";
-import { Card } from "@wakecap/core-ui/card";
-import { Badge } from "@wakecap/core-ui/badge";
+import { Button } from "@core/core-ui/button";
+import { Card } from "@core/core-ui/card";
+import { Badge } from "@core/core-ui/badge";
 
 export default function App() {
 	return (

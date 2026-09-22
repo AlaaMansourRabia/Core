@@ -5,7 +5,7 @@ import {validateRuntimeAudit} from "../dist/validate/runtime-audit.mjs";
 
 const implementationPlan = {
 	planId: "plan_routes",
-	contractVersion: "wakecore-artifact-contract/2",
+	contractVersion: "core-artifact-contract/2",
 	artifactContract: {
 		shell: {
 			id: "operations-shell",
@@ -13,7 +13,7 @@ const implementationPlan = {
 			sidebar: {id: "core-app-sidebar"},
 			topBar: {id: "core-app-top-bar"},
 			density: "comfortable",
-			brandKey: "wakecore",
+			brandKey: "core",
 			navigationFingerprint: "primary-nav",
 			providerOwner: "application-root",
 			layoutOwnership: {contiguous: true, sidebarStationary: true, scrollOwner: "route-content"},
@@ -36,7 +36,7 @@ const routeEvidence = (route, interaction) => ({
 		density: "comfortable",
 		sidebarDensity: "comfortable",
 		topBarDensity: "comfortable",
-		brandKey: "wakecore",
+		brandKey: "core",
 		navigationFingerprint: "primary-nav",
 		providerOwner: "application-root",
 		domPersistent: true,
@@ -101,24 +101,24 @@ const routeEvidence = (route, interaction) => ({
 });
 
 test("contract v2 product validation blocks missing runtime evidence", () => {
-	const result = validateRuntimeAudit({mode: "wakecore-product", implementationPlan});
+	const result = validateRuntimeAudit({mode: "core-product", implementationPlan});
 	assert.equal(result.scores.routeRuntimeCoverage, 0);
 	assert.ok(result.findings.some((finding) => finding.metric === "runtime-audit" && !finding.pass));
 });
 
 test("contract v2 screenshot validation blocks missing runtime evidence in strict mode", () => {
 	const screenshotPlan = {...implementationPlan, goal: "visual-reproduction"};
-	const result = validateRuntimeAudit({mode: "wakecore-template-strict", implementationPlan: screenshotPlan});
+	const result = validateRuntimeAudit({mode: "core-template-strict", implementationPlan: screenshotPlan});
 	assert.equal(result.scores.routeRuntimeCoverage, 0);
 	assert.ok(result.findings.some((finding) => finding.metric === "runtime-audit" && !finding.pass));
 });
 
 test("contract v2 rejects evidence from the pre-fingerprint runtime harness", () => {
 	const result = validateRuntimeAudit({
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan,
 		runtimeAudit: {
-			producer: "wakecore-runtime-audit/1",
+			producer: "core-runtime-audit/1",
 			version: "1",
 			planId: "plan_routes",
 			generatedAt: "2026-07-16T00:00:00.000Z",
@@ -130,10 +130,10 @@ test("contract v2 rejects evidence from the pre-fingerprint runtime harness", ()
 
 test("runtime evidence covers routes, shared shell, history, and required interactions", () => {
 	const result = validateRuntimeAudit({
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan,
 		runtimeAudit: {
-			producer: "wakecore-runtime-audit/4",
+			producer: "core-runtime-audit/4",
 			version: "4",
 			planId: "plan_routes",
 			generatedAt: "2026-07-16T00:00:00.000Z",
@@ -173,10 +173,10 @@ test("runtime evidence rejects shell drift, reloads, and failed interactions", (
 	studio.reloadDetected = true;
 	studio.interactions[0].passed = false;
 	const result = validateRuntimeAudit({
-		mode: "wakecore-showcase",
+		mode: "core-showcase",
 		implementationPlan,
 		runtimeAudit: {
-			producer: "wakecore-runtime-audit/4",
+			producer: "core-runtime-audit/4",
 			version: "4",
 			planId: "plan_routes",
 			generatedAt: "2026-07-16T00:00:00.000Z",
@@ -204,10 +204,10 @@ test("runtime evidence rejects decorative canvas controls and peer-route back na
 	studio.canvasCapabilities = [{region: "canvas", capabilities: ["zoom"], observableStateChanged: false}];
 	studio.navigationAffordances = [{purpose: "back", relationship: "peer", destination: "/"}];
 	const result = validateRuntimeAudit({
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan: plan,
 		runtimeAudit: {
-			producer: "wakecore-runtime-audit/4",
+			producer: "core-runtime-audit/4",
 			version: "4",
 			planId: "plan_routes",
 			generatedAt: "2026-07-18T00:00:00.000Z",
@@ -228,10 +228,10 @@ test("runtime evidence rejects duplicate surface boundaries and narrow responsiv
 	home.responsiveAudits[1].identityWidths = [{id: "identity", width: 140}];
 	home.responsiveAudits[1].unlabeledIconActions = ["<button><svg /></button>"];
 	const result = validateRuntimeAudit({
-		mode: "wakecore-product",
+		mode: "core-product",
 		implementationPlan,
 		runtimeAudit: {
-			producer: "wakecore-runtime-audit/4",
+			producer: "core-runtime-audit/4",
 			version: "4",
 			planId: "plan_routes",
 			generatedAt: "2026-07-18T00:00:00.000Z",

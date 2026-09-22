@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {TooltipProvider} from "@wakecap/core-ui/tooltip";
+import {TooltipProvider} from "@core/core-ui/tooltip";
 
 // The Capture UI variation now renders the real villa-level experience from the Site Viewer — the same
 // house-level BIM view you drill into from the site map, minus the map. SingleHouseView composes the

@@ -1,3 +1,5 @@
+import type {Feature, GeoJsonProperties, Geometry} from "geojson";
+
 import {
 	AlertTriangle,
 	Anchor,
@@ -44,6 +46,8 @@ import {Label} from "@/components/ui/label";
 import {MAPBOX_TOKEN, MapControls} from "@/components/ui/map-controls";
 import {Separator} from "@/components/ui/separator";
 import {Switch} from "@/components/ui/switch";
+
+type MapFeature = Feature<Geometry, GeoJsonProperties> & {id?: string | number};
 
 type MarkerType = string;
 
@@ -437,7 +441,9 @@ export function MapPage() {
 
 		// Click on cluster to zoom
 		mapRef.current.on("click", "clusters", (e) => {
-			const features = mapRef.current?.queryRenderedFeatures(e.point, {layers: ["clusters"]});
+			const features = mapRef.current?.queryRenderedFeatures(e.point, {layers: ["clusters"]}) as
+				| MapFeature[]
+				| undefined;
 			if (!features?.length) return;
 			const clusterId = features[0].properties?.cluster_id;
 			const source = mapRef.current?.getSource("locations-cluster") as mapboxgl.GeoJSONSource;
@@ -452,8 +458,9 @@ export function MapPage() {
 
 		// Click on unclustered point for popup
 		mapRef.current.on("click", "unclustered-point", (e) => {
-			const coordinates = (e.features?.[0].geometry as GeoJSON.Point).coordinates.slice() as [number, number];
-			const {name, description} = e.features?.[0].properties as {name: string; description: string};
+			const feature = e.features?.[0] as MapFeature | undefined;
+			const coordinates = (feature?.geometry as GeoJSON.Point).coordinates.slice() as [number, number];
+			const {name, description} = feature?.properties as {name: string; description: string};
 
 			new mapboxgl.Popup()
 				.setLngLat(coordinates)

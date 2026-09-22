@@ -1,10 +1,10 @@
 {
-	"name": "wakecore-hosted-mcp",
+	"name": "core-hosted-mcp",
 	"version": "0.1.0",
 	"private": true,
-	"description": "WakeCore Hosted MCP — the hosted server that exposes the @wakecap/knowledge capability API to any AI editor over MCP (Streamable HTTP + stdio), with health, schemas, and structured logging.",
+	"description": "Core Hosted MCP — the hosted server that exposes the @core/knowledge capability API to any AI editor over MCP (Streamable HTTP + stdio), with health, schemas, and structured logging.",
 	"bin": {
-		"wakecore-hosted-mcp": "./dist/main.mjs"
+		"core-hosted-mcp": "./dist/main.mjs"
 	},
 	"type": "module",
 	"scripts": {
@@ -19,8 +19,8 @@
 		"format:check": "oxfmt --check ."
 	},
 	"dependencies": {
-		"@modelcontextprotocol/sdk": "1.29.0",
-		"@wakecap/knowledge": "workspace:*"
+		"@core/knowledge": "workspace:*",
+		"@modelcontextprotocol/sdk": "1.29.0"
 	},
 	"devDependencies": {
 		"tsdown": "latest"

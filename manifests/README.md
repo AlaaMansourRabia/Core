@@ -1,6 +1,6 @@
 # Widget & template manifests
 
-The source-of-truth **manifest** layer for WakeCore's widget and template tiers (see
+The source-of-truth **manifest** layer for Core's widget and template tiers (see
 `docs/ARTIFACT-CLASSIFICATION.md`). A manifest is the machine-readable contract for a *composed* artifact
 — what data it takes, how it's configured, what states it has, what it composes, and how to evaluate
 correct use. It complements `library-index.json` (the per-artifact *decision* knowledge: intent / when /
@@ -22,7 +22,7 @@ This directory is **additive** — it does not move or change any component. Man
 4. **It has a real, documented failure mode** (`fm-dt-1`: a `searchKey` that doesn't match a column id),
    so `commonMistakes` and `evaluationCriteria` are grounded in something that actually bites.
 5. **Promoting it changes nothing for consumers** — the file doesn't move, the export
-   (`@wakecap/core-ui/data-table`) is untouched, the API is unchanged. It's the lowest-risk way to prove
+   (`@core/core-ui/data-table`) is untouched, the API is unchanged. It's the lowest-risk way to prove
    the promotion path end-to-end: manifest → knowledge → stories → validation.
 
 The next widget after DataTable should be **`core-app-sidebar`** — deliberately the *opposite* shape

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/radio-group.tsx",
-		"import": "@wakecap/core-ui/radio-group",
+		"import": "@core/core-ui/radio-group",
 		"export": "RadioGroup"
 	},
 	"tags": [

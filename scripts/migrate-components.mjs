@@ -51,7 +51,7 @@ function findEntry(name) {
 }
 
 // avoid line -> structured commonMistakes entry. avoidOverride preserves the exact catalog text so the
-// projection stays byte-stable; mistake/fix are derived from two common WakeCap phrasings:
+// projection stays byte-stable; mistake/fix are derived from two common Core phrasings:
 //   1. "<misuse> — <fix>"            (em-dash split)
 //   2. "Use <Component> for <why>"    (this-instead pattern: the named component is the correct choice)
 // Lines matching neither get a placeholder fix and should be hand-refined.
@@ -98,7 +98,7 @@ for (const name of names) {
 		skipped.push(`${name} (already manifested: ${e.manifest})`);
 		continue;
 	}
-	const id = e.import.replace("@wakecap/core-ui/", "");
+	const id = e.import.replace("@core/core-ui/", "");
 	const m = {
 		schemaVersion: "artifact-manifest/0.2",
 		id,

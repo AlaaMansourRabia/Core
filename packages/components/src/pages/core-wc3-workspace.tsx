@@ -183,7 +183,7 @@ const PERSPECTIVES: Perspective[] = [
 		// SINGLE product's detail page — so they moved into wc3-product-detail.tsx behind a SideMenu.
 		tabs: [{id: "catalogue", label: "Catalogue", icon: Package, badge: WC3_PRODUCTS.length}],
 		placeholders: {
-			catalogue: "The 17-product first-party WakeCap catalogue will appear here.",
+			catalogue: "The 17-product first-party Core catalogue will appear here.",
 		},
 	},
 	{
@@ -411,7 +411,7 @@ const mergedWorkspaceGroups = (lifecycle: boolean): SidebarNavGroup[] => [
 
 export interface WC3WorkspaceProps {
 	/**
-	 * Merge the marketplace into this workspace — the WakeCap Connect V2 shape. The sidebar becomes one
+	 * Merge the marketplace into this workspace — the Core Connect V2 shape. The sidebar becomes one
 	 * rail for the whole product: installed apps on top, a divider, the admin perspectives, a divider,
 	 * then Marketplace pinned at the bottom. Installing an app from the store adds it straight to the top
 	 * section, so there is no second portal to switch to. Defaults to `false`, which is the V1 shape:

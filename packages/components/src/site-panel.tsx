@@ -1,5 +1,5 @@
 // SitePanel — the left-overlay stack extracted from `CaptureUiEnhanced` (see docs/WIDGET_DECOMPOSITION.md,
-// §2B). A CONTROLLED Wakecore widget: it renders the floating rail (search, location stepper, zone
+// §2B). A CONTROLLED Core widget: it renders the floating rail (search, location stepper, zone
 // progress, SPA/Progress distribution, villa list), the `CanvasNavigator`, the full-height search-results
 // panel, the rail shrink-ghost, and the villa detail panel (Overview / Floors / Evidence / Activities).
 //
@@ -62,7 +62,7 @@
 // `searchOpen` is the one lifted value (host drives the BuildingViewer Layers offset from it) — the widget
 // requests it via `onSearchOpenChange` and mirrors the `searchOpen` prop in render.
 
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import {
 	ArrowUpDown,
 	ArrowUpRight,

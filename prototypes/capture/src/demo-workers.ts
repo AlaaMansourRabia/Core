@@ -1,4 +1,4 @@
-import type {FragmentMarker} from "@wakecap/core-ui/fragment-viewer";
+import type {FragmentMarker} from "@core/core-ui/fragment-viewer";
 import type * as THREE from "three";
 
 import * as OBC from "@thatopen/components";

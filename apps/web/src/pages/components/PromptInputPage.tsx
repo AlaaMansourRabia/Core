@@ -27,19 +27,19 @@ import {
 const demoModels: PromptModel[] = [
 	{
 		id: "fast",
-		label: "WakeCap Fast",
+		label: "Core Fast",
 		icon: <Sparkles className="wwc:h-4 wwc:w-4 wwc:text-primary" />,
 		description: "Quick answers for everyday tasks",
 	},
 	{
 		id: "balanced",
-		label: "WakeCap Balanced",
+		label: "Core Balanced",
 		icon: <Sparkles className="wwc:h-4 wwc:w-4 wwc:text-primary" />,
 		description: "Best for most work",
 	},
 	{
 		id: "thinking",
-		label: "WakeCap Thinking",
+		label: "Core Thinking",
 		icon: <Sparkles className="wwc:h-4 wwc:w-4 wwc:text-primary" />,
 		description: "Deeper multi-step reasoning",
 	},
@@ -584,7 +584,7 @@ function LandingVariant() {
 	return (
 		<div className="wwc:mx-auto wwc:flex wwc:w-full wwc:max-w-3xl wwc:flex-col wwc:items-center wwc:gap-6">
 			<span className="wwc:inline-flex wwc:items-center wwc:gap-2 wwc:rounded-full wwc:border wwc:bg-background wwc:px-3 wwc:py-1 wwc:text-sm wwc:font-medium">
-				<Sparkles className="wwc:h-4 wwc:w-4 wwc:text-primary" /> WakeCap
+				<Sparkles className="wwc:h-4 wwc:w-4 wwc:text-primary" /> Core
 			</span>
 			<h2 className="wwc:text-center wwc:text-2xl wwc:font-semibold wwc:sm:text-3xl">What can I help with?</h2>
 			<div className="wwc:w-full">

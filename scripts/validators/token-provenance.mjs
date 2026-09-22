@@ -1,14 +1,14 @@
-// CSS custom-property provenance analysis. A usage receives WakeCore token credit
+// CSS custom-property provenance analysis. A usage receives Core token credit
 // only when every authored alias chain terminates in a documented core-token name.
 
-import {isKnownWakeCoreToken} from "./token-catalog.mjs";
+import {isKnownCoreToken} from "./token-catalog.mjs";
 
 const VAR_RE = /var\(\s*(--[\w-]+)/g;
 const TOKEN_PROPERTY_RE =
 	/^(?:color|background(?:-color)?|border(?:-[a-z]+)?-color|outline-color|fill|stroke|margin|padding|gap|row-gap|column-gap|inset|top|right|bottom|left|font-size|font-weight|line-height|letter-spacing|border-radius|box-shadow|text-shadow)(?:-[a-z]+)?$/i;
 
-export function isRecognizedWakeCoreToken(name) {
-	return isKnownWakeCoreToken(name);
+export function isRecognizedCoreToken(name) {
+	return isKnownCoreToken(name);
 }
 
 function lineAt(content, offset) {
@@ -43,24 +43,24 @@ function resolveName(name, definitions, trail = []) {
 	if (trail.includes(name)) return {status: "cyclic", chain: [...trail, name], terminalTokens: []};
 	const authored = definitions.get(name);
 	if (!authored?.length)
-		return isRecognizedWakeCoreToken(name)
-			? {status: "wakecore-token", chain: [...trail, name], terminalTokens: [name]}
+		return isRecognizedCoreToken(name)
+			? {status: "core-token", chain: [...trail, name], terminalTokens: [name]}
 			: {status: "unresolved", chain: [...trail, name], terminalTokens: []};
 
 	const resolutions = authored.map((definition) => {
 		const refs = references(definition.value);
 		if (!refs.length) return {status: "literal-backed", chain: [...trail, name], terminalTokens: [], definition};
 		const targets = refs.map((ref) => resolveName(ref, definitions, [...trail, name]));
-		const failure = targets.find((target) => target.status !== "wakecore-token");
+		const failure = targets.find((target) => target.status !== "core-token");
 		return (
 			failure ?? {
-				status: "wakecore-token",
+				status: "core-token",
 				chain: [...trail, name, ...targets.flatMap((target) => target.chain.slice(-1))],
 				terminalTokens: [...new Set(targets.flatMap((target) => target.terminalTokens ?? []))],
 			}
 		);
 	});
-	return resolutions.find((resolution) => resolution.status !== "wakecore-token") ?? resolutions[0];
+	return resolutions.find((resolution) => resolution.status !== "core-token") ?? resolutions[0];
 }
 
 export function analyzeTokenProvenance(files) {
@@ -85,7 +85,7 @@ export function analyzeTokenProvenance(files) {
 					terminalTokens: resolution.terminalTokens ?? [],
 				};
 				usages.push(usage);
-				if (resolution.status !== "wakecore-token") issues.push(usage);
+				if (resolution.status !== "core-token") issues.push(usage);
 			}
 		}
 	}
@@ -107,7 +107,7 @@ export function analyzeTokenProvenance(files) {
 		issues,
 		summary: {
 			total: usages.length,
-			valid: usages.filter((usage) => usage.status === "wakecore-token").length,
+			valid: usages.filter((usage) => usage.status === "core-token").length,
 			invalid: issues.length,
 			byStatus,
 			score: usages.length ? Number(((usages.length - issues.length) / usages.length).toFixed(4)) : 1,

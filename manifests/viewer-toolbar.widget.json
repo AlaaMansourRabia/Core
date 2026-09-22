@@ -8,7 +8,7 @@
 	"manifestStatus": "draft",
 	"source": {
 		"path": "packages/components/src/viewer-toolbar.tsx",
-		"import": "@wakecap/core-ui/viewer-toolbar",
+		"import": "@core/core-ui/viewer-toolbar",
 		"export": "ViewerToolbar"
 	},
 	"tags": [
@@ -33,7 +33,7 @@
 	"chooseOver": [
 		{
 			"component": "Building buttons against the That Open SDK directly",
-			"because": "ViewerToolbar keeps engine wiring in one place and renders entirely from Wakecore components, so it themes with the rest of the product."
+			"because": "ViewerToolbar keeps engine wiring in one place and renders entirely from Core components, so it themes with the rest of the product."
 		}
 	],
 	"pairsWith": [
@@ -57,7 +57,7 @@
 		"outside a FragmentViewerProvider",
 		"as a general-purpose application toolbar -> use Toolbar"
 	],
-	"minimalExample": "import {FragmentViewer, FragmentViewerProvider} from \"@wakecap/core-ui/fragment-viewer\";\nimport {ViewerToolbar} from \"@wakecap/core-ui/viewer-toolbar\";\n\n<FragmentViewerProvider>\n\t<FragmentViewer src=\"/models/x.frag\" workerUrl={workerUrl} />\n\t<ViewerToolbar />\n</FragmentViewerProvider>",
+	"minimalExample": "import {FragmentViewer, FragmentViewerProvider} from \"@core/core-ui/fragment-viewer\";\nimport {ViewerToolbar} from \"@core/core-ui/viewer-toolbar\";\n\n<FragmentViewerProvider>\n\t<FragmentViewer src=\"/models/x.frag\" workerUrl={workerUrl} />\n\t<ViewerToolbar />\n</FragmentViewerProvider>",
 	"commonMistakes": [
 		"Wrapping it in a content-sized box: the bar measures its nearest positioned ancestor to pick its density, so a shrink-to-fit wrapper makes that measurement circular. Give it a full-width positioned ancestor.",
 		"Pairing pointer-events:none on a wrapper with pointer-events-auto on the bar — if the host's Tailwind hasn't emitted that utility, every click is silently swallowed",

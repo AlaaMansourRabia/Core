@@ -1,4 +1,4 @@
-import {cn} from "@wakecap/core-utils";
+import {cn} from "@core/core-utils";
 import * as React from "react";
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 

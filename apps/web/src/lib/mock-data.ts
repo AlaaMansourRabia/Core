@@ -1,1 +1,1 @@
-export * from "@wakecap/core-ui/data/mock-data";
+export * from "@core/core-ui/data/mock-data";

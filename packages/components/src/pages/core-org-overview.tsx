@@ -82,7 +82,7 @@ function MapResizeHandler({mapRef}: {mapRef: React.MutableRefObject<mapboxgl.Map
 	return null;
 }
 
-// Get status icon - using Wakecore chart colors
+// Get status icon - using Core chart colors
 function StatusIcon({status}: {status?: string}) {
 	switch (status) {
 		case "on-track":

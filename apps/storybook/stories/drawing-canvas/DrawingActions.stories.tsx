@@ -6,7 +6,7 @@ import {
 	type LineKind,
 	type PinKind,
 	type ShapeKind,
-} from "@wakecap/core-ui/drawing-actions";
+} from "@core/core-ui/drawing-actions";
 import {useState} from "react";
 
 const meta = {

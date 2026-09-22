@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@wakecap/core-ui/button";
-import {Checkbox} from "@wakecap/core-ui/checkbox";
+import {Button} from "@core/core-ui/button";
+import {Checkbox} from "@core/core-ui/checkbox";
 import {
 	Dialog,
 	DialogClose,
@@ -10,9 +10,9 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-} from "@wakecap/core-ui/dialog";
-import {Input} from "@wakecap/core-ui/input";
-import {Label} from "@wakecap/core-ui/label";
+} from "@core/core-ui/dialog";
+import {Input} from "@core/core-ui/input";
+import {Label} from "@core/core-ui/label";
 import {
 	Stepper,
 	StepperDescription,
@@ -20,8 +20,8 @@ import {
 	StepperItem,
 	StepperLabel,
 	StepperList,
-} from "@wakecap/core-ui/stepper";
-import {cn} from "@wakecap/core-utils";
+} from "@core/core-ui/stepper";
+import {cn} from "@core/core-utils";
 import {Minus, Plus, User, Users} from "lucide-react";
 import * as React from "react";
 

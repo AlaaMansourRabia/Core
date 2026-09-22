@@ -1,4 +1,4 @@
-import {ContextMenuContent, ContextMenuItem, ContextMenuSeparator} from "@wakecap/core-ui/context-menu";
+import {ContextMenuContent, ContextMenuItem, ContextMenuSeparator} from "@core/core-ui/context-menu";
 import {BringToFront, Copy, Lock, LockOpen, Search, SendToBack, Trash2} from "lucide-react";
 
 import type {CanvasObject} from "./canvas-object-types";

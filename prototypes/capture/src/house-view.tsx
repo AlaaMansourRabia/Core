@@ -1,14 +1,14 @@
-import type {FragmentMarker} from "@wakecap/core-ui/fragment-viewer";
+import type {FragmentMarker} from "@core/core-ui/fragment-viewer";
 
 import workerUrl from "@thatopen/fragments/worker?url";
-import {Badge} from "@wakecap/core-ui/badge";
+import {Badge} from "@core/core-ui/badge";
 import {
 	FragmentViewer,
 	FragmentViewerProvider,
 	type FragmentSelection,
 	useFragmentViewer,
-} from "@wakecap/core-ui/fragment-viewer";
-import {ToolButton, ViewerToolbar} from "@wakecap/core-ui/viewer-toolbar";
+} from "@core/core-ui/fragment-viewer";
+import {ToolButton, ViewerToolbar} from "@core/core-ui/viewer-toolbar";
 import {Boxes, CalendarClock, MapPin, Users, X} from "lucide-react";
 import {Component, type ReactNode, useEffect, useRef, useState} from "react";
 

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Banner} from "@wakecap/core-ui/banner";
+import {Banner} from "@core/core-ui/banner";
 
 const meta = {
 	title: "Components/Feedback/Banner",
