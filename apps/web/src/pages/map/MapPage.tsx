@@ -1,3 +1,5 @@
+import type {Feature, GeoJsonProperties, Geometry} from "geojson";
+
 import {
 	AlertTriangle,
 	Anchor,
@@ -32,14 +34,11 @@ import {
 	Triangle,
 	Zap,
 } from "lucide-react";
-import type {Feature, GeoJsonProperties, Geometry} from "geojson";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import {useEffect, useRef, useState} from "react";
 
 import {Button} from "@/components/ui/button";
-
-type MapFeature = Feature<Geometry, GeoJsonProperties> & {id?: string | number};
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {Input} from "@/components/ui/input";
@@ -47,6 +46,8 @@ import {Label} from "@/components/ui/label";
 import {MAPBOX_TOKEN, MapControls} from "@/components/ui/map-controls";
 import {Separator} from "@/components/ui/separator";
 import {Switch} from "@/components/ui/switch";
+
+type MapFeature = Feature<Geometry, GeoJsonProperties> & {id?: string | number};
 
 type MarkerType = string;
 
@@ -440,7 +441,9 @@ export function MapPage() {
 
 		// Click on cluster to zoom
 		mapRef.current.on("click", "clusters", (e) => {
-			const features = mapRef.current?.queryRenderedFeatures(e.point, {layers: ["clusters"]}) as MapFeature[] | undefined;
+			const features = mapRef.current?.queryRenderedFeatures(e.point, {layers: ["clusters"]}) as
+				| MapFeature[]
+				| undefined;
 			if (!features?.length) return;
 			const clusterId = features[0].properties?.cluster_id;
 			const source = mapRef.current?.getSource("locations-cluster") as mapboxgl.GeoJSONSource;

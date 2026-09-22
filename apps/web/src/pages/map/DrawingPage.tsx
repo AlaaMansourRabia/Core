@@ -1,10 +1,9 @@
-import {ChevronLeft, ChevronRight, Edit2, Minus, PenTool, Pencil, Plus, Square, Trash2, X} from "lucide-react";
 import type {Feature, GeoJsonProperties, Geometry} from "geojson";
+
+import {ChevronLeft, ChevronRight, Edit2, Minus, PenTool, Pencil, Plus, Square, Trash2, X} from "lucide-react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import {useEffect, useRef, useState} from "react";
-
-type MapFeature = Feature<Geometry, GeoJsonProperties> & {id?: string | number};
 
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
@@ -25,6 +24,7 @@ import {
 } from "@/components/ui/push-panel";
 import {Textarea} from "@/components/ui/textarea";
 
+type MapFeature = Feature<Geometry, GeoJsonProperties> & {id?: string | number};
 type DrawMode = "none" | "polygon" | "rectangle";
 
 interface BlueprintImage {
