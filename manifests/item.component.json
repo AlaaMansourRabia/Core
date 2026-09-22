@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/item.tsx",
-		"import": "@core/core-ui/item",
+		"import": "@corensystem/core-ui/item",
 		"export": "Item"
 	},
 	"tags": [

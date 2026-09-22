@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/section-panel.tsx",
-		"import": "@core/core-ui/section-panel",
+		"import": "@corensystem/core-ui/section-panel",
 		"export": "SectionPanel"
 	},
 	"tags": [
@@ -73,7 +73,7 @@
 		"as a standalone page",
 		"inside a table row"
 	],
-	"minimalExample": "import {SectionPanel} from \"@core/core-ui/section-panel\";\nimport {Item, ItemContent, ItemTitle, ItemDescription} from \"@core/core-ui/item\";\nimport {Bell} from \"lucide-react\";\n\n<SectionPanel icon={Bell} title=\"Needs Attention\" count={9} height={360}>\n  {rows.map((r) => (\n    <Item key={r.id}>\n      <ItemContent>\n        <ItemTitle>{r.name}</ItemTitle>\n        <ItemDescription>{r.detail}</ItemDescription>\n      </ItemContent>\n    </Item>\n  ))}\n</SectionPanel>",
+	"minimalExample": "import {SectionPanel} from \"@corensystem/core-ui/section-panel\";\nimport {Item, ItemContent, ItemTitle, ItemDescription} from \"@corensystem/core-ui/item\";\nimport {Bell} from \"lucide-react\";\n\n<SectionPanel icon={Bell} title=\"Needs Attention\" count={9} height={360}>\n  {rows.map((r) => (\n    <Item key={r.id}>\n      <ItemContent>\n        <ItemTitle>{r.name}</ItemTitle>\n        <ItemDescription>{r.detail}</ItemDescription>\n      </ItemContent>\n    </Item>\n  ))}\n</SectionPanel>",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Extracted from the Timesheet summary sections (2026-07-13)",

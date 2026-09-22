@@ -10,7 +10,7 @@
 	"manifestStatus": "draft",
 	"source": {
 		"path": "packages/components/src/pages/core-safety-manager.tsx",
-		"import": "@core/core-ui/pages/core-safety-manager",
+		"import": "@corensystem/core-ui/pages/core-safety-manager",
 		"export": "SafetyManager"
 	},
 	"tags": [
@@ -70,7 +70,7 @@
 		"inside another CoreAppSidebar/CoreAppTopBar shell",
 		"inside a Card or Dialog"
 	],
-	"minimalExample": "// CoreSafetyManager is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@core/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@core/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@core/core-ui/page-content-header\";\nimport {ViewTabBar} from \"@core/core-ui/view-tab-bar\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"minimalExample": "// CoreSafetyManager is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@corensystem/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@corensystem/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@corensystem/core-ui/page-content-header\";\nimport {ViewTabBar} from \"@corensystem/core-ui/view-tab-bar\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Observation-Template branch (2026-07-19)",

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/asset-list-item.tsx",
-		"import": "@core/core-ui/asset-list-item",
+		"import": "@corensystem/core-ui/asset-list-item",
 		"export": "AssetListItem"
 	},
 	"tags": [
@@ -40,7 +40,7 @@
 		"Card",
 		"Map"
 	],
-	"minimalExample": "import {AssetListItem} from \"@core/core-ui/asset-list-item\";\n\n<AssetListItem\n\tthumbnail={camera.thumbnail}\n\tthumbnailAlt={camera.name}\n\ttitle={camera.name}\n\tsubtitle={camera.location}\n\tselected={isSelected}\n\tonClick={select}\n>\n\t<Badge>{camera.status}</Badge>\n\t<span>{camera.lastUpdate}</span>\n</AssetListItem>",
+	"minimalExample": "import {AssetListItem} from \"@corensystem/core-ui/asset-list-item\";\n\n<AssetListItem\n\tthumbnail={camera.thumbnail}\n\tthumbnailAlt={camera.name}\n\ttitle={camera.name}\n\tsubtitle={camera.location}\n\tselected={isSelected}\n\tonClick={select}\n>\n\t<Badge>{camera.status}</Badge>\n\t<span>{camera.lastUpdate}</span>\n</AssetListItem>",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Extracted from the three duplicated list items in core-org-reality-capture (2026-08-25)",

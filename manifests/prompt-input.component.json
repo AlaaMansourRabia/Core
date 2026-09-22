@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/prompt-input.tsx",
-		"import": "@core/core-ui/prompt-input",
+		"import": "@corensystem/core-ui/prompt-input",
 		"export": "PromptInput"
 	},
 	"tags": [

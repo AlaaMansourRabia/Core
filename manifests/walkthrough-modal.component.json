@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/walkthrough-modal.tsx",
-		"import": "@core/core-ui/walkthrough-modal",
+		"import": "@corensystem/core-ui/walkthrough-modal",
 		"export": "WalkthroughModal"
 	},
 	"tags": [

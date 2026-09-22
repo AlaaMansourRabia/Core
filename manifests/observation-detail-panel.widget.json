@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/observation-detail-panel.tsx",
-		"import": "@core/core-ui/observation-detail-panel"
+		"import": "@corensystem/core-ui/observation-detail-panel"
 	},
 	"tags": [
 		"observation",

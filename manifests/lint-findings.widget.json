@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/wc3-health-view.tsx",
-		"import": "@core/core-ui/pages/health-view",
+		"import": "@corensystem/core-ui/pages/health-view",
 		"export": "HealthView"
 	},
 	"subcomponents": [
@@ -80,7 +80,7 @@
 	"forbiddenPlacement": [
 		"a dashboard tile that cannot navigate"
 	],
-	"minimalExample": "import {HealthView, runOntologyLint} from \"@core/core-ui/pages/health-view\";\n\n<HealthView onOpenElement={goTo} />",
+	"minimalExample": "import {HealthView, runOntologyLint} from \"@corensystem/core-ui/pages/health-view\";\n\n<HealthView onOpenElement={goTo} />",
 	"evaluationCriteria": [
 		"Every finding is actionable — it names an element or the ontology itself."
 	],

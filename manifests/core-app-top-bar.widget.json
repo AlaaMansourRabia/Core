@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/navigation/core-app-top-bar.tsx",
-		"import": "@core/core-ui/navigation/core-app-top-bar",
+		"import": "@corensystem/core-ui/navigation/core-app-top-bar",
 		"export": "CoreAppTopBar"
 	},
 	"tags": [

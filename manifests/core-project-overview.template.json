@@ -14,7 +14,7 @@
 	},
 	"source": {
 		"path": "packages/components/src/pages/core-project-overview.tsx",
-		"import": "@core/core-ui/pages/core-project-overview",
+		"import": "@corensystem/core-ui/pages/core-project-overview",
 		"export": "ProjectOverview"
 	},
 	"tags": [
@@ -33,7 +33,7 @@
 		"CoreContentArea"
 	],
 	"requiredProviders": [],
-	"minimalExample": "import {ProjectOverview} from \"@core/core-ui/pages/core-project-overview\";\n\n<ProjectOverview project={project} />",
+	"minimalExample": "import {ProjectOverview} from \"@corensystem/core-ui/pages/core-project-overview\";\n\n<ProjectOverview project={project} />",
 	"lineage": {
 		"origin": "migrated",
 		"authoredBy": "A1 template-variant migration (2026-07)",

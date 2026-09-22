@@ -16,7 +16,7 @@
 	},
 	"source": {
 		"path": "packages/components/src/pages/core-wc3-workspace.tsx",
-		"import": "@core/core-ui/pages/core-wc3-workspace",
+		"import": "@corensystem/core-ui/pages/core-wc3-workspace",
 		"export": "WC3Workspace"
 	},
 	"tags": [
@@ -68,7 +68,7 @@
 		"inside another CoreAppSidebar/CoreAppTopBar shell",
 		"inside a Card or Dialog"
 	],
-	"minimalExample": "// CoreWC3Workspace is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@core/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@core/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@core/core-ui/page-content-header\";\nimport {SideMenu} from \"@core/core-ui/side-menu\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"minimalExample": "// CoreWC3Workspace is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@corensystem/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@corensystem/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@corensystem/core-ui/page-content-header\";\nimport {SideMenu} from \"@corensystem/core-ui/side-menu\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 	"lineage": {
 		"origin": "derived",
 		"authoredBy": "WC3 Workspace skeleton (2026-08-02)",

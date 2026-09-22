@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/state-machine.tsx",
-		"import": "@core/core-ui/pages/state-machine",
+		"import": "@corensystem/core-ui/pages/state-machine",
 		"export": "StateMachine"
 	},
 	"tags": [
@@ -241,7 +241,7 @@
 		"a container with no resolved height — the canvas collapses to a 0px strip",
 		"inside a padded well — the canvas is full-bleed by design and gutters around it are width the graph wanted"
 	],
-	"minimalExample": "import {StateMachine} from \"@core/core-ui/pages/state-machine\";\nimport {seedProcesses} from \"@core/core-ui/pages/wc3-process-views\";\n\nconst [process, setProcess] = useState(() => seedProcesses()[0]);\n\n<div className=\"wwc:h-[42rem]\">\n\t<StateMachine variant=\"connect\" process={process} onChange={setProcess} />\n</div>",
+	"minimalExample": "import {StateMachine} from \"@corensystem/core-ui/pages/state-machine\";\nimport {seedProcesses} from \"@corensystem/core-ui/pages/wc3-process-views\";\n\nconst [process, setProcess] = useState(() => seedProcesses()[0]);\n\n<div className=\"wwc:h-[42rem]\">\n\t<StateMachine variant=\"connect\" process={process} onChange={setProcess} />\n</div>",
 	"evaluationCriteria": [
 		"The builder sits in a container with a resolved height.",
 		"A refusal is shown verbatim — no surface rewords checkTransition().",
@@ -293,7 +293,7 @@
 			"The tab and the add form both follow the canvas (node click, edge click, connection drop) so a gesture never fills in a hidden surface. Graph validity stays outside both tabs, being a fact about the whole graph.",
 			"SideMenuGroup gained an optional `divider` for this: unlabelled groups are otherwise separated by 2px and read as one list.",
 			"pilot: true",
-			"Issue #251: the widget was parameterised on PRESENTATION and hardcoded on DOMAIN — seven props for how it looks, none for what it shows. Every vocabulary came from a module-level fixture, so a consumer's action ids were refused as 'not in the ontology' while L7 blocked publishing, and its rows never appeared. The vocabularies are props defaulting to empty; the pure helpers (checkTransition, transitionAction, processGraphLint, processTokens, processOpenRows, processBottlenecks, processAgingBuckets, processFacts, stateDeleteBlockReason) take their data as an ARGUMENT rather than closing over a fixture; and the demo data moved to @core/core-ui/pages/state-machine-fixtures, which only stories and demo surfaces import. Measured with esbuild, that takes the fixture payload a consumer pulls from 23.4 KB gz to 11.6 KB gz. The rest is WC3_OBJECT_TYPES, still reached through getObjectType for the backing-type glyph — severing it needs the object type injected too, which is a further API decision and was left out."
+			"Issue #251: the widget was parameterised on PRESENTATION and hardcoded on DOMAIN — seven props for how it looks, none for what it shows. Every vocabulary came from a module-level fixture, so a consumer's action ids were refused as 'not in the ontology' while L7 blocked publishing, and its rows never appeared. The vocabularies are props defaulting to empty; the pure helpers (checkTransition, transitionAction, processGraphLint, processTokens, processOpenRows, processBottlenecks, processAgingBuckets, processFacts, stateDeleteBlockReason) take their data as an ARGUMENT rather than closing over a fixture; and the demo data moved to @corensystem/core-ui/pages/state-machine-fixtures, which only stories and demo surfaces import. Measured with esbuild, that takes the fixture payload a consumer pulls from 23.4 KB gz to 11.6 KB gz. The rest is WC3_OBJECT_TYPES, still reached through getObjectType for the backing-type glyph — severing it needs the object type injected too, which is a further API decision and was left out."
 		]
 	}
 }

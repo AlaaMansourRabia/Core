@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/comment-thread.tsx",
-		"import": "@core/core-ui/comment-thread"
+		"import": "@corensystem/core-ui/comment-thread"
 	},
 	"tags": [
 		"comments",

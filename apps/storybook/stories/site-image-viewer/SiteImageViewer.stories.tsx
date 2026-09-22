@@ -1,7 +1,11 @@
 import type {Meta, StoryObj} from "@storybook/react-vite";
 
 import {SiteImageViewer} from "@corensystem/core-ui/site-image-viewer";
-import {ALMANAR_SITE_META, ALMANAR_VILLAS, ALMANAR_ZONE_A_BLOCKS} from "@corensystem/core-ui/site-image-viewer-fixtures";
+import {
+	ALMANAR_SITE_META,
+	ALMANAR_VILLAS,
+	ALMANAR_ZONE_A_BLOCKS,
+} from "@corensystem/core-ui/site-image-viewer-fixtures";
 import {fn, userEvent} from "storybook/test";
 
 // Site Image Viewer — the real ROSHN Almanar site aerial (blueprint "Zone 1 - A", 4096×4096) with the

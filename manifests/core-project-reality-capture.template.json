@@ -14,7 +14,7 @@
 	},
 	"source": {
 		"path": "packages/components/src/pages/core-project-reality-capture.tsx",
-		"import": "@core/core-ui/pages/core-project-reality-capture",
+		"import": "@corensystem/core-ui/pages/core-project-reality-capture",
 		"export": "ProjectRealityCapture"
 	},
 	"tags": [
@@ -32,7 +32,7 @@
 		"CoreContentArea"
 	],
 	"requiredProviders": [],
-	"minimalExample": "import {ProjectRealityCapture} from \"@core/core-ui/pages/core-project-reality-capture\";\n\n<ProjectRealityCapture project={project} />",
+	"minimalExample": "import {ProjectRealityCapture} from \"@corensystem/core-ui/pages/core-project-reality-capture\";\n\n<ProjectRealityCapture project={project} />",
 	"lineage": {
 		"origin": "migrated",
 		"authoredBy": "A1 template-variant migration (2026-07)",

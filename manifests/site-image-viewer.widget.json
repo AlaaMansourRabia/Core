@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/site-image-viewer.tsx",
-		"import": "@core/core-ui/site-image-viewer",
+		"import": "@corensystem/core-ui/site-image-viewer",
 		"export": "SiteImageViewer"
 	},
 	"tags": [
@@ -63,7 +63,7 @@
 		{
 			"id": "hover-card",
 			"role": "Opt-in floating Approved-vs-Planned progress card while hovering a linked villa (hoverCard prop, off by default — hover is otherwise inline: raised stroke + name chip)",
-			"source": "ProgressComparison (@core/core-ui/progress-comparison)",
+			"source": "ProgressComparison (@corensystem/core-ui/progress-comparison)",
 			"required": false
 		},
 		{
@@ -93,7 +93,7 @@
 			"villas": {
 				"type": "Villa[]",
 				"required": true,
-				"note": "Footprints in image-pixel space; each has points, a bbox, linkedLbsItemId, and approved/planned %. The real ROSHN Almanar set is @core/core-ui/site-image-viewer-fixtures."
+				"note": "Footprints in image-pixel space; each has points, a bbox, linkedLbsItemId, and approved/planned %. The real ROSHN Almanar set is @corensystem/core-ui/site-image-viewer-fixtures."
 			},
 			"imageWidth": {"type": "number", "required": false, "note": "viewBox width; default 4096."},
 			"imageHeight": {"type": "number", "required": false, "note": "viewBox height; default 4096."},
@@ -142,10 +142,10 @@
 		{
 			"mistake": "Bundling the villa data with the widget",
 			"symptom": "Every consumer pulls the ~large fixture payload",
-			"fix": "Pass villas via props; import the demo set from @core/core-ui/site-image-viewer-fixtures only in demo surfaces."
+			"fix": "Pass villas via props; import the demo set from @corensystem/core-ui/site-image-viewer-fixtures only in demo surfaces."
 		}
 	],
-	"minimalExample": "import {SiteImageViewer} from \"@core/core-ui/site-image-viewer\";\nimport {ALMANAR_VILLAS, ALMANAR_SITE_META} from \"@core/core-ui/site-image-viewer-fixtures\";\n\n<SiteImageViewer\n\tbackgroundUrl=\"/site-background.webp\"\n\tvillas={ALMANAR_VILLAS}\n\timageWidth={ALMANAR_SITE_META.imageWidth}\n\timageHeight={ALMANAR_SITE_META.imageHeight}\n/>",
+	"minimalExample": "import {SiteImageViewer} from \"@corensystem/core-ui/site-image-viewer\";\nimport {ALMANAR_VILLAS, ALMANAR_SITE_META} from \"@corensystem/core-ui/site-image-viewer-fixtures\";\n\n<SiteImageViewer\n\tbackgroundUrl=\"/site-background.webp\"\n\tvillas={ALMANAR_VILLAS}\n\timageWidth={ALMANAR_SITE_META.imageWidth}\n\timageHeight={ALMANAR_SITE_META.imageHeight}\n/>",
 	"evaluationCriteria": [
 		{"id": "regions", "metric": "render", "check": "Renders the site image, the SVG villa overlay, and the built-in legend."},
 		{"id": "viewbox", "metric": "render", "check": "The SVG viewBox equals imageWidth×imageHeight so footprints register on the image."},
@@ -154,7 +154,7 @@
 	],
 	"lineage": {
 		"origin": "authored",
-		"authoredBy": "promoted from the site-image-viewer story (owner-dashboard site view) into @core/core-ui (2026-09)",
+		"authoredBy": "promoted from the site-image-viewer story (owner-dashboard site view) into @corensystem/core-ui (2026-09)",
 		"derivedFrom": {
 			"source": "apps/storybook/stories/site-image-viewer/SiteView.tsx",
 			"extracted": [
@@ -169,7 +169,7 @@
 		"supersedes": null,
 		"lastValidated": "2026-09-09",
 		"notes": [
-			"The real ROSHN Almanar villa data + site meta moved to the @core/core-ui/site-image-viewer-fixtures entry so the widget stays lean.",
+			"The real ROSHN Almanar villa data + site meta moved to the @corensystem/core-ui/site-image-viewer-fixtures entry so the widget stays lean.",
 			"The CaptureUiEnhanced template composes this widget for its map region."
 		]
 	}

@@ -8,7 +8,7 @@
 	"manifestStatus": "draft",
 	"source": {
 		"path": "packages/components/src/confirm-dialog.tsx",
-		"import": "@core/core-ui/confirm-dialog",
+		"import": "@corensystem/core-ui/confirm-dialog",
 		"export": "ConfirmDialog"
 	},
 	"tags": ["overlay", "dialog", "confirm", "destructive", "guard"],
@@ -32,7 +32,7 @@
 	"composedOf": ["AlertDialog"],
 	"allowedPlacement": ["anywhere in a route — it portals to the body"],
 	"forbiddenPlacement": ["inside another AlertDialog"],
-	"minimalExample": "import {ConfirmDialog} from \"@core/core-ui/confirm-dialog\";\n\n<ConfirmDialog\n\topen={pending !== null}\n\tonOpenChange={(open) => !open && setPending(null)}\n\tdestructive\n\ttitle=\"Demobilize workers?\"\n\tdescription=\"They can be remobilized later.\"\n\tconfirmLabel=\"Demobilize\"\n\tonConfirm={commit}\n/>",
+	"minimalExample": "import {ConfirmDialog} from \"@corensystem/core-ui/confirm-dialog\";\n\n<ConfirmDialog\n\topen={pending !== null}\n\tonOpenChange={(open) => !open && setPending(null)}\n\tdestructive\n\ttitle=\"Demobilize workers?\"\n\tdescription=\"They can be remobilized later.\"\n\tconfirmLabel=\"Demobilize\"\n\tonConfirm={commit}\n/>",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Workforce branch (2026-07-20)",

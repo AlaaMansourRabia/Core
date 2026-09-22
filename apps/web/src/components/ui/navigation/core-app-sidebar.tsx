@@ -1,4 +1,8 @@
-export {CoreAppSidebar, DEFAULT_ORG_GROUPS, DEFAULT_PROJECT_GROUPS} from "@corensystem/core-ui/navigation/core-app-sidebar";
+export {
+	CoreAppSidebar,
+	DEFAULT_ORG_GROUPS,
+	DEFAULT_PROJECT_GROUPS,
+} from "@corensystem/core-ui/navigation/core-app-sidebar";
 export type {
 	CoreAppSidebarProps,
 	SidebarNavGroup,

@@ -13,7 +13,12 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "@corensystem/core-ui/dialog";
-import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@corensystem/core-ui/dropdown-menu";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@corensystem/core-ui/dropdown-menu";
 import {Input} from "@corensystem/core-ui/input";
 import {Label} from "@corensystem/core-ui/label";
 import {

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/dialog.tsx",
-		"import": "@core/core-ui/dialog",
+		"import": "@corensystem/core-ui/dialog",
 		"export": "Dialog"
 	},
 	"tags": [

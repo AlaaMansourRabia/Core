@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/record-detail-shell.tsx",
-		"import": "@core/core-ui/record-detail-shell",
+		"import": "@corensystem/core-ui/record-detail-shell",
 		"export": "RecordDetailShell"
 	},
 	"tags": [
@@ -107,7 +107,7 @@
 		"a record with only a few short sections",
 		"as the application shell"
 	],
-	"minimalExample": "import {RecordDetailShell} from \"@core/core-ui/record-detail-shell\";\n\n<RecordDetailShell title=\"Object type\" sections={sections} activeSectionId={tab} onSectionChange={setTab}>\n\t{tab === \"overview\" && <OverviewTab />}\n</RecordDetailShell>",
+	"minimalExample": "import {RecordDetailShell} from \"@corensystem/core-ui/record-detail-shell\";\n\n<RecordDetailShell title=\"Object type\" sections={sections} activeSectionId={tab} onSectionChange={setTab}>\n\t{tab === \"overview\" && <OverviewTab />}\n</RecordDetailShell>",
 	"evaluationCriteria": [
 		"The content column scrolls, not the page.",
 		"The scroll owner is unpadded.",

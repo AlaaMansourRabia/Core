@@ -2,7 +2,15 @@ import type {Meta, StoryObj} from "storybook/internal/types";
 
 import {Button} from "@corensystem/core-ui/button";
 import {Checkbox} from "@corensystem/core-ui/checkbox";
-import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@corensystem/core-ui/form";
+import {
+	Form,
+	FormControl,
+	FormDescription,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
+} from "@corensystem/core-ui/form";
 import {Input} from "@corensystem/core-ui/input";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@corensystem/core-ui/select";
 import {Textarea} from "@corensystem/core-ui/textarea";

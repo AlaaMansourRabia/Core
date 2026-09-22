@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/toolbar-stats.tsx",
-		"import": "@core/core-ui/toolbar-stats",
+		"import": "@corensystem/core-ui/toolbar-stats",
 		"export": "ToolbarStats"
 	},
 	"tags": ["analytics", "metrics", "toolbar", "stats", "kpi"],
@@ -68,7 +68,7 @@
 			"fix": "Use a toolbar or grid component for actions and arbitrary content."
 		}
 	],
-	"minimalExample": "import {ToolbarStats} from \"@core/core-ui/toolbar-stats\";\n\n<ToolbarStats groups={[[{label: \"Workers\", value: \"342\"}]]} />",
+	"minimalExample": "import {ToolbarStats} from \"@corensystem/core-ui/toolbar-stats\";\n\n<ToolbarStats groups={[[{label: \"Workers\", value: \"342\"}]]} />",
 	"evaluationCriteria": [
 		{
 			"id": "tier-selection",

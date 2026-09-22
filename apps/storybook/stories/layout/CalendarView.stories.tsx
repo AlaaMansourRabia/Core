@@ -2,7 +2,12 @@ import type {Meta, StoryObj} from "storybook/internal/types";
 
 import {Button} from "@corensystem/core-ui/button";
 import {CalendarView, type CalendarEvent} from "@corensystem/core-ui/calendar-view";
-import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@corensystem/core-ui/dropdown-menu";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@corensystem/core-ui/dropdown-menu";
 import {ChevronDown} from "lucide-react";
 
 const meta = {

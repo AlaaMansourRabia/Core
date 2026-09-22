@@ -1,5 +1,12 @@
 import {Button} from "@corensystem/core-ui/button";
-import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle} from "@corensystem/core-ui/dialog";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+} from "@corensystem/core-ui/dialog";
 import {Input} from "@corensystem/core-ui/input";
 import {ScrollArea} from "@corensystem/core-ui/scroll-area";
 import {cn} from "@corensystem/core-utils";

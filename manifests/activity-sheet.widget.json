@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/activity-sheet.tsx",
-		"import": "@core/core-ui/activity-sheet"
+		"import": "@corensystem/core-ui/activity-sheet"
 	},
 	"tags": ["activity", "notifications", "changeset", "sheet", "panel", "app-shell"],
 	"intent": "The app shell's activity panel as an ordinary right-hand Sheet: two tabbed streams behind one surface — transient notifications you dismiss, and a changeset of edits that accumulate until applied or discarded — rendered with standard cards and buttons rather than a bespoke translucent surface. Reuses NotificationCenter's NotificationItem and ChangeEntry types so a shell can feed both from the state it already keeps.",

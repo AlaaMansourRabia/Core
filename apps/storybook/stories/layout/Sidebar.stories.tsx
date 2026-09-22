@@ -1,6 +1,10 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {CoreAppSidebar, DEFAULT_PROJECT_GROUPS, type SidebarNavGroup} from "@corensystem/core-ui/navigation/core-app-sidebar";
+import {
+	CoreAppSidebar,
+	DEFAULT_PROJECT_GROUPS,
+	type SidebarNavGroup,
+} from "@corensystem/core-ui/navigation/core-app-sidebar";
 import {toneFor} from "@corensystem/core-ui/tones";
 import {
 	Blocks,

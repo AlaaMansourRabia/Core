@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/table.tsx",
-		"import": "@core/core-ui/table",
+		"import": "@corensystem/core-ui/table",
 		"export": "Table"
 	},
 	"tags": [

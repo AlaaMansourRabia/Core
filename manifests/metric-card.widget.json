@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/metric-card.tsx",
-		"import": "@core/core-ui/metric-card",
+		"import": "@corensystem/core-ui/metric-card",
 		"export": "MetricCard"
 	},
 	"tags": [
@@ -128,7 +128,7 @@
 			"fix": "status = value tone (good/bad); trend = direction (up/down). Use each for its own signal."
 		}
 	],
-	"minimalExample": "import {MetricCard} from \"@core/core-ui/metric-card\";\nimport {Users} from \"lucide-react\";\n\n<MetricCard\n  title=\"Total Workforce\"\n  value=\"1,240\"\n  trend=\"up\"\n  trendLabel=\"+142 today\"\n  icon={Users}\n/>",
+	"minimalExample": "import {MetricCard} from \"@corensystem/core-ui/metric-card\";\nimport {Users} from \"lucide-react\";\n\n<MetricCard\n  title=\"Total Workforce\"\n  value=\"1,240\"\n  trend=\"up\"\n  trendLabel=\"+142 today\"\n  icon={Users}\n/>",
 	"evaluationCriteria": [
 		{
 			"id": "tier-selection",
@@ -172,7 +172,7 @@
 			"promotedFrom: inline component KPICard in packages/components/src/pages/core-org-performance.tsx",
 			"pilot: true",
 			"authoredFields: [\"intent\",\"when\",\"whenNot\",\"chooseOver\",\"dataContract\",\"configSchema\",\"states\",\"allowedPlacement\",\"forbiddenPlacement\",\"commonMistakes\",\"minimalExample\",\"evaluationCriteria\"]",
-			"refactored: [\"core-org-performance now imports MetricCard from @core/core-ui/metric-card; local KPICard removed (visual output unchanged).\"]",
+			"refactored: [\"core-org-performance now imports MetricCard from @corensystem/core-ui/metric-card; local KPICard removed (visual output unchanged).\"]",
 			"unblocks: [\"KPISummary (a row of MetricCards) can move from proposed toward implementation.\"]",
 			"knowledgeRefs: [\"library-index.json#MetricCard\",\"manifests/kpi-summary.widget.json\",\"manifests/dashboard-page.pattern.json\"]"
 		]

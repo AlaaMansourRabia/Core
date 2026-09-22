@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/banner.tsx",
-		"import": "@core/core-ui/banner",
+		"import": "@corensystem/core-ui/banner",
 		"export": "Banner"
 	},
 	"tags": [

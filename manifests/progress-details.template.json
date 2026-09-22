@@ -10,7 +10,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/core-progress-details.tsx",
-		"import": "@core/core-ui/pages/core-progress-details",
+		"import": "@corensystem/core-ui/pages/core-progress-details",
 		"export": "ProgressDetails"
 	},
 
@@ -50,7 +50,7 @@
 		{
 			"id": "navigator",
 			"role": "WBS Navigator sidebar (searchable) — drills zones → categories → divisions; its collapse control hides the whole sidebar",
-			"source": "CanvasNavigator widget (@core/core-ui/canvas-navigator)",
+			"source": "CanvasNavigator widget (@corensystem/core-ui/canvas-navigator)",
 			"required": true,
 			"recommended": ["CanvasNavigator"]
 		},
@@ -64,14 +64,14 @@
 		{
 			"id": "content-list",
 			"role": "The current node's children as divided rows in a white card; rows drill in, objects open the drawer",
-			"source": "ProgressListItem widget (@core/core-ui/progress-list-item) inside a Card",
+			"source": "ProgressListItem widget (@corensystem/core-ui/progress-list-item) inside a Card",
 			"required": true,
 			"recommended": ["ProgressListItem", "Card"]
 		},
 		{
 			"id": "operations-drawer",
 			"role": "Right-side overlay drawer editing the selected object's operations (progress table)",
-			"source": "OperationsDrawer widget (@core/core-ui/operations-drawer)",
+			"source": "OperationsDrawer widget (@corensystem/core-ui/operations-drawer)",
 			"required": false,
 			"recommended": ["OperationsDrawer"]
 		}

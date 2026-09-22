@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/chart.tsx",
-		"import": "@core/core-ui/chart",
+		"import": "@corensystem/core-ui/chart",
 		"export": "ChartContainer"
 	},
 	"tags": ["display", "chart", "visualization", "data"],

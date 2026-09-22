@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/widget-card.tsx",
-		"import": "@core/core-ui/widget-card",
+		"import": "@corensystem/core-ui/widget-card",
 		"export": "WidgetCard"
 	},
 	"tags": [
@@ -37,7 +37,7 @@
 		"supersedes": null,
 		"lastValidated": "2026-08-26",
 		"notes": [
-			"Was exported from @core/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
+			"Was exported from @corensystem/core-ui with no manifest at all, so it did not exist to the builder, to library-index.json, or to any agent selecting components.",
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]

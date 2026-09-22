@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/milestone-table.tsx",
-		"import": "@core/core-ui/milestone-table",
+		"import": "@corensystem/core-ui/milestone-table",
 		"export": "MilestoneTable"
 	},
 	"tags": [

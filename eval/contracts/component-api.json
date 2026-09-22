@@ -3,7 +3,7 @@
   "generatedFor": "catalog/API compatibility and prop-aware selection",
   "components": {
     "Button": {
-      "import": "@core/core-ui/button",
+      "import": "@corensystem/core-ui/button",
       "export": "Button",
       "props": {
         "asChild": {
@@ -44,7 +44,7 @@
       "inheritsHtmlReactAttributes": true
     },
     "Form": {
-      "import": "@core/core-ui/form",
+      "import": "@corensystem/core-ui/form",
       "export": "Form",
       "props": {
         "children": {
@@ -138,7 +138,7 @@
       "inheritsHtmlReactAttributes": false
     },
     "FormField": {
-      "import": "@core/core-ui/form",
+      "import": "@corensystem/core-ui/form",
       "export": "FormField",
       "props": {
         "render": {
@@ -181,14 +181,14 @@
       "inheritsHtmlReactAttributes": false
     },
     "FormItem": {
-      "import": "@core/core-ui/form",
+      "import": "@corensystem/core-ui/form",
       "export": "FormItem",
       "props": {},
       "requiredProps": [],
       "inheritsHtmlReactAttributes": true
     },
     "FormControl": {
-      "import": "@core/core-ui/form",
+      "import": "@corensystem/core-ui/form",
       "export": "FormControl",
       "props": {
         "children": {
@@ -200,7 +200,7 @@
       "inheritsHtmlReactAttributes": true
     },
     "FormLabel": {
-      "import": "@core/core-ui/form",
+      "import": "@corensystem/core-ui/form",
       "export": "FormLabel",
       "props": {
         "asChild": {
@@ -212,14 +212,14 @@
       "inheritsHtmlReactAttributes": true
     },
     "FormMessage": {
-      "import": "@core/core-ui/form",
+      "import": "@corensystem/core-ui/form",
       "export": "FormMessage",
       "props": {},
       "requiredProps": [],
       "inheritsHtmlReactAttributes": true
     },
     "DataTable": {
-      "import": "@core/core-ui/data-table",
+      "import": "@corensystem/core-ui/data-table",
       "export": "DataTable",
       "props": {
         "columns": {
@@ -298,7 +298,7 @@
       "inheritsHtmlReactAttributes": false
     },
     "Stepper": {
-      "import": "@core/core-ui/stepper",
+      "import": "@corensystem/core-ui/stepper",
       "export": "Stepper",
       "props": {
         "value": {
@@ -320,7 +320,7 @@
       "inheritsHtmlReactAttributes": true
     },
     "StepperItem": {
-      "import": "@core/core-ui/stepper",
+      "import": "@corensystem/core-ui/stepper",
       "export": "StepperItem",
       "props": {
         "step": {
@@ -334,14 +334,14 @@
       "inheritsHtmlReactAttributes": true
     },
     "StepperIndicator": {
-      "import": "@core/core-ui/stepper",
+      "import": "@corensystem/core-ui/stepper",
       "export": "StepperIndicator",
       "props": {},
       "requiredProps": [],
       "inheritsHtmlReactAttributes": true
     },
     "Chart": {
-      "import": "@core/core-ui/chart",
+      "import": "@corensystem/core-ui/chart",
       "export": "ChartContainer",
       "props": {
         "config": {
@@ -375,7 +375,7 @@
       "inheritsHtmlReactAttributes": true
     },
     "Sheet": {
-      "import": "@core/core-ui/sheet",
+      "import": "@corensystem/core-ui/sheet",
       "export": "Sheet",
       "props": {
         "children": {
@@ -403,7 +403,7 @@
       "inheritsHtmlReactAttributes": false
     },
     "SheetContent": {
-      "import": "@core/core-ui/sheet",
+      "import": "@corensystem/core-ui/sheet",
       "export": "SheetContent",
       "props": {
         "asChild": {
@@ -453,7 +453,7 @@
       "inheritsHtmlReactAttributes": true
     },
     "Dialog": {
-      "import": "@core/core-ui/dialog",
+      "import": "@corensystem/core-ui/dialog",
       "export": "Dialog",
       "props": {
         "children": {
@@ -481,7 +481,7 @@
       "inheritsHtmlReactAttributes": false
     },
     "DialogContent": {
-      "import": "@core/core-ui/dialog",
+      "import": "@corensystem/core-ui/dialog",
       "export": "DialogContent",
       "props": {
         "asChild": {
@@ -521,7 +521,7 @@
       "inheritsHtmlReactAttributes": true
     },
     "ViewTabBar": {
-      "import": "@core/core-ui/view-tab-bar",
+      "import": "@corensystem/core-ui/view-tab-bar",
       "export": "ViewTabBar",
       "props": {
         "tabs": {
@@ -557,7 +557,7 @@
       "inheritsHtmlReactAttributes": false
     },
     "TrendChart": {
-      "import": "@core/core-ui/trend-chart",
+      "import": "@corensystem/core-ui/trend-chart",
       "export": "TrendChart",
       "props": {
         "title": {
@@ -591,7 +591,7 @@
       "inheritsHtmlReactAttributes": false
     },
     "PageContentHeader": {
-      "import": "@core/core-ui/page-content-header",
+      "import": "@corensystem/core-ui/page-content-header",
       "export": "PageContentHeader",
       "props": {
         "variant": {
@@ -670,7 +670,7 @@
       "inheritsHtmlReactAttributes": true
     },
     "ContextToolbar": {
-      "import": "@core/core-ui/context-toolbar",
+      "import": "@corensystem/core-ui/context-toolbar",
       "export": "ContextToolbar",
       "props": {
         "leadingIcon": {
@@ -712,7 +712,7 @@
       "inheritsHtmlReactAttributes": true
     },
     "CoreAppTopBar": {
-      "import": "@core/core-ui/navigation/core-app-top-bar",
+      "import": "@corensystem/core-ui/navigation/core-app-top-bar",
       "export": "CoreAppTopBar",
       "props": {
         "activeLabel": {
@@ -770,7 +770,7 @@
       "inheritsHtmlReactAttributes": false
     },
     "CoreDashboardHeader": {
-      "import": "@core/core-ui/navigation/core-dashboard-header",
+      "import": "@corensystem/core-ui/navigation/core-dashboard-header",
       "export": "CoreDashboardHeader",
       "props": {
         "selectedOrg": {

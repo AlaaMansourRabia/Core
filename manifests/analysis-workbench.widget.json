@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/wc3-analysis-shared.tsx",
-		"import": "@core/core-ui/pages/analysis-workbench",
+		"import": "@corensystem/core-ui/pages/analysis-workbench",
 		"export": "AnalysisWorkbench"
 	},
 	"subcomponents": [
@@ -123,7 +123,7 @@
 	"forbiddenPlacement": [
 		"a dashboard tile — bind the tile to a SAVED analysis by reference instead"
 	],
-	"minimalExample": "import {AnalysisWorkbench} from \"@core/core-ui/pages/analysis-workbench\";\n\n<AnalysisWorkbench\n\tmode=\"object\"\n\tsession={session}\n\tonSessionChange={setSession}\n\trenderSourceConfig={(ctx) => <SourceStage {...ctx} />}\n\trenderTraverseConfig={(ctx) => <TraverseStage {...ctx} />}\n/>",
+	"minimalExample": "import {AnalysisWorkbench} from \"@corensystem/core-ui/pages/analysis-workbench\";\n\n<AnalysisWorkbench\n\tmode=\"object\"\n\tsession={session}\n\tonSessionChange={setSession}\n\trenderSourceConfig={(ctx) => <SourceStage {...ctx} />}\n\trenderTraverseConfig={(ctx) => <TraverseStage {...ctx} />}\n/>",
 	"evaluationCriteria": [
 		"An empty result always states which diagnosis applies.",
 		"The spec, not the result, is what gets saved.",

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/tabs.tsx",
-		"import": "@core/core-ui/tabs",
+		"import": "@corensystem/core-ui/tabs",
 		"export": "Tabs"
 	},
 	"tags": [

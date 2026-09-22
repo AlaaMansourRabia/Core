@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/kpi-bar.tsx",
-		"import": "@core/core-ui/kpi-bar",
+		"import": "@corensystem/core-ui/kpi-bar",
 		"export": "KPIBar"
 	},
 	"tags": [
@@ -95,7 +95,7 @@
 			"fix": "Use one or the other per item (icon takes precedence)."
 		}
 	],
-	"minimalExample": "import {KPIBar} from \"@core/core-ui/kpi-bar\";\nimport {Users, AlertTriangle} from \"lucide-react\";\n\n<KPIBar\n  groups={[\n    [{value: 12, label: \"Projects\"}],\n    [\n      {value: 8, label: \"On Track\", dot: \"success\", hideLabelBelow: \"sm\"},\n      {value: 3, label: \"At Risk\", dot: \"warning\", hideLabelBelow: \"sm\"},\n      {value: 1, label: \"Critical\", dot: \"danger\", hideLabelBelow: \"sm\"},\n    ],\n    [{value: \"1,240\", label: \"on-site today\", icon: Users, hideLabelBelow: \"md\"}],\n    [{value: 2, label: \"alerts (24h)\", icon: AlertTriangle, tone: \"danger\", hideLabelBelow: \"md\"}],\n  ]}\n/>",
+	"minimalExample": "import {KPIBar} from \"@corensystem/core-ui/kpi-bar\";\nimport {Users, AlertTriangle} from \"lucide-react\";\n\n<KPIBar\n  groups={[\n    [{value: 12, label: \"Projects\"}],\n    [\n      {value: 8, label: \"On Track\", dot: \"success\", hideLabelBelow: \"sm\"},\n      {value: 3, label: \"At Risk\", dot: \"warning\", hideLabelBelow: \"sm\"},\n      {value: 1, label: \"Critical\", dot: \"danger\", hideLabelBelow: \"sm\"},\n    ],\n    [{value: \"1,240\", label: \"on-site today\", icon: Users, hideLabelBelow: \"md\"}],\n    [{value: 2, label: \"alerts (24h)\", icon: AlertTriangle, tone: \"danger\", hideLabelBelow: \"md\"}],\n  ]}\n/>",
 	"evaluationCriteria": [
 		{
 			"id": "tier-selection",

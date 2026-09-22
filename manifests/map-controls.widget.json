@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/map-controls.tsx",
-		"import": "@core/core-ui/map-controls"
+		"import": "@corensystem/core-ui/map-controls"
 	},
 	"tags": [
 		"display",
