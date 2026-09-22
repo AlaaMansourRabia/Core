@@ -92,4 +92,3 @@ DateRangeInput.displayName = "DateRangeInput";
 
 export {DateRangeInput};
 export type {DateRange} from "react-day-picker";
-export type {DateRangeInputProps};

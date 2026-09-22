@@ -134,4 +134,3 @@ const CommandPaletteTrigger = React.forwardRef<HTMLButtonElement, CommandPalette
 CommandPaletteTrigger.displayName = "CommandPaletteTrigger";
 
 export {CommandPalette, CommandPaletteTrigger};
-export type {CommandPaletteGroup, CommandPaletteItem, CommandPaletteProps, CommandPaletteTriggerProps};
