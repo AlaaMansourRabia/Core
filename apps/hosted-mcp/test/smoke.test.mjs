@@ -2,7 +2,7 @@
 // tools/call). Proves an editor can actually talk to the hosted server. Runs against the built dist,
 // so `pnpm build` (knowledge + app) must run first.
 
-import {createKnowledge} from "@core/knowledge";
+import {createKnowledge} from "@corensystem/knowledge";
 import {Client} from "@modelcontextprotocol/sdk/client/index.js";
 import {StdioClientTransport} from "@modelcontextprotocol/sdk/client/stdio.js";
 import {StreamableHTTPClientTransport} from "@modelcontextprotocol/sdk/client/streamableHttp.js";

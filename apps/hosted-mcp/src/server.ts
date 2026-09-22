@@ -1,8 +1,8 @@
 // Builds an MCP server from the knowledge capabilities. Both transports (stdio + Streamable HTTP)
 // use THIS — one tool surface, one behavior. Each tool is a thin wrapper: validate + envelope live in
-// @core/knowledge (callTool), so the transport layer only marshals to/from MCP content.
+// @corensystem/knowledge (callTool), so the transport layer only marshals to/from MCP content.
 
-import {INPUT_SCHEMAS, type Knowledge} from "@core/knowledge";
+import {INPUT_SCHEMAS, type Knowledge} from "@corensystem/knowledge";
 import {McpServer} from "@modelcontextprotocol/sdk/server/mcp.js";
 
 import type {Logger} from "./obs/logger";

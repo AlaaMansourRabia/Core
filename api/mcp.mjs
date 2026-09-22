@@ -6,7 +6,7 @@
 
 import {McpServer} from "@modelcontextprotocol/sdk/server/mcp.js";
 import {StreamableHTTPServerTransport} from "@modelcontextprotocol/sdk/server/streamableHttp.js";
-import {createKnowledge, createMemoryStore, INPUT_SCHEMAS} from "@core/knowledge";
+import {createKnowledge, createMemoryStore, INPUT_SCHEMAS} from "@corensystem/knowledge";
 import {readFileSync} from "node:fs";
 import {dirname, join} from "node:path";
 import {fileURLToPath} from "node:url";
