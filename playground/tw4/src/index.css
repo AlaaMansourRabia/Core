@@ -1,2 +1,2 @@
 @import "tailwindcss" prefix(app);
-@import "@core/core-tokens/theme";
+@import "@corensystem/core-tokens/theme";
