@@ -43,7 +43,34 @@
 		"default": "Neutral/primary",
 		"secondary": "Muted",
 		"destructive": "Error/critical",
-		"outline": "Subtle outline"
+		"outline": "Subtle outline",
+		"success": "Positive/completed state",
+		"warning": "Caution/pending state",
+		"info": "Informational/neutral highlight",
+		"successSoft": "Subtle positive indicator",
+		"warningSoft": "Subtle caution indicator",
+		"dangerSoft": "Subtle error/high-priority indicator",
+		"infoSoft": "Subtle informational indicator",
+		"neutralSoft": "Subtle neutral/draft indicator"
+	},
+	"docs": {
+		"group": "Primitives",
+		"summary": "A small, static status or label descriptor. Use for labeling status, category, or count next to content.",
+		"usage": [
+			"Use Badge to display static status indicators, counts, or category labels on cards, table rows, or navigation items.",
+			"Choose a variant by meaning (success for positive states, destructive for errors) rather than by color preference. Badge is non-interactive; for clickable or removable pills, use Chip instead."
+		],
+		"anatomy": {
+			"parts": [
+				{"name": "Container", "description": "The badge wrapper with rounded corners, border, and background color based on variant."},
+				{"name": "Leading icon", "description": "Optional icon placed before the label text. Should be small (size-3) and reinforce the status meaning."},
+				{"name": "Label text", "description": "The text content of the badge. Keep it short — one or two words maximum."}
+			]
+		},
+		"bestPractices": [
+			{"do": "Use a small icon that reinforces the badge meaning. Keep labels short.", "dont": "Avoid multiple icons or long text that makes the badge hard to scan."},
+			{"do": "Use Badge for static display labels that describe status or category.", "dont": "Avoid adding click handlers or remove buttons to Badge. Use Chip for interactive elements."}
+		]
 	},
 	"lineage": {
 		"origin": "migrated",

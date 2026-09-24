@@ -26,6 +26,25 @@
 		"Field"
 	],
 	"requiredProviders": [],
+	"docs": {
+		"group": "Primitives",
+		"summary": "An accessible label bound to a form control. Essential for usability and screen reader support.",
+		"usage": [
+			"Always pair form controls with a Label using htmlFor/id binding. This ensures clicking the label focuses the input and screen readers announce the relationship.",
+			"Use the required prop to show an asterisk for required fields. Also mark the input itself required so assistive tech is informed. Keep labels short and put additional guidance in help text below the input."
+		],
+		"anatomy": {
+			"parts": [
+				{"name": "Label", "description": "The text element that names the form control."},
+				{"name": "Required mark", "description": "Decorative asterisk shown when required prop is true. The control carries the actual semantics."},
+				{"name": "Associated control", "description": "The form input or control bound via htmlFor/id."}
+			]
+		},
+		"bestPractices": [
+			{"do": "Bind the label to its control using htmlFor and id. This ensures clicking the label focuses the input.", "dont": "Avoid placeholder-only inputs without a visible label. Screen readers and users need persistent labels."},
+			{"do": "Use the required prop on Label and required attribute on Input for accessible required fields.", "dont": "Avoid typing asterisks manually. Use the required prop for consistent styling."}
+		]
+	},
 	"lineage": {
 		"origin": "migrated",
 		"authoredBy": "A1 component migration batch (2026-07)",

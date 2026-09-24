@@ -1,7 +1,20 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
 import {Badge} from "@corensystem/coren-ui/badge";
-import {Check, CircleAlert, Clock} from "lucide-react";
+import {
+	AllVariants,
+	CountBadge,
+	Default as DefaultExample,
+	Destructive as DestructiveExample,
+	Outline as OutlineExample,
+	Secondary as SecondaryExample,
+	SemanticColors,
+	SeverityScale,
+	Soft,
+	StatusSemantics,
+	WhenNotToUse,
+	WithIcon,
+} from "@corensystem/coren-docs/examples/badge";
 
 const meta = {
 	title: "Components/Primitives/Badge",
@@ -46,40 +59,44 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+	parameters: {
+		docs: {description: {story: "Default badge with primary styling."}},
+	},
+	render: () => <DefaultExample />,
+};
 
 export const Secondary: Story = {
-	args: {variant: "secondary"},
+	parameters: {
+		docs: {description: {story: "Secondary variant with muted styling."}},
+	},
+	render: () => <SecondaryExample />,
 };
 
 export const Destructive: Story = {
-	args: {variant: "destructive"},
+	parameters: {
+		docs: {description: {story: "Destructive variant for errors or critical states."}},
+	},
+	render: () => <DestructiveExample />,
 };
 
 export const Outline: Story = {
-	args: {variant: "outline"},
+	parameters: {
+		docs: {description: {story: "Outline variant with subtle border styling."}},
+	},
+	render: () => <OutlineExample />,
 };
 
-export const AllVariants: Story = {
-	render: () => (
-		<div className="wwc:flex wwc:flex-wrap wwc:gap-3">
-			<Badge variant="default">Default</Badge>
-			<Badge variant="secondary">Secondary</Badge>
-			<Badge variant="destructive">Destructive</Badge>
-			<Badge variant="outline">Outline</Badge>
-			<Badge variant="success">Success</Badge>
-			<Badge variant="warning">Warning</Badge>
-			<Badge variant="info">Info</Badge>
-			<Badge variant="successSoft">Success soft</Badge>
-			<Badge variant="warningSoft">Warning soft</Badge>
-			<Badge variant="dangerSoft">Danger soft</Badge>
-			<Badge variant="infoSoft">Info soft</Badge>
-			<Badge variant="neutralSoft">Neutral soft</Badge>
-		</div>
-	),
+export const AllVariantsStory: Story = {
+	name: "All Variants",
+	parameters: {
+		docs: {description: {story: "Shows all 12 badge variants including solid fills and soft tinted styles."}},
+	},
+	render: () => <AllVariants />,
 };
 
-export const SemanticColors: Story = {
+export const SemanticColorsStory: Story = {
+	name: "Semantic Colors",
 	parameters: {
 		docs: {
 			description: {
@@ -89,17 +106,11 @@ export const SemanticColors: Story = {
 			},
 		},
 	},
-	render: () => (
-		<div className="wwc:flex wwc:flex-wrap wwc:gap-3">
-			<Badge variant="success">Success</Badge>
-			<Badge variant="warning">Warning</Badge>
-			<Badge variant="info">Info</Badge>
-			<Badge variant="destructive">Danger</Badge>
-		</div>
-	),
+	render: () => <SemanticColors />,
 };
 
-export const Soft: Story = {
+export const SoftStory: Story = {
+	name: "Soft",
 	parameters: {
 		docs: {
 			description: {
@@ -110,18 +121,11 @@ export const Soft: Story = {
 			},
 		},
 	},
-	render: () => (
-		<div className="wwc:flex wwc:flex-wrap wwc:gap-3">
-			<Badge variant="successSoft">Verified</Badge>
-			<Badge variant="warningSoft">Medium</Badge>
-			<Badge variant="dangerSoft">High</Badge>
-			<Badge variant="infoSoft">Low</Badge>
-			<Badge variant="neutralSoft">Draft</Badge>
-		</div>
-	),
+	render: () => <Soft />,
 };
 
-export const SeverityScale: Story = {
+export const SeverityScaleStory: Story = {
+	name: "Severity Scale",
 	parameters: {
 		docs: {
 			description: {
@@ -131,16 +135,11 @@ export const SeverityScale: Story = {
 			},
 		},
 	},
-	render: () => (
-		<div className="wwc:flex wwc:flex-wrap wwc:gap-3">
-			<Badge variant="dangerSoft">High</Badge>
-			<Badge variant="warningSoft">Medium</Badge>
-			<Badge variant="infoSoft">Low</Badge>
-		</div>
-	),
+	render: () => <SeverityScale />,
 };
 
-export const StatusSemantics: Story = {
+export const StatusSemanticsStory: Story = {
+	name: "Status Semantics",
 	parameters: {
 		docs: {
 			description: {
@@ -150,49 +149,27 @@ export const StatusSemantics: Story = {
 			},
 		},
 	},
-	render: () => (
-		<div className="wwc:flex wwc:flex-wrap wwc:gap-3">
-			<Badge variant="default">Active</Badge>
-			<Badge variant="secondary">Pending</Badge>
-			<Badge variant="destructive">Blocked</Badge>
-			<Badge variant="outline">Draft</Badge>
-		</div>
-	),
+	render: () => <StatusSemantics />,
 };
 
-export const WithIcon: Story = {
+export const WithIconStory: Story = {
+	name: "With Icon",
 	parameters: {
 		docs: {description: {story: "Lead with a small icon to reinforce the status. Keep the label one or two words."}},
 	},
-	render: () => (
-		<div className="wwc:flex wwc:flex-wrap wwc:gap-3">
-			<Badge variant="default">
-				<Check className="wwc:size-3" /> Verified
-			</Badge>
-			<Badge variant="secondary">
-				<Clock className="wwc:size-3" /> In review
-			</Badge>
-			<Badge variant="destructive">
-				<CircleAlert className="wwc:size-3" /> Failed
-			</Badge>
-		</div>
-	),
+	render: () => <WithIcon />,
 };
 
-export const CountBadge: Story = {
+export const CountBadgeStory: Story = {
+	name: "Count Badge",
 	parameters: {
 		docs: {description: {story: "Numeric badges for counts. Cap large values (e.g. 99+) to keep width stable."}},
 	},
-	render: () => (
-		<div className="wwc:flex wwc:flex-wrap wwc:items-center wwc:gap-3">
-			<Badge variant="secondary">3</Badge>
-			<Badge variant="secondary">12</Badge>
-			<Badge variant="destructive">99+</Badge>
-		</div>
-	),
+	render: () => <CountBadge />,
 };
 
-export const WhenNotToUse: Story = {
+export const WhenNotToUseStory: Story = {
+	name: "When Not To Use",
 	parameters: {
 		docs: {
 			description: {
@@ -202,13 +179,5 @@ export const WhenNotToUse: Story = {
 			},
 		},
 	},
-	render: () => (
-		<div className="wwc:flex wwc:flex-col wwc:gap-2 wwc:text-sm">
-			<div className="wwc:flex wwc:items-center wwc:gap-2">
-				<Badge variant="secondary">Static label</Badge>
-				<span className="wwc:text-muted-foreground">✓ status / category / count</span>
-			</div>
-			<p className="wwc:text-destructive">✗ Don't wire onClick/remove onto a Badge — use Chip for interactive pills.</p>
-		</div>
-	),
+	render: () => <WhenNotToUse />,
 };

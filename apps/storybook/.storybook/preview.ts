@@ -1,3 +1,4 @@
+import {createElement} from "react";
 import type {Preview} from "storybook/internal/types";
 
 import {AutodocsPage} from "../stories/_docs/ComponentKnowledge";
@@ -17,9 +18,15 @@ const preview: Preview = {
 				dynamicTitle: true,
 			},
 		},
+		// Set by sites that embed stories in an iframe (e.g. `?globals=embed:centered`). No toolbar,
+		// so Storybook's own UI is unchanged. Must be declared here or Storybook ignores the URL value.
+		embed: {
+			description: "Embed mode: 'centered' centers the story in the preview frame",
+		},
 	},
 	initialGlobals: {
 		theme: "light",
+		embed: "",
 	},
 	decorators: [
 		(Story, context) => {
@@ -43,6 +50,23 @@ const preview: Preview = {
 			const root = document.getElementById("storybook-root");
 			if (root) {
 				root.classList.toggle("dark", isDark);
+			}
+
+			// Embedded previews: center the story both ways inside the frame. Storybook's default
+			// "padded" layout pads body by 1rem on each side, hence the min-height offset.
+			if (context.globals.embed === "centered") {
+				return createElement(
+					"div",
+					{
+						style: {
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+							minHeight: "calc(100vh - 2rem)",
+						},
+					},
+					Story(),
+				);
 			}
 
 			return Story();
