@@ -1,6 +1,6 @@
 {
 	"name": "@corensystem/coren-docs",
-	"version": "1.2.0",
+	"version": "1.3.0",
 	"description": "Component documentation and examples for the Coren Design System",
 	"type": "module",
 	"sideEffects": false,
@@ -20,9 +20,33 @@
 			"types": "./dist/examples/button/index.d.mts",
 			"import": "./dist/examples/button/index.mjs"
 		},
+		"./examples/checkbox": {
+			"types": "./dist/examples/checkbox/index.d.mts",
+			"import": "./dist/examples/checkbox/index.mjs"
+		},
+		"./examples/input": {
+			"types": "./dist/examples/input/index.d.mts",
+			"import": "./dist/examples/input/index.mjs"
+		},
 		"./examples/label": {
 			"types": "./dist/examples/label/index.d.mts",
 			"import": "./dist/examples/label/index.mjs"
+		},
+		"./examples/radio-group": {
+			"types": "./dist/examples/radio-group/index.d.mts",
+			"import": "./dist/examples/radio-group/index.mjs"
+		},
+		"./examples/select": {
+			"types": "./dist/examples/select/index.d.mts",
+			"import": "./dist/examples/select/index.mjs"
+		},
+		"./examples/switch": {
+			"types": "./dist/examples/switch/index.d.mts",
+			"import": "./dist/examples/switch/index.mjs"
+		},
+		"./examples/textarea": {
+			"types": "./dist/examples/textarea/index.d.mts",
+			"import": "./dist/examples/textarea/index.mjs"
 		}
 	},
 	"publishConfig": {
