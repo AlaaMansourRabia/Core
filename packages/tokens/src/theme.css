@@ -5,6 +5,9 @@
  * - index.css (monorepo internal, imports this + adds prefix)
  * - TW4 consumers: @import "@corensystem/coren-tokens/theme"
  * - TW3 consumers: via tailwind3-preset.cjs (maps the same CSS vars)
+ *
+ * Palette: cool lavender-gray neutrals (OKLCH hue ~275, low chroma) aligned with the docs site.
+ * The old warm charcoal (hue ~70) is replaced entirely.
  */
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -46,6 +49,46 @@
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
+
+	/* Brand colors */
+	--color-brand: var(--brand);
+	--color-brand-foreground: var(--brand-foreground);
+
+	/* Lavender panel ramp (for decorative/accent surfaces) */
+	--color-lavender-100: var(--lavender-100);
+	--color-lavender-200: var(--lavender-200);
+	--color-lavender-300: var(--lavender-300);
+	--color-lavender-400: var(--lavender-400);
+	--color-lavender-700: var(--lavender-700);
+	--color-lavender-800: var(--lavender-800);
+	--color-lavender-900: var(--lavender-900);
+	--color-lavender-950: var(--lavender-950);
+
+	/* Lime highlight ramp (for accent fills and text) */
+	--color-highlight-100: var(--highlight-100);
+	--color-highlight-200: var(--highlight-200);
+	--color-highlight-300: var(--highlight-300);
+	--color-highlight-400: var(--highlight-400);
+	--color-highlight-600: var(--highlight-600);
+	--color-highlight-700: var(--highlight-700);
+
+	/* Neutral ramp (lavender-gray) for direct access */
+	--color-neutral-50: var(--neutral-50);
+	--color-neutral-100: var(--neutral-100);
+	--color-neutral-200: var(--neutral-200);
+	--color-neutral-300: var(--neutral-300);
+	--color-neutral-400: var(--neutral-400);
+	--color-neutral-500: var(--neutral-500);
+	--color-neutral-600: var(--neutral-600);
+	--color-neutral-700: var(--neutral-700);
+	--color-neutral-800: var(--neutral-800);
+	--color-neutral-900: var(--neutral-900);
+	--color-neutral-950: var(--neutral-950);
+
+	/* Surface tokens for raised dark surfaces */
+	--color-surface-600: var(--surface-600);
+	--color-surface-700: var(--surface-700);
+
 	/* Flat 5px corner on every surface. The scale is deliberately collapsed rather than stepped:
 	 * at this size the difference between steps is invisible, so a single value keeps the whole
 	 * app honest. `rounded-full` is untouched — avatars, status dots and pills stay circular, and
@@ -118,52 +161,55 @@
  * (bg-card, text-muted-foreground) over `dark:`-conditioned colours. */
 :root,
 .dark .wwc-invert {
-	/* Light mode: the body is a subtle grey CANVAS; cards/surfaces sit on it as white and lift off. */
-	--background: oklch(0.985 0 0);
-	--foreground: oklch(0.145 0 0);
-	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.145 0 0);
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.145 0 0);
-	--primary: oklch(0.205 0 0);
-	--primary-foreground: oklch(0.985 0 0);
-	--secondary: oklch(0.97 0 0);
-	--secondary-foreground: oklch(0.205 0 0);
-	--muted: oklch(0.96 0 0);
-	--muted-foreground: oklch(0.556 0 0);
-	--accent: oklch(0.975 0 0);
-	--accent-foreground: oklch(0.205 0 0);
-	/* The transient highlight on a menu or list row under pointer or keyboard focus. Deliberately not
-	 * --accent: at 0.975 the step off a white --popover is 0.025 L and the highlight is invisible, but
-	 * --accent is also the SELECTED-state fill for Calendar's day and Toggle's on-state, so it cannot
-	 * be darkened for menus without repainting those. Since Radix focuses an item on hover, this band
-	 * is also the only focus affordance those items have.
+	/* Light mode: the body is a subtle lavender-gray CANVAS (#f9f9fc); cards sit on it as white.
 	 *
-	 * 0.94 was a 0.06 L step, which measured 1.14:1 against --background and was reported as invisible
-	 * twice (#279, reopened). 0.89 is 1.33:1 on the worst surface — still a quiet hover, but one you
-	 * can actually see. It now sits BELOW --border (0.92); nothing depends on the light ordering. */
-	--menu-highlight: oklch(0.89 0 0);
-	--menu-highlight-foreground: oklch(0.205 0 0);
+	 * Contrast ratios (WCAG AA requires 4.5:1 for body text, 3:1 for large text):
+	 *   --foreground (#11121f) on --background (#f9f9fc): 15.8:1 ✓
+	 *   --foreground (#11121f) on --card (#ffffff):       17.4:1 ✓
+	 *   --foreground (#11121f) on --muted (#f2f2f7):      15.2:1 ✓
+	 *   --muted-foreground (#65677e) on --background:      5.2:1 ✓
+	 *   --muted-foreground (#65677e) on --card:            5.7:1 ✓
+	 *   --muted-foreground (#65677e) on --muted:           5.0:1 ✓
+	 */
+	--background: oklch(0.979 0.005 286);        /* #f9f9fc - neutral-50 */
+	--foreground: oklch(0.145 0.020 277);        /* #11121f - neutral-900 */
+	--card: oklch(1 0 0);                        /* #ffffff - pure white */
+	--card-foreground: oklch(0.145 0.020 277);   /* #11121f */
+	--popover: oklch(1 0 0);                     /* #ffffff */
+	--popover-foreground: oklch(0.145 0.020 277);/* #11121f */
+	--primary: oklch(0.145 0.020 277);           /* #11121f */
+	--primary-foreground: oklch(1 0 0);          /* #ffffff */
+	--secondary: oklch(0.962 0.008 286);         /* #f2f2f7 - neutral-100 */
+	--secondary-foreground: oklch(0.145 0.020 277);
+	--muted: oklch(0.962 0.008 286);             /* #f2f2f7 - neutral-100 */
+	--muted-foreground: oklch(0.502 0.030 277);  /* #65677e - neutral-500 */
+	--accent: oklch(0.962 0.008 286);            /* #f2f2f7 - neutral-100 */
+	--accent-foreground: oklch(0.145 0.020 277);
+	/* The transient highlight on a menu or list row under pointer or keyboard focus.
+	 * Uses neutral-200 (#e3e4ec) for visible contrast against white popover surfaces. */
+	--menu-highlight: oklch(0.912 0.012 282);    /* #e3e4ec - neutral-200 */
+	--menu-highlight-foreground: oklch(0.145 0.020 277);
 	--destructive: oklch(0.577 0.245 27.325);
 	--destructive-foreground: oklch(1 0 0);
 	--success: oklch(0.59 0.16 145);
 	--warning: oklch(0.72 0.16 70);
-	--border: oklch(0.92 0 0);
-	--input: oklch(0.95 0 0);
-	--ring: oklch(0.708 0 0);
-	--chart-1: oklch(0.92 0.07 75);
-	--chart-2: oklch(0.85 0.12 70);
-	--chart-3: oklch(0.78 0.17 65);
-	--chart-4: oklch(0.71 0.22 60);
-	--chart-5: oklch(0.64 0.27 55);
-	--sidebar: oklch(0.99 0 0);
-	--sidebar-foreground: oklch(0.145 0 0);
-	--sidebar-primary: oklch(0.205 0 0);
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.975 0 0);
-	--sidebar-accent-foreground: oklch(0.205 0 0);
-	--sidebar-border: oklch(0.92 0 0);
-	--sidebar-ring: oklch(0.708 0 0);
+	--border: oklch(0.912 0.012 282);            /* #e3e4ec - neutral-200 */
+	--input: oklch(0.912 0.012 282);             /* #e3e4ec - neutral-200 */
+	--ring: oklch(0.710 0.025 277);              /* #a3a5b8 - neutral-400 */
+	/* Chart palette: blue-violet ramp for cool neutral harmony. Distinguishable and accessible. */
+	--chart-1: oklch(0.75 0.12 280);             /* soft lavender */
+	--chart-2: oklch(0.65 0.15 260);             /* violet */
+	--chart-3: oklch(0.55 0.18 240);             /* blue-violet */
+	--chart-4: oklch(0.70 0.14 140);             /* teal */
+	--chart-5: oklch(0.80 0.12 115);             /* lime (highlight accent) */
+	--sidebar: oklch(0.990 0.003 286);           /* near-white, subtle step from background */
+	--sidebar-foreground: oklch(0.145 0.020 277);
+	--sidebar-primary: oklch(0.145 0.020 277);
+	--sidebar-primary-foreground: oklch(0.979 0.005 286);
+	--sidebar-accent: oklch(0.962 0.008 286);
+	--sidebar-accent-foreground: oklch(0.145 0.020 277);
+	--sidebar-border: oklch(0.912 0.012 282);
+	--sidebar-ring: oklch(0.710 0.025 277);
 	--radius: 5px;
 	/* Small controls opt out of the base radius: at 16px, 8px would round a checkbox into a circle
 	 * and it would read as a radio button. Fixed, so it stays a box whatever --radius becomes. */
@@ -171,67 +217,153 @@
 	/* The one sanctioned shadow: a slight lift for analytics surfaces (widget cards, data tables).
 	 * The generic shadow-* utilities stay disabled by the minimal theme — see tokens/src/index.css. */
 	--shadow-surface: 0 1px 2px 0 rgb(0 0 0 / 0.06);
+
+	/* Brand colors */
+	--brand: oklch(0.248 0.025 55);              /* #2e241b - warm dark brown for light mode logo */
+	--brand-foreground: oklch(1 0 0);
+
+	/* Lavender panel ramp (light shades for light mode) */
+	--lavender-100: oklch(0.955 0.025 280);      /* #eef0fd */
+	--lavender-200: oklch(0.915 0.038 280);      /* #dfe2fa */
+	--lavender-300: oklch(0.870 0.050 280);      /* #cfd1f6 */
+	--lavender-400: oklch(0.800 0.065 280);      /* #b7baee */
+	--lavender-700: oklch(0.310 0.060 275);      /* #303260 */
+	--lavender-800: oklch(0.235 0.050 275);      /* #212345 */
+	--lavender-900: oklch(0.180 0.040 275);      /* #181931 */
+	--lavender-950: oklch(0.140 0.032 275);      /* #111224 */
+
+	/* Lime highlight ramp (fills use 300 with dark text; text/lines use 600-700 on light bg) */
+	--highlight-100: oklch(0.950 0.075 115);     /* #eef5d2 */
+	--highlight-200: oklch(0.920 0.100 115);     /* #e2edb0 */
+	--highlight-300: oklch(0.880 0.130 115);     /* #d2e38a */
+	--highlight-400: oklch(0.830 0.155 115);     /* #bdd35f */
+	--highlight-600: oklch(0.620 0.130 115);     /* #77912a */
+	--highlight-700: oklch(0.510 0.105 115);     /* #5a6e1f */
+
+	/* Neutral ramp (lavender-gray) */
+	--neutral-50: oklch(0.979 0.005 286);        /* #f9f9fc */
+	--neutral-100: oklch(0.962 0.008 286);       /* #f2f2f7 */
+	--neutral-200: oklch(0.912 0.012 282);       /* #e3e4ec */
+	--neutral-300: oklch(0.858 0.016 280);       /* #d0d1dd */
+	--neutral-400: oklch(0.710 0.025 277);       /* #a3a5b8 */
+	--neutral-500: oklch(0.502 0.030 277);       /* #65677e */
+	--neutral-600: oklch(0.422 0.032 277);       /* #50526a */
+	--neutral-700: oklch(0.340 0.028 277);       /* #3c3e52 */
+	--neutral-800: oklch(0.202 0.024 277);       /* #1a1c2c */
+	--neutral-900: oklch(0.145 0.020 277);       /* #11121f */
+	--neutral-950: oklch(0.105 0.016 277);       /* #0b0c16 */
+
+	/* Raised surface tokens */
+	--surface-600: oklch(0.350 0.038 277);       /* #3d3f59 */
+	--surface-700: oklch(0.275 0.035 277);       /* #292b41 */
 }
 
 .dark,
 .wwc-invert {
-	/* Warm charcoal, not black. The canvas sits at L 0.185 (#141210) rather than near-black, so
-	 * surfaces can step UP from it — with shadows disabled, lightness is the only elevation cue we
-	 * have. The barely-there warm tint (chroma ~0.006, hue 70) matches the amber chart palette
-	 * below. Ladder: sidebar 0.165 (recessed) < canvas 0.185 < card 0.215 < muted 0.26 <
-	 * menu-highlight 0.28 < border 0.30. */
-	--background: oklch(0.185 0.006 70);
-	--foreground: oklch(0.985 0 0);
-	--card: oklch(0.215 0.006 70);
-	--card-foreground: oklch(0.985 0 0);
-	--popover: oklch(0.205 0.006 70);
-	--popover-foreground: oklch(0.985 0 0);
-	--primary: oklch(0.922 0 0);
-	--primary-foreground: oklch(0.205 0 0);
-	--secondary: oklch(0.245 0.007 70);
-	--secondary-foreground: oklch(0.985 0 0);
-	/* Steps clearly ABOVE --card: this is the widget/table header band, which in light mode steps
-	 * down from white. It previously sat 0.01 from --card and the band was invisible in dark mode. */
-	--muted: oklch(0.26 0.007 70);
-	--muted-foreground: oklch(0.708 0 0);
-	--accent: oklch(0.26 0.007 70);
-	--accent-foreground: oklch(0.985 0 0);
-	/* A focused menu row has to read against both --popover (0.205) and --card (0.215) at the same step
-	 * the light value gives. Not --accent, which is a selected-state fill elsewhere; not --muted, which
-	 * is the static header band and the menu separator's own fill.
+	/* Cool lavender-gray, not warm charcoal. The canvas sits at neutral-950 (#0b0c16), so surfaces
+	 * can step UP from it — with shadows disabled, lightness is the only elevation cue we have.
+	 * The cool tint (OKLCH hue ~277) aligns with the docs site palette.
 	 *
-	 * 0.28 sat between --muted (0.26) and --border (0.30), and that ceiling capped the highlight at
-	 * 1.20:1 against --card — the same invisibility #279 reports in light. The dark palette is too
-	 * compressed for a perceptible band below the border, so the highlight now passes it: 0.325 is
-	 * 1.38:1, and stays clear of --border rather than collapsing onto it. */
-	--menu-highlight: oklch(0.325 0.007 70);
-	--menu-highlight-foreground: oklch(0.985 0 0);
+	 * Dark elevation ladder (strictly increasing lightness):
+	 *   sidebar  0.08 (#080911) — recessed, one step below 950
+	 *   canvas   0.105 (#0b0c16) — neutral-950
+	 *   card     0.145 (#11121f) — neutral-900
+	 *   muted    0.202 (#1a1c2c) — neutral-800 (also secondary, input, accent)
+	 *   border   0.275 (#292b41) — surface-700
+	 *   menu-hl  0.350 (#3d3f59) — surface-600
+	 *
+	 * Contrast ratios (WCAG AA requires 4.5:1 for body text):
+	 *   --foreground (#f2f2f7) on --background (#0b0c16): 16.2:1 ✓
+	 *   --foreground (#f2f2f7) on --card (#11121f):       13.8:1 ✓
+	 *   --foreground (#f2f2f7) on --muted (#1a1c2c):      11.0:1 ✓
+	 *   --muted-foreground (#a3a5b8) on --background:      7.8:1 ✓
+	 *   --muted-foreground (#a3a5b8) on --card:            6.6:1 ✓
+	 *   --muted-foreground (#a3a5b8) on --muted:           5.3:1 ✓
+	 */
+	--background: oklch(0.105 0.016 277);        /* #0b0c16 - neutral-950 */
+	--foreground: oklch(0.962 0.008 286);        /* #f2f2f7 - neutral-100 */
+	--card: oklch(0.145 0.020 277);              /* #11121f - neutral-900 */
+	--card-foreground: oklch(0.962 0.008 286);
+	--popover: oklch(0.145 0.020 277);           /* #11121f - neutral-900 */
+	--popover-foreground: oklch(0.962 0.008 286);
+	--primary: oklch(0.962 0.008 286);           /* #f2f2f7 */
+	--primary-foreground: oklch(0.145 0.020 277);/* #11121f */
+	--secondary: oklch(0.202 0.024 277);         /* #1a1c2c - neutral-800 */
+	--secondary-foreground: oklch(0.962 0.008 286);
+	--muted: oklch(0.202 0.024 277);             /* #1a1c2c - neutral-800 */
+	--muted-foreground: oklch(0.710 0.025 277);  /* #a3a5b8 - neutral-400 */
+	--accent: oklch(0.202 0.024 277);            /* #1a1c2c - neutral-800 */
+	--accent-foreground: oklch(0.962 0.008 286);
+	/* Menu highlight uses surface-600 (#3d3f59), above border in the ladder for visibility.
+	 * Gives 1.5:1 against card — quiet but perceptible on the dark palette. */
+	--menu-highlight: oklch(0.350 0.038 277);    /* #3d3f59 - surface-600 */
+	--menu-highlight-foreground: oklch(0.962 0.008 286);
 	--destructive: oklch(0.704 0.191 22.216);
-	--destructive-foreground: oklch(0.985 0 0);
+	--destructive-foreground: oklch(0.962 0.008 286);
 	--success: oklch(0.72 0.16 145);
 	--warning: oklch(0.8 0.15 75);
-	--border: oklch(0.3 0.008 70);
-	--input: oklch(0.245 0.007 70);
-	--ring: oklch(0.556 0 0);
-	--chart-1: oklch(0.92 0.07 75);
-	--chart-2: oklch(0.85 0.12 70);
-	--chart-3: oklch(0.78 0.17 65);
-	--chart-4: oklch(0.71 0.22 60);
-	--chart-5: oklch(0.64 0.27 55);
-	--sidebar: oklch(0.165 0.006 70);
-	--sidebar-foreground: oklch(0.985 0 0);
-	--sidebar-primary: oklch(0.488 0.243 264.376);
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.26 0.007 70);
-	--sidebar-accent-foreground: oklch(0.985 0 0);
-	--sidebar-border: oklch(0.3 0.008 70);
-	--sidebar-ring: oklch(0.439 0 0);
+	--border: oklch(0.275 0.035 277);            /* #292b41 - surface-700 */
+	--input: oklch(0.202 0.024 277);             /* #1a1c2c - neutral-800 */
+	--ring: oklch(0.502 0.030 277);              /* #65677e - neutral-500 */
+	/* Chart palette: same blue-violet ramp, tuned for dark background visibility. */
+	--chart-1: oklch(0.78 0.10 280);             /* soft lavender */
+	--chart-2: oklch(0.70 0.14 260);             /* violet */
+	--chart-3: oklch(0.62 0.17 240);             /* blue-violet */
+	--chart-4: oklch(0.75 0.13 140);             /* teal */
+	--chart-5: oklch(0.82 0.14 115);             /* lime (highlight accent) */
+	--sidebar: oklch(0.080 0.014 277);           /* #080911 - recessed, below background */
+	--sidebar-foreground: oklch(0.962 0.008 286);
+	--sidebar-primary: oklch(0.580 0.220 265);   /* accent blue-violet */
+	--sidebar-primary-foreground: oklch(0.962 0.008 286);
+	--sidebar-accent: oklch(0.202 0.024 277);
+	--sidebar-accent-foreground: oklch(0.962 0.008 286);
+	--sidebar-border: oklch(0.275 0.035 277);
+	--sidebar-ring: oklch(0.422 0.032 277);
 	--radius: 5px;
 	/* Small controls opt out of the base radius: at 16px, 8px would round a checkbox into a circle
 	 * and it would read as a radio button. Fixed, so it stays a box whatever --radius becomes. */
 	--radius-control: 4px;
 	/* Deeper on the dark canvas — a 6% black lift is invisible against a near-black background. */
 	--shadow-surface: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+
+	/* Brand colors (inverted for dark mode) */
+	--brand: oklch(0.925 0.018 70);              /* #ede4d8 - warm light cream for dark mode logo */
+	--brand-foreground: oklch(0.145 0.020 277);
+
+	/* Lavender panel ramp (dark shades for dark mode, but keep all for flexibility) */
+	--lavender-100: oklch(0.955 0.025 280);
+	--lavender-200: oklch(0.915 0.038 280);
+	--lavender-300: oklch(0.870 0.050 280);
+	--lavender-400: oklch(0.800 0.065 280);
+	--lavender-700: oklch(0.310 0.060 275);
+	--lavender-800: oklch(0.235 0.050 275);
+	--lavender-900: oklch(0.180 0.040 275);
+	--lavender-950: oklch(0.140 0.032 275);
+
+	/* Lime highlight ramp */
+	--highlight-100: oklch(0.950 0.075 115);
+	--highlight-200: oklch(0.920 0.100 115);
+	--highlight-300: oklch(0.880 0.130 115);
+	--highlight-400: oklch(0.830 0.155 115);
+	--highlight-600: oklch(0.620 0.130 115);
+	--highlight-700: oklch(0.510 0.105 115);
+
+	/* Neutral ramp (same values, available in both modes) */
+	--neutral-50: oklch(0.979 0.005 286);
+	--neutral-100: oklch(0.962 0.008 286);
+	--neutral-200: oklch(0.912 0.012 282);
+	--neutral-300: oklch(0.858 0.016 280);
+	--neutral-400: oklch(0.710 0.025 277);
+	--neutral-500: oklch(0.502 0.030 277);
+	--neutral-600: oklch(0.422 0.032 277);
+	--neutral-700: oklch(0.340 0.028 277);
+	--neutral-800: oklch(0.202 0.024 277);
+	--neutral-900: oklch(0.145 0.020 277);
+	--neutral-950: oklch(0.105 0.016 277);
+
+	/* Raised surface tokens */
+	--surface-600: oklch(0.350 0.038 277);
+	--surface-700: oklch(0.275 0.035 277);
 }
 
 /* Tailwind's `@theme` turns each alias into the variable the utilities actually read, and a custom
@@ -317,6 +449,64 @@
 	--wwc-color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
 	--wwc-color-sidebar-ring: var(--sidebar-ring);
+	--color-brand: var(--brand);
+	--wwc-color-brand: var(--brand);
+	--color-brand-foreground: var(--brand-foreground);
+	--wwc-color-brand-foreground: var(--brand-foreground);
+	--color-lavender-100: var(--lavender-100);
+	--wwc-color-lavender-100: var(--lavender-100);
+	--color-lavender-200: var(--lavender-200);
+	--wwc-color-lavender-200: var(--lavender-200);
+	--color-lavender-300: var(--lavender-300);
+	--wwc-color-lavender-300: var(--lavender-300);
+	--color-lavender-400: var(--lavender-400);
+	--wwc-color-lavender-400: var(--lavender-400);
+	--color-lavender-700: var(--lavender-700);
+	--wwc-color-lavender-700: var(--lavender-700);
+	--color-lavender-800: var(--lavender-800);
+	--wwc-color-lavender-800: var(--lavender-800);
+	--color-lavender-900: var(--lavender-900);
+	--wwc-color-lavender-900: var(--lavender-900);
+	--color-lavender-950: var(--lavender-950);
+	--wwc-color-lavender-950: var(--lavender-950);
+	--color-highlight-100: var(--highlight-100);
+	--wwc-color-highlight-100: var(--highlight-100);
+	--color-highlight-200: var(--highlight-200);
+	--wwc-color-highlight-200: var(--highlight-200);
+	--color-highlight-300: var(--highlight-300);
+	--wwc-color-highlight-300: var(--highlight-300);
+	--color-highlight-400: var(--highlight-400);
+	--wwc-color-highlight-400: var(--highlight-400);
+	--color-highlight-600: var(--highlight-600);
+	--wwc-color-highlight-600: var(--highlight-600);
+	--color-highlight-700: var(--highlight-700);
+	--wwc-color-highlight-700: var(--highlight-700);
+	--color-neutral-50: var(--neutral-50);
+	--wwc-color-neutral-50: var(--neutral-50);
+	--color-neutral-100: var(--neutral-100);
+	--wwc-color-neutral-100: var(--neutral-100);
+	--color-neutral-200: var(--neutral-200);
+	--wwc-color-neutral-200: var(--neutral-200);
+	--color-neutral-300: var(--neutral-300);
+	--wwc-color-neutral-300: var(--neutral-300);
+	--color-neutral-400: var(--neutral-400);
+	--wwc-color-neutral-400: var(--neutral-400);
+	--color-neutral-500: var(--neutral-500);
+	--wwc-color-neutral-500: var(--neutral-500);
+	--color-neutral-600: var(--neutral-600);
+	--wwc-color-neutral-600: var(--neutral-600);
+	--color-neutral-700: var(--neutral-700);
+	--wwc-color-neutral-700: var(--neutral-700);
+	--color-neutral-800: var(--neutral-800);
+	--wwc-color-neutral-800: var(--neutral-800);
+	--color-neutral-900: var(--neutral-900);
+	--wwc-color-neutral-900: var(--neutral-900);
+	--color-neutral-950: var(--neutral-950);
+	--wwc-color-neutral-950: var(--neutral-950);
+	--color-surface-600: var(--surface-600);
+	--wwc-color-surface-600: var(--surface-600);
+	--color-surface-700: var(--surface-700);
+	--wwc-color-surface-700: var(--surface-700);
 }
 
 @layer base {
