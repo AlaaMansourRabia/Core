@@ -6,7 +6,7 @@ import {RuleRow, RuleRowCondition, RuleRowAction} from "@corensystem/coren-ui/ru
 export function ClarityDont() {
 	return (
 		<RuleRow>
-			<RuleRowCondition>s==1&&f>0</RuleRowCondition>
+			<RuleRowCondition>s==1&amp;&amp;f&gt;0</RuleRowCondition>
 			<RuleRowAction>fn(x)</RuleRowAction>
 		</RuleRow>
 	);

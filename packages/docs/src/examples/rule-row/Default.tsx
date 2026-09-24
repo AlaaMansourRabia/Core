@@ -6,7 +6,7 @@ import {RuleRow, RuleRowCondition, RuleRowAction} from "@corensystem/coren-ui/ru
 export function Default() {
 	return (
 		<RuleRow>
-			<RuleRowCondition>If score > 80</RuleRowCondition>
+			<RuleRowCondition>If score &gt; 80</RuleRowCondition>
 			<RuleRowAction>Mark as passed</RuleRowAction>
 		</RuleRow>
 	);

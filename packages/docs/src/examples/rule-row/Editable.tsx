@@ -8,7 +8,7 @@ import {Trash2} from "lucide-react";
 export function Editable() {
 	return (
 		<RuleRow editable>
-			<RuleRowCondition editable>Value > 100</RuleRowCondition>
+			<RuleRowCondition editable>Value &gt; 100</RuleRowCondition>
 			<RuleRowAction editable>Send alert</RuleRowAction>
 			<RuleRowActions>
 				<Button variant="ghost" size="icon"><Trash2 className="wwc:h-4 wwc:w-4" /></Button>
