@@ -1,11 +1,11 @@
 {
 	"name": "@corensystem/coren-docs",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Component documentation and examples for the Coren Design System",
 	"type": "module",
 	"sideEffects": false,
-	"main": "./dist/examples/badge.mjs",
-	"types": "./dist/examples/badge.d.mts",
+	"main": "./dist/examples/badge/index.mjs",
+	"types": "./dist/examples/badge/index.d.mts",
 	"files": [
 		"dist"
 	],
@@ -13,12 +13,12 @@
 		"./index.json": "./dist/index.json",
 		"./docs/*": "./dist/docs/*",
 		"./examples/badge": {
-			"types": "./dist/examples/badge.d.mts",
-			"import": "./dist/examples/badge.mjs"
+			"types": "./dist/examples/badge/index.d.mts",
+			"import": "./dist/examples/badge/index.mjs"
 		},
 		"./examples/label": {
-			"types": "./dist/examples/label.d.mts",
-			"import": "./dist/examples/label.mjs"
+			"types": "./dist/examples/label/index.d.mts",
+			"import": "./dist/examples/label/index.mjs"
 		}
 	},
 	"publishConfig": {
