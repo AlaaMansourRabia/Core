@@ -10,7 +10,7 @@ import {
 	type SitePanelVilla,
 	type ViewId,
 	type ViewMode,
-} from "@corensystem/core-ui/site-panel";
+} from "@corensystem/coren-ui/site-panel";
 import {LayoutGrid} from "lucide-react";
 import {useState} from "react";
 

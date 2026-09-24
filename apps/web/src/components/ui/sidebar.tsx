@@ -13,4 +13,4 @@ export {
 	SidebarSeparator,
 	SidebarTrigger,
 	useSidebar,
-} from "@corensystem/core-ui/sidebar";
+} from "@corensystem/coren-ui/sidebar";

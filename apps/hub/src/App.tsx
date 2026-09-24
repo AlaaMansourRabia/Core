@@ -1,6 +1,6 @@
-import {Button} from "@corensystem/core-ui/button";
-import {CoreAppSidebar, type SidebarNavGroup} from "@corensystem/core-ui/navigation/core-app-sidebar";
-import {CoreAppTopBar} from "@corensystem/core-ui/navigation/core-app-top-bar";
+import {Button} from "@corensystem/coren-ui/button";
+import {CoreAppSidebar, type SidebarNavGroup} from "@corensystem/coren-ui/navigation/core-app-sidebar";
+import {CoreAppTopBar} from "@corensystem/coren-ui/navigation/core-app-top-bar";
 import {Blocks, BookOpen, Boxes, ExternalLink, Github, Moon, Palette, Shapes, Sun, Terminal, Wand2} from "lucide-react";
 import {useEffect, useRef, useState} from "react";
 

@@ -1,1 +1,1 @@
-export * from "@corensystem/core-ui/pages/health-view";
+export * from "@corensystem/coren-ui/pages/health-view";

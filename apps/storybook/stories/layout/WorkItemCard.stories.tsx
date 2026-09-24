@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {WorkItemCard, type WorkItemAssignee} from "@corensystem/core-ui/work-item-card";
+import {WorkItemCard, type WorkItemAssignee} from "@corensystem/coren-ui/work-item-card";
 
 const meta = {
 	title: "Widgets/Activity/Work Item Card",

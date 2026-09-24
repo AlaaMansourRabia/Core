@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {MapCompareLayout} from "@corensystem/core-ui/pages/core-map-compare-layout";
+import {MapCompareLayout} from "@corensystem/coren-ui/pages/core-map-compare-layout";
 
 import manifest from "../../../../manifests/map-compare-layout.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

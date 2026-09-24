@@ -4,7 +4,7 @@ import {
 	CanvasNavigator,
 	type CanvasNavigatorNode,
 	type CanvasNavigatorSize,
-} from "@corensystem/core-ui/canvas-navigator";
+} from "@corensystem/coren-ui/canvas-navigator";
 import {Building2, Layers, MapPin, Map as MapIcon, PanelLeft} from "lucide-react";
 import {useState} from "react";
 

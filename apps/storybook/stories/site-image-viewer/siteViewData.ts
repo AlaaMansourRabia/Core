@@ -1,4 +1,4 @@
-import type {LegendItem} from "@corensystem/core-ui/legend";
+import type {LegendItem} from "@corensystem/coren-ui/legend";
 
 import {MILESTONE_COLOR_RAMP, MISSING_STYLE, OVERLAY_OPACITY, UNLINKED_STYLE, VARIANCE_STYLES} from "./milestone-ramp";
 import villasRaw from "./villas.json";

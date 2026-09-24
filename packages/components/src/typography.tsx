@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import * as React from "react";
 
 // Sizes and weights here are IMPORTANT — see the note in section-header.tsx. These render semantic

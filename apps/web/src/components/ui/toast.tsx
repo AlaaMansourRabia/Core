@@ -8,4 +8,4 @@ export {
 	ToastDescription,
 	ToastClose,
 	ToastAction,
-} from "@corensystem/core-ui/toast";
+} from "@corensystem/coren-ui/toast";

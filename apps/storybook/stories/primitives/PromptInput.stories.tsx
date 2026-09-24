@@ -6,7 +6,7 @@ import {
 	type PromptContextItem,
 	type PromptModel,
 	type PromptTool,
-} from "@corensystem/core-ui/prompt-input";
+} from "@corensystem/coren-ui/prompt-input";
 import {
 	BarChart3,
 	Calendar,

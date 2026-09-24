@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {ArrowLeft, Maximize2, Minimize2} from "lucide-react";
 import {useEffect, useMemo, useRef, useState} from "react";
 
@@ -9,13 +9,13 @@ import {
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
-} from "@corensystem/core-ui/breadcrumb";
-import {Button} from "@corensystem/core-ui/button";
-import {CanvasNavigator, type CanvasNavigatorNode, type CanvasNavigatorSize} from "@corensystem/core-ui/canvas-navigator";
-import {type LegendTab, TabbedLegend} from "@corensystem/core-ui/legend";
-import {ProgressComparison} from "@corensystem/core-ui/progress-comparison";
-import {VerticalZoomTools} from "@corensystem/core-ui/vertical-zoom-tools";
-import {WeekSelector, type WeekSelectorWeek} from "@corensystem/core-ui/week-selector";
+} from "@corensystem/coren-ui/breadcrumb";
+import {Button} from "@corensystem/coren-ui/button";
+import {CanvasNavigator, type CanvasNavigatorNode, type CanvasNavigatorSize} from "@corensystem/coren-ui/canvas-navigator";
+import {type LegendTab, TabbedLegend} from "@corensystem/coren-ui/legend";
+import {ProgressComparison} from "@corensystem/coren-ui/progress-comparison";
+import {VerticalZoomTools} from "@corensystem/coren-ui/vertical-zoom-tools";
+import {WeekSelector, type WeekSelectorWeek} from "@corensystem/coren-ui/week-selector";
 
 import {SingleHouseView} from "./house-view";
 

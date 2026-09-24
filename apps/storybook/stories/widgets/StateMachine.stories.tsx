@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {StateMachine} from "@corensystem/core-ui/pages/state-machine";
-import {DEMO_ACTIONS, DEMO_EFFECTS, demoInstancesFor} from "@corensystem/core-ui/pages/state-machine-fixtures";
-import {createProcess} from "@corensystem/core-ui/pages/wc3-process-shared";
-import {seedProcesses} from "@corensystem/core-ui/pages/wc3-process-views";
-import {defaultTemplateGraph} from "@corensystem/core-ui/pages/work-permit-templates";
+import {StateMachine} from "@corensystem/coren-ui/pages/state-machine";
+import {DEMO_ACTIONS, DEMO_EFFECTS, demoInstancesFor} from "@corensystem/coren-ui/pages/state-machine-fixtures";
+import {createProcess} from "@corensystem/coren-ui/pages/wc3-process-shared";
+import {seedProcesses} from "@corensystem/coren-ui/pages/wc3-process-views";
+import {defaultTemplateGraph} from "@corensystem/coren-ui/pages/work-permit-templates";
 import {useState} from "react";
 
 const meta = {

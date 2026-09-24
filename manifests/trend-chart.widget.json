@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/trend-chart.tsx",
-		"import": "@corensystem/core-ui/trend-chart",
+		"import": "@corensystem/coren-ui/trend-chart",
 		"export": "TrendChart"
 	},
 	"tags": ["chart", "trend", "analytics", "regular-dashboard", "echarts"],
@@ -107,7 +107,7 @@
 			"avoidOverride": "Do not use unresolved CSS Color 4 strings in TrendChart ECharts series colors."
 		}
 	],
-	"minimalExample": "import {TrendChart} from \"@corensystem/core-ui/trend-chart\";\n\n<TrendChart\n  title=\"Headcount\"\n  height={240}\n  seriesThemes={[{tone: \"primary\"}, {colorIndex: 2}]}\n  option={{\n    tooltip: {trigger: \"axis\"},\n    xAxis: {type: \"category\", data: months},\n    yAxis: {type: \"value\"},\n    series: [{type: \"bar\", data: actual}, {type: \"line\", data: trend, smooth: true}],\n  }}\n/>",
+	"minimalExample": "import {TrendChart} from \"@corensystem/coren-ui/trend-chart\";\n\n<TrendChart\n  title=\"Headcount\"\n  height={240}\n  seriesThemes={[{tone: \"primary\"}, {colorIndex: 2}]}\n  option={{\n    tooltip: {trigger: \"axis\"},\n    xAxis: {type: \"category\", data: months},\n    yAxis: {type: \"value\"},\n    series: [{type: \"bar\", data: actual}, {type: \"line\", data: trend, smooth: true}],\n  }}\n/>",
 	"ownership": {
 		"surface": "artifact",
 		"background": "owned",

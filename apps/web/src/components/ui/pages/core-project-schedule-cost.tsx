@@ -1,1 +1,1 @@
-export {ProjectScheduleCost} from "@corensystem/core-ui/pages/core-project-schedule-cost";
+export {ProjectScheduleCost} from "@corensystem/coren-ui/pages/core-project-schedule-cost";

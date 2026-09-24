@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ProgressDetails} from "@corensystem/core-ui/pages/core-progress-details";
+import {ProgressDetails} from "@corensystem/coren-ui/pages/core-progress-details";
 
 import manifest from "../../../../manifests/progress-details.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

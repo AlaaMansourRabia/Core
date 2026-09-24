@@ -28,19 +28,19 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - name: Build all packages
-        run: pnpm --filter "@corensystem/core-*" build
+        run: pnpm --filter "@corensystem/coren-*" build
 
       - name: Publish tokens
-        run: pnpm --filter @corensystem/core-tokens publish --no-git-checks || echo "Already published or error"
+        run: pnpm --filter @corensystem/coren-tokens publish --no-git-checks || echo "Already published or error"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish utils
-        run: pnpm --filter @corensystem/core-utils publish --no-git-checks || echo "Already published or error"
+        run: pnpm --filter @corensystem/coren-utils publish --no-git-checks || echo "Already published or error"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish components
-        run: pnpm --filter @corensystem/core-ui publish --no-git-checks || echo "Already published or error"
+        run: pnpm --filter @corensystem/coren-ui publish --no-git-checks || echo "Already published or error"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

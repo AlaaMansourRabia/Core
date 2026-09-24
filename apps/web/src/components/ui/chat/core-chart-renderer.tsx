@@ -1,1 +1,1 @@
-export {ChartRenderer} from "@corensystem/core-ui/chat/core-chart-renderer";
+export {ChartRenderer} from "@corensystem/coren-ui/chat/core-chart-renderer";

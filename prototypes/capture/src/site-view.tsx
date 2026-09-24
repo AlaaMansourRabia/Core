@@ -1,8 +1,8 @@
 import type {CSSProperties} from "react";
 
-import {cn} from "@corensystem/core-utils";
-import {Button} from "@corensystem/core-ui/button";
-import {WeekSelector, type WeekSelectorWeek} from "@corensystem/core-ui/week-selector";
+import {cn} from "@corensystem/coren-utils";
+import {Button} from "@corensystem/coren-ui/button";
+import {WeekSelector, type WeekSelectorWeek} from "@corensystem/coren-ui/week-selector";
 import {ArrowLeft, Expand, MonitorPlay, X} from "lucide-react";
 import {useEffect, useRef, useState} from "react";
 

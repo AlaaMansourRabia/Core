@@ -1,4 +1,4 @@
-import {ContextMenuContent, ContextMenuItem, ContextMenuSeparator} from "@corensystem/core-ui/context-menu";
+import {ContextMenuContent, ContextMenuItem, ContextMenuSeparator} from "@corensystem/coren-ui/context-menu";
 import {BringToFront, Copy, Lock, LockOpen, Search, SendToBack, Trash2} from "lucide-react";
 
 import type {CanvasObject} from "./canvas-object-types";

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {StageContent} from "@corensystem/core-ui/stage-content";
+import {StageContent} from "@corensystem/coren-ui/stage-content";
 
 const meta = {
 	title: "Components/Data Display/StageContent",

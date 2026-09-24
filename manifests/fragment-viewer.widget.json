@@ -8,7 +8,7 @@
 	"manifestStatus": "draft",
 	"source": {
 		"path": "packages/components/src/fragment-viewer.tsx",
-		"import": "@corensystem/core-ui/fragment-viewer",
+		"import": "@corensystem/coren-ui/fragment-viewer",
 		"export": "FragmentViewer"
 	},
 	"tags": ["display", "3d", "bim", "fragments", "thatopen", "model", "viewer", "ifc"],
@@ -37,7 +37,7 @@
 		"inside a scrolling container with auto height (the canvas collapses to zero)",
 		"more than a couple per page (each instance holds a WebGL context)"
 	],
-	"minimalExample": "import {FragmentViewer} from \"@corensystem/core-ui/fragment-viewer\";\nimport workerUrl from \"@thatopen/fragments/worker?url\";\n\n<div className=\"h-[600px]\">\n\t<FragmentViewer src=\"/models-bundled/uptown.frag\" workerUrl={workerUrl} />\n</div>",
+	"minimalExample": "import {FragmentViewer} from \"@corensystem/coren-ui/fragment-viewer\";\nimport workerUrl from \"@thatopen/fragments/worker?url\";\n\n<div className=\"h-[600px]\">\n\t<FragmentViewer src=\"/models-bundled/uptown.frag\" workerUrl={workerUrl} />\n</div>",
 	"commonMistakes": [
 		"Omitting workerUrl or passing a bare specifier — a bundled library cannot resolve @thatopen/fragments/worker to a runtime URL, so the model silently never loads",
 		"Mounting it in an auto-height parent, which gives the canvas zero height",

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/input.tsx",
-		"import": "@corensystem/core-ui/input",
+		"import": "@corensystem/coren-ui/input",
 		"export": "Input"
 	},
 	"tags": [

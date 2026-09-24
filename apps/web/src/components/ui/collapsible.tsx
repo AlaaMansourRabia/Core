@@ -1,1 +1,1 @@
-export {Collapsible, CollapsibleTrigger, CollapsibleContent} from "@corensystem/core-ui/collapsible";
+export {Collapsible, CollapsibleTrigger, CollapsibleContent} from "@corensystem/coren-ui/collapsible";

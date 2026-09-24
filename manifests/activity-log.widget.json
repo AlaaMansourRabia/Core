@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/activity-log.tsx",
-		"import": "@corensystem/core-ui/activity-log"
+		"import": "@corensystem/coren-ui/activity-log"
 	},
 	"tags": ["activity", "history", "feed", "timeline"],
 	"intent": "Vertical chronological feed of activity/history entries with a continuous connector line through each item's icon badge.",

@@ -1,5 +1,5 @@
 {
-  "_comment": "Heavy 3D assets for the Storybook, stored in the INTERNAL repo core/core-3d-assets (too big to ship in @corensystem/core-ui). Pulled into apps/storybook/public/ at deploy time by scripts/fetch-3d-assets.mjs. Add a row here when a mockup gains heavy assets.",
+  "_comment": "Heavy 3D assets for the Storybook, stored in the INTERNAL repo core/core-3d-assets (too big to ship in @corensystem/coren-ui). Pulled into apps/storybook/public/ at deploy time by scripts/fetch-3d-assets.mjs. Add a row here when a mockup gains heavy assets.",
   "repo": "core/core-3d-assets",
   "ref": "main",
   "assets": [

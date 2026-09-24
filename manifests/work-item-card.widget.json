@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/work-item-card.tsx",
-		"import": "@corensystem/core-ui/work-item-card"
+		"import": "@corensystem/coren-ui/work-item-card"
 	},
 	"tags": [
 		"card",

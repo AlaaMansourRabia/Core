@@ -6,5 +6,5 @@ export {
 	DataTableRowGroup,
 	DataTableTreeCell,
 	DataTableDetailPanel,
-} from "@corensystem/core-ui/data-table";
-export type {DataTableProps, BulkAction} from "@corensystem/core-ui/data-table";
+} from "@corensystem/coren-ui/data-table";
+export type {DataTableProps, BulkAction} from "@corensystem/coren-ui/data-table";

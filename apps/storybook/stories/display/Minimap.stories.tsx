@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Minimap} from "@corensystem/core-ui/minimap";
+import {Minimap} from "@corensystem/coren-ui/minimap";
 import {type PointerEvent, useRef, useState} from "react";
 
 const meta = {

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {TypeaheadItem, TypeaheadGroup, TypeaheadEmpty} from "@corensystem/core-ui/typeahead-item";
+import {TypeaheadItem, TypeaheadGroup, TypeaheadEmpty} from "@corensystem/coren-ui/typeahead-item";
 import {User, Building, MapPin} from "lucide-react";
 import {useState} from "react";
 

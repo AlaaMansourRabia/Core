@@ -6,4 +6,4 @@ export {
 	FilterTrigger,
 	useFilter,
 	type FilterValue,
-} from "@corensystem/core-ui/filter";
+} from "@corensystem/coren-ui/filter";

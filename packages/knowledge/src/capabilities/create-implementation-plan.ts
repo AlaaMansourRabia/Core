@@ -32,7 +32,7 @@ export interface ImplementationPlanData {
 	workspaceRequirements: {
 		framework: "React";
 		sourceLanguage: "TSX";
-		package: "@corensystem/core-ui";
+		package: "@corensystem/coren-ui";
 		onMissingDependency: "setup-and-continue";
 		runtimeAudit: {
 			required: boolean;
@@ -201,7 +201,7 @@ export const createImplementationPlan: CapabilityFn<CreateImplementationPlanInpu
 			workspaceRequirements: {
 				framework: "React",
 				sourceLanguage: "TSX",
-				package: "@corensystem/core-ui",
+				package: "@corensystem/coren-ui",
 				onMissingDependency: "setup-and-continue",
 				runtimeAudit: {
 					required: runtimeAuditRequired,
@@ -242,7 +242,7 @@ export const createImplementationPlan: CapabilityFn<CreateImplementationPlanInpu
 				"Do not reproduce screenshot HTML, CSS, colors, geometry, or invalid navigation before assigning Core region owners.",
 				"Do not repaint DataTable, chart, tab, card, or shell-owned surfaces through application descendant selectors.",
 				"Do not render duplicate composers or decorative canvas controls without functional viewport behavior.",
-				"Prepare missing React, TSX, and @corensystem/core-ui prerequisites before implementation; report only setup failures that cannot be recovered safely.",
+				"Prepare missing React, TSX, and @corensystem/coren-ui prerequisites before implementation; report only setup failures that cannot be recovered safely.",
 			],
 			completionGate: {
 				tool: "validate",

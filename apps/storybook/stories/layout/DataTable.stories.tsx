@@ -1,9 +1,9 @@
 import type {ColumnDef, Row, SortingState} from "@tanstack/react-table";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@corensystem/core-ui/badge";
-import {Button} from "@corensystem/core-ui/button";
-import {Checkbox} from "@corensystem/core-ui/checkbox";
+import {Badge} from "@corensystem/coren-ui/badge";
+import {Button} from "@corensystem/coren-ui/button";
+import {Checkbox} from "@corensystem/coren-ui/checkbox";
 import {
 	DataTable,
 	DataTableColumnHeader,
@@ -11,14 +11,14 @@ import {
 	DataTableExpandButton,
 	DataTableTreeCell,
 	type BulkAction,
-} from "@corensystem/core-ui/data-table";
+} from "@corensystem/coren-ui/data-table";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@corensystem/core-ui/dropdown-menu";
+} from "@corensystem/coren-ui/dropdown-menu";
 import {
 	Filter,
 	FilterCategory,
@@ -26,10 +26,10 @@ import {
 	FilterOption,
 	FilterTrigger,
 	type FilterValue,
-} from "@corensystem/core-ui/filter";
-import {Separator} from "@corensystem/core-ui/separator";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@corensystem/core-ui/table";
-import {cn} from "@corensystem/core-utils";
+} from "@corensystem/coren-ui/filter";
+import {Separator} from "@corensystem/coren-ui/separator";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@corensystem/coren-ui/table";
+import {cn} from "@corensystem/coren-utils";
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {Copy, Download, Edit, FileCode, FileImage, FileText, Folder, MoreHorizontal, Trash2} from "lucide-react";
 import * as React from "react";
@@ -58,7 +58,7 @@ function DataTableDocsPage() {
 
 const meta = {
 	// First promoted WIDGET (see docs/ARTIFACT-CLASSIFICATION.md + manifests/data-table.widget.json).
-	// File and export are unchanged (@corensystem/core-ui/data-table); only the story title moved to Widgets/.
+	// File and export are unchanged (@corensystem/coren-ui/data-table); only the story title moved to Widgets/.
 	title: "Widgets/Data/DataTable",
 	component: DataTable,
 	tags: ["autodocs"],

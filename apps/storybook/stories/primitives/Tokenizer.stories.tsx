@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Tokenizer} from "@corensystem/core-ui/tokenizer";
+import {Tokenizer} from "@corensystem/coren-ui/tokenizer";
 import {useState} from "react";
 
 const meta = {

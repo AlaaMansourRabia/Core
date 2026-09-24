@@ -1,2 +1,2 @@
-export {BlueprintSegment} from "@corensystem/core-ui/blueprint-segment";
-export type {BlueprintSegmentProps} from "@corensystem/core-ui/blueprint-segment";
+export {BlueprintSegment} from "@corensystem/coren-ui/blueprint-segment";
+export type {BlueprintSegmentProps} from "@corensystem/coren-ui/blueprint-segment";

@@ -1,1 +1,1 @@
-export * from "@corensystem/core-ui/data/mock-data";
+export * from "@corensystem/coren-ui/data/mock-data";

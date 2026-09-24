@@ -1,2 +1,2 @@
-export {OperationsDrawer} from "@corensystem/core-ui/operations-drawer";
-export type {OperationRow, OperationsDrawerProps} from "@corensystem/core-ui/operations-drawer";
+export {OperationsDrawer} from "@corensystem/coren-ui/operations-drawer";
+export type {OperationRow, OperationsDrawerProps} from "@corensystem/coren-ui/operations-drawer";

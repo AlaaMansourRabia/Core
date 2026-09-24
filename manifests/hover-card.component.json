@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/hover-card.tsx",
-		"import": "@corensystem/core-ui/hover-card",
+		"import": "@corensystem/coren-ui/hover-card",
 		"export": "HoverCard"
 	},
 	"tags": [

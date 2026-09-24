@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {ChevronLeft, ChevronRight, Video, X} from "lucide-react";
 import {useRef} from "react";
 

@@ -78,7 +78,7 @@ test("http (Streamable) transport: initialize, list, and call tools", async () =
 
 		const bad = await client.callTool({
 			name: "validate",
-			arguments: {code: 'import {Button} from "@corensystem/core-ui";'},
+			arguments: {code: 'import {Button} from "@corensystem/coren-ui";'},
 		});
 		const env = envelopeOf(bad);
 		assert.equal(env.ok, true, "tool ran");

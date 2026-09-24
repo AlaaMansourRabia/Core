@@ -1,5 +1,5 @@
-@import "@corensystem/core-tokens/fonts";
-@import "@corensystem/core-tokens";
+@import "@corensystem/coren-tokens/fonts";
+@import "@corensystem/coren-tokens";
 /* Enter/exit animation utilities (animate-in, slide-in-from-*, fade-*, zoom-*). Sheet,
    Dialog, AlertDialog, Popover and friends all name these; without this import they
    compile to nothing and every overlay appears instantly. */

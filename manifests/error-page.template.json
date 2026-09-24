@@ -9,7 +9,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/error-page.tsx",
-		"import": "@corensystem/core-ui/error-page"
+		"import": "@corensystem/coren-ui/error-page"
 	},
 	"tags": [
 		"feedback",
@@ -166,7 +166,7 @@
 			"fix": "Set showCode={false} for non-HTTP errors."
 		}
 	],
-	"minimalExample": "import {ErrorPage} from \"@corensystem/core-ui/error-page\";\nimport {Button} from \"@corensystem/core-ui/button\";\n\n<ErrorPage\n  type=\"404\"\n  action={<Button asChild><a href=\"/\">Go home</a></Button>}\n/>",
+	"minimalExample": "import {ErrorPage} from \"@corensystem/coren-ui/error-page\";\nimport {Button} from \"@corensystem/coren-ui/button\";\n\n<ErrorPage\n  type=\"404\"\n  action={<Button asChild><a href=\"/\">Go home</a></Button>}\n/>",
 	"evaluationCriteria": [
 		{
 			"id": "tier-selection",

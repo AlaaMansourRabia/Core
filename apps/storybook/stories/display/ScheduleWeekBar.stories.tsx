@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ScheduleWeekBar} from "@corensystem/core-ui/schedule-week-bar";
+import {ScheduleWeekBar} from "@corensystem/coren-ui/schedule-week-bar";
 import {fn} from "storybook/test";
 
 const meta = {

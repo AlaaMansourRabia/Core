@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {NumberInput} from "@corensystem/core-ui/number-input";
+import {NumberInput} from "@corensystem/coren-ui/number-input";
 import {useState} from "react";
 
 const meta = {

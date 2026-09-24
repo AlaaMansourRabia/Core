@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {VerifyTimeCommandCenter} from "@corensystem/core-ui/pages/core-verifytime-command-center";
+import {VerifyTimeCommandCenter} from "@corensystem/coren-ui/pages/core-verifytime-command-center";
 
 import manifest from "../../../../manifests/timesheet.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

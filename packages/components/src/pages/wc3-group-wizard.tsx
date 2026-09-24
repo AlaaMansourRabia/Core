@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {useState} from "react";
 
 import {Button} from "../button";

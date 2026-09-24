@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Separator} from "@corensystem/core-ui/separator";
+import {Separator} from "@corensystem/coren-ui/separator";
 
 const meta = {
 	title: "Components/Primitives/Separator",

@@ -1,4 +1,4 @@
-import {WC3_ACTION_TYPES} from "@corensystem/core-ui/pages/wc3-ontology-data";
+import {WC3_ACTION_TYPES} from "@corensystem/coren-ui/pages/wc3-ontology-data";
 import * as React from "react";
 
 import {Button} from "@/components/ui/button";

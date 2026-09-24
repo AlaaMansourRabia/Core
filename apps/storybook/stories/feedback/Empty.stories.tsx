@@ -1,8 +1,8 @@
 import type {ComponentType} from "react";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {Empty, EmptySelection} from "@corensystem/core-ui/empty";
+import {Button} from "@corensystem/coren-ui/button";
+import {Empty, EmptySelection} from "@corensystem/coren-ui/empty";
 
 const meta = {
 	title: "Components/Feedback/Empty",

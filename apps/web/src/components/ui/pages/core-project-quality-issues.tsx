@@ -1,1 +1,1 @@
-export {ProjectQualityIssues} from "@corensystem/core-ui/pages/core-project-quality-issues";
+export {ProjectQualityIssues} from "@corensystem/coren-ui/pages/core-project-quality-issues";

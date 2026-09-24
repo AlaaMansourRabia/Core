@@ -1,19 +1,19 @@
 import type {Meta, StoryObj} from "@storybook/react-vite";
 
-import {SiteImageViewer} from "@corensystem/core-ui/site-image-viewer";
+import {SiteImageViewer} from "@corensystem/coren-ui/site-image-viewer";
 import {
 	ALMANAR_SITE_META,
 	ALMANAR_VILLAS,
 	ALMANAR_ZONE_A_BLOCKS,
-} from "@corensystem/core-ui/site-image-viewer-fixtures";
+} from "@corensystem/coren-ui/site-image-viewer-fixtures";
 import {fn, userEvent} from "storybook/test";
 
 // Site Image Viewer — the real ROSHN Almanar site aerial (blueprint "Zone 1 - A", 4096×4096) with the
 // real villa footprint polygons overlaid and coloured by the SHA-1036 milestone ramp from live progress;
 // hovering a linked villa raises its stroke + name chip and pops a floating progress card (the DS
 // `ProgressComparison`). The `TabbedLegend` doubles as the SPA/Construction mode switch. Pure SVG — no
-// Konva, no map engine. Now shipped as `@corensystem/core-ui/site-image-viewer`; the real villa data is the
-// separate `@corensystem/core-ui/site-image-viewer-fixtures` payload.
+// Konva, no map engine. Now shipped as `@corensystem/coren-ui/site-image-viewer`; the real villa data is the
+// separate `@corensystem/coren-ui/site-image-viewer-fixtures` payload.
 const meta = {
 	title: "Templates/Building Viewer/Site Viewer/Site Image Viewer",
 	component: SiteImageViewer,

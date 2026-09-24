@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/textarea.tsx",
-		"import": "@corensystem/core-ui/textarea",
+		"import": "@corensystem/coren-ui/textarea",
 		"export": "Textarea"
 	},
 	"tags": [

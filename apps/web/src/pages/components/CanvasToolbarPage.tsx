@@ -1,4 +1,4 @@
-import type {DrawingToolId, LineKind, PinKind, ShapeKind} from "@corensystem/core-ui/drawing-actions";
+import type {DrawingToolId, LineKind, PinKind, ShapeKind} from "@corensystem/coren-ui/drawing-actions";
 
 import {useState} from "react";
 

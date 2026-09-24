@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/side-menu.tsx",
-		"import": "@corensystem/core-ui/side-menu",
+		"import": "@corensystem/coren-ui/side-menu",
 		"export": "SideMenu"
 	},
 	"tags": ["navigation", "side-menu", "settings", "panel", "sub-navigation", "search", "grouped"],

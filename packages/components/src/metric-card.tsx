@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {ArrowDown, ArrowUp, Minus} from "lucide-react";
 import * as React from "react";
 

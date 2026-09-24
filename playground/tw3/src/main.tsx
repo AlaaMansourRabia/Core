@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import "@corensystem/core-ui/styles.css";
+import "@corensystem/coren-ui/styles.css";
 import "./index.css";
 
 import App from "./App";

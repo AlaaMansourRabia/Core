@@ -1,1 +1,1 @@
-export {Checkbox} from "@corensystem/core-ui/checkbox";
+export {Checkbox} from "@corensystem/coren-ui/checkbox";

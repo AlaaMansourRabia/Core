@@ -1,6 +1,6 @@
 import type * as React from "react";
 
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {ChevronDown, ChevronLeft, ChevronRight, ChevronUp} from "lucide-react";
 import {DayPicker, type DropdownProps} from "react-day-picker";
 

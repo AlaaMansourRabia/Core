@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/tree-row.tsx",
-		"import": "@corensystem/core-ui/tree-row",
+		"import": "@corensystem/coren-ui/tree-row",
 		"export": "TreeRow"
 	},
 	"tags": [

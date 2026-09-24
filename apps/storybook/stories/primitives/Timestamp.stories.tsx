@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Timestamp} from "@corensystem/core-ui/timestamp";
+import {Timestamp} from "@corensystem/coren-ui/timestamp";
 
 const meta = {
 	title: "Components/Primitives/Timestamp",

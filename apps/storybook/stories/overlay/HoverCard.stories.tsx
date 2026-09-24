@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {HoverCard, HoverCardContent, HoverCardTrigger} from "@corensystem/core-ui/hover-card";
+import {Button} from "@corensystem/coren-ui/button";
+import {HoverCard, HoverCardContent, HoverCardTrigger} from "@corensystem/coren-ui/hover-card";
 
 const meta = {
 	title: "Components/Overlay/HoverCard",

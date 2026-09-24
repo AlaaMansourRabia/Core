@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {differenceInDays, eachDayOfInterval, eachMonthOfInterval, endOfMonth, format, isToday} from "date-fns";
 import * as React from "react";
 

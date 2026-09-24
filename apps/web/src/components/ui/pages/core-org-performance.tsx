@@ -1,1 +1,1 @@
-export {OrgPerformance} from "@corensystem/core-ui/pages/core-org-performance";
+export {OrgPerformance} from "@corensystem/coren-ui/pages/core-org-performance";

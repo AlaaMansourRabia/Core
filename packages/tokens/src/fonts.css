@@ -3,7 +3,7 @@
  * These used to be an @import from the Google Fonts CDN. That made the declared typography a RUNTIME
  * dependency on a third-party host: offline builds, air-gapped installs and CSP-restricted apps
  * silently fell back to a system stack while still looking token-compliant. The WOFF2 files now ship
- * inside @corensystem/core-tokens, so `--font-sans` / `--font-serif` / `--font-mono` resolve to the same
+ * inside @corensystem/coren-tokens, so `--font-sans` / `--font-serif` / `--font-mono` resolve to the same
  * computed family everywhere, with no external request.
  *
  * Figtree and Lora are variable fonts (one file spans the whole weight range); IBM Plex Mono ships a

@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {Bell, CircleX, Globe, Zap} from "lucide-react";
 import {useMemo, useState} from "react";
 

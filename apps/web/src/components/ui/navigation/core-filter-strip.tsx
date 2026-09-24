@@ -1,2 +1,2 @@
-export {CoreFilterStrip} from "@corensystem/core-ui/navigation/core-filter-strip";
-export type {FilterStripVariant, FilterStripSize} from "@corensystem/core-ui/navigation/core-filter-strip";
+export {CoreFilterStrip} from "@corensystem/coren-ui/navigation/core-filter-strip";
+export type {FilterStripVariant, FilterStripSize} from "@corensystem/coren-ui/navigation/core-filter-strip";

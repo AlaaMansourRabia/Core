@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Tabs, TabsContent, TabsDropdownTrigger, TabsList, TabsTrigger} from "@corensystem/core-ui/tabs";
+import {Tabs, TabsContent, TabsDropdownTrigger, TabsList, TabsTrigger} from "@corensystem/coren-ui/tabs";
 import {Activity, Code, FileText, LifeBuoy, ListChecks, Map, Package, Sparkles} from "lucide-react";
 import {useState} from "react";
 import {expect, userEvent, within} from "storybook/test";

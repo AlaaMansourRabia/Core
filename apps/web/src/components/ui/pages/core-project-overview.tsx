@@ -1,1 +1,1 @@
-export {ProjectOverview} from "@corensystem/core-ui/pages/core-project-overview";
+export {ProjectOverview} from "@corensystem/coren-ui/pages/core-project-overview";

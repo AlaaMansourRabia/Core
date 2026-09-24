@@ -1,1 +1,1 @@
-export {DashboardHeader} from "@corensystem/core-ui/navigation/core-dashboard-header";
+export {DashboardHeader} from "@corensystem/coren-ui/navigation/core-dashboard-header";

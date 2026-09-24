@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ChartContainer} from "@corensystem/core-ui/chart";
+import {ChartContainer} from "@corensystem/coren-ui/chart";
 
 const meta = {
 	title: "Widgets/Charts/Pie Chart",

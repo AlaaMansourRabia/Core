@@ -1,4 +1,4 @@
-// @corensystem/core-ui - Component library
+// @corensystem/coren-ui - Component library
 
 // Types
 export * from "./types";

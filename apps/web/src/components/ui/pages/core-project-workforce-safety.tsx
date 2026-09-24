@@ -1,1 +1,1 @@
-export {ProjectWorkforceSafety} from "@corensystem/core-ui/pages/core-project-workforce-safety";
+export {ProjectWorkforceSafety} from "@corensystem/coren-ui/pages/core-project-workforce-safety";

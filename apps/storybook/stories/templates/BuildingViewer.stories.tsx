@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {BuildingViewer} from "@corensystem/core-ui/pages/core-building-viewer";
+import {BuildingViewer} from "@corensystem/coren-ui/pages/core-building-viewer";
 import workerUrl from "@thatopen/fragments/worker?url";
 
 // The "Main Views" variation of the Building Viewer template's 3D Viewer — the 3D sibling of the

@@ -1,6 +1,6 @@
 import type {ColumnDef} from "@tanstack/react-table";
 
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 
 import {Badge} from "../badge";
 import {DataTable} from "../data-table";

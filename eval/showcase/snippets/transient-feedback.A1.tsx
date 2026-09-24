@@ -2,8 +2,8 @@
 // Package-only knowledge: a permanent inline Alert that stays on the page and takes up space.
 // Core guidance (A4) would use a transient toast (Sonner) with a root <Toaster/>.
 import {useState} from "react";
-import {Alert, AlertDescription, AlertTitle} from "@corensystem/core-ui/alert";
-import {Button} from "@corensystem/core-ui/button";
+import {Alert, AlertDescription, AlertTitle} from "@corensystem/coren-ui/alert";
+import {Button} from "@corensystem/coren-ui/button";
 
 export default function SaveSettings() {
 	const [saved, setSaved] = useState(false);

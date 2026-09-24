@@ -5,8 +5,8 @@ import {
 	type CapturePoint,
 	CaptureRouteMinimap,
 	FloorPlan,
-} from "@corensystem/core-ui/capture-route-minimap";
-import {WalkthroughModal} from "@corensystem/core-ui/walkthrough-modal";
+} from "@corensystem/coren-ui/capture-route-minimap";
+import {WalkthroughModal} from "@corensystem/coren-ui/walkthrough-modal";
 import {useState} from "react";
 
 // The "main view" the mini-viewer floats over — a large site/map surface (grid + roads + buildings).

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {SideMenu, type SideMenuGroup} from "@corensystem/core-ui/side-menu";
+import {SideMenu, type SideMenuGroup} from "@corensystem/coren-ui/side-menu";
 import {
 	Bell,
 	ClipboardCheck,

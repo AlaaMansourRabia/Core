@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/dropdown-menu.tsx",
-		"import": "@corensystem/core-ui/dropdown-menu",
+		"import": "@corensystem/coren-ui/dropdown-menu",
 		"export": "DropdownMenu"
 	},
 	"tags": [

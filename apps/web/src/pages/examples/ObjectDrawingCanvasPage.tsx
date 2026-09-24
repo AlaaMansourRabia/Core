@@ -1,4 +1,4 @@
-import type {DrawingTool} from "@corensystem/core-ui/object-drawing-toolbar";
+import type {DrawingTool} from "@corensystem/coren-ui/object-drawing-toolbar";
 import type {PanelImperativeHandle} from "react-resizable-panels";
 
 import {

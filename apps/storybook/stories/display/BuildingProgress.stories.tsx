@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {type BuildingFloor, BuildingProgress} from "@corensystem/core-ui/building-progress";
+import {type BuildingFloor, BuildingProgress} from "@corensystem/coren-ui/building-progress";
 import {useState} from "react";
 
 // Floors ordered top → bottom (roof first, base last). Construction runs bottom-up, so the base is

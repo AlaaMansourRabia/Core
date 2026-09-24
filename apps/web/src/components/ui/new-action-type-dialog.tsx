@@ -1,1 +1,1 @@
-export * from "@corensystem/core-ui/new-action-type-dialog";
+export * from "@corensystem/coren-ui/new-action-type-dialog";

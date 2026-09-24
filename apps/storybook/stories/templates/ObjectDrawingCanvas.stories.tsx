@@ -1,7 +1,7 @@
-import type {DrawingTool} from "@corensystem/core-ui/object-drawing-toolbar";
+import type {DrawingTool} from "@corensystem/coren-ui/object-drawing-toolbar";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
+import {Button} from "@corensystem/coren-ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -9,9 +9,9 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@corensystem/core-ui/dropdown-menu";
-import {ObjectDrawingToolbar} from "@corensystem/core-ui/object-drawing-toolbar";
-import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@corensystem/core-ui/resizable";
+} from "@corensystem/coren-ui/dropdown-menu";
+import {ObjectDrawingToolbar} from "@corensystem/coren-ui/object-drawing-toolbar";
+import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@corensystem/coren-ui/resizable";
 import {
 	Link2,
 	Link2Off,

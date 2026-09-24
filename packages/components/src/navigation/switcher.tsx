@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {Building2, Check, ChevronsUpDown, Search} from "lucide-react";
 import * as React from "react";
 

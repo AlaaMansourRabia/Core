@@ -15,7 +15,7 @@
 	},
 	"source": {
 		"path": "packages/components/src/pages/core-blueprint-viewer-3.tsx",
-		"import": "@corensystem/core-ui/pages/core-blueprint-viewer-3",
+		"import": "@corensystem/coren-ui/pages/core-blueprint-viewer-3",
 		"export": "BlueprintViewer3"
 	},
 
@@ -53,14 +53,14 @@
 		{
 			"id": "navigator",
 			"role": "Collapsed top-left canvas navigator drilling compound → zone → house → floor; selecting a house drives the canvas + panel",
-			"source": "CanvasNavigator widget (@corensystem/core-ui/canvas-navigator)",
+			"source": "CanvasNavigator widget (@corensystem/coren-ui/canvas-navigator)",
 			"required": true,
 			"recommended": ["CanvasNavigator"]
 		},
 		{
 			"id": "details-panel",
 			"role": "Full-height right panel: approved-vs-planned progress hero, a collapsible milestones table, and a Building Progress floor list that highlights the selected floor",
-			"source": "BuildingProgress widget (@corensystem/core-ui/building-progress) + local markup",
+			"source": "BuildingProgress widget (@corensystem/coren-ui/building-progress) + local markup",
 			"required": true,
 			"recommended": ["BuildingProgress"]
 		}

@@ -1,1 +1,1 @@
-export * from "@corensystem/core-ui/pages/analysis-workbench";
+export * from "@corensystem/coren-ui/pages/analysis-workbench";

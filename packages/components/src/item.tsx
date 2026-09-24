@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import * as React from "react";
 
 /** A layout component for displaying items with a title, description, and optional actions. */

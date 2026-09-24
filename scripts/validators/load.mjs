@@ -18,7 +18,7 @@ import {parse as parseYaml} from "yaml";
 
 export const repoRoot = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 
-const CORE_UI = "@corensystem/core-ui";
+const CORE_UI = "@corensystem/coren-ui";
 
 /** Flatten the category-keyed `components` object into a single array. */
 function flattenComponents(index) {
@@ -29,7 +29,7 @@ function flattenComponents(index) {
 	return out;
 }
 
-/** Build the set of valid `@corensystem/core-ui/...` import specifiers from the exports map. */
+/** Build the set of valid `@corensystem/coren-ui/...` import specifiers from the exports map. */
 function buildExportsSet(pkg) {
 	const set = new Set();
 	for (const key of Object.keys(pkg.exports ?? {})) {

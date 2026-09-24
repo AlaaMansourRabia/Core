@@ -98,7 +98,7 @@ for (const name of names) {
 		skipped.push(`${name} (already manifested: ${e.manifest})`);
 		continue;
 	}
-	const id = e.import.replace("@corensystem/core-ui/", "");
+	const id = e.import.replace("@corensystem/coren-ui/", "");
 	const m = {
 		schemaVersion: "artifact-manifest/0.2",
 		id,

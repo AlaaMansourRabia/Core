@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ChatMessage, ChatMessageMetadata, ChatSystemMessage} from "@corensystem/core-ui/chat-message";
+import {ChatMessage, ChatMessageMetadata, ChatSystemMessage} from "@corensystem/coren-ui/chat-message";
 
 const meta = {
 	title: "Components/Primitives/ChatMessage",

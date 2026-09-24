@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {BlueprintViewer} from "@corensystem/core-ui/pages/core-blueprint-viewer";
+import {BlueprintViewer} from "@corensystem/coren-ui/pages/core-blueprint-viewer";
 
 import manifest from "../../../../manifests/blueprint-viewer.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

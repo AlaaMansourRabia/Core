@@ -1,2 +1,2 @@
-export {CanvasHeader} from "@corensystem/core-ui/canvas-header";
-export type {CanvasHeaderProps} from "@corensystem/core-ui/canvas-header";
+export {CanvasHeader} from "@corensystem/coren-ui/canvas-header";
+export type {CanvasHeaderProps} from "@corensystem/coren-ui/canvas-header";

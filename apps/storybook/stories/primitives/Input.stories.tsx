@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Field, FieldError, FieldLabel} from "@corensystem/core-ui/field";
-import {Input} from "@corensystem/core-ui/input";
-import {Label} from "@corensystem/core-ui/label";
+import {Field, FieldError, FieldLabel} from "@corensystem/coren-ui/field";
+import {Input} from "@corensystem/coren-ui/input";
+import {Label} from "@corensystem/coren-ui/label";
 import {expect, userEvent, within} from "storybook/test";
 
 const meta = {

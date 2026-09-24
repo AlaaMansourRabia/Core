@@ -4,5 +4,5 @@ export {
 	FormDialogField,
 	FormDialogNote,
 	FormDialogRow,
-} from "@corensystem/core-ui/form-dialog";
-export type {FormDialogFieldProps, FormDialogProps, FormDialogRowProps} from "@corensystem/core-ui/form-dialog";
+} from "@corensystem/coren-ui/form-dialog";
+export type {FormDialogFieldProps, FormDialogProps, FormDialogRowProps} from "@corensystem/coren-ui/form-dialog";

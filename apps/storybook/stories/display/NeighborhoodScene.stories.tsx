@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {NeighborhoodScene} from "@corensystem/core-ui/neighborhood-scene";
+import {NeighborhoodScene} from "@corensystem/coren-ui/neighborhood-scene";
 
 const meta = {
 	title: "Components/Data Display/NeighborhoodScene",

@@ -1,6 +1,6 @@
 import type {ReactElement} from "react";
 
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 
 import {Badge} from "../badge";
 import {

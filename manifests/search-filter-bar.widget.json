@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/search-filter-bar.tsx",
-		"import": "@corensystem/core-ui/search-filter-bar"
+		"import": "@corensystem/coren-ui/search-filter-bar"
 	},
 	"tags": [
 		"search",

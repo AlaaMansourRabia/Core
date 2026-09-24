@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/drawer.tsx",
-		"import": "@corensystem/core-ui/drawer",
+		"import": "@corensystem/coren-ui/drawer",
 		"export": "Drawer"
 	},
 	"tags": [

@@ -50,7 +50,7 @@ const countStyle: React.CSSProperties = {
 };
 
 // The core-ui Badge, `neutralSoft` variant, rebuilt by hand: the manager iframe never loads
-// @corensystem/core-ui's stylesheet (importing it would reset Storybook's own chrome), so the token
+// @corensystem/coren-ui's stylesheet (importing it would reset Storybook's own chrome), so the token
 // values are written out literally — same approach as chat/ChatDock.tsx.
 const soonBadgeStyle: React.CSSProperties = {
 	marginLeft: 8,

@@ -4,8 +4,8 @@ import {
 	CoreAppSidebar,
 	DEFAULT_PROJECT_GROUPS,
 	type SidebarNavGroup,
-} from "@corensystem/core-ui/navigation/core-app-sidebar";
-import {toneFor} from "@corensystem/core-ui/tones";
+} from "@corensystem/coren-ui/navigation/core-app-sidebar";
+import {toneFor} from "@corensystem/coren-ui/tones";
 import {
 	Blocks,
 	Building2,
@@ -188,7 +188,7 @@ export const ControlledSelection: Story = {
 // Collapsed, that same icon stands for the whole section and its items move into a flyout — the same
 // flyout an `expandable` item's `subMenu` uses. `id` makes the header name a link, `collapsible` adds
 // the fold chevron.
-// Tones come from the library's one palette (`@corensystem/core-ui/tones`) rather than being written out
+// Tones come from the library's one palette (`@corensystem/coren-ui/tones`) rather than being written out
 // here. `toneFor(index, offset)` walks it in hand-out order, which is a golden-angle walk around the
 // hue wheel — so consecutive items in a section are never neighbouring hues, and the `offset` keeps
 // two sections from opening on the same one.

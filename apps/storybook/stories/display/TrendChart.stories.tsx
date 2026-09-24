@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {TrendChart} from "@corensystem/core-ui/trend-chart";
+import {TrendChart} from "@corensystem/coren-ui/trend-chart";
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 
 import trendChartManifest from "../../../../manifests/trend-chart.widget.json";

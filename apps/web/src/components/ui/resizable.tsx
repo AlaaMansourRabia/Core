@@ -1,1 +1,1 @@
-export {ResizablePanelGroup, ResizablePanel, ResizableHandle} from "@corensystem/core-ui/resizable";
+export {ResizablePanelGroup, ResizablePanel, ResizableHandle} from "@corensystem/coren-ui/resizable";

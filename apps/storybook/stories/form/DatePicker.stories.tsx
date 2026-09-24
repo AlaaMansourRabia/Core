@@ -8,7 +8,7 @@ import {
 	DateRangePicker,
 	DateRangeTimePicker,
 	DateTimePicker,
-} from "@corensystem/core-ui/date-picker";
+} from "@corensystem/coren-ui/date-picker";
 import * as React from "react";
 
 const meta = {

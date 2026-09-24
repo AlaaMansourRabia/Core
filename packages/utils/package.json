@@ -1,5 +1,5 @@
 {
-	"name": "@corensystem/core-utils",
+	"name": "@corensystem/coren-utils",
 	"version": "1.0.0",
 	"bin": {
 		"intent": "./bin/intent.js"

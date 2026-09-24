@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {FloorProgressBar} from "@corensystem/core-ui/floor-progress-bar";
+import {FloorProgressBar} from "@corensystem/coren-ui/floor-progress-bar";
 
 const meta = {
 	title: "Components/Primitives/FloorProgressBar",

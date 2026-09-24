@@ -1,13 +1,13 @@
 # skills/_artifacts/domain_map.yaml
 # Core design system — domain discovery artifact
-# Packages: @corensystem/core-ui, @corensystem/core-tokens, @corensystem/core-utils
+# Packages: @corensystem/coren-ui, @corensystem/coren-tokens, @corensystem/coren-utils
 
 library:
   name: core
   packages:
-    - "@corensystem/core-ui"
-    - "@corensystem/core-tokens"
-    - "@corensystem/core-utils"
+    - "@corensystem/coren-ui"
+    - "@corensystem/coren-tokens"
+    - "@corensystem/coren-utils"
   version: "0.0.1"
   repository: "github.com/core/Core"
   description: >
@@ -21,7 +21,7 @@ domains:
     description: >
       Getting the packages installed (GitHub Packages auth), importing tokens
       and fonts, and verifying the dev environment is wired correctly.
-    package: "@corensystem/core-tokens"
+    package: "@corensystem/coren-tokens"
     skills:
       - slug: core-ui-quickstart
         name: Quickstart
@@ -39,11 +39,11 @@ domains:
             title: Importing from package root instead of deep path
             priority: HIGH
             description: >
-              Agent generates `import { Button } from "@corensystem/core-ui"` which
+              Agent generates `import { Button } from "@corensystem/coren-ui"` which
               resolves to the barrel index (types/chat/mock-data only) instead of
               the component. The import succeeds but Button is undefined at runtime.
-            wrong: 'import { Button } from "@corensystem/core-ui";'
-            correct: 'import { Button } from "@corensystem/core-ui/button";'
+            wrong: 'import { Button } from "@corensystem/coren-ui";'
+            correct: 'import { Button } from "@corensystem/coren-ui/button";'
             source: "core/Core:packages/components/package.json"
             status: active
           - id: fm-setup-2
@@ -51,20 +51,20 @@ domains:
             priority: HIGH
             description: >
               Components render with broken Tailwind utility classes because
-              `@corensystem/core-tokens` CSS (which defines the @theme inline bridge
+              `@corensystem/coren-tokens` CSS (which defines the @theme inline bridge
               and :root CSS vars) is never loaded.
             wrong: "// No CSS import — relies on app's own Tailwind config"
-            correct: 'import "@corensystem/core-tokens";'
+            correct: 'import "@corensystem/coren-tokens";'
             source: "core/Core:packages/tokens/src/index.css"
             status: active
           - id: fm-setup-3
             title: Loading fonts CSS unconditionally in air-gapped environments
             priority: MEDIUM
             description: >
-              `@corensystem/core-tokens/fonts` imports Google Fonts via CDN. In
+              `@corensystem/coren-tokens/fonts` imports Google Fonts via CDN. In
               offline/air-gapped environments this causes a network timeout that
               blocks font rendering. The CSS custom property fallbacks still work.
-            wrong: 'import "@corensystem/core-tokens/fonts"; // always'
+            wrong: 'import "@corensystem/coren-tokens/fonts"; // always'
             correct: "// Only import in environments with CDN access; self-host otherwise"
             source: "core/Core:README.md"
             status: active
@@ -89,7 +89,7 @@ domains:
       Using and composing core UI components: Button, Card, Input, Dialog,
       Select, Tabs, and the full primitive set. Covers variant selection,
       className extension, asChild pattern, cva usage, and provider requirements.
-    package: "@corensystem/core-ui"
+    package: "@corensystem/coren-ui"
     skills:
       - slug: core-ui-components
         name: Component Usage
@@ -111,11 +111,11 @@ domains:
             title: Using barrel import instead of deep-path for components
             priority: HIGH
             description: >
-              `import { Button } from "@corensystem/core-ui"` resolves the barrel
+              `import { Button } from "@corensystem/coren-ui"` resolves the barrel
               index which only re-exports types, mock-data, and chatService.
               Button is undefined silently.
-            wrong: 'import { Button } from "@corensystem/core-ui";'
-            correct: 'import { Button } from "@corensystem/core-ui/button";'
+            wrong: 'import { Button } from "@corensystem/coren-ui";'
+            correct: 'import { Button } from "@corensystem/coren-ui/button";'
             source: "core/Core:packages/components/src/index.ts"
             status: active
             skills:
@@ -167,12 +167,12 @@ domains:
             description: >
               Passing raw className string alongside variant classes causes
               conflicting Tailwind utilities to merge unpredictably. cn() from
-              @corensystem/core-utils uses tailwind-merge to resolve conflicts correctly.
+              @corensystem/coren-utils uses tailwind-merge to resolve conflicts correctly.
             wrong: |
               <Button className="wwc:bg-red-500">delete</Button>
               // wwc:bg-red-500 may be overridden by wwc:bg-primary from variant
             correct: |
-              import { cn } from "@corensystem/core-utils";
+              import { cn } from "@corensystem/coren-utils";
               <Button className={cn("wwc:bg-red-500")}>delete</Button>
               // tailwind-merge resolves wwc:bg- conflict in favour of last class
             source: "core/Core:packages/utils/src/index.ts"
@@ -200,13 +200,13 @@ domains:
       Building validated forms with react-hook-form + zod + Form* components.
       Covers Form/FormField/FormItem/FormLabel/FormControl/FormDescription/FormMessage
       composition, useForm with zodResolver, field registration, and error display.
-    package: "@corensystem/core-ui"
+    package: "@corensystem/coren-ui"
     skills:
       - slug: core-ui-forms
         name: Forms & Validation
         type: core
         description: >
-          Building forms with @corensystem/core-ui/form, react-hook-form, zod, and
+          Building forms with @corensystem/coren-ui/form, react-hook-form, zod, and
           @hookform/resolvers/zod. Form, FormField, FormItem, FormLabel, FormControl,
           FormDescription, FormMessage. useFormField hook. zodResolver wiring.
         sources:
@@ -261,11 +261,11 @@ domains:
             title: Importing Form components from wrong path
             priority: HIGH
             description: >
-              All Form* components are exported from `@corensystem/core-ui/form`.
-              Importing from `@corensystem/core-ui` barrel or from react-hook-form
+              All Form* components are exported from `@corensystem/coren-ui/form`.
+              Importing from `@corensystem/coren-ui` barrel or from react-hook-form
               directly misses the styled wrappers and context plumbing.
             wrong: 'import { FormField } from "react-hook-form";'
-            correct: 'import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@corensystem/core-ui/form";'
+            correct: 'import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@corensystem/coren-ui/form";'
             source: "core/Core:packages/components/src/form.tsx:137"
             status: active
 
@@ -276,13 +276,13 @@ domains:
       @tanstack/react-table ColumnDef. Tree/nested rows with getSubRows,
       expandable rows with renderSubComponent, DataTableColumnHeader for sort,
       DataTableTreeCell for indent, DataTableRowGroup for collapsible groups.
-    package: "@corensystem/core-ui"
+    package: "@corensystem/coren-ui"
     skills:
       - slug: core-ui-data-table
         name: Data Table
         type: core
         description: >
-          DataTable component from @corensystem/core-ui/data-table. ColumnDef with
+          DataTable component from @corensystem/coren-ui/data-table. ColumnDef with
           @tanstack/react-table. Sorting, filtering, pagination, column visibility.
           Expandable rows (renderSubComponent), tree/nested rows (getSubRows),
           DataTableRowGroup collapsible sections, DataTableTreeCell indent,
@@ -355,22 +355,22 @@ domains:
   - slug: charts
     name: Charts & Data Visualisation
     description: >
-      Two chart systems in @corensystem/core-ui: ChartContainer (ECharts wrapper
+      Two chart systems in @corensystem/coren-ui: ChartContainer (ECharts wrapper
       with useChartTheme hook for design token colors) and ChartRenderer
       (lightweight ECharts for AI-generated charts, uses ChartData type).
-      getCssVarAsRgb and getChartColors from @corensystem/core-utils for direct
+      getCssVarAsRgb and getChartColors from @corensystem/coren-utils for direct
       ECharts or custom canvas consumers.
-    package: "@corensystem/core-ui"
+    package: "@corensystem/coren-ui"
     skills:
       - slug: core-ui-charts
         name: Charts
         type: core
         description: >
           ChartContainer (ECharts wrapper), useChartTheme hook, ChartConfig
-          type from @corensystem/core-ui/chart. ChartRenderer from
-          @corensystem/core-ui/chat/core-chart-renderer for AI-generated charts.
+          type from @corensystem/coren-ui/chart. ChartRenderer from
+          @corensystem/coren-ui/chat/core-chart-renderer for AI-generated charts.
           ChartData type, ChartType (bar/line/area/pie/scatter).
-          getCssVarAsRgb, getChartColors from @corensystem/core-utils.
+          getCssVarAsRgb, getChartColors from @corensystem/coren-utils.
         sources:
           - "core/Core:packages/components/src/chart.tsx"
           - "core/Core:packages/components/src/chat/core-chart-renderer.tsx"
@@ -388,7 +388,7 @@ domains:
               import ReactECharts from "echarts-for-react";
               <ReactECharts option={option} />
             correct: |
-              import { ChartContainer } from "@corensystem/core-ui/chart";
+              import { ChartContainer } from "@corensystem/coren-ui/chart";
               <ChartContainer option={option} style={{ height: 300 }} />
             source: "core/Core:packages/components/src/chart.tsx:46"
             status: active
@@ -439,18 +439,18 @@ domains:
       ChatInput, ChartRenderer. Message/ChartMessage/TextMessage types. DashboardWidget
       for add-to-page callback. sendChatMessage service stub for wiring a real API.
       generateId utility.
-    package: "@corensystem/core-ui"
+    package: "@corensystem/coren-ui"
     skills:
       - slug: core-ui-chat
         name: Chat Widget
         type: core
         description: >
-          ChatWidget from @corensystem/core-ui/chat/core-chat-widget. Floating AI
+          ChatWidget from @corensystem/coren-ui/chat/core-chat-widget. Floating AI
           assistant with open/minimize/close state. onAddWidget callback for
           add-to-page flow. apiEndpoint prop to connect real backend.
           Message, TextMessage, ChartMessage, DashboardWidget types from
-          @corensystem/core-ui/types/chat. sendChatMessage service from
-          @corensystem/core-ui/services/chatService — replace mock with real fetch.
+          @corensystem/coren-ui/types/chat. sendChatMessage service from
+          @corensystem/coren-ui/services/chatService — replace mock with real fetch.
         sources:
           - "core/Core:packages/components/src/chat/core-chat-widget.tsx"
           - "core/Core:packages/components/src/chat/core-chat-panel.tsx"
@@ -525,19 +525,19 @@ domains:
       OKLCH CSS custom properties, Tailwind 4 @theme inline bridge with wwc:
       prefix, light/dark mode via .dark class, color/radius/font/shadow/spacing
       variables, pre-built CSS alternative, and the optional Google Fonts stylesheet.
-    package: "@corensystem/core-tokens"
+    package: "@corensystem/coren-tokens"
     skills:
       - slug: core-tokens
         name: Design Tokens
         type: core
         description: >
-          @corensystem/core-tokens CSS variables. OKLCH colors: --background,
+          @corensystem/coren-tokens CSS variables. OKLCH colors: --background,
           --foreground, --primary, --secondary, --muted, --accent, --destructive,
           --border, --input, --ring, --chart-1..5, sidebar variants. Radius:
           --radius-sm/md/lg/xl. Fonts: --font-sans/serif/mono. Dark mode via
           .dark class. Tailwind 4 @theme inline bridge maps --color-primary etc.
-          Import paths: "@corensystem/core-tokens" (CSS vars + Tailwind) or
-          "@corensystem/core-tokens/fonts" (Google Fonts CDN, opt-in).
+          Import paths: "@corensystem/coren-tokens" (CSS vars + Tailwind) or
+          "@corensystem/coren-tokens/fonts" (Google Fonts CDN, opt-in).
         sources:
           - "core/Core:packages/tokens/src/index.css"
           - "core/Core:packages/tokens/src/fonts.css"
@@ -565,7 +565,7 @@ domains:
             priority: HIGH
             description: >
               Using `var(--primary)` or Tailwind `wwc:bg-primary` in a component
-              before `@corensystem/core-tokens` CSS is loaded produces transparent
+              before `@corensystem/coren-tokens` CSS is loaded produces transparent
               colors (var resolves to empty string). Component renders but is
               invisible or incorrectly coloured.
             wrong: |
@@ -573,7 +573,7 @@ domains:
               <div className="wwc:bg-primary wwc:text-primary-foreground">...</div>
             correct: |
               // In app entry point, before any component CSS
-              import "@corensystem/core-tokens";
+              import "@corensystem/coren-tokens";
             source: "core/Core:packages/tokens/src/index.css:1"
             status: active
           - id: fm-tok-3
@@ -582,15 +582,15 @@ domains:
             description: >
               The @theme inline block in index.css maps Tailwind 4 color utilities
               (bg-primary, text-foreground, etc.) to the CSS vars. Without importing
-              @corensystem/core-tokens, these utilities emit no styles — Tailwind 4
+              @corensystem/coren-tokens, these utilities emit no styles — Tailwind 4
               does not include these mappings by default.
             wrong: |
               // Custom component that uses Tailwind token utilities
-              // but the consuming app doesn't import @corensystem/core-tokens
+              // but the consuming app doesn't import @corensystem/coren-tokens
               <div className="wwc:bg-sidebar wwc:text-sidebar-foreground" />
             correct: |
-              // Ensure @corensystem/core-tokens is imported in the app entry point
-              import "@corensystem/core-tokens";
+              // Ensure @corensystem/coren-tokens is imported in the app entry point
+              import "@corensystem/coren-tokens";
             source: "core/Core:packages/tokens/src/index.css:3"
             status: active
 
@@ -600,13 +600,13 @@ domains:
       cn() for className merging with wwc: prefix support, cva/VariantProps for
       component variants, cssColorToRgb/getChartColors/getCssVarAsRgb for ECharts
       and canvas-based chart libraries.
-    package: "@corensystem/core-utils"
+    package: "@corensystem/coren-utils"
     skills:
       - slug: core-utils
         name: Utilities
         type: core
         description: >
-          cn() from @corensystem/core-utils: clsx + tailwind-merge with wwc: prefix
+          cn() from @corensystem/coren-utils: clsx + tailwind-merge with wwc: prefix
           config, resolves conflicting wwc:-prefixed Tailwind utilities. cva,
           VariantProps re-exported from class-variance-authority. cssColorToRgb,
           getChartColors, getCssVarAsRgb — browser-only OKLCH-to-RGB converters.
@@ -674,7 +674,7 @@ domains:
       (per-component intent/when/chooseOver/requires/variantIntent, and a
       patterns[] composition-recipe catalog). Deep wrong/correct code stays in
       the failure_modes above and is referenced by fm-* id.
-    package: "@corensystem/core-ui"
+    package: "@corensystem/coren-ui"
     skills:
       - slug: core-ui-composition
         name: Composition & Selection

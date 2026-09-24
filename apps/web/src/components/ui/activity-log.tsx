@@ -5,4 +5,4 @@ export {
 	ActivityRef,
 	type ActivityItemProps,
 	type ActivityLogProps,
-} from "@corensystem/core-ui/activity-log";
+} from "@corensystem/coren-ui/activity-log";

@@ -1,7 +1,7 @@
 import type {ReactNode} from "react";
 
-import {Tooltip, TooltipContent, TooltipTrigger} from "@corensystem/core-ui/tooltip";
-import {cn} from "@corensystem/core-utils";
+import {Tooltip, TooltipContent, TooltipTrigger} from "@corensystem/coren-ui/tooltip";
+import {cn} from "@corensystem/coren-utils";
 
 import {BLUEPRINT_TOOL_BUTTON_SIZE_CLASS} from "./constants";
 

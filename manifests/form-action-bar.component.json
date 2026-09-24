@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/form-action-bar.tsx",
-		"import": "@corensystem/core-ui/form-action-bar",
+		"import": "@corensystem/coren-ui/form-action-bar",
 		"export": "FormActionBar"
 	},
 	"tags": [

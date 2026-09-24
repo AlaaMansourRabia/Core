@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {Combobox} from "@corensystem/core-ui/combobox";
-import {Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle} from "@corensystem/core-ui/dialog";
+import {Button} from "@corensystem/coren-ui/button";
+import {Combobox} from "@corensystem/coren-ui/combobox";
+import {Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle} from "@corensystem/coren-ui/dialog";
 import * as React from "react";
 import {expect, screen, userEvent, waitFor, within} from "storybook/test";
 

@@ -1,8 +1,8 @@
 import type Konva from "konva";
 import type {RefObject} from "react";
 
-import {ContextMenu, ContextMenuTrigger} from "@corensystem/core-ui/context-menu";
-import {cn} from "@corensystem/core-utils";
+import {ContextMenu, ContextMenuTrigger} from "@corensystem/coren-ui/context-menu";
+import {cn} from "@corensystem/coren-utils";
 import {Circle, Image as KonvaImage, Layer, Line, Rect, Stage} from "react-konva";
 
 import {BlueprintCanvasContextMenu} from "./BlueprintCanvasContextMenu";

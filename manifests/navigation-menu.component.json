@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/navigation-menu.tsx",
-		"import": "@corensystem/core-ui/navigation-menu",
+		"import": "@corensystem/coren-ui/navigation-menu",
 		"export": "NavigationMenu"
 	},
 	"tags": [

@@ -22,7 +22,7 @@ import {previewSpec, type PreviewSpec} from "./seeds";
 
 // Scaffold a minimal standalone Vite app that mounts ONLY the template — no navigation shell, no Designers
 // Hub — importing the page from SOURCE so the engineer's edits hot-reload. Styling mirrors the repo's proven
-// setup (apps/web): tailwind v4 + @corensystem/core-tokens + @source scanning the component source.
+// setup (apps/web): tailwind v4 + @corensystem/coren-tokens + @source scanning the component source.
 function writePreviewApp(worktree: string, spec: PreviewSpec, port: number): void {
 	const dir = join(worktree, ".core-preview");
 	mkdirSync(dir, {recursive: true});
@@ -94,8 +94,8 @@ export default defineConfig({
 	server: {port: ${port}, strictPort: true},
 	plugins: [react(), tailwindcss()],
 	resolve: {
-		// Components import @corensystem/core-utils (→ dist); alias it to SOURCE so a fresh worktree needs no build.
-		alias: {"@corensystem/core-utils": join(repo, "packages", "utils", "src", "index.ts")},
+		// Components import @corensystem/coren-utils (→ dist); alias it to SOURCE so a fresh worktree needs no build.
+		alias: {"@corensystem/coren-utils": join(repo, "packages", "utils", "src", "index.ts")},
 		// Page SOURCE + any package copy can pull two React copies → "Invalid hook call". Force one.
 		dedupe: ["react", "react-dom"],
 	},
@@ -295,7 +295,7 @@ widget from scratch until you have checked Core first via the \`core\` MCP.** Fo
 Y" request:
 1. Call \`mcp__core__resolve_template\` (e.g. intent "login page") — if a template fits, reuse it.
 2. Call \`mcp__core__resolve_widgets\` for the region — reuse composed widgets (DataTable, App Sidebar, …).
-3. Otherwise reuse existing components from \`@corensystem/core-ui/<kebab-name>\` (templates live in
+3. Otherwise reuse existing components from \`@corensystem/coren-ui/<kebab-name>\` (templates live in
    \`packages/components/src/pages/\`, widgets/components alongside).
 4. Only write custom UI when Core genuinely has nothing — and say so in one line, calling it out as new.
 Concretely: if asked to "add a login page", first \`resolve_template\` for it and reuse the Core login page

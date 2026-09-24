@@ -1,6 +1,6 @@
 import type {ReactElement, ReactNode} from "react";
 
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {ArrowRight, Timer, X} from "lucide-react";
 import {useMemo} from "react";
 

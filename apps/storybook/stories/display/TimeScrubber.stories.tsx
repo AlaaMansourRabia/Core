@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {TimeScrubber, type TimeScrubberActivity} from "@corensystem/core-ui/time-scrubber";
+import {TimeScrubber, type TimeScrubberActivity} from "@corensystem/coren-ui/time-scrubber";
 import {addMinutes} from "date-fns";
 import {useMemo, useState} from "react";
 

@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {Folder} from "lucide-react";
 
 import {FileSystemPathText} from "../file-system";

@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {NewActionTypeDialog} from "@corensystem/core-ui/new-action-type-dialog";
+import {Button} from "@corensystem/coren-ui/button";
+import {NewActionTypeDialog} from "@corensystem/coren-ui/new-action-type-dialog";
 import {useState} from "react";
 
 const ACTION_OBJECT_TYPES = [

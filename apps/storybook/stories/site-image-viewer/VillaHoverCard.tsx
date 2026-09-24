@@ -1,6 +1,6 @@
 import type {CSSProperties} from "react";
 
-import {ProgressComparison} from "@corensystem/core-ui/progress-comparison";
+import {ProgressComparison} from "@corensystem/coren-ui/progress-comparison";
 
 import {approvedProgressToBucket, bucketLabel, classifyVariance, styleForVilla} from "./milestone-ramp";
 import type {MapMode, Villa} from "./siteViewData";

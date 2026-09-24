@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 // Fill-time signature capture. An HTML <canvas> drawn on with pointer events (mouse + touch), a
 // "Clear" button, and round-tripping through a data-URL string so it can be persisted like any other
 // answer. Standalone + frozen prop contract so the RJSF widget can wrap it.

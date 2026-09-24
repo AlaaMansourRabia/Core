@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Field, FieldDescription, FieldError, FieldLabel} from "@corensystem/core-ui/field";
-import {Input} from "@corensystem/core-ui/input";
-import {Textarea} from "@corensystem/core-ui/textarea";
+import {Field, FieldDescription, FieldError, FieldLabel} from "@corensystem/coren-ui/field";
+import {Input} from "@corensystem/coren-ui/input";
+import {Textarea} from "@corensystem/coren-ui/textarea";
 
 const meta = {
 	title: "Components/Forms/Field",

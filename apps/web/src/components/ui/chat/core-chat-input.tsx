@@ -1,1 +1,1 @@
-export {ChatInput} from "@corensystem/core-ui/chat/core-chat-input";
+export {ChatInput} from "@corensystem/coren-ui/chat/core-chat-input";

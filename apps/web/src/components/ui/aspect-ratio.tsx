@@ -1,1 +1,1 @@
-export {AspectRatio} from "@corensystem/core-ui/aspect-ratio";
+export {AspectRatio} from "@corensystem/coren-ui/aspect-ratio";

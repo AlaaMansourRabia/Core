@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/core-content-area.tsx",
-		"import": "@corensystem/core-ui/pages/core-content-area",
+		"import": "@corensystem/coren-ui/pages/core-content-area",
 		"export": "CoreContentArea"
 	},
 	"tags": [

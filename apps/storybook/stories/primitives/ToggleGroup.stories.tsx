@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ToggleGroup, ToggleGroupItem} from "@corensystem/core-ui/toggle-group";
+import {ToggleGroup, ToggleGroupItem} from "@corensystem/coren-ui/toggle-group";
 
 const meta = {
 	title: "Components/Primitives/ToggleGroup",

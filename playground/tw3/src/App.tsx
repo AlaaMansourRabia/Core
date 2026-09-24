@@ -11,11 +11,11 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
-import { Badge } from "@corensystem/core-ui/badge";
-import { Banner } from "@corensystem/core-ui/banner";
-import { Button } from "@corensystem/core-ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@corensystem/core-ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@corensystem/core-ui/table";
+import { Badge } from "@corensystem/coren-ui/badge";
+import { Banner } from "@corensystem/coren-ui/banner";
+import { Button } from "@corensystem/coren-ui/button";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@corensystem/coren-ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@corensystem/coren-ui/table";
 
 // ── KPICard ──
 

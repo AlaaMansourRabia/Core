@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/chat/core-chart-renderer.tsx",
-		"import": "@corensystem/core-ui/chat/core-chart-renderer"
+		"import": "@corensystem/coren-ui/chat/core-chart-renderer"
 	},
 	"tags": [
 		"chart",

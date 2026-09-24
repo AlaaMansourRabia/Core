@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/object-type-wizard.tsx",
-		"import": "@corensystem/core-ui/new-object-type-dialog",
+		"import": "@corensystem/coren-ui/new-object-type-dialog",
 		"export": "NewObjectTypeDialog"
 	},
 	"tags": [
@@ -114,7 +114,7 @@
 	"forbiddenPlacement": [
 		"inside another dialog"
 	],
-	"minimalExample": "import {NewObjectTypeDialog} from \"@corensystem/core-ui/new-object-type-dialog\";\n\n<NewObjectTypeDialog open={open} onOpenChange={setOpen} onCreate={(draft) => addObjectType(draft)} />",
+	"minimalExample": "import {NewObjectTypeDialog} from \"@corensystem/coren-ui/new-object-type-dialog\";\n\n<NewObjectTypeDialog open={open} onOpenChange={setOpen} onCreate={(draft) => addObjectType(draft)} />",
 	"evaluationCriteria": [
 		"Next is never rendered disabled.",
 		"iconIndex maps back to the caller's own icon array."

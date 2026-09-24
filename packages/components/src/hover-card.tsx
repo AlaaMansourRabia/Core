@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import * as React from "react";
 

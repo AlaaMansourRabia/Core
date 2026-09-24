@@ -1,4 +1,4 @@
-import {Card, ChartContainer} from "@corensystem/core-ui";
+import {Card, ChartContainer} from "@corensystem/coren-ui";
 
 import {AppShell} from "./AppShell";
 

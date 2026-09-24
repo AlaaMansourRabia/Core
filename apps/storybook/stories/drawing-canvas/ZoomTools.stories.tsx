@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ZoomTools} from "@corensystem/core-ui/zoom-tools";
+import {ZoomTools} from "@corensystem/coren-ui/zoom-tools";
 import {useState} from "react";
 
 const meta = {

@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {ChatLayout, ChatHeader, ChatFooter, ChatMessagesContainer} from "@corensystem/core-ui/chat-layout";
-import {ChatMessage, ChatSystemMessage} from "@corensystem/core-ui/chat-message";
-import {Input} from "@corensystem/core-ui/input";
+import {Button} from "@corensystem/coren-ui/button";
+import {ChatLayout, ChatHeader, ChatFooter, ChatMessagesContainer} from "@corensystem/coren-ui/chat-layout";
+import {ChatMessage, ChatSystemMessage} from "@corensystem/coren-ui/chat-message";
+import {Input} from "@corensystem/coren-ui/input";
 import {MoreHorizontal, Phone, Video} from "lucide-react";
 
 const meta = {

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {type MilestoneRow, MilestoneTable} from "@corensystem/core-ui/milestone-table";
+import {type MilestoneRow, MilestoneTable} from "@corensystem/coren-ui/milestone-table";
 
 const MILESTONES: MilestoneRow[] = [
 	{id: "M35", color: "#7c3aed", actual: "Aug-26", planned: "Sep-26"},

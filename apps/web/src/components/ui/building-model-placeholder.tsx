@@ -1,2 +1,2 @@
-export {BuildingModelPlaceholder} from "@corensystem/core-ui/building-model-placeholder";
-export type {BuildingModelFloor, BuildingModelPlaceholderProps} from "@corensystem/core-ui/building-model-placeholder";
+export {BuildingModelPlaceholder} from "@corensystem/coren-ui/building-model-placeholder";
+export type {BuildingModelFloor, BuildingModelPlaceholderProps} from "@corensystem/coren-ui/building-model-placeholder";

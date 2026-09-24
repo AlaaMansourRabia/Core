@@ -9,7 +9,7 @@
 	"manifestStatus": "draft",
 	"source": {
 		"path": "packages/components/src/file-system/file-system.tsx",
-		"import": "@corensystem/core-ui/file-system",
+		"import": "@corensystem/coren-ui/file-system",
 		"export": "FileSystem"
 	},
 	"tags": [
@@ -68,7 +68,7 @@
 	],
 	"allowedPlacement": ["a route-level surface, or any column that gives it height"],
 	"forbiddenPlacement": ["inside a table cell", "inside a Dialog or Popover", "inside another FileSystem"],
-	"minimalExample": "import {FileSystem, fsNodeFromDraft, type FileSystemNode} from \"@corensystem/core-ui/file-system\";\nimport {Share2} from \"lucide-react\";\n\nconst FILE_TYPES = [\n  {id: \"pipeline\", label: \"Pipeline\", icon: Share2, app: \"Pipelines\"},\n];\n\nconst [nodes, setNodes] = useState<FileSystemNode[]>([\n  {id: \"root\", name: \"Acme\", kind: \"root\", parentId: null, updatedAt: \"Today\", updatedTs: 1},\n  {id: \"p1\", name: \"Site A\", kind: \"project\", parentId: \"root\", updatedAt: \"Today\", updatedTs: 2},\n]);\n\n<FileSystem\n  nodes={nodes}\n  rootId=\"root\"\n  fileTypes={FILE_TYPES}\n  openLabel={(node) => (node.ref ? \"Open in Pipelines\" : undefined)}\n  onOpenFile={(node) => router.push(hrefFor(node.ref))}\n  onCreate={(draft) => {\n    const node = fsNodeFromDraft(draft, crypto.randomUUID());\n    setNodes((prev) => [...prev, node]);\n    return node;\n  }}\n/>",
+	"minimalExample": "import {FileSystem, fsNodeFromDraft, type FileSystemNode} from \"@corensystem/coren-ui/file-system\";\nimport {Share2} from \"lucide-react\";\n\nconst FILE_TYPES = [\n  {id: \"pipeline\", label: \"Pipeline\", icon: Share2, app: \"Pipelines\"},\n];\n\nconst [nodes, setNodes] = useState<FileSystemNode[]>([\n  {id: \"root\", name: \"Acme\", kind: \"root\", parentId: null, updatedAt: \"Today\", updatedTs: 1},\n  {id: \"p1\", name: \"Site A\", kind: \"project\", parentId: \"root\", updatedAt: \"Today\", updatedTs: 2},\n]);\n\n<FileSystem\n  nodes={nodes}\n  rootId=\"root\"\n  fileTypes={FILE_TYPES}\n  openLabel={(node) => (node.ref ? \"Open in Pipelines\" : undefined)}\n  onOpenFile={(node) => router.push(hrefFor(node.ref))}\n  onCreate={(draft) => {\n    const node = fsNodeFromDraft(draft, crypto.randomUUID());\n    setNodes((prev) => [...prev, node]);\n    return node;\n  }}\n/>",
 	"lineage": {
 		"origin": "extracted",
 		"authoredBy": "Core Connect V3 file system (2026-09-13)",

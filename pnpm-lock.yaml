@@ -86,13 +86,13 @@ importers:
 
   apps/hub:
     dependencies:
-      '@corensystem/core-tokens':
+      '@corensystem/coren-tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
-      '@corensystem/core-ui':
+      '@corensystem/coren-ui':
         specifier: workspace:*
         version: link:../../packages/components
-      '@corensystem/core-utils':
+      '@corensystem/coren-utils':
         specifier: workspace:*
         version: link:../../packages/utils
       lucide-react:
@@ -129,13 +129,13 @@ importers:
 
   apps/storybook:
     dependencies:
-      '@corensystem/core-tokens':
+      '@corensystem/coren-tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
-      '@corensystem/core-ui':
+      '@corensystem/coren-ui':
         specifier: workspace:*
         version: link:../../packages/components
-      '@corensystem/core-utils':
+      '@corensystem/coren-utils':
         specifier: workspace:*
         version: link:../../packages/utils
       '@thatopen/components':
@@ -235,13 +235,13 @@ importers:
 
   apps/studio:
     dependencies:
-      '@corensystem/core-tokens':
+      '@corensystem/coren-tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
-      '@corensystem/core-ui':
+      '@corensystem/coren-ui':
         specifier: workspace:*
         version: link:../../packages/components
-      '@corensystem/core-utils':
+      '@corensystem/coren-utils':
         specifier: workspace:*
         version: link:../../packages/utils
       '@corensystem/sdk':
@@ -281,13 +281,13 @@ importers:
 
   apps/web:
     dependencies:
-      '@corensystem/core-tokens':
+      '@corensystem/coren-tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
-      '@corensystem/core-ui':
+      '@corensystem/coren-ui':
         specifier: workspace:*
         version: link:../../packages/components
-      '@corensystem/core-utils':
+      '@corensystem/coren-utils':
         specifier: workspace:*
         version: link:../../packages/utils
       '@hookform/resolvers':
@@ -489,10 +489,10 @@ importers:
       3d-tiles-renderer:
         specifier: ^0.4.9
         version: 0.4.28(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(three@0.182.0)
-      '@corensystem/core-tokens':
+      '@corensystem/coren-tokens':
         specifier: workspace:*
         version: link:../tokens
-      '@corensystem/core-utils':
+      '@corensystem/coren-utils':
         specifier: workspace:*
         version: link:../utils
       '@radix-ui/react-accordion':

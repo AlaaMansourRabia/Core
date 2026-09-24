@@ -41,7 +41,7 @@
  */
 import type {ComponentType} from "react";
 
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {Check, Home} from "lucide-react";
 import {useState} from "react";
 

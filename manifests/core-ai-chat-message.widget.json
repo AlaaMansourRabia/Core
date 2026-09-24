@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/chat/core-ai-chat-message.tsx",
-		"import": "@corensystem/core-ui/chat/core-ai-chat-message"
+		"import": "@corensystem/coren-ui/chat/core-ai-chat-message"
 	},
 	"tags": [
 		"chat",

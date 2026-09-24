@@ -1,1 +1,1 @@
-export {CoreAppTopBar} from "@corensystem/core-ui/navigation/core-app-top-bar";
+export {CoreAppTopBar} from "@corensystem/coren-ui/navigation/core-app-top-bar";

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {TurnTimer} from "@corensystem/core-ui/turn-timer";
+import {TurnTimer} from "@corensystem/coren-ui/turn-timer";
 
 const meta = {
 	title: "Components/Feedback/Turn Timer",

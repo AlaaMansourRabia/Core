@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Text} from "@corensystem/core-ui/text";
+import {Text} from "@corensystem/coren-ui/text";
 
 const meta = {
 	title: "Components/Primitives/Text",

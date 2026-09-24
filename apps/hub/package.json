@@ -12,9 +12,9 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@corensystem/core-tokens": "workspace:*",
-		"@corensystem/core-ui": "workspace:*",
-		"@corensystem/core-utils": "workspace:*",
+		"@corensystem/coren-tokens": "workspace:*",
+		"@corensystem/coren-ui": "workspace:*",
+		"@corensystem/coren-utils": "workspace:*",
 		"lucide-react": "^0.562.0",
 		"react": "^19.3.0",
 		"react-dom": "^19.3.0"

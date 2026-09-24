@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/inline-comment-composer.tsx",
-		"import": "@corensystem/core-ui/inline-comment-composer"
+		"import": "@corensystem/coren-ui/inline-comment-composer"
 	},
 	"tags": [
 		"comments",

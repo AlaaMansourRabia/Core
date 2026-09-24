@@ -1,2 +1,2 @@
-export {ToolbarStats} from "@corensystem/core-ui/toolbar-stats";
-export type {ToolbarStat, ToolbarStatsProps} from "@corensystem/core-ui/toolbar-stats";
+export {ToolbarStats} from "@corensystem/coren-ui/toolbar-stats";
+export type {ToolbarStat, ToolbarStatsProps} from "@corensystem/coren-ui/toolbar-stats";

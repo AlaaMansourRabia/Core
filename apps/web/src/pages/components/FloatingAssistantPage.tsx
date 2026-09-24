@@ -1,4 +1,4 @@
-import type {Message} from "@corensystem/core-ui/types/chat";
+import type {Message} from "@corensystem/coren-ui/types/chat";
 
 import {Bot, Sparkles} from "lucide-react";
 import {useState} from "react";
@@ -127,7 +127,7 @@ export function FloatingAssistantPage() {
 				</CardHeader>
 				<CardContent>
 					<pre className="wwc:overflow-x-auto wwc:rounded-lg wwc:bg-muted wwc:p-4 wwc:text-sm">
-						{`import {FloatingAssistant} from "@corensystem/core-ui/floating-assistant";
+						{`import {FloatingAssistant} from "@corensystem/coren-ui/floating-assistant";
 
 const [messages, setMessages] = useState([]);
 const [loading, setLoading] = useState(false);

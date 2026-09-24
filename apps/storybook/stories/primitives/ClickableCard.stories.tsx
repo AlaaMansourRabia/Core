@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ClickableCard} from "@corensystem/core-ui/clickable-card";
+import {ClickableCard} from "@corensystem/coren-ui/clickable-card";
 import {FileText, Settings, User} from "lucide-react";
 
 const meta = {

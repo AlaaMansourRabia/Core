@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/multi-select.tsx",
-		"import": "@corensystem/core-ui/multi-select",
+		"import": "@corensystem/coren-ui/multi-select",
 		"export": "MultiSelect"
 	},
 	"tags": [

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Banner} from "@corensystem/core-ui/banner";
+import {Banner} from "@corensystem/coren-ui/banner";
 
 const meta = {
 	title: "Components/Feedback/Banner",

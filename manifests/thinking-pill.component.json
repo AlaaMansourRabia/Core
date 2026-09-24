@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/thinking-pill.tsx",
-		"import": "@corensystem/core-ui/thinking-pill",
+		"import": "@corensystem/coren-ui/thinking-pill",
 		"export": "ThinkingPill"
 	},
 	"tags": [

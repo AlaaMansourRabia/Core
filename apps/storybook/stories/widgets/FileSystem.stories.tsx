@@ -5,7 +5,7 @@ import {
 	fsNodeFromDraft,
 	type FileSystemFileType,
 	type FileSystemNode,
-} from "@corensystem/core-ui/file-system";
+} from "@corensystem/coren-ui/file-system";
 import {Box, FileText, Share2, Table2, Workflow} from "lucide-react";
 import {useState} from "react";
 

@@ -4,8 +4,8 @@
 
 import type {TimelineState} from "./types";
 
-import {Badge} from "@corensystem/core-ui/badge";
-import {Progress} from "@corensystem/core-ui/progress";
+import {Badge} from "@corensystem/coren-ui/badge";
+import {Progress} from "@corensystem/coren-ui/progress";
 
 import {TRADE_BY_KEY} from "./trades";
 

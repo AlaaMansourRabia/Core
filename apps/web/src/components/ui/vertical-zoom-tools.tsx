@@ -1,2 +1,2 @@
-export {VerticalZoomTools} from "@corensystem/core-ui/vertical-zoom-tools";
-export type {VerticalZoomToolsProps} from "@corensystem/core-ui/vertical-zoom-tools";
+export {VerticalZoomTools} from "@corensystem/coren-ui/vertical-zoom-tools";
+export type {VerticalZoomToolsProps} from "@corensystem/coren-ui/vertical-zoom-tools";

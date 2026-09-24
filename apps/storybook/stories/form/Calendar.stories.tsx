@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Calendar} from "@corensystem/core-ui/calendar";
+import {Calendar} from "@corensystem/coren-ui/calendar";
 import {addDays} from "date-fns";
 import * as React from "react";
 import {type DateRange as DayPickerDateRange} from "react-day-picker";

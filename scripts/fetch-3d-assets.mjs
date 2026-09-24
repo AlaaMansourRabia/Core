@@ -3,7 +3,7 @@
  * fetch-3d-assets — pull heavy 3D model/mockup assets into apps/storybook/public/ at DEPLOY time.
  *
  * The meshes/models are hundreds of MB, so they are NOT committed here and NOT shipped in the
- * @corensystem/core-ui npm package. They live in the internal repo core/core-3d-assets and are
+ * @corensystem/coren-ui npm package. They live in the internal repo core/core-3d-assets and are
  * copied into the Storybook's static dir just before it builds, so the deployed (GitHub-login-gated)
  * Storybook serves them same-origin. The browser never fetches them cross-origin from GitHub.
  *

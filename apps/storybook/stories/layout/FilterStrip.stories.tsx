@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {CoreFilterStrip} from "@corensystem/core-ui/navigation/core-filter-strip";
+import {CoreFilterStrip} from "@corensystem/coren-ui/navigation/core-filter-strip";
 
 const meta = {
 	title: "Widgets/Navigation/FilterStrip",

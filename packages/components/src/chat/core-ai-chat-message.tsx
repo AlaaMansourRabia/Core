@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {AtSign, Paperclip} from "lucide-react";
 
 import {Card, CardContent} from "../card";

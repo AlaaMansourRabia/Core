@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/core-ui/popover";
+import {Button} from "@corensystem/coren-ui/button";
+import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
 
 const meta = {
 	title: "Components/Overlay/Popover",

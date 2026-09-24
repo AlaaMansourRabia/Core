@@ -4,5 +4,5 @@ export {
 	ErrorPageTitle,
 	ErrorPageDescription,
 	ErrorPageAction,
-} from "@corensystem/core-ui/error-page";
-export type {ErrorPageProps} from "@corensystem/core-ui/error-page";
+} from "@corensystem/coren-ui/error-page";
+export type {ErrorPageProps} from "@corensystem/coren-ui/error-page";

@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import * as React from "react";
 

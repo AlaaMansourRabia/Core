@@ -1,1 +1,1 @@
-export {RadioGroup, RadioGroupItem} from "@corensystem/core-ui/radio-group";
+export {RadioGroup, RadioGroupItem} from "@corensystem/coren-ui/radio-group";

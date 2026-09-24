@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/context-toolbar.tsx",
-		"import": "@corensystem/core-ui/context-toolbar",
+		"import": "@corensystem/coren-ui/context-toolbar",
 		"export": "ContextToolbar"
 	},
 	"tags": ["toolbar", "context", "status", "actions", "responsive"],

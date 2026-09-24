@@ -1,1 +1,1 @@
-export * from "@corensystem/core-ui/new-type-group-dialog";
+export * from "@corensystem/coren-ui/new-type-group-dialog";

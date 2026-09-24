@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/map.tsx",
-		"import": "@corensystem/core-ui/map"
+		"import": "@corensystem/coren-ui/map"
 	},
 	"tags": [
 		"display",

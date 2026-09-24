@@ -10,7 +10,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/core-project-setup.tsx",
-		"import": "@corensystem/core-ui/pages/core-project-setup",
+		"import": "@corensystem/coren-ui/pages/core-project-setup",
 		"export": "ProjectSetup"
 	},
 	"tags": [
@@ -58,7 +58,7 @@
 		"inside a Card or Dialog",
 		"as a small embeddable panel"
 	],
-	"minimalExample": "// CoreProjectSetup is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {Progress} from \"@corensystem/core-ui/progress\";\nimport {SetupStepsChecklist} from \"@corensystem/core-ui/setup-steps-checklist\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"minimalExample": "// CoreProjectSetup is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {Progress} from \"@corensystem/coren-ui/progress\";\nimport {SetupStepsChecklist} from \"@corensystem/coren-ui/setup-steps-checklist\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Promoted from the apps/web ProjectSetupExamplePage (2026-07-08)",

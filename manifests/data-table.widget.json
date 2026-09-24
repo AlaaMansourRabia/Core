@@ -7,7 +7,7 @@
 	"version": "1.0.0",
 	"source": {
 		"path": "packages/components/src/data-table.tsx",
-		"import": "@corensystem/core-ui/data-table"
+		"import": "@corensystem/coren-ui/data-table"
 	},
 	"tags": [
 		"data",

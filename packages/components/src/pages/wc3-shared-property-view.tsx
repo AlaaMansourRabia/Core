@@ -1,6 +1,6 @@
 import type {ColumnDef} from "@tanstack/react-table";
 
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {Plus} from "lucide-react";
 import {useEffect, useMemo, useState} from "react";
 

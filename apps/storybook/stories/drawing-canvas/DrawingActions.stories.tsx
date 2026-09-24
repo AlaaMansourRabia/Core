@@ -6,7 +6,7 @@ import {
 	type LineKind,
 	type PinKind,
 	type ShapeKind,
-} from "@corensystem/core-ui/drawing-actions";
+} from "@corensystem/coren-ui/drawing-actions";
 import {useState} from "react";
 
 const meta = {

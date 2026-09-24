@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/map-control-panel.tsx",
-		"import": "@corensystem/core-ui/map-control-panel"
+		"import": "@corensystem/coren-ui/map-control-panel"
 	},
 	"tags": [
 		"map",

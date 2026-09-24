@@ -1,2 +1,2 @@
-export {ToolbarColorPicker} from "@corensystem/core-ui/toolbar-color-picker";
-export type {ColorGroup, ToolbarColorPickerProps} from "@corensystem/core-ui/toolbar-color-picker";
+export {ToolbarColorPicker} from "@corensystem/coren-ui/toolbar-color-picker";
+export type {ColorGroup, ToolbarColorPickerProps} from "@corensystem/coren-ui/toolbar-color-picker";

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/zoom-tools.tsx",
-		"import": "@corensystem/core-ui/zoom-tools",
+		"import": "@corensystem/coren-ui/zoom-tools",
 		"export": "ZoomTools"
 	},
 	"tags": [

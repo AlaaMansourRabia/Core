@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {MetricCard} from "@corensystem/core-ui/metric-card";
+import {MetricCard} from "@corensystem/coren-ui/metric-card";
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {Activity, CheckCircle2, Shield, Users} from "lucide-react";
 

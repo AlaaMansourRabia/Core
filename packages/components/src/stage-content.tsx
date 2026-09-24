@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import * as React from "react";
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 

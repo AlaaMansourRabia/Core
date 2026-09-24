@@ -16,9 +16,9 @@
 		"chromatic": "chromatic --storybook-build-dir=dist"
 	},
 	"dependencies": {
-		"@corensystem/core-tokens": "workspace:*",
-		"@corensystem/core-ui": "workspace:*",
-		"@corensystem/core-utils": "workspace:*",
+		"@corensystem/coren-tokens": "workspace:*",
+		"@corensystem/coren-ui": "workspace:*",
+		"@corensystem/coren-utils": "workspace:*",
 		"@thatopen/components": "~3.4.6",
 		"@thatopen/components-front": "~3.4.3",
 		"@thatopen/fragments": "~3.4.6",

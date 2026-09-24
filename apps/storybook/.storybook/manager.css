@@ -74,7 +74,7 @@ pre,
    button → blue) and on select (wrapper → #57534e). We override those: paint
    the *wrapper* like a shadcn TabsTrigger (muted hover fill, elevated white pill
    when active) and force every inner element transparent so nothing layers on
-   top. Mirrors @corensystem/core-ui Tabs: rounded, transition-all,
+   top. Mirrors @corensystem/coren-ui Tabs: rounded, transition-all,
    data-[state=active]:bg-background + shadow. */
 
 /* The full-row pill lives on the wrapper */

@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {FormActionBar} from "@corensystem/core-ui/form-action-bar";
-import {Input} from "@corensystem/core-ui/input";
-import {Label} from "@corensystem/core-ui/label";
+import {Button} from "@corensystem/coren-ui/button";
+import {FormActionBar} from "@corensystem/coren-ui/form-action-bar";
+import {Input} from "@corensystem/coren-ui/input";
+import {Label} from "@corensystem/coren-ui/label";
 import {Save} from "lucide-react";
 import * as React from "react";
 

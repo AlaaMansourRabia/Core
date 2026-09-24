@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {Checkbox} from "@corensystem/core-ui/checkbox";
+import {Button} from "@corensystem/coren-ui/button";
+import {Checkbox} from "@corensystem/coren-ui/checkbox";
 import {
 	Form,
 	FormControl,
@@ -10,10 +10,10 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from "@corensystem/core-ui/form";
-import {Input} from "@corensystem/core-ui/input";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@corensystem/core-ui/select";
-import {Textarea} from "@corensystem/core-ui/textarea";
+} from "@corensystem/coren-ui/form";
+import {Input} from "@corensystem/coren-ui/input";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@corensystem/coren-ui/select";
+import {Textarea} from "@corensystem/coren-ui/textarea";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useForm} from "react-hook-form";
 import {expect, userEvent, within} from "storybook/test";

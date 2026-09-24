@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {SegmentedControl} from "@corensystem/core-ui/segmented-control";
+import {SegmentedControl} from "@corensystem/coren-ui/segmented-control";
 import {Grid, List, LayoutGrid} from "lucide-react";
 import {useState} from "react";
 

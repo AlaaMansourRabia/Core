@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {useMemo, useState} from "react";
 
 import {Combobox} from "../combobox";

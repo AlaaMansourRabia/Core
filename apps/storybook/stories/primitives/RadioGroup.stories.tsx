@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Label} from "@corensystem/core-ui/label";
-import {RadioGroup, RadioGroupItem} from "@corensystem/core-ui/radio-group";
+import {Label} from "@corensystem/coren-ui/label";
+import {RadioGroup, RadioGroupItem} from "@corensystem/coren-ui/radio-group";
 import {expect, userEvent, within} from "storybook/test";
 
 const meta = {

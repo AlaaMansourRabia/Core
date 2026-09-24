@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {Stack} from "@corensystem/core-ui/stack";
+import {Button} from "@corensystem/coren-ui/button";
+import {Stack} from "@corensystem/coren-ui/stack";
 
 const meta = {
 	title: "Components/Primitives/Stack",

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/resizable.tsx",
-		"import": "@corensystem/core-ui/resizable",
+		"import": "@corensystem/coren-ui/resizable",
 		"export": "Resizable"
 	},
 	"tags": [

@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/drawing-actions.tsx",
-		"import": "@corensystem/core-ui/drawing-actions"
+		"import": "@corensystem/coren-ui/drawing-actions"
 	},
 	"tags": [
 		"canvas",

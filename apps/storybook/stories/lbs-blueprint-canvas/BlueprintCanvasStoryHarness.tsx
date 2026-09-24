@@ -1,6 +1,6 @@
 import type Konva from "konva";
 
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {Component, type ErrorInfo, type ReactNode, useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 import {BlueprintCanvasErrorFallback} from "./BlueprintCanvasErrorFallback";

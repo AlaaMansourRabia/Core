@@ -1,5 +1,5 @@
-import {Badge} from "@corensystem/core-ui/badge";
-import {Button} from "@corensystem/core-ui/button";
+import {Badge} from "@corensystem/coren-ui/badge";
+import {Button} from "@corensystem/coren-ui/button";
 import {Check, Copy, ExternalLink, RefreshCw, SquareTerminal, Wrench} from "lucide-react";
 import {useEffect, useState} from "react";
 
@@ -37,7 +37,7 @@ Follow this mandatory workflow in order:
 1. resolve_template — check for an exact page template first.
 2. selectionGate — follow its strategy without asking for confirmation solely because confidence is low or no template matched.
 3. create_implementation_plan — plan direct import, nearest-template adaptation, or Core composition before editing.
-4. workspace setup — if needed, create or repair the React + TypeScript app and install @corensystem/core-ui using environment-backed GitHub Packages authentication.
+4. workspace setup — if needed, create or repair the React + TypeScript app and install @corensystem/coren-ui using environment-backed GitHub Packages authentication.
 5. implementation — use an exact matching template; otherwise adapt the nearest template, compose widgets/components, or create missing application UI with Core tokens, patterns, interactions, and look and feel. Never use standalone HTML/CSS as a substitute.
 6. validate — use mode=core-only; pass template only for direct-template mode. Do not report completion unless compliant=true.
 Attempt safe workspace setup before reporting a blocker. Never commit package tokens or substitute another stack.`;

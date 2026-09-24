@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ChatWidget} from "@corensystem/core-ui/chat/core-chat-widget";
+import {ChatWidget} from "@corensystem/coren-ui/chat/core-chat-widget";
 
 const meta = {
 	title: "Widgets/Chat/Chat Widget",

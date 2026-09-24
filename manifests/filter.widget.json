@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/filter.tsx",
-		"import": "@corensystem/core-ui/filter"
+		"import": "@corensystem/coren-ui/filter"
 	},
 	"tags": [
 		"filter",

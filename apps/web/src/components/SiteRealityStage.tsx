@@ -1,16 +1,16 @@
-import type {FragmentMarker} from "@corensystem/core-ui/fragment-viewer";
+import type {FragmentMarker} from "@corensystem/coren-ui/fragment-viewer";
 
-import {Badge} from "@corensystem/core-ui/badge";
+import {Badge} from "@corensystem/coren-ui/badge";
 import {
 	FragmentViewer,
 	FragmentViewerProvider,
 	useFragmentViewer,
 	type FragmentSelection,
-} from "@corensystem/core-ui/fragment-viewer";
-import {SiteReality} from "@corensystem/core-ui/pages/core-site-reality";
-import {PropertyList, PropertyRow} from "@corensystem/core-ui/property-list";
-import {SectionPanel} from "@corensystem/core-ui/section-panel";
-import {ViewerToolbar} from "@corensystem/core-ui/viewer-toolbar";
+} from "@corensystem/coren-ui/fragment-viewer";
+import {SiteReality} from "@corensystem/coren-ui/pages/core-site-reality";
+import {PropertyList, PropertyRow} from "@corensystem/coren-ui/property-list";
+import {SectionPanel} from "@corensystem/coren-ui/section-panel";
+import {ViewerToolbar} from "@corensystem/coren-ui/viewer-toolbar";
 import workerUrl from "@thatopen/fragments/worker?url";
 import {Scan} from "lucide-react";
 import {useEffect, useState} from "react";

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/push-panel.tsx",
-		"import": "@corensystem/core-ui/push-panel",
+		"import": "@corensystem/coren-ui/push-panel",
 		"export": "PushPanel"
 	},
 	"tags": [
