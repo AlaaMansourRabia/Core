@@ -20,3 +20,5 @@ export {IconDo} from "./IconDo";
 export {IconDont} from "./IconDont";
 export {InteractiveDo} from "./InteractiveDo";
 export {InteractiveDont} from "./InteractiveDont";
+export {VariantDo} from "./VariantDo";
+export {VariantDont} from "./VariantDont";

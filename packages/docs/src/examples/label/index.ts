@@ -12,3 +12,5 @@ export {BindDo} from "./BindDo";
 export {BindDont} from "./BindDont";
 export {RequiredDo} from "./RequiredDo";
 export {RequiredDont} from "./RequiredDont";
+export {PlacementDo} from "./PlacementDo";
+export {PlacementDont} from "./PlacementDont";

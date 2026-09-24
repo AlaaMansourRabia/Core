@@ -2,18 +2,18 @@ import type {Meta, StoryObj} from "storybook/internal/types";
 
 import {Badge} from "@corensystem/coren-ui/badge";
 import {
-	AllVariants,
-	CountBadge,
+	AllVariants as AllVariantsExample,
+	CountBadge as CountBadgeExample,
 	Default as DefaultExample,
 	Destructive as DestructiveExample,
 	Outline as OutlineExample,
 	Secondary as SecondaryExample,
-	SemanticColors,
-	SeverityScale,
-	Soft,
-	StatusSemantics,
-	WhenNotToUse,
-	WithIcon,
+	SemanticColors as SemanticColorsExample,
+	SeverityScale as SeverityScaleExample,
+	Soft as SoftExample,
+	StatusSemantics as StatusSemanticsExample,
+	WhenNotToUse as WhenNotToUseExample,
+	WithIcon as WithIconExample,
 } from "@corensystem/coren-docs/examples/badge";
 
 const meta = {
@@ -87,15 +87,15 @@ export const Outline: Story = {
 	render: () => <OutlineExample />,
 };
 
-export const AllVariantsStory: Story = {
+export const AllVariants: Story = {
 	name: "All Variants",
 	parameters: {
 		docs: {description: {story: "Shows all 12 badge variants including solid fills and soft tinted styles."}},
 	},
-	render: () => <AllVariants />,
+	render: () => <AllVariantsExample />,
 };
 
-export const SemanticColorsStory: Story = {
+export const SemanticColors: Story = {
 	name: "Semantic Colors",
 	parameters: {
 		docs: {
@@ -106,10 +106,10 @@ export const SemanticColorsStory: Story = {
 			},
 		},
 	},
-	render: () => <SemanticColors />,
+	render: () => <SemanticColorsExample />,
 };
 
-export const SoftStory: Story = {
+export const Soft: Story = {
 	name: "Soft",
 	parameters: {
 		docs: {
@@ -121,10 +121,10 @@ export const SoftStory: Story = {
 			},
 		},
 	},
-	render: () => <Soft />,
+	render: () => <SoftExample />,
 };
 
-export const SeverityScaleStory: Story = {
+export const SeverityScale: Story = {
 	name: "Severity Scale",
 	parameters: {
 		docs: {
@@ -135,10 +135,10 @@ export const SeverityScaleStory: Story = {
 			},
 		},
 	},
-	render: () => <SeverityScale />,
+	render: () => <SeverityScaleExample />,
 };
 
-export const StatusSemanticsStory: Story = {
+export const StatusSemantics: Story = {
 	name: "Status Semantics",
 	parameters: {
 		docs: {
@@ -149,26 +149,26 @@ export const StatusSemanticsStory: Story = {
 			},
 		},
 	},
-	render: () => <StatusSemantics />,
+	render: () => <StatusSemanticsExample />,
 };
 
-export const WithIconStory: Story = {
+export const WithIcon: Story = {
 	name: "With Icon",
 	parameters: {
 		docs: {description: {story: "Lead with a small icon to reinforce the status. Keep the label one or two words."}},
 	},
-	render: () => <WithIcon />,
+	render: () => <WithIconExample />,
 };
 
-export const CountBadgeStory: Story = {
+export const CountBadge: Story = {
 	name: "Count Badge",
 	parameters: {
 		docs: {description: {story: "Numeric badges for counts. Cap large values (e.g. 99+) to keep width stable."}},
 	},
-	render: () => <CountBadge />,
+	render: () => <CountBadgeExample />,
 };
 
-export const WhenNotToUseStory: Story = {
+export const WhenNotToUse: Story = {
 	name: "When Not To Use",
 	parameters: {
 		docs: {
@@ -179,5 +179,5 @@ export const WhenNotToUseStory: Story = {
 			},
 		},
 	},
-	render: () => <WhenNotToUse />,
+	render: () => <WhenNotToUseExample />,
 };

@@ -3,9 +3,9 @@ import type {Meta, StoryObj} from "storybook/internal/types";
 import {Label} from "@corensystem/coren-ui/label";
 import {
 	Default as DefaultExample,
-	PeerDisabled,
-	Required,
-	WithInput,
+	PeerDisabled as PeerDisabledExample,
+	Required as RequiredExample,
+	WithInput as WithInputExample,
 } from "@corensystem/coren-docs/examples/label";
 
 const meta = {
@@ -36,15 +36,15 @@ export const Default: Story = {
 	render: () => <DefaultExample />,
 };
 
-export const WithInputStory: Story = {
+export const WithInput: Story = {
 	name: "With Input",
 	parameters: {
 		docs: {description: {story: "Label bound to an input using htmlFor/id. This is the standard accessible pattern."}},
 	},
-	render: () => <WithInput />,
+	render: () => <WithInputExample />,
 };
 
-export const RequiredStory: Story = {
+export const Required: Story = {
 	name: "Required",
 	parameters: {
 		docs: {
@@ -53,10 +53,10 @@ export const RequiredStory: Story = {
 			},
 		},
 	},
-	render: () => <Required />,
+	render: () => <RequiredExample />,
 };
 
-export const PeerDisabledStory: Story = {
+export const PeerDisabled: Story = {
 	name: "Peer Disabled",
 	parameters: {
 		docs: {
@@ -67,5 +67,5 @@ export const PeerDisabledStory: Story = {
 			},
 		},
 	},
-	render: () => <PeerDisabled />,
+	render: () => <PeerDisabledExample />,
 };

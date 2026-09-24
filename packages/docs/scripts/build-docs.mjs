@@ -3,8 +3,8 @@
  * Build script for generating documentation JSON files.
  *
  * Generates:
- * - dist/index.json - Component index
- * - dist/docs/{id}.json - Per-component documentation
+ * - dist/index.json - Component index with id, name, group, storybookTitle
+ * - dist/docs/{id}.json - Per-component documentation with full schema
  */
 
 import {existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync} from "node:fs";
@@ -13,27 +13,67 @@ import {fileURLToPath} from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
-const MANIFESTS_DIR = resolve(ROOT, "../../manifests");
+const STORYBOOK_DIR = resolve(ROOT, "../../apps/storybook/stories");
 const EXAMPLES_DIR = resolve(ROOT, "src/examples");
 const DIST_DIR = resolve(ROOT, "dist");
 const DOCS_DIR = resolve(DIST_DIR, "docs");
 
-// Components to generate docs for (pilot: badge and label)
-const PILOT_COMPONENTS = ["badge", "label"];
+// Component groups and their Storybook prefixes
+const COMPONENT_GROUPS = {
+	primitives: "Components/Primitives",
+	form: "Components/Forms",
+	navigation: "Components/Navigation",
+	overlay: "Components/Overlay",
+	layout: "Components/Layout",
+	display: "Components/Data Display",
+	feedback: "Components/Feedback",
+	charts: "Components/Charts",
+	map: "Components/Map",
+	"drawing-canvas": "Components/Drawing Canvas",
+	toolbar: "Components/Toolbar",
+};
 
-// Storybook title prefix for components
-const STORYBOOK_PREFIX = "Components/Primitives";
+// Map storybook directory to friendly group name
+const GROUP_NAMES = {
+	primitives: "Primitives",
+	form: "Forms",
+	navigation: "Navigation",
+	overlay: "Overlay",
+	layout: "Layout",
+	display: "Data Display",
+	feedback: "Feedback",
+	charts: "Charts",
+	map: "Map",
+	"drawing-canvas": "Drawing Canvas",
+	toolbar: "Toolbar",
+};
 
 /**
- * Read a manifest file and return parsed JSON.
+ * Discover all components from Storybook stories.
  */
-function readManifest(id) {
-	const manifestPath = join(MANIFESTS_DIR, `${id}.component.json`);
-	if (!existsSync(manifestPath)) {
-		console.warn(`Warning: Manifest not found for ${id}`);
-		return null;
+function discoverComponents() {
+	const components = [];
+
+	for (const [group, prefix] of Object.entries(COMPONENT_GROUPS)) {
+		const groupDir = join(STORYBOOK_DIR, group);
+		if (!existsSync(groupDir)) continue;
+
+		const files = readdirSync(groupDir).filter((f) => f.endsWith(".stories.tsx"));
+		for (const file of files) {
+			const id = file.replace(".stories.tsx", "").toLowerCase();
+			const name = file.replace(".stories.tsx", "");
+			components.push({
+				id,
+				name,
+				group: GROUP_NAMES[group],
+				storybookTitle: `${prefix}/${name}`,
+				storyFile: join(groupDir, file),
+				hasExamples: existsSync(join(EXAMPLES_DIR, id)),
+			});
+		}
 	}
-	return JSON.parse(readFileSync(manifestPath, "utf-8"));
+
+	return components;
 }
 
 /**
@@ -42,7 +82,6 @@ function readManifest(id) {
 function readExampleSource(componentId, exampleName) {
 	const examplePath = join(EXAMPLES_DIR, componentId, `${exampleName}.tsx`);
 	if (!existsSync(examplePath)) {
-		console.warn(`Warning: Example not found: ${examplePath}`);
 		return "";
 	}
 	return readFileSync(examplePath, "utf-8");
@@ -67,242 +106,7 @@ function getExampleExports(componentId) {
 }
 
 /**
- * Convert PascalCase to kebab-case for story IDs.
- */
-function toStoryId(name, componentId) {
-	const kebab = name.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
-	return `components-primitives-${componentId}--${kebab}`;
-}
-
-/**
- * Generate documentation for Badge component.
- */
-function generateBadgeDocs(manifest) {
-	const examples = getExampleExports("badge");
-	const storyExamples = [
-		"Default",
-		"Secondary",
-		"Destructive",
-		"Outline",
-		"AllVariants",
-		"SemanticColors",
-		"Soft",
-		"SeverityScale",
-		"StatusSemantics",
-		"WithIcon",
-		"CountBadge",
-		"WhenNotToUse",
-	];
-
-	return {
-		id: "badge",
-		name: "Badge",
-		group: "Primitives",
-		storybookTitle: `${STORYBOOK_PREFIX}/Badge`,
-		summary: "A small, static status or label descriptor. Use for labeling status, category, or count next to content.",
-		overviewExample: "AllVariants",
-		usage: [
-			"Use Badge to display static status indicators, counts, or category labels on cards, table rows, or navigation items.",
-			"Choose a variant by meaning (success for positive states, destructive for errors) rather than by color preference. Badge is non-interactive; for clickable or removable pills, use Chip instead.",
-		],
-		import: 'import { Badge } from "@corensystem/coren-ui/badge";',
-		anatomy: {
-			example: "Anatomy",
-			parts: [
-				{
-					name: "Container",
-					description: "The badge wrapper with rounded corners, border, and background color based on variant.",
-					selector: "[class*='wwc:inline-flex']",
-					placement: "left",
-				},
-				{
-					name: "Leading icon",
-					description: "Optional icon placed before the label text. Should be small (size-3) and reinforce the status meaning.",
-					selector: "svg",
-					placement: "left",
-				},
-				{
-					name: "Label text",
-					description: "The text content of the badge. Keep it short — one or two words maximum.",
-					selector: "span, text content",
-					placement: "left",
-				},
-			],
-		},
-		bestPractices: [
-			{
-				do: {
-					text: "Use a small icon that reinforces the badge meaning. Keep labels short.",
-					example: "IconDo",
-				},
-				dont: {
-					text: "Avoid multiple icons or long text that makes the badge hard to scan.",
-					example: "IconDont",
-				},
-			},
-			{
-				do: {
-					text: "Use Badge for static display labels that describe status or category.",
-					example: "InteractiveDo",
-				},
-				dont: {
-					text: "Avoid adding click handlers or remove buttons to Badge. Use Chip for interactive elements.",
-					example: "InteractiveDont",
-				},
-			},
-		],
-		examples: storyExamples.map((name) => ({
-			name: name.replace(/([a-z])([A-Z])/g, "$1 $2"),
-			export: name,
-			storyId: toStoryId(name, "badge"),
-			description: getExampleDescription("badge", name),
-			code: readExampleSource("badge", name),
-		})),
-		props: [
-			{
-				name: "variant",
-				type: '"default" | "secondary" | "destructive" | "outline" | "success" | "warning" | "info" | "successSoft" | "warningSoft" | "dangerSoft" | "infoSoft" | "neutralSoft"',
-				default: '"default"',
-				required: false,
-				description: "Visual style variant. Choose by meaning: success for positive, destructive for errors, soft variants for subtle indicators.",
-			},
-			{
-				name: "children",
-				type: "React.ReactNode",
-				default: undefined,
-				required: true,
-				description: "Badge content — typically short text, optionally with a leading icon.",
-			},
-			{
-				name: "className",
-				type: "string",
-				default: undefined,
-				required: false,
-				description: "Additional CSS classes to apply to the badge container.",
-			},
-			{
-				name: "...props",
-				type: "React.HTMLAttributes<HTMLDivElement>",
-				default: undefined,
-				required: false,
-				description: "All standard HTML div attributes are supported.",
-			},
-		],
-	};
-}
-
-/**
- * Generate documentation for Label component.
- */
-function generateLabelDocs(manifest) {
-	const storyExamples = ["Default", "WithInput", "Required", "PeerDisabled"];
-
-	return {
-		id: "label",
-		name: "Label",
-		group: "Primitives",
-		storybookTitle: `${STORYBOOK_PREFIX}/Label`,
-		summary: "An accessible label bound to a form control. Essential for usability and screen reader support.",
-		overviewExample: "WithInput",
-		usage: [
-			"Always pair form controls with a Label using htmlFor/id binding. This ensures clicking the label focuses the input and screen readers announce the relationship.",
-			"Use the required prop to show an asterisk for required fields. Also mark the input itself required so assistive tech is informed. Keep labels short and put additional guidance in help text below the input.",
-		],
-		import: 'import { Label } from "@corensystem/coren-ui/label";',
-		anatomy: {
-			example: "Anatomy",
-			parts: [
-				{
-					name: "Label",
-					description: "The text element that names the form control.",
-					selector: "label",
-					placement: "left",
-				},
-				{
-					name: "Required mark",
-					description: "Decorative asterisk shown when required prop is true. The control carries the actual semantics.",
-					selector: "label > span[aria-hidden]",
-					placement: "top",
-				},
-				{
-					name: "Associated control",
-					description: "The form input or control bound via htmlFor/id.",
-					selector: "input",
-					placement: "left",
-				},
-			],
-		},
-		bestPractices: [
-			{
-				do: {
-					text: "Bind the label to its control using htmlFor and id. This ensures clicking the label focuses the input.",
-					example: "BindDo",
-				},
-				dont: {
-					text: "Avoid placeholder-only inputs without a visible label. Screen readers and users need persistent labels.",
-					example: "BindDont",
-				},
-			},
-			{
-				do: {
-					text: "Use the required prop on Label and required attribute on Input for accessible required fields.",
-					example: "RequiredDo",
-				},
-				dont: {
-					text: "Avoid typing asterisks manually. Use the required prop for consistent styling.",
-					example: "RequiredDont",
-				},
-			},
-		],
-		examples: storyExamples.map((name) => ({
-			name: name.replace(/([a-z])([A-Z])/g, "$1 $2"),
-			export: name,
-			storyId: toStoryId(name, "label"),
-			description: getExampleDescription("label", name),
-			code: readExampleSource("label", name),
-		})),
-		props: [
-			{
-				name: "required",
-				type: "boolean",
-				default: "false",
-				required: false,
-				description: "Append a required-field asterisk after the label text. The asterisk is decorative (aria-hidden) — also mark the control itself required.",
-			},
-			{
-				name: "htmlFor",
-				type: "string",
-				default: undefined,
-				required: false,
-				description: "The id of the form control this label is associated with.",
-			},
-			{
-				name: "children",
-				type: "React.ReactNode",
-				default: undefined,
-				required: true,
-				description: "Label text content.",
-			},
-			{
-				name: "className",
-				type: "string",
-				default: undefined,
-				required: false,
-				description: "Additional CSS classes to apply to the label.",
-			},
-			{
-				name: "...props",
-				type: "React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>",
-				default: undefined,
-				required: false,
-				description: "All Radix Label primitive props are supported.",
-			},
-		],
-	};
-}
-
-/**
- * Get description for an example based on its docstring.
+ * Get description from example file docstring.
  */
 function getExampleDescription(componentId, exampleName) {
 	const source = readExampleSource(componentId, exampleName);
@@ -314,45 +118,259 @@ function getExampleDescription(componentId, exampleName) {
 }
 
 /**
+ * Convert PascalCase to kebab-case for story IDs.
+ */
+function toKebabCase(name) {
+	return name.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+}
+
+/**
+ * Generate storyId from component info and example name.
+ */
+function toStoryId(component, exampleName) {
+	const titlePath = component.storybookTitle.toLowerCase().replace(/\s+/g, "-").replace(/\//g, "-");
+	const storyName = toKebabCase(exampleName);
+	return `${titlePath}--${storyName}`;
+}
+
+/**
+ * Parse story exports from a story file to get story names and descriptions.
+ */
+function parseStoryFile(storyFile) {
+	if (!existsSync(storyFile)) return [];
+
+	const content = readFileSync(storyFile, "utf-8");
+	const stories = [];
+
+	// Match export const StoryName: Story = { ... }
+	const storyRegex = /export\s+const\s+(\w+):\s*Story\s*=\s*\{([^}]*(?:\{[^}]*\}[^}]*)*)\}/gs;
+	let match;
+
+	while ((match = storyRegex.exec(content)) !== null) {
+		const exportName = match[1];
+		const body = match[2];
+
+		// Extract name if present (e.g., name: "With Input")
+		const nameMatch = body.match(/name:\s*["']([^"']+)["']/);
+		const displayName = nameMatch ? nameMatch[1] : exportName.replace(/([a-z])([A-Z])/g, "$1 $2");
+
+		// Extract description if present
+		const descMatch = body.match(/description:\s*\{[^}]*story:\s*["'`]([^"'`]+)["'`]/s);
+		const description = descMatch ? descMatch[1].replace(/\s+/g, " ").trim() : "";
+
+		stories.push({
+			exportName,
+			displayName,
+			description,
+		});
+	}
+
+	return stories;
+}
+
+/**
+ * Generate documentation for a component that has examples.
+ */
+function generateComponentDocs(component) {
+	const exports = getExampleExports(component.id);
+	const stories = parseStoryFile(component.storyFile);
+
+	// Match stories to examples
+	const storyExamples = stories
+		.filter((s) => exports.includes(s.exportName))
+		.map((s) => ({
+			name: s.displayName,
+			export: s.exportName,
+			storyId: toStoryId(component, s.exportName),
+			description: s.description || getExampleDescription(component.id, s.exportName),
+			code: readExampleSource(component.id, s.exportName),
+		}));
+
+	// Find overview example (first multi-example or "Default")
+	const overviewExample =
+		exports.find((e) => e.includes("All") || e.includes("Variants")) || exports.find((e) => e === "Default") || exports[0];
+
+	// Find anatomy parts (simplified to just name + description)
+	const anatomyExport = exports.find((e) => e === "Anatomy");
+	const anatomy = anatomyExport
+		? {
+				parts: getAnatomyParts(component.id),
+			}
+		: undefined;
+
+	// Find best practices (Do/Don't pairs)
+	const bestPractices = getBestPractices(component.id, exports);
+
+	return {
+		id: component.id,
+		name: component.name,
+		group: component.group,
+		storybookTitle: component.storybookTitle,
+		component: {
+			import: `@corensystem/coren-ui/${component.id}`,
+			export: component.name,
+		},
+		summary: getSummary(component.id, component.storyFile),
+		overviewExample,
+		usage: getUsage(component.id, component.storyFile),
+		import: `import { ${component.name} } from "@corensystem/coren-ui/${component.id}";`,
+		anatomy,
+		bestPractices,
+		examples: storyExamples,
+		props: [], // Will be populated by props extractor
+	};
+}
+
+/**
+ * Get summary from story file component description.
+ */
+function getSummary(componentId, storyFile) {
+	if (!existsSync(storyFile)) return "";
+
+	const content = readFileSync(storyFile, "utf-8");
+	const match = content.match(/component:\s*["'`]([^"'`]+)["'`]/s);
+	if (match) {
+		// Take first sentence
+		const firstSentence = match[1].split(/\.\s/)[0];
+		return firstSentence.replace(/\*\*/g, "").trim() + ".";
+	}
+	return "";
+}
+
+/**
+ * Get usage guidelines from story file or defaults.
+ */
+function getUsage(componentId, storyFile) {
+	// Could be extracted from story file or component manifest
+	return [];
+}
+
+/**
+ * Get anatomy parts from example file comments.
+ */
+function getAnatomyParts(componentId) {
+	const source = readExampleSource(componentId, "Anatomy");
+	if (!source) return [];
+
+	// Parse anatomy parts from structured comments
+	const parts = [];
+	const partRegex = /\/\*\s*@part\s+(\w+)\s*:\s*([^*]+)\*\//g;
+	let match;
+
+	while ((match = partRegex.exec(source)) !== null) {
+		parts.push({
+			name: match[1],
+			description: match[2].trim(),
+		});
+	}
+
+	// If no structured comments, return default parts based on component
+	if (parts.length === 0) {
+		return [
+			{name: "Root", description: "The main container element."},
+			{name: "Content", description: "The primary content area."},
+		];
+	}
+
+	return parts;
+}
+
+/**
+ * Get best practices (Do/Don't pairs) from examples.
+ */
+function getBestPractices(componentId, exports) {
+	const practices = [];
+	const doExports = exports.filter((e) => e.endsWith("Do") && !e.endsWith("Dont"));
+
+	for (const doExport of doExports) {
+		const baseName = doExport.replace(/Do$/, "");
+		const dontExport = exports.find((e) => e === `${baseName}Dont`);
+
+		if (dontExport) {
+			practices.push({
+				do: {
+					text: getExampleDescription(componentId, doExport) || `Use ${baseName} pattern.`,
+					example: doExport,
+				},
+				dont: {
+					text: getExampleDescription(componentId, dontExport) || `Avoid ${baseName} anti-pattern.`,
+					example: dontExport,
+				},
+			});
+		}
+	}
+
+	return practices;
+}
+
+/**
+ * Generate placeholder docs for a component without examples yet.
+ */
+function generatePlaceholderDocs(component) {
+	return {
+		id: component.id,
+		name: component.name,
+		group: component.group,
+		storybookTitle: component.storybookTitle,
+		component: {
+			import: `@corensystem/coren-ui/${component.id}`,
+			export: component.name,
+		},
+		summary: getSummary(component.id, component.storyFile) || `${component.name} component.`,
+		overviewExample: null,
+		usage: [],
+		import: `import { ${component.name} } from "@corensystem/coren-ui/${component.id}";`,
+		anatomy: undefined,
+		bestPractices: [],
+		examples: [],
+		props: [],
+		_placeholder: true,
+	};
+}
+
+/**
  * Generate the component index.
  */
-function generateIndex() {
-	return PILOT_COMPONENTS.map((id) => {
-		const manifest = readManifest(id);
-		return {
-			id,
-			name: manifest?.name || id.charAt(0).toUpperCase() + id.slice(1),
-			group: "Primitives",
-			storybookTitle: `${STORYBOOK_PREFIX}/${manifest?.name || id.charAt(0).toUpperCase() + id.slice(1)}`,
-		};
-	});
+function generateIndex(components) {
+	return components.map((c) => ({
+		id: c.id,
+		name: c.name,
+		group: c.group,
+		storybookTitle: c.storybookTitle,
+	}));
 }
 
 // Main build
 console.log("Building docs...");
 
+// Discover all components
+const allComponents = discoverComponents();
+console.log(`  Discovered ${allComponents.length} components`);
+
 // Ensure output directories exist
 mkdirSync(DOCS_DIR, {recursive: true});
 
-// Generate index
-const index = generateIndex();
+// Generate index with all components
+const index = generateIndex(allComponents);
 writeFileSync(join(DIST_DIR, "index.json"), JSON.stringify(index, null, "\t"));
 console.log(`  Created dist/index.json (${index.length} components)`);
 
 // Generate per-component docs
-for (const id of PILOT_COMPONENTS) {
-	const manifest = readManifest(id);
+let withExamples = 0;
+let placeholders = 0;
+
+for (const component of allComponents) {
 	let docs;
-	if (id === "badge") {
-		docs = generateBadgeDocs(manifest);
-	} else if (id === "label") {
-		docs = generateLabelDocs(manifest);
+	if (component.hasExamples) {
+		docs = generateComponentDocs(component);
+		withExamples++;
 	} else {
-		console.warn(`No docs generator for ${id}`);
-		continue;
+		docs = generatePlaceholderDocs(component);
+		placeholders++;
 	}
-	writeFileSync(join(DOCS_DIR, `${id}.json`), JSON.stringify(docs, null, "\t"));
-	console.log(`  Created dist/docs/${id}.json`);
+	writeFileSync(join(DOCS_DIR, `${component.id}.json`), JSON.stringify(docs, null, "\t"));
 }
 
+console.log(`  Created ${withExamples} component docs with examples`);
+console.log(`  Created ${placeholders} placeholder docs`);
 console.log("Done!");
