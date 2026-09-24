@@ -6,21 +6,21 @@ A comprehensive design system for building consistent, high-quality user interfa
 
 | Package | Description | Install |
 |---------|-------------|---------|
-| `@corensystem/core-tokens` | Design tokens (colors, typography, spacing) | `pnpm add @corensystem/core-tokens` |
-| `@corensystem/core-utils` | Utility functions | `pnpm add @corensystem/core-utils` |
-| `@corensystem/core-ui` | React components | `pnpm add @corensystem/core-ui` |
+| `@corensystem/coren-tokens` | Design tokens (colors, typography, spacing) | `pnpm add @corensystem/coren-tokens` |
+| `@corensystem/coren-utils` | Utility functions | `pnpm add @corensystem/coren-utils` |
+| `@corensystem/coren-ui` | React components | `pnpm add @corensystem/coren-ui` |
 
 ## Quick Start
 
 ```bash
 # Install the component library
-pnpm add @corensystem/core-ui
+pnpm add @corensystem/coren-ui
 
 # Import styles in your app
-import "@corensystem/core-ui/styles.css";
+import "@corensystem/coren-ui/styles.css";
 
 # Use components
-import { Button } from "@corensystem/core-ui/button";
+import { Button } from "@corensystem/coren-ui/button";
 ```
 
 ## Development

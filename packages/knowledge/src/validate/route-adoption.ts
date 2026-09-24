@@ -69,7 +69,7 @@ function jsxDensity(source: string, component: string): "compact" | "comfortable
 
 function importedCoreNames(source: string): string[] {
 	const names = [];
-	for (const match of source.matchAll(/import\s*\{([^}]*)\}\s*from\s*["']@corensystem\/core-ui[^"']*["']/g))
+	for (const match of source.matchAll(/import\s*\{([^}]*)\}\s*from\s*["']@corensystem\/coren-ui[^"']*["']/g))
 		for (const value of match[1].split(",")) {
 			const name = value.trim().split(/\s+as\s+/)[0];
 			if (name && !name.startsWith("type ")) names.push(name);
