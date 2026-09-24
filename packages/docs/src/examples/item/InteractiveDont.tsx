@@ -1,12 +1,12 @@
 /**
  * Avoid unclear interactive states.
  */
-import {Item, ItemLabel} from "@corensystem/coren-ui/item";
+import {Item, ItemTitle} from "@corensystem/coren-ui/item";
 
 export function InteractiveDont() {
 	return (
 		<Item>
-			<ItemLabel>Is this clickable?</ItemLabel>
+			<ItemTitle>Is this clickable?</ItemTitle>
 		</Item>
 	);
 }

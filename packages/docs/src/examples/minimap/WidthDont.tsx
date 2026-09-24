@@ -1,12 +1,15 @@
 /**
- * Avoid oversized minimaps.
+ * Avoid very small sizes that hide location details.
  */
-import {Minimap, MinimapViewport} from "@corensystem/coren-ui/minimap";
+import {Minimap} from "@corensystem/coren-ui/minimap";
 
 export function WidthDont() {
 	return (
-		<Minimap className="wwc:w-48 wwc:h-48">
-			<MinimapViewport position={25} size={20} />
-		</Minimap>
+		<Minimap
+			lon={-122.4194}
+			lat={37.7749}
+			label="Site"
+			size="sm"
+		/>
 	);
 }

@@ -5,7 +5,7 @@ import {
 	Stepper,
 	StepperItem,
 	StepperIndicator,
-	StepperTitle,
+	StepperLabel,
 	StepperDescription,
 	StepperSeparator,
 } from "@corensystem/coren-ui/stepper";
@@ -16,7 +16,7 @@ export function Vertical() {
 			<StepperItem status="complete">
 				<StepperIndicator>1</StepperIndicator>
 				<div>
-					<StepperTitle>Sign up</StepperTitle>
+					<StepperLabel>Sign up</StepperLabel>
 					<StepperDescription>Create your account</StepperDescription>
 				</div>
 				<StepperSeparator />
@@ -24,7 +24,7 @@ export function Vertical() {
 			<StepperItem status="complete">
 				<StepperIndicator>2</StepperIndicator>
 				<div>
-					<StepperTitle>Verify email</StepperTitle>
+					<StepperLabel>Verify email</StepperLabel>
 					<StepperDescription>Confirm your email address</StepperDescription>
 				</div>
 				<StepperSeparator />
@@ -32,7 +32,7 @@ export function Vertical() {
 			<StepperItem status="current">
 				<StepperIndicator>3</StepperIndicator>
 				<div>
-					<StepperTitle>Add payment</StepperTitle>
+					<StepperLabel>Add payment</StepperLabel>
 					<StepperDescription>Set up billing</StepperDescription>
 				</div>
 				<StepperSeparator />
@@ -40,7 +40,7 @@ export function Vertical() {
 			<StepperItem status="upcoming">
 				<StepperIndicator>4</StepperIndicator>
 				<div>
-					<StepperTitle>Start using</StepperTitle>
+					<StepperLabel>Start using</StepperLabel>
 					<StepperDescription>Begin your journey</StepperDescription>
 				</div>
 			</StepperItem>

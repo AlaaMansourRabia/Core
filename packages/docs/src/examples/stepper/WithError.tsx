@@ -5,7 +5,7 @@ import {
 	Stepper,
 	StepperItem,
 	StepperIndicator,
-	StepperTitle,
+	StepperLabel,
 	StepperDescription,
 	StepperSeparator,
 } from "@corensystem/coren-ui/stepper";
@@ -17,7 +17,7 @@ export function WithError() {
 			<StepperItem status="complete">
 				<StepperIndicator>1</StepperIndicator>
 				<div>
-					<StepperTitle>Account</StepperTitle>
+					<StepperLabel>Account</StepperLabel>
 					<StepperDescription>Account created</StepperDescription>
 				</div>
 				<StepperSeparator />
@@ -27,7 +27,7 @@ export function WithError() {
 					<AlertCircle className="wwc:h-4 wwc:w-4" />
 				</StepperIndicator>
 				<div>
-					<StepperTitle className="wwc:text-destructive">Payment</StepperTitle>
+					<StepperLabel className="wwc:text-destructive">Payment</StepperLabel>
 					<StepperDescription className="wwc:text-destructive">
 						Card declined
 					</StepperDescription>
@@ -37,7 +37,7 @@ export function WithError() {
 			<StepperItem status="upcoming">
 				<StepperIndicator>3</StepperIndicator>
 				<div>
-					<StepperTitle>Confirm</StepperTitle>
+					<StepperLabel>Confirm</StepperLabel>
 					<StepperDescription>Complete order</StepperDescription>
 				</div>
 			</StepperItem>

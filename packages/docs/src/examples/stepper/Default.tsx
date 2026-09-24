@@ -5,7 +5,7 @@ import {
 	Stepper,
 	StepperItem,
 	StepperIndicator,
-	StepperTitle,
+	StepperLabel,
 	StepperDescription,
 	StepperSeparator,
 } from "@corensystem/coren-ui/stepper";
@@ -16,7 +16,7 @@ export function Default() {
 			<StepperItem status="complete">
 				<StepperIndicator>1</StepperIndicator>
 				<div>
-					<StepperTitle>Account</StepperTitle>
+					<StepperLabel>Account</StepperLabel>
 					<StepperDescription>Create your account</StepperDescription>
 				</div>
 				<StepperSeparator />
@@ -24,7 +24,7 @@ export function Default() {
 			<StepperItem status="current">
 				<StepperIndicator>2</StepperIndicator>
 				<div>
-					<StepperTitle>Profile</StepperTitle>
+					<StepperLabel>Profile</StepperLabel>
 					<StepperDescription>Set up your profile</StepperDescription>
 				</div>
 				<StepperSeparator />
@@ -32,7 +32,7 @@ export function Default() {
 			<StepperItem status="upcoming">
 				<StepperIndicator>3</StepperIndicator>
 				<div>
-					<StepperTitle>Confirm</StepperTitle>
+					<StepperLabel>Confirm</StepperLabel>
 					<StepperDescription>Review and confirm</StepperDescription>
 				</div>
 			</StepperItem>

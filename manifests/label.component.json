@@ -43,6 +43,39 @@
 		"bestPractices": [
 			{"do": "Bind the label to its control using htmlFor and id. This ensures clicking the label focuses the input.", "dont": "Avoid placeholder-only inputs without a visible label. Screen readers and users need persistent labels."},
 			{"do": "Use the required prop on Label and required attribute on Input for accessible required fields.", "dont": "Avoid typing asterisks manually. Use the required prop for consistent styling."}
+		],
+		"props": [
+			{
+				"name": "required",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Append a required-field asterisk after the label text. The asterisk is decorative (aria-hidden) — also mark the control itself required."
+			},
+			{
+				"name": "htmlFor",
+				"type": "string",
+				"required": false,
+				"description": "The id of the form control this label is associated with."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Label text content."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply to the label."
+			},
+			{
+				"name": "...props",
+				"type": "React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>",
+				"required": false,
+				"description": "All Radix Label primitive props are supported."
+			}
 		]
 	},
 	"lineage": {

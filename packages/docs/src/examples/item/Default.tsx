@@ -1,12 +1,12 @@
 /**
  * Default item for lists and menus.
  */
-import {Item, ItemLabel} from "@corensystem/coren-ui/item";
+import {Item, ItemTitle} from "@corensystem/coren-ui/item";
 
 export function Default() {
 	return (
 		<Item>
-			<ItemLabel>List Item</ItemLabel>
+			<ItemTitle>List Item</ItemTitle>
 		</Item>
 	);
 }

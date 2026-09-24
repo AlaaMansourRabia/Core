@@ -1,12 +1,14 @@
 /**
- * Avoid low contrast viewport.
+ * Avoid placing over similarly colored backgrounds.
  */
-import {Minimap, MinimapViewport} from "@corensystem/coren-ui/minimap";
+import {Minimap} from "@corensystem/coren-ui/minimap";
 
 export function ContrastDont() {
 	return (
-		<Minimap className="wwc:w-20 wwc:h-48">
-			<MinimapViewport position={30} size={25} className="wwc:opacity-10" />
-		</Minimap>
+		<Minimap
+			lon={-122.4194}
+			lat={37.7749}
+			label="Site"
+		/>
 	);
 }

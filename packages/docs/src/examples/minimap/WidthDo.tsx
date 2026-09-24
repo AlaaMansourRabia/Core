@@ -1,12 +1,14 @@
 /**
- * Use appropriate minimap width.
+ * Use appropriate size for context. Medium works well in most cases.
  */
-import {Minimap, MinimapViewport} from "@corensystem/coren-ui/minimap";
+import {Minimap} from "@corensystem/coren-ui/minimap";
 
 export function WidthDo() {
 	return (
-		<Minimap className="wwc:w-20 wwc:h-48">
-			<MinimapViewport position={25} size={20} />
-		</Minimap>
+		<Minimap
+			lon={-122.4194}
+			lat={37.7749}
+			label="Site"
+		/>
 	);
 }

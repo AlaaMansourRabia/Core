@@ -5,7 +5,7 @@ import {
 	Stepper,
 	StepperItem,
 	StepperIndicator,
-	StepperTitle,
+	StepperLabel,
 	StepperSeparator,
 } from "@corensystem/coren-ui/stepper";
 import {User, CreditCard, Check, Package} from "lucide-react";
@@ -17,28 +17,28 @@ export function WithIcons() {
 				<StepperIndicator>
 					<Check className="wwc:h-4 wwc:w-4" />
 				</StepperIndicator>
-				<StepperTitle>Account</StepperTitle>
+				<StepperLabel>Account</StepperLabel>
 				<StepperSeparator />
 			</StepperItem>
 			<StepperItem status="complete">
 				<StepperIndicator>
 					<Check className="wwc:h-4 wwc:w-4" />
 				</StepperIndicator>
-				<StepperTitle>Payment</StepperTitle>
+				<StepperLabel>Payment</StepperLabel>
 				<StepperSeparator />
 			</StepperItem>
 			<StepperItem status="current">
 				<StepperIndicator>
 					<Package className="wwc:h-4 wwc:w-4" />
 				</StepperIndicator>
-				<StepperTitle>Shipping</StepperTitle>
+				<StepperLabel>Shipping</StepperLabel>
 				<StepperSeparator />
 			</StepperItem>
 			<StepperItem status="upcoming">
 				<StepperIndicator>
 					<CreditCard className="wwc:h-4 wwc:w-4" />
 				</StepperIndicator>
-				<StepperTitle>Review</StepperTitle>
+				<StepperLabel>Review</StepperLabel>
 			</StepperItem>
 		</Stepper>
 	);

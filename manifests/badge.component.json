@@ -70,6 +70,33 @@
 		"bestPractices": [
 			{"do": "Use a small icon that reinforces the badge meaning. Keep labels short.", "dont": "Avoid multiple icons or long text that makes the badge hard to scan."},
 			{"do": "Use Badge for static display labels that describe status or category.", "dont": "Avoid adding click handlers or remove buttons to Badge. Use Chip for interactive elements."}
+		],
+		"props": [
+			{
+				"name": "variant",
+				"type": "\"default\" | \"secondary\" | \"destructive\" | \"outline\" | \"success\" | \"warning\" | \"info\" | \"successSoft\" | \"warningSoft\" | \"dangerSoft\" | \"infoSoft\" | \"neutralSoft\"",
+				"default": "\"default\"",
+				"required": false,
+				"description": "Visual style variant. Choose by meaning: success for positive, destructive for errors, soft variants for subtle indicators."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Badge content — typically short text, optionally with a leading icon."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply to the badge container."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML div attributes are supported."
+			}
 		]
 	},
 	"lineage": {

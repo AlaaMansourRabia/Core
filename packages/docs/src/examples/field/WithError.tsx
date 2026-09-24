@@ -1,13 +1,14 @@
 /**
  * Field with error message.
  */
-import {Field, FieldLabel, FieldInput, FieldError} from "@corensystem/coren-ui/field";
+import {Field, FieldLabel, FieldError} from "@corensystem/coren-ui/field";
+import {Input} from "@corensystem/coren-ui/input";
 
 export function WithError() {
 	return (
 		<Field invalid>
 			<FieldLabel>Username</FieldLabel>
-			<FieldInput defaultValue="ab" />
+			<Input defaultValue="ab" />
 			<FieldError>Username must be at least 3 characters</FieldError>
 		</Field>
 	);

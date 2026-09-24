@@ -5,7 +5,7 @@ import {
 	Stepper,
 	StepperItem,
 	StepperIndicator,
-	StepperTitle,
+	StepperLabel,
 	StepperDescription,
 	StepperSeparator,
 } from "@corensystem/coren-ui/stepper";
@@ -16,7 +16,7 @@ export function LabelsDo() {
 			<StepperItem status="complete">
 				<StepperIndicator>1</StepperIndicator>
 				<div>
-					<StepperTitle>Shipping Address</StepperTitle>
+					<StepperLabel>Shipping Address</StepperLabel>
 					<StepperDescription>Where to deliver</StepperDescription>
 				</div>
 				<StepperSeparator />
@@ -24,7 +24,7 @@ export function LabelsDo() {
 			<StepperItem status="current">
 				<StepperIndicator>2</StepperIndicator>
 				<div>
-					<StepperTitle>Payment Method</StepperTitle>
+					<StepperLabel>Payment Method</StepperLabel>
 					<StepperDescription>How to pay</StepperDescription>
 				</div>
 				<StepperSeparator />
@@ -32,7 +32,7 @@ export function LabelsDo() {
 			<StepperItem status="upcoming">
 				<StepperIndicator>3</StepperIndicator>
 				<div>
-					<StepperTitle>Order Review</StepperTitle>
+					<StepperLabel>Order Review</StepperLabel>
 					<StepperDescription>Confirm details</StepperDescription>
 				</div>
 			</StepperItem>

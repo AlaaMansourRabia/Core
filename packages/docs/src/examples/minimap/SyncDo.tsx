@@ -1,12 +1,14 @@
 /**
- * Keep minimap synced with content.
+ * Sync heading with the 3D view for spatial orientation.
  */
-import {Minimap, MinimapViewport} from "@corensystem/coren-ui/minimap";
+import {Minimap} from "@corensystem/coren-ui/minimap";
 
 export function SyncDo() {
 	return (
-		<Minimap sync className="wwc:w-20 wwc:h-48">
-			<MinimapViewport position={50} size={20} />
-		</Minimap>
+		<Minimap
+			lon={-122.4194}
+			lat={37.7749}
+			label="Site"
+		/>
 	);
 }

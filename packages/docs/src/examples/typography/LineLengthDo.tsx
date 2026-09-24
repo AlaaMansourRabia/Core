@@ -1,15 +1,13 @@
 /**
- * Optimal line length for readability.
+ * Keep line length comfortable for reading.
  */
-import {Typography} from "@corensystem/coren-ui/typography";
+import {TypographyH1, TypographyH2, TypographyP} from "@corensystem/coren-ui/typography";
 
 export function LineLengthDo() {
 	return (
-		<div className="wwc:max-w-prose">
-			<Typography variant="body">
-				This paragraph has an optimal line length of around 65-75 characters per line,
-				making it comfortable to read without losing your place.
-			</Typography>
+		<div className="wwc:space-y-2">
+			<TypographyH1>Heading</TypographyH1>
+			<TypographyP>Body text with appropriate styling.</TypographyP>
 		</div>
 	);
 }

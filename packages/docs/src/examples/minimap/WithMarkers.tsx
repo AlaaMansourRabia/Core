@@ -1,14 +1,14 @@
 /**
- * Minimap with position markers.
+ * Minimap with custom label.
  */
-import {Minimap, MinimapViewport, MinimapMarker} from "@corensystem/coren-ui/minimap";
+import {Minimap} from "@corensystem/coren-ui/minimap";
 
 export function WithMarkers() {
 	return (
-		<Minimap className="wwc:w-24 wwc:h-48">
-			<MinimapMarker position={15} label="Error" />
-			<MinimapMarker position={45} label="Warning" />
-			<MinimapViewport position={20} size={30} />
-		</Minimap>
+		<Minimap
+			lon={-122.4194}
+			lat={37.7749}
+			label="Site"
+		/>
 	);
 }

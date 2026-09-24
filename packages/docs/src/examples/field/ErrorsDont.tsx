@@ -1,13 +1,14 @@
 /**
  * Avoid generic error messages.
  */
-import {Field, FieldLabel, FieldInput, FieldError} from "@corensystem/coren-ui/field";
+import {Field, FieldLabel, FieldError} from "@corensystem/coren-ui/field";
+import {Input} from "@corensystem/coren-ui/input";
 
 export function ErrorsDont() {
 	return (
 		<Field invalid>
 			<FieldLabel>Password</FieldLabel>
-			<FieldInput type="password" defaultValue="abc" />
+			<Input type="password" defaultValue="abc" />
 			<FieldError>Invalid input</FieldError>
 		</Field>
 	);

@@ -1,13 +1,14 @@
 /**
  * Basic form field with label.
  */
-import {Field, FieldLabel, FieldInput} from "@corensystem/coren-ui/field";
+import {Field, FieldLabel} from "@corensystem/coren-ui/field";
+import {Input} from "@corensystem/coren-ui/input";
 
 export function Default() {
 	return (
 		<Field>
 			<FieldLabel>Email</FieldLabel>
-			<FieldInput type="email" placeholder="Enter your email" />
+			<Input type="email" placeholder="Enter your email" />
 		</Field>
 	);
 }

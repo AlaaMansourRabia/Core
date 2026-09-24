@@ -5,7 +5,7 @@ import {
 	Stepper,
 	StepperItem,
 	StepperIndicator,
-	StepperTitle,
+	StepperLabel,
 	StepperSeparator,
 } from "@corensystem/coren-ui/stepper";
 import {Check} from "lucide-react";
@@ -17,23 +17,23 @@ export function NavigationDo() {
 				<StepperIndicator>
 					<Check className="wwc:h-4 wwc:w-4" />
 				</StepperIndicator>
-				<StepperTitle className="wwc:underline wwc:decoration-dotted wwc:underline-offset-4">
+				<StepperLabel className="wwc:underline wwc:decoration-dotted wwc:underline-offset-4">
 					Account
-				</StepperTitle>
+				</StepperLabel>
 				<StepperSeparator />
 			</StepperItem>
 			<StepperItem status="complete" className="wwc:cursor-pointer">
 				<StepperIndicator>
 					<Check className="wwc:h-4 wwc:w-4" />
 				</StepperIndicator>
-				<StepperTitle className="wwc:underline wwc:decoration-dotted wwc:underline-offset-4">
+				<StepperLabel className="wwc:underline wwc:decoration-dotted wwc:underline-offset-4">
 					Payment
-				</StepperTitle>
+				</StepperLabel>
 				<StepperSeparator />
 			</StepperItem>
 			<StepperItem status="current">
 				<StepperIndicator>3</StepperIndicator>
-				<StepperTitle>Review</StepperTitle>
+				<StepperLabel>Review</StepperLabel>
 			</StepperItem>
 		</Stepper>
 	);

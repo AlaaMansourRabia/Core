@@ -5,7 +5,7 @@ import {
 	Stepper,
 	StepperItem,
 	StepperIndicator,
-	StepperTitle,
+	StepperLabel,
 	StepperSeparator,
 } from "@corensystem/coren-ui/stepper";
 
@@ -14,17 +14,17 @@ export function LabelsDont() {
 		<Stepper className="wwc:w-full wwc:max-w-lg">
 			<StepperItem status="complete">
 				<StepperIndicator>1</StepperIndicator>
-				<StepperTitle>Step 1</StepperTitle>
+				<StepperLabel>Step 1</StepperLabel>
 				<StepperSeparator />
 			</StepperItem>
 			<StepperItem status="current">
 				<StepperIndicator>2</StepperIndicator>
-				<StepperTitle>Step 2</StepperTitle>
+				<StepperLabel>Step 2</StepperLabel>
 				<StepperSeparator />
 			</StepperItem>
 			<StepperItem status="upcoming">
 				<StepperIndicator>3</StepperIndicator>
-				<StepperTitle>Step 3</StepperTitle>
+				<StepperLabel>Step 3</StepperLabel>
 			</StepperItem>
 		</Stepper>
 	);

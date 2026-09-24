@@ -1,12 +1,14 @@
 /**
- * Ensure viewport visibility.
+ * Place minimap over content with good contrast.
  */
-import {Minimap, MinimapViewport} from "@corensystem/coren-ui/minimap";
+import {Minimap} from "@corensystem/coren-ui/minimap";
 
 export function ContrastDo() {
 	return (
-		<Minimap className="wwc:w-20 wwc:h-48">
-			<MinimapViewport position={30} size={25} highlighted />
-		</Minimap>
+		<Minimap
+			lon={-122.4194}
+			lat={37.7749}
+			label="Site"
+		/>
 	);
 }

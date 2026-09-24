@@ -1,14 +1,13 @@
 /**
- * Avoid very long lines.
+ * Avoid very long lines that are hard to read.
  */
-import {Typography} from "@corensystem/coren-ui/typography";
+import {TypographyH1, TypographyH2, TypographyP} from "@corensystem/coren-ui/typography";
 
 export function LineLengthDont() {
 	return (
-		<div className="wwc:w-full">
-			<Typography variant="body">
-				This paragraph spans the full width of the container which can make it very difficult to read because your eye has to travel a long distance to get to the next line and you might lose your place in the text which reduces comprehension and causes eye strain.
-			</Typography>
+		<div className="wwc:space-y-2">
+			<TypographyH1>Heading</TypographyH1>
+			<TypographyP>Body text with appropriate styling.</TypographyP>
 		</div>
 	);
 }

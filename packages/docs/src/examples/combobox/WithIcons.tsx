@@ -2,7 +2,7 @@
  * Combobox with icons for each option.
  */
 import * as React from "react";
-import {Check, ChevronsUpDown, Github, Twitter, Linkedin, Globe} from "lucide-react";
+import {Check, ChevronsUpDown, Code, MessageCircle, Users, Globe} from "lucide-react";
 import {Button} from "@corensystem/coren-ui/button";
 import {
 	Command,
@@ -15,9 +15,9 @@ import {
 import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
 
 const platforms = [
-	{value: "github", label: "GitHub", icon: Github},
-	{value: "twitter", label: "Twitter", icon: Twitter},
-	{value: "linkedin", label: "LinkedIn", icon: Linkedin},
+	{value: "code", label: "Code", icon: Code},
+	{value: "messages", label: "Messages", icon: MessageCircle},
+	{value: "team", label: "Team", icon: Users},
 	{value: "website", label: "Website", icon: Globe},
 ];
 

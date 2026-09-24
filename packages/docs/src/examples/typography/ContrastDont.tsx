@@ -1,13 +1,13 @@
 /**
  * Avoid low contrast text.
  */
-import {Typography} from "@corensystem/coren-ui/typography";
+import {TypographyH1, TypographyH2, TypographyP} from "@corensystem/coren-ui/typography";
 
 export function ContrastDont() {
 	return (
-		<div className="wwc:space-y-2 wwc:text-gray-300">
-			<Typography variant="h2">Low contrast heading</Typography>
-			<Typography variant="body">Hard to read body text.</Typography>
+		<div className="wwc:space-y-2">
+			<TypographyH1>Heading</TypographyH1>
+			<TypographyP>Body text with appropriate styling.</TypographyP>
 		</div>
 	);
 }

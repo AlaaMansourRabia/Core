@@ -1,13 +1,14 @@
 /**
  * Avoid using placeholder as the only label.
  */
-import {Field, FieldInput} from "@corensystem/coren-ui/field";
+import {Field} from "@corensystem/coren-ui/field";
+import {Input} from "@corensystem/coren-ui/input";
 
 export function PlaceholderDont() {
 	return (
 		<Field>
 			{/* No label, relying only on placeholder */}
-			<FieldInput type="email" placeholder="Email" />
+			<Input type="email" placeholder="Email" />
 		</Field>
 	);
 }
