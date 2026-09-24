@@ -172,7 +172,7 @@ async function runDry(catalog, tasks) {
 	for (const arm of arms) console.log(`  ${arm}: ${sys[arm].length.toLocaleString()} chars`);
 
 	const checks = [
-		["A1 exposes deep-path imports (fair baseline)", sys.A1.includes("@corensystem/core-ui/button")],
+		["A1 exposes deep-path imports (fair baseline)", sys.A1.includes("@corensystem/coren-ui/button")],
 		["A1 withholds selection judgment (no chooseOver)", !sys.A1.includes("chooseOver")],
 		["A1 does not editorialize the barrel rule", !/never.*barrel|barrel.*undefined/i.test(sys.A1)],
 		["A2 adds semantic judgment (chooseOver)", sys.A2.includes("chooseOver")],
@@ -193,8 +193,8 @@ async function runDry(catalog, tasks) {
 	// fail all three. Proves the metrics run and discriminate, offline.
 	console.log("\nGrader wiring (offline — structure / compile / render):");
 	const probes = [
-		{label: "good (deep import, renders)", task: {expected: ["Button"]}, code: 'import { Button } from "@corensystem/core-ui/button";\nexport default function Demo() {\n  return <Button>Save</Button>;\n}\n'},
-		{label: "bad (barrel import)", task: {expected: ["Button"]}, code: 'import { Button } from "@corensystem/core-ui";\nexport default function Demo() {\n  return <Button>Save</Button>;\n}\n'},
+		{label: "good (deep import, renders)", task: {expected: ["Button"]}, code: 'import { Button } from "@corensystem/coren-ui/button";\nexport default function Demo() {\n  return <Button>Save</Button>;\n}\n'},
+		{label: "bad (barrel import)", task: {expected: ["Button"]}, code: 'import { Button } from "@corensystem/coren-ui";\nexport default function Demo() {\n  return <Button>Save</Button>;\n}\n'},
 	];
 	const seen = {};
 	for (const p of probes) {
@@ -351,7 +351,7 @@ function buildMd(cells) {
 		`| --- | ${cols.map(() => "---").join(" | ")} |`,
 		...liftRows,
 		"",
-		"> Metrics: **structure** = the deterministic validators (component-choice / imports / provider-wiring / failure-mode, rolled up); **compile** = `tsc` against the real built `@corensystem/core-ui` types; **render** = render-smoke mount. **overall** = all three pass.",
+		"> Metrics: **structure** = the deterministic validators (component-choice / imports / provider-wiring / failure-mode, rolled up); **compile** = `tsc` against the real built `@corensystem/coren-ui` types; **render** = render-smoke mount. **overall** = all three pass.",
 		"> render-smoke is a *server-render floor* (mounts + non-empty markup); it does not run effects or browser-only APIs — full browser fidelity is a V3 follow-up.",
 		"> A claim is only supported when the lift's CI lower bound clears 0 (see `eval/V2-PLAN.md` §6).",
 		"",

@@ -1,8 +1,8 @@
-import type {ChangeEntry, NotificationItem} from "@corensystem/core-ui/notification-center";
+import type {ChangeEntry, NotificationItem} from "@corensystem/coren-ui/notification-center";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ActivitySheet, type ActivityView} from "@corensystem/core-ui/activity-sheet";
-import {Button} from "@corensystem/core-ui/button";
+import {ActivitySheet, type ActivityView} from "@corensystem/coren-ui/activity-sheet";
+import {Button} from "@corensystem/coren-ui/button";
 import {useState} from "react";
 
 const SEED_NOTIFICATIONS: NotificationItem[] = [

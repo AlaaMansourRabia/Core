@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {FormLayout, FormSection, FormRow, FormActions} from "@corensystem/core-ui/form-layout";
-import {Input} from "@corensystem/core-ui/input";
-import {Label} from "@corensystem/core-ui/label";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@corensystem/core-ui/select";
-import {Textarea} from "@corensystem/core-ui/textarea";
+import {Button} from "@corensystem/coren-ui/button";
+import {FormLayout, FormSection, FormRow, FormActions} from "@corensystem/coren-ui/form-layout";
+import {Input} from "@corensystem/coren-ui/input";
+import {Label} from "@corensystem/coren-ui/label";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@corensystem/coren-ui/select";
+import {Textarea} from "@corensystem/coren-ui/textarea";
 
 const meta = {
 	title: "Components/Primitives/FormLayout",

@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {ChevronLeft, ChevronRight, Minimize2, PanelRightClose, Tags, X} from "lucide-react";
 import * as React from "react";
 

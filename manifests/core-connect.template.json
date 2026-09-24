@@ -16,7 +16,7 @@
 	},
 	"source": {
 		"path": "packages/components/src/pages/core-core-connect.tsx",
-		"import": "@corensystem/core-ui/pages/core-core-connect",
+		"import": "@corensystem/coren-ui/pages/core-core-connect",
 		"export": "CoreConnect"
 	},
 	"tags": [
@@ -75,7 +75,7 @@
 	],
 	"allowedPlacement": ["route-level workspace surface that owns the full window"],
 	"forbiddenPlacement": ["inside another CoreAppSidebar/CoreAppTopBar shell", "inside a Card or Dialog"],
-	"minimalExample": "// CoreConnect is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@corensystem/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@corensystem/core-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@corensystem/core-ui/page-content-header\";\nimport {SideMenu} from \"@corensystem/core-ui/side-menu\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"minimalExample": "// CoreConnect is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@corensystem/coren-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@corensystem/coren-ui/navigation/core-app-top-bar\";\nimport {PageContentHeader} from \"@corensystem/coren-ui/page-content-header\";\nimport {SideMenu} from \"@corensystem/coren-ui/side-menu\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 	"lineage": {
 		"origin": "derived",
 		"authoredBy": "Core Connect V2 merge (2026-08-23)",

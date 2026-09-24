@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import * as React from "react";
 
 type ErrorType = "404" | "401" | "403" | "500" | "503" | "generic";

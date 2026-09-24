@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/field.tsx",
-		"import": "@corensystem/core-ui/field",
+		"import": "@corensystem/coren-ui/field",
 		"export": "Field"
 	},
 	"tags": [

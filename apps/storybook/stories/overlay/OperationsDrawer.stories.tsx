@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {OperationsDrawer} from "@corensystem/core-ui/operations-drawer";
+import {OperationsDrawer} from "@corensystem/coren-ui/operations-drawer";
 import {useState} from "react";
 
 const meta = {

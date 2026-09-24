@@ -5,7 +5,7 @@
 
 import type {ObjectState, Schedule, TimelineControls, TimelineState} from "./types";
 
-import {useFragmentViewer} from "@corensystem/core-ui/fragment-viewer";
+import {useFragmentViewer} from "@corensystem/coren-ui/fragment-viewer";
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 import {paintDay, resolveScene, restoreScene, type ResolvedScene} from "./scene-painter";

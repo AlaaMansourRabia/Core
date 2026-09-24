@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {MapMinimap} from "@corensystem/core-ui/map-minimap";
+import {MapMinimap} from "@corensystem/coren-ui/map-minimap";
 import {useState} from "react";
 
 function Scene() {

@@ -1,2 +1,2 @@
-export {ChartContainer, useChartTheme} from "@corensystem/core-ui/chart";
-export type {ChartConfig} from "@corensystem/core-ui/chart";
+export {ChartContainer, useChartTheme} from "@corensystem/coren-ui/chart";
+export type {ChartConfig} from "@corensystem/coren-ui/chart";

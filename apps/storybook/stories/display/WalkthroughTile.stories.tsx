@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {WalkthroughTile} from "@corensystem/core-ui/walkthrough-tile";
+import {WalkthroughTile} from "@corensystem/coren-ui/walkthrough-tile";
 
 const meta = {
 	title: "Components/Data Display/WalkthroughTile",

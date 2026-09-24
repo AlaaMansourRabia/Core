@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {RNGLF_ZONES} from "@corensystem/core-ui/data/rnglf-zones";
-import {ObservationsMap} from "@corensystem/core-ui/observations-map";
-import {ObservationsMapView} from "@corensystem/core-ui/pages/core-observations-map-view";
+import {RNGLF_ZONES} from "@corensystem/coren-ui/data/rnglf-zones";
+import {ObservationsMap} from "@corensystem/coren-ui/observations-map";
+import {ObservationsMapView} from "@corensystem/coren-ui/pages/core-observations-map-view";
 
 const meta = {
 	title: "Widgets/Map/Observations Map",

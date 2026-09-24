@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {MultiSelect} from "@corensystem/core-ui/multi-select";
+import {MultiSelect} from "@corensystem/coren-ui/multi-select";
 import * as React from "react";
 import {expect, screen, userEvent, waitFor, within} from "storybook/test";
 

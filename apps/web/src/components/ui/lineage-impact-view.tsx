@@ -1,1 +1,1 @@
-export * from "@corensystem/core-ui/pages/lineage-impact-view";
+export * from "@corensystem/coren-ui/pages/lineage-impact-view";

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/label.tsx",
-		"import": "@corensystem/core-ui/label",
+		"import": "@corensystem/coren-ui/label",
 		"export": "Label"
 	},
 	"tags": [

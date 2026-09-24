@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/wc3-action-type-wizard.tsx",
-		"import": "@corensystem/core-ui/new-action-type-dialog",
+		"import": "@corensystem/coren-ui/new-action-type-dialog",
 		"export": "NewActionTypeDialog"
 	},
 	"tags": [
@@ -119,7 +119,7 @@
 	"forbiddenPlacement": [
 		"inside another dialog"
 	],
-	"minimalExample": "import {NewActionTypeDialog} from \"@corensystem/core-ui/new-action-type-dialog\";\n\n<NewActionTypeDialog open={open} onOpenChange={setOpen} objectTypes={ots} linkTypes={lts} onCreate={addActionType} />",
+	"minimalExample": "import {NewActionTypeDialog} from \"@corensystem/coren-ui/new-action-type-dialog\";\n\n<NewActionTypeDialog open={open} onOpenChange={setOpen} objectTypes={ots} linkTypes={lts} onCreate={addActionType} />",
 	"evaluationCriteria": [
 		"The API name is camelCased on blur, never while typing."
 	],

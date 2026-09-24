@@ -1,1 +1,1 @@
-export * from "@corensystem/core-ui/pages/run-action-dialog";
+export * from "@corensystem/coren-ui/pages/run-action-dialog";

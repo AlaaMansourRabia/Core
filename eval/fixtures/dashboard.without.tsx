@@ -1,4 +1,4 @@
-import {Card, CardContent, CardHeader, CardTitle} from "@corensystem/core-ui";
+import {Card, CardContent, CardHeader, CardTitle} from "@corensystem/coren-ui";
 
 export function OrgOverview({kpis}) {
 	return (

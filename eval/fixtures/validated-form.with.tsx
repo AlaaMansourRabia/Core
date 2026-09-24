@@ -1,6 +1,6 @@
-import {Button} from "@corensystem/core-ui/button";
-import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@corensystem/core-ui/form";
-import {Input} from "@corensystem/core-ui/input";
+import {Button} from "@corensystem/coren-ui/button";
+import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@corensystem/coren-ui/form";
+import {Input} from "@corensystem/coren-ui/input";
 import {useForm} from "react-hook-form";
 
 export function CreateProjectForm() {

@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Card} from "@corensystem/core-ui/card";
+import {Card} from "@corensystem/coren-ui/card";
 import {
 	CatalogueCardGrid,
 	CatalogueViewToggle,
 	type CatalogueViewMode,
-} from "@corensystem/core-ui/catalogue-view-toggle";
+} from "@corensystem/coren-ui/catalogue-view-toggle";
 import {useState} from "react";
 
 const ROWS = [

@@ -1,4 +1,4 @@
-import {Input} from "@corensystem/core-ui/input";
+import {Input} from "@corensystem/coren-ui/input";
 import {Check, Copy, ExternalLink, GitBranch, Loader2, SquareArrowOutUpRight, TriangleAlert} from "lucide-react";
 import {useEffect, useRef, useState} from "react";
 

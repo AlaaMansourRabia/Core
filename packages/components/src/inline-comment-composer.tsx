@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {format} from "date-fns";
 import {ArrowUp, AtSign, Calendar as CalendarIcon, Flag, Plus} from "lucide-react";
 import * as React from "react";

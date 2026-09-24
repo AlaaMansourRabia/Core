@@ -9,7 +9,7 @@ import {
 	CommandList,
 	CommandSeparator,
 	CommandShortcut,
-} from "@corensystem/core-ui/command";
+} from "@corensystem/coren-ui/command";
 import {Calculator, Calendar, CreditCard, Settings, Smile, User} from "lucide-react";
 
 const meta = {

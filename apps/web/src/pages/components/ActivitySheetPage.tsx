@@ -1,6 +1,6 @@
-import type {ChangeEntry, NotificationItem} from "@corensystem/core-ui/notification-center";
+import type {ChangeEntry, NotificationItem} from "@corensystem/coren-ui/notification-center";
 
-import {ActivitySheet, type ActivityView} from "@corensystem/core-ui/activity-sheet";
+import {ActivitySheet, type ActivityView} from "@corensystem/coren-ui/activity-sheet";
 import {useState} from "react";
 
 import {Button} from "@/components/ui/button";

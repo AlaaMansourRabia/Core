@@ -99,8 +99,8 @@ function coreFindings(input: ValidateInput, ctx: CapabilityContext): ValidateFin
 	const code = allCode(input);
 	const findings: ValidateFinding[] = [];
 	const hasCoreImport =
-		/from\s+["']@corensystem\/core-ui(?:\/|["'])/.test(code) ||
-		/import\s+["']@corensystem\/core-ui\/styles\.css["']/.test(code);
+		/from\s+["']@corensystem\/coren-ui(?:\/|["'])/.test(code) ||
+		/import\s+["']@corensystem\/coren-ui\/styles\.css["']/.test(code);
 	if (!hasCoreImport)
 		findings.push({
 			metric: "core-imports",

@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import {type VariantProps, cva} from "class-variance-authority";
 import {ChevronDown} from "lucide-react";

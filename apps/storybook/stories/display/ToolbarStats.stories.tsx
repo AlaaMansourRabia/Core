@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ToolbarStats, type ToolbarStat} from "@corensystem/core-ui/toolbar-stats";
+import {ToolbarStats, type ToolbarStat} from "@corensystem/coren-ui/toolbar-stats";
 
 const EV_GROUPS: ToolbarStat[][] = [
 	[

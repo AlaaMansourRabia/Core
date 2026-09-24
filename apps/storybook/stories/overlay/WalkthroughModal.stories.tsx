@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {WalkthroughModal} from "@corensystem/core-ui/walkthrough-modal";
+import {Button} from "@corensystem/coren-ui/button";
+import {WalkthroughModal} from "@corensystem/coren-ui/walkthrough-modal";
 import {useState} from "react";
 
 const meta = {

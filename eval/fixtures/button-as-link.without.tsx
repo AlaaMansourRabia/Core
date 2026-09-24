@@ -1,4 +1,4 @@
-import {Button} from "@corensystem/core-ui";
+import {Button} from "@corensystem/coren-ui";
 import {useNavigate} from "react-router-dom";
 
 export function ReportsCta() {

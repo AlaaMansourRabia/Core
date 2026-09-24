@@ -11,10 +11,10 @@ export {
 	SelectScrollDownButton,
 	SearchableSelect,
 	MultiSelect,
-} from "@corensystem/core-ui/select";
+} from "@corensystem/coren-ui/select";
 export type {
 	SearchableSelectProps,
 	SearchableSelectOption,
 	MultiSelectProps,
 	MultiSelectOption,
-} from "@corensystem/core-ui/select";
+} from "@corensystem/coren-ui/select";

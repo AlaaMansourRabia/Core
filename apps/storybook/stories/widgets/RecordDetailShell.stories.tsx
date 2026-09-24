@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Card, CardContent} from "@corensystem/core-ui/card";
-import {RecordDetailShell} from "@corensystem/core-ui/record-detail-shell";
+import {Card, CardContent} from "@corensystem/coren-ui/card";
+import {RecordDetailShell} from "@corensystem/coren-ui/record-detail-shell";
 import {useState} from "react";
 
 const SECTIONS = [

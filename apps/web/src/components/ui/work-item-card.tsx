@@ -6,4 +6,4 @@ export {
 	type WorkItemPriority,
 	type WorkItemStatus,
 	type WorkItemTone,
-} from "@corensystem/core-ui/work-item-card";
+} from "@corensystem/coren-ui/work-item-card";

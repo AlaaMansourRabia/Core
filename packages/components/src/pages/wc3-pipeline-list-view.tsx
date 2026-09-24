@@ -1,7 +1,7 @@
 import type {ColumnDef, Row} from "@tanstack/react-table";
 import type {ReactElement, ReactNode} from "react";
 
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {ArrowUpRight, Play, Plus, Search, Share2, TriangleAlert} from "lucide-react";
 import {useCallback, useMemo, useState} from "react";
 

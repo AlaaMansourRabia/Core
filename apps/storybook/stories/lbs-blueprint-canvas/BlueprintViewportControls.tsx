@@ -1,6 +1,6 @@
-import {Toolbar, ToolbarButton} from "@corensystem/core-ui/toolbar";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@corensystem/core-ui/tooltip";
-import {VerticalZoomTools} from "@corensystem/core-ui/vertical-zoom-tools";
+import {Toolbar, ToolbarButton} from "@corensystem/coren-ui/toolbar";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@corensystem/coren-ui/tooltip";
+import {VerticalZoomTools} from "@corensystem/coren-ui/vertical-zoom-tools";
 import {Maximize} from "lucide-react";
 
 import {

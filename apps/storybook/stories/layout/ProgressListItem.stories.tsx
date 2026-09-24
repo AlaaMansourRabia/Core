@@ -1,7 +1,7 @@
 import type * as React from "react";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ProgressListItem, type ProgressMetric} from "@corensystem/core-ui/progress-list-item";
+import {ProgressListItem, type ProgressMetric} from "@corensystem/coren-ui/progress-list-item";
 
 const evMetrics: ProgressMetric[] = [
 	{label: "BAC", value: "181.6K"},

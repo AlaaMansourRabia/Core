@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {Calendar, Check, ChevronLeft, ChevronRight, FileText, GanttChart, Plane, Play, X} from "lucide-react";
 /**
  * ProgressSheet — a self-contained, CONTROLLED Core widget for the bottom

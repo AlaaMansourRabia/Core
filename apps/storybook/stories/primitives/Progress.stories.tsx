@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Progress} from "@corensystem/core-ui/progress";
+import {Progress} from "@corensystem/coren-ui/progress";
 import * as React from "react";
 
 const meta = {

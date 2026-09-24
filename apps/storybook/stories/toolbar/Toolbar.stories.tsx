@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator} from "@corensystem/core-ui/toolbar";
+import {Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator} from "@corensystem/coren-ui/toolbar";
 import {Hand, MousePointer2, Redo2, Square, Type, Undo2} from "lucide-react";
 import {useState} from "react";
 

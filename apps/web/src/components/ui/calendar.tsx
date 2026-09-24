@@ -1,2 +1,2 @@
-export {Calendar} from "@corensystem/core-ui/calendar";
-export type {CalendarProps} from "@corensystem/core-ui/calendar";
+export {Calendar} from "@corensystem/coren-ui/calendar";
+export type {CalendarProps} from "@corensystem/coren-ui/calendar";

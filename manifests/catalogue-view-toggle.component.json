@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/catalogue-view-toggle.tsx",
-		"import": "@corensystem/core-ui/catalogue-view-toggle",
+		"import": "@corensystem/coren-ui/catalogue-view-toggle",
 		"export": "CatalogueViewToggle"
 	},
 	"subcomponents": [
@@ -48,7 +48,7 @@
 		"table": "Dense, sortable, column-configurable",
 		"cards": "Scannable, richer per-row detail"
 	},
-	"minimalExample": "import {CatalogueCardGrid, CatalogueViewToggle, useCatalogueViewMode} from \"@corensystem/core-ui/catalogue-view-toggle\";\n\nconst [mode, setMode] = useCatalogueViewMode(\"wc3.processes.view\");\n<DataTable\n\tshowColumnToggle={mode === \"table\"}\n\trenderGrid={mode === \"cards\" ? (rows) => <CatalogueCardGrid>{rows.map(renderCard)}</CatalogueCardGrid> : undefined}\n\ttoolbarExtra={<CatalogueViewToggle value={mode} onValueChange={setMode} />}\n/>",
+	"minimalExample": "import {CatalogueCardGrid, CatalogueViewToggle, useCatalogueViewMode} from \"@corensystem/coren-ui/catalogue-view-toggle\";\n\nconst [mode, setMode] = useCatalogueViewMode(\"wc3.processes.view\");\n<DataTable\n\tshowColumnToggle={mode === \"table\"}\n\trenderGrid={mode === \"cards\" ? (rows) => <CatalogueCardGrid>{rows.map(renderCard)}</CatalogueCardGrid> : undefined}\n\ttoolbarExtra={<CatalogueViewToggle value={mode} onValueChange={setMode} />}\n/>",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Extracted from the four catalogue pages found in the missing-widgets template review (2026-08-25)",

@@ -1,6 +1,6 @@
 import type {ECharts, EChartsOption} from "echarts";
 
-import {cssColorToRgb, getChartColors, getCssVarAsRgb} from "@corensystem/core-utils";
+import {cssColorToRgb, getChartColors, getCssVarAsRgb} from "@corensystem/coren-utils";
 import * as echarts from "echarts";
 import * as React from "react";
 

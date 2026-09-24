@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/scroll-area.tsx",
-		"import": "@corensystem/core-ui/scroll-area",
+		"import": "@corensystem/coren-ui/scroll-area",
 		"export": "ScrollArea"
 	},
 	"tags": [

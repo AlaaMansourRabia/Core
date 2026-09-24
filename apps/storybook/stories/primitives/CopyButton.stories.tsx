@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {CopyButton} from "@corensystem/core-ui/copy-button";
+import {CopyButton} from "@corensystem/coren-ui/copy-button";
 
 const meta = {
 	title: "Components/Primitives/Copy Button",

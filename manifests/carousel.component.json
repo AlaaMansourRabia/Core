@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/carousel.tsx",
-		"import": "@corensystem/core-ui/carousel",
+		"import": "@corensystem/coren-ui/carousel",
 		"export": "Carousel"
 	},
 	"tags": [

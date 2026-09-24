@@ -1,7 +1,7 @@
 import type {ColumnDef} from "@tanstack/react-table";
 import type {CSSProperties, ReactNode} from "react";
 
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {
 	ArrowLeft,
 	ArrowRight,
@@ -167,7 +167,7 @@ const WC3_PROCESS_NODE_TINT = "14%";
 // They are props now, and they DEFAULT TO EMPTY rather than to the fixture. Empty is the honest
 // default for a library: it means "the host has not told me", which is a different thing from "the
 // host has these seven permit effects". The demo vocabularies moved to
-// `@corensystem/core-ui/pages/state-machine-fixtures`, which the stories import and nothing else does —
+// `@corensystem/coren-ui/pages/state-machine-fixtures`, which the stories import and nothing else does —
 // so they stop riding along in every consumer's bundle.
 //
 // Reaching the deep pieces (both inspectors, both add-forms, the entry lists) through context

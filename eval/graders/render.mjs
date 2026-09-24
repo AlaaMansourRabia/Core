@@ -1,13 +1,13 @@
 // Behavioral grader (V3): render-smoke. Does the generated snippet actually MOUNT?
 //
-// Minimal by design: transpile the snippet (TS/JSX → JS), import it so its `@corensystem/core-ui`
+// Minimal by design: transpile the snippet (TS/JSX → JS), import it so its `@corensystem/coren-ui`
 // imports resolve against the real built modules, find the top component, and server-render it
 // with react-dom/server `renderToStaticMarkup`. Two failure signals we care about:
 //   - runtime crash on mount (undefined component, missing provider, throw during render)
 //   - empty render (component returns nothing)
 //
 // React-version unification: this workspace currently resolves React to 18.3.1 for
-// @corensystem/core-ui but 19.x at the repo root, so a naive SSR mixes React-18 elements (from
+// @corensystem/coren-ui but 19.x at the repo root, so a naive SSR mixes React-18 elements (from
 // core-ui) with a React-19 renderer and throws. To render real components we resolve react +
 // react-dom/server from the SAME context core-ui uses and rewrite the snippet's react import
 // specifiers to match — so elements and renderer are one React instance.
@@ -32,7 +32,7 @@ const repoRoot = join(here, "..", "..");
 const tmpDir = join(here, ".render-tmp");
 let counter = 0;
 
-// Resolve react / react-dom from the same place @corensystem/core-ui resolves them (one instance).
+// Resolve react / react-dom from the same place @corensystem/coren-ui resolves them (one instance).
 const SPECS = ["react/jsx-dev-runtime", "react/jsx-runtime", "react-dom/server", "react-dom/client", "react-dom", "react"];
 let _runtime;
 function runtime() {

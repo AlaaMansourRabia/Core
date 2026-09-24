@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Toolbar, ToolbarButton, ToolbarSeparator} from "@corensystem/core-ui/toolbar";
-import {VerticalZoomTools} from "@corensystem/core-ui/vertical-zoom-tools";
+import {Toolbar, ToolbarButton, ToolbarSeparator} from "@corensystem/coren-ui/toolbar";
+import {VerticalZoomTools} from "@corensystem/coren-ui/vertical-zoom-tools";
 import {Compass, Layers, Maximize} from "lucide-react";
 import {useState} from "react";
 

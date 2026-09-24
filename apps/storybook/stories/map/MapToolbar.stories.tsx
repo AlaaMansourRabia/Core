@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {MapToolbar, type SplitMode} from "@corensystem/core-ui/map-toolbar";
+import {MapToolbar, type SplitMode} from "@corensystem/coren-ui/map-toolbar";
 import {useState} from "react";
 
 // A muted backdrop the floating toolbar sits over.

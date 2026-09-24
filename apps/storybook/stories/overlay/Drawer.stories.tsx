@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
+import {Button} from "@corensystem/coren-ui/button";
 import {
 	Drawer,
 	DrawerClose,
@@ -10,7 +10,7 @@ import {
 	DrawerHeader,
 	DrawerTitle,
 	DrawerTrigger,
-} from "@corensystem/core-ui/drawer";
+} from "@corensystem/coren-ui/drawer";
 
 const meta = {
 	title: "Components/Overlay/Drawer",

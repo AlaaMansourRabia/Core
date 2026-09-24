@@ -1,1 +1,1 @@
-export {ButtonGroup, ButtonGroupItem} from "@corensystem/core-ui/button-group";
+export {ButtonGroup, ButtonGroupItem} from "@corensystem/coren-ui/button-group";

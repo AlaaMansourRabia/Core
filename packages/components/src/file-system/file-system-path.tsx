@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 
 // A path, truncated at the LAST separator rather than at a character count: the folder a record sits
 // in is the only segment that identifies it, so that half is pinned and the ancestors give way.

@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Checkbox} from "@corensystem/core-ui/checkbox";
-import {Label} from "@corensystem/core-ui/label";
+import {Checkbox} from "@corensystem/coren-ui/checkbox";
+import {Label} from "@corensystem/coren-ui/label";
 import {expect, userEvent, within} from "storybook/test";
 
 const meta = {

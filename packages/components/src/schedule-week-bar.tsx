@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {type VariantProps, cva} from "class-variance-authority";
 import {Calendar, ChevronLeft, ChevronRight, Play} from "lucide-react";
 import * as React from "react";

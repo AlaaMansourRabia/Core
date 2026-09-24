@@ -1,4 +1,4 @@
-import {Button} from "@corensystem/core-ui/button";
+import {Button} from "@corensystem/coren-ui/button";
 import {
 	Dialog,
 	DialogContent,
@@ -6,10 +6,10 @@ import {
 	DialogFooter,
 	DialogHeader,
 	DialogTitle,
-} from "@corensystem/core-ui/dialog";
-import {Input} from "@corensystem/core-ui/input";
-import {ScrollArea} from "@corensystem/core-ui/scroll-area";
-import {cn} from "@corensystem/core-utils";
+} from "@corensystem/coren-ui/dialog";
+import {Input} from "@corensystem/coren-ui/input";
+import {ScrollArea} from "@corensystem/coren-ui/scroll-area";
+import {cn} from "@corensystem/coren-utils";
 import {Search} from "lucide-react";
 
 import {

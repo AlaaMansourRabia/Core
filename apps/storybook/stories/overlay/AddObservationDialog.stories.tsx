@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {AddObservationDialog, type AddObservationOption} from "@corensystem/core-ui/add-observation-dialog";
-import {Button} from "@corensystem/core-ui/button";
+import {AddObservationDialog, type AddObservationOption} from "@corensystem/coren-ui/add-observation-dialog";
+import {Button} from "@corensystem/coren-ui/button";
 import {Plus} from "lucide-react";
 import {useState} from "react";
 

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/blueprint-segment.tsx",
-		"import": "@corensystem/core-ui/blueprint-segment",
+		"import": "@corensystem/coren-ui/blueprint-segment",
 		"export": "BlueprintSegment"
 	},
 	"tags": [

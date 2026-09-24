@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/product-package-detail.tsx",
-		"import": "@corensystem/core-ui/product-package-detail",
+		"import": "@corensystem/coren-ui/product-package-detail",
 		"export": "ProductPackageDetail"
 	},
 	"tags": ["product", "package", "install", "marketplace", "governance", "wc3", "connect", "evidence"],
@@ -143,7 +143,7 @@
 		"as a page that supplies its own sidebar, top bar or routing",
 		"inside a dialog — the install confirmation is already a dialog"
 	],
-	"minimalExample": "import {ProductPackageDetail} from \"@corensystem/core-ui/product-package-detail\";\n\n<ProductPackageDetail\n\tpackage={pkg}\n\ttarget={{projectName: \"Riyadh Metro\", environment: \"Prod\"}}\n\tactor={{name: \"A. Ibrahim\", role: \"Platform admin\"}}\n\tcanInstall={canInstall}\n\tdenialReason={canInstall ? undefined : \"Install · Prod requires the Platform admin role.\"}\n\tonInstalled={recordReceipt}\n/>",
+	"minimalExample": "import {ProductPackageDetail} from \"@corensystem/coren-ui/product-package-detail\";\n\n<ProductPackageDetail\n\tpackage={pkg}\n\ttarget={{projectName: \"Riyadh Metro\", environment: \"Prod\"}}\n\tactor={{name: \"A. Ibrahim\", role: \"Platform admin\"}}\n\tcanInstall={canInstall}\n\tdenialReason={canInstall ? undefined : \"Install · Prod requires the Platform admin role.\"}\n\tonInstalled={recordReceipt}\n/>",
 	"evaluationCriteria": [
 		"An unauthorized persona still reads every section; only the install action is disabled.",
 		"The refusal is stated in words, not implied by a disabled control.",

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {IconButton} from "@corensystem/core-ui/icon-button";
+import {IconButton} from "@corensystem/coren-ui/icon-button";
 import {Heart, Search, Settings, Star, Trash} from "lucide-react";
 
 const meta = {

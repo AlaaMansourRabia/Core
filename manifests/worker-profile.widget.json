@@ -8,7 +8,7 @@
 	"manifestStatus": "draft",
 	"source": {
 		"path": "packages/components/src/worker-profile.tsx",
-		"import": "@corensystem/core-ui/worker-profile",
+		"import": "@corensystem/coren-ui/worker-profile",
 		"export": "WorkerProfile"
 	},
 	"tags": ["worker", "profile", "workforce", "tabs", "detail", "push-panel"],
@@ -32,7 +32,7 @@
 	"composedOf": ["Tabs", "Badge", "Separator", "Avatar", "Progress", "ToggleGroup", "Button"],
 	"allowedPlacement": ["inside a PushPanel, Sheet, Dialog, or a column that gives it height"],
 	"forbiddenPlacement": ["inside a table cell", "as a route-level page without panel chrome"],
-	"minimalExample": "import {WorkerProfile} from \"@corensystem/core-ui/worker-profile\";\n\n<WorkerProfile general={[{fields: [{label: \"Name\", value: \"John Doe\"}]}]} />",
+	"minimalExample": "import {WorkerProfile} from \"@corensystem/coren-ui/worker-profile\";\n\n<WorkerProfile general={[{fields: [{label: \"Name\", value: \"John Doe\"}]}]} />",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Workforce branch (2026-07-20)",

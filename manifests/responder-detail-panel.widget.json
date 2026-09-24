@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/responder-detail-panel.tsx",
-		"import": "@corensystem/core-ui/responder-detail-panel"
+		"import": "@corensystem/coren-ui/responder-detail-panel"
 	},
 	"tags": ["responder", "safety", "profile", "detail", "overlay"],
 	"intent": "Floating profile for one safety responder — identity, alert tally, acknowledgement mix and coverage.",

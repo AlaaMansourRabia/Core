@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/alert.tsx",
-		"import": "@corensystem/core-ui/alert",
+		"import": "@corensystem/coren-ui/alert",
 		"export": "Alert"
 	},
 	"tags": [

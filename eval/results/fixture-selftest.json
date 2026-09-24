@@ -46,7 +46,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -85,7 +85,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -131,7 +131,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -170,7 +170,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -216,7 +216,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -255,7 +255,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -301,8 +301,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Button from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@corensystem/core-ui/button\".",
+            "reason": "Barrel import of Button from \"@corensystem/coren-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@corensystem/coren-ui/button\".",
             "source": "fm-prim-1"
           },
           {
@@ -340,7 +340,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -386,7 +386,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -425,7 +425,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -471,7 +471,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -510,7 +510,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -556,7 +556,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -595,7 +595,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -641,8 +641,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Card from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Card } from \"@corensystem/core-ui/card\".",
+            "reason": "Barrel import of Card from \"@corensystem/coren-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Card } from \"@corensystem/coren-ui/card\".",
             "source": "fm-prim-1"
           },
           {
@@ -680,7 +680,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -726,8 +726,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Card, Dialog from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Card } from \"@corensystem/core-ui/card\".",
+            "reason": "Barrel import of Card, Dialog from \"@corensystem/coren-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Card } from \"@corensystem/coren-ui/card\".",
             "source": "fm-prim-1"
           },
           {
@@ -765,7 +765,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },
@@ -811,8 +811,8 @@
           {
             "metric": "imports",
             "pass": false,
-            "reason": "Barrel import of Button from \"@corensystem/core-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
-            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@corensystem/core-ui/button\".",
+            "reason": "Barrel import of Button from \"@corensystem/coren-ui\" — the barrel only re-exports types/services, so these are undefined at runtime.",
+            "suggestedFix": "Use the deep path, e.g. import { Button } from \"@corensystem/coren-ui/button\".",
             "source": "fm-prim-1"
           },
           {
@@ -850,7 +850,7 @@
           {
             "metric": "imports",
             "pass": true,
-            "reason": "All @corensystem/core-ui imports use valid deep subpaths.",
+            "reason": "All @corensystem/coren-ui imports use valid deep subpaths.",
             "suggestedFix": "",
             "source": "packages/components/package.json#exports"
           },

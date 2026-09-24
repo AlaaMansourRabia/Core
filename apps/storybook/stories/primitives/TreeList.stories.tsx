@@ -1,7 +1,7 @@
-import type {TreeListItem} from "@corensystem/core-ui/tree-list";
+import type {TreeListItem} from "@corensystem/coren-ui/tree-list";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {TreeList} from "@corensystem/core-ui/tree-list";
+import {TreeList} from "@corensystem/coren-ui/tree-list";
 import {Folder, File, FileText, Image} from "lucide-react";
 import {useState} from "react";
 

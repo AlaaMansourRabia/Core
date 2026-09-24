@@ -1,5 +1,5 @@
 {
-	"_comment": "Story-title leaf -> library-index.json catalog name. Single source of truth, consumed by catalog-map.ts (the docs block) and gen-component-pages.mjs (the index links). Each mapping was verified against the component the story actually imports from @corensystem/core-ui. Checked first, before exact/normalized matching, so it can also CORRECT a wrong exact match (e.g. Sidebar).",
+	"_comment": "Story-title leaf -> library-index.json catalog name. Single source of truth, consumed by catalog-map.ts (the docs block) and gen-component-pages.mjs (the index links). Each mapping was verified against the component the story actually imports from @corensystem/coren-ui. Checked first, before exact/normalized matching, so it can also CORRECT a wrong exact match (e.g. Sidebar).",
 
 	"_group_space_case": "Title differs from catalog key only by spacing/casing.",
 	"Canvas Toolbar": "CanvasToolbar",
@@ -22,7 +22,7 @@
 	"Copy Button": "CopyButton",
 	"Prompt Input": "PromptInput",
 
-	"_group_chart_family": "All chart-type pages render the one Chart container (@corensystem/core-ui/chart).",
+	"_group_chart_family": "All chart-type pages render the one Chart container (@corensystem/coren-ui/chart).",
 	"Area Chart": "Chart",
 	"Bar Chart": "Chart",
 	"Funnel Chart": "Chart",
@@ -34,7 +34,7 @@
 	"Scatter Chart": "Chart",
 	"Treemap Chart": "Chart",
 
-	"_group_map_family": "All map pages render the one Map component (@corensystem/core-ui/map).",
+	"_group_map_family": "All map pages render the one Map component (@corensystem/coren-ui/map).",
 	"Default": "Map",
 	"Directions": "Map",
 	"Drawing": "Map",

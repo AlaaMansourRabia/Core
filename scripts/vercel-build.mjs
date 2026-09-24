@@ -23,7 +23,7 @@ function run(cmd, env = {}) {
 run("node scripts/validate-hosted-assets.mjs");
 
 // Shared libraries + the knowledge core (their consumers below resolve the built dist).
-run("pnpm exec nx run-many -t build -p @corensystem/core-ui @corensystem/core-tokens @corensystem/core-utils @corensystem/knowledge");
+run("pnpm exec nx run-many -t build -p @corensystem/coren-ui @corensystem/coren-tokens @corensystem/coren-utils @corensystem/knowledge");
 
 // The app (served at "/") and Storybook (served at "/storybook/", opened in a new tab).
 run("pnpm --filter apps-web build");

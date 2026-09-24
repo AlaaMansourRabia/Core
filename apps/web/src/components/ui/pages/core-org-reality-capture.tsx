@@ -1,1 +1,1 @@
-export {OrgRealityCapture} from "@corensystem/core-ui/pages/core-org-reality-capture";
+export {OrgRealityCapture} from "@corensystem/coren-ui/pages/core-org-reality-capture";

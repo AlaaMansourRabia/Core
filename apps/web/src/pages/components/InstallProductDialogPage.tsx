@@ -1,6 +1,6 @@
-import {WC3_INSTALLS} from "@corensystem/core-ui/pages/wc3-lineage-data";
-import {WC3_PRODUCTS} from "@corensystem/core-ui/pages/wc3-product-data";
-import {WC3_PERSONAS} from "@corensystem/core-ui/pages/wc3-product-shared";
+import {WC3_INSTALLS} from "@corensystem/coren-ui/pages/wc3-lineage-data";
+import {WC3_PRODUCTS} from "@corensystem/coren-ui/pages/wc3-product-data";
+import {WC3_PERSONAS} from "@corensystem/coren-ui/pages/wc3-product-shared";
 import * as React from "react";
 
 import {Button} from "@/components/ui/button";

@@ -1,6 +1,6 @@
 import type {ColumnDef} from "@tanstack/react-table";
 
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {ArrowLeft, Bolt, Circle, CircleCheck, Link2, Plus, Share2, Trash2, TriangleAlert} from "lucide-react";
 import {useEffect, useMemo, useState} from "react";
 

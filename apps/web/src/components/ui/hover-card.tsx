@@ -1,1 +1,1 @@
-export {HoverCard, HoverCardTrigger, HoverCardContent} from "@corensystem/core-ui/hover-card";
+export {HoverCard, HoverCardTrigger, HoverCardContent} from "@corensystem/coren-ui/hover-card";

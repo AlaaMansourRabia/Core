@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {useEffect, useRef, useState} from "react";
 
 import {villaColorMap} from "./data/villa-progress";

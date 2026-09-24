@@ -14,7 +14,7 @@
 	},
 	"source": {
 		"path": "packages/components/src/pages/core-project-schedule-cost.tsx",
-		"import": "@corensystem/core-ui/pages/core-project-schedule-cost",
+		"import": "@corensystem/coren-ui/pages/core-project-schedule-cost",
 		"export": "ProjectScheduleCost"
 	},
 	"tags": [
@@ -33,7 +33,7 @@
 		"CoreContentArea"
 	],
 	"requiredProviders": [],
-	"minimalExample": "import {ProjectScheduleCost} from \"@corensystem/core-ui/pages/core-project-schedule-cost\";\n\n<ProjectScheduleCost project={project} />",
+	"minimalExample": "import {ProjectScheduleCost} from \"@corensystem/coren-ui/pages/core-project-schedule-cost\";\n\n<ProjectScheduleCost project={project} />",
 	"lineage": {
 		"origin": "migrated",
 		"authoredBy": "A1 template-variant migration (2026-07)",

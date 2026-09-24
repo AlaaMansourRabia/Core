@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot} from "@corensystem/core-ui/input-otp";
+import {InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot} from "@corensystem/coren-ui/input-otp";
 
 const meta = {
 	title: "Components/Forms/Input OTP",

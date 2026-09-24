@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/spinner.tsx",
-		"import": "@corensystem/core-ui/spinner",
+		"import": "@corensystem/coren-ui/spinner",
 		"export": "Spinner"
 	},
 	"tags": [

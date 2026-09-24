@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/select.tsx",
-		"import": "@corensystem/core-ui/select",
+		"import": "@corensystem/coren-ui/select",
 		"export": "Select"
 	},
 	"tags": [

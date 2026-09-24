@@ -37,7 +37,7 @@ const DETECTORS = [
 		id: "fm-form-3",
 		detect: (c) =>
 			/import\s*\{[^}]*\bForm(?:Field|Item|Control|Label|Message)?\b[^}]*\}\s*from\s*["']react-hook-form["']/.test(c),
-		fix: 'Import Form* components from "@corensystem/core-ui/form", not react-hook-form.',
+		fix: 'Import Form* components from "@corensystem/coren-ui/form", not react-hook-form.',
 	},
 	{
 		id: "fm-form-1",
@@ -57,7 +57,7 @@ const DETECTORS = [
 	{
 		id: "fm-chart-1",
 		detect: (c) => /from\s*["']echarts-for-react["']/.test(c) || usesJsx(c, "ReactECharts"),
-		fix: "Use <ChartContainer> from @corensystem/core-ui/chart instead of ReactECharts directly.",
+		fix: "Use <ChartContainer> from @corensystem/coren-ui/chart instead of ReactECharts directly.",
 	},
 	{
 		id: "fm-tok-1",

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Alert, AlertDescription, AlertTitle} from "@corensystem/core-ui/alert";
+import {Alert, AlertDescription, AlertTitle} from "@corensystem/coren-ui/alert";
 import {AlertCircle, Terminal} from "lucide-react";
 
 const meta = {

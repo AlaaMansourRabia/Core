@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Chip} from "@corensystem/core-ui/chip";
+import {Chip} from "@corensystem/coren-ui/chip";
 import {AtSign, Calendar, FileSpreadsheet, FileText, MapPin, Star, Tag, X} from "lucide-react";
 import {useState} from "react";
 import {expect, userEvent, within} from "storybook/test";

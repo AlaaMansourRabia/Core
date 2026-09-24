@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/link-type-wizard.tsx",
-		"import": "@corensystem/core-ui/new-link-type-dialog",
+		"import": "@corensystem/coren-ui/new-link-type-dialog",
 		"export": "NewLinkTypeDialog"
 	},
 	"tags": [
@@ -115,7 +115,7 @@
 	"forbiddenPlacement": [
 		"inside another dialog"
 	],
-	"minimalExample": "import {NewLinkTypeDialog} from \"@corensystem/core-ui/new-link-type-dialog\";\n\n<NewLinkTypeDialog open={open} onOpenChange={setOpen} objectTypes={options} onCreate={addLinkType} />",
+	"minimalExample": "import {NewLinkTypeDialog} from \"@corensystem/coren-ui/new-link-type-dialog\";\n\n<NewLinkTypeDialog open={open} onOpenChange={setOpen} objectTypes={options} onCreate={addLinkType} />",
 	"evaluationCriteria": [
 		"The foreign key is asked for, not inferred."
 	],

@@ -1,6 +1,6 @@
-import { Button } from "@corensystem/core-ui/button";
-import { Card } from "@corensystem/core-ui/card";
-import { Badge } from "@corensystem/core-ui/badge";
+import { Button } from "@corensystem/coren-ui/button";
+import { Card } from "@corensystem/coren-ui/card";
+import { Badge } from "@corensystem/coren-ui/badge";
 
 export default function App() {
 	return (

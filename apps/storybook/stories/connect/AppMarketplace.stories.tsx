@@ -1,14 +1,14 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@corensystem/core-ui/badge";
-import {Button} from "@corensystem/core-ui/button";
-import {Card} from "@corensystem/core-ui/card";
+import {Badge} from "@corensystem/coren-ui/badge";
+import {Button} from "@corensystem/coren-ui/button";
+import {Card} from "@corensystem/coren-ui/card";
 import {
 	APP_LIFECYCLE_STAGES,
 	APPS,
 	AppDetailsDialog,
 	useAppInstallation,
-} from "@corensystem/core-ui/pages/app-marketplace";
+} from "@corensystem/coren-ui/pages/app-marketplace";
 
 const meta = {
 	title: "Widgets/Connect/App Marketplace",

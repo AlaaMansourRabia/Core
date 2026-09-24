@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Spinner} from "@corensystem/core-ui/spinner";
+import {Spinner} from "@corensystem/coren-ui/spinner";
 
 const meta = {
 	title: "Components/Primitives/Spinner",

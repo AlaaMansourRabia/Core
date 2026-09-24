@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {Input} from "@corensystem/core-ui/input";
-import {Label} from "@corensystem/core-ui/label";
+import {Button} from "@corensystem/coren-ui/button";
+import {Input} from "@corensystem/coren-ui/input";
+import {Label} from "@corensystem/coren-ui/label";
 import {
 	Sheet,
 	SheetClose,
@@ -12,7 +12,7 @@ import {
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
-} from "@corensystem/core-ui/sheet";
+} from "@corensystem/coren-ui/sheet";
 
 // NOTE: triggers are shown closed (deterministic snapshots). Open a Sheet in the live Storybook to
 // see the slide-in panel; the content JSX is visible in the autodocs source for each story.

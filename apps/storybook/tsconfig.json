@@ -9,7 +9,7 @@
 		"erasableSyntaxOnly": true,
 		"baseUrl": "../..",
 		"paths": {
-			"@corensystem/core-ui/*": ["packages/components/src/*"]
+			"@corensystem/coren-ui/*": ["packages/components/src/*"]
 		}
 	},
 	"include": ["stories", ".storybook"]

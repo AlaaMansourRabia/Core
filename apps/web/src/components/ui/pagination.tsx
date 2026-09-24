@@ -6,4 +6,4 @@ export {
 	PaginationLink,
 	PaginationNext,
 	PaginationPrevious,
-} from "@corensystem/core-ui/pagination";
+} from "@corensystem/coren-ui/pagination";

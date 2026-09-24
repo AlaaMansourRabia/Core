@@ -1,2 +1,2 @@
-export {Kbd} from "@corensystem/core-ui/kbd";
-export type {KbdProps} from "@corensystem/core-ui/kbd";
+export {Kbd} from "@corensystem/coren-ui/kbd";
+export type {KbdProps} from "@corensystem/coren-ui/kbd";

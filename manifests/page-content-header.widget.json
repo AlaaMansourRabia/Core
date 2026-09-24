@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/page-content-header.tsx",
-		"import": "@corensystem/core-ui/page-content-header",
+		"import": "@corensystem/coren-ui/page-content-header",
 		"export": "PageContentHeader"
 	},
 	"tags": ["header", "page", "content", "entity", "navigation", "actions", "responsive"],

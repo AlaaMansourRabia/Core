@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {HardHat, type LucideIcon, Ruler, X} from "lucide-react";
 
 // The frosted-glass card shell shared by the inspector's sections (matches the floor inspector).

@@ -9,8 +9,8 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@corensystem/core-tokens": "workspace:*",
-		"@corensystem/core-ui": "workspace:*",
+		"@corensystem/coren-tokens": "workspace:*",
+		"@corensystem/coren-ui": "workspace:*",
 		"echarts": "^6.0.0",
 		"echarts-for-react": "^3.0.6",
 		"lucide-react": "^1.8.0",

@@ -1,4 +1,4 @@
-import {Card, CardContent, CardTitle, Dialog, DialogContent} from "@corensystem/core-ui";
+import {Card, CardContent, CardTitle, Dialog, DialogContent} from "@corensystem/coren-ui";
 
 export function TemplateGallery({templates, open}) {
 	return (

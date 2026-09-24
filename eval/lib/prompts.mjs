@@ -11,14 +11,14 @@ import {resolve, resolvedDigest} from "./resolution.mjs";
 // Shared, arm-agnostic output contract. Both arms get this verbatim.
 const OUTPUT_CONTRACT = [
 	"Respond with a SINGLE self-contained React + TypeScript snippet that implements the request.",
-	"Use @corensystem/core-ui components. Output only one ```tsx code block — no prose before or after.",
+	"Use @corensystem/coren-ui components. Output only one ```tsx code block — no prose before or after.",
 ].join(" ");
 
 // without-skills: just enough to use the library at all (package name + basic usage).
 export function baselineSystem() {
 	return [
-		"You build React UIs for Core products using the @corensystem/core-ui component library.",
-		"Components are imported from @corensystem/core-ui.",
+		"You build React UIs for Core products using the @corensystem/coren-ui component library.",
+		"Components are imported from @corensystem/coren-ui.",
 		OUTPUT_CONTRACT,
 	].join("\n");
 }
@@ -106,15 +106,15 @@ export {OUTPUT_CONTRACT};
 // real developer reads (so deep-path imports are *discoverable* — not a hidden convention).
 
 const CORE = [
-	"You build React UIs for Core products using the @corensystem/core-ui component library.",
+	"You build React UIs for Core products using the @corensystem/coren-ui component library.",
 	OUTPUT_CONTRACT,
 ].join("\n");
 
 // Neutral, factual package usage — what package.json + README already tell any developer.
 // Deliberately does NOT editorialize "never use the barrel" (that is the catalog's job, in A2+).
 const INSTALL_NOTE = [
-	"Install `@corensystem/core-ui` and `@corensystem/core-tokens` from GitHub Packages.",
-	'Import the tokens stylesheet once at the app root: `import "@corensystem/core-tokens";`.',
+	"Install `@corensystem/coren-ui` and `@corensystem/coren-tokens` from GitHub Packages.",
+	'Import the tokens stylesheet once at the app root: `import "@corensystem/coren-tokens";`.',
 	"Each component is published as its own subpath export (the full list of valid import paths follows).",
 ].join("\n");
 

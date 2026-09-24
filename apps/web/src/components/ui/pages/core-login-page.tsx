@@ -1,1 +1,1 @@
-export {LoginPage} from "@corensystem/core-ui/pages/core-login-page";
+export {LoginPage} from "@corensystem/coren-ui/pages/core-login-page";

@@ -2,4 +2,4 @@ export {
 	CommentComposer,
 	type CommentComposerProps,
 	type CommentToolbarAction,
-} from "@corensystem/core-ui/comment-composer";
+} from "@corensystem/coren-ui/comment-composer";

@@ -211,7 +211,7 @@ export function TemplatePartsReviewPage() {
 				<h1 className="wwc:text-3xl wwc:font-bold">Template Parts — Now Components</h1>
 				<p className="wwc:mt-2 wwc:max-w-3xl wwc:text-muted-foreground">
 					The extracted pieces of Blueprint Viewer #3 and the 3D Model Viewer, each rendered via its{" "}
-					<span className="wwc:font-semibold wwc:text-emerald-700">real new @corensystem/core-ui component</span>.
+					<span className="wwc:font-semibold wwc:text-emerald-700">real new @corensystem/coren-ui component</span>.
 					Pieces 4 &amp; 5 were{" "}
 					<span className="wwc:font-semibold wwc:text-muted-foreground">not part of this extraction</span> and stay
 					hand-rolled (shown for context).

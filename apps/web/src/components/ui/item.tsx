@@ -1,1 +1,1 @@
-export {Item, ItemContent, ItemTitle, ItemDescription} from "@corensystem/core-ui/item";
+export {Item, ItemContent, ItemTitle, ItemDescription} from "@corensystem/coren-ui/item";

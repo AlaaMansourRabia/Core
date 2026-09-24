@@ -10,8 +10,8 @@ import {
 	AlertDialogHeader,
 	AlertDialogTitle,
 	AlertDialogTrigger,
-} from "@corensystem/core-ui/alert-dialog";
-import {Button} from "@corensystem/core-ui/button";
+} from "@corensystem/coren-ui/alert-dialog";
+import {Button} from "@corensystem/coren-ui/button";
 import {expect, fn, screen, userEvent, waitFor, within} from "storybook/test";
 
 const meta = {

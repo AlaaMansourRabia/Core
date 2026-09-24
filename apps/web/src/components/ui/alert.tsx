@@ -1,1 +1,1 @@
-export {Alert, AlertTitle, AlertDescription} from "@corensystem/core-ui/alert";
+export {Alert, AlertTitle, AlertDescription} from "@corensystem/coren-ui/alert";

@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import * as TogglePrimitive from "@radix-ui/react-toggle";
 import {type VariantProps, cva} from "class-variance-authority";
 import {Check, FileText, X} from "lucide-react";

@@ -1,1 +1,1 @@
-export {Switch} from "@corensystem/core-ui/switch";
+export {Switch} from "@corensystem/coren-ui/switch";

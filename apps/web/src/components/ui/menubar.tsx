@@ -15,4 +15,4 @@ export {
 	MenubarGroup,
 	MenubarSub,
 	MenubarShortcut,
-} from "@corensystem/core-ui/menubar";
+} from "@corensystem/coren-ui/menubar";

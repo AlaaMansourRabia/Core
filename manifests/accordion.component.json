@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/accordion.tsx",
-		"import": "@corensystem/core-ui/accordion",
+		"import": "@corensystem/coren-ui/accordion",
 		"export": "Accordion"
 	},
 	"tags": [

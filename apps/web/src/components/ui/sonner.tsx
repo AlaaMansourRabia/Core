@@ -1,1 +1,1 @@
-export {Toaster} from "@corensystem/core-ui/sonner";
+export {Toaster} from "@corensystem/coren-ui/sonner";

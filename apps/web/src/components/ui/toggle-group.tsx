@@ -1,1 +1,1 @@
-export {ToggleGroup, ToggleGroupItem} from "@corensystem/core-ui/toggle-group";
+export {ToggleGroup, ToggleGroupItem} from "@corensystem/coren-ui/toggle-group";

@@ -1,10 +1,10 @@
 import type * as React from "react";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@corensystem/core-ui/badge";
-import {Button} from "@corensystem/core-ui/button";
-import {Progress} from "@corensystem/core-ui/progress";
-import {cn} from "@corensystem/core-utils";
+import {Badge} from "@corensystem/coren-ui/badge";
+import {Button} from "@corensystem/coren-ui/button";
+import {Progress} from "@corensystem/coren-ui/progress";
+import {cn} from "@corensystem/coren-utils";
 import {Check} from "lucide-react";
 
 type StepStatus = "completed" | "in-progress" | "not-started";

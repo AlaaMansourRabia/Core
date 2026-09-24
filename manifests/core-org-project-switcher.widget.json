@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/navigation/core-org-project-switcher.tsx",
-		"import": "@corensystem/core-ui/navigation/core-org-project-switcher"
+		"import": "@corensystem/coren-ui/navigation/core-org-project-switcher"
 	},
 	"tags": [
 		"switcher",

@@ -2,13 +2,13 @@
 	"_generated": "GENERATED from manifests/ — do NOT edit by hand. Edit the manifest, run `pnpm generate:catalog`; CI enforces sync via `pnpm validate:manifests`.",
 	"version": "2.0.0",
 	"lastUpdated": "2026-09-19",
-	"description": "Core (@corensystem/core-ui) component & composition index — semantic catalog for agents",
+	"description": "Core (@corensystem/coren-ui) component & composition index — semantic catalog for agents",
 	"components": {
 		"primitives": [
 			{
 				"name": "Button",
 				"path": "packages/components/src/button.tsx",
-				"import": "@corensystem/core-ui/button",
+				"import": "@corensystem/coren-ui/button",
 				"tier": "component",
 				"manifest": "manifests/button.component.json",
 				"manifestStatus": "complete",
@@ -69,7 +69,7 @@
 			{
 				"name": "ButtonGroup",
 				"path": "packages/components/src/button-group.tsx",
-				"import": "@corensystem/core-ui/button-group",
+				"import": "@corensystem/coren-ui/button-group",
 				"tier": "component",
 				"manifest": "manifests/button-group.component.json",
 				"manifestStatus": "complete",
@@ -104,7 +104,7 @@
 			{
 				"name": "Input",
 				"path": "packages/components/src/input.tsx",
-				"import": "@corensystem/core-ui/input",
+				"import": "@corensystem/coren-ui/input",
 				"tier": "component",
 				"manifest": "manifests/input.component.json",
 				"manifestStatus": "complete",
@@ -145,7 +145,7 @@
 			{
 				"name": "InputGroup",
 				"path": "packages/components/src/input-group.tsx",
-				"import": "@corensystem/core-ui/input-group",
+				"import": "@corensystem/coren-ui/input-group",
 				"tier": "component",
 				"manifest": "manifests/input-group.component.json",
 				"manifestStatus": "complete",
@@ -173,7 +173,7 @@
 			{
 				"name": "Textarea",
 				"path": "packages/components/src/textarea.tsx",
-				"import": "@corensystem/core-ui/textarea",
+				"import": "@corensystem/coren-ui/textarea",
 				"tier": "component",
 				"manifest": "manifests/textarea.component.json",
 				"manifestStatus": "complete",
@@ -203,7 +203,7 @@
 			{
 				"name": "Select",
 				"path": "packages/components/src/select.tsx",
-				"import": "@corensystem/core-ui/select",
+				"import": "@corensystem/coren-ui/select",
 				"tier": "component",
 				"manifest": "manifests/select.component.json",
 				"manifestStatus": "complete",
@@ -245,7 +245,7 @@
 			{
 				"name": "Checkbox",
 				"path": "packages/components/src/checkbox.tsx",
-				"import": "@corensystem/core-ui/checkbox",
+				"import": "@corensystem/coren-ui/checkbox",
 				"tier": "component",
 				"manifest": "manifests/checkbox.component.json",
 				"manifestStatus": "complete",
@@ -284,7 +284,7 @@
 			{
 				"name": "RadioGroup",
 				"path": "packages/components/src/radio-group.tsx",
-				"import": "@corensystem/core-ui/radio-group",
+				"import": "@corensystem/coren-ui/radio-group",
 				"tier": "component",
 				"manifest": "manifests/radio-group.component.json",
 				"manifestStatus": "complete",
@@ -325,7 +325,7 @@
 			{
 				"name": "Switch",
 				"path": "packages/components/src/switch.tsx",
-				"import": "@corensystem/core-ui/switch",
+				"import": "@corensystem/coren-ui/switch",
 				"tier": "component",
 				"manifest": "manifests/switch.component.json",
 				"manifestStatus": "complete",
@@ -362,7 +362,7 @@
 			{
 				"name": "Toggle",
 				"path": "packages/components/src/toggle.tsx",
-				"import": "@corensystem/core-ui/toggle",
+				"import": "@corensystem/coren-ui/toggle",
 				"tier": "component",
 				"manifest": "manifests/toggle.component.json",
 				"manifestStatus": "complete",
@@ -408,7 +408,7 @@
 			{
 				"name": "ToggleGroup",
 				"path": "packages/components/src/toggle-group.tsx",
-				"import": "@corensystem/core-ui/toggle-group",
+				"import": "@corensystem/coren-ui/toggle-group",
 				"tier": "component",
 				"manifest": "manifests/toggle-group.component.json",
 				"manifestStatus": "complete",
@@ -453,7 +453,7 @@
 			{
 				"name": "Slider",
 				"path": "packages/components/src/slider.tsx",
-				"import": "@corensystem/core-ui/slider",
+				"import": "@corensystem/coren-ui/slider",
 				"tier": "component",
 				"manifest": "manifests/slider.component.json",
 				"manifestStatus": "complete",
@@ -475,7 +475,7 @@
 			{
 				"name": "Label",
 				"path": "packages/components/src/label.tsx",
-				"import": "@corensystem/core-ui/label",
+				"import": "@corensystem/coren-ui/label",
 				"tier": "component",
 				"manifest": "manifests/label.component.json",
 				"manifestStatus": "complete",
@@ -499,7 +499,7 @@
 			{
 				"name": "Badge",
 				"path": "packages/components/src/badge.tsx",
-				"import": "@corensystem/core-ui/badge",
+				"import": "@corensystem/coren-ui/badge",
 				"tier": "component",
 				"manifest": "manifests/badge.component.json",
 				"manifestStatus": "complete",
@@ -550,7 +550,7 @@
 			{
 				"name": "Avatar",
 				"path": "packages/components/src/avatar.tsx",
-				"import": "@corensystem/core-ui/avatar",
+				"import": "@corensystem/coren-ui/avatar",
 				"tier": "component",
 				"manifest": "manifests/avatar.component.json",
 				"manifestStatus": "complete",
@@ -572,7 +572,7 @@
 			{
 				"name": "Kbd",
 				"path": "packages/components/src/kbd.tsx",
-				"import": "@corensystem/core-ui/kbd",
+				"import": "@corensystem/coren-ui/kbd",
 				"tier": "component",
 				"manifest": "manifests/kbd.component.json",
 				"manifestStatus": "complete",
@@ -593,7 +593,7 @@
 			{
 				"name": "Spinner",
 				"path": "packages/components/src/spinner.tsx",
-				"import": "@corensystem/core-ui/spinner",
+				"import": "@corensystem/coren-ui/spinner",
 				"tier": "component",
 				"manifest": "manifests/spinner.component.json",
 				"manifestStatus": "complete",
@@ -631,7 +631,7 @@
 			{
 				"name": "Progress",
 				"path": "packages/components/src/progress.tsx",
-				"import": "@corensystem/core-ui/progress",
+				"import": "@corensystem/coren-ui/progress",
 				"tier": "component",
 				"manifest": "manifests/progress.component.json",
 				"manifestStatus": "complete",
@@ -659,7 +659,7 @@
 			{
 				"name": "Skeleton",
 				"path": "packages/components/src/skeleton.tsx",
-				"import": "@corensystem/core-ui/skeleton",
+				"import": "@corensystem/coren-ui/skeleton",
 				"tier": "component",
 				"manifest": "manifests/skeleton.component.json",
 				"manifestStatus": "complete",
@@ -695,7 +695,7 @@
 			{
 				"name": "Separator",
 				"path": "packages/components/src/separator.tsx",
-				"import": "@corensystem/core-ui/separator",
+				"import": "@corensystem/coren-ui/separator",
 				"tier": "component",
 				"manifest": "manifests/separator.component.json",
 				"manifestStatus": "complete",
@@ -718,7 +718,7 @@
 			{
 				"name": "Card",
 				"path": "packages/components/src/card.tsx",
-				"import": "@corensystem/core-ui/card",
+				"import": "@corensystem/coren-ui/card",
 				"tier": "component",
 				"manifest": "manifests/card.component.json",
 				"manifestStatus": "complete",
@@ -762,7 +762,7 @@
 			{
 				"name": "Table",
 				"path": "packages/components/src/table.tsx",
-				"import": "@corensystem/core-ui/table",
+				"import": "@corensystem/coren-ui/table",
 				"tier": "component",
 				"manifest": "manifests/table.component.json",
 				"manifestStatus": "complete",
@@ -803,7 +803,7 @@
 			{
 				"name": "DataTable",
 				"path": "packages/components/src/data-table.tsx",
-				"import": "@corensystem/core-ui/data-table",
+				"import": "@corensystem/coren-ui/data-table",
 				"tier": "widget",
 				"manifest": "manifests/data-table.widget.json",
 				"manifestStatus": "complete",
@@ -839,7 +839,7 @@
 			{
 				"name": "Tabs",
 				"path": "packages/components/src/tabs.tsx",
-				"import": "@corensystem/core-ui/tabs",
+				"import": "@corensystem/coren-ui/tabs",
 				"tier": "component",
 				"manifest": "manifests/tabs.component.json",
 				"manifestStatus": "complete",
@@ -896,7 +896,7 @@
 			{
 				"name": "Accordion",
 				"path": "packages/components/src/accordion.tsx",
-				"import": "@corensystem/core-ui/accordion",
+				"import": "@corensystem/coren-ui/accordion",
 				"tier": "component",
 				"manifest": "manifests/accordion.component.json",
 				"manifestStatus": "complete",
@@ -933,7 +933,7 @@
 			{
 				"name": "Collapsible",
 				"path": "packages/components/src/collapsible.tsx",
-				"import": "@corensystem/core-ui/collapsible",
+				"import": "@corensystem/coren-ui/collapsible",
 				"tier": "component",
 				"manifest": "manifests/collapsible.component.json",
 				"manifestStatus": "complete",
@@ -959,7 +959,7 @@
 			{
 				"name": "ScrollArea",
 				"path": "packages/components/src/scroll-area.tsx",
-				"import": "@corensystem/core-ui/scroll-area",
+				"import": "@corensystem/coren-ui/scroll-area",
 				"tier": "component",
 				"manifest": "manifests/scroll-area.component.json",
 				"manifestStatus": "complete",
@@ -980,7 +980,7 @@
 			{
 				"name": "AspectRatio",
 				"path": "packages/components/src/aspect-ratio.tsx",
-				"import": "@corensystem/core-ui/aspect-ratio",
+				"import": "@corensystem/coren-ui/aspect-ratio",
 				"tier": "component",
 				"manifest": "manifests/aspect-ratio.component.json",
 				"manifestStatus": "complete",
@@ -1002,7 +1002,7 @@
 			{
 				"name": "Resizable",
 				"path": "packages/components/src/resizable.tsx",
-				"import": "@corensystem/core-ui/resizable",
+				"import": "@corensystem/coren-ui/resizable",
 				"tier": "component",
 				"manifest": "manifests/resizable.component.json",
 				"manifestStatus": "complete",
@@ -1023,7 +1023,7 @@
 			{
 				"name": "Sidebar",
 				"path": "packages/components/src/sidebar.tsx",
-				"import": "@corensystem/core-ui/sidebar",
+				"import": "@corensystem/coren-ui/sidebar",
 				"tier": "component",
 				"manifest": "manifests/sidebar.component.json",
 				"manifestStatus": "complete",
@@ -1062,7 +1062,7 @@
 			{
 				"name": "Item",
 				"path": "packages/components/src/item.tsx",
-				"import": "@corensystem/core-ui/item",
+				"import": "@corensystem/coren-ui/item",
 				"tier": "component",
 				"manifest": "manifests/item.component.json",
 				"manifestStatus": "complete",
@@ -1095,7 +1095,7 @@
 			{
 				"name": "PushPanel",
 				"path": "packages/components/src/push-panel.tsx",
-				"import": "@corensystem/core-ui/push-panel",
+				"import": "@corensystem/coren-ui/push-panel",
 				"tier": "component",
 				"manifest": "manifests/push-panel.component.json",
 				"manifestStatus": "complete",
@@ -1137,7 +1137,7 @@
 			{
 				"name": "RecordDetailShell",
 				"path": "packages/components/src/record-detail-shell.tsx",
-				"import": "@corensystem/core-ui/record-detail-shell",
+				"import": "@corensystem/coren-ui/record-detail-shell",
 				"tier": "widget",
 				"manifest": "manifests/record-detail-shell.widget.json",
 				"manifestStatus": "complete",
@@ -1174,7 +1174,7 @@
 			{
 				"name": "Dialog",
 				"path": "packages/components/src/dialog.tsx",
-				"import": "@corensystem/core-ui/dialog",
+				"import": "@corensystem/coren-ui/dialog",
 				"tier": "component",
 				"manifest": "manifests/dialog.component.json",
 				"manifestStatus": "complete",
@@ -1234,7 +1234,7 @@
 			{
 				"name": "AlertDialog",
 				"path": "packages/components/src/alert-dialog.tsx",
-				"import": "@corensystem/core-ui/alert-dialog",
+				"import": "@corensystem/coren-ui/alert-dialog",
 				"tier": "component",
 				"manifest": "manifests/alert-dialog.component.json",
 				"manifestStatus": "complete",
@@ -1273,7 +1273,7 @@
 			{
 				"name": "Sheet",
 				"path": "packages/components/src/sheet.tsx",
-				"import": "@corensystem/core-ui/sheet",
+				"import": "@corensystem/coren-ui/sheet",
 				"tier": "component",
 				"manifest": "manifests/sheet.component.json",
 				"manifestStatus": "complete",
@@ -1323,7 +1323,7 @@
 			{
 				"name": "Drawer",
 				"path": "packages/components/src/drawer.tsx",
-				"import": "@corensystem/core-ui/drawer",
+				"import": "@corensystem/coren-ui/drawer",
 				"tier": "component",
 				"manifest": "manifests/drawer.component.json",
 				"manifestStatus": "complete",
@@ -1356,7 +1356,7 @@
 			{
 				"name": "Popover",
 				"path": "packages/components/src/popover.tsx",
-				"import": "@corensystem/core-ui/popover",
+				"import": "@corensystem/coren-ui/popover",
 				"tier": "component",
 				"manifest": "manifests/popover.component.json",
 				"manifestStatus": "complete",
@@ -1404,7 +1404,7 @@
 			{
 				"name": "Tooltip",
 				"path": "packages/components/src/tooltip.tsx",
-				"import": "@corensystem/core-ui/tooltip",
+				"import": "@corensystem/coren-ui/tooltip",
 				"tier": "component",
 				"manifest": "manifests/tooltip.component.json",
 				"manifestStatus": "complete",
@@ -1442,7 +1442,7 @@
 			{
 				"name": "HoverCard",
 				"path": "packages/components/src/hover-card.tsx",
-				"import": "@corensystem/core-ui/hover-card",
+				"import": "@corensystem/coren-ui/hover-card",
 				"tier": "component",
 				"manifest": "manifests/hover-card.component.json",
 				"manifestStatus": "complete",
@@ -1479,7 +1479,7 @@
 			{
 				"name": "DropdownMenu",
 				"path": "packages/components/src/dropdown-menu.tsx",
-				"import": "@corensystem/core-ui/dropdown-menu",
+				"import": "@corensystem/coren-ui/dropdown-menu",
 				"tier": "component",
 				"manifest": "manifests/dropdown-menu.component.json",
 				"manifestStatus": "complete",
@@ -1532,7 +1532,7 @@
 			{
 				"name": "ContextMenu",
 				"path": "packages/components/src/context-menu.tsx",
-				"import": "@corensystem/core-ui/context-menu",
+				"import": "@corensystem/coren-ui/context-menu",
 				"tier": "component",
 				"manifest": "manifests/context-menu.component.json",
 				"manifestStatus": "complete",
@@ -1566,7 +1566,7 @@
 			{
 				"name": "Menubar",
 				"path": "packages/components/src/menubar.tsx",
-				"import": "@corensystem/core-ui/menubar",
+				"import": "@corensystem/coren-ui/menubar",
 				"tier": "component",
 				"manifest": "manifests/menubar.component.json",
 				"manifestStatus": "complete",
@@ -1604,7 +1604,7 @@
 			{
 				"name": "NavigationMenu",
 				"path": "packages/components/src/navigation-menu.tsx",
-				"import": "@corensystem/core-ui/navigation-menu",
+				"import": "@corensystem/coren-ui/navigation-menu",
 				"tier": "component",
 				"manifest": "manifests/navigation-menu.component.json",
 				"manifestStatus": "complete",
@@ -1641,7 +1641,7 @@
 			{
 				"name": "Breadcrumb",
 				"path": "packages/components/src/breadcrumb.tsx",
-				"import": "@corensystem/core-ui/breadcrumb",
+				"import": "@corensystem/coren-ui/breadcrumb",
 				"tier": "component",
 				"manifest": "manifests/breadcrumb.component.json",
 				"manifestStatus": "complete",
@@ -1664,7 +1664,7 @@
 			{
 				"name": "Pagination",
 				"path": "packages/components/src/pagination.tsx",
-				"import": "@corensystem/core-ui/pagination",
+				"import": "@corensystem/coren-ui/pagination",
 				"tier": "component",
 				"manifest": "manifests/pagination.component.json",
 				"manifestStatus": "complete",
@@ -1690,7 +1690,7 @@
 			{
 				"name": "Command",
 				"path": "packages/components/src/command.tsx",
-				"import": "@corensystem/core-ui/command",
+				"import": "@corensystem/coren-ui/command",
 				"tier": "component",
 				"manifest": "manifests/command.component.json",
 				"manifestStatus": "complete",
@@ -1717,7 +1717,7 @@
 			{
 				"name": "CoreContextTabs",
 				"path": "packages/components/src/navigation/core-context-tabs.tsx",
-				"import": "@corensystem/core-ui/navigation/core-context-tabs",
+				"import": "@corensystem/coren-ui/navigation/core-context-tabs",
 				"tier": "widget",
 				"manifest": "manifests/core-context-tabs.widget.json",
 				"manifestStatus": "stub",
@@ -1746,7 +1746,7 @@
 			{
 				"name": "CoreFilterStrip",
 				"path": "packages/components/src/navigation/core-filter-strip.tsx",
-				"import": "@corensystem/core-ui/navigation/core-filter-strip",
+				"import": "@corensystem/coren-ui/navigation/core-filter-strip",
 				"tier": "widget",
 				"manifest": "manifests/core-filter-strip.widget.json",
 				"manifestStatus": "stub",
@@ -1770,7 +1770,7 @@
 			{
 				"name": "CoreDashboardHeader",
 				"path": "packages/components/src/navigation/core-dashboard-header.tsx",
-				"import": "@corensystem/core-ui/navigation/core-dashboard-header",
+				"import": "@corensystem/coren-ui/navigation/core-dashboard-header",
 				"tier": "widget",
 				"manifest": "manifests/core-dashboard-header.widget.json",
 				"manifestStatus": "stub",
@@ -1816,7 +1816,7 @@
 			{
 				"name": "CoreOrgProjectSwitcher",
 				"path": "packages/components/src/navigation/core-org-project-switcher.tsx",
-				"import": "@corensystem/core-ui/navigation/core-org-project-switcher",
+				"import": "@corensystem/coren-ui/navigation/core-org-project-switcher",
 				"tier": "widget",
 				"manifest": "manifests/core-org-project-switcher.widget.json",
 				"manifestStatus": "stub",
@@ -1844,7 +1844,7 @@
 			{
 				"name": "CoreAppSidebar",
 				"path": "packages/components/src/navigation/core-app-sidebar.tsx",
-				"import": "@corensystem/core-ui/navigation/core-app-sidebar",
+				"import": "@corensystem/coren-ui/navigation/core-app-sidebar",
 				"tier": "widget",
 				"manifest": "manifests/core-app-sidebar.widget.json",
 				"manifestStatus": "stub",
@@ -1892,7 +1892,7 @@
 			{
 				"name": "CoreAppTopBar",
 				"path": "packages/components/src/navigation/core-app-top-bar.tsx",
-				"import": "@corensystem/core-ui/navigation/core-app-top-bar",
+				"import": "@corensystem/coren-ui/navigation/core-app-top-bar",
 				"tier": "widget",
 				"manifest": "manifests/core-app-top-bar.widget.json",
 				"manifestStatus": "stub",
@@ -1932,7 +1932,7 @@
 			{
 				"name": "Stepper",
 				"path": "packages/components/src/stepper.tsx",
-				"import": "@corensystem/core-ui/stepper",
+				"import": "@corensystem/coren-ui/stepper",
 				"tier": "component",
 				"manifest": "manifests/stepper.component.json",
 				"manifestStatus": "complete",
@@ -1971,7 +1971,7 @@
 			{
 				"name": "BrowserTabs",
 				"path": "packages/components/src/browser-tabs.tsx",
-				"import": "@corensystem/core-ui/browser-tabs",
+				"import": "@corensystem/coren-ui/browser-tabs",
 				"tier": "component",
 				"manifest": "manifests/browser-tabs.component.json",
 				"manifestStatus": "complete",
@@ -2001,7 +2001,7 @@
 			{
 				"name": "ViewTabBar",
 				"path": "packages/components/src/view-tab-bar.tsx",
-				"import": "@corensystem/core-ui/view-tab-bar",
+				"import": "@corensystem/coren-ui/view-tab-bar",
 				"tier": "component",
 				"manifest": "manifests/view-tab-bar.component.json",
 				"manifestStatus": "complete",
@@ -2039,7 +2039,7 @@
 			{
 				"name": "CatalogueViewToggle",
 				"path": "packages/components/src/catalogue-view-toggle.tsx",
-				"import": "@corensystem/core-ui/catalogue-view-toggle",
+				"import": "@corensystem/coren-ui/catalogue-view-toggle",
 				"tier": "component",
 				"manifest": "manifests/catalogue-view-toggle.component.json",
 				"manifestStatus": "complete",
@@ -2084,7 +2084,7 @@
 			{
 				"name": "Form",
 				"path": "packages/components/src/form.tsx",
-				"import": "@corensystem/core-ui/form",
+				"import": "@corensystem/coren-ui/form",
 				"tier": "component",
 				"manifest": "manifests/form.component.json",
 				"manifestStatus": "complete",
@@ -2128,7 +2128,7 @@
 			{
 				"name": "Field",
 				"path": "packages/components/src/field.tsx",
-				"import": "@corensystem/core-ui/field",
+				"import": "@corensystem/coren-ui/field",
 				"tier": "component",
 				"manifest": "manifests/field.component.json",
 				"manifestStatus": "complete",
@@ -2155,7 +2155,7 @@
 			{
 				"name": "InputOTP",
 				"path": "packages/components/src/input-otp.tsx",
-				"import": "@corensystem/core-ui/input-otp",
+				"import": "@corensystem/coren-ui/input-otp",
 				"tier": "component",
 				"manifest": "manifests/input-otp.component.json",
 				"manifestStatus": "complete",
@@ -2182,7 +2182,7 @@
 			{
 				"name": "Combobox",
 				"path": "packages/components/src/combobox.tsx",
-				"import": "@corensystem/core-ui/combobox",
+				"import": "@corensystem/coren-ui/combobox",
 				"tier": "component",
 				"manifest": "manifests/combobox.component.json",
 				"manifestStatus": "complete",
@@ -2218,7 +2218,7 @@
 			{
 				"name": "DatePicker",
 				"path": "packages/components/src/date-picker.tsx",
-				"import": "@corensystem/core-ui/date-picker",
+				"import": "@corensystem/coren-ui/date-picker",
 				"tier": "component",
 				"manifest": "manifests/date-picker.component.json",
 				"manifestStatus": "complete",
@@ -2252,7 +2252,7 @@
 			{
 				"name": "Calendar",
 				"path": "packages/components/src/calendar.tsx",
-				"import": "@corensystem/core-ui/calendar",
+				"import": "@corensystem/coren-ui/calendar",
 				"tier": "component",
 				"manifest": "manifests/calendar.component.json",
 				"manifestStatus": "complete",
@@ -2278,7 +2278,7 @@
 			{
 				"name": "Chip",
 				"path": "packages/components/src/chip.tsx",
-				"import": "@corensystem/core-ui/chip",
+				"import": "@corensystem/coren-ui/chip",
 				"tier": "component",
 				"manifest": "manifests/chip.component.json",
 				"manifestStatus": "complete",
@@ -2326,7 +2326,7 @@
 			{
 				"name": "Filter",
 				"path": "packages/components/src/filter.tsx",
-				"import": "@corensystem/core-ui/filter",
+				"import": "@corensystem/coren-ui/filter",
 				"tier": "widget",
 				"manifest": "manifests/filter.widget.json",
 				"manifestStatus": "stub",
@@ -2366,7 +2366,7 @@
 			{
 				"name": "SearchFilterBar",
 				"path": "packages/components/src/search-filter-bar.tsx",
-				"import": "@corensystem/core-ui/search-filter-bar",
+				"import": "@corensystem/coren-ui/search-filter-bar",
 				"tier": "widget",
 				"manifest": "manifests/search-filter-bar.widget.json",
 				"manifestStatus": "stub",
@@ -2397,7 +2397,7 @@
 			{
 				"name": "FormDialog",
 				"path": "packages/components/src/form-dialog.tsx",
-				"import": "@corensystem/core-ui/form-dialog",
+				"import": "@corensystem/coren-ui/form-dialog",
 				"tier": "widget",
 				"manifest": "manifests/form-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2442,7 +2442,7 @@
 			{
 				"name": "WizardDialog",
 				"path": "packages/components/src/wizard-dialog.tsx",
-				"import": "@corensystem/core-ui/wizard-dialog",
+				"import": "@corensystem/coren-ui/wizard-dialog",
 				"tier": "widget",
 				"manifest": "manifests/wizard-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2485,7 +2485,7 @@
 			{
 				"name": "NewActionTypeDialog",
 				"path": "packages/components/src/pages/wc3-action-type-wizard.tsx",
-				"import": "@corensystem/core-ui/new-action-type-dialog",
+				"import": "@corensystem/coren-ui/new-action-type-dialog",
 				"tier": "widget",
 				"manifest": "manifests/new-action-type-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2521,7 +2521,7 @@
 			{
 				"name": "NewInterfaceDialog",
 				"path": "packages/components/src/pages/wc3-interface-wizard.tsx",
-				"import": "@corensystem/core-ui/new-interface-dialog",
+				"import": "@corensystem/coren-ui/new-interface-dialog",
 				"tier": "widget",
 				"manifest": "manifests/new-interface-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2554,7 +2554,7 @@
 			{
 				"name": "NewLinkTypeDialog",
 				"path": "packages/components/src/link-type-wizard.tsx",
-				"import": "@corensystem/core-ui/new-link-type-dialog",
+				"import": "@corensystem/coren-ui/new-link-type-dialog",
 				"tier": "widget",
 				"manifest": "manifests/new-link-type-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2588,7 +2588,7 @@
 			{
 				"name": "NewObjectTypeDialog",
 				"path": "packages/components/src/object-type-wizard.tsx",
-				"import": "@corensystem/core-ui/new-object-type-dialog",
+				"import": "@corensystem/coren-ui/new-object-type-dialog",
 				"tier": "widget",
 				"manifest": "manifests/new-object-type-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2623,7 +2623,7 @@
 			{
 				"name": "NewSharedPropertyDialog",
 				"path": "packages/components/src/pages/wc3-shared-property-wizard.tsx",
-				"import": "@corensystem/core-ui/new-shared-property-dialog",
+				"import": "@corensystem/coren-ui/new-shared-property-dialog",
 				"tier": "widget",
 				"manifest": "manifests/new-shared-property-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2656,7 +2656,7 @@
 			{
 				"name": "NewTypeGroupDialog",
 				"path": "packages/components/src/pages/wc3-group-wizard.tsx",
-				"import": "@corensystem/core-ui/new-type-group-dialog",
+				"import": "@corensystem/coren-ui/new-type-group-dialog",
 				"tier": "widget",
 				"manifest": "manifests/new-type-group-dialog.widget.json",
 				"manifestStatus": "complete",
@@ -2690,7 +2690,7 @@
 			{
 				"name": "Alert",
 				"path": "packages/components/src/alert.tsx",
-				"import": "@corensystem/core-ui/alert",
+				"import": "@corensystem/coren-ui/alert",
 				"tier": "component",
 				"manifest": "manifests/alert.component.json",
 				"manifestStatus": "complete",
@@ -2739,7 +2739,7 @@
 			{
 				"name": "Toast",
 				"path": "packages/components/src/toast.tsx",
-				"import": "@corensystem/core-ui/toast",
+				"import": "@corensystem/coren-ui/toast",
 				"tier": "component",
 				"manifest": "manifests/toast.component.json",
 				"manifestStatus": "complete",
@@ -2774,7 +2774,7 @@
 			{
 				"name": "Toaster",
 				"path": "packages/components/src/toaster.tsx",
-				"import": "@corensystem/core-ui/toaster",
+				"import": "@corensystem/coren-ui/toaster",
 				"tier": "utility",
 				"manifest": "manifests/toaster.utility.json",
 				"manifestStatus": "complete",
@@ -2796,7 +2796,7 @@
 			{
 				"name": "useToast",
 				"path": "packages/components/src/use-toast.tsx",
-				"import": "@corensystem/core-ui/use-toast",
+				"import": "@corensystem/coren-ui/use-toast",
 				"tier": "utility",
 				"manifest": "manifests/use-toast.utility.json",
 				"manifestStatus": "complete",
@@ -2822,7 +2822,7 @@
 			{
 				"name": "Sonner",
 				"path": "packages/components/src/sonner.tsx",
-				"import": "@corensystem/core-ui/sonner",
+				"import": "@corensystem/coren-ui/sonner",
 				"tier": "component",
 				"manifest": "manifests/sonner.component.json",
 				"manifestStatus": "complete",
@@ -2864,7 +2864,7 @@
 			{
 				"name": "Empty",
 				"path": "packages/components/src/empty.tsx",
-				"import": "@corensystem/core-ui/empty",
+				"import": "@corensystem/coren-ui/empty",
 				"tier": "component",
 				"manifest": "manifests/empty.component.json",
 				"manifestStatus": "complete",
@@ -2901,7 +2901,7 @@
 			{
 				"name": "ErrorPage",
 				"path": "packages/components/src/error-page.tsx",
-				"import": "@corensystem/core-ui/error-page",
+				"import": "@corensystem/coren-ui/error-page",
 				"tier": "template",
 				"manifest": "manifests/error-page.template.json",
 				"manifestStatus": "complete",
@@ -2937,7 +2937,7 @@
 			{
 				"name": "Banner",
 				"path": "packages/components/src/banner.tsx",
-				"import": "@corensystem/core-ui/banner",
+				"import": "@corensystem/coren-ui/banner",
 				"tier": "component",
 				"manifest": "manifests/banner.component.json",
 				"manifestStatus": "complete",
@@ -2983,7 +2983,7 @@
 			{
 				"name": "Carousel",
 				"path": "packages/components/src/carousel.tsx",
-				"import": "@corensystem/core-ui/carousel",
+				"import": "@corensystem/coren-ui/carousel",
 				"tier": "component",
 				"manifest": "manifests/carousel.component.json",
 				"manifestStatus": "complete",
@@ -3005,7 +3005,7 @@
 			{
 				"name": "Chart",
 				"path": "packages/components/src/chart.tsx",
-				"import": "@corensystem/core-ui/chart",
+				"import": "@corensystem/coren-ui/chart",
 				"tier": "widget",
 				"manifest": "manifests/chart.widget.json",
 				"manifestStatus": "complete",
@@ -3047,7 +3047,7 @@
 			{
 				"name": "TrendChart",
 				"path": "packages/components/src/trend-chart.tsx",
-				"import": "@corensystem/core-ui/trend-chart",
+				"import": "@corensystem/coren-ui/trend-chart",
 				"tier": "widget",
 				"manifest": "manifests/trend-chart.widget.json",
 				"manifestStatus": "complete",
@@ -3096,7 +3096,7 @@
 			{
 				"name": "Typography",
 				"path": "packages/components/src/typography.tsx",
-				"import": "@corensystem/core-ui/typography",
+				"import": "@corensystem/coren-ui/typography",
 				"tier": "component",
 				"manifest": "manifests/typography.component.json",
 				"manifestStatus": "complete",
@@ -3118,7 +3118,7 @@
 			{
 				"name": "Gantt",
 				"path": "packages/components/src/gantt.tsx",
-				"import": "@corensystem/core-ui/gantt",
+				"import": "@corensystem/coren-ui/gantt",
 				"tier": "widget",
 				"manifest": "manifests/gantt.widget.json",
 				"manifestStatus": "stub",
@@ -3141,7 +3141,7 @@
 			{
 				"name": "Map",
 				"path": "packages/components/src/map.tsx",
-				"import": "@corensystem/core-ui/map",
+				"import": "@corensystem/coren-ui/map",
 				"tier": "widget",
 				"manifest": "manifests/map.widget.json",
 				"manifestStatus": "stub",
@@ -3166,7 +3166,7 @@
 			{
 				"name": "MapControls",
 				"path": "packages/components/src/map-controls.tsx",
-				"import": "@corensystem/core-ui/map-controls",
+				"import": "@corensystem/coren-ui/map-controls",
 				"tier": "widget",
 				"manifest": "manifests/map-controls.widget.json",
 				"manifestStatus": "stub",
@@ -3191,7 +3191,7 @@
 			{
 				"name": "TreeRow",
 				"path": "packages/components/src/tree-row.tsx",
-				"import": "@corensystem/core-ui/tree-row",
+				"import": "@corensystem/coren-ui/tree-row",
 				"tier": "component",
 				"manifest": "manifests/tree-row.component.json",
 				"manifestStatus": "complete",
@@ -3224,7 +3224,7 @@
 			{
 				"name": "CalendarView",
 				"path": "packages/components/src/calendar-view.tsx",
-				"import": "@corensystem/core-ui/calendar-view",
+				"import": "@corensystem/coren-ui/calendar-view",
 				"tier": "widget",
 				"manifest": "manifests/calendar-view.widget.json",
 				"manifestStatus": "stub",
@@ -3255,7 +3255,7 @@
 			{
 				"name": "ActivityLog",
 				"path": "packages/components/src/activity-log.tsx",
-				"import": "@corensystem/core-ui/activity-log",
+				"import": "@corensystem/coren-ui/activity-log",
 				"tier": "widget",
 				"manifest": "manifests/activity-log.widget.json",
 				"manifestStatus": "stub",
@@ -3280,7 +3280,7 @@
 			{
 				"name": "ActivitySheet",
 				"path": "packages/components/src/activity-sheet.tsx",
-				"import": "@corensystem/core-ui/activity-sheet",
+				"import": "@corensystem/coren-ui/activity-sheet",
 				"tier": "widget",
 				"manifest": "manifests/activity-sheet.widget.json",
 				"manifestStatus": "stub",
@@ -3317,7 +3317,7 @@
 			{
 				"name": "PropertyList",
 				"path": "packages/components/src/property-list.tsx",
-				"import": "@corensystem/core-ui/property-list",
+				"import": "@corensystem/coren-ui/property-list",
 				"tier": "component",
 				"manifest": "manifests/property-list.component.json",
 				"manifestStatus": "complete",
@@ -3342,7 +3342,7 @@
 			{
 				"name": "WorkItemCard",
 				"path": "packages/components/src/work-item-card.tsx",
-				"import": "@corensystem/core-ui/work-item-card",
+				"import": "@corensystem/coren-ui/work-item-card",
 				"tier": "widget",
 				"manifest": "manifests/work-item-card.widget.json",
 				"manifestStatus": "stub",
@@ -3368,7 +3368,7 @@
 			{
 				"name": "MetricCard",
 				"path": "packages/components/src/metric-card.tsx",
-				"import": "@corensystem/core-ui/metric-card",
+				"import": "@corensystem/coren-ui/metric-card",
 				"tier": "widget",
 				"manifest": "manifests/metric-card.widget.json",
 				"manifestStatus": "complete",
@@ -3400,7 +3400,7 @@
 			{
 				"name": "KPISummary",
 				"path": "packages/components/src/kpi-summary.tsx",
-				"import": "@corensystem/core-ui/kpi-summary",
+				"import": "@corensystem/coren-ui/kpi-summary",
 				"tier": "widget",
 				"manifest": "manifests/kpi-summary.widget.json",
 				"manifestStatus": "complete",
@@ -3436,7 +3436,7 @@
 			{
 				"name": "KPIBar",
 				"path": "packages/components/src/kpi-bar.tsx",
-				"import": "@corensystem/core-ui/kpi-bar",
+				"import": "@corensystem/coren-ui/kpi-bar",
 				"tier": "widget",
 				"manifest": "manifests/kpi-bar.widget.json",
 				"manifestStatus": "complete",
@@ -3473,7 +3473,7 @@
 			{
 				"name": "CanvasToolbar",
 				"path": "packages/components/src/canvas-toolbar.tsx",
-				"import": "@corensystem/core-ui/canvas-toolbar",
+				"import": "@corensystem/coren-ui/canvas-toolbar",
 				"tier": "widget",
 				"manifest": "manifests/canvas-toolbar.widget.json",
 				"manifestStatus": "stub",
@@ -3497,7 +3497,7 @@
 			{
 				"name": "DrawingActions",
 				"path": "packages/components/src/drawing-actions.tsx",
-				"import": "@corensystem/core-ui/drawing-actions",
+				"import": "@corensystem/coren-ui/drawing-actions",
 				"tier": "widget",
 				"manifest": "manifests/drawing-actions.widget.json",
 				"manifestStatus": "stub",
@@ -3520,7 +3520,7 @@
 			{
 				"name": "ZoomTools",
 				"path": "packages/components/src/zoom-tools.tsx",
-				"import": "@corensystem/core-ui/zoom-tools",
+				"import": "@corensystem/coren-ui/zoom-tools",
 				"tier": "component",
 				"manifest": "manifests/zoom-tools.component.json",
 				"manifestStatus": "complete",
@@ -3544,7 +3544,7 @@
 			{
 				"name": "CommentThread",
 				"path": "packages/components/src/comment-thread.tsx",
-				"import": "@corensystem/core-ui/comment-thread",
+				"import": "@corensystem/coren-ui/comment-thread",
 				"tier": "widget",
 				"manifest": "manifests/comment-thread.widget.json",
 				"manifestStatus": "stub",
@@ -3567,7 +3567,7 @@
 			{
 				"name": "CommentComposer",
 				"path": "packages/components/src/comment-composer.tsx",
-				"import": "@corensystem/core-ui/comment-composer",
+				"import": "@corensystem/coren-ui/comment-composer",
 				"tier": "widget",
 				"manifest": "manifests/comment-composer.widget.json",
 				"manifestStatus": "stub",
@@ -3593,7 +3593,7 @@
 			{
 				"name": "InlineCommentComposer",
 				"path": "packages/components/src/inline-comment-composer.tsx",
-				"import": "@corensystem/core-ui/inline-comment-composer",
+				"import": "@corensystem/coren-ui/inline-comment-composer",
 				"tier": "widget",
 				"manifest": "manifests/inline-comment-composer.widget.json",
 				"manifestStatus": "stub",
@@ -3621,7 +3621,7 @@
 			{
 				"name": "CopyButton",
 				"path": "packages/components/src/copy-button.tsx",
-				"import": "@corensystem/core-ui/copy-button",
+				"import": "@corensystem/coren-ui/copy-button",
 				"tier": "component",
 				"manifest": "manifests/copy-button.component.json",
 				"manifestStatus": "complete",
@@ -3642,7 +3642,7 @@
 			{
 				"name": "SetupStepsChecklist",
 				"path": "packages/components/src/setup-steps-checklist.tsx",
-				"import": "@corensystem/core-ui/setup-steps-checklist",
+				"import": "@corensystem/coren-ui/setup-steps-checklist",
 				"tier": "widget",
 				"manifest": "manifests/setup-steps-checklist.widget.json",
 				"manifestStatus": "stub",
@@ -3668,7 +3668,7 @@
 			{
 				"name": "BuildingProgress",
 				"path": "packages/components/src/building-progress.tsx",
-				"import": "@corensystem/core-ui/building-progress",
+				"import": "@corensystem/coren-ui/building-progress",
 				"tier": "widget",
 				"manifest": "manifests/building-progress.widget.json",
 				"manifestStatus": "stub",
@@ -3688,7 +3688,7 @@
 			{
 				"name": "CanvasFilePicker",
 				"path": "packages/components/src/canvas-file-picker.tsx",
-				"import": "@corensystem/core-ui/canvas-file-picker",
+				"import": "@corensystem/coren-ui/canvas-file-picker",
 				"tier": "component",
 				"manifest": "manifests/canvas-file-picker.component.json",
 				"manifestStatus": "stub",
@@ -3709,7 +3709,7 @@
 			{
 				"name": "CanvasNavigator",
 				"path": "packages/components/src/canvas-navigator.tsx",
-				"import": "@corensystem/core-ui/canvas-navigator",
+				"import": "@corensystem/coren-ui/canvas-navigator",
 				"tier": "widget",
 				"manifest": "manifests/canvas-navigator.widget.json",
 				"manifestStatus": "stub",
@@ -3730,7 +3730,7 @@
 			{
 				"name": "CompareView",
 				"path": "packages/components/src/compare-view.tsx",
-				"import": "@corensystem/core-ui/compare-view",
+				"import": "@corensystem/coren-ui/compare-view",
 				"tier": "widget",
 				"manifest": "manifests/compare-view.widget.json",
 				"manifestStatus": "stub",
@@ -3749,7 +3749,7 @@
 			{
 				"name": "Legend",
 				"path": "packages/components/src/legend.tsx",
-				"import": "@corensystem/core-ui/legend",
+				"import": "@corensystem/coren-ui/legend",
 				"tier": "component",
 				"manifest": "manifests/legend.component.json",
 				"manifestStatus": "stub",
@@ -3770,13 +3770,13 @@
 			{
 				"name": "MapCompareLayout",
 				"path": "packages/components/src/map-compare-layout.tsx",
-				"import": "@corensystem/core-ui/map-compare-layout",
+				"import": "@corensystem/coren-ui/map-compare-layout",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "MapCompass",
 				"path": "packages/components/src/map-compass.tsx",
-				"import": "@corensystem/core-ui/map-compass",
+				"import": "@corensystem/coren-ui/map-compass",
 				"tier": "component",
 				"manifest": "manifests/map-compass.component.json",
 				"manifestStatus": "stub",
@@ -3796,7 +3796,7 @@
 			{
 				"name": "MapMinimap",
 				"path": "packages/components/src/map-minimap.tsx",
-				"import": "@corensystem/core-ui/map-minimap",
+				"import": "@corensystem/coren-ui/map-minimap",
 				"tier": "component",
 				"manifest": "manifests/map-minimap.component.json",
 				"manifestStatus": "stub",
@@ -3816,7 +3816,7 @@
 			{
 				"name": "MapToolbar",
 				"path": "packages/components/src/map-toolbar.tsx",
-				"import": "@corensystem/core-ui/map-toolbar",
+				"import": "@corensystem/coren-ui/map-toolbar",
 				"tier": "widget",
 				"manifest": "manifests/map-toolbar.widget.json",
 				"manifestStatus": "stub",
@@ -3836,13 +3836,13 @@
 			{
 				"name": "ObjectDrawingToolbar",
 				"path": "packages/components/src/object-drawing-toolbar.tsx",
-				"import": "@corensystem/core-ui/object-drawing-toolbar",
+				"import": "@corensystem/coren-ui/object-drawing-toolbar",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "ProgressComparison",
 				"path": "packages/components/src/progress-comparison.tsx",
-				"import": "@corensystem/core-ui/progress-comparison",
+				"import": "@corensystem/coren-ui/progress-comparison",
 				"tier": "widget",
 				"manifest": "manifests/progress-comparison.widget.json",
 				"manifestStatus": "stub",
@@ -3862,7 +3862,7 @@
 			{
 				"name": "TimelineRangeSelector",
 				"path": "packages/components/src/timeline-range-selector.tsx",
-				"import": "@corensystem/core-ui/timeline-range-selector",
+				"import": "@corensystem/coren-ui/timeline-range-selector",
 				"tier": "component",
 				"manifest": "manifests/timeline-range-selector.component.json",
 				"manifestStatus": "stub",
@@ -3882,7 +3882,7 @@
 			{
 				"name": "TimestampPicker",
 				"path": "packages/components/src/timestamp-picker.tsx",
-				"import": "@corensystem/core-ui/timestamp-picker",
+				"import": "@corensystem/coren-ui/timestamp-picker",
 				"tier": "component",
 				"manifest": "manifests/timestamp-picker.component.json",
 				"manifestStatus": "stub",
@@ -3902,7 +3902,7 @@
 			{
 				"name": "Toolbar",
 				"path": "packages/components/src/toolbar.tsx",
-				"import": "@corensystem/core-ui/toolbar",
+				"import": "@corensystem/coren-ui/toolbar",
 				"tier": "component",
 				"manifest": "manifests/toolbar.component.json",
 				"manifestStatus": "stub",
@@ -3922,7 +3922,7 @@
 			{
 				"name": "ToolbarColorPicker",
 				"path": "packages/components/src/toolbar-color-picker.tsx",
-				"import": "@corensystem/core-ui/toolbar-color-picker",
+				"import": "@corensystem/coren-ui/toolbar-color-picker",
 				"tier": "component",
 				"manifest": "manifests/toolbar-color-picker.component.json",
 				"manifestStatus": "stub",
@@ -3942,7 +3942,7 @@
 			{
 				"name": "ToolbarPager",
 				"path": "packages/components/src/toolbar-pager.tsx",
-				"import": "@corensystem/core-ui/toolbar-pager",
+				"import": "@corensystem/coren-ui/toolbar-pager",
 				"tier": "component",
 				"manifest": "manifests/toolbar-pager.component.json",
 				"manifestStatus": "stub",
@@ -3962,7 +3962,7 @@
 			{
 				"name": "ToolbarStats",
 				"path": "packages/components/src/toolbar-stats.tsx",
-				"import": "@corensystem/core-ui/toolbar-stats",
+				"import": "@corensystem/coren-ui/toolbar-stats",
 				"tier": "widget",
 				"manifest": "manifests/toolbar-stats.widget.json",
 				"manifestStatus": "complete",
@@ -3996,7 +3996,7 @@
 			{
 				"name": "VerticalZoomTools",
 				"path": "packages/components/src/vertical-zoom-tools.tsx",
-				"import": "@corensystem/core-ui/vertical-zoom-tools",
+				"import": "@corensystem/coren-ui/vertical-zoom-tools",
 				"tier": "component",
 				"manifest": "manifests/vertical-zoom-tools.component.json",
 				"manifestStatus": "stub",
@@ -4016,7 +4016,7 @@
 			{
 				"name": "WeekSelector",
 				"path": "packages/components/src/week-selector.tsx",
-				"import": "@corensystem/core-ui/week-selector",
+				"import": "@corensystem/coren-ui/week-selector",
 				"tier": "component",
 				"manifest": "manifests/week-selector.component.json",
 				"manifestStatus": "stub",
@@ -4036,7 +4036,7 @@
 			{
 				"name": "FloatingAssistant",
 				"path": "packages/components/src/floating-assistant.tsx",
-				"import": "@corensystem/core-ui/floating-assistant",
+				"import": "@corensystem/coren-ui/floating-assistant",
 				"tier": "widget",
 				"manifest": "manifests/floating-assistant.widget.json",
 				"manifestStatus": "stub",
@@ -4056,7 +4056,7 @@
 			{
 				"name": "SectionPanel",
 				"path": "packages/components/src/section-panel.tsx",
-				"import": "@corensystem/core-ui/section-panel",
+				"import": "@corensystem/coren-ui/section-panel",
 				"tier": "widget",
 				"manifest": "manifests/section-panel.widget.json",
 				"manifestStatus": "complete",
@@ -4092,7 +4092,7 @@
 			{
 				"name": "ContextToolbar",
 				"path": "packages/components/src/context-toolbar.tsx",
-				"import": "@corensystem/core-ui/context-toolbar",
+				"import": "@corensystem/coren-ui/context-toolbar",
 				"tier": "component",
 				"manifest": "manifests/context-toolbar.component.json",
 				"manifestStatus": "complete",
@@ -4141,7 +4141,7 @@
 			{
 				"name": "PageContentHeader",
 				"path": "packages/components/src/page-content-header.tsx",
-				"import": "@corensystem/core-ui/page-content-header",
+				"import": "@corensystem/coren-ui/page-content-header",
 				"tier": "widget",
 				"manifest": "manifests/page-content-header.widget.json",
 				"manifestStatus": "complete",
@@ -4200,7 +4200,7 @@
 			{
 				"name": "PermissionMatrix",
 				"path": "packages/components/src/permission-matrix.tsx",
-				"import": "@corensystem/core-ui/permission-matrix",
+				"import": "@corensystem/coren-ui/permission-matrix",
 				"tier": "widget",
 				"manifest": "manifests/permission-matrix.widget.json",
 				"manifestStatus": "complete",
@@ -4237,7 +4237,7 @@
 			{
 				"name": "SideMenu",
 				"path": "packages/components/src/side-menu.tsx",
-				"import": "@corensystem/core-ui/side-menu",
+				"import": "@corensystem/coren-ui/side-menu",
 				"tier": "widget",
 				"manifest": "manifests/side-menu.widget.json",
 				"manifestStatus": "complete",
@@ -4273,7 +4273,7 @@
 			{
 				"name": "ExportDialog",
 				"path": "packages/components/src/export-dialog.tsx",
-				"import": "@corensystem/core-ui/export-dialog",
+				"import": "@corensystem/coren-ui/export-dialog",
 				"tier": "component",
 				"manifest": "manifests/export-dialog.component.json",
 				"manifestStatus": "complete",
@@ -4316,7 +4316,7 @@
 			{
 				"name": "WorkerProfile",
 				"path": "packages/components/src/worker-profile.tsx",
-				"import": "@corensystem/core-ui/worker-profile",
+				"import": "@corensystem/coren-ui/worker-profile",
 				"tier": "widget",
 				"manifest": "manifests/worker-profile.widget.json",
 				"manifestStatus": "draft",
@@ -4350,7 +4350,7 @@
 			{
 				"name": "AddObservationDialog",
 				"path": "packages/components/src/add-observation-dialog.tsx",
-				"import": "@corensystem/core-ui/add-observation-dialog",
+				"import": "@corensystem/coren-ui/add-observation-dialog",
 				"tier": "widget",
 				"manifest": "manifests/add-observation-dialog.widget.json",
 				"manifestStatus": "stub",
@@ -4371,7 +4371,7 @@
 			{
 				"name": "ConfirmDialog",
 				"path": "packages/components/src/confirm-dialog.tsx",
-				"import": "@corensystem/core-ui/confirm-dialog",
+				"import": "@corensystem/coren-ui/confirm-dialog",
 				"tier": "component",
 				"manifest": "manifests/confirm-dialog.component.json",
 				"manifestStatus": "draft",
@@ -4404,7 +4404,7 @@
 			{
 				"name": "MultiSelect",
 				"path": "packages/components/src/multi-select.tsx",
-				"import": "@corensystem/core-ui/multi-select",
+				"import": "@corensystem/coren-ui/multi-select",
 				"tier": "component",
 				"manifest": "manifests/multi-select.component.json",
 				"manifestStatus": "complete",
@@ -4448,7 +4448,7 @@
 			{
 				"name": "FormActionBar",
 				"path": "packages/components/src/form-action-bar.tsx",
-				"import": "@corensystem/core-ui/form-action-bar",
+				"import": "@corensystem/coren-ui/form-action-bar",
 				"tier": "component",
 				"manifest": "manifests/form-action-bar.component.json",
 				"manifestStatus": "complete",
@@ -4502,7 +4502,7 @@
 			{
 				"name": "WidgetCard",
 				"path": "packages/components/src/widget-card.tsx",
-				"import": "@corensystem/core-ui/widget-card",
+				"import": "@corensystem/coren-ui/widget-card",
 				"tier": "component",
 				"manifest": "manifests/widget-card.component.json",
 				"manifestStatus": "stub",
@@ -4523,7 +4523,7 @@
 			{
 				"name": "FragmentViewer",
 				"path": "packages/components/src/fragment-viewer.tsx",
-				"import": "@corensystem/core-ui/fragment-viewer",
+				"import": "@corensystem/coren-ui/fragment-viewer",
 				"tier": "widget",
 				"manifest": "manifests/fragment-viewer.widget.json",
 				"manifestStatus": "draft",
@@ -4560,7 +4560,7 @@
 			{
 				"name": "ViewerToolbar",
 				"path": "packages/components/src/viewer-toolbar.tsx",
-				"import": "@corensystem/core-ui/viewer-toolbar",
+				"import": "@corensystem/coren-ui/viewer-toolbar",
 				"tier": "widget",
 				"manifest": "manifests/viewer-toolbar.widget.json",
 				"manifestStatus": "draft",
@@ -4598,7 +4598,7 @@
 			{
 				"name": "AddClinicLocationDialog",
 				"path": "packages/components/src/add-clinic-location-dialog.tsx",
-				"import": "@corensystem/core-ui/add-clinic-location-dialog",
+				"import": "@corensystem/coren-ui/add-clinic-location-dialog",
 				"tier": "widget",
 				"manifest": "manifests/add-clinic-location-dialog.widget.json",
 				"manifestStatus": "stub",
@@ -4618,7 +4618,7 @@
 			{
 				"name": "AddClinicVisitDialog",
 				"path": "packages/components/src/add-clinic-visit-dialog.tsx",
-				"import": "@corensystem/core-ui/add-clinic-visit-dialog",
+				"import": "@corensystem/coren-ui/add-clinic-visit-dialog",
 				"tier": "widget",
 				"manifest": "manifests/add-clinic-visit-dialog.widget.json",
 				"manifestStatus": "stub",
@@ -4639,7 +4639,7 @@
 			{
 				"name": "AssignDoctorDialog",
 				"path": "packages/components/src/assign-doctor-dialog.tsx",
-				"import": "@corensystem/core-ui/assign-doctor-dialog",
+				"import": "@corensystem/coren-ui/assign-doctor-dialog",
 				"tier": "widget",
 				"manifest": "manifests/assign-doctor-dialog.widget.json",
 				"manifestStatus": "stub",
@@ -4660,7 +4660,7 @@
 			{
 				"name": "AttentionList",
 				"path": "packages/components/src/attention-list.tsx",
-				"import": "@corensystem/core-ui/attention-list",
+				"import": "@corensystem/coren-ui/attention-list",
 				"tier": "widget",
 				"manifest": "manifests/attention-list.widget.json",
 				"manifestStatus": "stub",
@@ -4681,7 +4681,7 @@
 			{
 				"name": "ProgressStat",
 				"path": "packages/components/src/progress-stat.tsx",
-				"import": "@corensystem/core-ui/progress-stat",
+				"import": "@corensystem/coren-ui/progress-stat",
 				"tier": "component",
 				"manifest": "manifests/progress-stat.component.json",
 				"manifestStatus": "stub",
@@ -4702,7 +4702,7 @@
 			{
 				"name": "RuleRow",
 				"path": "packages/components/src/rule-row.tsx",
-				"import": "@corensystem/core-ui/rule-row",
+				"import": "@corensystem/coren-ui/rule-row",
 				"tier": "component",
 				"manifest": "manifests/rule-row.component.json",
 				"manifestStatus": "stub",
@@ -4723,7 +4723,7 @@
 			{
 				"name": "ScoreGauge",
 				"path": "packages/components/src/score-gauge.tsx",
-				"import": "@corensystem/core-ui/score-gauge",
+				"import": "@corensystem/coren-ui/score-gauge",
 				"tier": "component",
 				"manifest": "manifests/score-gauge.component.json",
 				"manifestStatus": "stub",
@@ -4744,7 +4744,7 @@
 			{
 				"name": "SectionHeader",
 				"path": "packages/components/src/section-header.tsx",
-				"import": "@corensystem/core-ui/section-header",
+				"import": "@corensystem/coren-ui/section-header",
 				"tier": "component",
 				"manifest": "manifests/section-header.component.json",
 				"manifestStatus": "stub",
@@ -4765,7 +4765,7 @@
 			{
 				"name": "BlueprintSegment",
 				"path": "packages/components/src/blueprint-segment.tsx",
-				"import": "@corensystem/core-ui/blueprint-segment",
+				"import": "@corensystem/coren-ui/blueprint-segment",
 				"tier": "component",
 				"manifest": "manifests/blueprint-segment.component.json",
 				"manifestStatus": "complete",
@@ -4797,7 +4797,7 @@
 			{
 				"name": "BuildingModelPlaceholder",
 				"path": "packages/components/src/building-model-placeholder.tsx",
-				"import": "@corensystem/core-ui/building-model-placeholder",
+				"import": "@corensystem/coren-ui/building-model-placeholder",
 				"tier": "component",
 				"manifest": "manifests/building-model-placeholder.component.json",
 				"manifestStatus": "complete",
@@ -4828,7 +4828,7 @@
 			{
 				"name": "CanvasHeader",
 				"path": "packages/components/src/canvas-header.tsx",
-				"import": "@corensystem/core-ui/canvas-header",
+				"import": "@corensystem/coren-ui/canvas-header",
 				"tier": "component",
 				"manifest": "manifests/canvas-header.component.json",
 				"manifestStatus": "complete",
@@ -4862,7 +4862,7 @@
 			{
 				"name": "CaptureRouteMinimap",
 				"path": "packages/components/src/capture-route-minimap.tsx",
-				"import": "@corensystem/core-ui/capture-route-minimap",
+				"import": "@corensystem/coren-ui/capture-route-minimap",
 				"tier": "component",
 				"manifest": "manifests/capture-route-minimap.component.json",
 				"manifestStatus": "complete",
@@ -4895,7 +4895,7 @@
 			{
 				"name": "CompareBars",
 				"path": "packages/components/src/compare-bars.tsx",
-				"import": "@corensystem/core-ui/compare-bars",
+				"import": "@corensystem/coren-ui/compare-bars",
 				"tier": "component",
 				"manifest": "manifests/compare-bars.component.json",
 				"manifestStatus": "complete",
@@ -4927,7 +4927,7 @@
 			{
 				"name": "MilestoneTable",
 				"path": "packages/components/src/milestone-table.tsx",
-				"import": "@corensystem/core-ui/milestone-table",
+				"import": "@corensystem/coren-ui/milestone-table",
 				"tier": "component",
 				"manifest": "manifests/milestone-table.component.json",
 				"manifestStatus": "complete",
@@ -4959,7 +4959,7 @@
 			{
 				"name": "OperationsDrawer",
 				"path": "packages/components/src/operations-drawer.tsx",
-				"import": "@corensystem/core-ui/operations-drawer",
+				"import": "@corensystem/coren-ui/operations-drawer",
 				"tier": "component",
 				"manifest": "manifests/operations-drawer.component.json",
 				"manifestStatus": "complete",
@@ -4994,7 +4994,7 @@
 			{
 				"name": "ProgressListItem",
 				"path": "packages/components/src/progress-list-item.tsx",
-				"import": "@corensystem/core-ui/progress-list-item",
+				"import": "@corensystem/coren-ui/progress-list-item",
 				"tier": "component",
 				"manifest": "manifests/progress-list-item.component.json",
 				"manifestStatus": "complete",
@@ -5028,7 +5028,7 @@
 			{
 				"name": "WalkthroughModal",
 				"path": "packages/components/src/walkthrough-modal.tsx",
-				"import": "@corensystem/core-ui/walkthrough-modal",
+				"import": "@corensystem/coren-ui/walkthrough-modal",
 				"tier": "component",
 				"manifest": "manifests/walkthrough-modal.component.json",
 				"manifestStatus": "complete",
@@ -5061,7 +5061,7 @@
 			{
 				"name": "AppCard",
 				"path": "packages/components/src/app-card.tsx",
-				"import": "@corensystem/core-ui/app-card",
+				"import": "@corensystem/coren-ui/app-card",
 				"tier": "component",
 				"manifest": "manifests/app-card.component.json",
 				"manifestStatus": "stub",
@@ -5081,7 +5081,7 @@
 			{
 				"name": "ImageZoom",
 				"path": "packages/components/src/image-zoom.tsx",
-				"import": "@corensystem/core-ui/image-zoom",
+				"import": "@corensystem/coren-ui/image-zoom",
 				"tier": "component",
 				"manifest": "manifests/image-zoom.component.json",
 				"manifestStatus": "stub",
@@ -5101,7 +5101,7 @@
 			{
 				"name": "TimeScrubber",
 				"path": "packages/components/src/time-scrubber.tsx",
-				"import": "@corensystem/core-ui/time-scrubber",
+				"import": "@corensystem/coren-ui/time-scrubber",
 				"tier": "component",
 				"manifest": "manifests/time-scrubber.component.json",
 				"manifestStatus": "stub",
@@ -5130,7 +5130,7 @@
 			{
 				"name": "TaskMonitor",
 				"path": "packages/components/src/task-monitor.tsx",
-				"import": "@corensystem/core-ui/task-monitor",
+				"import": "@corensystem/coren-ui/task-monitor",
 				"tier": "widget",
 				"manifest": "manifests/task-monitor.widget.json",
 				"manifestStatus": "stub",
@@ -5150,7 +5150,7 @@
 			{
 				"name": "GraphCanvas",
 				"path": "packages/components/src/graph-canvas.tsx",
-				"import": "@corensystem/core-ui/graph-canvas",
+				"import": "@corensystem/coren-ui/graph-canvas",
 				"tier": "widget",
 				"manifest": "manifests/graph-canvas.widget.json",
 				"manifestStatus": "complete",
@@ -5189,7 +5189,7 @@
 			{
 				"name": "AssetListItem",
 				"path": "packages/components/src/asset-list-item.tsx",
-				"import": "@corensystem/core-ui/asset-list-item",
+				"import": "@corensystem/coren-ui/asset-list-item",
 				"tier": "component",
 				"manifest": "manifests/asset-list-item.component.json",
 				"manifestStatus": "complete",
@@ -5224,7 +5224,7 @@
 			{
 				"name": "FloorProgressBar",
 				"path": "packages/components/src/floor-progress-bar.tsx",
-				"import": "@corensystem/core-ui/floor-progress-bar",
+				"import": "@corensystem/coren-ui/floor-progress-bar",
 				"tier": "component",
 				"manifest": "manifests/floor-progress-bar.component.json",
 				"manifestStatus": "stub",
@@ -5244,7 +5244,7 @@
 			{
 				"name": "HouseShape",
 				"path": "packages/components/src/house-shape.tsx",
-				"import": "@corensystem/core-ui/house-shape",
+				"import": "@corensystem/coren-ui/house-shape",
 				"tier": "component",
 				"manifest": "manifests/house-shape.component.json",
 				"manifestStatus": "stub",
@@ -5271,7 +5271,7 @@
 			{
 				"name": "KioskBody",
 				"path": "packages/components/src/kiosk-body.tsx",
-				"import": "@corensystem/core-ui/kiosk-body",
+				"import": "@corensystem/coren-ui/kiosk-body",
 				"tier": "widget",
 				"manifest": "manifests/kiosk-body.widget.json",
 				"manifestStatus": "stub",
@@ -5291,7 +5291,7 @@
 			{
 				"name": "Minimap",
 				"path": "packages/components/src/minimap.tsx",
-				"import": "@corensystem/core-ui/minimap",
+				"import": "@corensystem/coren-ui/minimap",
 				"tier": "component",
 				"manifest": "manifests/minimap.component.json",
 				"manifestStatus": "stub",
@@ -5316,7 +5316,7 @@
 			{
 				"name": "NeighborhoodScene",
 				"path": "packages/components/src/neighborhood-scene.tsx",
-				"import": "@corensystem/core-ui/neighborhood-scene",
+				"import": "@corensystem/coren-ui/neighborhood-scene",
 				"tier": "widget",
 				"manifest": "manifests/neighborhood-scene.widget.json",
 				"manifestStatus": "stub",
@@ -5336,7 +5336,7 @@
 			{
 				"name": "NotificationCenter",
 				"path": "packages/components/src/notification-center.tsx",
-				"import": "@corensystem/core-ui/notification-center",
+				"import": "@corensystem/coren-ui/notification-center",
 				"tier": "widget",
 				"manifest": "manifests/notification-center.widget.json",
 				"manifestStatus": "stub",
@@ -5356,7 +5356,7 @@
 			{
 				"name": "ScheduleWeekBar",
 				"path": "packages/components/src/schedule-week-bar.tsx",
-				"import": "@corensystem/core-ui/schedule-week-bar",
+				"import": "@corensystem/coren-ui/schedule-week-bar",
 				"tier": "widget",
 				"manifest": "manifests/schedule-week-bar.widget.json",
 				"manifestStatus": "stub",
@@ -5377,7 +5377,7 @@
 			{
 				"name": "SingleHouseView",
 				"path": "packages/components/src/single-house-view.tsx",
-				"import": "@corensystem/core-ui/single-house-view",
+				"import": "@corensystem/coren-ui/single-house-view",
 				"tier": "widget",
 				"manifest": "manifests/single-house-view.widget.json",
 				"manifestStatus": "stub",
@@ -5398,7 +5398,7 @@
 			{
 				"name": "StageContent",
 				"path": "packages/components/src/stage-content.tsx",
-				"import": "@corensystem/core-ui/stage-content",
+				"import": "@corensystem/coren-ui/stage-content",
 				"tier": "widget",
 				"manifest": "manifests/stage-content.widget.json",
 				"manifestStatus": "stub",
@@ -5419,7 +5419,7 @@
 			{
 				"name": "WalkthroughTile",
 				"path": "packages/components/src/walkthrough-tile.tsx",
-				"import": "@corensystem/core-ui/walkthrough-tile",
+				"import": "@corensystem/coren-ui/walkthrough-tile",
 				"tier": "widget",
 				"manifest": "manifests/walkthrough-tile.widget.json",
 				"manifestStatus": "stub",
@@ -5439,7 +5439,7 @@
 			{
 				"name": "ObservationsMap",
 				"path": "packages/components/src/observations-map.tsx",
-				"import": "@corensystem/core-ui/observations-map",
+				"import": "@corensystem/coren-ui/observations-map",
 				"tier": "widget",
 				"manifest": "manifests/observations-map.widget.json",
 				"manifestStatus": "stub",
@@ -5502,7 +5502,7 @@
 			{
 				"name": "MapControlPanel",
 				"path": "packages/components/src/map-control-panel.tsx",
-				"import": "@corensystem/core-ui/map-control-panel",
+				"import": "@corensystem/coren-ui/map-control-panel",
 				"tier": "widget",
 				"manifest": "manifests/map-control-panel.widget.json",
 				"manifestStatus": "stub",
@@ -5535,7 +5535,7 @@
 			{
 				"name": "ObservationDetailPanel",
 				"path": "packages/components/src/observation-detail-panel.tsx",
-				"import": "@corensystem/core-ui/observation-detail-panel",
+				"import": "@corensystem/coren-ui/observation-detail-panel",
 				"tier": "widget",
 				"manifest": "manifests/observation-detail-panel.widget.json",
 				"manifestStatus": "stub",
@@ -5570,7 +5570,7 @@
 			{
 				"name": "CameraDetailPanel",
 				"path": "packages/components/src/camera-detail-panel.tsx",
-				"import": "@corensystem/core-ui/camera-detail-panel",
+				"import": "@corensystem/coren-ui/camera-detail-panel",
 				"tier": "widget",
 				"manifest": "manifests/camera-detail-panel.widget.json",
 				"manifestStatus": "stub",
@@ -5607,13 +5607,13 @@
 			{
 				"name": "DetailPanelShell",
 				"path": "packages/components/src/detail-panel-shell.tsx",
-				"import": "@corensystem/core-ui/detail-panel-shell",
+				"import": "@corensystem/coren-ui/detail-panel-shell",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "ResponderDetailPanel",
 				"path": "packages/components/src/responder-detail-panel.tsx",
-				"import": "@corensystem/core-ui/responder-detail-panel",
+				"import": "@corensystem/coren-ui/responder-detail-panel",
 				"tier": "widget",
 				"manifest": "manifests/responder-detail-panel.widget.json",
 				"manifestStatus": "stub",
@@ -5645,7 +5645,7 @@
 			{
 				"name": "ViolationList",
 				"path": "packages/components/src/violation-list.tsx",
-				"import": "@corensystem/core-ui/violation-list",
+				"import": "@corensystem/coren-ui/violation-list",
 				"tier": "component",
 				"manifest": "manifests/violation-list.component.json",
 				"manifestStatus": "complete",
@@ -5674,7 +5674,7 @@
 			{
 				"name": "MapLegend",
 				"path": "packages/components/src/map-legend.tsx",
-				"import": "@corensystem/core-ui/map-legend",
+				"import": "@corensystem/coren-ui/map-legend",
 				"tier": "widget",
 				"manifest": "manifests/map-legend.widget.json",
 				"manifestStatus": "stub",
@@ -5706,7 +5706,7 @@
 			{
 				"name": "MapHoverCard",
 				"path": "packages/components/src/map-hover-card.tsx",
-				"import": "@corensystem/core-ui/map-hover-card",
+				"import": "@corensystem/coren-ui/map-hover-card",
 				"tier": "component",
 				"manifest": "manifests/map-hover-card.component.json",
 				"manifestStatus": "complete",
@@ -5741,7 +5741,7 @@
 			{
 				"name": "NodeGraph",
 				"path": "packages/components/src/node-graph.tsx",
-				"import": "@corensystem/core-ui/node-graph",
+				"import": "@corensystem/coren-ui/node-graph",
 				"tier": "widget",
 				"manifest": "manifests/node-graph.widget.json",
 				"manifestStatus": "complete",
@@ -5787,7 +5787,7 @@
 			{
 				"name": "ProductPackageDetail",
 				"path": "packages/components/src/product-package-detail.tsx",
-				"import": "@corensystem/core-ui/product-package-detail",
+				"import": "@corensystem/coren-ui/product-package-detail",
 				"tier": "widget",
 				"manifest": "manifests/product-package-detail.widget.json",
 				"manifestStatus": "complete",
@@ -5825,7 +5825,7 @@
 			{
 				"name": "FileSystem",
 				"path": "packages/components/src/file-system/file-system.tsx",
-				"import": "@corensystem/core-ui/file-system",
+				"import": "@corensystem/coren-ui/file-system",
 				"tier": "widget",
 				"manifest": "manifests/file-system.widget.json",
 				"manifestStatus": "draft",
@@ -5874,25 +5874,25 @@
 			{
 				"name": "BuildingViewer",
 				"path": "packages/components/src/building-viewer.tsx",
-				"import": "@corensystem/core-ui/building-viewer",
+				"import": "@corensystem/coren-ui/building-viewer",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "MapTransition",
 				"path": "packages/components/src/map-transition.tsx",
-				"import": "@corensystem/core-ui/map-transition",
+				"import": "@corensystem/coren-ui/map-transition",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "ProgressSheet",
 				"path": "packages/components/src/progress-sheet.tsx",
-				"import": "@corensystem/core-ui/progress-sheet",
+				"import": "@corensystem/coren-ui/progress-sheet",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "SiteImageViewer",
 				"path": "packages/components/src/site-image-viewer.tsx",
-				"import": "@corensystem/core-ui/site-image-viewer",
+				"import": "@corensystem/coren-ui/site-image-viewer",
 				"tier": "widget",
 				"manifest": "manifests/site-image-viewer.widget.json",
 				"manifestStatus": "complete",
@@ -5932,13 +5932,13 @@
 			{
 				"name": "SitePanel",
 				"path": "packages/components/src/site-panel.tsx",
-				"import": "@corensystem/core-ui/site-panel",
+				"import": "@corensystem/coren-ui/site-panel",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "SiteToolbar",
 				"path": "packages/components/src/site-toolbar.tsx",
-				"import": "@corensystem/core-ui/site-toolbar",
+				"import": "@corensystem/coren-ui/site-toolbar",
 				"knowledgeLevel": "generated"
 			}
 		],
@@ -5946,7 +5946,7 @@
 			{
 				"name": "CoreChatWidget",
 				"path": "packages/components/src/chat/core-chat-widget.tsx",
-				"import": "@corensystem/core-ui/chat/core-chat-widget",
+				"import": "@corensystem/coren-ui/chat/core-chat-widget",
 				"tier": "widget",
 				"manifest": "manifests/core-chat-widget.widget.json",
 				"manifestStatus": "stub",
@@ -5971,7 +5971,7 @@
 			{
 				"name": "CoreChatPanel",
 				"path": "packages/components/src/chat/core-chat-panel.tsx",
-				"import": "@corensystem/core-ui/chat/core-chat-panel",
+				"import": "@corensystem/coren-ui/chat/core-chat-panel",
 				"tier": "widget",
 				"manifest": "manifests/core-chat-panel.widget.json",
 				"manifestStatus": "stub",
@@ -5998,7 +5998,7 @@
 			{
 				"name": "CoreChatInput",
 				"path": "packages/components/src/chat/core-chat-input.tsx",
-				"import": "@corensystem/core-ui/chat/core-chat-input",
+				"import": "@corensystem/coren-ui/chat/core-chat-input",
 				"tier": "widget",
 				"manifest": "manifests/core-chat-input.widget.json",
 				"manifestStatus": "stub",
@@ -6020,7 +6020,7 @@
 			{
 				"name": "CoreChatMessage",
 				"path": "packages/components/src/chat/core-chat-message.tsx",
-				"import": "@corensystem/core-ui/chat/core-chat-message",
+				"import": "@corensystem/coren-ui/chat/core-chat-message",
 				"tier": "widget",
 				"manifest": "manifests/core-chat-message.widget.json",
 				"manifestStatus": "stub",
@@ -6042,7 +6042,7 @@
 			{
 				"name": "CoreChartRenderer",
 				"path": "packages/components/src/chat/core-chart-renderer.tsx",
-				"import": "@corensystem/core-ui/chat/core-chart-renderer",
+				"import": "@corensystem/coren-ui/chat/core-chart-renderer",
 				"tier": "widget",
 				"manifest": "manifests/core-chart-renderer.widget.json",
 				"manifestStatus": "stub",
@@ -6069,7 +6069,7 @@
 			{
 				"name": "CoreAiChat",
 				"path": "packages/components/src/chat/core-ai-chat.tsx",
-				"import": "@corensystem/core-ui/chat/core-ai-chat",
+				"import": "@corensystem/coren-ui/chat/core-ai-chat",
 				"tier": "widget",
 				"manifest": "manifests/core-ai-chat.widget.json",
 				"manifestStatus": "stub",
@@ -6099,7 +6099,7 @@
 			{
 				"name": "CoreAiChatHeader",
 				"path": "packages/components/src/chat/core-ai-chat-header.tsx",
-				"import": "@corensystem/core-ui/chat/core-ai-chat-header",
+				"import": "@corensystem/coren-ui/chat/core-ai-chat-header",
 				"tier": "widget",
 				"manifest": "manifests/core-ai-chat-header.widget.json",
 				"manifestStatus": "stub",
@@ -6122,7 +6122,7 @@
 			{
 				"name": "CoreAiChatMessage",
 				"path": "packages/components/src/chat/core-ai-chat-message.tsx",
-				"import": "@corensystem/core-ui/chat/core-ai-chat-message",
+				"import": "@corensystem/coren-ui/chat/core-ai-chat-message",
 				"tier": "widget",
 				"manifest": "manifests/core-ai-chat-message.widget.json",
 				"manifestStatus": "stub",
@@ -6145,7 +6145,7 @@
 			{
 				"name": "ToolCall",
 				"path": "packages/components/src/tool-call.tsx",
-				"import": "@corensystem/core-ui/tool-call",
+				"import": "@corensystem/coren-ui/tool-call",
 				"tier": "component",
 				"manifest": "manifests/tool-call.component.json",
 				"manifestStatus": "complete",
@@ -6168,7 +6168,7 @@
 			{
 				"name": "ThinkingPill",
 				"path": "packages/components/src/thinking-pill.tsx",
-				"import": "@corensystem/core-ui/thinking-pill",
+				"import": "@corensystem/coren-ui/thinking-pill",
 				"tier": "component",
 				"manifest": "manifests/thinking-pill.component.json",
 				"manifestStatus": "complete",
@@ -6194,7 +6194,7 @@
 			{
 				"name": "TurnTimer",
 				"path": "packages/components/src/turn-timer.tsx",
-				"import": "@corensystem/core-ui/turn-timer",
+				"import": "@corensystem/coren-ui/turn-timer",
 				"tier": "component",
 				"manifest": "manifests/turn-timer.component.json",
 				"manifestStatus": "complete",
@@ -6215,7 +6215,7 @@
 			{
 				"name": "PromptInput",
 				"path": "packages/components/src/prompt-input.tsx",
-				"import": "@corensystem/core-ui/prompt-input",
+				"import": "@corensystem/coren-ui/prompt-input",
 				"tier": "component",
 				"manifest": "manifests/prompt-input.component.json",
 				"manifestStatus": "complete",
@@ -6243,7 +6243,7 @@
 			{
 				"name": "CoreContentArea",
 				"path": "packages/components/src/pages/core-content-area.tsx",
-				"import": "@corensystem/core-ui/pages/core-content-area",
+				"import": "@corensystem/coren-ui/pages/core-content-area",
 				"tier": "utility",
 				"manifest": "manifests/core-content-area.utility.json",
 				"manifestStatus": "complete",
@@ -6267,7 +6267,7 @@
 			{
 				"name": "CoreLoginPage",
 				"path": "packages/components/src/pages/core-login-page.tsx",
-				"import": "@corensystem/core-ui/pages/core-login-page",
+				"import": "@corensystem/coren-ui/pages/core-login-page",
 				"tier": "template",
 				"manifest": "manifests/login-page.template.json",
 				"manifestStatus": "complete",
@@ -6295,7 +6295,7 @@
 			{
 				"name": "CoreOrgWorkforceIntelligence",
 				"path": "packages/components/src/pages/core-org-workforce-intelligence.tsx",
-				"import": "@corensystem/core-ui/pages/core-org-workforce-intelligence",
+				"import": "@corensystem/coren-ui/pages/core-org-workforce-intelligence",
 				"tier": "template",
 				"manifest": "manifests/core-org-workforce-intelligence.template.json",
 				"manifestStatus": "variant",
@@ -6320,7 +6320,7 @@
 			{
 				"name": "CoreProjectOverview",
 				"path": "packages/components/src/pages/core-project-overview.tsx",
-				"import": "@corensystem/core-ui/pages/core-project-overview",
+				"import": "@corensystem/coren-ui/pages/core-project-overview",
 				"tier": "template",
 				"manifest": "manifests/core-project-overview.template.json",
 				"manifestStatus": "variant",
@@ -6345,7 +6345,7 @@
 			{
 				"name": "CoreProjectRealityCapture",
 				"path": "packages/components/src/pages/core-project-reality-capture.tsx",
-				"import": "@corensystem/core-ui/pages/core-project-reality-capture",
+				"import": "@corensystem/coren-ui/pages/core-project-reality-capture",
 				"tier": "template",
 				"manifest": "manifests/core-project-reality-capture.template.json",
 				"manifestStatus": "variant",
@@ -6369,7 +6369,7 @@
 			{
 				"name": "CoreProjectScheduleCost",
 				"path": "packages/components/src/pages/core-project-schedule-cost.tsx",
-				"import": "@corensystem/core-ui/pages/core-project-schedule-cost",
+				"import": "@corensystem/coren-ui/pages/core-project-schedule-cost",
 				"tier": "template",
 				"manifest": "manifests/core-project-schedule-cost.template.json",
 				"manifestStatus": "variant",
@@ -6394,7 +6394,7 @@
 			{
 				"name": "CoreProjectWorkforceSafety",
 				"path": "packages/components/src/pages/core-project-workforce-safety.tsx",
-				"import": "@corensystem/core-ui/pages/core-project-workforce-safety",
+				"import": "@corensystem/coren-ui/pages/core-project-workforce-safety",
 				"tier": "template",
 				"manifest": "manifests/core-project-workforce-safety.template.json",
 				"manifestStatus": "variant",
@@ -6419,7 +6419,7 @@
 			{
 				"name": "CoreAnalyticsOverview",
 				"path": "packages/components/src/pages/core-analytics-overview.tsx",
-				"import": "@corensystem/core-ui/pages/core-analytics-overview",
+				"import": "@corensystem/coren-ui/pages/core-analytics-overview",
 				"tier": "template",
 				"manifest": "manifests/analytics-overview.template.json",
 				"manifestStatus": "complete",
@@ -6453,7 +6453,7 @@
 			{
 				"name": "CoreDesignCanvas",
 				"path": "packages/components/src/pages/core-design-canvas.tsx",
-				"import": "@corensystem/core-ui/pages/core-design-canvas",
+				"import": "@corensystem/coren-ui/pages/core-design-canvas",
 				"tier": "template",
 				"manifest": "manifests/design-canvas.template.json",
 				"manifestStatus": "complete",
@@ -6487,7 +6487,7 @@
 			{
 				"name": "CoreProjectSetup",
 				"path": "packages/components/src/pages/core-project-setup.tsx",
-				"import": "@corensystem/core-ui/pages/core-project-setup",
+				"import": "@corensystem/coren-ui/pages/core-project-setup",
 				"tier": "template",
 				"manifest": "manifests/project-setup.template.json",
 				"manifestStatus": "complete",
@@ -6520,25 +6520,25 @@
 			{
 				"name": "CoreTaskMonitor",
 				"path": "packages/components/src/pages/core-task-monitor.tsx",
-				"import": "@corensystem/core-ui/pages/core-task-monitor",
+				"import": "@corensystem/coren-ui/pages/core-task-monitor",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreBlueprintViewer",
 				"path": "packages/components/src/pages/core-blueprint-viewer.tsx",
-				"import": "@corensystem/core-ui/pages/core-blueprint-viewer",
+				"import": "@corensystem/coren-ui/pages/core-blueprint-viewer",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreMapCompareLayout",
 				"path": "packages/components/src/pages/core-map-compare-layout.tsx",
-				"import": "@corensystem/core-ui/pages/core-map-compare-layout",
+				"import": "@corensystem/coren-ui/pages/core-map-compare-layout",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreAdminPanel",
 				"path": "packages/components/src/pages/core-admin-panel.tsx",
-				"import": "@corensystem/core-ui/pages/core-admin-panel",
+				"import": "@corensystem/coren-ui/pages/core-admin-panel",
 				"tier": "template",
 				"manifest": "manifests/admin-panel.template.json",
 				"manifestStatus": "complete",
@@ -6576,7 +6576,7 @@
 			{
 				"name": "CoreSafetyManager",
 				"path": "packages/components/src/pages/core-safety-manager.tsx",
-				"import": "@corensystem/core-ui/pages/core-safety-manager",
+				"import": "@corensystem/coren-ui/pages/core-safety-manager",
 				"tier": "template",
 				"manifest": "manifests/safety-manager.template.json",
 				"manifestStatus": "draft",
@@ -6614,7 +6614,7 @@
 			{
 				"name": "CoreWorkforce",
 				"path": "packages/components/src/pages/core-workforce.tsx",
-				"import": "@corensystem/core-ui/pages/core-workforce",
+				"import": "@corensystem/coren-ui/pages/core-workforce",
 				"tier": "template",
 				"manifest": "manifests/workforce.template.json",
 				"manifestStatus": "draft",
@@ -6654,7 +6654,7 @@
 			{
 				"name": "AppInstaller",
 				"path": "packages/components/src/pages/core-app-installer.tsx",
-				"import": "@corensystem/core-ui/pages/core-app-installer",
+				"import": "@corensystem/coren-ui/pages/core-app-installer",
 				"tier": "template",
 				"manifest": "manifests/app-installer.template.json",
 				"manifestStatus": "draft",
@@ -6707,7 +6707,7 @@
 			{
 				"name": "CoreSiteReality",
 				"path": "packages/components/src/pages/core-site-reality.tsx",
-				"import": "@corensystem/core-ui/pages/core-site-reality",
+				"import": "@corensystem/coren-ui/pages/core-site-reality",
 				"tier": "template",
 				"manifest": "manifests/site-reality.template.json",
 				"manifestStatus": "draft",
@@ -6755,7 +6755,7 @@
 			{
 				"name": "CoreClinic",
 				"path": "packages/components/src/pages/core-clinic.tsx",
-				"import": "@corensystem/core-ui/pages/core-clinic",
+				"import": "@corensystem/coren-ui/pages/core-clinic",
 				"tier": "template",
 				"manifest": "manifests/clinic.template.json",
 				"manifestStatus": "draft",
@@ -6802,37 +6802,37 @@
 			{
 				"name": "CoreBlueprintViewer3",
 				"path": "packages/components/src/pages/core-blueprint-viewer-3.tsx",
-				"import": "@corensystem/core-ui/pages/core-blueprint-viewer-3",
+				"import": "@corensystem/coren-ui/pages/core-blueprint-viewer-3",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreProgressDetails",
 				"path": "packages/components/src/pages/core-progress-details.tsx",
-				"import": "@corensystem/core-ui/pages/core-progress-details",
+				"import": "@corensystem/coren-ui/pages/core-progress-details",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreAppInstaller",
 				"path": "packages/components/src/pages/core-app-installer.tsx",
-				"import": "@corensystem/core-ui/pages/core-app-installer",
+				"import": "@corensystem/coren-ui/pages/core-app-installer",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreOrgPerformance",
 				"path": "packages/components/src/pages/core-org-performance.tsx",
-				"import": "@corensystem/core-ui/pages/core-org-performance",
+				"import": "@corensystem/coren-ui/pages/core-org-performance",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreProjectQualityIssues",
 				"path": "packages/components/src/pages/core-project-quality-issues.tsx",
-				"import": "@corensystem/core-ui/pages/core-project-quality-issues",
+				"import": "@corensystem/coren-ui/pages/core-project-quality-issues",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreTimesheet",
 				"path": "packages/components/src/pages/core-timesheet.tsx",
-				"import": "@corensystem/core-ui/pages/core-timesheet",
+				"import": "@corensystem/coren-ui/pages/core-timesheet",
 				"tier": "template",
 				"manifest": "manifests/timesheet.template.json",
 				"manifestStatus": "complete",
@@ -6868,7 +6868,7 @@
 			{
 				"name": "CoreWC3Workspace",
 				"path": "packages/components/src/pages/core-wc3-workspace.tsx",
-				"import": "@corensystem/core-ui/pages/core-wc3-workspace",
+				"import": "@corensystem/coren-ui/pages/core-wc3-workspace",
 				"tier": "template",
 				"manifest": "manifests/wc3-workspace.template.json",
 				"manifestStatus": "complete",
@@ -6915,7 +6915,7 @@
 			{
 				"name": "CoreConnect",
 				"path": "packages/components/src/pages/core-core-connect.tsx",
-				"import": "@corensystem/core-ui/pages/core-core-connect",
+				"import": "@corensystem/coren-ui/pages/core-core-connect",
 				"tier": "template",
 				"manifest": "manifests/core-connect.template.json",
 				"manifestStatus": "draft",
@@ -6975,7 +6975,7 @@
 			{
 				"name": "CoreConnectV3",
 				"path": "packages/components/src/pages/core-core-connect-v3.tsx",
-				"import": "@corensystem/core-ui/pages/core-core-connect-v3",
+				"import": "@corensystem/coren-ui/pages/core-core-connect-v3",
 				"tier": "template",
 				"manifest": "manifests/core-connect-v3.template.json",
 				"manifestStatus": "draft",
@@ -7039,7 +7039,7 @@
 			{
 				"name": "AnalysisWorkbench",
 				"path": "packages/components/src/pages/wc3-analysis-shared.tsx",
-				"import": "@corensystem/core-ui/pages/analysis-workbench",
+				"import": "@corensystem/coren-ui/pages/analysis-workbench",
 				"tier": "widget",
 				"manifest": "manifests/analysis-workbench.widget.json",
 				"manifestStatus": "complete",
@@ -7081,7 +7081,7 @@
 			{
 				"name": "AppMarketplace",
 				"path": "packages/components/src/pages/app-marketplace-shared.tsx",
-				"import": "@corensystem/core-ui/pages/app-marketplace",
+				"import": "@corensystem/coren-ui/pages/app-marketplace",
 				"tier": "widget",
 				"manifest": "manifests/app-marketplace.widget.json",
 				"manifestStatus": "complete",
@@ -7124,7 +7124,7 @@
 			{
 				"name": "CreateProcessDialog",
 				"path": "packages/components/src/pages/wc3-process-create.tsx",
-				"import": "@corensystem/core-ui/pages/create-process-dialog",
+				"import": "@corensystem/coren-ui/pages/create-process-dialog",
 				"tier": "widget",
 				"manifest": "manifests/process-create.widget.json",
 				"manifestStatus": "complete",
@@ -7159,7 +7159,7 @@
 			{
 				"name": "HealthView",
 				"path": "packages/components/src/pages/wc3-health-view.tsx",
-				"import": "@corensystem/core-ui/pages/health-view",
+				"import": "@corensystem/coren-ui/pages/health-view",
 				"tier": "widget",
 				"manifest": "manifests/lint-findings.widget.json",
 				"manifestStatus": "complete",
@@ -7197,7 +7197,7 @@
 			{
 				"name": "InstallProductDialog",
 				"path": "packages/components/src/pages/wc3-product-install-dialog.tsx",
-				"import": "@corensystem/core-ui/pages/install-product-dialog",
+				"import": "@corensystem/coren-ui/pages/install-product-dialog",
 				"tier": "widget",
 				"manifest": "manifests/product-install.widget.json",
 				"manifestStatus": "complete",
@@ -7235,7 +7235,7 @@
 			{
 				"name": "LineageImpactView",
 				"path": "packages/components/src/pages/wc3-lineage-impact-view.tsx",
-				"import": "@corensystem/core-ui/pages/lineage-impact-view",
+				"import": "@corensystem/coren-ui/pages/lineage-impact-view",
 				"tier": "widget",
 				"manifest": "manifests/impact-preview.widget.json",
 				"manifestStatus": "complete",
@@ -7270,7 +7270,7 @@
 			{
 				"name": "RunActionDialog",
 				"path": "packages/components/src/pages/wc3-action-type-run-dialog.tsx",
-				"import": "@corensystem/core-ui/pages/run-action-dialog",
+				"import": "@corensystem/coren-ui/pages/run-action-dialog",
 				"tier": "widget",
 				"manifest": "manifests/action-run.widget.json",
 				"manifestStatus": "complete",
@@ -7305,61 +7305,61 @@
 			{
 				"name": "CoreCoreConnect",
 				"path": "packages/components/src/pages/core-core-connect.tsx",
-				"import": "@corensystem/core-ui/pages/core-core-connect",
+				"import": "@corensystem/coren-ui/pages/core-core-connect",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreCoreConnectV3",
 				"path": "packages/components/src/pages/core-core-connect-v3.tsx",
-				"import": "@corensystem/core-ui/pages/core-core-connect-v3",
+				"import": "@corensystem/coren-ui/pages/core-core-connect-v3",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "ProcessBottlenecks",
 				"path": "packages/components/src/pages/wc3-process-bottlenecks.tsx",
-				"import": "@corensystem/core-ui/pages/process-bottlenecks",
+				"import": "@corensystem/coren-ui/pages/process-bottlenecks",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "Wc3AnalysisObjectView",
 				"path": "packages/components/src/pages/wc3-analysis-object-view.tsx",
-				"import": "@corensystem/core-ui/pages/wc3-analysis-object-view",
+				"import": "@corensystem/coren-ui/pages/wc3-analysis-object-view",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "Wc3ObjectTypeDetail",
 				"path": "packages/components/src/pages/wc3-object-type-detail.tsx",
-				"import": "@corensystem/core-ui/pages/wc3-object-type-detail",
+				"import": "@corensystem/coren-ui/pages/wc3-object-type-detail",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "Wc3OntologyViews",
 				"path": "packages/components/src/pages/wc3-ontology-views.tsx",
-				"import": "@corensystem/core-ui/pages/wc3-ontology-views",
+				"import": "@corensystem/coren-ui/pages/wc3-ontology-views",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "Wc3ProcessShared",
 				"path": "packages/components/src/pages/wc3-process-shared.tsx",
-				"import": "@corensystem/core-ui/pages/wc3-process-shared",
+				"import": "@corensystem/coren-ui/pages/wc3-process-shared",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "Wc3ProductShared",
 				"path": "packages/components/src/pages/wc3-product-shared.tsx",
-				"import": "@corensystem/core-ui/pages/wc3-product-shared",
+				"import": "@corensystem/coren-ui/pages/wc3-product-shared",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreObservationsMapView",
 				"path": "packages/components/src/pages/core-observations-map-view.tsx",
-				"import": "@corensystem/core-ui/pages/core-observations-map-view",
+				"import": "@corensystem/coren-ui/pages/core-observations-map-view",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreWorkPermit",
 				"path": "packages/components/src/pages/core-work-permit.tsx",
-				"import": "@corensystem/core-ui/pages/core-work-permit",
+				"import": "@corensystem/coren-ui/pages/core-work-permit",
 				"tier": "template",
 				"manifest": "manifests/work-permit.template.json",
 				"manifestStatus": "draft",
@@ -7401,31 +7401,31 @@
 			{
 				"name": "WorkPermitTemplates",
 				"path": "packages/components/src/pages/work-permit-templates.tsx",
-				"import": "@corensystem/core-ui/pages/work-permit-templates",
+				"import": "@corensystem/coren-ui/pages/work-permit-templates",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "PermitPolicy",
 				"path": "packages/components/src/pages/wc3-permit-policy.tsx",
-				"import": "@corensystem/core-ui/pages/permit-policy",
+				"import": "@corensystem/coren-ui/pages/permit-policy",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreBuildingViewer",
 				"path": "packages/components/src/pages/core-building-viewer.tsx",
-				"import": "@corensystem/core-ui/pages/core-building-viewer",
+				"import": "@corensystem/coren-ui/pages/core-building-viewer",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "CoreBuildingViewerCapture",
 				"path": "packages/components/src/pages/core-building-viewer-capture.tsx",
-				"import": "@corensystem/core-ui/pages/core-building-viewer-capture",
+				"import": "@corensystem/coren-ui/pages/core-building-viewer-capture",
 				"knowledgeLevel": "generated"
 			},
 			{
 				"name": "StateMachine",
 				"path": "packages/components/src/pages/state-machine.tsx",
-				"import": "@corensystem/core-ui/pages/state-machine",
+				"import": "@corensystem/coren-ui/pages/state-machine",
 				"tier": "widget",
 				"manifest": "manifests/state-machine.widget.json",
 				"manifestStatus": "complete",
@@ -7474,7 +7474,7 @@
 			{
 				"name": "CaptureUiEnhanced",
 				"path": "packages/components/src/pages/capture-ui-enhanced.tsx",
-				"import": "@corensystem/core-ui/pages/capture-ui-enhanced",
+				"import": "@corensystem/coren-ui/pages/capture-ui-enhanced",
 				"tier": "template",
 				"manifest": "manifests/capture-ui-enhanced.template.json",
 				"manifestStatus": "complete",

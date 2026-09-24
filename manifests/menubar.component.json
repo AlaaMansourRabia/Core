@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/menubar.tsx",
-		"import": "@corensystem/core-ui/menubar",
+		"import": "@corensystem/coren-ui/menubar",
 		"export": "Menubar"
 	},
 	"tags": [

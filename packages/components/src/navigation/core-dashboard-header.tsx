@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {Bell, Check, ChevronRight, ChevronsUpDown, LayoutGrid, MessageSquare, Search} from "lucide-react";
 import * as React from "react";
 

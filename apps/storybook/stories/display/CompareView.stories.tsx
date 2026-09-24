@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {CompareView} from "@corensystem/core-ui/compare-view";
+import {CompareView} from "@corensystem/coren-ui/compare-view";
 
 // Two geo-aligned "captures" of the same scene; the "after" gains a structure and a warmer tone.
 function Scene({variant}: {variant: "before" | "after"}) {

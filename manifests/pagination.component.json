@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pagination.tsx",
-		"import": "@corensystem/core-ui/pagination",
+		"import": "@corensystem/coren-ui/pagination",
 		"export": "Pagination"
 	},
 	"tags": [

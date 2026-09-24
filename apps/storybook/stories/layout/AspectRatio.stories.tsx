@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {AspectRatio} from "@corensystem/core-ui/aspect-ratio";
+import {AspectRatio} from "@corensystem/coren-ui/aspect-ratio";
 
 const meta = {
 	title: "Components/Layout/AspectRatio",

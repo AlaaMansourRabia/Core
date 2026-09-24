@@ -1,2 +1,2 @@
-export {Chip, chipVariants} from "@corensystem/core-ui/chip";
-export type {AttachmentPreview, ChipProps} from "@corensystem/core-ui/chip";
+export {Chip, chipVariants} from "@corensystem/coren-ui/chip";
+export type {AttachmentPreview, ChipProps} from "@corensystem/coren-ui/chip";

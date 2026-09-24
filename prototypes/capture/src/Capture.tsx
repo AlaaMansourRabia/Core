@@ -1,19 +1,19 @@
-import type {ViewTabItem} from "@corensystem/core-ui/view-tab-bar";
+import type {ViewTabItem} from "@corensystem/coren-ui/view-tab-bar";
 
-import {Button} from "@corensystem/core-ui/button";
+import {Button} from "@corensystem/coren-ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@corensystem/core-ui/dropdown-menu";
-import {Empty} from "@corensystem/core-ui/empty";
-import {CoreAppSidebar, type SidebarNavGroup} from "@corensystem/core-ui/navigation/core-app-sidebar";
-import {CoreAppTopBar} from "@corensystem/core-ui/navigation/core-app-top-bar";
-import {ProgressDetails} from "@corensystem/core-ui/pages/core-progress-details";
-import {SideMenu, type SideMenuGroup} from "@corensystem/core-ui/side-menu";
-import {cn} from "@corensystem/core-utils";
+} from "@corensystem/coren-ui/dropdown-menu";
+import {Empty} from "@corensystem/coren-ui/empty";
+import {CoreAppSidebar, type SidebarNavGroup} from "@corensystem/coren-ui/navigation/core-app-sidebar";
+import {CoreAppTopBar} from "@corensystem/coren-ui/navigation/core-app-top-bar";
+import {ProgressDetails} from "@corensystem/coren-ui/pages/core-progress-details";
+import {SideMenu, type SideMenuGroup} from "@corensystem/coren-ui/side-menu";
+import {cn} from "@corensystem/coren-utils";
 import {
 	Activity,
 	BarChart3,

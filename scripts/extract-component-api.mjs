@@ -20,19 +20,19 @@ const outFile = join(repoRoot, "eval", "contracts", "component-api.json");
 
 // family file → components to extract, and their import subpath.
 const TARGETS = [
-	{file: "button", import: "@corensystem/core-ui/button", components: ["Button"]},
-	{file: "form", import: "@corensystem/core-ui/form", components: ["Form", "FormField", "FormItem", "FormControl", "FormLabel", "FormMessage"]},
-	{file: "data-table", import: "@corensystem/core-ui/data-table", components: ["DataTable"]},
-	{file: "stepper", import: "@corensystem/core-ui/stepper", components: ["Stepper", "StepperItem", "StepperIndicator"]},
-	{file: "chart", import: "@corensystem/core-ui/chart", components: ["ChartContainer"], catalogNames: {ChartContainer: "Chart"}},
-	{file: "sheet", import: "@corensystem/core-ui/sheet", components: ["Sheet", "SheetContent"]},
-	{file: "dialog", import: "@corensystem/core-ui/dialog", components: ["Dialog", "DialogContent"]},
-	{file: "view-tab-bar", import: "@corensystem/core-ui/view-tab-bar", components: ["ViewTabBar"]},
-	{file: "trend-chart", import: "@corensystem/core-ui/trend-chart", components: ["TrendChart"]},
-	{file: "page-content-header", import: "@corensystem/core-ui/page-content-header", components: ["PageContentHeader"]},
-	{file: "context-toolbar", import: "@corensystem/core-ui/context-toolbar", components: ["ContextToolbar"]},
-	{file: "navigation/core-app-top-bar", import: "@corensystem/core-ui/navigation/core-app-top-bar", components: ["CoreAppTopBar"]},
-	{file: "navigation/core-dashboard-header", import: "@corensystem/core-ui/navigation/core-dashboard-header", components: ["CoreDashboardHeader"]},
+	{file: "button", import: "@corensystem/coren-ui/button", components: ["Button"]},
+	{file: "form", import: "@corensystem/coren-ui/form", components: ["Form", "FormField", "FormItem", "FormControl", "FormLabel", "FormMessage"]},
+	{file: "data-table", import: "@corensystem/coren-ui/data-table", components: ["DataTable"]},
+	{file: "stepper", import: "@corensystem/coren-ui/stepper", components: ["Stepper", "StepperItem", "StepperIndicator"]},
+	{file: "chart", import: "@corensystem/coren-ui/chart", components: ["ChartContainer"], catalogNames: {ChartContainer: "Chart"}},
+	{file: "sheet", import: "@corensystem/coren-ui/sheet", components: ["Sheet", "SheetContent"]},
+	{file: "dialog", import: "@corensystem/coren-ui/dialog", components: ["Dialog", "DialogContent"]},
+	{file: "view-tab-bar", import: "@corensystem/coren-ui/view-tab-bar", components: ["ViewTabBar"]},
+	{file: "trend-chart", import: "@corensystem/coren-ui/trend-chart", components: ["TrendChart"]},
+	{file: "page-content-header", import: "@corensystem/coren-ui/page-content-header", components: ["PageContentHeader"]},
+	{file: "context-toolbar", import: "@corensystem/coren-ui/context-toolbar", components: ["ContextToolbar"]},
+	{file: "navigation/core-app-top-bar", import: "@corensystem/coren-ui/navigation/core-app-top-bar", components: ["CoreAppTopBar"]},
+	{file: "navigation/core-dashboard-header", import: "@corensystem/coren-ui/navigation/core-dashboard-header", components: ["CoreDashboardHeader"]},
 ];
 
 const dtsPath = (f) => join(distDir, `${f}.d.mts`);

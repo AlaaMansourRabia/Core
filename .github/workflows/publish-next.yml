@@ -1,9 +1,9 @@
 name: Publish Pre-release (next)
 
 # On push to develop (via merged PR that already passed Quality Gate):
-# Publishes @corensystem/core-* pre-release packages to npm.
+# Publishes @corensystem/coren-* pre-release packages to npm.
 # Versions use the format: {package-version}-next.{YYYYMMDD}.{HHMMSS}.{short_sha}
-# Consumers install with: pnpm add @corensystem/core-ui@next
+# Consumers install with: pnpm add @corensystem/coren-ui@next
 
 on:
   push:
@@ -53,15 +53,15 @@ jobs:
           done
 
       - name: Build all packages
-        run: pnpm --filter "@corensystem/core-*" build
+        run: pnpm --filter "@corensystem/coren-*" build
 
       - name: Publish tokens
-        run: pnpm --filter @corensystem/core-tokens publish --no-git-checks --tag next
+        run: pnpm --filter @corensystem/coren-tokens publish --no-git-checks --tag next
 
       - name: Publish utils
-        run: pnpm --filter @corensystem/core-utils publish --no-git-checks --tag next
+        run: pnpm --filter @corensystem/coren-utils publish --no-git-checks --tag next
 
       - name: Publish components
-        run: pnpm --filter @corensystem/core-ui publish --no-git-checks --tag next
+        run: pnpm --filter @corensystem/coren-ui publish --no-git-checks --tag next
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

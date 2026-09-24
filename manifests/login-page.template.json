@@ -10,7 +10,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/core-login-page.tsx",
-		"import": "@corensystem/core-ui/pages/core-login-page",
+		"import": "@corensystem/coren-ui/pages/core-login-page",
 		"export": "LoginPage"
 	},
 	"tags": [
@@ -142,7 +142,7 @@
 			"fix": "Render it full-screen and pre-auth, outside CoreAppSidebar/CoreAppTopBar."
 		}
 	],
-	"minimalExample": "import {LoginPage} from \"@corensystem/core-ui/pages/core-login-page\";\n\n<LoginPage onLogin={(email, password) => signIn(email, password)} />",
+	"minimalExample": "import {LoginPage} from \"@corensystem/coren-ui/pages/core-login-page\";\n\n<LoginPage onLogin={(email, password) => signIn(email, password)} />",
 	"evaluationCriteria": [
 		{
 			"id": "tier-selection",

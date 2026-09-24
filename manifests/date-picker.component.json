@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/date-picker.tsx",
-		"import": "@corensystem/core-ui/date-picker",
+		"import": "@corensystem/coren-ui/date-picker",
 		"export": "DatePicker"
 	},
 	"tags": [

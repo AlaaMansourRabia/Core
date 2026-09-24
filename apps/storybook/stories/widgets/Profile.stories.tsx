@@ -1,16 +1,16 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@corensystem/core-ui/badge";
-import {Button} from "@corensystem/core-ui/button";
+import {Badge} from "@corensystem/coren-ui/badge";
+import {Button} from "@corensystem/coren-ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@corensystem/core-ui/dropdown-menu";
-import {Separator} from "@corensystem/core-ui/separator";
-import {WorkerProfile, type WorkerProfileTabId} from "@corensystem/core-ui/worker-profile";
+} from "@corensystem/coren-ui/dropdown-menu";
+import {Separator} from "@corensystem/coren-ui/separator";
+import {WorkerProfile, type WorkerProfileTabId} from "@corensystem/coren-ui/worker-profile";
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/addon-docs/blocks";
 import {Ellipsis, Plus, RefreshCw, Smartphone, Trash2} from "lucide-react";
 import {useState} from "react";

@@ -9,4 +9,4 @@ export {
 	DialogFooter,
 	DialogTitle,
 	DialogDescription,
-} from "@corensystem/core-ui/dialog";
+} from "@corensystem/coren-ui/dialog";

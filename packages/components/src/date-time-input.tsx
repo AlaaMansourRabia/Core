@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {format, parse, setHours, setMinutes} from "date-fns";
 import {CalendarIcon, Clock} from "lucide-react";
 import * as React from "react";

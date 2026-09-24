@@ -7,7 +7,7 @@ import {
 	type SiteToolbarModeTab,
 	type ViewId,
 	type ViewMode,
-} from "@corensystem/core-ui/site-toolbar";
+} from "@corensystem/coren-ui/site-toolbar";
 import {Box, LayoutGrid, Layers, Map as MapIcon} from "lucide-react";
 import {useState} from "react";
 

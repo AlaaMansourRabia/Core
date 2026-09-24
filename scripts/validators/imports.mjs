@@ -1,10 +1,10 @@
 // Metric: correct imports.
 // Rules derived from the `exports` map in packages/components/package.json:
-//   1. Components must be imported via their deep subpath (@corensystem/core-ui/button),
-//      never the barrel (@corensystem/core-ui) — the barrel only re-exports types /
+//   1. Components must be imported via their deep subpath (@corensystem/coren-ui/button),
+//      never the barrel (@corensystem/coren-ui) — the barrel only re-exports types /
 //      services / mock-data, so a barrel component import is `undefined` at runtime
 //      (fm-prim-1 / fm-setup-1).
-//   2. Any @corensystem/core-ui/<path> used must be a real exported subpath.
+//   2. Any @corensystem/coren-ui/<path> used must be a real exported subpath.
 
 import {finding, parseImports, stripComments} from "./util.mjs";
 
@@ -62,7 +62,7 @@ export function validateImports(code, catalog) {
 			finding(
 				METRIC,
 				true,
-				"All @corensystem/core-ui imports use valid deep subpaths.",
+				"All @corensystem/coren-ui imports use valid deep subpaths.",
 				"",
 				"packages/components/package.json#exports",
 			),

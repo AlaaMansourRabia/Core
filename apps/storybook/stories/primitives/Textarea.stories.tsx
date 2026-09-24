@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Textarea} from "@corensystem/core-ui/textarea";
+import {Textarea} from "@corensystem/coren-ui/textarea";
 import {expect, userEvent, within} from "storybook/test";
 
 const meta = {

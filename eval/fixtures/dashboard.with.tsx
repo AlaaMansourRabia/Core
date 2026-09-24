@@ -1,6 +1,6 @@
-import {Card, CardContent, CardHeader, CardTitle} from "@corensystem/core-ui/card";
-import {ChartContainer} from "@corensystem/core-ui/chart";
-import {Skeleton} from "@corensystem/core-ui/skeleton";
+import {Card, CardContent, CardHeader, CardTitle} from "@corensystem/coren-ui/card";
+import {ChartContainer} from "@corensystem/coren-ui/chart";
+import {Skeleton} from "@corensystem/coren-ui/skeleton";
 
 export function OrgOverview({kpis, loading, chartOption}) {
 	if (loading) return <Skeleton className="wwc:h-40" />;

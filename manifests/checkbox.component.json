@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/checkbox.tsx",
-		"import": "@corensystem/core-ui/checkbox",
+		"import": "@corensystem/coren-ui/checkbox",
 		"export": "Checkbox"
 	},
 	"tags": [

@@ -1,1 +1,1 @@
-export {OrgOverview} from "@corensystem/core-ui/pages/core-org-overview";
+export {OrgOverview} from "@corensystem/coren-ui/pages/core-org-overview";

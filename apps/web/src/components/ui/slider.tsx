@@ -1,1 +1,1 @@
-export {Slider} from "@corensystem/core-ui/slider";
+export {Slider} from "@corensystem/coren-ui/slider";

@@ -1,6 +1,6 @@
 import type {KeyboardEvent as ReactKeyboardEvent, ReactElement} from "react";
 
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 
 // Renders a single question's answer input from Core primitives. Shared by BOTH the builder
 // canvas preview and the Typeform filler, so what an author sees is exactly what a respondent gets.

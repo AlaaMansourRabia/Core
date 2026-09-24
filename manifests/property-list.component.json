@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/property-list.tsx",
-		"import": "@corensystem/core-ui/property-list",
+		"import": "@corensystem/coren-ui/property-list",
 		"export": "PropertyList"
 	},
 	"tags": [

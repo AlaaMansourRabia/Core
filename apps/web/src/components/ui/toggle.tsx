@@ -1,1 +1,1 @@
-export {Toggle, toggleVariants} from "@corensystem/core-ui/toggle";
+export {Toggle, toggleVariants} from "@corensystem/coren-ui/toggle";

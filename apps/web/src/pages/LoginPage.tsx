@@ -1,4 +1,4 @@
-import {Button} from "@corensystem/core-ui/button";
+import {Button} from "@corensystem/coren-ui/button";
 import {Github, ShieldAlert} from "lucide-react";
 import {useEffect, useState} from "react";
 

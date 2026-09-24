@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/canvas-header.tsx",
-		"import": "@corensystem/core-ui/canvas-header",
+		"import": "@corensystem/coren-ui/canvas-header",
 		"export": "CanvasHeader"
 	},
 	"tags": [

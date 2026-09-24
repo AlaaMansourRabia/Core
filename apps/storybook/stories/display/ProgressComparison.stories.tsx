@@ -4,7 +4,7 @@ import {
 	ProgressComparison,
 	type ProgressComparisonMilestone,
 	type ProgressComparisonStat,
-} from "@corensystem/core-ui/progress-comparison";
+} from "@corensystem/coren-ui/progress-comparison";
 
 const STATS: ProgressComparisonStat[] = [
 	{label: "PV", value: "$160,604"},

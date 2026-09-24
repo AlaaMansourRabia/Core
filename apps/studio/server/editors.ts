@@ -44,7 +44,7 @@ truth — **reuse before you build.**
   drift from the code; never hand-edit it.
 - Consult Core via the **core MCP** before adding UI: \`resolve_template\`, then \`resolve_widgets\`
   for the region, then \`validate_page\`. Only write custom code when nothing fits — and say so.
-- Import every Core artifact from \`@corensystem/core-ui/<kebab-name>\` (e.g. \`@corensystem/core-ui/data-table\`).
+- Import every Core artifact from \`@corensystem/coren-ui/<kebab-name>\` (e.g. \`@corensystem/coren-ui/data-table\`).
   Derive the path from the name; never search node_modules.
 
 Editing happens here, in your editor. It reaches Core Studio only after it is reviewed and merged.`;

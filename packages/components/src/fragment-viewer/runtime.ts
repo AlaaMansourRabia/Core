@@ -17,7 +17,7 @@ import {Cinematic} from "./cinematic";
  * would be weeks of work with worse results. The setup follows WC3's own 3.4.6 viewer.
  *
  * All three That Open packages are optional peer dependencies, reachable only through the
- * `@corensystem/core-ui/fragment-viewer` subpath.
+ * `@corensystem/coren-ui/fragment-viewer` subpath.
  */
 
 /**

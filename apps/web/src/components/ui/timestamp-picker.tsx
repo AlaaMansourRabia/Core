@@ -1,2 +1,2 @@
-export {TimestampPicker} from "@corensystem/core-ui/timestamp-picker";
-export type {TimestampEntry, TimestampPickerProps} from "@corensystem/core-ui/timestamp-picker";
+export {TimestampPicker} from "@corensystem/coren-ui/timestamp-picker";
+export type {TimestampEntry, TimestampPickerProps} from "@corensystem/coren-ui/timestamp-picker";

@@ -42,7 +42,7 @@ jobs:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
       - name: Build packages
-        run: pnpm --filter "@corensystem/core-*" build
+        run: pnpm --filter "@corensystem/coren-*" build
 
       # Heavy 3D mesh/model assets live in the internal repo core/core-3d-assets and are pulled
       # into apps/storybook/public/ here so the published Storybook renders the 3D views. Only on push

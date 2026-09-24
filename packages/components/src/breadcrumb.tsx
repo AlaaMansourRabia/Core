@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {Slot} from "@radix-ui/react-slot";
 import {ChevronRight, MoreHorizontal} from "lucide-react";
 import * as React from "react";

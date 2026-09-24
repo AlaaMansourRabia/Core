@@ -9,4 +9,4 @@ export {
 	DrawerFooter,
 	DrawerTitle,
 	DrawerDescription,
-} from "@corensystem/core-ui/drawer";
+} from "@corensystem/coren-ui/drawer";

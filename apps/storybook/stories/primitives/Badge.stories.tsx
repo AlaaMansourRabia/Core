@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@corensystem/core-ui/badge";
+import {Badge} from "@corensystem/coren-ui/badge";
 import {Check, CircleAlert, Clock} from "lucide-react";
 
 const meta = {

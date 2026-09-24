@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/pages/wc3-interface-wizard.tsx",
-		"import": "@corensystem/core-ui/new-interface-dialog",
+		"import": "@corensystem/coren-ui/new-interface-dialog",
 		"export": "NewInterfaceDialog"
 	},
 	"tags": [
@@ -110,7 +110,7 @@
 	"forbiddenPlacement": [
 		"inside another dialog"
 	],
-	"minimalExample": "import {NewInterfaceDialog} from \"@corensystem/core-ui/new-interface-dialog\";\n\n<NewInterfaceDialog open={open} onOpenChange={setOpen} onCreate={addInterface} />",
+	"minimalExample": "import {NewInterfaceDialog} from \"@corensystem/coren-ui/new-interface-dialog\";\n\n<NewInterfaceDialog open={open} onOpenChange={setOpen} onCreate={addInterface} />",
 	"evaluationCriteria": [
 		"requireDescription defaults false so existing hosts do not change behaviour."
 	],

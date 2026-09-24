@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Label} from "@corensystem/core-ui/label";
-import {Switch} from "@corensystem/core-ui/switch";
+import {Label} from "@corensystem/coren-ui/label";
+import {Switch} from "@corensystem/coren-ui/switch";
 import {expect, userEvent, within} from "storybook/test";
 
 const meta = {

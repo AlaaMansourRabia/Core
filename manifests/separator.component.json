@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/separator.tsx",
-		"import": "@corensystem/core-ui/separator",
+		"import": "@corensystem/coren-ui/separator",
 		"export": "Separator"
 	},
 	"tags": [

@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@corensystem/core-ui/badge";
-import {TreeRow, TreeRowContent} from "@corensystem/core-ui/tree-row";
+import {Badge} from "@corensystem/coren-ui/badge";
+import {TreeRow, TreeRowContent} from "@corensystem/coren-ui/tree-row";
 import {File, Folder, Globe, MapPin} from "lucide-react";
 import {useState} from "react";
 

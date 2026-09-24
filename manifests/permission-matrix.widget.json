@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/permission-matrix.tsx",
-		"import": "@corensystem/core-ui/permission-matrix",
+		"import": "@corensystem/coren-ui/permission-matrix",
 		"export": "PermissionMatrix"
 	},
 	"tags": ["permissions", "roles", "admin", "hierarchy", "checkbox", "access-control", "responsive"],
@@ -82,7 +82,7 @@
 	"composedOf": ["SectionPanel", "Checkbox", "Badge"],
 	"allowedPlacement": ["role create or edit form", "access-control settings page", "read-only role permissions dialog"],
 	"forbiddenPlacement": ["inside a DataTable row", "as a substitute for application navigation"],
-	"minimalExample": "import {PermissionMatrix} from \"@corensystem/core-ui/permission-matrix\";\n\n<PermissionMatrix categories={catalog} value={permissions} onValueChange={setPermissions} />",
+	"minimalExample": "import {PermissionMatrix} from \"@corensystem/coren-ui/permission-matrix\";\n\n<PermissionMatrix categories={catalog} value={permissions} onValueChange={setPermissions} />",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Extracted from the Admin Panel role setup permission selector (2026-07-19)",

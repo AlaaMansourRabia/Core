@@ -1,6 +1,6 @@
 /* Core theme — same setup the tw4 playground uses, so previews look on-brand. */
 @import "tailwindcss" prefix(app);
-@import "@corensystem/core-tokens/theme";
+@import "@corensystem/coren-tokens/theme";
 
 :root {
 	color-scheme: light;

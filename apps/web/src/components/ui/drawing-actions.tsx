@@ -1,8 +1,8 @@
-export {DrawingActions} from "@corensystem/core-ui/drawing-actions";
+export {DrawingActions} from "@corensystem/coren-ui/drawing-actions";
 export type {
 	DrawingActionsProps,
 	DrawingToolId,
 	LineKind,
 	PinKind,
 	ShapeKind,
-} from "@corensystem/core-ui/drawing-actions";
+} from "@corensystem/coren-ui/drawing-actions";

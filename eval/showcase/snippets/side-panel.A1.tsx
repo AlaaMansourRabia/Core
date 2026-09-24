@@ -1,9 +1,9 @@
 // A1 — illustrative fair-baseline (hand-authored, NOT model-captured).
 // Package-only knowledge: the agent reaches for a centered Dialog (the obvious modal) to edit
 // filters — it blocks the page. Core guidance (A4) would choose a Sheet instead.
-import {Button} from "@corensystem/core-ui/button";
-import {Input} from "@corensystem/core-ui/input";
-import {Label} from "@corensystem/core-ui/label";
+import {Button} from "@corensystem/coren-ui/button";
+import {Input} from "@corensystem/coren-ui/input";
+import {Label} from "@corensystem/coren-ui/label";
 import {
 	Dialog,
 	DialogContent,
@@ -11,7 +11,7 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-} from "@corensystem/core-ui/dialog";
+} from "@corensystem/coren-ui/dialog";
 
 export default function EditFiltersPanel() {
 	return (

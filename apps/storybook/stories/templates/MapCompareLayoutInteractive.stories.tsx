@@ -1,12 +1,12 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {MapCompareLayout} from "@corensystem/core-ui/map-compare-layout";
+import {MapCompareLayout} from "@corensystem/coren-ui/map-compare-layout";
 import {
 	type TimelineDay,
 	type TimelinePeriod,
 	TimelineRangeSelector,
-} from "@corensystem/core-ui/timeline-range-selector";
-import {type TimestampEntry, TimestampPicker} from "@corensystem/core-ui/timestamp-picker";
+} from "@corensystem/coren-ui/timeline-range-selector";
+import {type TimestampEntry, TimestampPicker} from "@corensystem/coren-ui/timestamp-picker";
 import * as React from "react";
 
 function MapScene({variant}: {variant: "planned" | "built"}) {

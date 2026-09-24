@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {Item, ItemContent, ItemDescription, ItemTitle} from "@corensystem/core-ui/item";
+import {Button} from "@corensystem/coren-ui/button";
+import {Item, ItemContent, ItemDescription, ItemTitle} from "@corensystem/coren-ui/item";
 
 const meta = {
 	title: "Components/Data Display/Item",

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/switch.tsx",
-		"import": "@corensystem/core-ui/switch",
+		"import": "@corensystem/coren-ui/switch",
 		"export": "Switch"
 	},
 	"tags": [

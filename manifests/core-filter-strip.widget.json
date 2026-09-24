@@ -8,7 +8,7 @@
 	"manifestStatus": "stub",
 	"source": {
 		"path": "packages/components/src/navigation/core-filter-strip.tsx",
-		"import": "@corensystem/core-ui/navigation/core-filter-strip"
+		"import": "@corensystem/coren-ui/navigation/core-filter-strip"
 	},
 	"tags": [
 		"filter",

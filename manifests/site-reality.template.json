@@ -10,7 +10,7 @@
 	"manifestStatus": "draft",
 	"source": {
 		"path": "packages/components/src/pages/core-site-reality.tsx",
-		"import": "@corensystem/core-ui/pages/core-site-reality",
+		"import": "@corensystem/coren-ui/pages/core-site-reality",
 		"export": "SiteReality"
 	},
 	"tags": [
@@ -81,7 +81,7 @@
 		"inside a Card or Dialog",
 		"inside a scrolling page container (the map stage needs a bounded height)"
 	],
-	"minimalExample": "// CoreSiteReality is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@corensystem/core-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@corensystem/core-ui/navigation/core-app-top-bar\";\nimport {KPIBar} from \"@corensystem/core-ui/kpi-bar\";\nimport {SectionPanel} from \"@corensystem/core-ui/section-panel\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
+	"minimalExample": "// CoreSiteReality is a reference prototype — it renders built-in demo data and is NOT a\n// supported production import. Build your own page from the blocks it composes,\n// wired to your data (see \"Regions\" / \"Composed of\" above):\n\nimport {CoreAppSidebar} from \"@corensystem/coren-ui/navigation/core-app-sidebar\";\nimport {CoreAppTopBar} from \"@corensystem/coren-ui/navigation/core-app-top-bar\";\nimport {KPIBar} from \"@corensystem/coren-ui/kpi-bar\";\nimport {SectionPanel} from \"@corensystem/coren-ui/section-panel\";\n\n// Compose these to match the regions above; see each block's own page for its API.",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "3d-visualization branch (2026-07-21)",
@@ -102,7 +102,7 @@
 		"notes": [
 			"pilot: true",
 			"map stage intentionally empty - a map engine (Map, Cesium, That Open) mounts there",
-			"composed entirely from existing @corensystem/core-ui components; the file adds layout and fixture data only, no new UI primitive",
+			"composed entirely from existing @corensystem/coren-ui components; the file adds layout and fixture data only, no new UI primitive",
 			"all figures are placeholder fixtures"
 		]
 	}

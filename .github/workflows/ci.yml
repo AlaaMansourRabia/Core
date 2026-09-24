@@ -94,7 +94,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - name: Build all packages
-        run: pnpm --filter "@corensystem/core-*" build
+        run: pnpm --filter "@corensystem/coren-*" build
 
       - name: Typecheck
         run: pnpm typecheck
@@ -123,7 +123,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - name: Build all packages
-        run: pnpm --filter "@corensystem/core-*" build
+        run: pnpm --filter "@corensystem/coren-*" build
 
       - name: Install Playwright browsers
         run: pnpm --filter apps-storybook exec playwright install chromium

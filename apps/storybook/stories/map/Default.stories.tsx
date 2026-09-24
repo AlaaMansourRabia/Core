@@ -1,13 +1,13 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {DropdownMenu, DropdownMenuContent, DropdownMenuTrigger} from "@corensystem/core-ui/dropdown-menu";
-import {Label} from "@corensystem/core-ui/label";
-import {Map} from "@corensystem/core-ui/map";
-import {MapControls} from "@corensystem/core-ui/map-controls";
-import {MAPBOX_TOKEN} from "@corensystem/core-ui/mapbox-token";
-import {Separator} from "@corensystem/core-ui/separator";
-import {Switch} from "@corensystem/core-ui/switch";
+import {Button} from "@corensystem/coren-ui/button";
+import {DropdownMenu, DropdownMenuContent, DropdownMenuTrigger} from "@corensystem/coren-ui/dropdown-menu";
+import {Label} from "@corensystem/coren-ui/label";
+import {Map} from "@corensystem/coren-ui/map";
+import {MapControls} from "@corensystem/coren-ui/map-controls";
+import {MAPBOX_TOKEN} from "@corensystem/coren-ui/mapbox-token";
+import {Separator} from "@corensystem/coren-ui/separator";
+import {Switch} from "@corensystem/coren-ui/switch";
 import {AlertTriangle, Circle, Info, Layers, MapPin, Square, Triangle} from "lucide-react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/export-dialog.tsx",
-		"import": "@corensystem/core-ui/export-dialog",
+		"import": "@corensystem/coren-ui/export-dialog",
 		"export": "ExportDialog"
 	},
 	"tags": [

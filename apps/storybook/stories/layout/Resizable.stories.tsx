@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@corensystem/core-ui/resizable";
+import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@corensystem/coren-ui/resizable";
 
 const meta = {
 	title: "Components/Layout/Resizable",

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/sidebar.tsx",
-		"import": "@corensystem/core-ui/sidebar",
+		"import": "@corensystem/coren-ui/sidebar",
 		"export": "Sidebar"
 	},
 	"tags": [

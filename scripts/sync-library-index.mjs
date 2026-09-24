@@ -41,7 +41,7 @@ const NON_CATALOG_EXPORTS = new Set([
 
 // header hygiene
 index.version = "2.0.0";
-index.description = "Core (@corensystem/core-ui) component & composition index — semantic catalog for agents";
+index.description = "Core (@corensystem/coren-ui) component & composition index — semantic catalog for agents";
 index.lastUpdated = new Date().toISOString().slice(0, 10);
 
 for (const [category, list] of Object.entries(index.components)) {
@@ -74,7 +74,7 @@ for (const list of Object.values(index.components)) {
 // as `generated` (structural only) in a category inferred from the import scope; a human
 // refines the category and adds semantics later (quality-first phasing).
 const categoryFor = (imp) => {
-	const sub = imp.replace("@corensystem/core-ui/", "");
+	const sub = imp.replace("@corensystem/coren-ui/", "");
 	if (sub.startsWith("chat/")) return "chat";
 	if (sub.startsWith("navigation/")) return "navigation";
 	if (sub.startsWith("pages/")) return "pages";

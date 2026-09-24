@@ -1,5 +1,5 @@
-@import "@corensystem/core-tokens/fonts";
-@import "@corensystem/core-tokens";
+@import "@corensystem/coren-tokens/fonts";
+@import "@corensystem/coren-tokens";
 @source "../../../packages/components/src";
 
 html,

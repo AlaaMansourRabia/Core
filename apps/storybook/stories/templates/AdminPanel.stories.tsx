@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {AdminPanel} from "@corensystem/core-ui/pages/core-admin-panel";
+import {AdminPanel} from "@corensystem/coren-ui/pages/core-admin-panel";
 
 import manifest from "../../../../manifests/admin-panel.template.json";
 import {TemplateDocsPage} from "../_docs/TemplateDocsPage";

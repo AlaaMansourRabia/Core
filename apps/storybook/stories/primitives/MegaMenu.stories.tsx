@@ -1,8 +1,8 @@
-import type {MegaMenuCategory} from "@corensystem/core-ui/mega-menu";
+import type {MegaMenuCategory} from "@corensystem/coren-ui/mega-menu";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {MegaMenu} from "@corensystem/core-ui/mega-menu";
+import {Button} from "@corensystem/coren-ui/button";
+import {MegaMenu} from "@corensystem/coren-ui/mega-menu";
 import {Code, FileText, Layers, Settings, Users, Zap} from "lucide-react";
 
 const meta = {

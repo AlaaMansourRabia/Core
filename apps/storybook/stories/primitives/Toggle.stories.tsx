@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Toggle} from "@corensystem/core-ui/toggle";
+import {Toggle} from "@corensystem/coren-ui/toggle";
 import {expect, userEvent, within} from "storybook/test";
 
 const meta = {

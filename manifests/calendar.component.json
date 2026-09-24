@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/calendar.tsx",
-		"import": "@corensystem/core-ui/calendar",
+		"import": "@corensystem/coren-ui/calendar",
 		"export": "Calendar"
 	},
 	"tags": [

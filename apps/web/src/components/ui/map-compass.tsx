@@ -1,2 +1,2 @@
-export {MapCompass} from "@corensystem/core-ui/map-compass";
-export type {MapCompassProps} from "@corensystem/core-ui/map-compass";
+export {MapCompass} from "@corensystem/coren-ui/map-compass";
+export type {MapCompassProps} from "@corensystem/coren-ui/map-compass";

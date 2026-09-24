@@ -83,7 +83,7 @@ describe("imports validator", () => {
 	});
 
 	it("flags a non-existent core-ui subpath", () => {
-		const findings = validateImports('import { Wat } from "@corensystem/core-ui/not-a-real-thing";', catalog);
+		const findings = validateImports('import { Wat } from "@corensystem/coren-ui/not-a-real-thing";', catalog);
 		assert.ok(anyFail(findings));
 	});
 });
@@ -93,18 +93,18 @@ describe("component-choice validator (expected / acceptable / forbidden)", () =>
 
 	it("forbidden pick (Dialog) fails", () => {
 		const code =
-			'import { Dialog, DialogContent } from "@corensystem/core-ui/dialog";\n<Dialog><DialogContent>filters</DialogContent></Dialog>';
+			'import { Dialog, DialogContent } from "@corensystem/coren-ui/dialog";\n<Dialog><DialogContent>filters</DialogContent></Dialog>';
 		assert.ok(anyFail(validateComponentChoice(code, task, catalog)));
 	});
 
 	it("expected pick (Sheet) passes", () => {
 		const code =
-			'import { Sheet, SheetContent } from "@corensystem/core-ui/sheet";\n<Sheet><SheetContent>filters</SheetContent></Sheet>';
+			'import { Sheet, SheetContent } from "@corensystem/coren-ui/sheet";\n<Sheet><SheetContent>filters</SheetContent></Sheet>';
 		assert.ok(!anyFail(validateComponentChoice(code, task, catalog)));
 	});
 
 	it("acceptable alternative (Drawer) passes — no overfitting", () => {
-		const code = 'import { Drawer } from "@corensystem/core-ui/drawer";\n<Drawer>filters</Drawer>';
+		const code = 'import { Drawer } from "@corensystem/coren-ui/drawer";\n<Drawer>filters</Drawer>';
 		assert.ok(!anyFail(validateComponentChoice(code, task, catalog)));
 	});
 });

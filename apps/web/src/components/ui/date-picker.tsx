@@ -6,7 +6,7 @@ export {
 	DateTimePicker,
 	DateRangePicker,
 	DateRangeTimePicker,
-} from "@corensystem/core-ui/date-picker";
+} from "@corensystem/coren-ui/date-picker";
 export type {
 	DatePickerProps,
 	DatePickerWithPresetsProps,
@@ -15,4 +15,4 @@ export type {
 	DateTimePickerProps,
 	DateRangePickerProps,
 	DateRangeTimePickerProps,
-} from "@corensystem/core-ui/date-picker";
+} from "@corensystem/coren-ui/date-picker";

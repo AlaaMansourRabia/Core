@@ -11,8 +11,8 @@
 	"dependencies": {
 		"@tailwindcss/postcss": "^4.2.2",
 		"@tanstack/react-table": "^8.21.3",
-		"@corensystem/core-tokens": "workspace:*",
-		"@corensystem/core-ui": "workspace:*",
+		"@corensystem/coren-tokens": "workspace:*",
+		"@corensystem/coren-ui": "workspace:*",
 		"lucide-react": "^1.8.0",
 		"react": "^19.3.0",
 		"react-dom": "^19.3.0"

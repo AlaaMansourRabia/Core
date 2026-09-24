@@ -1,5 +1,5 @@
-export {InlineCommentComposer} from "@corensystem/core-ui/inline-comment-composer";
+export {InlineCommentComposer} from "@corensystem/coren-ui/inline-comment-composer";
 export type {
 	InlineCommentComposerProps,
 	InlineCommentComposerSubmit,
-} from "@corensystem/core-ui/inline-comment-composer";
+} from "@corensystem/coren-ui/inline-comment-composer";

@@ -13,4 +13,4 @@ export {
 	PushPanelTrigger,
 	PushPanelClose,
 	usePushPanel,
-} from "@corensystem/core-ui/push-panel";
+} from "@corensystem/coren-ui/push-panel";

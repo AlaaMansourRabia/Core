@@ -1,1 +1,1 @@
-export {ContentArea} from "@corensystem/core-ui/pages/core-content-area";
+export {ContentArea} from "@corensystem/coren-ui/pages/core-content-area";

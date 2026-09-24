@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@corensystem/core-ui/badge";
-import {Button} from "@corensystem/core-ui/button";
-import {Card} from "@corensystem/core-ui/card";
-import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@corensystem/core-ui/collapsible";
+import {Badge} from "@corensystem/coren-ui/badge";
+import {Button} from "@corensystem/coren-ui/button";
+import {Card} from "@corensystem/coren-ui/card";
+import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@corensystem/coren-ui/collapsible";
 import {
 	Dialog,
 	DialogClose,
@@ -13,12 +13,12 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-} from "@corensystem/core-ui/dialog";
-import {RadioGroup, RadioGroupItem} from "@corensystem/core-ui/radio-group";
-import {ScrollArea} from "@corensystem/core-ui/scroll-area";
-import {SearchFilterBar} from "@corensystem/core-ui/search-filter-bar";
-import {Separator} from "@corensystem/core-ui/separator";
-import {cn} from "@corensystem/core-utils";
+} from "@corensystem/coren-ui/dialog";
+import {RadioGroup, RadioGroupItem} from "@corensystem/coren-ui/radio-group";
+import {ScrollArea} from "@corensystem/coren-ui/scroll-area";
+import {SearchFilterBar} from "@corensystem/coren-ui/search-filter-bar";
+import {Separator} from "@corensystem/coren-ui/separator";
+import {cn} from "@corensystem/coren-utils";
 import {ArrowLeft, ArrowUpRight, ChevronDown, ChevronRight} from "lucide-react";
 import {useMemo, useState} from "react";
 import {expect, screen, userEvent, waitFor, within} from "storybook/test";

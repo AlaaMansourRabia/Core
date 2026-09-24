@@ -73,7 +73,7 @@ test("resolve_template exposes a direct-import contract when a template is rende
 	const candidate = res.data.candidates.find((item) => item.ref.id === "timesheet");
 	assert.ok(candidate, "Timesheet template surfaces");
 	assert.equal(candidate.implementationContract.mode, "direct-template");
-	assert.equal(candidate.implementationContract.requiredImport.path, "@corensystem/core-ui/pages/core-timesheet");
+	assert.equal(candidate.implementationContract.requiredImport.path, "@corensystem/coren-ui/pages/core-timesheet");
 	assert.match(candidate.implementationContract.minimalExample, /Timesheet/);
 });
 
@@ -111,7 +111,7 @@ test("create_implementation_plan makes direct import and strict validation manda
 	const res = await kb.callTool("create_implementation_plan", {template: "timesheet"});
 	assertEnvelope(res, "create_implementation_plan");
 	assert.equal(res.data.implementationMode, "direct-template");
-	assert.equal(res.data.requiredImport.path, "@corensystem/core-ui/pages/core-timesheet");
+	assert.equal(res.data.requiredImport.path, "@corensystem/coren-ui/pages/core-timesheet");
 	assert.equal(res.data.workspaceRequirements.onMissingDependency, "setup-and-continue");
 	assert.deepEqual(res.data.completionGate.arguments, {
 		mode: "core-template-strict",
@@ -193,7 +193,7 @@ test("resolve_component returns import + variants; reports props honestly", asyn
 	const byName = await kb.callTool("resolve_component", {name: "Button"});
 	assertEnvelope(byName, "resolve_component");
 	const btn = byName.data.candidates[0];
-	assert.equal(btn.source.import, "@corensystem/core-ui/button");
+	assert.equal(btn.source.import, "@corensystem/coren-ui/button");
 	assert.ok(btn.variants.includes("outline"));
 	assert.equal(btn.propsStatus, "available");
 	assert.ok(btn.props.some((p) => p.name === "variant"));
@@ -232,7 +232,7 @@ test("search ranks across tiers with snippets", async () => {
 
 test("validate is authoritative on generated code", async () => {
 	const bad = await kb.callTool("validate", {
-		code: `import {Button} from "@corensystem/core-ui";\nexport default () => <Button>Hi</Button>;`,
+		code: `import {Button} from "@corensystem/coren-ui";\nexport default () => <Button>Hi</Button>;`,
 	});
 	assertEnvelope(bad, "validate");
 	assert.equal(bad.data.pass, false, "barrel import fails");
@@ -240,7 +240,7 @@ test("validate is authoritative on generated code", async () => {
 	assert.ok(bad.data.findings.some((f) => !f.pass && f.metric === "imports"));
 
 	const good = await kb.callTool("validate", {
-		code: `import {Button} from "@corensystem/core-ui/button";\nexport default () => <Button>Hi</Button>;`,
+		code: `import {Button} from "@corensystem/coren-ui/button";\nexport default () => <Button>Hi</Button>;`,
 	});
 	assert.equal(good.data.pass, true, "deep-path import passes");
 });
@@ -260,21 +260,21 @@ test("core-only validation rejects standalone approximations and requires the ex
 	const wrongCoreComponent = await kb.callTool("validate", {
 		mode: "core-only",
 		template: "timesheet",
-		code: `import {Card} from "@corensystem/core-ui/card";\nexport default () => <Card>Workers</Card>;`,
+		code: `import {Card} from "@corensystem/coren-ui/card";\nexport default () => <Card>Workers</Card>;`,
 	});
 	assert.equal(wrongCoreComponent.data.compliant, false, "a generic Core component cannot replace the template");
 
 	const pathWithoutExport = await kb.callTool("validate", {
 		mode: "core-only",
 		template: "timesheet",
-		code: `import "@corensystem/core-ui/pages/core-timesheet";\nexport default () => null;`,
+		code: `import "@corensystem/coren-ui/pages/core-timesheet";\nexport default () => null;`,
 	});
 	assert.equal(pathWithoutExport.data.compliant, false, "the required template export must also be used");
 
 	const exactTemplate = await kb.callTool("validate", {
 		mode: "core-only",
 		template: "timesheet",
-		code: `import {Timesheet} from "@corensystem/core-ui/pages/core-timesheet";\nexport default () => <Timesheet />;`,
+		code: `import {Timesheet} from "@corensystem/coren-ui/pages/core-timesheet";\nexport default () => <Timesheet />;`,
 	});
 	assert.equal(exactTemplate.data.compliant, true);
 	assert.equal(exactTemplate.data.metrics["core-compliance"], true);

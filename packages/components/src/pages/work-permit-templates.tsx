@@ -1,6 +1,6 @@
 import type {ColumnDef} from "@tanstack/react-table";
 
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {Copy, MoreHorizontal, Pencil, Plus, Save, Send, Trash2, X} from "lucide-react";
 import {useMemo, useState} from "react";
 

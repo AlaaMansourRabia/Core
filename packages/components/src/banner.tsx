@@ -1,4 +1,4 @@
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import {AlertTriangle, CheckCircle2, Info, OctagonAlert, X} from "lucide-react";
 import * as React from "react";
 

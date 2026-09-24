@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {ObjectDrawingToolbar} from "@corensystem/core-ui/object-drawing-toolbar";
+import {ObjectDrawingToolbar} from "@corensystem/coren-ui/object-drawing-toolbar";
 
 const meta = {
 	title: "Widgets/Canvas/Object Drawing Toolbar",

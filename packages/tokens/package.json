@@ -1,5 +1,5 @@
 {
-	"name": "@corensystem/core-tokens",
+	"name": "@corensystem/coren-tokens",
 	"version": "1.0.0",
 	"publishConfig": {
 		"access": "public"

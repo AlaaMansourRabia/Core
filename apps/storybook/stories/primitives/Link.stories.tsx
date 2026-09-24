@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Link} from "@corensystem/core-ui/link";
+import {Link} from "@corensystem/coren-ui/link";
 
 const meta = {
 	title: "Components/Primitives/Link",

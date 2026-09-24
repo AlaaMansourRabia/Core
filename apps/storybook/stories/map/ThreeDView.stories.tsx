@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Button} from "@corensystem/core-ui/button";
-import {Map} from "@corensystem/core-ui/map";
-import {MapControls} from "@corensystem/core-ui/map-controls";
-import {MAPBOX_TOKEN} from "@corensystem/core-ui/mapbox-token";
+import {Button} from "@corensystem/coren-ui/button";
+import {Map} from "@corensystem/coren-ui/map";
+import {MapControls} from "@corensystem/coren-ui/map-controls";
+import {MAPBOX_TOKEN} from "@corensystem/coren-ui/mapbox-token";
 import {RotateCw} from "lucide-react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";

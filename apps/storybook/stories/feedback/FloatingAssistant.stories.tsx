@@ -1,7 +1,7 @@
-import type {Message} from "@corensystem/core-ui/types/chat";
+import type {Message} from "@corensystem/coren-ui/types/chat";
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {FloatingAssistant} from "@corensystem/core-ui/floating-assistant";
+import {FloatingAssistant} from "@corensystem/coren-ui/floating-assistant";
 import {Bot, Sparkles} from "lucide-react";
 import {useState} from "react";
 

@@ -1,6 +1,6 @@
 import type {EChartsOption} from "echarts";
 
-import {cn} from "@corensystem/core-utils";
+import {cn} from "@corensystem/coren-utils";
 import * as React from "react";
 
 import {ChartContainer} from "./chart";

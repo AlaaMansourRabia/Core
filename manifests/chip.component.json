@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/chip.tsx",
-		"import": "@corensystem/core-ui/chip",
+		"import": "@corensystem/coren-ui/chip",
 		"export": "Chip"
 	},
 	"tags": [

@@ -8,7 +8,7 @@
 	"manifestStatus": "complete",
 	"source": {
 		"path": "packages/components/src/operations-drawer.tsx",
-		"import": "@corensystem/core-ui/operations-drawer",
+		"import": "@corensystem/coren-ui/operations-drawer",
 		"export": "OperationsDrawer"
 	},
 	"tags": [

@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {CompareBars} from "@corensystem/core-ui/compare-bars";
+import {CompareBars} from "@corensystem/coren-ui/compare-bars";
 
 const meta = {
 	title: "Components/Data Display/Compare Bars",
