@@ -447,6 +447,182 @@
 		"./examples/app-shell": {
 			"types": "./dist/examples/app-shell/index.d.mts",
 			"import": "./dist/examples/app-shell/index.mjs"
+		},
+		"./examples/app-card": {
+			"types": "./dist/examples/app-card/index.d.mts",
+			"import": "./dist/examples/app-card/index.mjs"
+		},
+		"./examples/asset-list-item": {
+			"types": "./dist/examples/asset-list-item/index.d.mts",
+			"import": "./dist/examples/asset-list-item/index.mjs"
+		},
+		"./examples/blueprint-segment": {
+			"types": "./dist/examples/blueprint-segment/index.d.mts",
+			"import": "./dist/examples/blueprint-segment/index.mjs"
+		},
+		"./examples/browser-tabs": {
+			"types": "./dist/examples/browser-tabs/index.d.mts",
+			"import": "./dist/examples/browser-tabs/index.mjs"
+		},
+		"./examples/building-model-placeholder": {
+			"types": "./dist/examples/building-model-placeholder/index.d.mts",
+			"import": "./dist/examples/building-model-placeholder/index.mjs"
+		},
+		"./examples/canvas-file-picker": {
+			"types": "./dist/examples/canvas-file-picker/index.d.mts",
+			"import": "./dist/examples/canvas-file-picker/index.mjs"
+		},
+		"./examples/canvas-header": {
+			"types": "./dist/examples/canvas-header/index.d.mts",
+			"import": "./dist/examples/canvas-header/index.mjs"
+		},
+		"./examples/capture-route-minimap": {
+			"types": "./dist/examples/capture-route-minimap/index.d.mts",
+			"import": "./dist/examples/capture-route-minimap/index.mjs"
+		},
+		"./examples/catalogue-view-toggle": {
+			"types": "./dist/examples/catalogue-view-toggle/index.d.mts",
+			"import": "./dist/examples/catalogue-view-toggle/index.mjs"
+		},
+		"./examples/compare-bars": {
+			"types": "./dist/examples/compare-bars/index.d.mts",
+			"import": "./dist/examples/compare-bars/index.mjs"
+		},
+		"./examples/context-toolbar": {
+			"types": "./dist/examples/context-toolbar/index.d.mts",
+			"import": "./dist/examples/context-toolbar/index.mjs"
+		},
+		"./examples/export-dialog": {
+			"types": "./dist/examples/export-dialog/index.d.mts",
+			"import": "./dist/examples/export-dialog/index.mjs"
+		},
+		"./examples/floor-progress-bar": {
+			"types": "./dist/examples/floor-progress-bar/index.d.mts",
+			"import": "./dist/examples/floor-progress-bar/index.mjs"
+		},
+		"./examples/form-action-bar": {
+			"types": "./dist/examples/form-action-bar/index.d.mts",
+			"import": "./dist/examples/form-action-bar/index.mjs"
+		},
+		"./examples/house-shape": {
+			"types": "./dist/examples/house-shape/index.d.mts",
+			"import": "./dist/examples/house-shape/index.mjs"
+		},
+		"./examples/item": {
+			"types": "./dist/examples/item/index.d.mts",
+			"import": "./dist/examples/item/index.mjs"
+		},
+		"./examples/legend": {
+			"types": "./dist/examples/legend/index.d.mts",
+			"import": "./dist/examples/legend/index.mjs"
+		},
+		"./examples/map-compass": {
+			"types": "./dist/examples/map-compass/index.d.mts",
+			"import": "./dist/examples/map-compass/index.mjs"
+		},
+		"./examples/map-hover-card": {
+			"types": "./dist/examples/map-hover-card/index.d.mts",
+			"import": "./dist/examples/map-hover-card/index.mjs"
+		},
+		"./examples/map-minimap": {
+			"types": "./dist/examples/map-minimap/index.d.mts",
+			"import": "./dist/examples/map-minimap/index.mjs"
+		},
+		"./examples/milestone-table": {
+			"types": "./dist/examples/milestone-table/index.d.mts",
+			"import": "./dist/examples/milestone-table/index.mjs"
+		},
+		"./examples/minimap": {
+			"types": "./dist/examples/minimap/index.d.mts",
+			"import": "./dist/examples/minimap/index.mjs"
+		},
+		"./examples/operations-drawer": {
+			"types": "./dist/examples/operations-drawer/index.d.mts",
+			"import": "./dist/examples/operations-drawer/index.mjs"
+		},
+		"./examples/progress-list-item": {
+			"types": "./dist/examples/progress-list-item/index.d.mts",
+			"import": "./dist/examples/progress-list-item/index.mjs"
+		},
+		"./examples/progress-stat": {
+			"types": "./dist/examples/progress-stat/index.d.mts",
+			"import": "./dist/examples/progress-stat/index.mjs"
+		},
+		"./examples/push-panel": {
+			"types": "./dist/examples/push-panel/index.d.mts",
+			"import": "./dist/examples/push-panel/index.mjs"
+		},
+		"./examples/rule-row": {
+			"types": "./dist/examples/rule-row/index.d.mts",
+			"import": "./dist/examples/rule-row/index.mjs"
+		},
+		"./examples/score-gauge": {
+			"types": "./dist/examples/score-gauge/index.d.mts",
+			"import": "./dist/examples/score-gauge/index.mjs"
+		},
+		"./examples/section-header": {
+			"types": "./dist/examples/section-header/index.d.mts",
+			"import": "./dist/examples/section-header/index.mjs"
+		},
+		"./examples/thinking-pill": {
+			"types": "./dist/examples/thinking-pill/index.d.mts",
+			"import": "./dist/examples/thinking-pill/index.mjs"
+		},
+		"./examples/time-scrubber": {
+			"types": "./dist/examples/time-scrubber/index.d.mts",
+			"import": "./dist/examples/time-scrubber/index.mjs"
+		},
+		"./examples/timeline-range-selector": {
+			"types": "./dist/examples/timeline-range-selector/index.d.mts",
+			"import": "./dist/examples/timeline-range-selector/index.mjs"
+		},
+		"./examples/timestamp-picker": {
+			"types": "./dist/examples/timestamp-picker/index.d.mts",
+			"import": "./dist/examples/timestamp-picker/index.mjs"
+		},
+		"./examples/tool-call": {
+			"types": "./dist/examples/tool-call/index.d.mts",
+			"import": "./dist/examples/tool-call/index.mjs"
+		},
+		"./examples/toolbar-color-picker": {
+			"types": "./dist/examples/toolbar-color-picker/index.d.mts",
+			"import": "./dist/examples/toolbar-color-picker/index.mjs"
+		},
+		"./examples/toolbar-pager": {
+			"types": "./dist/examples/toolbar-pager/index.d.mts",
+			"import": "./dist/examples/toolbar-pager/index.mjs"
+		},
+		"./examples/tree-row": {
+			"types": "./dist/examples/tree-row/index.d.mts",
+			"import": "./dist/examples/tree-row/index.mjs"
+		},
+		"./examples/turn-timer": {
+			"types": "./dist/examples/turn-timer/index.d.mts",
+			"import": "./dist/examples/turn-timer/index.mjs"
+		},
+		"./examples/vertical-zoom-tools": {
+			"types": "./dist/examples/vertical-zoom-tools/index.d.mts",
+			"import": "./dist/examples/vertical-zoom-tools/index.mjs"
+		},
+		"./examples/view-tab-bar": {
+			"types": "./dist/examples/view-tab-bar/index.d.mts",
+			"import": "./dist/examples/view-tab-bar/index.mjs"
+		},
+		"./examples/violation-list": {
+			"types": "./dist/examples/violation-list/index.d.mts",
+			"import": "./dist/examples/violation-list/index.mjs"
+		},
+		"./examples/walkthrough-modal": {
+			"types": "./dist/examples/walkthrough-modal/index.d.mts",
+			"import": "./dist/examples/walkthrough-modal/index.mjs"
+		},
+		"./examples/week-selector": {
+			"types": "./dist/examples/week-selector/index.d.mts",
+			"import": "./dist/examples/week-selector/index.mjs"
+		},
+		"./examples/zoom-tools": {
+			"types": "./dist/examples/zoom-tools/index.d.mts",
+			"import": "./dist/examples/zoom-tools/index.mjs"
 		}
 	},
 	"publishConfig": {
