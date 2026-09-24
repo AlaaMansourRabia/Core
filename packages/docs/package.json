@@ -16,6 +16,10 @@
 			"types": "./dist/examples/badge/index.d.mts",
 			"import": "./dist/examples/badge/index.mjs"
 		},
+		"./examples/button": {
+			"types": "./dist/examples/button/index.d.mts",
+			"import": "./dist/examples/button/index.mjs"
+		},
 		"./examples/label": {
 			"types": "./dist/examples/label/index.d.mts",
 			"import": "./dist/examples/label/index.mjs"
