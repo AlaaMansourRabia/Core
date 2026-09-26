@@ -2166,7 +2166,7 @@
 				"import": "@corensystem/coren-ui/input-otp",
 				"tier": "component",
 				"manifest": "manifests/input-otp.component.json",
-				"manifestStatus": "complete",
+				"manifestStatus": "draft",
 				"tags": [
 					"form",
 					"input",
@@ -2193,7 +2193,7 @@
 				"import": "@corensystem/coren-ui/combobox",
 				"tier": "component",
 				"manifest": "manifests/combobox.component.json",
-				"manifestStatus": "complete",
+				"manifestStatus": "draft",
 				"tags": [
 					"form",
 					"input",
@@ -2229,7 +2229,7 @@
 				"import": "@corensystem/coren-ui/date-picker",
 				"tier": "component",
 				"manifest": "manifests/date-picker.component.json",
-				"manifestStatus": "complete",
+				"manifestStatus": "draft",
 				"variants": [
 					"single",
 					"range",
