@@ -5,7 +5,7 @@
 	"name": "Combobox",
 	"category": "form",
 	"version": "1.0.0",
-	"manifestStatus": "complete",
+	"manifestStatus": "draft",
 	"source": {
 		"path": "packages/components/src/combobox.tsx",
 		"import": "@corensystem/coren-ui/combobox",

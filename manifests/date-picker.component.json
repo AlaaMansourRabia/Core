@@ -5,7 +5,7 @@
 	"name": "DatePicker",
 	"category": "form",
 	"version": "1.0.0",
-	"manifestStatus": "complete",
+	"manifestStatus": "draft",
 	"source": {
 		"path": "packages/components/src/date-picker.tsx",
 		"import": "@corensystem/coren-ui/date-picker",
