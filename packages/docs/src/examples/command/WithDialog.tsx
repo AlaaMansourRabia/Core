@@ -1,7 +1,4 @@
-/**
- * Command palette in a dialog with keyboard shortcut.
- */
-import * as React from "react";
+import {Button} from "@corensystem/coren-ui/button";
 import {
 	Command,
 	CommandEmpty,
@@ -12,8 +9,11 @@ import {
 	CommandShortcut,
 } from "@corensystem/coren-ui/command";
 import {Dialog, DialogContent} from "@corensystem/coren-ui/dialog";
-import {Button} from "@corensystem/coren-ui/button";
 import {FileText, Settings, User, Search} from "lucide-react";
+/**
+ * Command palette in a dialog with keyboard shortcut.
+ */
+import * as React from "react";
 
 export function WithDialog() {
 	const [open, setOpen] = React.useState(false);

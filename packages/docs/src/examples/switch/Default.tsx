@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Default switch with label.
  */
 import {Switch} from "@corensystem/coren-ui/switch";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function Default() {
 	return (

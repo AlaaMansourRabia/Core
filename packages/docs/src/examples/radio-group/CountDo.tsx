@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Use radio buttons for 2-5 visible options.
  */
 import {RadioGroup, RadioGroupItem} from "@corensystem/coren-ui/radio-group";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function CountDo() {
 	return (

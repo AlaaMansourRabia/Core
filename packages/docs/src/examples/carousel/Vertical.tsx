@@ -1,14 +1,8 @@
+import {Card, CardContent} from "@corensystem/coren-ui/card";
 /**
  * Vertical carousel orientation.
  */
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
-} from "@corensystem/coren-ui/carousel";
-import {Card, CardContent} from "@corensystem/coren-ui/card";
+import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@corensystem/coren-ui/carousel";
 
 export function Vertical() {
 	return (

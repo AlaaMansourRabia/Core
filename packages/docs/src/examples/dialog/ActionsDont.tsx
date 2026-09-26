@@ -1,14 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid unclear or missing action buttons.
  */
-import {
-	Dialog,
-	DialogContent,
-	DialogHeader,
-	DialogTitle,
-	DialogTrigger,
-} from "@corensystem/coren-ui/dialog";
-import {Button} from "@corensystem/coren-ui/button";
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@corensystem/coren-ui/dialog";
 
 export function ActionsDont() {
 	return (

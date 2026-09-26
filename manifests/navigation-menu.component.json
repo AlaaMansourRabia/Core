@@ -60,5 +60,93 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use NavigationMenu to help users navigate through your application or content hierarchy. This component provides clear wayfinding and helps users understand their current location within the interface.",
+			"NavigationMenu is ideal for multi-page applications, content-heavy interfaces, or any situation where users need to move between different sections. Keep navigation patterns consistent across your application for better user experience."
+		],
+		"anatomy": {
+			"description": "NavigationMenu is composed of the following parts:",
+			"parts": [
+				{
+					"name": "NavigationMenuTrigger",
+					"description": "Element that opens the menu when activated."
+				},
+				{
+					"name": "NavigationMenuContent",
+					"description": "Container for menu items."
+				},
+				{
+					"name": "NavigationMenuItem",
+					"description": "Individual selectable menu item."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<NavigationMenu variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<NavigationMenu className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<NavigationMenu aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<NavigationMenu /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<NavigationMenu loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<NavigationMenu>{data.value}</NavigationMenu> // Crashes if data is undefined"
+			}
+		]
 	}
 }

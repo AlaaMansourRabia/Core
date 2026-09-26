@@ -9,9 +9,7 @@ export function Default() {
 		<Alert>
 			<Info className="wwc:h-4 wwc:w-4" />
 			<AlertTitle>Heads up!</AlertTitle>
-			<AlertDescription>
-				You can add components to your app using the CLI.
-			</AlertDescription>
+			<AlertDescription>You can add components to your app using the CLI.</AlertDescription>
 		</Alert>
 	);
 }

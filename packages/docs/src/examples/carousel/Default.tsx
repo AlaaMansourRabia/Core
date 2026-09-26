@@ -1,14 +1,8 @@
+import {Card, CardContent} from "@corensystem/coren-ui/card";
 /**
  * Basic horizontal carousel with navigation.
  */
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
-} from "@corensystem/coren-ui/carousel";
-import {Card, CardContent} from "@corensystem/coren-ui/card";
+import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@corensystem/coren-ui/carousel";
 
 export function Default() {
 	return (

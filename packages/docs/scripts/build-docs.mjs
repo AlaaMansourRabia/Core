@@ -29,7 +29,7 @@ const DOCS_DIR = resolve(DIST_DIR, "docs");
 
 // Load coren-ui exports to validate import paths
 const corenUiPkg = JSON.parse(readFileSync(resolve(MONOREPO_ROOT, "packages/components/package.json"), "utf-8"));
-const COREN_UI_EXPORTS = new Set(Object.keys(corenUiPkg.exports || {}).map(e => e.replace(/^\.\//, "")));
+const COREN_UI_EXPORTS = new Set(Object.keys(corenUiPkg.exports || {}).map((e) => e.replace(/^\.\//, "")));
 
 // Component groups and their Storybook prefixes
 const COMPONENT_GROUPS = {
@@ -68,7 +68,7 @@ function loadManifests() {
 	const manifests = new Map();
 	if (!existsSync(MANIFESTS_DIR)) return manifests;
 
-	const files = readdirSync(MANIFESTS_DIR).filter(f => f.endsWith(".component.json"));
+	const files = readdirSync(MANIFESTS_DIR).filter((f) => f.endsWith(".component.json"));
 	for (const file of files) {
 		try {
 			const manifest = JSON.parse(readFileSync(join(MANIFESTS_DIR, file), "utf-8"));
@@ -111,40 +111,173 @@ function extractProps(componentId, componentName, manifestSource) {
 	// List of HTML/React inherited props to exclude
 	const INHERITED_PROPS = new Set([
 		// HTML attributes
-		"id", "className", "style", "title", "lang", "dir", "hidden", "tabIndex", "accessKey",
-		"contentEditable", "draggable", "spellCheck", "translate", "slot", "about", "datatype",
-		"inlist", "prefix", "property", "resource", "typeof", "vocab", "autoCapitalize",
-		"autoCorrect", "autoSave", "color", "itemProp", "itemScope", "itemType", "itemID",
-		"itemRef", "results", "security", "unselectable", "inputMode", "is", "nonce", "popover",
-		"popoverTarget", "popoverTargetAction", "enterKeyHint", "writingSuggestions", "role",
+		"id",
+		"className",
+		"style",
+		"title",
+		"lang",
+		"dir",
+		"hidden",
+		"tabIndex",
+		"accessKey",
+		"contentEditable",
+		"draggable",
+		"spellCheck",
+		"translate",
+		"slot",
+		"about",
+		"datatype",
+		"inlist",
+		"prefix",
+		"property",
+		"resource",
+		"typeof",
+		"vocab",
+		"autoCapitalize",
+		"autoCorrect",
+		"autoSave",
+		"color",
+		"itemProp",
+		"itemScope",
+		"itemType",
+		"itemID",
+		"itemRef",
+		"results",
+		"security",
+		"unselectable",
+		"inputMode",
+		"is",
+		"nonce",
+		"popover",
+		"popoverTarget",
+		"popoverTargetAction",
+		"enterKeyHint",
+		"writingSuggestions",
+		"role",
 		// ARIA attributes (all aria-*)
 		// Event handlers
-		"onCopy", "onCopyCapture", "onCut", "onCutCapture", "onPaste", "onPasteCapture",
-		"onCompositionEnd", "onCompositionEndCapture", "onCompositionStart", "onCompositionStartCapture",
-		"onCompositionUpdate", "onCompositionUpdateCapture", "onFocus", "onFocusCapture",
-		"onBlur", "onBlurCapture", "onChange", "onChangeCapture", "onBeforeInput", "onBeforeInputCapture",
-		"onInput", "onInputCapture", "onReset", "onResetCapture", "onSubmit", "onSubmitCapture",
-		"onInvalid", "onInvalidCapture", "onLoad", "onLoadCapture", "onError", "onErrorCapture",
-		"onKeyDown", "onKeyDownCapture", "onKeyPress", "onKeyPressCapture", "onKeyUp", "onKeyUpCapture",
-		"onClick", "onClickCapture", "onContextMenu", "onContextMenuCapture", "onDoubleClick",
-		"onDoubleClickCapture", "onDrag", "onDragCapture", "onDragEnd", "onDragEndCapture",
-		"onDragEnter", "onDragEnterCapture", "onDragExit", "onDragExitCapture", "onDragLeave",
-		"onDragLeaveCapture", "onDragOver", "onDragOverCapture", "onDragStart", "onDragStartCapture",
-		"onDrop", "onDropCapture", "onMouseDown", "onMouseDownCapture", "onMouseEnter",
-		"onMouseLeave", "onMouseMove", "onMouseMoveCapture", "onMouseOut", "onMouseOutCapture",
-		"onMouseOver", "onMouseOverCapture", "onMouseUp", "onMouseUpCapture", "onSelect",
-		"onSelectCapture", "onTouchCancel", "onTouchCancelCapture", "onTouchEnd", "onTouchEndCapture",
-		"onTouchMove", "onTouchMoveCapture", "onTouchStart", "onTouchStartCapture", "onPointerDown",
-		"onPointerDownCapture", "onPointerMove", "onPointerMoveCapture", "onPointerUp",
-		"onPointerUpCapture", "onPointerCancel", "onPointerCancelCapture", "onPointerEnter",
-		"onPointerLeave", "onPointerOver", "onPointerOverCapture", "onPointerOut",
-		"onPointerOutCapture", "onGotPointerCapture", "onGotPointerCaptureCapture",
-		"onLostPointerCapture", "onLostPointerCaptureCapture", "onScroll", "onScrollCapture",
-		"onScrollEnd", "onScrollEndCapture", "onWheel", "onWheelCapture", "onAnimationStart",
-		"onAnimationStartCapture", "onAnimationEnd", "onAnimationEndCapture", "onAnimationIteration",
-		"onAnimationIterationCapture", "onTransitionEnd", "onTransitionEndCapture", "onToggle",
+		"onCopy",
+		"onCopyCapture",
+		"onCut",
+		"onCutCapture",
+		"onPaste",
+		"onPasteCapture",
+		"onCompositionEnd",
+		"onCompositionEndCapture",
+		"onCompositionStart",
+		"onCompositionStartCapture",
+		"onCompositionUpdate",
+		"onCompositionUpdateCapture",
+		"onFocus",
+		"onFocusCapture",
+		"onBlur",
+		"onBlurCapture",
+		"onChange",
+		"onChangeCapture",
+		"onBeforeInput",
+		"onBeforeInputCapture",
+		"onInput",
+		"onInputCapture",
+		"onReset",
+		"onResetCapture",
+		"onSubmit",
+		"onSubmitCapture",
+		"onInvalid",
+		"onInvalidCapture",
+		"onLoad",
+		"onLoadCapture",
+		"onError",
+		"onErrorCapture",
+		"onKeyDown",
+		"onKeyDownCapture",
+		"onKeyPress",
+		"onKeyPressCapture",
+		"onKeyUp",
+		"onKeyUpCapture",
+		"onClick",
+		"onClickCapture",
+		"onContextMenu",
+		"onContextMenuCapture",
+		"onDoubleClick",
+		"onDoubleClickCapture",
+		"onDrag",
+		"onDragCapture",
+		"onDragEnd",
+		"onDragEndCapture",
+		"onDragEnter",
+		"onDragEnterCapture",
+		"onDragExit",
+		"onDragExitCapture",
+		"onDragLeave",
+		"onDragLeaveCapture",
+		"onDragOver",
+		"onDragOverCapture",
+		"onDragStart",
+		"onDragStartCapture",
+		"onDrop",
+		"onDropCapture",
+		"onMouseDown",
+		"onMouseDownCapture",
+		"onMouseEnter",
+		"onMouseLeave",
+		"onMouseMove",
+		"onMouseMoveCapture",
+		"onMouseOut",
+		"onMouseOutCapture",
+		"onMouseOver",
+		"onMouseOverCapture",
+		"onMouseUp",
+		"onMouseUpCapture",
+		"onSelect",
+		"onSelectCapture",
+		"onTouchCancel",
+		"onTouchCancelCapture",
+		"onTouchEnd",
+		"onTouchEndCapture",
+		"onTouchMove",
+		"onTouchMoveCapture",
+		"onTouchStart",
+		"onTouchStartCapture",
+		"onPointerDown",
+		"onPointerDownCapture",
+		"onPointerMove",
+		"onPointerMoveCapture",
+		"onPointerUp",
+		"onPointerUpCapture",
+		"onPointerCancel",
+		"onPointerCancelCapture",
+		"onPointerEnter",
+		"onPointerLeave",
+		"onPointerOver",
+		"onPointerOverCapture",
+		"onPointerOut",
+		"onPointerOutCapture",
+		"onGotPointerCapture",
+		"onGotPointerCaptureCapture",
+		"onLostPointerCapture",
+		"onLostPointerCaptureCapture",
+		"onScroll",
+		"onScrollCapture",
+		"onScrollEnd",
+		"onScrollEndCapture",
+		"onWheel",
+		"onWheelCapture",
+		"onAnimationStart",
+		"onAnimationStartCapture",
+		"onAnimationEnd",
+		"onAnimationEndCapture",
+		"onAnimationIteration",
+		"onAnimationIterationCapture",
+		"onTransitionEnd",
+		"onTransitionEndCapture",
+		"onToggle",
 		// React internal
-		"ref", "key", "dangerouslySetInnerHTML", "defaultChecked", "defaultValue", "suppressContentEditableWarning",
+		"ref",
+		"key",
+		"dangerouslySetInnerHTML",
+		"defaultChecked",
+		"defaultValue",
+		"suppressContentEditableWarning",
 		"suppressHydrationWarning",
 	]);
 
@@ -156,7 +289,7 @@ function extractProps(componentId, componentName, manifestSource) {
 		});
 
 		// Find the component by name
-		const componentDoc = result.find(c => c.displayName === componentName);
+		const componentDoc = result.find((c) => c.displayName === componentName);
 		if (!componentDoc) return [];
 
 		const props = [];
@@ -182,7 +315,7 @@ function extractProps(componentId, componentName, manifestSource) {
 
 			// Format union types properly
 			if (prop.type?.name === "enum" && prop.type?.value) {
-				const values = prop.type.value.map(v => v.value).filter(Boolean);
+				const values = prop.type.value.map((v) => v.value).filter(Boolean);
 				if (values.length > 0) {
 					type = values.join(" | ");
 				}
@@ -199,16 +332,46 @@ function extractProps(componentId, componentName, manifestSource) {
 
 		// Keep only key component props: variant, children, className, asChild, etc.
 		// Add className and children if they exist in the component
-		const componentProps = props.filter(p =>
-			["variant", "size", "children", "className", "asChild", "disabled", "required",
-			 "open", "onOpenChange", "defaultOpen", "value", "onValueChange", "defaultValue",
-			 "checked", "onCheckedChange", "defaultChecked", "selected", "onSelect",
-			 "orientation", "side", "align", "sideOffset", "alignOffset", "collapsible",
-			 "type", "name", "placeholder", "autoFocus", "readOnly", "max", "min", "step"].includes(p.name) ||
-			// Keep props with descriptions (they're documented)
-			p.description.length > 0 ||
-			// Keep props that aren't standard HTML
-			!INHERITED_PROPS.has(p.name)
+		const componentProps = props.filter(
+			(p) =>
+				[
+					"variant",
+					"size",
+					"children",
+					"className",
+					"asChild",
+					"disabled",
+					"required",
+					"open",
+					"onOpenChange",
+					"defaultOpen",
+					"value",
+					"onValueChange",
+					"defaultValue",
+					"checked",
+					"onCheckedChange",
+					"defaultChecked",
+					"selected",
+					"onSelect",
+					"orientation",
+					"side",
+					"align",
+					"sideOffset",
+					"alignOffset",
+					"collapsible",
+					"type",
+					"name",
+					"placeholder",
+					"autoFocus",
+					"readOnly",
+					"max",
+					"min",
+					"step",
+				].includes(p.name) ||
+				// Keep props with descriptions (they're documented)
+				p.description.length > 0 ||
+				// Keep props that aren't standard HTML
+				!INHERITED_PROPS.has(p.name),
 		);
 
 		// Add ...props row for inherited HTML props
@@ -238,7 +401,7 @@ function discoverComponents() {
 		const groupDir = join(STORYBOOK_DIR, group);
 		if (!existsSync(groupDir)) continue;
 
-		const files = readdirSync(groupDir).filter(f => f.endsWith(".stories.tsx"));
+		const files = readdirSync(groupDir).filter((f) => f.endsWith(".stories.tsx"));
 		for (const file of files) {
 			const name = file.replace(".stories.tsx", "");
 			// Convert PascalCase to kebab-case for id
@@ -409,8 +572,8 @@ function generateComponentDocs(component, manifest) {
 
 	// Match stories to examples
 	const storyExamples = stories
-		.filter(s => exports.includes(s.exportName))
-		.map(s => ({
+		.filter((s) => exports.includes(s.exportName))
+		.map((s) => ({
 			name: s.displayName,
 			export: s.exportName,
 			storyId: toStoryId(component, s.exportName),
@@ -420,8 +583,8 @@ function generateComponentDocs(component, manifest) {
 
 	// Find overview example
 	const overviewExample =
-		exports.find(e => e.includes("All") || e.includes("Variants")) ||
-		exports.find(e => e === "Default") ||
+		exports.find((e) => e.includes("All") || e.includes("Variants")) ||
+		exports.find((e) => e === "Default") ||
 		exports[0];
 
 	// Get anatomy from manifest or generate from parts
@@ -444,8 +607,8 @@ function generateComponentDocs(component, manifest) {
 	if (manifest?.docs?.bestPractices && manifest.docs.bestPractices.length > 0) {
 		bestPractices = manifest.docs.bestPractices.map((bp, idx) => {
 			// Find matching Do/Dont exports
-			const doExports = exports.filter(e => e.endsWith("Do") && !e.endsWith("Dont"));
-			const dontExports = exports.filter(e => e.endsWith("Dont"));
+			const doExports = exports.filter((e) => e.endsWith("Do") && !e.endsWith("Dont"));
+			const dontExports = exports.filter((e) => e.endsWith("Dont"));
 
 			return {
 				do: {
@@ -525,9 +688,7 @@ function generateUsageFromManifest(manifest) {
 
 	// Generate "when not to use" paragraph from chooseOver
 	if (manifest.chooseOver && manifest.chooseOver.length > 0) {
-		const alternatives = manifest.chooseOver
-			.map(c => `${c.component} (${c.because.toLowerCase()})`)
-			.join("; ");
+		const alternatives = manifest.chooseOver.map((c) => `${c.component} (${c.because.toLowerCase()})`).join("; ");
 		usage.push(`Consider alternatives: ${alternatives}.`);
 	}
 
@@ -561,11 +722,11 @@ function getAnatomyParts(componentId) {
  */
 function getBestPractices(componentId, exports) {
 	const practices = [];
-	const doExports = exports.filter(e => e.endsWith("Do") && !e.endsWith("Dont"));
+	const doExports = exports.filter((e) => e.endsWith("Do") && !e.endsWith("Dont"));
 
 	for (const doExport of doExports) {
 		const baseName = doExport.replace(/Do$/, "");
-		const dontExport = exports.find(e => e === `${baseName}Dont`);
+		const dontExport = exports.find((e) => e === `${baseName}Dont`);
 
 		if (dontExport) {
 			practices.push({
@@ -618,8 +779,8 @@ function generatePlaceholderDocs(component, manifest) {
  */
 function generateIndex(components, manifests) {
 	return components
-		.filter(c => c.hasExamples) // Only include components with examples
-		.map(c => ({
+		.filter((c) => c.hasExamples) // Only include components with examples
+		.map((c) => ({
 			id: c.id,
 			name: c.name,
 			group: c.group,

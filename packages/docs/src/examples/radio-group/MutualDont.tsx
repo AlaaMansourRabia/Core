@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Avoid using radio buttons for non-exclusive options (use Checkbox).
  */
 import {RadioGroup, RadioGroupItem} from "@corensystem/coren-ui/radio-group";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function MutualDont() {
 	return (

@@ -1,21 +1,31 @@
 /**
- * Show clear progress indication.
+ * Show clear progress indication with step labels.
  */
-import {WizardDialog, WizardDialogTrigger, WizardDialogContent, WizardStep, WizardProgress} from "@corensystem/coren-ui/wizard-dialog";
+import type {WizardStep} from "@corensystem/coren-ui/wizard-dialog";
+
 import {Button} from "@corensystem/coren-ui/button";
+import {WizardDialog} from "@corensystem/coren-ui/wizard-dialog";
+import {useState} from "react";
+
+const steps: WizardStep[] = [
+	{label: "Account", content: <p>Step 1 content</p>},
+	{label: "Profile", content: <p>Step 2 content</p>},
+	{label: "Done", content: <p>Step 3 content</p>},
+];
 
 export function ProgressDo() {
+	const [open, setOpen] = useState(false);
 	return (
-		<WizardDialog>
-			<WizardDialogTrigger asChild>
-				<Button>Start</Button>
-			</WizardDialogTrigger>
-			<WizardDialogContent>
-				<WizardProgress showStepNumber showLabel />
-				<WizardStep title="Account">Step 1 content</WizardStep>
-				<WizardStep title="Profile">Step 2 content</WizardStep>
-				<WizardStep title="Done">Step 3 content</WizardStep>
-			</WizardDialogContent>
-		</WizardDialog>
+		<>
+			<Button onClick={() => setOpen(true)}>Start</Button>
+			<WizardDialog
+				open={open}
+				onOpenChange={setOpen}
+				title="Setup Wizard"
+				steps={steps}
+				submitLabel="Submit"
+				onSubmit={() => setOpen(false)}
+			/>
+		</>
 	);
 }

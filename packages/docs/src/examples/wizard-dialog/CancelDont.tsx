@@ -1,20 +1,27 @@
 /**
  * Avoid losing progress without warning.
  */
-import {WizardDialog, WizardDialogTrigger, WizardDialogContent, WizardStep} from "@corensystem/coren-ui/wizard-dialog";
+import type {WizardStep} from "@corensystem/coren-ui/wizard-dialog";
+
 import {Button} from "@corensystem/coren-ui/button";
+import {WizardDialog} from "@corensystem/coren-ui/wizard-dialog";
+import {useState} from "react";
+
+const steps: WizardStep[] = [{label: "Step 1", content: <p>Closing loses all progress!</p>}];
 
 export function CancelDont() {
+	const [open, setOpen] = useState(false);
 	return (
-		<WizardDialog confirmOnCancel={false}>
-			<WizardDialogTrigger asChild>
-				<Button>Start</Button>
-			</WizardDialogTrigger>
-			<WizardDialogContent>
-				<WizardStep title="Step 1">
-					<p>Closing loses all progress!</p>
-				</WizardStep>
-			</WizardDialogContent>
-		</WizardDialog>
+		<>
+			<Button onClick={() => setOpen(true)}>Start</Button>
+			<WizardDialog
+				open={open}
+				onOpenChange={setOpen}
+				title="Wizard"
+				steps={steps}
+				submitLabel="Submit"
+				onSubmit={() => setOpen(false)}
+			/>
+		</>
 	);
 }

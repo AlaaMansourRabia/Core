@@ -1,13 +1,7 @@
 /**
  * Command items with disabled state.
  */
-import {
-	Command,
-	CommandGroup,
-	CommandInput,
-	CommandItem,
-	CommandList,
-} from "@corensystem/coren-ui/command";
+import {Command, CommandGroup, CommandInput, CommandItem, CommandList} from "@corensystem/coren-ui/command";
 import {Download, Upload, Share2, Lock} from "lucide-react";
 
 export function Disabled() {
@@ -27,16 +21,12 @@ export function Disabled() {
 					<CommandItem disabled>
 						<Share2 className="wwc:mr-2 wwc:h-4 wwc:w-4" />
 						Share
-						<span className="wwc:ml-auto wwc:text-xs wwc:text-muted-foreground">
-							Requires Pro
-						</span>
+						<span className="wwc:ml-auto wwc:text-xs wwc:text-muted-foreground">Requires Pro</span>
 					</CommandItem>
 					<CommandItem disabled>
 						<Lock className="wwc:mr-2 wwc:h-4 wwc:w-4" />
 						Admin Settings
-						<span className="wwc:ml-auto wwc:text-xs wwc:text-muted-foreground">
-							Admin only
-						</span>
+						<span className="wwc:ml-auto wwc:text-xs wwc:text-muted-foreground">Admin only</span>
 					</CommandItem>
 				</CommandGroup>
 			</CommandList>

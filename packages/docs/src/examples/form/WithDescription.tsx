@@ -10,23 +10,13 @@ export function WithDescription() {
 		<form className="wwc:w-full wwc:max-w-sm wwc:space-y-6">
 			<div className="wwc:space-y-2">
 				<Label htmlFor="form-desc-username">Username</Label>
-				<Input
-					id="form-desc-username"
-					placeholder="Enter username"
-				/>
-				<p className="wwc:text-xs wwc:text-muted-foreground">
-					This will be your public display name.
-				</p>
+				<Input id="form-desc-username" placeholder="Enter username" />
+				<p className="wwc:text-xs wwc:text-muted-foreground">This will be your public display name.</p>
 			</div>
 			<div className="wwc:space-y-2">
 				<Label htmlFor="form-desc-bio">Bio</Label>
-				<Input
-					id="form-desc-bio"
-					placeholder="Tell us about yourself"
-				/>
-				<p className="wwc:text-xs wwc:text-muted-foreground">
-					Maximum 160 characters.
-				</p>
+				<Input id="form-desc-bio" placeholder="Tell us about yourself" />
+				<p className="wwc:text-xs wwc:text-muted-foreground">Maximum 160 characters.</p>
 			</div>
 			<Button type="submit">Save Changes</Button>
 		</form>

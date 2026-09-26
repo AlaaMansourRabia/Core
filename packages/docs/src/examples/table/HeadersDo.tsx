@@ -1,14 +1,7 @@
 /**
  * Use clear, descriptive column headers.
  */
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from "@corensystem/coren-ui/table";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@corensystem/coren-ui/table";
 
 export function HeadersDo() {
 	return (

@@ -1,12 +1,7 @@
 /**
  * Use descriptive, scannable accordion titles.
  */
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "@corensystem/coren-ui/accordion";
+import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@corensystem/coren-ui/accordion";
 
 export function TitlesDo() {
 	return (

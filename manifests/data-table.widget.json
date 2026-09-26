@@ -202,5 +202,170 @@
 			"authoredFields: [\"intent\",\"when\",\"whenNot\",\"chooseOver\",\"dataContract\",\"configSchema\",\"states\",\"allowedPlacement\",\"forbiddenPlacement\",\"commonMistakes\",\"minimalExample\",\"evaluationCriteria\"]",
 			"knowledgeRefs: [\"library-index.json#DataTable\",\"skills/_artifacts/domain_map.yaml#fm-dt-1\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use DataTable to help users navigate through your application or content hierarchy. This component provides clear wayfinding and helps users understand their current location within the interface.",
+			"DataTable is ideal for multi-page applications, content-heavy interfaces, or any situation where users need to move between different sections. Keep navigation patterns consistent across your application for better user experience."
+		],
+		"props": [
+			{
+				"name": "columns",
+				"type": "ColumnDef<TData, TValue>[]",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "data",
+				"type": "TData[]",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "searchKey",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "searchPlaceholder",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "showColumnToggle",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "showPagination",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "showSelectedCount",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "pageSize",
+				"type": "number",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "pageSizeOptions",
+				"type": "number[] | false",
+				"required": false,
+				"description": "Options for the \"rows per page\" selector shown next to the pager. Set to `false` to hide it."
+			},
+			{
+				"name": "recordLabel",
+				"type": "string",
+				"required": false,
+				"description": "Label for a single record in the total-records count (default \"record\"). Pluralized with an \"s\"."
+			},
+			{
+				"name": "recordLabelPlural",
+				"type": "string",
+				"required": false,
+				"description": "Plural form, when adding \"s\" is wrong (\"property\" -> \"properties\", not \"propertys\"). Defaults to `recordLabel + \"s\"`."
+			},
+			{
+				"name": "getRowHref",
+				"type": "(row: Row<TData>) => string | undefined",
+				"required": false,
+				"description": "Makes the whole row the link to its primary record. Return the href for a row and it becomes navigable by pointer, by Enter, and by every native link affordance a real anchor has — middle-click, ⌘-click, \"copy link address\". Prefer this over `onRowActivate` whenever the destination is addressable; a row that is really a link should be one."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "DataTable is composed of the following parts:",
+			"parts": [
+				{
+					"name": "DataTable",
+					"description": "Root table container."
+				},
+				{
+					"name": "DataTableHeader",
+					"description": "Table header row container."
+				},
+				{
+					"name": "DataTableBody",
+					"description": "Table body content container."
+				},
+				{
+					"name": "DataTableRow",
+					"description": "Individual table row."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Keep tabs concise",
+				"description": "Use short, descriptive labels for tab triggers.",
+				"example": "<DataTableTrigger>Overview</DataTableTrigger>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't use long tab labels",
+				"description": "Avoid lengthy text that causes tabs to wrap or overflow.",
+				"example": "<DataTableTrigger>Detailed Configuration Settings</DataTableTrigger>"
+			},
+			{
+				"type": "do",
+				"title": "Maintain content relationship",
+				"description": "Ensure tab content is clearly related to the tab label.",
+				"example": "<DataTableTrigger value=\"settings\">Settings</DataTableTrigger>\n<DataTableContent value=\"settings\">Settings panel</DataTableContent>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't use for navigation",
+				"description": "Use proper navigation components for page-level routing.",
+				"example": "// Tabs for page navigation"
+			},
+			{
+				"type": "do",
+				"title": "Show active state clearly",
+				"description": "Make the selected tab visually distinct from others.",
+				"example": "<DataTableTrigger active>Active tab</DataTableTrigger>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't hide the active indicator",
+				"description": "Always show which tab is currently selected.",
+				"example": "// No visual active state"
+			}
+		]
 	}
 }

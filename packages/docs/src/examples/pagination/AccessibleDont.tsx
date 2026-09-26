@@ -17,10 +17,14 @@ export function AccessibleDont() {
 					<PaginationPrevious href="#" />
 				</PaginationItem>
 				<PaginationItem>
-					<a href="#" className="wwc:px-3 wwc:py-1">&lt;</a>
+					<a href="#" className="wwc:px-3 wwc:py-1">
+						&lt;
+					</a>
 				</PaginationItem>
 				<PaginationItem>
-					<a href="#" className="wwc:px-3 wwc:py-1">&gt;</a>
+					<a href="#" className="wwc:px-3 wwc:py-1">
+						&gt;
+					</a>
 				</PaginationItem>
 				<PaginationItem>
 					<PaginationNext href="#" />

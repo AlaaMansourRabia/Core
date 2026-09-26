@@ -1,13 +1,7 @@
 /**
  * Basic card container with header and content.
  */
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardHeader,
-	CardTitle,
-} from "@corensystem/coren-ui/card";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@corensystem/coren-ui/card";
 
 export function Default() {
 	return (

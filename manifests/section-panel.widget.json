@@ -45,13 +45,41 @@
 	"requiredProviders": [],
 	"dataContract": {
 		"input": {
-			"title": {"type": "string", "required": true, "note": "Header title."},
-			"icon": {"type": "React.ElementType", "required": false, "note": "Leading header icon."},
-			"count": {"type": "React.ReactNode", "required": false, "note": "Count badge next to the title."},
-			"action": {"type": "React.ReactNode", "required": false, "note": "Right-aligned header slot (e.g. a Button)."},
-			"height": {"type": "number", "required": false, "note": "Fixed body height in px; when set the body scrolls internally."},
-			"empty": {"type": "React.ReactNode", "required": false, "note": "Rendered when there are no children."},
-			"children": {"type": "React.ReactNode", "required": false, "note": "Rows or cards to render in the body."}
+			"title": {
+				"type": "string",
+				"required": true,
+				"note": "Header title."
+			},
+			"icon": {
+				"type": "React.ElementType",
+				"required": false,
+				"note": "Leading header icon."
+			},
+			"count": {
+				"type": "React.ReactNode",
+				"required": false,
+				"note": "Count badge next to the title."
+			},
+			"action": {
+				"type": "React.ReactNode",
+				"required": false,
+				"note": "Right-aligned header slot (e.g. a Button)."
+			},
+			"height": {
+				"type": "number",
+				"required": false,
+				"note": "Fixed body height in px; when set the body scrolls internally."
+			},
+			"empty": {
+				"type": "React.ReactNode",
+				"required": false,
+				"note": "Rendered when there are no children."
+			},
+			"children": {
+				"type": "React.ReactNode",
+				"required": false,
+				"note": "Rows or cards to render in the body."
+			}
 		},
 		"note": "Presentational and stateless — the caller supplies the header metadata and the body content."
 	},
@@ -91,6 +119,126 @@
 		"lastValidated": "2026-07-13",
 		"notes": [
 			"pilot: true"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use SectionPanel to structure and organize content within your interface. This component helps create visual hierarchy and consistent spacing throughout your application.",
+			"SectionPanel works well for arranging related content, creating responsive layouts, and maintaining visual consistency. Use it to group related elements and establish clear content boundaries."
+		],
+		"props": [
+			{
+				"name": "icon",
+				"type": "React.ElementType",
+				"required": false,
+				"description": "Leading header icon (lucide or any component type)."
+			},
+			{
+				"name": "title",
+				"type": "string",
+				"required": true,
+				"description": "Section title shown in the header."
+			},
+			{
+				"name": "count",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Optional count badge next to the title (e.g. number of items)."
+			},
+			{
+				"name": "action",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Optional element rendered at the far right of the header (e.g. a button)."
+			},
+			{
+				"name": "height",
+				"type": "number",
+				"required": false,
+				"description": "Fixed body height in pixels. When set, the body scrolls internally so the panel's footprint stays constant regardless of how many rows it holds — the list grows inward, not down the page."
+			},
+			{
+				"name": "empty",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Rendered when there are no children (falsy)."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "bodyClassName",
+				"type": "string",
+				"required": false,
+				"description": "Extra classes for the scrollable/content body."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			}
+		],
+		"anatomy": {
+			"description": "SectionPanel is composed of the following parts:",
+			"parts": [
+				{
+					"name": "SectionPanel",
+					"description": "Root SectionPanel element."
+				},
+				{
+					"name": "SectionPanelContent",
+					"description": "Content area of the SectionPanel."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<SectionPanel variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<SectionPanel className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<SectionPanel aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<SectionPanel /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<SectionPanel loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<SectionPanel>{data.value}</SectionPanel> // Crashes if data is undefined"
+			}
 		]
 	}
 }

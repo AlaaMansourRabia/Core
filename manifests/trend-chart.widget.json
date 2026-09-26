@@ -11,7 +11,13 @@
 		"import": "@corensystem/coren-ui/trend-chart",
 		"export": "TrendChart"
 	},
-	"tags": ["chart", "trend", "analytics", "regular-dashboard", "echarts"],
+	"tags": [
+		"chart",
+		"trend",
+		"analytics",
+		"regular-dashboard",
+		"echarts"
+	],
 	"intent": "A titled card wrapping a themed ECharts trend/analysis chart (line / bar) — the reusable chart tile in an analytics report. Removes the repeated Card + CardTitle + chart boilerplate.",
 	"when": [
 		"A line/bar trend or analysis chart inside a report or dashboard",
@@ -33,7 +39,10 @@
 			"because": "CoreChartRenderer renders AI-generated chart PAYLOADS (DashboardWidget.chartData); TrendChart renders a hand-authored ECharts option for a fixed report chart."
 		}
 	],
-	"pairsWith": ["Chart", "MetricCard"],
+	"pairsWith": [
+		"Chart",
+		"MetricCard"
+	],
 	"requiredProviders": [],
 	"dataContract": {
 		"input": {
@@ -77,8 +86,14 @@
 		"with-legend": "header renders a custom legend (color swatches + labels) under the title.",
 		"no-header": "title and header both omitted -> just the framed chart."
 	},
-	"composedOf": ["Chart", "Card"],
-	"allowedPlacement": ["chart grid in a report / dashboard", "inside a content region as a chart tile"],
+	"composedOf": [
+		"Chart",
+		"Card"
+	],
+	"allowedPlacement": [
+		"chart grid in a report / dashboard",
+		"inside a content region as a chart tile"
+	],
 	"forbiddenPlacement": [
 		"a table cell",
 		"as a standalone page",
@@ -164,6 +179,113 @@
 			"refactored: [\"core-org-performance now composes TrendChart for its trend chart cards (raw ReactECharts -> Chart/ChartContainer via TrendChart); same options, themed rendering.\"]",
 			"siblings: CoreChartRenderer renders AI-generated chart payloads; TrendChart renders hand-authored options. Kept separate by design.",
 			"knowledgeRefs: [\"library-index.json#TrendChart\",\"library-index.json#Chart\"]"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use TrendChart to display structured data or visualizations. This component helps users understand and interact with complex information sets.",
+			"TrendChart is ideal for dashboards, reports, and data-heavy interfaces. Ensure data is presented clearly and consider responsive behavior for different screen sizes. Provide appropriate loading states for async data."
+		],
+		"props": [
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Title shown in the grey header band."
+			},
+			{
+				"name": "actions",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Right-aligned header slot (info icon, menu, range toggle, ...)."
+			},
+			{
+				"name": "value",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Headline figure rendered above the chart (e.g. the period total)."
+			},
+			{
+				"name": "header",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Optional extra content rendered under the value (e.g. a custom legend)."
+			},
+			{
+				"name": "option",
+				"type": "EChartsOption",
+				"required": true,
+				"description": "ECharts option for the chart (series / axes / tooltip / ...)."
+			},
+			{
+				"name": "seriesThemes",
+				"type": "ChartSeriesTheme[]",
+				"required": false,
+				"description": "Core semantic tones or chart palette indexes applied to series in order."
+			},
+			{
+				"name": "height",
+				"type": "number | string",
+				"required": false,
+				"description": "Chart height in px (or any CSS size). Default 240."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "TrendChart is composed of the following parts:",
+			"parts": [
+				{
+					"name": "TrendChart",
+					"description": "Root TrendChart element."
+				},
+				{
+					"name": "TrendChartContent",
+					"description": "Content area of the TrendChart."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<TrendChart variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<TrendChart className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<TrendChart aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<TrendChart /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<TrendChart loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<TrendChart>{data.value}</TrendChart> // Crashes if data is undefined"
+			}
 		]
 	}
 }

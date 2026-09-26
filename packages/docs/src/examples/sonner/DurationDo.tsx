@@ -7,10 +7,7 @@ import {toast} from "sonner";
 export function DurationDo() {
 	return (
 		<div className="wwc:flex wwc:gap-2">
-			<Button
-				variant="outline"
-				onClick={() => toast.success("Saved!", {duration: 2000})}
-			>
+			<Button variant="outline" onClick={() => toast.success("Saved!", {duration: 2000})}>
 				Quick (2s)
 			</Button>
 			<Button

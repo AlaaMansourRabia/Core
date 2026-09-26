@@ -7,9 +7,15 @@ import {Bold, Italic, Underline} from "lucide-react";
 export function Mixed() {
 	return (
 		<ButtonGroup>
-			<ButtonGroupItem><Bold /> Bold</ButtonGroupItem>
-			<ButtonGroupItem><Italic /> Italic</ButtonGroupItem>
-			<ButtonGroupItem><Underline /> Underline</ButtonGroupItem>
+			<ButtonGroupItem>
+				<Bold /> Bold
+			</ButtonGroupItem>
+			<ButtonGroupItem>
+				<Italic /> Italic
+			</ButtonGroupItem>
+			<ButtonGroupItem>
+				<Underline /> Underline
+			</ButtonGroupItem>
 		</ButtonGroup>
 	);
 }

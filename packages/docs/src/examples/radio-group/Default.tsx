@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Default radio group with options.
  */
 import {RadioGroup, RadioGroupItem} from "@corensystem/coren-ui/radio-group";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function Default() {
 	return (

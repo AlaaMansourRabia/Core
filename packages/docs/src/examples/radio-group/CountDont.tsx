@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Avoid long radio lists (use Select for 6+ options).
  */
 import {RadioGroup, RadioGroupItem} from "@corensystem/coren-ui/radio-group";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function CountDont() {
 	const months = ["January", "February", "March", "April", "May", "June"];

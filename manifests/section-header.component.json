@@ -41,5 +41,106 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "description",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Supporting line under the title. Omit for a bare heading above a band of tiles."
+			},
+			{
+				"name": "actions",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Right-aligned slot for the section's actions (buttons, links, search)."
+			},
+			{
+				"name": "as",
+				"type": "\"h1\" | \"h2\" | \"h3\"",
+				"required": false,
+				"description": "Heading level rendered. Defaults to `h2`; use `h1` when the section owns the page."
+			},
+			{
+				"name": "size",
+				"type": "\"sm\" | \"md\"",
+				"required": false,
+				"description": "`md` (default) for page sections, `sm` for a heading above a row of tiles."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use SectionHeader to structure and organize content within your interface. This component helps create visual hierarchy and consistent spacing throughout your application.",
+			"SectionHeader works well for arranging related content, creating responsive layouts, and maintaining visual consistency. Use it to group related elements and establish clear content boundaries."
+		],
+		"anatomy": {
+			"description": "SectionHeader is composed of the following parts:",
+			"parts": [
+				{
+					"name": "SectionHeader",
+					"description": "Root SectionHeader element."
+				},
+				{
+					"name": "SectionHeaderContent",
+					"description": "Content area of the SectionHeader."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<SectionHeader variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<SectionHeader className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<SectionHeader aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<SectionHeader /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<SectionHeader loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<SectionHeader>{data.value}</SectionHeader> // Crashes if data is undefined"
+			}
+		]
 	}
 }

@@ -41,5 +41,136 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "title",
+				"type": "string",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "items",
+				"type": "LegendItem[]",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "shape",
+				"type": "LegendShape",
+				"required": false,
+				"description": "Swatch shape. Default `\"square\"`."
+			},
+			{
+				"name": "columns",
+				"type": "1 | 2 | 3",
+				"required": false,
+				"description": "Grid columns. Default 2."
+			},
+			{
+				"name": "placement",
+				"type": "LegendPlacement",
+				"required": false,
+				"description": "Floating position over a canvas, or `\"static\"` to render inline. Default `\"bottom-right\"`."
+			},
+			{
+				"name": "status",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Small status text beside the title (e.g. \"Loading\")."
+			},
+			{
+				"name": "footnote",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Explanatory note under the grid."
+			},
+			{
+				"name": "collapsible",
+				"type": "boolean",
+				"required": false,
+				"description": "Show the minimize control + collapsed reopen button. Default true."
+			},
+			{
+				"name": "collapsed",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "defaultCollapsed",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "collapsedLabel",
+				"type": "string",
+				"required": false,
+				"description": "Label on the collapsed reopen button. Default \"Legend\"."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"usage": [
+			"Use Legend to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"Legend integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "Legend is composed of the following parts:",
+			"parts": [
+				{
+					"name": "Legend",
+					"description": "Root Legend element."
+				},
+				{
+					"name": "LegendContent",
+					"description": "Content area of the Legend."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<Legend variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<Legend className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<Legend aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<Legend /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<Legend loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<Legend>{data.value}</Legend> // Crashes if data is undefined"
+			}
+		]
 	}
 }

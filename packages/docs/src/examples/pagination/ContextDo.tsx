@@ -13,9 +13,7 @@ import {
 export function ContextDo() {
 	return (
 		<div className="wwc:space-y-2">
-			<p className="wwc:text-sm wwc:text-muted-foreground wwc:text-center">
-				Showing 11-20 of 97 results
-			</p>
+			<p className="wwc:text-sm wwc:text-muted-foreground wwc:text-center">Showing 11-20 of 97 results</p>
 			<Pagination>
 				<PaginationContent>
 					<PaginationItem>
@@ -25,7 +23,9 @@ export function ContextDo() {
 						<PaginationLink href="#">1</PaginationLink>
 					</PaginationItem>
 					<PaginationItem>
-						<PaginationLink href="#" isActive>2</PaginationLink>
+						<PaginationLink href="#" isActive>
+							2
+						</PaginationLink>
 					</PaginationItem>
 					<PaginationItem>
 						<PaginationLink href="#">3</PaginationLink>

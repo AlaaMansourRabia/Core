@@ -149,5 +149,88 @@
 			"notAdoptedBy: core-org-overview / Dashboard kpi-strip — that is a compact horizontal stat bar, a DIFFERENT shape; KPISummary (card grid) does not resolve it. A separate KPIBar widget would.",
 			"knowledgeRefs: [\"library-index.json#KPISummary\",\"manifests/metric-card.widget.json\",\"manifests/dashboard-page.pattern.json\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use KPISummary to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"KPISummary integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "metrics",
+				"type": "KpiMetric[]",
+				"required": true,
+				"description": "Metrics to display — one MetricCard tile per entry."
+			},
+			{
+				"name": "columns",
+				"type": "2 | 3 | 4",
+				"required": false,
+				"description": "Columns at the lg breakpoint (responsive: 1 column on mobile, 2 at md). Default 4."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Optional bespoke tile(s) rendered as the LAST grid cell(s), after the metric tiles — for a tile that exceeds MetricCard's contract (e.g. a multi-badge severity breakdown). Each child occupies one grid cell alongside the MetricCards, so the row stays uniform."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "KPISummary is composed of the following parts:",
+			"parts": [
+				{
+					"name": "KPISummary",
+					"description": "Root KPISummary element."
+				},
+				{
+					"name": "KPISummaryContent",
+					"description": "Content area of the KPISummary."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<KPISummary variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<KPISummary className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<KPISummary aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<KPISummary /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<KPISummary loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<KPISummary>{data.value}</KPISummary> // Crashes if data is undefined"
+			}
+		]
 	}
 }

@@ -1,3 +1,6 @@
+import {Button} from "@corensystem/coren-ui/button";
+import {Input} from "@corensystem/coren-ui/input";
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Sheet containing a form.
  */
@@ -11,9 +14,6 @@ import {
 	SheetTrigger,
 	SheetClose,
 } from "@corensystem/coren-ui/sheet";
-import {Button} from "@corensystem/coren-ui/button";
-import {Input} from "@corensystem/coren-ui/input";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function WithForm() {
 	return (

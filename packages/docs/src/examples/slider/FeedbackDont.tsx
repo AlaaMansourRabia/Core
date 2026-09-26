@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Avoid sliders without value indication.
  */
 import {Slider} from "@corensystem/coren-ui/slider";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function FeedbackDont() {
 	return (

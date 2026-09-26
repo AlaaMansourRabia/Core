@@ -25,9 +25,7 @@ export function Default() {
 										className="wwc:block wwc:select-none wwc:rounded-md wwc:p-3 wwc:leading-none wwc:no-underline wwc:outline-none wwc:transition-colors wwc:hover:bg-accent"
 									>
 										<div className="wwc:text-sm wwc:font-medium">Introduction</div>
-										<p className="wwc:text-sm wwc:text-muted-foreground">
-											Learn the basics of our design system
-										</p>
+										<p className="wwc:text-sm wwc:text-muted-foreground">Learn the basics of our design system</p>
 									</a>
 								</NavigationMenuLink>
 							</li>
@@ -38,9 +36,7 @@ export function Default() {
 										className="wwc:block wwc:select-none wwc:rounded-md wwc:p-3 wwc:leading-none wwc:no-underline wwc:outline-none wwc:transition-colors wwc:hover:bg-accent"
 									>
 										<div className="wwc:text-sm wwc:font-medium">Installation</div>
-										<p className="wwc:text-sm wwc:text-muted-foreground">
-											Step-by-step installation guide
-										</p>
+										<p className="wwc:text-sm wwc:text-muted-foreground">Step-by-step installation guide</p>
 									</a>
 								</NavigationMenuLink>
 							</li>

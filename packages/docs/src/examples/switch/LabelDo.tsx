@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Position label to clearly indicate what the switch controls.
  */
 import {Switch} from "@corensystem/coren-ui/switch";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function LabelDo() {
 	return (

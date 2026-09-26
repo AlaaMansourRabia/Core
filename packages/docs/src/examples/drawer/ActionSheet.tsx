@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Drawer as an action sheet with multiple options.
  */
@@ -9,7 +10,6 @@ import {
 	DrawerTrigger,
 	DrawerClose,
 } from "@corensystem/coren-ui/drawer";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function ActionSheet() {
 	return (

@@ -41,5 +41,83 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use Slider when you need to collect user input or allow users to make selections. This component provides a consistent interaction pattern that users will find familiar and accessible.",
+			"Slider should be used within forms or interactive interfaces where user data collection is required. Ensure proper labeling and validation feedback for accessibility. Avoid using this component for read-only or display-only content."
+		],
+		"anatomy": {
+			"description": "Slider is composed of the following parts:",
+			"parts": [
+				{
+					"name": "Slider",
+					"description": "Root Slider element."
+				},
+				{
+					"name": "SliderContent",
+					"description": "Content area of the Slider."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<Slider variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<Slider className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<Slider aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<Slider /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<Slider loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<Slider>{data.value}</Slider> // Crashes if data is undefined"
+			}
+		]
 	}
 }

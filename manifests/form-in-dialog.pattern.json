@@ -43,5 +43,70 @@
 		"supersedes": null,
 		"lastValidated": "2026-07-05",
 		"notes": []
+	},
+	"docs": {
+		"usage": [
+			"Use form-in-dialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"form-in-dialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"anatomy": {
+			"description": "form-in-dialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "form-in-dialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "form-in-dialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "form-in-dialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "form-in-dialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<form-in-dialog>\n  <form-in-dialogContent>\n    <button autoFocus>First action</button>\n  </form-in-dialogContent>\n</form-in-dialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<form-in-dialog>\n  <form-in-dialog nested />\n</form-in-dialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<form-in-dialogClose>×</form-in-dialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<form-in-dialogTitle>Confirm deletion</form-in-dialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
+		]
 	}
 }

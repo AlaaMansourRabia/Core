@@ -41,5 +41,112 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Metric name, shown beside a tone-coloured dot."
+			},
+			{
+				"name": "value",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Headline figure. Usually the same number as `percent`."
+			},
+			{
+				"name": "unit",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Suffix after the value, e.g. `%`."
+			},
+			{
+				"name": "caption",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Muted line under the value (e.g. \"567 overdue\")."
+			},
+			{
+				"name": "percent",
+				"type": "number",
+				"required": false,
+				"description": "Bar fill, 0–100. Omit to hide the bar."
+			},
+			{
+				"name": "tone",
+				"type": "ProgressTone",
+				"required": false,
+				"description": "Drives the dot, the figure, and the bar — one tone per stat."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use ProgressStat to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"ProgressStat integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "ProgressStat is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ProgressStat",
+					"description": "Root ProgressStat element."
+				},
+				{
+					"name": "ProgressStatContent",
+					"description": "Content area of the ProgressStat."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ProgressStat variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ProgressStat className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ProgressStat aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ProgressStat /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ProgressStat loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ProgressStat>{data.value}</ProgressStat> // Crashes if data is undefined"
+			}
+		]
 	}
 }

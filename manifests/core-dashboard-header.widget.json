@@ -11,7 +11,12 @@
 		"import": "@corensystem/coren-ui/navigation/core-dashboard-header",
 		"export": "CoreDashboardHeader"
 	},
-	"tags": ["header", "navigation", "dashboard", "top-bar"],
+	"tags": [
+		"header",
+		"navigation",
+		"dashboard",
+		"top-bar"
+	],
 	"intent": "Full dashboard shell header with organization/project switching, global search, feedback, notifications, user menu, and organization/project context tabs.",
 	"when": [
 		"The persistent shell header for an organization/project dashboard experience",
@@ -75,6 +80,108 @@
 			"promotedFrom: component (library-index.json)",
 			"pilot: false",
 			"knowledgeRefs: [\"library-index.json#CoreDashboardHeader\"]"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use CoreDashboardHeader to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"CoreDashboardHeader integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "selectedOrg",
+				"type": "Organization | null",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "selectedProject",
+				"type": "Project | null",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "activeOrgTab",
+				"type": "OrgTab",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "activeProjectTab",
+				"type": "ProjectTab",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "isProjectLevel",
+				"type": "boolean",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			}
+		],
+		"anatomy": {
+			"description": "CoreDashboardHeader is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CoreDashboardHeader",
+					"description": "Root CoreDashboardHeader element."
+				},
+				{
+					"name": "CoreDashboardHeaderContent",
+					"description": "Content area of the CoreDashboardHeader."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CoreDashboardHeader variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CoreDashboardHeader className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CoreDashboardHeader aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CoreDashboardHeader /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CoreDashboardHeader loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CoreDashboardHeader>{data.value}</CoreDashboardHeader> // Crashes if data is undefined"
+			}
 		]
 	}
 }

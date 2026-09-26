@@ -46,5 +46,101 @@
 		"notes": [
 			"authored during the develop merge reconciliation"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "title",
+				"type": "string",
+				"required": true,
+				"description": "Bold title — the object identifier (e.g. \"2266-DP1-R-SS\")."
+			},
+			{
+				"name": "wbs",
+				"type": "string",
+				"required": true,
+				"description": "Full WBS path, shown muted under the title."
+			},
+			{
+				"name": "progress",
+				"type": "number",
+				"required": true,
+				"description": "Overall completion percentage (0–100) for the header bar."
+			},
+			{
+				"name": "page",
+				"type": "{current: number",
+				"required": false,
+				"description": "Optional pager shown beside the title (e.g. 1 of 4)."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"usage": [
+			"Use OperationsDrawer to help users navigate through your application or content hierarchy. This component provides clear wayfinding and helps users understand their current location within the interface.",
+			"OperationsDrawer is ideal for multi-page applications, content-heavy interfaces, or any situation where users need to move between different sections. Keep navigation patterns consistent across your application for better user experience."
+		],
+		"anatomy": {
+			"description": "OperationsDrawer is composed of the following parts:",
+			"parts": [
+				{
+					"name": "OperationsDrawer",
+					"description": "Root OperationsDrawer element."
+				},
+				{
+					"name": "OperationsDrawerContent",
+					"description": "Content area of the OperationsDrawer."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<OperationsDrawer variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<OperationsDrawer className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<OperationsDrawer aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<OperationsDrawer /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<OperationsDrawer loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<OperationsDrawer>{data.value}</OperationsDrawer> // Crashes if data is undefined"
+			}
+		]
 	}
 }

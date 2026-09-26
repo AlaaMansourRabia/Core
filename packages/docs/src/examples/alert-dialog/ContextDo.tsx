@@ -24,8 +24,8 @@ export function ContextDo() {
 				<AlertDialogHeader>
 					<AlertDialogTitle>Delete "My Project"?</AlertDialogTitle>
 					<AlertDialogDescription>
-						This will delete the project and all 23 associated tasks. Team
-						members will lose access immediately. This cannot be undone.
+						This will delete the project and all 23 associated tasks. Team members will lose access immediately. This
+						cannot be undone.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>

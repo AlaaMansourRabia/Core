@@ -11,7 +11,15 @@
 		"import": "@corensystem/coren-ui/page-content-header",
 		"export": "PageContentHeader"
 	},
-	"tags": ["header", "page", "content", "entity", "navigation", "actions", "responsive"],
+	"tags": [
+		"header",
+		"page",
+		"content",
+		"entity",
+		"navigation",
+		"actions",
+		"responsive"
+	],
 	"intent": "Route-content header that unifies identity or page title, optional peer navigation, status metadata, priority actions, accessible overflow, and split-primary workflows.",
 	"when": [
 		"A route inside an existing application shell needs a title or entity identity plus actions",
@@ -39,33 +47,95 @@
 			"whenInstead": "The surface only needs a compact context label, status, and a small action set."
 		}
 	],
-	"pairsWith": ["Avatar", "Badge", "ViewTabBar", "Button", "ButtonGroup", "DropdownMenu", "Tooltip"],
+	"pairsWith": [
+		"Avatar",
+		"Badge",
+		"ViewTabBar",
+		"Button",
+		"ButtonGroup",
+		"DropdownMenu",
+		"Tooltip"
+	],
 	"requiredProviders": [],
-	"composedOf": ["ViewTabBar", "Button", "ButtonGroup", "DropdownMenu", "Tooltip"],
+	"composedOf": [
+		"ViewTabBar",
+		"Button",
+		"ButtonGroup",
+		"DropdownMenu",
+		"Tooltip"
+	],
 	"dataContract": {
 		"input": {
-			"title": {"type": "ReactNode", "required": true},
-			"tabs": {"type": "ViewTabItem[]", "required": false},
-			"actions": {"type": "PageContentHeaderAction[]", "required": false},
-			"splitAction": {"type": "PageContentHeaderSplitAction", "required": false}
+			"title": {
+				"type": "ReactNode",
+				"required": true
+			},
+			"tabs": {
+				"type": "ViewTabItem[]",
+				"required": false
+			},
+			"actions": {
+				"type": "PageContentHeaderAction[]",
+				"required": false
+			},
+			"splitAction": {
+				"type": "PageContentHeaderSplitAction",
+				"required": false
+			}
 		}
 	},
 	"configSchema": {
-		"variant": {"type": "navigation | entity-actions | title-actions", "default": "title-actions"},
-		"title": {"type": "ReactNode", "required": true},
-		"description": {"type": "ReactNode"},
-		"meta": {"type": "ReactNode"},
-		"status": {"type": "ReactNode"},
-		"avatar": {"type": "ReactNode"},
-		"tabs": {"type": "ViewTabItem[]"},
-		"activeTab": {"type": "string"},
-		"onTabChange": {"type": "(tab: string) => void"},
-		"actions": {"type": "PageContentHeaderAction[]"},
-		"splitAction": {"type": "PageContentHeaderSplitAction"},
-		"density": {"type": "compact | comfortable", "default": "variant-dependent"},
-		"headingLevel": {"type": "1 | 2 | 3", "default": 1},
-		"menuLabel": {"type": "string", "default": "More actions"},
-		"instrumentationId": {"type": "string", "default": "page-content-header"}
+		"variant": {
+			"type": "navigation | entity-actions | title-actions",
+			"default": "title-actions"
+		},
+		"title": {
+			"type": "ReactNode",
+			"required": true
+		},
+		"description": {
+			"type": "ReactNode"
+		},
+		"meta": {
+			"type": "ReactNode"
+		},
+		"status": {
+			"type": "ReactNode"
+		},
+		"avatar": {
+			"type": "ReactNode"
+		},
+		"tabs": {
+			"type": "ViewTabItem[]"
+		},
+		"activeTab": {
+			"type": "string"
+		},
+		"onTabChange": {
+			"type": "(tab: string) => void"
+		},
+		"actions": {
+			"type": "PageContentHeaderAction[]"
+		},
+		"splitAction": {
+			"type": "PageContentHeaderSplitAction"
+		},
+		"density": {
+			"type": "compact | comfortable",
+			"default": "variant-dependent"
+		},
+		"headingLevel": {
+			"type": "1 | 2 | 3",
+			"default": 1
+		},
+		"menuLabel": {
+			"type": "string",
+			"default": "More actions"
+		},
+		"instrumentationId": {
+			"type": "string",
+			"default": "page-content-header"
+		}
 	},
 	"states": {
 		"navigation": "Entity identity, peer ViewTabBar, and action hierarchy",
@@ -144,5 +214,174 @@
 		"status": "candidate",
 		"confidence": "high — three reference variants mapped to existing Core artifacts",
 		"lastValidated": "2026-07-18"
+	},
+	"docs": {
+		"usage": [
+			"Use PageContentHeader to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"PageContentHeader integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "variant",
+				"type": "PageContentHeaderVariant",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "description",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "meta",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "status",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "avatar",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "tabs",
+				"type": "readonly ViewTabItem<string>[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "activeTab",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "actions",
+				"type": "PageContentHeaderAction[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "splitAction",
+				"type": "PageContentHeaderSplitAction",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "density",
+				"type": "PageContentHeaderDensity",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "headingLevel",
+				"type": "1 | 2 | 3",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "menuLabel",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "instrumentationId",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"anatomy": {
+			"description": "PageContentHeader is composed of the following parts:",
+			"parts": [
+				{
+					"name": "PageContentHeader",
+					"description": "Root PageContentHeader element."
+				},
+				{
+					"name": "PageContentHeaderContent",
+					"description": "Content area of the PageContentHeader."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<PageContentHeader variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<PageContentHeader className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<PageContentHeader aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<PageContentHeader /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<PageContentHeader loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<PageContentHeader>{data.value}</PageContentHeader> // Crashes if data is undefined"
+			}
+		]
 	}
 }

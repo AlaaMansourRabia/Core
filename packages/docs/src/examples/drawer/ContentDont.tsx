@@ -1,14 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid putting too much content in a drawer.
  */
-import {
-	Drawer,
-	DrawerContent,
-	DrawerHeader,
-	DrawerTitle,
-	DrawerTrigger,
-} from "@corensystem/coren-ui/drawer";
-import {Button} from "@corensystem/coren-ui/button";
+import {Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger} from "@corensystem/coren-ui/drawer";
 
 export function ContentDont() {
 	return (
@@ -23,8 +17,7 @@ export function ContentDont() {
 				<div className="wwc:p-4 wwc:space-y-4 wwc:max-h-96 wwc:overflow-y-auto">
 					{Array.from({length: 10}, (_, i) => (
 						<p key={i}>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Extensive content that requires scrolling.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Extensive content that requires scrolling.
 						</p>
 					))}
 				</div>

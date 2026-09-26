@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Textarea with accessible label.
  */
 import {Textarea} from "@corensystem/coren-ui/textarea";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function WithLabel() {
 	return (

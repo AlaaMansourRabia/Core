@@ -68,5 +68,157 @@
 		"notes": [
 			"Composed from Dialog + RadioGroup + Select + Switch + Input; owns no export behaviour of its own"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": false,
+				"description": "Controlled open state. Omit to let the dialog manage its own."
+			},
+			{
+				"name": "trigger",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Element that opens the dialog. Omit when driving `open` yourself."
+			},
+			{
+				"name": "templates",
+				"type": "ExportTemplateOption[]",
+				"required": false,
+				"description": "Saved templates to pick from. Empty/omitted leaves only the one-off export."
+			},
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "description",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "defaultFileType",
+				"type": "ExportFileType",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "defaultIncludeFilters",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "activeFilterCount",
+				"type": "number",
+				"required": false,
+				"description": "Shown beside the scope toggle so the user knows what \"current filters\" means."
+			},
+			{
+				"name": "defaultDateRange",
+				"type": "ExportDateRange",
+				"required": false,
+				"description": "Seeds the date range each time the dialog opens — e.g. the range already applied to the list."
+			},
+			{
+				"name": "newTemplateLabel",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "exportLabel",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			}
+		],
+		"usage": [
+			"Use ExportDialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"ExportDialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"anatomy": {
+			"description": "ExportDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ExportDialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "ExportDialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "ExportDialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "ExportDialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<ExportDialog>\n  <ExportDialogContent>\n    <button autoFocus>First action</button>\n  </ExportDialogContent>\n</ExportDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<ExportDialog>\n  <ExportDialog nested />\n</ExportDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<ExportDialogClose>×</ExportDialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<ExportDialogTitle>Confirm deletion</ExportDialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
+		]
 	}
 }

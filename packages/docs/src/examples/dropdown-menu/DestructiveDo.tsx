@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Visually distinguish destructive actions.
  */
@@ -8,7 +9,6 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@corensystem/coren-ui/dropdown-menu";
-import {Button} from "@corensystem/coren-ui/button";
 import {Trash2} from "lucide-react";
 
 export function DestructiveDo() {

@@ -1,12 +1,7 @@
 /**
  * Avoid mixing unrelated commands without grouping.
  */
-import {
-	Command,
-	CommandInput,
-	CommandItem,
-	CommandList,
-} from "@corensystem/coren-ui/command";
+import {Command, CommandInput, CommandItem, CommandList} from "@corensystem/coren-ui/command";
 import {FileText, Settings, Download, User, FilePlus, Trash} from "lucide-react";
 
 export function GroupingDont() {

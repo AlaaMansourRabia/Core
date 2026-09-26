@@ -48,5 +48,88 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use AttentionList to display structured data or visualizations. This component helps users understand and interact with complex information sets.",
+			"AttentionList is ideal for dashboards, reports, and data-heavy interfaces. Ensure data is presented clearly and consider responsive behavior for different screen sizes. Provide appropriate loading states for async data."
+		],
+		"props": [
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "emptyMessage",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Shown in place of the rows when there is nothing to action."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"anatomy": {
+			"description": "AttentionList is composed of the following parts:",
+			"parts": [
+				{
+					"name": "AttentionList",
+					"description": "Root container for the list."
+				},
+				{
+					"name": "AttentionListItem",
+					"description": "Individual list item element."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use consistent item spacing",
+				"description": "Maintain uniform gaps between list items for visual rhythm.",
+				"example": "<AttentionList gap=\"md\">\n  <AttentionListItem>One</AttentionListItem>\n  <AttentionListItem>Two</AttentionListItem>\n</AttentionList>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't vary item spacing",
+				"description": "Avoid inconsistent gaps that create visual confusion.",
+				"example": "<AttentionListItem className=\"mb-1\" />\n<AttentionListItem className=\"mb-4\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide loading states",
+				"description": "Show skeleton loaders while list data is being fetched.",
+				"example": "<AttentionList loading>\n  <AttentionListSkeleton />\n</AttentionList>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't show empty state unexpectedly",
+				"description": "Always indicate loading vs empty to avoid confusing users.",
+				"example": "// Blank list while loading"
+			},
+			{
+				"type": "do",
+				"title": "Support keyboard navigation",
+				"description": "Enable arrow key navigation through list items.",
+				"example": "<AttentionList onKeyDown={handleArrowKeys}>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't break navigation flow",
+				"description": "Avoid interactive elements that trap focus within items.",
+				"example": "// Nested focusable causing tab trap"
+			}
+		]
 	}
 }

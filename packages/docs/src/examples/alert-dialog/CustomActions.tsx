@@ -24,15 +24,11 @@ export function CustomActions() {
 			<AlertDialogContent>
 				<AlertDialogHeader>
 					<AlertDialogTitle>Unsaved changes</AlertDialogTitle>
-					<AlertDialogDescription>
-						You have unsaved changes. Do you want to save before leaving?
-					</AlertDialogDescription>
+					<AlertDialogDescription>You have unsaved changes. Do you want to save before leaving?</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
 					<AlertDialogCancel>Cancel</AlertDialogCancel>
-					<AlertDialogAction className={buttonVariants({variant: "outline"})}>
-						Discard
-					</AlertDialogAction>
+					<AlertDialogAction className={buttonVariants({variant: "outline"})}>Discard</AlertDialogAction>
 					<AlertDialogAction>Save</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

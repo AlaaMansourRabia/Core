@@ -135,5 +135,91 @@
 			"Already an exported component with a typed props interface and no fixture coupling — this manifest is the only thing that was missing.",
 			"pilot: true"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use NewInterfaceDialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"NewInterfaceDialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "NewInterfaceDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "NewInterfaceDialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "NewInterfaceDialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "NewInterfaceDialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "NewInterfaceDialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<NewInterfaceDialog>\n  <NewInterfaceDialogContent>\n    <button autoFocus>First action</button>\n  </NewInterfaceDialogContent>\n</NewInterfaceDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<NewInterfaceDialog>\n  <NewInterfaceDialog nested />\n</NewInterfaceDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<NewInterfaceDialogClose>×</NewInterfaceDialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<NewInterfaceDialogTitle>Confirm deletion</NewInterfaceDialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
+		]
 	}
 }

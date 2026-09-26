@@ -1,12 +1,7 @@
 /**
  * Avoid using accordions for critical content users must see.
  */
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "@corensystem/coren-ui/accordion";
+import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@corensystem/coren-ui/accordion";
 
 export function ContentDont() {
 	return (
@@ -15,8 +10,7 @@ export function ContentDont() {
 				<AccordionTrigger>Important Warning</AccordionTrigger>
 				<AccordionContent>
 					<p className="wwc:text-destructive wwc:font-medium">
-						Critical safety information hidden in an accordion!
-						Users might miss this important warning.
+						Critical safety information hidden in an accordion! Users might miss this important warning.
 					</p>
 				</AccordionContent>
 			</AccordionItem>

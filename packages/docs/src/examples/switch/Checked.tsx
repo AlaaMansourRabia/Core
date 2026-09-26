@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Switch in checked (on) state.
  */
 import {Switch} from "@corensystem/coren-ui/switch";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function Checked() {
 	return (

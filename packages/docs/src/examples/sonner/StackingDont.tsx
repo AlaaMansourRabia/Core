@@ -14,9 +14,5 @@ export function StackingDont() {
 		toast.success("File 5 uploaded");
 	};
 
-	return (
-		<Button onClick={handleBatchAction}>
-			Upload 5 Files (Spam)
-		</Button>
-	);
+	return <Button onClick={handleBatchAction}>Upload 5 Files (Spam)</Button>;
 }

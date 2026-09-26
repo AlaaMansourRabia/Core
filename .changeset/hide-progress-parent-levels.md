@@ -1,5 +1,5 @@
 ---
-"@core/core-ui": minor
+"@corensystem/coren-ui": minor
 ---
 
 Hide SPA progress on the parent grouping levels (phase / zone / batch / block)

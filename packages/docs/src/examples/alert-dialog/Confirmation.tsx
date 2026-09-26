@@ -24,8 +24,7 @@ export function Confirmation() {
 				<AlertDialogHeader>
 					<AlertDialogTitle>Ready to publish?</AlertDialogTitle>
 					<AlertDialogDescription>
-						Your post will be visible to all users. You can edit it after
-						publishing.
+						Your post will be visible to all users. You can edit it after publishing.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>

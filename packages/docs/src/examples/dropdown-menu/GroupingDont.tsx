@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid unorganized flat lists of many items.
  */
@@ -7,7 +8,6 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@corensystem/coren-ui/dropdown-menu";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function GroupingDont() {
 	return (

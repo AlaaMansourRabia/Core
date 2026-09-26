@@ -72,5 +72,113 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "loading",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "tooltip",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Hover/focus hint. Icon-only buttons should always set this — the icon alone is not a label."
+			},
+			{
+				"name": "tooltipSide",
+				"type": "\"top\" | \"right\" | \"bottom\" | \"left\"",
+				"required": false,
+				"description": "Which side the tooltip opens on. Defaults to \"top\"."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLButtonElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use Button when you need to provide clear, actionable controls for users. This component signals interactive elements and helps users understand available actions.",
+			"Button should be used for primary actions, secondary actions, or any clickable elements that trigger functionality. Ensure adequate spacing between action elements and use appropriate visual hierarchy to indicate action importance."
+		],
+		"anatomy": {
+			"description": "Button is composed of the following parts:",
+			"parts": [
+				{
+					"name": "Button",
+					"description": "Root Button element."
+				},
+				{
+					"name": "ButtonContent",
+					"description": "Content area of the Button."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use clear action labels",
+				"description": "Write button text that clearly describes the action, like 'Save changes' or 'Delete item'.",
+				"example": "<Button>Save changes</Button>"
+			},
+			{
+				"type": "dont",
+				"title": "Avoid vague labels",
+				"description": "Don't use generic text like 'Click here' or 'Submit' without context.",
+				"example": "<Button>Click here</Button>"
+			},
+			{
+				"type": "do",
+				"title": "Use appropriate variants",
+				"description": "Choose button variants that match the action importance - primary for main actions, secondary for alternatives.",
+				"example": "<Button variant=\"primary\">Confirm</Button>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overuse primary buttons",
+				"description": "Avoid having multiple primary buttons in the same view, which creates visual confusion.",
+				"example": "<Button variant=\"primary\">Save</Button>\n<Button variant=\"primary\">Cancel</Button>"
+			},
+			{
+				"type": "do",
+				"title": "Handle loading states",
+				"description": "Show loading indicators when actions take time to complete.",
+				"example": "<Button loading>Processing...</Button>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't block without feedback",
+				"description": "Never disable a button during processing without showing a loading state.",
+				"example": "<Button disabled>Submit</Button>"
+			}
+		]
 	}
 }

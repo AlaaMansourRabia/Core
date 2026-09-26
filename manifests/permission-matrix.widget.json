@@ -11,7 +11,15 @@
 		"import": "@corensystem/coren-ui/permission-matrix",
 		"export": "PermissionMatrix"
 	},
-	"tags": ["permissions", "roles", "admin", "hierarchy", "checkbox", "access-control", "responsive"],
+	"tags": [
+		"permissions",
+		"roles",
+		"admin",
+		"hierarchy",
+		"checkbox",
+		"access-control",
+		"responsive"
+	],
 	"intent": "A reusable three-level role-permission chooser with a selected-count header, parent/child cascade, indeterminate states, active category navigation, and a coherent equal-track matrix that scrolls as one unit on narrow containers.",
 	"when": [
 		"Creating or editing a role whose permissions are grouped into category, scope, and action levels",
@@ -29,7 +37,12 @@
 			"because": "PermissionMatrix owns cascade logic, indeterminate state, shared column tracks, cell rhythm, overflow, and accessibility so templates do not duplicate or desynchronize them."
 		}
 	],
-	"pairsWith": ["SectionPanel", "Checkbox", "Badge", "Dialog"],
+	"pairsWith": [
+		"SectionPanel",
+		"Checkbox",
+		"Badge",
+		"Dialog"
+	],
 	"requiredProviders": [],
 	"dataContract": {
 		"input": {
@@ -79,9 +92,20 @@
 		"narrow": "The matrix retains three equal readable tracks and horizontally scrolls as one unit.",
 		"empty": "The matrix renders Select All disabled with a 0/0 count."
 	},
-	"composedOf": ["SectionPanel", "Checkbox", "Badge"],
-	"allowedPlacement": ["role create or edit form", "access-control settings page", "read-only role permissions dialog"],
-	"forbiddenPlacement": ["inside a DataTable row", "as a substitute for application navigation"],
+	"composedOf": [
+		"SectionPanel",
+		"Checkbox",
+		"Badge"
+	],
+	"allowedPlacement": [
+		"role create or edit form",
+		"access-control settings page",
+		"read-only role permissions dialog"
+	],
+	"forbiddenPlacement": [
+		"inside a DataTable row",
+		"as a substitute for application navigation"
+	],
 	"minimalExample": "import {PermissionMatrix} from \"@corensystem/coren-ui/permission-matrix\";\n\n<PermissionMatrix categories={catalog} value={permissions} onValueChange={setPermissions} />",
 	"lineage": {
 		"origin": "authored",
@@ -103,6 +127,132 @@
 		"notes": [
 			"Uses one equal-track outer grid and bounded label truncation to preserve coherent geometry.",
 			"pilot: true"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use PermissionMatrix to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"PermissionMatrix integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "categories",
+				"type": "PermissionMatrixCategory[]",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "value",
+				"type": "Record<string, boolean>",
+				"required": false,
+				"description": "Controlled map of leaf permission ids to their checked state."
+			},
+			{
+				"name": "defaultValue",
+				"type": "Record<string, boolean>",
+				"required": false,
+				"description": "Initial checked state when the widget is uncontrolled."
+			},
+			{
+				"name": "activeCategoryId",
+				"type": "string",
+				"required": false,
+				"description": "Controlled top-level category shown in the second and third columns."
+			},
+			{
+				"name": "defaultActiveCategoryId",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "title",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "selectAllLabel",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "readOnly",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "showHeader",
+				"type": "boolean",
+				"required": false,
+				"description": "Hides the SectionPanel header while retaining the permission grid."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "PermissionMatrix is composed of the following parts:",
+			"parts": [
+				{
+					"name": "PermissionMatrix",
+					"description": "Root PermissionMatrix element."
+				},
+				{
+					"name": "PermissionMatrixContent",
+					"description": "Content area of the PermissionMatrix."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<PermissionMatrix variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<PermissionMatrix className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<PermissionMatrix aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<PermissionMatrix /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<PermissionMatrix loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<PermissionMatrix>{data.value}</PermissionMatrix> // Crashes if data is undefined"
+			}
 		]
 	}
 }

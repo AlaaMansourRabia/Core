@@ -1,14 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid using top/bottom sheets for detailed content.
  */
-import {
-	Sheet,
-	SheetContent,
-	SheetHeader,
-	SheetTitle,
-	SheetTrigger,
-} from "@corensystem/coren-ui/sheet";
-import {Button} from "@corensystem/coren-ui/button";
+import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@corensystem/coren-ui/sheet";
 
 export function PositionDont() {
 	return (
@@ -21,9 +15,15 @@ export function PositionDont() {
 					<SheetTitle>Item Details</SheetTitle>
 				</SheetHeader>
 				<div className="wwc:py-4 wwc:space-y-2">
-					<p><strong>Name:</strong> Example Item</p>
-					<p><strong>Status:</strong> Active</p>
-					<p><strong>Description:</strong> A longer description that needs more space...</p>
+					<p>
+						<strong>Name:</strong> Example Item
+					</p>
+					<p>
+						<strong>Status:</strong> Active
+					</p>
+					<p>
+						<strong>Description:</strong> A longer description that needs more space...
+					</p>
 				</div>
 			</SheetContent>
 		</Sheet>

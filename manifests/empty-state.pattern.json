@@ -34,5 +34,62 @@
 		"supersedes": null,
 		"lastValidated": "2026-07-05",
 		"notes": []
+	},
+	"docs": {
+		"usage": [
+			"Use empty-state to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"empty-state integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "empty-state is composed of the following parts:",
+			"parts": [
+				{
+					"name": "empty-state",
+					"description": "Root empty-state element."
+				},
+				{
+					"name": "empty-stateContent",
+					"description": "Content area of the empty-state."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<empty-state variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<empty-state className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<empty-state aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<empty-state /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<empty-state loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<empty-state>{data.value}</empty-state> // Crashes if data is undefined"
+			}
+		]
 	}
 }

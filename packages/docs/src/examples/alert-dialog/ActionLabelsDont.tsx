@@ -23,9 +23,7 @@ export function ActionLabelsDont() {
 			<AlertDialogContent>
 				<AlertDialogHeader>
 					<AlertDialogTitle>Leave page?</AlertDialogTitle>
-					<AlertDialogDescription>
-						Changes will be lost.
-					</AlertDialogDescription>
+					<AlertDialogDescription>Changes will be lost.</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
 					<AlertDialogCancel>Cancel</AlertDialogCancel>

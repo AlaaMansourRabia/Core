@@ -43,5 +43,114 @@
 		"notes": [
 			"authored during the develop merge reconciliation"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "milestones",
+				"type": "MilestoneRow[]",
+				"required": true,
+				"description": "The milestone rows, in order."
+			},
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Section title. Default \"Milestones\"."
+			},
+			{
+				"name": "collapsible",
+				"type": "boolean",
+				"required": false,
+				"description": "Wrap the table in a collapsible section with a toggle header. Default true."
+			},
+			{
+				"name": "defaultOpen",
+				"type": "boolean",
+				"required": false,
+				"description": "Initial open state (collapsible only). Default true."
+			},
+			{
+				"name": "columns",
+				"type": "[string, string, string]",
+				"required": false,
+				"description": "Column headers. Default `[\"Milestone\", \"Actual\", \"Planned\"]`."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use MilestoneTable to help users navigate through your application or content hierarchy. This component provides clear wayfinding and helps users understand their current location within the interface.",
+			"MilestoneTable is ideal for multi-page applications, content-heavy interfaces, or any situation where users need to move between different sections. Keep navigation patterns consistent across your application for better user experience."
+		],
+		"anatomy": {
+			"description": "MilestoneTable is composed of the following parts:",
+			"parts": [
+				{
+					"name": "MilestoneTable",
+					"description": "Root table container."
+				},
+				{
+					"name": "MilestoneTableHeader",
+					"description": "Table header row container."
+				},
+				{
+					"name": "MilestoneTableBody",
+					"description": "Table body content container."
+				},
+				{
+					"name": "MilestoneTableRow",
+					"description": "Individual table row."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Keep tabs concise",
+				"description": "Use short, descriptive labels for tab triggers.",
+				"example": "<MilestoneTableTrigger>Overview</MilestoneTableTrigger>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't use long tab labels",
+				"description": "Avoid lengthy text that causes tabs to wrap or overflow.",
+				"example": "<MilestoneTableTrigger>Detailed Configuration Settings</MilestoneTableTrigger>"
+			},
+			{
+				"type": "do",
+				"title": "Maintain content relationship",
+				"description": "Ensure tab content is clearly related to the tab label.",
+				"example": "<MilestoneTableTrigger value=\"settings\">Settings</MilestoneTableTrigger>\n<MilestoneTableContent value=\"settings\">Settings panel</MilestoneTableContent>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't use for navigation",
+				"description": "Use proper navigation components for page-level routing.",
+				"example": "// Tabs for page navigation"
+			},
+			{
+				"type": "do",
+				"title": "Show active state clearly",
+				"description": "Make the selected tab visually distinct from others.",
+				"example": "<MilestoneTableTrigger active>Active tab</MilestoneTableTrigger>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't hide the active indicator",
+				"description": "Always show which tab is currently selected.",
+				"example": "// No visual active state"
+			}
+		]
 	}
 }

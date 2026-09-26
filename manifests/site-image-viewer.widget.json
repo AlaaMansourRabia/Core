@@ -81,28 +81,74 @@
 	],
 	"requiredWidgets": [],
 	"optionalWidgets": [
-		{"name": "ProgressComparison", "region": "hover-card", "required": false, "note": "The floating hover card."}
+		{
+			"name": "ProgressComparison",
+			"region": "hover-card",
+			"required": false,
+			"note": "The floating hover card."
+		}
 	],
 	"requiredComponents": [
-		{"name": "Button", "region": "zoom-tools", "required": true, "note": "The icon buttons for zoom in / out / reset."}
+		{
+			"name": "Button",
+			"region": "zoom-tools",
+			"required": true,
+			"note": "The icon buttons for zoom in / out / reset."
+		}
 	],
 	"dataContract": {
 		"applicable": true,
 		"input": {
-			"backgroundUrl": {"type": "string", "required": true, "note": "The site image; hosted by the consumer."},
+			"backgroundUrl": {
+				"type": "string",
+				"required": true,
+				"note": "The site image; hosted by the consumer."
+			},
 			"villas": {
 				"type": "Villa[]",
 				"required": true,
 				"note": "Footprints in image-pixel space; each has points, a bbox, linkedLbsItemId, and approved/planned %. The real ROSHN Almanar set is @corensystem/coren-ui/site-image-viewer-fixtures."
 			},
-			"imageWidth": {"type": "number", "required": false, "note": "viewBox width; default 4096."},
-			"imageHeight": {"type": "number", "required": false, "note": "viewBox height; default 4096."},
-			"imageFit": {"type": "\"cover\" | \"contain\"", "required": false, "note": "How the image fits the frame; cover (fills) by default, contain letterboxes. The SVG overlay slices/meets to match."},
-			"mapMode": {"type": "\"progress\" | \"variance\"", "required": false, "note": "Colour mode. Controlled when onMapModeChange is given; else the initial mode. Default progress."},
-			"onMapModeChange": {"type": "(mode: \"progress\" | \"variance\") => void", "required": false, "note": "Fired when the mode changes; provide to control mapMode from outside (e.g. share with a side panel)."},
-			"hoverCard": {"type": "boolean", "required": false, "note": "Opt in to the floating ProgressComparison hover card; off by default (hover is inline only)."},
-			"labelSize": {"type": "number", "required": false, "note": "On-screen px size of the villa-number labels; held constant regardless of fit scale (the viewer counter-scales the SVG text). Default 10."},
-			"onNavigate": {"type": "(lbsItemId: number) => void", "required": false, "note": "Fired when a linked villa is clicked."}
+			"imageWidth": {
+				"type": "number",
+				"required": false,
+				"note": "viewBox width; default 4096."
+			},
+			"imageHeight": {
+				"type": "number",
+				"required": false,
+				"note": "viewBox height; default 4096."
+			},
+			"imageFit": {
+				"type": "\"cover\" | \"contain\"",
+				"required": false,
+				"note": "How the image fits the frame; cover (fills) by default, contain letterboxes. The SVG overlay slices/meets to match."
+			},
+			"mapMode": {
+				"type": "\"progress\" | \"variance\"",
+				"required": false,
+				"note": "Colour mode. Controlled when onMapModeChange is given; else the initial mode. Default progress."
+			},
+			"onMapModeChange": {
+				"type": "(mode: \"progress\" | \"variance\") => void",
+				"required": false,
+				"note": "Fired when the mode changes; provide to control mapMode from outside (e.g. share with a side panel)."
+			},
+			"hoverCard": {
+				"type": "boolean",
+				"required": false,
+				"note": "Opt in to the floating ProgressComparison hover card; off by default (hover is inline only)."
+			},
+			"labelSize": {
+				"type": "number",
+				"required": false,
+				"note": "On-screen px size of the villa-number labels; held constant regardless of fit scale (the viewer counter-scales the SVG text). Default 10."
+			},
+			"onNavigate": {
+				"type": "(lbsItemId: number) => void",
+				"required": false,
+				"note": "Fired when a linked villa is clicked."
+			}
 		},
 		"note": "The colour ramp and viewBox size come from props/defaults; the villa data is not bundled with the widget."
 	},
@@ -147,10 +193,26 @@
 	],
 	"minimalExample": "import {SiteImageViewer} from \"@corensystem/coren-ui/site-image-viewer\";\nimport {ALMANAR_VILLAS, ALMANAR_SITE_META} from \"@corensystem/coren-ui/site-image-viewer-fixtures\";\n\n<SiteImageViewer\n\tbackgroundUrl=\"/site-background.webp\"\n\tvillas={ALMANAR_VILLAS}\n\timageWidth={ALMANAR_SITE_META.imageWidth}\n\timageHeight={ALMANAR_SITE_META.imageHeight}\n/>",
 	"evaluationCriteria": [
-		{"id": "regions", "metric": "render", "check": "Renders the site image, the SVG villa overlay, and the built-in legend."},
-		{"id": "viewbox", "metric": "render", "check": "The SVG viewBox equals imageWidth×imageHeight so footprints register on the image."},
-		{"id": "hover", "metric": "interaction", "check": "Hovering a linked villa raises its stroke + name chip inline; no floating card unless hoverCard is set."},
-		{"id": "mode", "metric": "interaction", "check": "The legend switches SPA (progress) ↔ Construction (variance) colouring."}
+		{
+			"id": "regions",
+			"metric": "render",
+			"check": "Renders the site image, the SVG villa overlay, and the built-in legend."
+		},
+		{
+			"id": "viewbox",
+			"metric": "render",
+			"check": "The SVG viewBox equals imageWidth×imageHeight so footprints register on the image."
+		},
+		{
+			"id": "hover",
+			"metric": "interaction",
+			"check": "Hovering a linked villa raises its stroke + name chip inline; no floating card unless hoverCard is set."
+		},
+		{
+			"id": "mode",
+			"metric": "interaction",
+			"check": "The legend switches SPA (progress) ↔ Construction (variance) colouring."
+		}
 	],
 	"lineage": {
 		"origin": "authored",
@@ -171,6 +233,204 @@
 		"notes": [
 			"The real ROSHN Almanar villa data + site meta moved to the @corensystem/coren-ui/site-image-viewer-fixtures entry so the widget stays lean.",
 			"The CaptureUiEnhanced template composes this widget for its map region."
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use SiteImageViewer to present visual information or status indicators to users. This component helps convey information quickly through visual representation.",
+			"SiteImageViewer is effective for showing user identity, status, categories, or labels. Keep usage consistent throughout your application to help users quickly recognize and understand the information being displayed."
+		],
+		"props": [
+			{
+				"name": "backgroundUrl",
+				"type": "string",
+				"required": true,
+				"description": "The background site-plan image (an aerial / blueprint). Hosted by the consumer."
+			},
+			{
+				"name": "villas",
+				"type": "Villa[]",
+				"required": true,
+				"description": "Villa overlay data, in image-pixel space. See `@corensystem/coren-ui/site-image-viewer-fixtures` for the real ROSHN Almanar set."
+			},
+			{
+				"name": "blocks",
+				"type": "Villa[]",
+				"required": false,
+				"description": "Optional block-level hull polygons (one per block), in the SAME image-pixel space as `villas`. When provided, the map shows block-name labels while fully zoomed out and swaps to per-villa number chips once zoomed in past 10% — mirroring the 3D reality view's Block → Villa LOD label hand-off. Only the labels swap; the villa polygon overlay stays drawn throughout. Omit for the classic \"villa labels always\" behaviour. See `ALMANAR_ZONE_A_BLOCKS` in the fixtures."
+			},
+			{
+				"name": "imageWidth",
+				"type": "number",
+				"required": false,
+				"description": "The image's natural pixel size — drives the SVG `viewBox` so villa points map 1:1. Default 4096×4096."
+			},
+			{
+				"name": "imageHeight",
+				"type": "number",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "imageFit",
+				"type": "\"cover\" | \"contain\"",
+				"required": false,
+				"description": "How the site image fits its frame. `cover` fills the frame (default; crops the outer plan) — the SVG overlay slices to match so footprints stay registered. `contain` letterboxes to show the whole plan."
+			},
+			{
+				"name": "mapMode",
+				"type": "MapMode",
+				"required": false,
+				"description": "Colour mode. `progress` = \"SPA\" ramp; `variance` = \"Construction\" ±plan. Controlled when `onMapModeChange` is provided (drive it from outside); otherwise this is the initial mode. Default `progress`."
+			},
+			{
+				"name": "hoverCard",
+				"type": "boolean",
+				"required": false,
+				"description": "Show the floating Approved-vs-Planned progress card while hovering a villa. Off by default — hovering still raises the villa's stroke + name chip (inline, no modal). Opt in for the full hover card."
+			},
+			{
+				"name": "focusOnSelect",
+				"type": "boolean",
+				"required": false,
+				"description": "Whether a polygon click also zooms in ~20% centred on it. Default true. Set false when the click drives a level drill-down (the consumer runs its own map transition instead)."
+			},
+			{
+				"name": "selectedVillaId",
+				"type": "number | string",
+				"required": false,
+				"description": "The currently-selected villa `id`. Its label renders 10% larger and in light mode (white chip)."
+			},
+			{
+				"name": "initialHoveredId",
+				"type": "number",
+				"required": false,
+				"description": "Seed a hovered villa on mount (for a preselected-hover story)."
+			},
+			{
+				"name": "labelSize",
+				"type": "number",
+				"required": false,
+				"description": "On-screen size (in px) of the villa-number labels. Held constant no matter how the image is scaled to fit its frame — the viewer counter-scales the SVG text against the fit scale. Default 12."
+			},
+			{
+				"name": "labelTheme",
+				"type": "\"light\" | \"dark\"",
+				"required": false,
+				"description": "Villa-number chip colours: `dark` (black chip, white text; default) or `light` (white chip, dark text)."
+			},
+			{
+				"name": "fillOpacity",
+				"type": "number",
+				"required": false,
+				"description": "Opacity (0–1) of the villa polygon fills — a colour wash over the aerial. Hover adds a small boost. Default 0.37."
+			},
+			{
+				"name": "showPolygons",
+				"type": "boolean",
+				"required": false,
+				"description": "Draw the villa polygon overlay. Default true. Turn off to show the plain background."
+			},
+			{
+				"name": "monochrome",
+				"type": "boolean",
+				"required": false,
+				"description": "Render every polygon in a single neutral grey instead of the progress/variance colours — a way to HIDE progress on the map (e.g. the parent grouping levels) while the underlying values stay intact. Default false."
+			},
+			{
+				"name": "showLabels",
+				"type": "boolean",
+				"required": false,
+				"description": "Draw the villa-number labels. Default true."
+			},
+			{
+				"name": "mapScaledOut",
+				"type": "boolean",
+				"required": false,
+				"description": "Transition: scale the map layer only out to the grey frame (24px corners). Zoom tools + legend stay put."
+			},
+			{
+				"name": "mapBlurred",
+				"type": "boolean",
+				"required": false,
+				"description": "Transition: blur the map layer only ."
+			},
+			{
+				"name": "chromeHidden",
+				"type": "boolean",
+				"required": false,
+				"description": "Fade out the on-map controls (zoom tools + legend) — e.g. while a full-screen sheet is over the map."
+			},
+			{
+				"name": "refreshLabel",
+				"type": "string",
+				"required": false,
+				"description": "Hover-tooltip text for the refresh button (e.g. \"Updated 14 min ago\"). Default \"Refresh\"."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "SiteImageViewer is composed of the following parts:",
+			"parts": [
+				{
+					"name": "SiteImageViewer",
+					"description": "Root SiteImageViewer element."
+				},
+				{
+					"name": "SiteImageViewerContent",
+					"description": "Content area of the SiteImageViewer."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<SiteImageViewer variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<SiteImageViewer className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<SiteImageViewer aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<SiteImageViewer /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<SiteImageViewer loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<SiteImageViewer>{data.value}</SiteImageViewer> // Crashes if data is undefined"
+			}
 		]
 	}
 }

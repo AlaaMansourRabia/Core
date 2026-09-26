@@ -43,5 +43,100 @@
 		"notes": [
 			"authored during the develop merge reconciliation"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "primary",
+				"type": "CompareBarsSource",
+				"required": true,
+				"description": "Left / primary source, rendered dark — most commonly the actual / approved value."
+			},
+			{
+				"name": "secondary",
+				"type": "CompareBarsSource",
+				"required": true,
+				"description": "Right / secondary source, rendered lighter — most commonly the planned / baseline value."
+			},
+			{
+				"name": "variance",
+				"type": "number",
+				"required": false,
+				"description": "Variance shown in the pill. Defaults to `primary.value - secondary.value`."
+			},
+			{
+				"name": "size",
+				"type": "\"compact\" | \"default\"",
+				"required": false,
+				"description": "Density. `compact` (default) matches the ProgressComparison panel; `default` is a touch larger."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use CompareBars to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"CompareBars integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "CompareBars is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CompareBars",
+					"description": "Root CompareBars element."
+				},
+				{
+					"name": "CompareBarsContent",
+					"description": "Content area of the CompareBars."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CompareBars variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CompareBars className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CompareBars aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CompareBars /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CompareBars loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CompareBars>{data.value}</CompareBars> // Crashes if data is undefined"
+			}
+		]
 	}
 }

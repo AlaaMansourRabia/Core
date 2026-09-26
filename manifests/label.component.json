@@ -35,14 +35,57 @@
 		],
 		"anatomy": {
 			"parts": [
-				{"name": "Label", "description": "The text element that names the form control."},
-				{"name": "Required mark", "description": "Decorative asterisk shown when required prop is true. The control carries the actual semantics."},
-				{"name": "Associated control", "description": "The form input or control bound via htmlFor/id."}
+				{
+					"name": "Label",
+					"description": "The text element that names the form control."
+				},
+				{
+					"name": "Required mark",
+					"description": "Decorative asterisk shown when required prop is true. The control carries the actual semantics."
+				},
+				{
+					"name": "Associated control",
+					"description": "The form input or control bound via htmlFor/id."
+				}
 			]
 		},
 		"bestPractices": [
-			{"do": "Bind the label to its control using htmlFor and id. This ensures clicking the label focuses the input.", "dont": "Avoid placeholder-only inputs without a visible label. Screen readers and users need persistent labels."},
-			{"do": "Use the required prop on Label and required attribute on Input for accessible required fields.", "dont": "Avoid typing asterisks manually. Use the required prop for consistent styling."}
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<Label variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<Label className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<Label aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<Label /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<Label loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<Label>{data.value}</Label> // Crashes if data is undefined"
+			}
 		],
 		"props": [
 			{

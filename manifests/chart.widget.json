@@ -11,16 +11,26 @@
 		"import": "@corensystem/coren-ui/chart",
 		"export": "ChartContainer"
 	},
-	"tags": ["display", "chart", "visualization", "data"],
+	"tags": [
+		"display",
+		"chart",
+		"visualization",
+		"data"
+	],
 	"intent": "ECharts-backed chart widget that owns the chart instance lifecycle, responsive resizing, and canvas-safe translation of Core semantic tokens.",
-	"when": ["Build a theme-aware data visualization", "Render any of the chart-family examples"],
+	"when": [
+		"Build a theme-aware data visualization",
+		"Render any of the chart-family examples"
+	],
 	"chooseOver": [
 		{
 			"component": "CoreChartRenderer",
 			"because": "Chart/ChartContainer is the base for authored visualizations; CoreChartRenderer interprets AI-generated chart payloads."
 		}
 	],
-	"pairsWith": ["TrendChart"],
+	"pairsWith": [
+		"TrendChart"
+	],
 	"requiredProviders": [],
 	"commonMistakes": [
 		{
@@ -45,13 +55,97 @@
 		"authoredBy": "Core UI/UX classification review (2026-07)",
 		"derivedFrom": {
 			"source": "packages/components/src/chart.tsx",
-			"extracted": ["ECharts instance lifecycle", "ResizeObserver integration", "semantic theme translation"]
+			"extracted": [
+				"ECharts instance lifecycle",
+				"ResizeObserver integration",
+				"semantic theme translation"
+			]
 		},
 		"status": "accepted",
 		"verifiedBy": null,
 		"confidence": "user-reviewed classification",
 		"supersedes": "manifests/chart.component.json",
 		"lastValidated": "2026-07-19",
-		"notes": ["promotedFrom: component", "Storybook examples live under Widgets/Charts"]
+		"notes": [
+			"promotedFrom: component",
+			"Storybook examples live under Widgets/Charts"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use Chart to display structured data or visualizations. This component helps users understand and interact with complex information sets.",
+			"Chart is ideal for dashboards, reports, and data-heavy interfaces. Ensure data is presented clearly and consider responsive behavior for different screen sizes. Provide appropriate loading states for async data."
+		],
+		"props": [
+			{
+				"name": "config",
+				"type": "ChartConfig",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "option",
+				"type": "EChartsOption",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "Chart is composed of the following parts:",
+			"parts": [
+				{
+					"name": "Chart",
+					"description": "Root Chart element."
+				},
+				{
+					"name": "ChartContent",
+					"description": "Content area of the Chart."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<Chart variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<Chart className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<Chart aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<Chart /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<Chart loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<Chart>{data.value}</Chart> // Crashes if data is undefined"
+			}
+		]
 	}
 }

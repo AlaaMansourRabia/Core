@@ -25,15 +25,12 @@ export function Destructive() {
 				<AlertDialogHeader>
 					<AlertDialogTitle>Delete all data?</AlertDialogTitle>
 					<AlertDialogDescription>
-						This will permanently remove all files, settings, and user data.
-						This action cannot be reversed.
+						This will permanently remove all files, settings, and user data. This action cannot be reversed.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
 					<AlertDialogCancel>Cancel</AlertDialogCancel>
-					<AlertDialogAction className={buttonVariants({variant: "destructive"})}>
-						Delete Everything
-					</AlertDialogAction>
+					<AlertDialogAction className={buttonVariants({variant: "destructive"})}>Delete Everything</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>
 		</AlertDialog>

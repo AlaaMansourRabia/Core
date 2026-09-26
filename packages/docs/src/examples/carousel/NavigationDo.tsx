@@ -1,14 +1,8 @@
+import {Card, CardContent} from "@corensystem/coren-ui/card";
 /**
  * Provide clear navigation controls.
  */
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
-} from "@corensystem/coren-ui/carousel";
-import {Card, CardContent} from "@corensystem/coren-ui/card";
+import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@corensystem/coren-ui/carousel";
 
 export function NavigationDo() {
 	return (
@@ -28,9 +22,7 @@ export function NavigationDo() {
 				<CarouselPrevious />
 				<CarouselNext />
 			</Carousel>
-			<p className="wwc:text-xs wwc:text-center wwc:text-muted-foreground">
-				Use arrows or swipe to navigate
-			</p>
+			<p className="wwc:text-xs wwc:text-center wwc:text-muted-foreground">Use arrows or swipe to navigate</p>
 		</div>
 	);
 }

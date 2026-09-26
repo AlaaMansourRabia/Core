@@ -11,7 +11,17 @@
 		"import": "@corensystem/coren-ui/node-graph",
 		"export": "NodeGraph"
 	},
-	"tags": ["graph", "nodes", "edges", "pipeline", "process", "lineage", "analysis", "canvas", "dag"],
+	"tags": [
+		"graph",
+		"nodes",
+		"edges",
+		"pipeline",
+		"process",
+		"lineage",
+		"analysis",
+		"canvas",
+		"dag"
+	],
 	"intent": "Domain-neutral functional node graph: typed nodes and edges, a ZoomTools row (zoom in/out, editable percentage, fit, reset), selection by click or keyboard, node movement, optional edge creation, empty/loading/error states, and an inspector handoff for the current selection. The graph engine is an implementation detail — a consumer describes nodes rather than rendering them.",
 	"when": [
 		"Pipeline or dataflow authoring where the steps are the content",
@@ -34,8 +44,15 @@
 			"because": "The engine, its stylesheet and its version stay behind the widget; consumers describe nodes and edges instead of adopting a third-party API."
 		}
 	],
-	"pairsWith": ["ContextToolbar", "RecordDetailShell", "PropertyList", "Badge"],
-	"requiredProviders": ["None — it mounts its own graph context"],
+	"pairsWith": [
+		"ContextToolbar",
+		"RecordDetailShell",
+		"PropertyList",
+		"Badge"
+	],
+	"requiredProviders": [
+		"None — it mounts its own graph context"
+	],
 	"dataContract": {
 		"input": {
 			"nodes": {
@@ -138,15 +155,23 @@
 	"slots": {
 		"toolbar": {
 			"description": "Chrome on the left of the zoom row — a ContextToolbar, a filter, a legend",
-			"accepts": ["component", "widget"]
+			"accepts": [
+				"component",
+				"widget"
+			]
 		},
 		"inspector": {
 			"description": "The evidence / detail handoff for the current selection; a right rail on desktop, stacked under the canvas below 1024px (so 820px stacks)",
-			"accepts": ["component", "widget"]
+			"accepts": [
+				"component",
+				"widget"
+			]
 		},
 		"emptyAction": {
 			"description": "The action offered when the graph has no nodes",
-			"accepts": ["component"]
+			"accepts": [
+				"component"
+			]
 		}
 	},
 	"states": {
@@ -156,8 +181,17 @@
 		"empty": "The caller's empty title, description and action.",
 		"compact": "Tighter node padding and type scale, for a graph with many nodes on screen."
 	},
-	"composedOf": ["GraphCanvas", "ZoomTools", "Badge", "Button", "Empty", "Skeleton"],
-	"allowedPlacement": ["inside a fixed-height or min-h-0 flex container"],
+	"composedOf": [
+		"GraphCanvas",
+		"ZoomTools",
+		"Badge",
+		"Button",
+		"Empty",
+		"Skeleton"
+	],
+	"allowedPlacement": [
+		"inside a fixed-height or min-h-0 flex container"
+	],
 	"forbiddenPlacement": [
 		"a container with no resolved height — the canvas collapses to a 0px strip",
 		"inside a table cell"
@@ -196,6 +230,138 @@
 			"The focus ring sits on the engine's node wrapper (via the node's className), because that — not the card inside it — is the element the browser focuses.",
 			"Dragged positions are held locally only until the incoming positions change, so a re-layout from the host always wins over a stale drag.",
 			"pilot: true"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use NodeGraph to display structured data or visualizations. This component helps users understand and interact with complex information sets.",
+			"NodeGraph is ideal for dashboards, reports, and data-heavy interfaces. Ensure data is presented clearly and consider responsive behavior for different screen sizes. Provide appropriate loading states for async data."
+		],
+		"props": [
+			{
+				"name": "nodes",
+				"type": "NodeGraphNode<TNode>[]",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "edges",
+				"type": "NodeGraphEdge<TEdge>[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "layout",
+				"type": "\"layered\" | \"free\"",
+				"required": false,
+				"description": "`layered` (default) wires a DAG with orthogonal edges; `free` suits a radial or hand-placed graph."
+			},
+			{
+				"name": "orientation",
+				"type": "NodeGraphOrientation",
+				"required": false,
+				"description": "Graph-wide connection sides. Default `horizontal`."
+			},
+			{
+				"name": "density",
+				"type": "NodeGraphDensity",
+				"required": false,
+				"description": "Row height and type scale. Default `comfortable`."
+			},
+			{
+				"name": "selectedNodeId",
+				"type": "string | null",
+				"required": false,
+				"description": "Controlled selection. Pass `null` for \"nothing selected\"; omit it entirely to stay uncontrolled."
+			},
+			{
+				"name": "defaultSelectedNodeId",
+				"type": "string | null",
+				"required": false,
+				"description": "Initial selection when uncontrolled."
+			},
+			{
+				"name": "selectable",
+				"type": "boolean",
+				"required": false,
+				"description": "Turn off node selection for the whole graph. Default true."
+			},
+			{
+				"name": "movable",
+				"type": "boolean",
+				"required": false,
+				"description": "Let nodes be dragged. Default true."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"anatomy": {
+			"description": "NodeGraph is composed of the following parts:",
+			"parts": [
+				{
+					"name": "NodeGraph",
+					"description": "Root NodeGraph element."
+				},
+				{
+					"name": "NodeGraphContent",
+					"description": "Content area of the NodeGraph."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<NodeGraph variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<NodeGraph className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<NodeGraph aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<NodeGraph /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<NodeGraph loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<NodeGraph>{data.value}</NodeGraph> // Crashes if data is undefined"
+			}
 		]
 	}
 }

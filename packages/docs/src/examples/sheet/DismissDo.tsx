@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Provide clear close affordance for sheets.
  */
@@ -10,7 +11,6 @@ import {
 	SheetTrigger,
 	SheetClose,
 } from "@corensystem/coren-ui/sheet";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function DismissDo() {
 	return (

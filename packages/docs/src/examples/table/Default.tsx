@@ -1,14 +1,7 @@
 /**
  * Basic data table with header and rows.
  */
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from "@corensystem/coren-ui/table";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@corensystem/coren-ui/table";
 
 export function Default() {
 	return (

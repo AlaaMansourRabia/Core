@@ -1,15 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Card with footer actions.
  */
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@corensystem/coren-ui/card";
-import {Button} from "@corensystem/coren-ui/button";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@corensystem/coren-ui/card";
 
 export function WithFooter() {
 	return (
@@ -19,9 +12,7 @@ export function WithFooter() {
 				<CardDescription>Deploy your new project in one-click.</CardDescription>
 			</CardHeader>
 			<CardContent>
-				<p className="wwc:text-sm wwc:text-muted-foreground">
-					Your project will be created with default settings.
-				</p>
+				<p className="wwc:text-sm wwc:text-muted-foreground">Your project will be created with default settings.</p>
 			</CardContent>
 			<CardFooter className="wwc:flex wwc:justify-between">
 				<Button variant="outline">Cancel</Button>

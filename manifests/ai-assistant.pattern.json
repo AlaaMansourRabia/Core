@@ -32,5 +32,62 @@
 		"supersedes": null,
 		"lastValidated": "2026-07-05",
 		"notes": []
+	},
+	"docs": {
+		"usage": [
+			"Use ai-assistant to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"ai-assistant integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "ai-assistant is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ai-assistant",
+					"description": "Root ai-assistant element."
+				},
+				{
+					"name": "ai-assistantContent",
+					"description": "Content area of the ai-assistant."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ai-assistant variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ai-assistant className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ai-assistant aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ai-assistant /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ai-assistant loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ai-assistant>{data.value}</ai-assistant> // Crashes if data is undefined"
+			}
+		]
 	}
 }

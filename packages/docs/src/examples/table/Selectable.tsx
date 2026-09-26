@@ -1,15 +1,8 @@
+import {Checkbox} from "@corensystem/coren-ui/checkbox";
 /**
  * Table with selectable rows.
  */
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from "@corensystem/coren-ui/table";
-import {Checkbox} from "@corensystem/coren-ui/checkbox";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@corensystem/coren-ui/table";
 
 export function Selectable() {
 	return (

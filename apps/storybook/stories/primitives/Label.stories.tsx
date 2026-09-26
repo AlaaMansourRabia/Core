@@ -1,12 +1,12 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Label} from "@corensystem/coren-ui/label";
 import {
 	Default as DefaultExample,
 	PeerDisabled as PeerDisabledExample,
 	Required as RequiredExample,
 	WithInput as WithInputExample,
 } from "@corensystem/coren-docs/examples/label";
+import {Label} from "@corensystem/coren-ui/label";
 
 const meta = {
 	title: "Components/Primitives/Label",

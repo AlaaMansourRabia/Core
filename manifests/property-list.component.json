@@ -45,5 +45,94 @@
 			"migrated from library-index.json (hand-authored catalog entry)",
 			"tier-candidate: widget — Generic <dl> label/value list; data contract is minimal (items). Audit flagged borderline (Medium). Decide whether simple presentational lists count as widgets. Kept as component pending decision."
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Optional section title rendered above the rows (e.g. \"Properties\")."
+			},
+			{
+				"name": "labelWidth",
+				"type": "string",
+				"required": false,
+				"description": "Width of the label column. Default: 9rem."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use PropertyList to display structured data or visualizations. This component helps users understand and interact with complex information sets.",
+			"PropertyList is ideal for dashboards, reports, and data-heavy interfaces. Ensure data is presented clearly and consider responsive behavior for different screen sizes. Provide appropriate loading states for async data."
+		],
+		"anatomy": {
+			"description": "PropertyList is composed of the following parts:",
+			"parts": [
+				{
+					"name": "PropertyList",
+					"description": "Root container for the list."
+				},
+				{
+					"name": "PropertyListItem",
+					"description": "Individual list item element."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use consistent item spacing",
+				"description": "Maintain uniform gaps between list items for visual rhythm.",
+				"example": "<PropertyList gap=\"md\">\n  <PropertyListItem>One</PropertyListItem>\n  <PropertyListItem>Two</PropertyListItem>\n</PropertyList>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't vary item spacing",
+				"description": "Avoid inconsistent gaps that create visual confusion.",
+				"example": "<PropertyListItem className=\"mb-1\" />\n<PropertyListItem className=\"mb-4\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide loading states",
+				"description": "Show skeleton loaders while list data is being fetched.",
+				"example": "<PropertyList loading>\n  <PropertyListSkeleton />\n</PropertyList>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't show empty state unexpectedly",
+				"description": "Always indicate loading vs empty to avoid confusing users.",
+				"example": "// Blank list while loading"
+			},
+			{
+				"type": "do",
+				"title": "Support keyboard navigation",
+				"description": "Enable arrow key navigation through list items.",
+				"example": "<PropertyList onKeyDown={handleArrowKeys}>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't break navigation flow",
+				"description": "Avoid interactive elements that trap focus within items.",
+				"example": "// Nested focusable causing tab trap"
+			}
+		]
 	}
 }

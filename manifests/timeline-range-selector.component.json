@@ -40,5 +40,113 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "data",
+				"type": "TimelineDay[]",
+				"required": true,
+				"description": "Every day entry available. The visible window is derived from `period` (trailing from the latest date)."
+			},
+			{
+				"name": "period",
+				"type": "TimelinePeriod",
+				"required": false,
+				"description": "Controls the visible timespan. Changing it resets the timeline to the corresponding trailing window. Default `3m`."
+			},
+			{
+				"name": "selectedRange",
+				"type": "[Date, Date]",
+				"required": false,
+				"description": "The selected date range (controlled). Unset defaults to the full visible range."
+			},
+			{
+				"name": "variant",
+				"type": "\"bar\" | \"dot\"",
+				"required": false,
+				"description": "`bar` sizes each day by `count`; `dot` renders uniform circles. Default `bar`."
+			},
+			{
+				"name": "title",
+				"type": "string",
+				"required": false,
+				"description": "Label in the top-left corner. Default `Activity Timeline`."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use TimelineRangeSelector when you need to collect user input or allow users to make selections. This component provides a consistent interaction pattern that users will find familiar and accessible.",
+			"TimelineRangeSelector should be used within forms or interactive interfaces where user data collection is required. Ensure proper labeling and validation feedback for accessibility. Avoid using this component for read-only or display-only content."
+		],
+		"anatomy": {
+			"description": "TimelineRangeSelector is composed of the following parts:",
+			"parts": [
+				{
+					"name": "TimelineRangeSelector",
+					"description": "Root TimelineRangeSelector element."
+				},
+				{
+					"name": "TimelineRangeSelectorContent",
+					"description": "Content area of the TimelineRangeSelector."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<TimelineRangeSelector variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<TimelineRangeSelector className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<TimelineRangeSelector aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<TimelineRangeSelector /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<TimelineRangeSelector loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<TimelineRangeSelector>{data.value}</TimelineRangeSelector> // Crashes if data is undefined"
+			}
+		]
 	}
 }

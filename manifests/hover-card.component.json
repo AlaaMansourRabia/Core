@@ -60,5 +60,80 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use HoverCard to structure and organize content within your interface. This component helps create visual hierarchy and consistent spacing throughout your application.",
+			"HoverCard works well for arranging related content, creating responsive layouts, and maintaining visual consistency. Use it to group related elements and establish clear content boundaries."
+		],
+		"anatomy": {
+			"description": "HoverCard is composed of the following parts:",
+			"parts": [
+				{
+					"name": "HoverCard",
+					"description": "Root container for the card."
+				},
+				{
+					"name": "HoverCardHeader",
+					"description": "Header section of the card."
+				},
+				{
+					"name": "HoverCardContent",
+					"description": "Main content area of the card."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Maintain consistent structure",
+				"description": "Use the same card layout pattern throughout your application.",
+				"example": "<HoverCard>\n  <HoverCardHeader>Title</HoverCardHeader>\n  <HoverCardContent>Body</HoverCardContent>\n</HoverCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't mix card styles",
+				"description": "Avoid using different card structures for similar content types.",
+				"example": "// Inconsistent header/body placement"
+			},
+			{
+				"type": "do",
+				"title": "Use appropriate elevation",
+				"description": "Apply shadow/elevation that reflects the card's importance and context.",
+				"example": "<HoverCard elevated>Important content</HoverCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't over-elevate",
+				"description": "Avoid heavy shadows on every card, reserve for interactive or important items.",
+				"example": "// Heavy shadow on all cards"
+			},
+			{
+				"type": "do",
+				"title": "Keep content scannable",
+				"description": "Structure card content for quick scanning with clear hierarchy.",
+				"example": "<HoverCard>\n  <HoverCardTitle>Key info first</HoverCardTitle>\n</HoverCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't cram too much",
+				"description": "Avoid overloading cards with excessive content or actions.",
+				"example": "// 10+ action buttons in card"
+			}
+		]
 	}
 }

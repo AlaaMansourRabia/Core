@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Keep drawer content concise and actionable.
  */
@@ -10,7 +11,6 @@ import {
 	DrawerTrigger,
 	DrawerClose,
 } from "@corensystem/coren-ui/drawer";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function ContentDo() {
 	return (
@@ -23,9 +23,7 @@ export function ContentDo() {
 					<DrawerTitle>Confirm Action</DrawerTitle>
 				</DrawerHeader>
 				<div className="wwc:p-4">
-					<p className="wwc:text-center">
-						Are you sure you want to proceed?
-					</p>
+					<p className="wwc:text-center">Are you sure you want to proceed?</p>
 				</div>
 				<DrawerFooter>
 					<Button>Confirm</Button>

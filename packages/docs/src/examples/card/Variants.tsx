@@ -1,12 +1,7 @@
 /**
  * Card style variants for different contexts.
  */
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from "@corensystem/coren-ui/card";
+import {Card, CardContent, CardHeader, CardTitle} from "@corensystem/coren-ui/card";
 
 export function Variants() {
 	return (

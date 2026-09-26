@@ -1,9 +1,9 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid vague or distant error messages.
  */
 import {Input} from "@corensystem/coren-ui/input";
 import {Label} from "@corensystem/coren-ui/label";
-import {Button} from "@corensystem/coren-ui/button";
 import {AlertCircle} from "lucide-react";
 
 export function ErrorsDont() {
@@ -25,10 +25,7 @@ export function ErrorsDont() {
 			</div>
 			<div className="wwc:space-y-2">
 				<Label htmlFor="form-errors-dont-name">Name</Label>
-				<Input
-					id="form-errors-dont-name"
-					defaultValue="John"
-				/>
+				<Input id="form-errors-dont-name" defaultValue="John" />
 			</div>
 			<Button type="submit">Submit</Button>
 		</form>

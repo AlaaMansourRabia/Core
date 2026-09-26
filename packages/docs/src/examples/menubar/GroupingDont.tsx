@@ -1,13 +1,7 @@
 /**
  * Avoid long menus without logical grouping.
  */
-import {
-	Menubar,
-	MenubarContent,
-	MenubarItem,
-	MenubarMenu,
-	MenubarTrigger,
-} from "@corensystem/coren-ui/menubar";
+import {Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger} from "@corensystem/coren-ui/menubar";
 
 export function GroupingDont() {
 	return (

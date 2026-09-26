@@ -2,8 +2,8 @@
  * Keep toast content brief and actionable.
  */
 import {Button} from "@corensystem/coren-ui/button";
-import {useToast} from "@corensystem/coren-ui/use-toast";
 import {ToastAction} from "@corensystem/coren-ui/toast";
+import {useToast} from "@corensystem/coren-ui/use-toast";
 
 export function ContentDo() {
 	const {toast} = useToast();

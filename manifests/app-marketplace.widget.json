@@ -126,5 +126,77 @@
 			"Promoted in group B of the missing-widgets template review.",
 			"pilot: true"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use AppMarketplace to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"AppMarketplace integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "AppMarketplace is composed of the following parts:",
+			"parts": [
+				{
+					"name": "AppMarketplace",
+					"description": "Root AppMarketplace element."
+				},
+				{
+					"name": "AppMarketplaceContent",
+					"description": "Content area of the AppMarketplace."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<AppMarketplace variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<AppMarketplace className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<AppMarketplace aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<AppMarketplace /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<AppMarketplace loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<AppMarketplace>{data.value}</AppMarketplace> // Crashes if data is undefined"
+			}
+		]
 	}
 }

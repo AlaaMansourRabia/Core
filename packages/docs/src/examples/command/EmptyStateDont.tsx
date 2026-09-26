@@ -1,11 +1,7 @@
 /**
  * Avoid unhelpful or missing empty states.
  */
-import {
-	Command,
-	CommandInput,
-	CommandList,
-} from "@corensystem/coren-ui/command";
+import {Command, CommandInput, CommandList} from "@corensystem/coren-ui/command";
 
 export function EmptyStateDont() {
 	return (

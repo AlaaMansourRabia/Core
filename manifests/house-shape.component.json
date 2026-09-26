@@ -40,5 +40,107 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "variant",
+				"type": "\"primary\" | \"secondary\" | \"accent\" | \"muted\" | \"destructive\"",
+				"default": "\"primary\"",
+				"required": false,
+				"description": "Visual style variant."
+			},
+			{
+				"name": "name",
+				"type": "string",
+				"required": false,
+				"description": "Accessible label for the house (rendered as `<title>` and `aria-label`)."
+			},
+			{
+				"name": "size",
+				"type": "number",
+				"required": false,
+				"description": "Half-footprint size of the house on the grid."
+			},
+			{
+				"name": "wall",
+				"type": "number",
+				"required": false,
+				"description": "Wall height."
+			},
+			{
+				"name": "roof",
+				"type": "number",
+				"required": false,
+				"description": "Roof height above the wall top."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use HouseShape to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"HouseShape integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "HouseShape is composed of the following parts:",
+			"parts": [
+				{
+					"name": "HouseShape",
+					"description": "Root HouseShape element."
+				},
+				{
+					"name": "HouseShapeContent",
+					"description": "Content area of the HouseShape."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<HouseShape variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<HouseShape className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<HouseShape aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<HouseShape /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<HouseShape loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<HouseShape>{data.value}</HouseShape> // Crashes if data is undefined"
+			}
+		]
 	}
 }

@@ -1,14 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Sheet without overlay scrim for non-modal use.
  */
-import {
-	Sheet,
-	SheetContent,
-	SheetHeader,
-	SheetTitle,
-	SheetTrigger,
-} from "@corensystem/coren-ui/sheet";
-import {Button} from "@corensystem/coren-ui/button";
+import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@corensystem/coren-ui/sheet";
 
 export function NoOverlay() {
 	return (

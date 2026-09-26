@@ -1,20 +1,30 @@
 /**
- * Avoid hiding progress from users.
+ * Avoid hiding progress from users (always use clear step labels).
  */
-import {WizardDialog, WizardDialogTrigger, WizardDialogContent, WizardStep} from "@corensystem/coren-ui/wizard-dialog";
+import type {WizardStep} from "@corensystem/coren-ui/wizard-dialog";
+
 import {Button} from "@corensystem/coren-ui/button";
+import {WizardDialog} from "@corensystem/coren-ui/wizard-dialog";
+import {useState} from "react";
+
+const steps: WizardStep[] = [
+	{label: "???", content: <p>Where am I?</p>},
+	{label: "???", content: <p>How many steps left?</p>},
+];
 
 export function ProgressDont() {
+	const [open, setOpen] = useState(false);
 	return (
-		<WizardDialog>
-			<WizardDialogTrigger asChild>
-				<Button>Start</Button>
-			</WizardDialogTrigger>
-			<WizardDialogContent>
-				{/* No progress indicator */}
-				<WizardStep title="???">Where am I?</WizardStep>
-				<WizardStep title="???">How many steps left?</WizardStep>
-			</WizardDialogContent>
-		</WizardDialog>
+		<>
+			<Button onClick={() => setOpen(true)}>Start</Button>
+			<WizardDialog
+				open={open}
+				onOpenChange={setOpen}
+				title="Wizard"
+				steps={steps}
+				submitLabel="Submit"
+				onSubmit={() => setOpen(false)}
+			/>
+		</>
 	);
 }

@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Avoid required selection without a default when one makes sense.
  */
 import {RadioGroup, RadioGroupItem} from "@corensystem/coren-ui/radio-group";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function DefaultDont() {
 	return (

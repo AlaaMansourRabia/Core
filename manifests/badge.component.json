@@ -62,14 +62,57 @@
 		],
 		"anatomy": {
 			"parts": [
-				{"name": "Container", "description": "The badge wrapper with rounded corners, border, and background color based on variant."},
-				{"name": "Leading icon", "description": "Optional icon placed before the label text. Should be small (size-3) and reinforce the status meaning."},
-				{"name": "Label text", "description": "The text content of the badge. Keep it short — one or two words maximum."}
+				{
+					"name": "Container",
+					"description": "The badge wrapper with rounded corners, border, and background color based on variant."
+				},
+				{
+					"name": "Leading icon",
+					"description": "Optional icon placed before the label text. Should be small (size-3) and reinforce the status meaning."
+				},
+				{
+					"name": "Label text",
+					"description": "The text content of the badge. Keep it short — one or two words maximum."
+				}
 			]
 		},
 		"bestPractices": [
-			{"do": "Use a small icon that reinforces the badge meaning. Keep labels short.", "dont": "Avoid multiple icons or long text that makes the badge hard to scan."},
-			{"do": "Use Badge for static display labels that describe status or category.", "dont": "Avoid adding click handlers or remove buttons to Badge. Use Chip for interactive elements."}
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<Badge variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<Badge className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<Badge aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<Badge /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<Badge loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<Badge>{data.value}</Badge> // Crashes if data is undefined"
+			}
 		],
 		"props": [
 			{

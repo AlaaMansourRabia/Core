@@ -11,7 +11,13 @@
 		"import": "@corensystem/coren-ui/confirm-dialog",
 		"export": "ConfirmDialog"
 	},
-	"tags": ["overlay", "dialog", "confirm", "destructive", "guard"],
+	"tags": [
+		"overlay",
+		"dialog",
+		"confirm",
+		"destructive",
+		"guard"
+	],
 	"intent": "Controlled \"are you sure?\" gate in front of a consequential action — title, description, Cancel, and a named confirm button that can take the destructive tone.",
 	"when": [
 		"An action is hard to undo (demobilize, archive, delete, revoke) and needs an explicit confirm",
@@ -27,18 +33,31 @@
 			"because": "AlertDialog is the eight-part primitive; ConfirmDialog is the one-prop-per-decision wrapper so confirm flows stay identical across surfaces."
 		}
 	],
-	"pairsWith": ["DataTable", "DropdownMenu", "Button"],
+	"pairsWith": [
+		"DataTable",
+		"DropdownMenu",
+		"Button"
+	],
 	"requiredProviders": [],
-	"composedOf": ["AlertDialog"],
-	"allowedPlacement": ["anywhere in a route — it portals to the body"],
-	"forbiddenPlacement": ["inside another AlertDialog"],
+	"composedOf": [
+		"AlertDialog"
+	],
+	"allowedPlacement": [
+		"anywhere in a route — it portals to the body"
+	],
+	"forbiddenPlacement": [
+		"inside another AlertDialog"
+	],
 	"minimalExample": "import {ConfirmDialog} from \"@corensystem/coren-ui/confirm-dialog\";\n\n<ConfirmDialog\n\topen={pending !== null}\n\tonOpenChange={(open) => !open && setPending(null)}\n\tdestructive\n\ttitle=\"Demobilize workers?\"\n\tdescription=\"They can be remobilized later.\"\n\tconfirmLabel=\"Demobilize\"\n\tonConfirm={commit}\n/>",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Workforce branch (2026-07-20)",
 		"derivedFrom": {
 			"source": "Inline ConfirmDialog helper in packages/components/src/pages/core-admin-panel.tsx",
-			"extracted": ["AlertDialog title/description/Cancel/confirm assembly", "destructive confirm-button tone"]
+			"extracted": [
+				"AlertDialog title/description/Cancel/confirm assembly",
+				"destructive confirm-button tone"
+			]
 		},
 		"status": "draft",
 		"verifiedBy": null,
@@ -49,6 +68,121 @@
 			"pilot: true",
 			"first consumer: CoreWorkforce demobilize/mobilize confirmation",
 			"core-admin-panel still has its own inline copy — candidate for follow-up de-duplication"
+		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "description",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "confirmLabel",
+				"type": "string",
+				"required": true,
+				"description": "Confirm button label — name the action (\"Demobilize\", \"Archive\"), never \"OK\"."
+			},
+			{
+				"name": "cancelLabel",
+				"type": "string",
+				"required": false,
+				"description": "Cancel button label. Default \"Cancel\"."
+			},
+			{
+				"name": "destructive",
+				"type": "boolean",
+				"required": false,
+				"description": "Renders the confirm button in the destructive tone."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			}
+		],
+		"usage": [
+			"Use ConfirmDialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"ConfirmDialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"anatomy": {
+			"description": "ConfirmDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ConfirmDialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "ConfirmDialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "ConfirmDialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "ConfirmDialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<ConfirmDialog>\n  <ConfirmDialogContent>\n    <button autoFocus>First action</button>\n  </ConfirmDialogContent>\n</ConfirmDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<ConfirmDialog>\n  <ConfirmDialog nested />\n</ConfirmDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<ConfirmDialogClose>×</ConfirmDialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<ConfirmDialogTitle>Confirm deletion</ConfirmDialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
 		]
 	}
 }

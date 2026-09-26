@@ -11,7 +11,13 @@
 		"import": "@corensystem/coren-ui/context-toolbar",
 		"export": "ContextToolbar"
 	},
-	"tags": ["toolbar", "context", "status", "actions", "responsive"],
+	"tags": [
+		"toolbar",
+		"context",
+		"status",
+		"actions",
+		"responsive"
+	],
 	"intent": "Compact contextual toolbar with icon/title, status, actions, density, and accessible responsive overflow in atomic flex groups.",
 	"when": [
 		"A surface needs a compact context label/status and a small set of actions",
@@ -31,31 +37,67 @@
 			"because": "ContextToolbar is a compact surface-local context row; PageContentHeader owns route identity, navigation, and workflow action hierarchy."
 		}
 	],
-	"pairsWith": ["Badge", "Button", "DropdownMenu"],
+	"pairsWith": [
+		"Badge",
+		"Button",
+		"DropdownMenu"
+	],
 	"requiredProviders": [],
-	"composedOf": ["Button", "DropdownMenu"],
+	"composedOf": [
+		"Button",
+		"DropdownMenu"
+	],
 	"dataContract": {
 		"input": {
-			"title": {"type": "ReactNode", "required": true},
-			"actions": {"type": "ContextToolbarAction[]", "required": false}
+			"title": {
+				"type": "ReactNode",
+				"required": true
+			},
+			"actions": {
+				"type": "ContextToolbarAction[]",
+				"required": false
+			}
 		}
 	},
 	"configSchema": {
-		"leadingIcon": {"type": "ReactNode"},
-		"title": {"type": "ReactNode", "required": true},
-		"status": {"type": "ReactNode"},
-		"actions": {"type": "ContextToolbarAction[]"},
-		"maxVisibleActions": {"type": "number", "default": 2},
-		"density": {"type": "compact | comfortable", "default": "compact"},
-		"menuLabel": {"type": "string", "default": "More actions"}
+		"leadingIcon": {
+			"type": "ReactNode"
+		},
+		"title": {
+			"type": "ReactNode",
+			"required": true
+		},
+		"status": {
+			"type": "ReactNode"
+		},
+		"actions": {
+			"type": "ContextToolbarAction[]"
+		},
+		"maxVisibleActions": {
+			"type": "number",
+			"default": 2
+		},
+		"density": {
+			"type": "compact | comfortable",
+			"default": "compact"
+		},
+		"menuLabel": {
+			"type": "string",
+			"default": "More actions"
+		}
 	},
 	"states": {
 		"default": "Title/status and visible actions",
 		"overflow": "Actions beyond maxVisibleActions appear in an accessible menu",
 		"comfortable": "Larger height and padding"
 	},
-	"allowedPlacement": ["Above a route-local workspace, canvas, table, or panel"],
-	"forbiddenPlacement": ["As the persistent application shell top bar", "Inside a table cell"],
+	"allowedPlacement": [
+		"Above a route-local workspace, canvas, table, or panel"
+	],
+	"forbiddenPlacement": [
+		"As the persistent application shell top bar",
+		"Inside a table cell"
+	],
 	"commonMistakes": [
 		{
 			"mistake": "Applying gap without flex or grid to toolbar wrappers",
@@ -92,5 +134,132 @@
 		"status": "candidate",
 		"confidence": "high — API and responsive ownership authored from held-out experiment",
 		"lastValidated": "2026-07-18"
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "leadingIcon",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "status",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "actions",
+				"type": "ContextToolbarAction[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "maxVisibleActions",
+				"type": "number",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "density",
+				"type": "\"compact\" | \"comfortable\"",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "menuLabel",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use ContextToolbar to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"ContextToolbar integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "ContextToolbar is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ContextToolbar",
+					"description": "Root ContextToolbar element."
+				},
+				{
+					"name": "ContextToolbarContent",
+					"description": "Content area of the ContextToolbar."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ContextToolbar variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ContextToolbar className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ContextToolbar aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ContextToolbar /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ContextToolbar loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ContextToolbar>{data.value}</ContextToolbar> // Crashes if data is undefined"
+			}
+		]
 	}
 }

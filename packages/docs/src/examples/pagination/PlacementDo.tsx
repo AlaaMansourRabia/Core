@@ -22,7 +22,9 @@ export function PlacementDo() {
 						<PaginationPrevious href="#" />
 					</PaginationItem>
 					<PaginationItem>
-						<PaginationLink href="#" isActive>1</PaginationLink>
+						<PaginationLink href="#" isActive>
+							1
+						</PaginationLink>
 					</PaginationItem>
 					<PaginationItem>
 						<PaginationLink href="#">2</PaginationLink>

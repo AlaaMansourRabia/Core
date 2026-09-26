@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Use encouraging, helpful tone.
  */
 import {Empty} from "@corensystem/coren-ui/empty";
-import {Button} from "@corensystem/coren-ui/button";
 import {Users} from "lucide-react";
 
 export function ToneDo() {

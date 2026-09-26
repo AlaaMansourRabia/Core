@@ -44,9 +44,7 @@ export function A11yDo() {
 					</NavigationMenuItem>
 				</NavigationMenuList>
 			</NavigationMenu>
-			<p className="wwc:text-xs wwc:text-muted-foreground">
-				Tab, arrow keys, and Escape all work
-			</p>
+			<p className="wwc:text-xs wwc:text-muted-foreground">Tab, arrow keys, and Escape all work</p>
 		</div>
 	);
 }

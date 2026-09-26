@@ -1,12 +1,7 @@
 /**
  * Avoid vague or overly long accordion titles.
  */
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "@corensystem/coren-ui/accordion";
+import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@corensystem/coren-ui/accordion";
 
 export function TitlesDont() {
 	return (

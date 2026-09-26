@@ -2,8 +2,8 @@
  * Toast with action button.
  */
 import {Button} from "@corensystem/coren-ui/button";
-import {useToast} from "@corensystem/coren-ui/use-toast";
 import {ToastAction} from "@corensystem/coren-ui/toast";
+import {useToast} from "@corensystem/coren-ui/use-toast";
 
 export function WithAction() {
 	const {toast} = useToast();
@@ -15,9 +15,7 @@ export function WithAction() {
 				toast({
 					title: "File deleted",
 					description: "document.pdf has been moved to trash.",
-					action: (
-						<ToastAction altText="Undo deletion">Undo</ToastAction>
-					),
+					action: <ToastAction altText="Undo deletion">Undo</ToastAction>,
 				});
 			}}
 		>

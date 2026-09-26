@@ -38,5 +38,62 @@
 		"supersedes": null,
 		"lastValidated": "2026-07-05",
 		"notes": []
+	},
+	"docs": {
+		"usage": [
+			"Use page-from-template to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"page-from-template integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "page-from-template is composed of the following parts:",
+			"parts": [
+				{
+					"name": "page-from-template",
+					"description": "Root page-from-template element."
+				},
+				{
+					"name": "page-from-templateContent",
+					"description": "Content area of the page-from-template."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<page-from-template variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<page-from-template className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<page-from-template aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<page-from-template /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<page-from-template loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<page-from-template>{data.value}</page-from-template> // Crashes if data is undefined"
+			}
+		]
 	}
 }

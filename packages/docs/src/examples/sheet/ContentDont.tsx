@@ -1,15 +1,9 @@
+import {Button} from "@corensystem/coren-ui/button";
+import {Input} from "@corensystem/coren-ui/input";
 /**
  * Avoid cramming too much content into a sheet.
  */
-import {
-	Sheet,
-	SheetContent,
-	SheetHeader,
-	SheetTitle,
-	SheetTrigger,
-} from "@corensystem/coren-ui/sheet";
-import {Button} from "@corensystem/coren-ui/button";
-import {Input} from "@corensystem/coren-ui/input";
+import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@corensystem/coren-ui/sheet";
 
 export function ContentDont() {
 	return (

@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Avoid generic placeholders that do not guide the user.
  */
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@corensystem/coren-ui/select";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function PlaceholderDont() {
 	return (

@@ -1,5 +1,5 @@
 ---
-"@core/core-ui": minor
+"@corensystem/coren-ui": minor
 ---
 
 `SiteImageViewer`: block-name labels while zoomed out, villa labels once zoomed in (mirrors the 3D view)

@@ -1,12 +1,7 @@
 /**
  * Avoid cramming too much content into a card.
  */
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from "@corensystem/coren-ui/card";
+import {Card, CardContent, CardHeader, CardTitle} from "@corensystem/coren-ui/card";
 
 export function ContentDont() {
 	return (

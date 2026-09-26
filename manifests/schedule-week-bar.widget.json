@@ -47,5 +47,96 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use ScheduleWeekBar to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"ScheduleWeekBar integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "variant",
+				"type": "\"frosted\" | \"plain\"",
+				"default": "\"frosted\"",
+				"required": false,
+				"description": "Visual style variant."
+			},
+			{
+				"name": "meta",
+				"type": "ScheduleMeta",
+				"required": false,
+				"description": "Schedule bounds the stepper pages through. Defaults to a 180-day project."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"anatomy": {
+			"description": "ScheduleWeekBar is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ScheduleWeekBar",
+					"description": "Root ScheduleWeekBar element."
+				},
+				{
+					"name": "ScheduleWeekBarContent",
+					"description": "Content area of the ScheduleWeekBar."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ScheduleWeekBar variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ScheduleWeekBar className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ScheduleWeekBar aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ScheduleWeekBar /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ScheduleWeekBar loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ScheduleWeekBar>{data.value}</ScheduleWeekBar> // Crashes if data is undefined"
+			}
+		]
 	}
 }

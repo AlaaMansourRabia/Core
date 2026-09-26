@@ -50,5 +50,82 @@
 			"pilot: false",
 			"knowledgeRefs: [\"library-index.json#CoreFilterStrip\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use CoreFilterStrip to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"CoreFilterStrip integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "variant",
+				"type": "FilterStripVariant",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "size",
+				"type": "FilterStripSize",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "CoreFilterStrip is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CoreFilterStrip",
+					"description": "Root CoreFilterStrip element."
+				},
+				{
+					"name": "CoreFilterStripContent",
+					"description": "Content area of the CoreFilterStrip."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CoreFilterStrip variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CoreFilterStrip className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CoreFilterStrip aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CoreFilterStrip /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CoreFilterStrip loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CoreFilterStrip>{data.value}</CoreFilterStrip> // Crashes if data is undefined"
+			}
+		]
 	}
 }

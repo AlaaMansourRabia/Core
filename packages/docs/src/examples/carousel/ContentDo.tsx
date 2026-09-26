@@ -1,15 +1,9 @@
+import {Badge} from "@corensystem/coren-ui/badge";
+import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@corensystem/coren-ui/card";
 /**
  * Use carousels for related, browsable content.
  */
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
-} from "@corensystem/coren-ui/carousel";
-import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@corensystem/coren-ui/card";
-import {Badge} from "@corensystem/coren-ui/badge";
+import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@corensystem/coren-ui/carousel";
 
 const products = [
 	{name: "Wireless Headphones", price: "$99", tag: "Popular"},

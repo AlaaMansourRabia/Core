@@ -24,8 +24,8 @@ export function UsageDo() {
 				<AlertDialogHeader>
 					<AlertDialogTitle>Revoke team access?</AlertDialogTitle>
 					<AlertDialogDescription>
-						All 5 team members will immediately lose access to this workspace.
-						They will need to be re-invited to regain access.
+						All 5 team members will immediately lose access to this workspace. They will need to be re-invited to regain
+						access.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>

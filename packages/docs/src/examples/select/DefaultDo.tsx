@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Pre-select a sensible default when appropriate.
  */
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@corensystem/coren-ui/select";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function DefaultDo() {
 	return (

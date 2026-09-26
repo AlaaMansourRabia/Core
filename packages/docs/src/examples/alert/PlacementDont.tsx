@@ -16,9 +16,7 @@ export function PlacementDont() {
 			<Alert>
 				<AlertTriangle className="wwc:h-4 wwc:w-4" />
 				<AlertTitle>Action Required</AlertTitle>
-				<AlertDescription>
-					Important alert hidden at the bottom.
-				</AlertDescription>
+				<AlertDescription>Important alert hidden at the bottom.</AlertDescription>
 			</Alert>
 		</div>
 	);

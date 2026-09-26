@@ -1,10 +1,10 @@
+import {Button} from "@corensystem/coren-ui/button";
+import {Input} from "@corensystem/coren-ui/input";
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Popover containing form elements.
  */
 import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
-import {Button} from "@corensystem/coren-ui/button";
-import {Input} from "@corensystem/coren-ui/input";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function WithForm() {
 	return (

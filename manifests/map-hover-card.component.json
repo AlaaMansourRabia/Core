@@ -11,7 +11,13 @@
 		"import": "@corensystem/coren-ui/map-hover-card",
 		"export": "MapHoverCard"
 	},
-	"tags": ["map", "hover", "card", "preview", "overlay"],
+	"tags": [
+		"map",
+		"hover",
+		"card",
+		"preview",
+		"overlay"
+	],
 	"intent": "The card shown while hovering a map marker — a peek at what is under the cursor.",
 	"when": [
 		"A map marker needs identifying without opening its full record",
@@ -24,7 +30,10 @@
 			"avoidOverride": "Wrap a map marker in a Radix HoverCard trigger"
 		}
 	],
-	"pairsWith": ["ObservationsMap", "Badge"],
+	"pairsWith": [
+		"ObservationsMap",
+		"Badge"
+	],
 	"requiredProviders": [],
 	"commonMistakes": [
 		{
@@ -36,12 +45,126 @@
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Observations-Map-View",
-		"derivedFrom": {"source": null, "extracted": []},
+		"derivedFrom": {
+			"source": null,
+			"extracted": []
+		},
 		"status": "accepted",
 		"verifiedBy": null,
 		"confidence": "unset — all three marker kinds hovered and read back in the browser",
 		"supersedes": null,
 		"lastValidated": "2026-08-31",
 		"notes": []
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "badges",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Badges or meta under the title."
+			},
+			{
+				"name": "media",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "A preview strip above the title — a camera still, an image, a chart."
+			},
+			{
+				"name": "rows",
+				"type": "MapHoverCardRow[]",
+				"required": false,
+				"description": "Label/value lines. Keep it to a handful; this is a peek, not the record."
+			},
+			{
+				"name": "footer",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "A closing line — a hint, a count, an action."
+			},
+			{
+				"name": "width",
+				"type": "number",
+				"required": false,
+				"description": "Width in px. Default `220`."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use MapHoverCard to structure and organize content within your interface. This component helps create visual hierarchy and consistent spacing throughout your application.",
+			"MapHoverCard works well for arranging related content, creating responsive layouts, and maintaining visual consistency. Use it to group related elements and establish clear content boundaries."
+		],
+		"anatomy": {
+			"description": "MapHoverCard is composed of the following parts:",
+			"parts": [
+				{
+					"name": "MapHoverCard",
+					"description": "Root container for the card."
+				},
+				{
+					"name": "MapHoverCardHeader",
+					"description": "Header section of the card."
+				},
+				{
+					"name": "MapHoverCardContent",
+					"description": "Main content area of the card."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Maintain consistent structure",
+				"description": "Use the same card layout pattern throughout your application.",
+				"example": "<MapHoverCard>\n  <MapHoverCardHeader>Title</MapHoverCardHeader>\n  <MapHoverCardContent>Body</MapHoverCardContent>\n</MapHoverCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't mix card styles",
+				"description": "Avoid using different card structures for similar content types.",
+				"example": "// Inconsistent header/body placement"
+			},
+			{
+				"type": "do",
+				"title": "Use appropriate elevation",
+				"description": "Apply shadow/elevation that reflects the card's importance and context.",
+				"example": "<MapHoverCard elevated>Important content</MapHoverCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't over-elevate",
+				"description": "Avoid heavy shadows on every card, reserve for interactive or important items.",
+				"example": "// Heavy shadow on all cards"
+			},
+			{
+				"type": "do",
+				"title": "Keep content scannable",
+				"description": "Structure card content for quick scanning with clear hierarchy.",
+				"example": "<MapHoverCard>\n  <MapHoverCardTitle>Key info first</MapHoverCardTitle>\n</MapHoverCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't cram too much",
+				"description": "Avoid overloading cards with excessive content or actions.",
+				"example": "// 10+ action buttons in card"
+			}
+		]
 	}
 }

@@ -1,20 +1,30 @@
 /**
  * Allow going back to previous steps.
  */
-import {WizardDialog, WizardDialogTrigger, WizardDialogContent, WizardStep, WizardNavigation} from "@corensystem/coren-ui/wizard-dialog";
+import type {WizardStep} from "@corensystem/coren-ui/wizard-dialog";
+
 import {Button} from "@corensystem/coren-ui/button";
+import {WizardDialog} from "@corensystem/coren-ui/wizard-dialog";
+import {useState} from "react";
+
+const steps: WizardStep[] = [
+	{label: "Step 1", content: <p>Content for step 1</p>},
+	{label: "Step 2", content: <p>Content for step 2</p>},
+];
 
 export function NavigationDo() {
+	const [open, setOpen] = useState(false);
 	return (
-		<WizardDialog>
-			<WizardDialogTrigger asChild>
-				<Button>Start</Button>
-			</WizardDialogTrigger>
-			<WizardDialogContent>
-				<WizardStep title="Step 1">Content 1</WizardStep>
-				<WizardStep title="Step 2">Content 2</WizardStep>
-				<WizardNavigation showBack showNext />
-			</WizardDialogContent>
-		</WizardDialog>
+		<>
+			<Button onClick={() => setOpen(true)}>Start</Button>
+			<WizardDialog
+				open={open}
+				onOpenChange={setOpen}
+				title="Wizard"
+				steps={steps}
+				submitLabel="Submit"
+				onSubmit={() => setOpen(false)}
+			/>
+		</>
 	);
 }

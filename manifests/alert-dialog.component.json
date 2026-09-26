@@ -62,5 +62,84 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use AlertDialog to communicate important information, status updates, or feedback to users. This component is designed to draw attention to messages that require user awareness or action.",
+			"AlertDialog works well for transient notifications, validation messages, and system status indicators. Avoid using it for content that should persist on the page or for non-critical information that doesn't require immediate attention."
+		],
+		"anatomy": {
+			"description": "AlertDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "AlertDialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "AlertDialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "AlertDialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "AlertDialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<AlertDialog>\n  <AlertDialogContent>\n    <button autoFocus>First action</button>\n  </AlertDialogContent>\n</AlertDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<AlertDialog>\n  <AlertDialog nested />\n</AlertDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<AlertDialogClose>×</AlertDialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<AlertDialogTitle>Confirm deletion</AlertDialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
+		]
 	}
 }

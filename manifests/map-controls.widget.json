@@ -51,5 +51,108 @@
 			"pilot: false",
 			"knowledgeRefs: [\"library-index.json#MapControls\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use MapControls to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"MapControls integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "mapRef",
+				"type": "React.MutableRefObject<mapboxgl.Map | null>",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "mapStyle",
+				"type": "string",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "additionalControls",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "additionalSettings",
+				"type": "SettingsToggle[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "MapControls is composed of the following parts:",
+			"parts": [
+				{
+					"name": "MapControls",
+					"description": "Root MapControls element."
+				},
+				{
+					"name": "MapControlsContent",
+					"description": "Content area of the MapControls."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<MapControls variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<MapControls className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<MapControls aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<MapControls /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<MapControls loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<MapControls>{data.value}</MapControls> // Crashes if data is undefined"
+			}
+		]
 	}
 }

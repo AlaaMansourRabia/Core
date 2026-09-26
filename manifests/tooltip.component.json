@@ -61,5 +61,89 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use Tooltip when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"Tooltip should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"anatomy": {
+			"description": "Tooltip is composed of the following parts:",
+			"parts": [
+				{
+					"name": "Tooltip",
+					"description": "Root Tooltip element."
+				},
+				{
+					"name": "TooltipContent",
+					"description": "Content area of the Tooltip."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Keep content brief",
+				"description": "Use short, helpful text that adds context.",
+				"example": "<Tooltip content=\"Save your changes\">"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload with content",
+				"description": "Avoid putting long text or complex UI in tooltips.",
+				"example": "<Tooltip content=\"This is a very long explanation...\">"
+			},
+			{
+				"type": "do",
+				"title": "Ensure accessibility",
+				"description": "Make tooltip content available to screen readers.",
+				"example": "<Tooltip aria-describedby=\"tooltip-1\">"
+			},
+			{
+				"type": "dont",
+				"title": "Don't hide critical info",
+				"description": "Never put essential information only in tooltips.",
+				"example": "// Required field indicator only in tooltip"
+			},
+			{
+				"type": "do",
+				"title": "Use appropriate triggers",
+				"description": "Show on hover for mouse, focus for keyboard users.",
+				"example": "<Tooltip trigger={['hover', 'focus']}>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't require click to view",
+				"description": "Avoid click-to-open tooltips that hide quick information.",
+				"example": "<Tooltip trigger=\"click\">"
+			}
+		]
 	}
 }

@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Drawer containing a form.
  */
@@ -11,7 +12,6 @@ import {
 	DrawerTrigger,
 	DrawerClose,
 } from "@corensystem/coren-ui/drawer";
-import {Button} from "@corensystem/coren-ui/button";
 import {Input} from "@corensystem/coren-ui/input";
 import {Label} from "@corensystem/coren-ui/label";
 
@@ -24,9 +24,7 @@ export function WithForm() {
 			<DrawerContent>
 				<DrawerHeader>
 					<DrawerTitle>New Note</DrawerTitle>
-					<DrawerDescription>
-						Create a quick note.
-					</DrawerDescription>
+					<DrawerDescription>Create a quick note.</DrawerDescription>
 				</DrawerHeader>
 				<div className="wwc:p-4 wwc:space-y-4">
 					<div className="wwc:grid wwc:gap-2">

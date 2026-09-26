@@ -12,31 +12,17 @@ export function WithRequired() {
 				<Label htmlFor="form-req-name" required>
 					Full Name
 				</Label>
-				<Input
-					id="form-req-name"
-					placeholder="Enter your full name"
-					required
-				/>
+				<Input id="form-req-name" placeholder="Enter your full name" required />
 			</div>
 			<div className="wwc:space-y-2">
 				<Label htmlFor="form-req-email" required>
 					Email
 				</Label>
-				<Input
-					id="form-req-email"
-					type="email"
-					placeholder="Enter your email"
-					required
-				/>
+				<Input id="form-req-email" type="email" placeholder="Enter your email" required />
 			</div>
 			<div className="wwc:space-y-2">
-				<Label htmlFor="form-req-company">
-					Company
-				</Label>
-				<Input
-					id="form-req-company"
-					placeholder="Optional"
-				/>
+				<Label htmlFor="form-req-company">Company</Label>
+				<Input id="form-req-company" placeholder="Optional" />
 			</div>
 			<Button type="submit" className="wwc:w-full">
 				Submit

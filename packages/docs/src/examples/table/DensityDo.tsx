@@ -1,14 +1,7 @@
 /**
  * Use appropriate row density for your data.
  */
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from "@corensystem/coren-ui/table";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@corensystem/coren-ui/table";
 
 export function DensityDo() {
 	return (

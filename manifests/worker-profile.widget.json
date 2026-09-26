@@ -11,7 +11,14 @@
 		"import": "@corensystem/coren-ui/worker-profile",
 		"export": "WorkerProfile"
 	},
-	"tags": ["worker", "profile", "workforce", "tabs", "detail", "push-panel"],
+	"tags": [
+		"worker",
+		"profile",
+		"workforce",
+		"tabs",
+		"detail",
+		"push-panel"
+	],
 	"intent": "Worker profile body: an optional identity region (photo, name, worker-level actions) over up to seven icon tabs (General, Certificates, Compliance, Trainings, Device, Crew, Visits — narrowed by the optional `tabs` allow-list, so a host without a Visits concept shows no Visits tab rather than a permanently empty one) and a label/value field list, for showing one worker's record inside a panel. Certificates and Device take caller actions in their tab header; Compliance takes either the typed model or caller-supplied content; a typed check reports the verdict the user picks and its upload intent to the host, holds no state of its own (the host owns `selectedOption`) and can be locked while a save is in flight, with an optional footer under the checks for a batched commit. Typed tabs take an optional per-tab loading/error state, so a tab-gated fetch does not read as an empty record. Every certificate can carry its own row actions (edit/delete) and route its document click through the host, for files behind the host's auth. The widget's own built-in text — tab names, empty and error wording, Retry — is overridable through `text`, so a localized host is not stuck with English. Panel chrome is the caller's — it drops into a PushPanel, Sheet, Dialog, or a plain column.",
 	"when": [
 		"Showing a single worker's record beside a roster or map",
@@ -27,11 +34,28 @@
 			"because": "WorkerProfile owns the tab set, field grouping, separators, certificate blocks, the identity strip, and per-tab empty states."
 		}
 	],
-	"pairsWith": ["PushPanel", "DataTable", "DropdownMenu"],
+	"pairsWith": [
+		"PushPanel",
+		"DataTable",
+		"DropdownMenu"
+	],
 	"requiredProviders": [],
-	"composedOf": ["Tabs", "Badge", "Separator", "Avatar", "Progress", "ToggleGroup", "Button"],
-	"allowedPlacement": ["inside a PushPanel, Sheet, Dialog, or a column that gives it height"],
-	"forbiddenPlacement": ["inside a table cell", "as a route-level page without panel chrome"],
+	"composedOf": [
+		"Tabs",
+		"Badge",
+		"Separator",
+		"Avatar",
+		"Progress",
+		"ToggleGroup",
+		"Button"
+	],
+	"allowedPlacement": [
+		"inside a PushPanel, Sheet, Dialog, or a column that gives it height"
+	],
+	"forbiddenPlacement": [
+		"inside a table cell",
+		"as a route-level page without panel chrome"
+	],
 	"minimalExample": "import {WorkerProfile} from \"@corensystem/coren-ui/worker-profile\";\n\n<WorkerProfile general={[{fields: [{label: \"Name\", value: \"John Doe\"}]}]} />",
 	"lineage": {
 		"origin": "authored",
@@ -50,6 +74,117 @@
 		"confidence": "unset — extracted from a story pattern, no held-out eval yet",
 		"supersedes": null,
 		"lastValidated": "2026-09-13",
-		"notes": ["pilot: true", "first consumer: CoreWorkforce Workers List push panel"]
+		"notes": [
+			"pilot: true",
+			"first consumer: CoreWorkforce Workers List push panel"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use WorkerProfile to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"WorkerProfile integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "identity",
+				"type": "WorkerProfileIdentity",
+				"required": false,
+				"description": "Identity region above the tabs. Omit it and the widget renders the body only, as before."
+			},
+			{
+				"name": "general",
+				"type": "WorkerProfileFieldGroup[]",
+				"required": false,
+				"description": "General tab — one or more field groups."
+			},
+			{
+				"name": "certificates",
+				"type": "WorkerProfileCertificate[]",
+				"required": false,
+				"description": "Certificates tab — rendered as titled blocks with a status badge."
+			},
+			{
+				"name": "certificatesActions",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Actions for the Certificates tab header, e.g. an \"Add certificate\" button."
+			},
+			{
+				"name": "compliance",
+				"type": "WorkerProfileCompliance | React.ReactNode",
+				"required": false,
+				"description": "Compliance tab — either the typed model (score + per-check status, choices, documents, fields) or caller-supplied content, for hosts that own their compliance UI."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "WorkerProfile is composed of the following parts:",
+			"parts": [
+				{
+					"name": "WorkerProfile",
+					"description": "Root WorkerProfile element."
+				},
+				{
+					"name": "WorkerProfileContent",
+					"description": "Content area of the WorkerProfile."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<WorkerProfile variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<WorkerProfile className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<WorkerProfile aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<WorkerProfile /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<WorkerProfile loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<WorkerProfile>{data.value}</WorkerProfile> // Crashes if data is undefined"
+			}
+		]
 	}
 }

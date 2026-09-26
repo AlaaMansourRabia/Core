@@ -53,5 +53,77 @@
 			"pilot: false",
 			"knowledgeRefs: [\"library-index.json#CoreChatPanel\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use CoreChatPanel to structure and organize content within your interface. This component helps create visual hierarchy and consistent spacing throughout your application.",
+			"CoreChatPanel works well for arranging related content, creating responsive layouts, and maintaining visual consistency. Use it to group related elements and establish clear content boundaries."
+		],
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "CoreChatPanel is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CoreChatPanel",
+					"description": "Root CoreChatPanel element."
+				},
+				{
+					"name": "CoreChatPanelContent",
+					"description": "Content area of the CoreChatPanel."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CoreChatPanel variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CoreChatPanel className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CoreChatPanel aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CoreChatPanel /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CoreChatPanel loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CoreChatPanel>{data.value}</CoreChatPanel> // Crashes if data is undefined"
+			}
+		]
 	}
 }

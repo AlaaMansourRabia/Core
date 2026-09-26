@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Use descriptive placeholders that indicate what to select.
  */
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@corensystem/coren-ui/select";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function PlaceholderDo() {
 	return (

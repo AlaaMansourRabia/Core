@@ -11,7 +11,16 @@
 		"import": "@corensystem/coren-ui/fragment-viewer",
 		"export": "FragmentViewer"
 	},
-	"tags": ["display", "3d", "bim", "fragments", "thatopen", "model", "viewer", "ifc"],
+	"tags": [
+		"display",
+		"3d",
+		"bim",
+		"fragments",
+		"thatopen",
+		"model",
+		"viewer",
+		"ifc"
+	],
 	"intent": "Renders a That Open Fragments (.frag) model with orbit, zoom and click-to-select — the same runtime the WC3 engineering viewers use. Fills its parent, reports the picked element, and releases its WebGL context on unmount.",
 	"when": [
 		"Showing a single BIM/engineering model inside a product surface",
@@ -29,10 +38,19 @@
 			"because": "FragmentViewer renders in-page, themes with the surrounding surface and reports selection back to React."
 		}
 	],
-	"pairsWith": ["PushPanel", "SectionPanel", "PropertyList"],
+	"pairsWith": [
+		"PushPanel",
+		"SectionPanel",
+		"PropertyList"
+	],
 	"requiredProviders": [],
-	"composedOf": ["Empty", "Skeleton"],
-	"allowedPlacement": ["a parent with a bounded height (the canvas fills its container)"],
+	"composedOf": [
+		"Empty",
+		"Skeleton"
+	],
+	"allowedPlacement": [
+		"a parent with a bounded height (the canvas fills its container)"
+	],
 	"forbiddenPlacement": [
 		"inside a scrolling container with auto height (the canvas collapses to zero)",
 		"more than a couple per page (each instance holds a WebGL context)"
@@ -65,6 +83,161 @@
 			"three and @thatopen/fragments are OPTIONAL peerDependencies — only apps importing this widget install them (~900 KB)",
 			"pin @thatopen/fragments to the version that authored the .frag files; the WC3 dataset catalog records 3.4.6",
 			"scope is one model: multi-model federation, geospatial placement, isolation and QTO are deliberately out"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use FragmentViewer to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"FragmentViewer integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "src",
+				"type": "string",
+				"required": true,
+				"description": "URL of the `.frag` model to display."
+			},
+			{
+				"name": "fallbackSrc",
+				"type": "string",
+				"required": false,
+				"description": "Optional model URL used when `src` cannot be loaded."
+			},
+			{
+				"name": "modelId",
+				"type": "string",
+				"required": false,
+				"description": "Stable id for the model within the viewport. Defaults to `src`."
+			},
+			{
+				"name": "workerUrl",
+				"type": "string",
+				"required": true,
+				"description": "URL of the Fragments web worker — required, because a bundled library cannot resolve the `@thatopen/fragments/worker` specifier to a runtime URL. In a Vite app: `import workerUrl from \"@thatopen/fragments/worker?url\"`."
+			},
+			{
+				"name": "background",
+				"type": "string | null",
+				"required": false,
+				"description": "Scene background. `null` leaves the canvas transparent."
+			},
+			{
+				"name": "selectionColor",
+				"type": "string",
+				"required": false,
+				"description": "Highlight colour for picked elements."
+			},
+			{
+				"name": "showLogo",
+				"type": "boolean",
+				"required": false,
+				"description": "Show the underlying SDK logo over the canvas. Defaults to false."
+			},
+			{
+				"name": "fitAnimation",
+				"type": "boolean",
+				"required": false,
+				"description": "Animate the camera when first framing the model on load. Default true. Set false to jump to the framed position instantly (e.g. when an outer transition already zooms the viewer in)."
+			},
+			{
+				"name": "fitCategories",
+				"type": "RegExp[]",
+				"required": false,
+				"description": "Frame only the elements whose IFC category matches one of these patterns (e.g. the building shell) instead of the whole model. Pass a stable (module-level) array — a new array each render reloads the model."
+			},
+			{
+				"name": "fitFactor",
+				"type": "number",
+				"required": false,
+				"description": "Multiply the fit distance. Default 1; below 1 frames tighter (closer)."
+			},
+			{
+				"name": "markers",
+				"type": "FragmentMarker[]",
+				"required": false,
+				"description": "Point markers drawn in the model — workers, sensors, anything with a position."
+			},
+			{
+				"name": "markerRadius",
+				"type": "number",
+				"required": false,
+				"description": "Marker radius in model units. Defaults to ~1/300th of the model diagonal."
+			},
+			{
+				"name": "markersOccluded",
+				"type": "boolean",
+				"required": false,
+				"description": "Let geometry hide markers behind it. Default false — markers read through the model, like pins."
+			},
+			{
+				"name": "selectFloorsOnly",
+				"type": "boolean",
+				"required": false,
+				"description": "Floor-only picking: a click selects (isolates) the storey the element belongs to instead of the element itself, so individual elements aren't selectable. Requires the IFC to have storeys."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"anatomy": {
+			"description": "FragmentViewer is composed of the following parts:",
+			"parts": [
+				{
+					"name": "FragmentViewer",
+					"description": "Root FragmentViewer element."
+				},
+				{
+					"name": "FragmentViewerContent",
+					"description": "Content area of the FragmentViewer."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<FragmentViewer variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<FragmentViewer className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<FragmentViewer aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<FragmentViewer /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<FragmentViewer loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<FragmentViewer>{data.value}</FragmentViewer> // Crashes if data is undefined"
+			}
 		]
 	}
 }

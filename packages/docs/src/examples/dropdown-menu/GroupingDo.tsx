@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Group related menu items logically.
  */
@@ -9,7 +10,6 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@corensystem/coren-ui/dropdown-menu";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function GroupingDo() {
 	return (

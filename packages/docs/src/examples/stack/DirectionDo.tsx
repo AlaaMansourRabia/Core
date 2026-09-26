@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Use Stack for consistent spacing between elements.
  */
 import {Stack} from "@corensystem/coren-ui/stack";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function DirectionDo() {
 	return (

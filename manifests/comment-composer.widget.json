@@ -52,5 +52,118 @@
 			"pilot: false",
 			"knowledgeRefs: [\"library-index.json#CommentComposer\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use CommentComposer to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"CommentComposer integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "value",
+				"type": "string",
+				"required": false,
+				"description": "Controlled HTML value of the editor. Pair with onChange."
+			},
+			{
+				"name": "defaultValue",
+				"type": "string",
+				"required": false,
+				"description": "Uncontrolled initial HTML value."
+			},
+			{
+				"name": "placeholder",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "submitLabel",
+				"type": "string",
+				"required": false,
+				"description": "Label shown on the submit button. Defaults to \"Comment\"."
+			},
+			{
+				"name": "minHeight",
+				"type": "string",
+				"required": false,
+				"description": "Initial visible height (rem). Defaults to 4."
+			},
+			{
+				"name": "toolbarActions",
+				"type": "CommentToolbarAction[]",
+				"required": false,
+				"description": "Restrict the toolbar to this subset (in this order). Defaults to all actions."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "isSubmitting",
+				"type": "boolean",
+				"required": false,
+				"description": "When true, the submit button shows the loading state and is disabled."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "CommentComposer is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CommentComposer",
+					"description": "Root CommentComposer element."
+				},
+				{
+					"name": "CommentComposerContent",
+					"description": "Content area of the CommentComposer."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CommentComposer variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CommentComposer className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CommentComposer aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CommentComposer /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CommentComposer loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CommentComposer>{data.value}</CommentComposer> // Crashes if data is undefined"
+			}
+		]
 	}
 }

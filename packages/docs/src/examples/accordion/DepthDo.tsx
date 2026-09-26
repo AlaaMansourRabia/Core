@@ -1,12 +1,7 @@
 /**
  * Keep accordion hierarchy flat - one level only.
  */
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "@corensystem/coren-ui/accordion";
+import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@corensystem/coren-ui/accordion";
 
 export function DepthDo() {
 	return (

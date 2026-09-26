@@ -122,5 +122,102 @@
 			"Already an exported component with a typed props interface and no fixture coupling — this manifest is the only thing that was missing.",
 			"pilot: true"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use NewSharedPropertyDialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"NewSharedPropertyDialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "baseTypes",
+				"type": "string[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "formattings",
+				"type": "{value: string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			}
+		],
+		"anatomy": {
+			"description": "NewSharedPropertyDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "NewSharedPropertyDialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "NewSharedPropertyDialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "NewSharedPropertyDialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "NewSharedPropertyDialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<NewSharedPropertyDialog>\n  <NewSharedPropertyDialogContent>\n    <button autoFocus>First action</button>\n  </NewSharedPropertyDialogContent>\n</NewSharedPropertyDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<NewSharedPropertyDialog>\n  <NewSharedPropertyDialog nested />\n</NewSharedPropertyDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<NewSharedPropertyDialogClose>×</NewSharedPropertyDialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<NewSharedPropertyDialogTitle>Confirm deletion</NewSharedPropertyDialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
+		]
 	}
 }

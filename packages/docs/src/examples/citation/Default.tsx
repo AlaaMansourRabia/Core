@@ -4,7 +4,5 @@
 import {Citation} from "@corensystem/coren-ui/citation";
 
 export function Default() {
-	return (
-		<Citation author="John Smith" source="The Daily News" date="2024" />
-	);
+	return <Citation author="John Smith" source="The Daily News" date="2024" />;
 }

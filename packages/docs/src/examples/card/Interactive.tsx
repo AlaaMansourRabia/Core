@@ -1,13 +1,7 @@
 /**
  * Card with interactive hover state.
  */
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardHeader,
-	CardTitle,
-} from "@corensystem/coren-ui/card";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@corensystem/coren-ui/card";
 
 export function Interactive() {
 	return (

@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Basic dropdown menu with actions.
  */
@@ -7,7 +8,6 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@corensystem/coren-ui/dropdown-menu";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Default() {
 	return (

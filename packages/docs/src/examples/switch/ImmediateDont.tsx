@@ -1,9 +1,9 @@
+import {Button} from "@corensystem/coren-ui/button";
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Avoid using switch for options that require form submission.
  */
 import {Switch} from "@corensystem/coren-ui/switch";
-import {Button} from "@corensystem/coren-ui/button";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function ImmediateDont() {
 	return (

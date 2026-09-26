@@ -23,9 +23,7 @@ export function LabelsDont() {
 				</BreadcrumbItem>
 				<BreadcrumbSeparator />
 				<BreadcrumbItem>
-					<BreadcrumbPage>
-						The Complete Guide to Everything You Need to Know
-					</BreadcrumbPage>
+					<BreadcrumbPage>The Complete Guide to Everything You Need to Know</BreadcrumbPage>
 				</BreadcrumbItem>
 			</BreadcrumbList>
 		</Breadcrumb>

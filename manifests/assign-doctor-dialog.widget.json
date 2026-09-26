@@ -48,5 +48,115 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use AssignDoctorDialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"AssignDoctorDialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": false,
+				"description": "Controlled open state. Omit to let the dialog manage its own."
+			},
+			{
+				"name": "trigger",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Rendered inside DialogTrigger. Omit when driving `open` yourself."
+			},
+			{
+				"name": "doctors",
+				"type": "AssignDoctorOption[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "companies",
+				"type": "AssignDoctorOption[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "clinics",
+				"type": "AssignDoctorOption[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			}
+		],
+		"anatomy": {
+			"description": "AssignDoctorDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "AssignDoctorDialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "AssignDoctorDialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "AssignDoctorDialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "AssignDoctorDialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<AssignDoctorDialog>\n  <AssignDoctorDialogContent>\n    <button autoFocus>First action</button>\n  </AssignDoctorDialogContent>\n</AssignDoctorDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<AssignDoctorDialog>\n  <AssignDoctorDialog nested />\n</AssignDoctorDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<AssignDoctorDialogClose>×</AssignDoctorDialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<AssignDoctorDialogTitle>Confirm deletion</AssignDoctorDialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
+		]
 	}
 }

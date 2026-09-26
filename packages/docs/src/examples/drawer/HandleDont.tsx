@@ -1,14 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid hiding swipe indicators on touch devices.
  */
-import {
-	Drawer,
-	DrawerContent,
-	DrawerHeader,
-	DrawerTitle,
-	DrawerTrigger,
-} from "@corensystem/coren-ui/drawer";
-import {Button} from "@corensystem/coren-ui/button";
+import {Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger} from "@corensystem/coren-ui/drawer";
 
 export function HandleDont() {
 	return (

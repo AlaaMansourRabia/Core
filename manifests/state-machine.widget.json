@@ -295,5 +295,90 @@
 			"pilot: true",
 			"Issue #251: the widget was parameterised on PRESENTATION and hardcoded on DOMAIN — seven props for how it looks, none for what it shows. Every vocabulary came from a module-level fixture, so a consumer's action ids were refused as 'not in the ontology' while L7 blocked publishing, and its rows never appeared. The vocabularies are props defaulting to empty; the pure helpers (checkTransition, transitionAction, processGraphLint, processTokens, processOpenRows, processBottlenecks, processAgingBuckets, processFacts, stateDeleteBlockReason) take their data as an ARGUMENT rather than closing over a fixture; and the demo data moved to @corensystem/coren-ui/pages/state-machine-fixtures, which only stories and demo surfaces import. Measured with esbuild, that takes the fixture payload a consumer pulls from 23.4 KB gz to 11.6 KB gz. The rest is WC3_OBJECT_TYPES, still reached through getObjectType for the backing-type glyph — severing it needs the object type injected too, which is a further API decision and was left out."
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use StateMachine to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"StateMachine integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "StateMachine is composed of the following parts:",
+			"parts": [
+				{
+					"name": "StateMachine",
+					"description": "Root StateMachine element."
+				},
+				{
+					"name": "StateMachineContent",
+					"description": "Content area of the StateMachine."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<StateMachine variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<StateMachine className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<StateMachine aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<StateMachine /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<StateMachine loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<StateMachine>{data.value}</StateMachine> // Crashes if data is undefined"
+			}
+		]
 	}
 }

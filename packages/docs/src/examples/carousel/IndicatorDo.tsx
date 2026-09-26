@@ -1,7 +1,4 @@
-/**
- * Show position indicators for context.
- */
-import * as React from "react";
+import {Card, CardContent} from "@corensystem/coren-ui/card";
 import {
 	Carousel,
 	CarouselContent,
@@ -10,7 +7,10 @@ import {
 	CarouselPrevious,
 	type CarouselApi,
 } from "@corensystem/coren-ui/carousel";
-import {Card, CardContent} from "@corensystem/coren-ui/card";
+/**
+ * Show position indicators for context.
+ */
+import * as React from "react";
 
 export function IndicatorDo() {
 	const [api, setApi] = React.useState<CarouselApi>();

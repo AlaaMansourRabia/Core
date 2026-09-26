@@ -48,5 +48,145 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use AddClinicVisitDialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"AddClinicVisitDialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": false,
+				"description": "Controlled open state. Omit to let the dialog manage its own."
+			},
+			{
+				"name": "trigger",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Rendered inside DialogTrigger. Omit when driving `open` yourself."
+			},
+			{
+				"name": "workers",
+				"type": "AddClinicVisitOption[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "clinics",
+				"type": "AddClinicVisitOption[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "reasons",
+				"type": "AddClinicVisitOption[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "fitnessOutcomes",
+				"type": "AddClinicVisitOption[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "defaultDate",
+				"type": "Date",
+				"required": false,
+				"description": "Seeds the Visit Date field each time the dialog opens. Defaults to today."
+			},
+			{
+				"name": "defaultTimeIn",
+				"type": "string",
+				"required": false,
+				"description": "Seeds Time In each time the dialog opens, e.g. \"09:00 AM\". Defaults to empty."
+			},
+			{
+				"name": "notesMaxLength",
+				"type": "number",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			}
+		],
+		"anatomy": {
+			"description": "AddClinicVisitDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "AddClinicVisitDialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "AddClinicVisitDialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "AddClinicVisitDialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "AddClinicVisitDialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<AddClinicVisitDialog>\n  <AddClinicVisitDialogContent>\n    <button autoFocus>First action</button>\n  </AddClinicVisitDialogContent>\n</AddClinicVisitDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<AddClinicVisitDialog>\n  <AddClinicVisitDialog nested />\n</AddClinicVisitDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<AddClinicVisitDialogClose>×</AddClinicVisitDialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<AddClinicVisitDialogTitle>Confirm deletion</AddClinicVisitDialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
+		]
 	}
 }

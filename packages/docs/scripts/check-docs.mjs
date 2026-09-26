@@ -186,7 +186,9 @@ function checkBuiltExamples() {
 		const importMatches = content.matchAll(/from\s+["']([^"']+)["']/g);
 		for (const match of importMatches) {
 			const importPath = match[1];
-			const isAllowed = ALLOWED_IMPORTS.some((allowed) => importPath === allowed || importPath.startsWith(`${allowed}/`));
+			const isAllowed = ALLOWED_IMPORTS.some(
+				(allowed) => importPath === allowed || importPath.startsWith(`${allowed}/`),
+			);
 			if (!isAllowed && !importPath.startsWith("./") && !importPath.startsWith("../")) {
 				error(`${dir.name}: unexpected import "${importPath}" - should be external`);
 			}

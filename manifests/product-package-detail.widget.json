@@ -11,7 +11,16 @@
 		"import": "@corensystem/coren-ui/product-package-detail",
 		"export": "ProductPackageDetail"
 	},
-	"tags": ["product", "package", "install", "marketplace", "governance", "wc3", "connect", "evidence"],
+	"tags": [
+		"product",
+		"package",
+		"install",
+		"marketplace",
+		"governance",
+		"wc3",
+		"connect",
+		"evidence"
+	],
 	"intent": "Route-injectable product package surface: identity, version, dependencies, outputs, permission gates, evidence and install state, over a governed install — a plan, a confirmation dialog, and a success receipt carrying package, version, project and actor. It owns no shell and no router, so it mounts inside a workspace route that already has a sidebar and a top bar.",
 	"when": [
 		"A product / package detail drill-in inside a Connect product centre",
@@ -29,7 +38,12 @@
 			"because": "That is what the Connect prototype did, and it duplicated product-package composition — sections, gate rendering, the install plan, the confirmation and the receipt — in application state. This owns the package surface while leaving the shell, the route and the authorisation decision with the host."
 		}
 	],
-	"pairsWith": ["CoreAppSidebar", "CoreAppTopBar", "PageContentHeader", "AppMarketplace"],
+	"pairsWith": [
+		"CoreAppSidebar",
+		"CoreAppTopBar",
+		"PageContentHeader",
+		"AppMarketplace"
+	],
 	"requiredProviders": [],
 	"dataContract": {
 		"input": {
@@ -119,11 +133,16 @@
 	"slots": {
 		"headerActions": {
 			"description": "Extra identity-header actions — View in catalogue, Copy manifest",
-			"accepts": ["component"]
+			"accepts": [
+				"component"
+			]
 		},
 		"footer": {
 			"description": "Rendered under the sections, in the same column",
-			"accepts": ["component", "widget"]
+			"accepts": [
+				"component",
+				"widget"
+			]
 		}
 	},
 	"states": {
@@ -135,7 +154,16 @@
 		"unauthorized": "Only the install action is disabled, with the denial reason stated under it.",
 		"blocked": "Planner refusals are listed on the page and on the plan, and the confirm is closed."
 	},
-	"composedOf": ["PageContentHeader", "Card", "PropertyList", "Badge", "Button", "Dialog", "Banner", "Separator"],
+	"composedOf": [
+		"PageContentHeader",
+		"Card",
+		"PropertyList",
+		"Badge",
+		"Button",
+		"Dialog",
+		"Banner",
+		"Separator"
+	],
 	"allowedPlacement": [
 		"inside a route that already owns its shell (CoreAppSidebar + CoreAppTopBar, or a WC3 workspace slot)"
 	],
@@ -175,6 +203,168 @@
 			"onInstall may return a promise; the action holds its pending state until it settles, and the receipt is stamped only after it resolves.",
 			"It is not InstallProductDialog: that is the four-step planner-driven flow over the WC3 fixture types, this is the package surface with a single governed confirmation over product-neutral props.",
 			"pilot: true"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use ProductPackageDetail to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"ProductPackageDetail integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "package",
+				"type": "ProductPackage",
+				"required": true,
+				"description": "The package this surface is about."
+			},
+			{
+				"name": "dependencies",
+				"type": "ProductPackageDependency[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "outputs",
+				"type": "ProductPackageOutput[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "permissions",
+				"type": "ProductPackagePermission[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "evidence",
+				"type": "ProductPackageEvidence[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "installState",
+				"type": "ProductPackageInstallState",
+				"required": false,
+				"description": "What the target project already has. Omit it and the package reads as not installed."
+			},
+			{
+				"name": "target",
+				"type": "ProductPackageInstallTarget",
+				"required": false,
+				"description": "Where an install would land. Without it the install action has nothing to act on and is hidden."
+			},
+			{
+				"name": "actor",
+				"type": "ProductPackageActor",
+				"required": true,
+				"description": "Who is acting. Named on the confirmation and carried on the receipt."
+			},
+			{
+				"name": "canInstall",
+				"type": "boolean",
+				"required": false,
+				"description": "Whether this persona may install. False disables the install action  and nothing else  — the package's details stay readable, because a viewer still has to be able to read them."
+			},
+			{
+				"name": "denialReason",
+				"type": "string",
+				"required": false,
+				"description": "Why the action is refused. Required in spirit whenever `canInstall` is false: state the reason."
+			},
+			{
+				"name": "blockers",
+				"type": "ProductPackageInstallBlocker[]",
+				"required": false,
+				"description": "Refusals from the host's planner. They are listed on the plan and they stop the confirm."
+			},
+			{
+				"name": "installLabel",
+				"type": "string",
+				"required": false,
+				"description": "Overrides the derived action label (\"Install\", \"Upgrade to 2.1.0\", \"Installed\")."
+			},
+			{
+				"name": "headerActions",
+				"type": "PageContentHeaderAction[]",
+				"required": false,
+				"description": "Extra actions for the identity header — \"View in catalogue\", \"Copy manifest\"."
+			},
+			{
+				"name": "footer",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Rendered under the sections, inside the same column."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "ProductPackageDetail is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ProductPackageDetail",
+					"description": "Root ProductPackageDetail element."
+				},
+				{
+					"name": "ProductPackageDetailContent",
+					"description": "Content area of the ProductPackageDetail."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ProductPackageDetail variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ProductPackageDetail className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ProductPackageDetail aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ProductPackageDetail /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ProductPackageDetail loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ProductPackageDetail>{data.value}</ProductPackageDetail> // Crashes if data is undefined"
+			}
 		]
 	}
 }

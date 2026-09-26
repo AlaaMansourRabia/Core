@@ -43,5 +43,125 @@
 		"notes": [
 			"authored during the develop merge reconciliation"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "label",
+				"type": "string",
+				"required": true,
+				"description": "Floor / level label shown in the corner chip, e.g. \"GF\"."
+			},
+			{
+				"name": "value",
+				"type": "number",
+				"required": false,
+				"description": "Completion percentage shown next to the label. Omit to hide it."
+			},
+			{
+				"name": "plan",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "The blueprint / plan node (e.g. an SVG floor plan). When omitted, a \"No blueprint\" placeholder shows."
+			},
+			{
+				"name": "walkthroughLabel",
+				"type": "string",
+				"required": false,
+				"description": "Accessible label + tooltip for the walk-through button. Default \"Walk-through\"."
+			},
+			{
+				"name": "active",
+				"type": "boolean",
+				"required": false,
+				"description": "Highlight the segment as active (inset ring). Default false."
+			},
+			{
+				"name": "bare",
+				"type": "boolean",
+				"required": false,
+				"description": "Drop the rounded card frame (border / radius / background) so the segment sits seamlessly in a split grid where the parent supplies the dividers. Default false."
+			},
+			{
+				"name": "labelClassName",
+				"type": "string",
+				"required": false,
+				"description": "Extra classes on the label chip (e.g. to offset it below a floating navigator)."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use BlueprintSegment to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"BlueprintSegment integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "BlueprintSegment is composed of the following parts:",
+			"parts": [
+				{
+					"name": "BlueprintSegment",
+					"description": "Root BlueprintSegment element."
+				},
+				{
+					"name": "BlueprintSegmentContent",
+					"description": "Content area of the BlueprintSegment."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<BlueprintSegment variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<BlueprintSegment className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<BlueprintSegment aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<BlueprintSegment /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<BlueprintSegment loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<BlueprintSegment>{data.value}</BlueprintSegment> // Crashes if data is undefined"
+			}
+		]
 	}
 }

@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Set clear length constraints when needed.
  */
 import {Textarea} from "@corensystem/coren-ui/textarea";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function LengthDo() {
 	return (

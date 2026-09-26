@@ -71,5 +71,100 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use Tabs to help users navigate through your application or content hierarchy. This component provides clear wayfinding and helps users understand their current location within the interface.",
+			"Tabs is ideal for multi-page applications, content-heavy interfaces, or any situation where users need to move between different sections. Keep navigation patterns consistent across your application for better user experience."
+		],
+		"anatomy": {
+			"description": "Tabs is composed of the following parts:",
+			"parts": [
+				{
+					"name": "TabsList",
+					"description": "Container for tab triggers."
+				},
+				{
+					"name": "TabsTrigger",
+					"description": "Individual tab button."
+				},
+				{
+					"name": "TabsContent",
+					"description": "Content panel for active tab."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Keep tabs concise",
+				"description": "Use short, descriptive labels for tab triggers.",
+				"example": "<TabsTrigger>Overview</TabsTrigger>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't use long tab labels",
+				"description": "Avoid lengthy text that causes tabs to wrap or overflow.",
+				"example": "<TabsTrigger>Detailed Configuration Settings</TabsTrigger>"
+			},
+			{
+				"type": "do",
+				"title": "Maintain content relationship",
+				"description": "Ensure tab content is clearly related to the tab label.",
+				"example": "<TabsTrigger value=\"settings\">Settings</TabsTrigger>\n<TabsContent value=\"settings\">Settings panel</TabsContent>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't use for navigation",
+				"description": "Use proper navigation components for page-level routing.",
+				"example": "// Tabs for page navigation"
+			},
+			{
+				"type": "do",
+				"title": "Show active state clearly",
+				"description": "Make the selected tab visually distinct from others.",
+				"example": "<TabsTrigger active>Active tab</TabsTrigger>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't hide the active indicator",
+				"description": "Always show which tab is currently selected.",
+				"example": "// No visual active state"
+			}
+		]
 	}
 }

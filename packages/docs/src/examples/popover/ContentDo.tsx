@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Keep popover content focused and scannable.
  */
 import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function ContentDo() {
 	return (

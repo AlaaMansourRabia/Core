@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid inconsistent card layouts without structure.
  */
 import {Card} from "@corensystem/coren-ui/card";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function StructureDont() {
 	return (

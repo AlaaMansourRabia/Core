@@ -176,5 +176,122 @@
 			"unblocks: [\"KPISummary (a row of MetricCards) can move from proposed toward implementation.\"]",
 			"knowledgeRefs: [\"library-index.json#MetricCard\",\"manifests/kpi-summary.widget.json\",\"manifests/dashboard-page.pattern.json\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use MetricCard to structure and organize content within your interface. This component helps create visual hierarchy and consistent spacing throughout your application.",
+			"MetricCard works well for arranging related content, creating responsive layouts, and maintaining visual consistency. Use it to group related elements and establish clear content boundaries."
+		],
+		"props": [
+			{
+				"name": "title",
+				"type": "string",
+				"required": true,
+				"description": "Metric label shown above the value."
+			},
+			{
+				"name": "value",
+				"type": "string | number",
+				"required": true,
+				"description": "The metric value (pre-formatted by the caller)."
+			},
+			{
+				"name": "unit",
+				"type": "string",
+				"required": false,
+				"description": "Optional unit/suffix shown after the value (e.g. \"%\", \"/ 12\")."
+			},
+			{
+				"name": "subtitle",
+				"type": "string",
+				"required": false,
+				"description": "Secondary line under the value."
+			},
+			{
+				"name": "trend",
+				"type": "MetricCardTrend",
+				"required": false,
+				"description": "Trend direction; renders a colored arrow."
+			},
+			{
+				"name": "trendLabel",
+				"type": "string",
+				"required": false,
+				"description": "Text beside the trend arrow (e.g. \"+12% vs target\")."
+			},
+			{
+				"name": "icon",
+				"type": "React.ElementType",
+				"required": false,
+				"description": "Leading icon (lucide or any component type)."
+			},
+			{
+				"name": "status",
+				"type": "MetricCardStatus",
+				"required": false,
+				"description": "Status tone applied to the value."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "MetricCard is composed of the following parts:",
+			"parts": [
+				{
+					"name": "MetricCard",
+					"description": "Root container for the card."
+				},
+				{
+					"name": "MetricCardHeader",
+					"description": "Header section of the card."
+				},
+				{
+					"name": "MetricCardContent",
+					"description": "Main content area of the card."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Maintain consistent structure",
+				"description": "Use the same card layout pattern throughout your application.",
+				"example": "<MetricCard>\n  <MetricCardHeader>Title</MetricCardHeader>\n  <MetricCardContent>Body</MetricCardContent>\n</MetricCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't mix card styles",
+				"description": "Avoid using different card structures for similar content types.",
+				"example": "// Inconsistent header/body placement"
+			},
+			{
+				"type": "do",
+				"title": "Use appropriate elevation",
+				"description": "Apply shadow/elevation that reflects the card's importance and context.",
+				"example": "<MetricCard elevated>Important content</MetricCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't over-elevate",
+				"description": "Avoid heavy shadows on every card, reserve for interactive or important items.",
+				"example": "// Heavy shadow on all cards"
+			},
+			{
+				"type": "do",
+				"title": "Keep content scannable",
+				"description": "Structure card content for quick scanning with clear hierarchy.",
+				"example": "<MetricCard>\n  <MetricCardTitle>Key info first</MetricCardTitle>\n</MetricCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't cram too much",
+				"description": "Avoid overloading cards with excessive content or actions.",
+				"example": "// 10+ action buttons in card"
+			}
+		]
 	}
 }

@@ -9,9 +9,7 @@ export function Destructive() {
 		<Alert variant="destructive">
 			<AlertCircle className="wwc:h-4 wwc:w-4" />
 			<AlertTitle>Error</AlertTitle>
-			<AlertDescription>
-				Your session has expired. Please log in again.
-			</AlertDescription>
+			<AlertDescription>Your session has expired. Please log in again.</AlertDescription>
 		</Alert>
 	);
 }

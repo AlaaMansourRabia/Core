@@ -68,5 +68,100 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "variant",
+				"type": "\"info\" | \"warning\" | \"danger\" | \"success\"",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "title",
+				"type": "string",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "description",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "items",
+				"type": "string[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "action",
+				"type": "{ label: string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"usage": [
+			"Use Banner to communicate important information, status updates, or feedback to users. This component is designed to draw attention to messages that require user awareness or action.",
+			"Banner works well for transient notifications, validation messages, and system status indicators. Avoid using it for content that should persist on the page or for non-critical information that doesn't require immediate attention."
+		],
+		"anatomy": {
+			"description": "Banner is composed of the following parts:",
+			"parts": [
+				{
+					"name": "Banner",
+					"description": "Root Banner element."
+				},
+				{
+					"name": "BannerContent",
+					"description": "Content area of the Banner."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<Banner variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<Banner className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<Banner aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<Banner /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<Banner loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<Banner>{data.value}</Banner> // Crashes if data is undefined"
+			}
+		]
 	}
 }

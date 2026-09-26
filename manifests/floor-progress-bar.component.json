@@ -40,5 +40,88 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "value",
+				"type": "number",
+				"required": true,
+				"description": "Completion percentage, clamped to 0–100."
+			},
+			{
+				"name": "showTrack",
+				"type": "boolean",
+				"required": false,
+				"description": "Show the remaining (unfilled) track behind the bar. Defaults to `true`."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use FloorProgressBar to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"FloorProgressBar integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "FloorProgressBar is composed of the following parts:",
+			"parts": [
+				{
+					"name": "FloorProgressBar",
+					"description": "Root FloorProgressBar element."
+				},
+				{
+					"name": "FloorProgressBarContent",
+					"description": "Content area of the FloorProgressBar."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<FloorProgressBar variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<FloorProgressBar className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<FloorProgressBar aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<FloorProgressBar /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<FloorProgressBar loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<FloorProgressBar>{data.value}</FloorProgressBar> // Crashes if data is undefined"
+			}
+		]
 	}
 }

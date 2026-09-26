@@ -63,5 +63,124 @@
 			"The three copies also used template-literal classNames; the component uses cn, matching the rest of the library.",
 			"pilot: true"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "thumbnail",
+				"type": "string",
+				"required": false,
+				"description": "Thumbnail image URL. Omit — or pass an asset that has none — to show `fallback` instead."
+			},
+			{
+				"name": "thumbnailAlt",
+				"type": "string",
+				"required": false,
+				"description": "Alt text for the thumbnail. Required whenever `thumbnail` is set."
+			},
+			{
+				"name": "fallback",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Shown in the thumbnail well when there is no image — typically a muted lucide icon."
+			},
+			{
+				"name": "overlay",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Rendered over the thumbnail, absolutely positioned: live pills, spinners, duration chips."
+			},
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Primary line. Clamped to one line."
+			},
+			{
+				"name": "subtitle",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Secondary line under the title."
+			},
+			{
+				"name": "selected",
+				"type": "boolean",
+				"required": false,
+				"description": "Draws the selection ring."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "The meta line — a status badge and a timestamp, or any short run of facts."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use AssetListItem to display structured data or visualizations. This component helps users understand and interact with complex information sets.",
+			"AssetListItem is ideal for dashboards, reports, and data-heavy interfaces. Ensure data is presented clearly and consider responsive behavior for different screen sizes. Provide appropriate loading states for async data."
+		],
+		"anatomy": {
+			"description": "AssetListItem is composed of the following parts:",
+			"parts": [
+				{
+					"name": "AssetListItem",
+					"description": "Root container for the list."
+				},
+				{
+					"name": "AssetListItemItem",
+					"description": "Individual list item element."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use consistent item spacing",
+				"description": "Maintain uniform gaps between list items for visual rhythm.",
+				"example": "<AssetListItem gap=\"md\">\n  <AssetListItemItem>One</AssetListItemItem>\n  <AssetListItemItem>Two</AssetListItemItem>\n</AssetListItem>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't vary item spacing",
+				"description": "Avoid inconsistent gaps that create visual confusion.",
+				"example": "<AssetListItemItem className=\"mb-1\" />\n<AssetListItemItem className=\"mb-4\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide loading states",
+				"description": "Show skeleton loaders while list data is being fetched.",
+				"example": "<AssetListItem loading>\n  <AssetListItemSkeleton />\n</AssetListItem>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't show empty state unexpectedly",
+				"description": "Always indicate loading vs empty to avoid confusing users.",
+				"example": "// Blank list while loading"
+			},
+			{
+				"type": "do",
+				"title": "Support keyboard navigation",
+				"description": "Enable arrow key navigation through list items.",
+				"example": "<AssetListItem onKeyDown={handleArrowKeys}>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't break navigation flow",
+				"description": "Avoid interactive elements that trap focus within items.",
+				"example": "// Nested focusable causing tab trap"
+			}
+		]
 	}
 }

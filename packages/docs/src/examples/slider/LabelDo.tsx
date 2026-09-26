@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Always label sliders to indicate what they control.
  */
 import {Slider} from "@corensystem/coren-ui/slider";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function LabelDo() {
 	return (

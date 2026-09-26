@@ -1,14 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid focusing the close button by default.
  */
-import {
-	Dialog,
-	DialogContent,
-	DialogHeader,
-	DialogTitle,
-	DialogTrigger,
-} from "@corensystem/coren-ui/dialog";
-import {Button} from "@corensystem/coren-ui/button";
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@corensystem/coren-ui/dialog";
 import {Input} from "@corensystem/coren-ui/input";
 
 export function FocusDont() {

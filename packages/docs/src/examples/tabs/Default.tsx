@@ -12,19 +12,13 @@ export function Default() {
 				<TabsTrigger value="settings">Settings</TabsTrigger>
 			</TabsList>
 			<TabsContent value="account">
-				<p className="wwc:text-sm wwc:text-muted-foreground">
-					Manage your account settings and preferences.
-				</p>
+				<p className="wwc:text-sm wwc:text-muted-foreground">Manage your account settings and preferences.</p>
 			</TabsContent>
 			<TabsContent value="password">
-				<p className="wwc:text-sm wwc:text-muted-foreground">
-					Change your password and security settings.
-				</p>
+				<p className="wwc:text-sm wwc:text-muted-foreground">Change your password and security settings.</p>
 			</TabsContent>
 			<TabsContent value="settings">
-				<p className="wwc:text-sm wwc:text-muted-foreground">
-					Configure application settings.
-				</p>
+				<p className="wwc:text-sm wwc:text-muted-foreground">Configure application settings.</p>
 			</TabsContent>
 		</Tabs>
 	);

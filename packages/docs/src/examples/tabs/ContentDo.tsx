@@ -14,9 +14,7 @@ export function ContentDo() {
 			<TabsContent value="details">
 				<div className="wwc:space-y-2">
 					<p className="wwc:font-medium">Project Details</p>
-					<p className="wwc:text-sm wwc:text-muted-foreground">
-						Related information about this project.
-					</p>
+					<p className="wwc:text-sm wwc:text-muted-foreground">Related information about this project.</p>
 				</div>
 			</TabsContent>
 			<TabsContent value="activity">Activity log.</TabsContent>

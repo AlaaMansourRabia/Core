@@ -100,5 +100,97 @@
 	"states": {
 		"banded": "The default. Header and footer are 40px bg-muted strips with a rule, deliberately identical to WidgetCardHeader (charts) and TableHeader (tables) so a modal reads as the same kind of object as every other panel; the close button centres in the header band and the footer steps its buttons down to h-7 to fit.",
 		"stacked": "The pre-0.3 header: title over description, no band, no rule; the close button insets, the footer drops its strip and keeps full-size buttons, and the content is padded as one block. Right for a short dialog that is a sentence and two buttons rather than a panel."
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use Dialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"Dialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"anatomy": {
+			"description": "Dialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "DialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "DialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "DialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "DialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<Dialog>\n  <DialogContent>\n    <button autoFocus>First action</button>\n  </DialogContent>\n</Dialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<Dialog>\n  <Dialog nested />\n</Dialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<DialogClose>×</DialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<DialogTitle>Confirm deletion</DialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
+		]
 	}
 }

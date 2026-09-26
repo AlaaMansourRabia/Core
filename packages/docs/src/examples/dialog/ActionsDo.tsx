@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Place clear primary and secondary actions in footer.
  */
@@ -10,7 +11,6 @@ import {
 	DialogTrigger,
 	DialogClose,
 } from "@corensystem/coren-ui/dialog";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function ActionsDo() {
 	return (

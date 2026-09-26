@@ -1,15 +1,7 @@
 /**
  * Table with footer for totals or summaries.
  */
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableFooter,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from "@corensystem/coren-ui/table";
+import {Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow} from "@corensystem/coren-ui/table";
 
 export function WithFooter() {
 	return (
