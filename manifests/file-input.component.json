@@ -1,0 +1,100 @@
+{
+	"id": "file-input",
+	"name": "FileInput",
+	"type": "component",
+	"source": {
+		"path": "packages/components/src/file-input.tsx",
+		"import": "@corensystem/coren-ui/file-input",
+		"export": "FileInput"
+	},
+	"docs": {
+		"summary": "FileInput component for building user interfaces.",
+		"usage": [
+			"Use FileInput when you need to collect user input. This component provides a consistent interaction pattern that users will find familiar and accessible.",
+			"FileInput should be used within forms or interactive interfaces where data collection is required. Ensure proper labeling and validation feedback for accessibility."
+		],
+		"anatomy": {
+			"description": "FileInput is composed of the following parts:",
+			"parts": [
+				{
+					"name": "FileInput",
+					"description": "Root FileInput element."
+				},
+				{
+					"name": "FileInputContent",
+					"description": "Content area of the FileInput."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Always include labels",
+				"description": "Every file-input should have an associated label for accessibility.",
+				"example": "<Label htmlFor=\"id\">Label</Label>\n<FileInput id=\"id\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't rely on placeholders",
+				"description": "Placeholders disappear when typing and shouldn't replace labels.",
+				"example": "<FileInput placeholder=\"Enter value\" />"
+			},
+			{
+				"type": "do",
+				"title": "Show validation feedback",
+				"description": "Display clear error messages near the file-input when validation fails.",
+				"example": "<FileInput error>\n<span>Error message</span>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't delay errors",
+				"description": "Show validation errors immediately, don't wait until form submission.",
+				"example": "Validating only on submit"
+			},
+			{
+				"type": "do",
+				"title": "Use appropriate types",
+				"description": "Use specialized input types when available.",
+				"example": "<FileInput type=\"email\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't use generic types",
+				"description": "Avoid using text type for everything when specialized types exist.",
+				"example": "<FileInput type=\"text\" /> for dates"
+			}
+		],
+		"props": [
+			{
+				"name": "showPreview",
+				"type": "boolean",
+				"required": false,
+				"description": "Show preview of selected files"
+			},
+			{
+				"name": "maxSize",
+				"type": "number",
+				"required": false,
+				"description": "Maximum file size in bytes"
+			},
+			{
+				"name": "validator",
+				"type": "(file: File) => boolean | string",
+				"required": false,
+				"description": "Custom validator function"
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLInputElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		]
+	}
+}

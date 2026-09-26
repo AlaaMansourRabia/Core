@@ -10,7 +10,13 @@
 		"path": "packages/components/src/responder-detail-panel.tsx",
 		"import": "@corensystem/coren-ui/responder-detail-panel"
 	},
-	"tags": ["responder", "safety", "profile", "detail", "overlay"],
+	"tags": [
+		"responder",
+		"safety",
+		"profile",
+		"detail",
+		"overlay"
+	],
 	"intent": "Floating profile for one safety responder — identity, alert tally, acknowledgement mix and coverage.",
 	"when": [
 		"A responder selected on a map needs their profile without leaving the map",
@@ -22,7 +28,10 @@
 			"because": "ObservationDetailPanel is a ticket with a lifecycle and a comment thread. ResponderDetailPanel is a person: a read-only profile with tallies and coverage, no actions to take on it."
 		}
 	],
-	"pairsWith": ["ObservationsMap", "DetailPanelShell"],
+	"pairsWith": [
+		"ObservationsMap",
+		"DetailPanelShell"
+	],
 	"requiredProviders": [],
 	"commonMistakes": [
 		"Giving responders a different panel width from the other floating panels — the frame jumps when switching between a violation, a camera and a responder. All default to 340."
@@ -37,13 +46,134 @@
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Observations-Map-View",
-		"derivedFrom": {"source": "packages/components/src/pages/core-safety-manager.tsx", "extracted": ["responder record", "alert tallies", "platform acknowledgements", "coverage"]},
+		"derivedFrom": {
+			"source": "packages/components/src/pages/core-safety-manager.tsx",
+			"extracted": [
+				"responder record",
+				"alert tallies",
+				"platform acknowledgements",
+				"coverage"
+			]
+		},
 		"status": "accepted",
 		"verifiedBy": null,
 		"confidence": "unset — open flow exercised end-to-end in the browser; no held-out eval yet",
 		"supersedes": null,
 		"lastValidated": "2026-08-31",
-		"notes": ["Record shape mirrors the Safety Manager responder list so a responder reads the same from map or list."]
+		"notes": [
+			"Record shape mirrors the Safety Manager responder list so a responder reads the same from map or list."
+		]
 	},
-	"composedOf": ["DetailPanelShell", "Badge", "Separator"]
+	"composedOf": [
+		"DetailPanelShell",
+		"Badge",
+		"Separator"
+	],
+	"docs": {
+		"usage": [
+			"Use ResponderDetailPanel to structure and organize content within your interface. This component helps create visual hierarchy and consistent spacing throughout your application.",
+			"ResponderDetailPanel works well for arranging related content, creating responsive layouts, and maintaining visual consistency. Use it to group related elements and establish clear content boundaries."
+		],
+		"props": [
+			{
+				"name": "responder",
+				"type": "ResponderDetail",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "backLabel",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "assigned",
+				"type": "ViolationSummary[]",
+				"required": false,
+				"description": "Violations assigned to this responder."
+			},
+			{
+				"name": "nearby",
+				"type": "ViolationSummary[]",
+				"required": false,
+				"description": "Violations inside their coverage radius that are not theirs — the ones they are close enough to pick up."
+			},
+			{
+				"name": "coverageMeters",
+				"type": "number",
+				"required": false,
+				"description": "Radius the `nearby` list was gathered from, for the section heading."
+			},
+			{
+				"name": "width",
+				"type": "number",
+				"required": false,
+				"description": "Panel width in px. Default `340`, matching the other floating panels."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"anatomy": {
+			"description": "ResponderDetailPanel is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ResponderDetailPanel",
+					"description": "Root ResponderDetailPanel element."
+				},
+				{
+					"name": "ResponderDetailPanelContent",
+					"description": "Content area of the ResponderDetailPanel."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ResponderDetailPanel variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ResponderDetailPanel className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ResponderDetailPanel aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ResponderDetailPanel /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ResponderDetailPanel loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ResponderDetailPanel>{data.value}</ResponderDetailPanel> // Crashes if data is undefined"
+			}
+		]
+	}
 }

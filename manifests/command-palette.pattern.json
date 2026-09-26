@@ -34,5 +34,62 @@
 		"supersedes": null,
 		"lastValidated": "2026-07-05",
 		"notes": []
+	},
+	"docs": {
+		"usage": [
+			"Use command-palette to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"command-palette integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "command-palette is composed of the following parts:",
+			"parts": [
+				{
+					"name": "command-palette",
+					"description": "Root command-palette element."
+				},
+				{
+					"name": "command-paletteContent",
+					"description": "Content area of the command-palette."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<command-palette variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<command-palette className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<command-palette aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<command-palette /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<command-palette loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<command-palette>{data.value}</command-palette> // Crashes if data is undefined"
+			}
+		]
 	}
 }

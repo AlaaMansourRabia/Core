@@ -137,5 +137,91 @@
 			"Promoted in group B of the missing-widgets template review.",
 			"pilot: true"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use InstallProductDialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"InstallProductDialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "InstallProductDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "InstallProductDialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "InstallProductDialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "InstallProductDialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "InstallProductDialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<InstallProductDialog>\n  <InstallProductDialogContent>\n    <button autoFocus>First action</button>\n  </InstallProductDialogContent>\n</InstallProductDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<InstallProductDialog>\n  <InstallProductDialog nested />\n</InstallProductDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<InstallProductDialogClose>×</InstallProductDialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<InstallProductDialogTitle>Confirm deletion</InstallProductDialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
+		]
 	}
 }

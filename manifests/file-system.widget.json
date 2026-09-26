@@ -47,7 +47,16 @@
 			"because": "SideMenu navigates an app's own sections. FileSystem navigates the records those apps own, from outside all of them."
 		}
 	],
-	"pairsWith": ["DataTable", "SideMenu", "Breadcrumb", "Accordion", "Checkbox", "Dialog", "DropdownMenu", "Empty"],
+	"pairsWith": [
+		"DataTable",
+		"SideMenu",
+		"Breadcrumb",
+		"Accordion",
+		"Checkbox",
+		"Dialog",
+		"DropdownMenu",
+		"Empty"
+	],
 	"requiredProviders": [],
 	"composedOf": [
 		"DataTable",
@@ -66,8 +75,14 @@
 		"ScrollArea",
 		"Separator"
 	],
-	"allowedPlacement": ["a route-level surface, or any column that gives it height"],
-	"forbiddenPlacement": ["inside a table cell", "inside a Dialog or Popover", "inside another FileSystem"],
+	"allowedPlacement": [
+		"a route-level surface, or any column that gives it height"
+	],
+	"forbiddenPlacement": [
+		"inside a table cell",
+		"inside a Dialog or Popover",
+		"inside another FileSystem"
+	],
 	"minimalExample": "import {FileSystem, fsNodeFromDraft, type FileSystemNode} from \"@corensystem/coren-ui/file-system\";\nimport {Share2} from \"lucide-react\";\n\nconst FILE_TYPES = [\n  {id: \"pipeline\", label: \"Pipeline\", icon: Share2, app: \"Pipelines\"},\n];\n\nconst [nodes, setNodes] = useState<FileSystemNode[]>([\n  {id: \"root\", name: \"Acme\", kind: \"root\", parentId: null, updatedAt: \"Today\", updatedTs: 1},\n  {id: \"p1\", name: \"Site A\", kind: \"project\", parentId: \"root\", updatedAt: \"Today\", updatedTs: 2},\n]);\n\n<FileSystem\n  nodes={nodes}\n  rootId=\"root\"\n  fileTypes={FILE_TYPES}\n  openLabel={(node) => (node.ref ? \"Open in Pipelines\" : undefined)}\n  onOpenFile={(node) => router.push(hrefFor(node.ref))}\n  onCreate={(draft) => {\n    const node = fsNodeFromDraft(draft, crypto.randomUUID());\n    setNodes((prev) => [...prev, node]);\n    return node;\n  }}\n/>",
 	"lineage": {
 		"origin": "extracted",
@@ -93,6 +108,113 @@
 			"Tags inherit: a file matches its own tags plus every tag on the project and folders above it, so a project tagged for a region makes its files findable under it. Facet counts and query matches come from the same function, so a facet can never offer a value that finds nothing.",
 			"The project page ships Overview / Files / Trash — the sections a file system can fill from its own data. A host wanting a cover page or a usage report should compose them around the widget rather than have it ship empty shells.",
 			"Rename and move are not implemented."
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use FileSystem to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"FileSystem integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "nodes",
+				"type": "FileSystemNode[]",
+				"required": true,
+				"description": "Every node, flat, each naming its parent. The widget derives its indexes from these."
+			},
+			{
+				"name": "rootId",
+				"type": "string",
+				"required": true,
+				"description": "The node everything is listed under — an organization, a workspace, a tenant."
+			},
+			{
+				"name": "fileTypes",
+				"type": "FileSystemFileType[]",
+				"required": true,
+				"description": "The file types this product offers: their labels, marks, tints, and the app that owns each."
+			},
+			{
+				"name": "openLabel",
+				"type": "(node: FileSystemNode) => string | undefined",
+				"required": false,
+				"description": "Names the action that opens a file's record, e.g. \"Open in Pipelines\". Return `undefined` for a node nothing opens, and no action is offered rather than one that apologises."
+			},
+			{
+				"name": "projectId",
+				"type": "string | null",
+				"required": false,
+				"description": "The open project, or `null` for the root listing. Controlled when both are passed."
+			},
+			{
+				"name": "folderId",
+				"type": "string | null",
+				"required": false,
+				"description": "Narrow the flat listing to one folder's subtree. Controlled when both are passed."
+			},
+			{
+				"name": "searchPlaceholder",
+				"type": "string",
+				"required": false,
+				"description": "Placeholder for the search that spans the facets and the listing."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "FileSystem is composed of the following parts:",
+			"parts": [
+				{
+					"name": "FileSystem",
+					"description": "Root FileSystem element."
+				},
+				{
+					"name": "FileSystemContent",
+					"description": "Content area of the FileSystem."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<FileSystem variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<FileSystem className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<FileSystem aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<FileSystem /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<FileSystem loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<FileSystem>{data.value}</FileSystem> // Crashes if data is undefined"
+			}
 		]
 	}
 }

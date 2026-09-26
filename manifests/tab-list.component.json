@@ -1,0 +1,121 @@
+{
+	"id": "tab-list",
+	"name": "TabList",
+	"type": "component",
+	"source": {
+		"path": "packages/components/src/tab-list.tsx",
+		"import": "@corensystem/coren-ui/tab-list",
+		"export": "TabList"
+	},
+	"docs": {
+		"summary": "TabList component for building user interfaces.",
+		"usage": [
+			"Use TabList to help users navigate through your application or content. This component provides clear wayfinding and helps users understand their current location.",
+			"TabList is ideal for multi-page applications and content-heavy interfaces. Keep navigation patterns consistent across your application."
+		],
+		"anatomy": {
+			"description": "TabList is composed of the following parts:",
+			"parts": [
+				{
+					"name": "TabList",
+					"description": "Root TabList element."
+				},
+				{
+					"name": "TabListContent",
+					"description": "Content area of the TabList."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<TabList variant=\"primary\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override styles",
+				"description": "Avoid using className to override fundamental styling.",
+				"example": "<TabList className=\"custom-bg\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<TabList aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<TabList /> without labels"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<TabList loading={isLoading} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing.",
+				"example": "Unhandled undefined data"
+			}
+		],
+		"props": [
+			{
+				"name": "variant",
+				"type": "\"default\" | \"underline\" | \"pills\"",
+				"default": "\"default\"",
+				"required": false,
+				"description": "Visual style variant."
+			},
+			{
+				"name": "size",
+				"type": "\"sm\" | \"md\" | \"lg\"",
+				"default": "\"md\"",
+				"required": false,
+				"description": "Size variant."
+			},
+			{
+				"name": "items",
+				"type": "TabItem[]",
+				"required": true,
+				"description": "Tab items"
+			},
+			{
+				"name": "value",
+				"type": "string",
+				"required": false,
+				"description": "Currently active tab value"
+			},
+			{
+				"name": "defaultValue",
+				"type": "string",
+				"required": false,
+				"description": "Default active tab value"
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		]
+	}
+}

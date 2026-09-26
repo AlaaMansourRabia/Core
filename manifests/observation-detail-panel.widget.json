@@ -76,5 +76,131 @@
 		"Badge",
 		"Button",
 		"Separator"
-	]
+	],
+	"docs": {
+		"usage": [
+			"Use ObservationDetailPanel to structure and organize content within your interface. This component helps create visual hierarchy and consistent spacing throughout your application.",
+			"ObservationDetailPanel works well for arranging related content, creating responsive layouts, and maintaining visual consistency. Use it to group related elements and establish clear content boundaries."
+		],
+		"props": [
+			{
+				"name": "observation",
+				"type": "ObservationDetail",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "backLabel",
+				"type": "string",
+				"required": false,
+				"description": "Accessible label for the back control, e.g. \"Back to camera\". Default \"Back\"."
+			},
+			{
+				"name": "primaryAction",
+				"type": "ObservationDetailAction",
+				"required": false,
+				"description": "The lead action, rendered filled — e.g. \"Mark as Opened\" or \"Close Issue\"."
+			},
+			{
+				"name": "secondaryActions",
+				"type": "ObservationDetailAction[]",
+				"required": false,
+				"description": "Everything else, rendered as outline buttons under the primary."
+			},
+			{
+				"name": "comments",
+				"type": "CommentItem[]",
+				"required": false,
+				"description": "Comment + activity log; the thread doubles as the ticket's audit trail. Rendered in the order given and read oldest-first, so append new entries — they land directly above the composer, which is pinned to the foot of the panel."
+			},
+			{
+				"name": "commentValue",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "hideComposer",
+				"type": "boolean",
+				"required": false,
+				"description": "Hide the composer, e.g. on a closed ticket the viewer cannot annotate."
+			},
+			{
+				"name": "width",
+				"type": "number",
+				"required": false,
+				"description": "Panel width in px. Fixed on purpose — it floats over a map, so it must not grow with its content. Default `340`."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"anatomy": {
+			"description": "ObservationDetailPanel is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ObservationDetailPanel",
+					"description": "Root ObservationDetailPanel element."
+				},
+				{
+					"name": "ObservationDetailPanelContent",
+					"description": "Content area of the ObservationDetailPanel."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ObservationDetailPanel variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ObservationDetailPanel className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ObservationDetailPanel aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ObservationDetailPanel /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ObservationDetailPanel loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ObservationDetailPanel>{data.value}</ObservationDetailPanel> // Crashes if data is undefined"
+			}
+		]
+	}
 }

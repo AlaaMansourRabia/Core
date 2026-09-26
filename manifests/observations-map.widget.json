@@ -121,5 +121,238 @@
 		"notes": [
 			"Blueprint image not yet supplied — component falls back to a dashed footprint polygon."
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use ObservationsMap to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"ObservationsMap integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "blueprintUrl",
+				"type": "string",
+				"required": false,
+				"description": "URL of the blueprint image to drape over the map. Until one is supplied the component draws the footprint outline from `corners` so the placement is still verifiable."
+			},
+			{
+				"name": "corners",
+				"type": "BlueprintCorners",
+				"required": false,
+				"description": "Georeferenced corners of the blueprint. Default: the built-in site corners."
+			},
+			{
+				"name": "blueprintOpacity",
+				"type": "number",
+				"required": false,
+				"description": "Blueprint opacity, 0–1. Default `0.85`."
+			},
+			{
+				"name": "showBlueprint",
+				"type": "boolean",
+				"required": false,
+				"description": "Toggle the blueprint (and its footprint) without tearing the map down. Default `true`."
+			},
+			{
+				"name": "zones",
+				"type": "MapZone[]",
+				"required": false,
+				"description": "Zone polygons drawn over the blueprint, each in its own colour."
+			},
+			{
+				"name": "showZones",
+				"type": "boolean",
+				"required": false,
+				"description": "Toggle the zone polygons without tearing the map down. Default `true`."
+			},
+			{
+				"name": "zoneOpacity",
+				"type": "number",
+				"required": false,
+				"description": "Zone fill opacity, 0–1. Default `0.3`."
+			},
+			{
+				"name": "showZoneLabels",
+				"type": "boolean",
+				"required": false,
+				"description": "Draw each zone's `name` at its centre. Default `true`."
+			},
+			{
+				"name": "zoneColorMode",
+				"type": "\"payload\" | \"neutral\"",
+				"required": false,
+				"description": "How zones are coloured. `payload` uses each zone's own `color`; `neutral` replaces them with a quiet grey ramp, so the only meaningful colour on the map is the observation status. Default `payload`."
+			},
+			{
+				"name": "selectedZoneIds",
+				"type": "(string | number)[]",
+				"required": false,
+				"description": "Zones to treat as selected: the map flies to fit them, and they get a marching-ants outline so the selection is legible even when every other zone is still drawn for context. Empty or omitted leaves the view alone."
+			},
+			{
+				"name": "selectionPadding",
+				"type": "number",
+				"required": false,
+				"description": "Pixel padding used when flying to the selection. Default `80`."
+			},
+			{
+				"name": "showResetView",
+				"type": "boolean",
+				"required": false,
+				"description": "Show a control that returns the camera to the view the map opened on, appearing only once the view has actually moved. Default `true`."
+			},
+			{
+				"name": "resetViewLabel",
+				"type": "string",
+				"required": false,
+				"description": "Label on the reset control. Default \"Reset view\"."
+			},
+			{
+				"name": "resetViewWidth",
+				"type": "number",
+				"required": false,
+				"description": "Width of the reset control in px, matched to a collapsed `MapControlPanel` so the row of floating controls reads as one set of modules. Default `160`."
+			},
+			{
+				"name": "observations",
+				"type": "Observation[]",
+				"required": false,
+				"description": "Observations to pin on top of the blueprint."
+			},
+			{
+				"name": "observationIcon",
+				"type": "string",
+				"required": false,
+				"description": "Inner SVG markup for the glyph inside each observation marker, drawn on a 24x24 viewBox. Paths inherit a white fill; use `currentColor` for detail that should read as knocked out of the badge. Defaults to a filled hazard mark — the sign for a safety violation."
+			},
+			{
+				"name": "observationMarkerSize",
+				"type": "number",
+				"required": false,
+				"description": "Marker badge size in px. Default `20`."
+			},
+			{
+				"name": "cameras",
+				"type": "MapCamera[]",
+				"required": false,
+				"description": "Cameras pinned on the map, each showing its violation count."
+			},
+			{
+				"name": "showCameras",
+				"type": "boolean",
+				"required": false,
+				"description": "Toggle the camera markers. Default `true`."
+			},
+			{
+				"name": "cameraIcon",
+				"type": "string",
+				"required": false,
+				"description": "Inner SVG markup for the camera glyph, same contract as `observationIcon`. Defaults to a filled camera."
+			},
+			{
+				"name": "cameraMarkerSize",
+				"type": "number",
+				"required": false,
+				"description": "Camera badge size in px. Default `20`, matching an observation — shape, not size, distinguishes them."
+			},
+			{
+				"name": "responders",
+				"type": "MapResponder[]",
+				"required": false,
+				"description": "Safety responders pinned on the map."
+			},
+			{
+				"name": "showResponders",
+				"type": "boolean",
+				"required": false,
+				"description": "Toggle the responder markers. Default `true`."
+			},
+			{
+				"name": "responderIcon",
+				"type": "string",
+				"required": false,
+				"description": "Inner SVG markup for the responder glyph. Defaults to a filled guard mark."
+			},
+			{
+				"name": "responderMarkerSize",
+				"type": "number",
+				"required": false,
+				"description": "Responder badge size in px. Default `20`, matching the others."
+			},
+			{
+				"name": "coverage",
+				"type": "{center: LngLat",
+				"required": false,
+				"description": "A coverage radius drawn around a point — the area a selected responder covers. Given in metres, so it stays true on the ground as the map zooms."
+			},
+			{
+				"name": "radiusMeters",
+				"type": "number",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"anatomy": {
+			"description": "ObservationsMap is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ObservationsMap",
+					"description": "Root ObservationsMap element."
+				},
+				{
+					"name": "ObservationsMapContent",
+					"description": "Content area of the ObservationsMap."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ObservationsMap variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ObservationsMap className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ObservationsMap aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ObservationsMap /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ObservationsMap loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ObservationsMap>{data.value}</ObservationsMap> // Crashes if data is undefined"
+			}
+		]
 	}
 }

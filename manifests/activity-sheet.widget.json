@@ -10,7 +10,14 @@
 		"path": "packages/components/src/activity-sheet.tsx",
 		"import": "@corensystem/coren-ui/activity-sheet"
 	},
-	"tags": ["activity", "notifications", "changeset", "sheet", "panel", "app-shell"],
+	"tags": [
+		"activity",
+		"notifications",
+		"changeset",
+		"sheet",
+		"panel",
+		"app-shell"
+	],
 	"intent": "The app shell's activity panel as an ordinary right-hand Sheet: two tabbed streams behind one surface — transient notifications you dismiss, and a changeset of edits that accumulate until applied or discarded — rendered with standard cards and buttons rather than a bespoke translucent surface. Reuses NotificationCenter's NotificationItem and ChangeEntry types so a shell can feed both from the state it already keeps.",
 	"when": [
 		"A top-bar bell and/or changeset button that should open a normal side panel",
@@ -27,7 +34,13 @@
 			"because": "NotificationCenter renders its own bespoke translucent surface. ActivitySheet is a plain Sheet with standard cards and buttons, so it matches the rest of the shell instead of competing with it."
 		}
 	],
-	"pairsWith": ["CoreAppTopBar", "CoreAppSidebar", "Sheet", "Card", "ViewTabBar"],
+	"pairsWith": [
+		"CoreAppTopBar",
+		"CoreAppSidebar",
+		"Sheet",
+		"Card",
+		"ViewTabBar"
+	],
 	"requiredProviders": [],
 	"commonMistakes": [],
 	"stubPlan": [
@@ -55,6 +68,78 @@
 		"notes": [
 			"Promoted out of the Core Connect V3 template so any shell can use it, rather than staying template-local",
 			"pilot: false"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use ActivitySheet when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"ActivitySheet should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "ActivitySheet is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ActivitySheet",
+					"description": "Root ActivitySheet element."
+				},
+				{
+					"name": "ActivitySheetContent",
+					"description": "Content area of the ActivitySheet."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ActivitySheet variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ActivitySheet className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ActivitySheet aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ActivitySheet /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ActivitySheet loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ActivitySheet>{data.value}</ActivitySheet> // Crashes if data is undefined"
+			}
 		]
 	}
 }

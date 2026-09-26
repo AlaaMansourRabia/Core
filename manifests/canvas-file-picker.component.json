@@ -41,5 +41,126 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "files",
+				"type": "CanvasFile[]",
+				"required": true,
+				"description": "Files available for selection."
+			},
+			{
+				"name": "activeFileId",
+				"type": "string",
+				"required": true,
+				"description": "Currently active file id."
+			},
+			{
+				"name": "searchable",
+				"type": "boolean",
+				"required": false,
+				"description": "Render as a searchable Combobox instead of a Select."
+			},
+			{
+				"name": "searchPlaceholder",
+				"type": "string",
+				"required": false,
+				"description": "Placeholder for the searchable input."
+			},
+			{
+				"name": "triggerWidth",
+				"type": "number",
+				"required": false,
+				"description": "Trigger width in px."
+			},
+			{
+				"name": "tailChars",
+				"type": "number",
+				"required": false,
+				"description": "Trailing chars kept visible during middle truncation."
+			},
+			{
+				"name": "emptyLabel",
+				"type": "string",
+				"required": false,
+				"description": "Empty-state text for the searchable list."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"usage": [
+			"Use CanvasFilePicker when you need to collect user input or allow users to make selections. This component provides a consistent interaction pattern that users will find familiar and accessible.",
+			"CanvasFilePicker should be used within forms or interactive interfaces where user data collection is required. Ensure proper labeling and validation feedback for accessibility. Avoid using this component for read-only or display-only content."
+		],
+		"anatomy": {
+			"description": "CanvasFilePicker is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CanvasFilePicker",
+					"description": "Root CanvasFilePicker element."
+				},
+				{
+					"name": "CanvasFilePickerContent",
+					"description": "Content area of the CanvasFilePicker."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CanvasFilePicker variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CanvasFilePicker className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CanvasFilePicker aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CanvasFilePicker /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CanvasFilePicker loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CanvasFilePicker>{data.value}</CanvasFilePicker> // Crashes if data is undefined"
+			}
+		]
 	}
 }

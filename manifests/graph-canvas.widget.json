@@ -166,5 +166,100 @@
 			"showControls turns off React Flow's own Controls for a canvas whose surrounding chrome already owns zoom and fit — NodeGraph, which draws the ZoomTools row above it. Two fit buttons on one canvas is one too many.",
 			"pilot: true"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use GraphCanvas to display structured data or visualizations. This component helps users understand and interact with complex information sets.",
+			"GraphCanvas is ideal for dashboards, reports, and data-heavy interfaces. Ensure data is presented clearly and consider responsive behavior for different screen sizes. Provide appropriate loading states for async data."
+		],
+		"props": [
+			{
+				"name": "layout",
+				"type": "\"layered\" | \"free\"",
+				"required": false,
+				"description": "`\"layered\"` (default) is a left-to-right or top-down DAG: orthogonal `smoothstep` edges and a padded `fitView` that frames the whole graph on mount. `\"free\"` is a radial or force-placed graph the user navigates — no edge-type default and no fit padding, since there is no lane structure to respect."
+			},
+			{
+				"name": "showMiniMap",
+				"type": "boolean",
+				"required": false,
+				"description": "Show the pannable/zoomable minimap. Off by default — see the note on `MiniMap` below."
+			},
+			{
+				"name": "showControls",
+				"type": "boolean",
+				"required": false,
+				"description": "Show React Flow's own zoom/fit `Controls`. On by default. Turn it off when the surrounding chrome already owns those actions — two fit buttons on one canvas is one too many."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Rendered inside the canvas, after the chrome — panels, overlays, legends."
+			},
+			{
+				"name": "withProvider",
+				"type": "boolean",
+				"required": false,
+				"description": "Wrap in a `ReactFlowProvider`. Set false when the caller already owns one. Default true."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "GraphCanvas is composed of the following parts:",
+			"parts": [
+				{
+					"name": "GraphCanvas",
+					"description": "Root GraphCanvas element."
+				},
+				{
+					"name": "GraphCanvasContent",
+					"description": "Content area of the GraphCanvas."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<GraphCanvas variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<GraphCanvas className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<GraphCanvas aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<GraphCanvas /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<GraphCanvas loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<GraphCanvas>{data.value}</GraphCanvas> // Crashes if data is undefined"
+			}
+		]
 	}
 }

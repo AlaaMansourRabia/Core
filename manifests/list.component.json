@@ -1,0 +1,100 @@
+{
+	"id": "list",
+	"name": "List",
+	"type": "component",
+	"source": {
+		"path": "packages/components/src/list.tsx",
+		"import": "@corensystem/coren-ui/list",
+		"export": "List"
+	},
+	"docs": {
+		"summary": "List component for building user interfaces.",
+		"usage": [
+			"Use List to present information or content to users. This component helps display data in a clear, readable format.",
+			"List is effective for rendering content, text, or data. Use it consistently to maintain a cohesive visual language."
+		],
+		"anatomy": {
+			"description": "List is composed of the following parts:",
+			"parts": [
+				{
+					"name": "List",
+					"description": "Root List element."
+				},
+				{
+					"name": "ListContent",
+					"description": "Content area of the List."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<List variant=\"primary\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override styles",
+				"description": "Avoid using className to override fundamental styling.",
+				"example": "<List className=\"custom-bg\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<List aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<List /> without labels"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<List loading={isLoading} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing.",
+				"example": "Unhandled undefined data"
+			}
+		],
+		"props": [
+			{
+				"name": "divided",
+				"type": "boolean",
+				"required": false,
+				"description": "Show dividers between items"
+			},
+			{
+				"name": "ordered",
+				"type": "boolean",
+				"required": false,
+				"description": "Render as ordered list"
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		]
+	}
+}

@@ -50,5 +50,137 @@
 			"pilot: false",
 			"knowledgeRefs: [\"library-index.json#CanvasToolbar\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use CanvasToolbar to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"CanvasToolbar integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "blueprints",
+				"type": "CanvasToolbarBlueprint[]",
+				"required": true,
+				"description": "Blueprints available for selection in the left section."
+			},
+			{
+				"name": "activeBlueprintId",
+				"type": "string",
+				"required": true,
+				"description": "Currently active blueprint id."
+			},
+			{
+				"name": "searchableBlueprints",
+				"type": "boolean",
+				"required": false,
+				"description": "Render the blueprint picker as a searchable Combobox instead of a Select."
+			},
+			{
+				"name": "blueprintSearchPlaceholder",
+				"type": "string",
+				"required": false,
+				"description": "Placeholder shown inside the searchable picker's input."
+			},
+			{
+				"name": "blueprintTriggerWidth",
+				"type": "number",
+				"required": false,
+				"description": "Trigger width for the blueprint picker."
+			},
+			{
+				"name": "blueprintTailChars",
+				"type": "number",
+				"required": false,
+				"description": "Number of trailing characters always kept visible in middle truncation."
+			},
+			{
+				"name": "pageIndex",
+				"type": "number",
+				"required": false,
+				"description": "1-based current page index. When omitted (or pageCount <= 1) the pager is hidden."
+			},
+			{
+				"name": "pageCount",
+				"type": "number",
+				"required": false,
+				"description": "Total number of pages in the active blueprint."
+			},
+			{
+				"name": "drawingActions",
+				"type": "DrawingActionsProps | null",
+				"required": false,
+				"description": "Drawing tools props. Pass `null` to hide the middle section."
+			},
+			{
+				"name": "zoomTools",
+				"type": "ZoomToolsProps | null",
+				"required": false,
+				"description": "Zoom tools props. Pass `null` to hide the right section."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "CanvasToolbar is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CanvasToolbar",
+					"description": "Root CanvasToolbar element."
+				},
+				{
+					"name": "CanvasToolbarContent",
+					"description": "Content area of the CanvasToolbar."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CanvasToolbar variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CanvasToolbar className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CanvasToolbar aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CanvasToolbar /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CanvasToolbar loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CanvasToolbar>{data.value}</CanvasToolbar> // Crashes if data is undefined"
+			}
+		]
 	}
 }

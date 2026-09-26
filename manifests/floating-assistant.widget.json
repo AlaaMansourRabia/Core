@@ -47,5 +47,196 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use FloatingAssistant to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"FloatingAssistant integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "messages",
+				"type": "Message[]",
+				"required": true,
+				"description": "Conversation messages (controlled)."
+			},
+			{
+				"name": "isLoading",
+				"type": "boolean",
+				"required": true,
+				"description": "Loading state while `onSendMessage` runs."
+			},
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": false,
+				"description": "Controlled open state. Omit to let the widget manage its own."
+			},
+			{
+				"name": "icon",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Trigger icon, shown bare with no chrome. Defaults to the Core brand mark."
+			},
+			{
+				"name": "triggerLabel",
+				"type": "string",
+				"required": false,
+				"description": "Accessible label for the trigger."
+			},
+			{
+				"name": "closeLabel",
+				"type": "string",
+				"required": false,
+				"description": "Accessible label for the trigger while a detached panel is open."
+			},
+			{
+				"name": "detachable",
+				"type": "boolean",
+				"required": false,
+				"description": "Hides the header's detach/dock toggle."
+			},
+			{
+				"name": "title",
+				"type": "string",
+				"required": false,
+				"description": "Empty-state heading inside the panel."
+			},
+			{
+				"name": "subtitle",
+				"type": "string",
+				"required": false,
+				"description": "Empty-state subtitle."
+			},
+			{
+				"name": "placeholder",
+				"type": "string",
+				"required": false,
+				"description": "Composer placeholder."
+			},
+			{
+				"name": "suggestedPrompts",
+				"type": "string[]",
+				"required": false,
+				"description": "Quick-start prompts shown in the empty state."
+			},
+			{
+				"name": "sessionName",
+				"type": "string",
+				"required": false,
+				"description": "Conversation name shown in the panel header. Pass it (even as `\"\"`) to render the name slot."
+			},
+			{
+				"name": "sessionNamePlaceholder",
+				"type": "string",
+				"required": false,
+				"description": "Shown while `sessionName` is empty."
+			},
+			{
+				"name": "availableContext",
+				"type": "PromptContextItem[]",
+				"required": false,
+				"description": "Items offered by the composer's \"Add context\" picker."
+			},
+			{
+				"name": "contextNote",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Small note under the composer naming what the assistant can see — the page it is open on."
+			},
+			{
+				"name": "headerActions",
+				"type": "AIChatHeaderAction[]",
+				"required": false,
+				"description": "Extra header actions, rendered between the built-in history action and the close button."
+			},
+			{
+				"name": "sessions",
+				"type": "AIChatSession[]",
+				"required": false,
+				"description": "Past conversations. Providing them adds the history action to the panel header."
+			},
+			{
+				"name": "activeSessionId",
+				"type": "string",
+				"required": false,
+				"description": "Highlights the row for the conversation currently open."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "The page content the panel docks beside. It narrows as the panel opens."
+			},
+			{
+				"name": "panelWidth",
+				"type": "number",
+				"required": false,
+				"description": "Docked panel width in px."
+			},
+			{
+				"name": "containerClassName",
+				"type": "string",
+				"required": false,
+				"description": "Extra classes for the layout row wrapping the page content and the panel."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "FloatingAssistant is composed of the following parts:",
+			"parts": [
+				{
+					"name": "FloatingAssistant",
+					"description": "Root FloatingAssistant element."
+				},
+				{
+					"name": "FloatingAssistantContent",
+					"description": "Content area of the FloatingAssistant."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<FloatingAssistant variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<FloatingAssistant className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<FloatingAssistant aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<FloatingAssistant /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<FloatingAssistant loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<FloatingAssistant>{data.value}</FloatingAssistant> // Crashes if data is undefined"
+			}
+		]
 	}
 }

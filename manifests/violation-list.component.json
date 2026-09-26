@@ -50,5 +50,82 @@
 		"supersedes": null,
 		"lastValidated": "2026-08-31",
 		"notes": []
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "violations",
+				"type": "ViolationSummary[]",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use ViolationList to display structured data or visualizations. This component helps users understand and interact with complex information sets.",
+			"ViolationList is ideal for dashboards, reports, and data-heavy interfaces. Ensure data is presented clearly and consider responsive behavior for different screen sizes. Provide appropriate loading states for async data."
+		],
+		"anatomy": {
+			"description": "ViolationList is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ViolationList",
+					"description": "Root container for the list."
+				},
+				{
+					"name": "ViolationListItem",
+					"description": "Individual list item element."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use consistent item spacing",
+				"description": "Maintain uniform gaps between list items for visual rhythm.",
+				"example": "<ViolationList gap=\"md\">\n  <ViolationListItem>One</ViolationListItem>\n  <ViolationListItem>Two</ViolationListItem>\n</ViolationList>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't vary item spacing",
+				"description": "Avoid inconsistent gaps that create visual confusion.",
+				"example": "<ViolationListItem className=\"mb-1\" />\n<ViolationListItem className=\"mb-4\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide loading states",
+				"description": "Show skeleton loaders while list data is being fetched.",
+				"example": "<ViolationList loading>\n  <ViolationListSkeleton />\n</ViolationList>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't show empty state unexpectedly",
+				"description": "Always indicate loading vs empty to avoid confusing users.",
+				"example": "// Blank list while loading"
+			},
+			{
+				"type": "do",
+				"title": "Support keyboard navigation",
+				"description": "Enable arrow key navigation through list items.",
+				"example": "<ViolationList onKeyDown={handleArrowKeys}>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't break navigation flow",
+				"description": "Avoid interactive elements that trap focus within items.",
+				"example": "// Nested focusable causing tab trap"
+			}
+		]
 	}
 }

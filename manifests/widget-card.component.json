@@ -41,5 +41,80 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use WidgetCard to structure and organize content within your interface. This component helps create visual hierarchy and consistent spacing throughout your application.",
+			"WidgetCard works well for arranging related content, creating responsive layouts, and maintaining visual consistency. Use it to group related elements and establish clear content boundaries."
+		],
+		"anatomy": {
+			"description": "WidgetCard is composed of the following parts:",
+			"parts": [
+				{
+					"name": "WidgetCard",
+					"description": "Root container for the card."
+				},
+				{
+					"name": "WidgetCardHeader",
+					"description": "Header section of the card."
+				},
+				{
+					"name": "WidgetCardContent",
+					"description": "Main content area of the card."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Maintain consistent structure",
+				"description": "Use the same card layout pattern throughout your application.",
+				"example": "<WidgetCard>\n  <WidgetCardHeader>Title</WidgetCardHeader>\n  <WidgetCardContent>Body</WidgetCardContent>\n</WidgetCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't mix card styles",
+				"description": "Avoid using different card structures for similar content types.",
+				"example": "// Inconsistent header/body placement"
+			},
+			{
+				"type": "do",
+				"title": "Use appropriate elevation",
+				"description": "Apply shadow/elevation that reflects the card's importance and context.",
+				"example": "<WidgetCard elevated>Important content</WidgetCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't over-elevate",
+				"description": "Avoid heavy shadows on every card, reserve for interactive or important items.",
+				"example": "// Heavy shadow on all cards"
+			},
+			{
+				"type": "do",
+				"title": "Keep content scannable",
+				"description": "Structure card content for quick scanning with clear hierarchy.",
+				"example": "<WidgetCard>\n  <WidgetCardTitle>Key info first</WidgetCardTitle>\n</WidgetCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't cram too much",
+				"description": "Avoid overloading cards with excessive content or actions.",
+				"example": "// 10+ action buttons in card"
+			}
+		]
 	}
 }

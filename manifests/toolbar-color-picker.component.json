@@ -40,5 +40,173 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "value",
+				"type": "string",
+				"required": false,
+				"description": "Selected color (controlled). Empty string `\"\"` means \"no fill\"."
+			},
+			{
+				"name": "defaultValue",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "groups",
+				"type": "ColorGroup[]",
+				"required": false,
+				"description": "Swatch groups. Defaults to a standard-colors + grays palette."
+			},
+			{
+				"name": "columns",
+				"type": "number",
+				"required": false,
+				"description": "Number of swatches per row. Default 10."
+			},
+			{
+				"name": "allowNoColor",
+				"type": "boolean",
+				"required": false,
+				"description": "Show the \"No fill\" option (value becomes `\"\"`). Default true."
+			},
+			{
+				"name": "noColorLabel",
+				"type": "string",
+				"required": false,
+				"description": "Label for the no-fill option. Default \"No fill\"."
+			},
+			{
+				"name": "allowCustom",
+				"type": "boolean",
+				"required": false,
+				"description": "Show the custom OS color picker (\"More colors…\"). Default true."
+			},
+			{
+				"name": "customLabel",
+				"type": "string",
+				"required": false,
+				"description": "Label for the custom-picker button. Default \"More colors…\"."
+			},
+			{
+				"name": "recentColors",
+				"type": "string[]",
+				"required": false,
+				"description": "Recently-used custom colors shown in their own row."
+			},
+			{
+				"name": "label",
+				"type": "string",
+				"required": false,
+				"description": "Accessible label for the trigger. Default \"Color\"."
+			},
+			{
+				"name": "icon",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Optional glyph on the trigger."
+			},
+			{
+				"name": "preview",
+				"type": "\"bar\" | \"swatch\"",
+				"required": false,
+				"description": "How the current color previews next to `icon`. `\"bar\"` (default) shows it as a bar beneath the icon (PowerPoint style); `\"swatch\"` shows a square swatch to the right of the icon. Ignored when no `icon` is set (always a swatch)."
+			},
+			{
+				"name": "align",
+				"type": "\"start\" | \"center\" | \"end\"",
+				"required": false,
+				"description": "Popover alignment relative to the trigger."
+			},
+			{
+				"name": "compact",
+				"type": "boolean",
+				"required": false,
+				"description": "Compact mode: the popover is swatches only — no group labels, no-fill/custom rendered as swatches (the custom swatch opens the OS picker), and no text."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLButtonElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use ToolbarColorPicker when you need to collect user input or allow users to make selections. This component provides a consistent interaction pattern that users will find familiar and accessible.",
+			"ToolbarColorPicker should be used within forms or interactive interfaces where user data collection is required. Ensure proper labeling and validation feedback for accessibility. Avoid using this component for read-only or display-only content."
+		],
+		"anatomy": {
+			"description": "ToolbarColorPicker is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ToolbarColorPicker",
+					"description": "Root ToolbarColorPicker element."
+				},
+				{
+					"name": "ToolbarColorPickerContent",
+					"description": "Content area of the ToolbarColorPicker."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ToolbarColorPicker variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ToolbarColorPicker className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ToolbarColorPicker aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ToolbarColorPicker /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ToolbarColorPicker loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ToolbarColorPicker>{data.value}</ToolbarColorPicker> // Crashes if data is undefined"
+			}
+		]
 	}
 }

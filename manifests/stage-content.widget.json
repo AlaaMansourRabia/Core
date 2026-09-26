@@ -48,5 +48,89 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use StageContent to present visual information or status indicators to users. This component helps convey information quickly through visual representation.",
+			"StageContent is effective for showing user identity, status, categories, or labels. Keep usage consistent throughout your application to help users quickly recognize and understand the information being displayed."
+		],
+		"props": [
+			{
+				"name": "initialFloorId",
+				"type": "string | null",
+				"required": false,
+				"description": "Floor id to pre-select on mount (e.g. arriving from a site part-click)."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"anatomy": {
+			"description": "StageContent is composed of the following parts:",
+			"parts": [
+				{
+					"name": "StageContent",
+					"description": "Root StageContent element."
+				},
+				{
+					"name": "StageContentContent",
+					"description": "Content area of the StageContent."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<StageContent variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<StageContent className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<StageContent aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<StageContent /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<StageContent loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<StageContent>{data.value}</StageContent> // Crashes if data is undefined"
+			}
+		]
 	}
 }

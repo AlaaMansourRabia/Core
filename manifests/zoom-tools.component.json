@@ -44,5 +44,125 @@
 			"migrated from library-index.json (hand-authored catalog entry)",
 			"tier-candidate: widget — Near-generic zoom in/out/reset controls — no domain data contract (audit confidence Low). Likely a Component; promote only if the widget bar includes generic canvas controls. Kept as component pending decision."
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "variant",
+				"type": "\"default\" | \"bare\"",
+				"required": false,
+				"description": "`default` draws the bordered toolbar surface; `bare` drops it (for embedding in other chrome)."
+			},
+			{
+				"name": "zoomLevel",
+				"type": "number",
+				"required": false,
+				"description": "Current zoom level as a multiplier (1 = 100%)."
+			},
+			{
+				"name": "minZoom",
+				"type": "number",
+				"required": false,
+				"description": "Minimum allowed zoom level."
+			},
+			{
+				"name": "maxZoom",
+				"type": "number",
+				"required": false,
+				"description": "Maximum allowed zoom level."
+			},
+			{
+				"name": "fitLabel",
+				"type": "string",
+				"required": false,
+				"description": "Label rendered on the fit-to-view button."
+			},
+			{
+				"name": "canZoomIn",
+				"type": "boolean",
+				"required": false,
+				"description": "Override the auto-derived canZoomIn flag."
+			},
+			{
+				"name": "canZoomOut",
+				"type": "boolean",
+				"required": false,
+				"description": "Override the auto-derived canZoomOut flag."
+			},
+			{
+				"name": "showPercentage",
+				"type": "boolean",
+				"required": false,
+				"description": "Hide the editable zoom percentage shown between the zoom buttons. Defaults to shown."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"usage": [
+			"Use ZoomTools to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"ZoomTools integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "ZoomTools is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ZoomTools",
+					"description": "Root ZoomTools element."
+				},
+				{
+					"name": "ZoomToolsContent",
+					"description": "Content area of the ZoomTools."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ZoomTools variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ZoomTools className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ZoomTools aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ZoomTools /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ZoomTools loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ZoomTools>{data.value}</ZoomTools> // Crashes if data is undefined"
+			}
+		]
 	}
 }

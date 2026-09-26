@@ -47,5 +47,166 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use ProgressComparison to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"ProgressComparison integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "title",
+				"type": "string",
+				"required": false,
+				"description": "Panel title, e.g. \"Ground Floor\". Omit to hide the title line (e.g. when shown elsewhere)."
+			},
+			{
+				"name": "subtitle",
+				"type": "string",
+				"required": false,
+				"description": "Secondary line under the title, e.g. \"Floor | HOUSE-12-F0\"."
+			},
+			{
+				"name": "primary",
+				"type": "ProgressComparisonSource",
+				"required": true,
+				"description": "Left/primary source, rendered dark — most commonly the actual / approved value."
+			},
+			{
+				"name": "secondary",
+				"type": "ProgressComparisonSource",
+				"required": true,
+				"description": "Right/secondary source, rendered lighter — most commonly the planned / baseline value."
+			},
+			{
+				"name": "variance",
+				"type": "number",
+				"required": false,
+				"description": "Variance shown in the pill. Defaults to `primary.value - secondary.value`."
+			},
+			{
+				"name": "stats",
+				"type": "ProgressComparisonStat[]",
+				"required": true,
+				"description": "Stat cells. Rendered as a 2-column table with edge-to-edge dividers; expands to any count."
+			},
+			{
+				"name": "variant",
+				"type": "\"progress\" | \"milestone\" | \"preview\"",
+				"required": false,
+				"description": "`progress` shows a status chip; `milestone` shows a stepper timeline; `preview` shows an image preview + an action button (pass `image` / `action`). Default `progress`."
+			},
+			{
+				"name": "image",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Preview media for the `preview` variant (e.g. an `<img>` or map). Rendered letterboxed on a muted backdrop."
+			},
+			{
+				"name": "action",
+				"type": "ProgressComparisonAction",
+				"required": false,
+				"description": "Action button for the `preview` variant."
+			},
+			{
+				"name": "status",
+				"type": "ProgressComparisonStatus",
+				"required": false,
+				"description": "Status chip (progress variant) or the label to the right of \"Milestones\" (milestone variant)."
+			},
+			{
+				"name": "milestones",
+				"type": "ProgressComparisonMilestone[]",
+				"required": false,
+				"description": "Milestones for the stepper (milestone variant)."
+			},
+			{
+				"name": "stepperTitle",
+				"type": "string",
+				"required": false,
+				"description": "Heading shown above the stepper in the milestone variant. Default \"Milestones\"."
+			},
+			{
+				"name": "collapsible",
+				"type": "boolean",
+				"required": false,
+				"description": "Show a working collapse button that minimizes the panel to its header (self-managed). Ignored when `onClose` is set. The button is hidden unless `onClose` or `collapsible` is provided."
+			},
+			{
+				"name": "collapsedSummary",
+				"type": "boolean",
+				"required": false,
+				"description": "When collapsed, also show a summary row beneath the header — the status chip on the left and the primary value on the right — instead of collapsing to the title alone. Default false."
+			},
+			{
+				"name": "defaultCollapsed",
+				"type": "boolean",
+				"required": false,
+				"description": "Start in the collapsed state (self-managed collapse only; ignored when `onClose` is set). Default false."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"anatomy": {
+			"description": "ProgressComparison is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ProgressComparison",
+					"description": "Root ProgressComparison element."
+				},
+				{
+					"name": "ProgressComparisonContent",
+					"description": "Content area of the ProgressComparison."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ProgressComparison variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ProgressComparison className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ProgressComparison aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ProgressComparison /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ProgressComparison loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ProgressComparison>{data.value}</ProgressComparison> // Crashes if data is undefined"
+			}
+		]
 	}
 }

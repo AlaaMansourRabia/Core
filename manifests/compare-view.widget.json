@@ -46,5 +46,166 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use CompareView to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"CompareView integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "before",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "First source (e.g. as-planned / yesterday). Fills the box; the two sources should be geo-aligned."
+			},
+			{
+				"name": "after",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Second source (e.g. as-built / today). Omit to show `before` alone as a single pan/zoom map."
+			},
+			{
+				"name": "mode",
+				"type": "CompareMode",
+				"required": false,
+				"description": "`swipe` (default) overlays the two with a draggable reveal divider; `side-by-side` shows two panes."
+			},
+			{
+				"name": "position",
+				"type": "number",
+				"required": false,
+				"description": "Divider position as a percentage 0–100 (swipe mode). Controlled when provided."
+			},
+			{
+				"name": "defaultPosition",
+				"type": "number",
+				"required": false,
+				"description": "Uncontrolled starting divider position. Default 50."
+			},
+			{
+				"name": "beforeLabel",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Optional chip labels for each source."
+			},
+			{
+				"name": "afterLabel",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "interactive",
+				"type": "boolean",
+				"required": false,
+				"description": "Make the content pannable (drag) and zoomable (wheel). The two sources stay geo-aligned."
+			},
+			{
+				"name": "defaultScale",
+				"type": "number",
+				"required": false,
+				"description": "Initial zoom (only when `interactive`). Default 1 (fit)."
+			},
+			{
+				"name": "minScale",
+				"type": "number",
+				"required": false,
+				"description": "Zoom bounds (only when `interactive`). Default 1 → 6."
+			},
+			{
+				"name": "maxScale",
+				"type": "number",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "locked",
+				"type": "boolean",
+				"required": false,
+				"description": "Side-by-side + interactive: when locked, both panes pan/zoom together in the same coordinates. Controlled when provided; the lock toggle sits on the dividing line."
+			},
+			{
+				"name": "defaultLocked",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "y",
+				"type": "number",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "width",
+				"type": "number",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			}
+		],
+		"anatomy": {
+			"description": "CompareView is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CompareView",
+					"description": "Root CompareView element."
+				},
+				{
+					"name": "CompareViewContent",
+					"description": "Content area of the CompareView."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CompareView variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CompareView className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CompareView aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CompareView /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CompareView loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CompareView>{data.value}</CompareView> // Crashes if data is undefined"
+			}
+		]
 	}
 }

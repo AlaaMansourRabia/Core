@@ -1,0 +1,119 @@
+{
+	"id": "overflow-list",
+	"name": "OverflowList",
+	"type": "component",
+	"source": {
+		"path": "packages/components/src/overflow-list.tsx",
+		"import": "@corensystem/coren-ui/overflow-list",
+		"export": "OverflowList"
+	},
+	"docs": {
+		"summary": "OverflowList component for building user interfaces.",
+		"usage": [
+			"Use OverflowList to structure and organize content within your interface. This component helps create visual hierarchy and consistent spacing.",
+			"OverflowList works well for arranging related content and creating responsive layouts. Use it to maintain visual consistency throughout your application."
+		],
+		"anatomy": {
+			"description": "OverflowList is composed of the following parts:",
+			"parts": [
+				{
+					"name": "OverflowList",
+					"description": "Root OverflowList element."
+				},
+				{
+					"name": "OverflowListContent",
+					"description": "Content area of the OverflowList."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Maintain consistent spacing",
+				"description": "Use uniform gaps and padding with overflow-list.",
+				"example": "<OverflowList gap=\"md\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't vary spacing",
+				"description": "Avoid inconsistent gaps that create visual confusion.",
+				"example": "Mixed spacing values"
+			},
+			{
+				"type": "do",
+				"title": "Consider responsive behavior",
+				"description": "Ensure overflow-list adapts to different screen sizes.",
+				"example": "<OverflowList responsive />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore breakpoints",
+				"description": "Fixed layouts can break on different devices.",
+				"example": "Fixed pixel widths"
+			},
+			{
+				"type": "do",
+				"title": "Use semantic structure",
+				"description": "Structure content logically within overflow-list.",
+				"example": "Logical content hierarchy"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest deeply",
+				"description": "Avoid excessive nesting that complicates layout.",
+				"example": "Deeply nested containers"
+			}
+		],
+		"props": [
+			{
+				"name": "items",
+				"type": "T[]",
+				"required": true,
+				"description": "Array of items to display"
+			},
+			{
+				"name": "maxVisible",
+				"type": "number",
+				"required": false,
+				"description": "Maximum number of items to show before overflow"
+			},
+			{
+				"name": "renderItem",
+				"type": "(item: T, index: number) => React.ReactNode",
+				"required": true,
+				"description": "Render function for each item"
+			},
+			{
+				"name": "renderOverflow",
+				"type": "(count: number) => React.ReactNode",
+				"required": false,
+				"description": "Render function for the overflow trigger"
+			},
+			{
+				"name": "renderOverflowItem",
+				"type": "(item: T, index: number) => React.ReactNode",
+				"required": false,
+				"description": "Render function for items in the overflow popover"
+			},
+			{
+				"name": "listClassName",
+				"type": "string",
+				"required": false,
+				"description": "className for the list"
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			}
+		]
+	}
+}

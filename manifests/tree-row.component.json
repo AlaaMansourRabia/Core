@@ -56,5 +56,106 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "trailing",
+				"type": "ReactNode",
+				"required": false,
+				"description": "Trailing content (badges, counts, etc.)"
+			},
+			{
+				"name": "variant",
+				"type": "\"default\" | \"active\" | \"selected\" | \"neutral-selected\" | \"muted\"",
+				"required": false,
+				"description": "Visual style variant"
+			},
+			{
+				"name": "accentBorder",
+				"type": "string",
+				"required": false,
+				"description": "Left border accent color class from your own CSS (e.g. \"border-primary\")"
+			},
+			{
+				"name": "bgClassName",
+				"type": "string",
+				"required": false,
+				"description": "Custom background class override"
+			},
+			{
+				"name": "groupPosition",
+				"type": "\"first\" | \"middle\" | \"last\"",
+				"required": false,
+				"description": "Position within a contiguous group of selected rows. When set, adjacent selected rows collapse their borders and rounding so the group reads as a single block. - \"first\": rounded top, square bottom - \"middle\": no rounding, no top border - \"last\": square top, rounded bottom, no top border"
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			}
+		],
+		"usage": [
+			"Use TreeRow to display structured data or visualizations. This component helps users understand and interact with complex information sets.",
+			"TreeRow is ideal for dashboards, reports, and data-heavy interfaces. Ensure data is presented clearly and consider responsive behavior for different screen sizes. Provide appropriate loading states for async data."
+		],
+		"anatomy": {
+			"description": "TreeRow is composed of the following parts:",
+			"parts": [
+				{
+					"name": "TreeRow",
+					"description": "Root TreeRow element."
+				},
+				{
+					"name": "TreeRowContent",
+					"description": "Content area of the TreeRow."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<TreeRow variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<TreeRow className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<TreeRow aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<TreeRow /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<TreeRow loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<TreeRow>{data.value}</TreeRow> // Crashes if data is undefined"
+			}
+		]
 	}
 }

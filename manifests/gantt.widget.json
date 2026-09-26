@@ -10,9 +10,17 @@
 		"path": "packages/components/src/gantt.tsx",
 		"import": "@corensystem/coren-ui/gantt"
 	},
-	"tags": ["display", "gantt", "timeline", "project", "scheduling"],
+	"tags": [
+		"display",
+		"gantt",
+		"timeline",
+		"project",
+		"scheduling"
+	],
 	"intent": "Gantt timeline of scheduled task bars and dependencies.",
-	"when": ["Project schedules with durations and dependencies"],
+	"when": [
+		"Project schedules with durations and dependencies"
+	],
 	"chooseOver": [],
 	"pairsWith": [],
 	"requiredProviders": [],
@@ -40,6 +48,113 @@
 			"promotedFrom: component (library-index.json)",
 			"pilot: false",
 			"knowledgeRefs: [\"library-index.json#Gantt\"]"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use Gantt to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"Gantt integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "startDate",
+				"type": "Date",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "endDate",
+				"type": "Date",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "columnWidth",
+				"type": "number",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "rowHeight",
+				"type": "number",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "sidebarWidth",
+				"type": "number",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"anatomy": {
+			"description": "Gantt is composed of the following parts:",
+			"parts": [
+				{
+					"name": "Gantt",
+					"description": "Root Gantt element."
+				},
+				{
+					"name": "GanttContent",
+					"description": "Content area of the Gantt."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<Gantt variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<Gantt className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<Gantt aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<Gantt /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<Gantt loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<Gantt>{data.value}</Gantt> // Crashes if data is undefined"
+			}
 		]
 	}
 }

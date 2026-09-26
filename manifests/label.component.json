@@ -26,6 +26,101 @@
 		"Field"
 	],
 	"requiredProviders": [],
+	"docs": {
+		"group": "Primitives",
+		"summary": "An accessible label bound to a form control. Essential for usability and screen reader support.",
+		"usage": [
+			"Always pair form controls with a Label using htmlFor/id binding. This ensures clicking the label focuses the input and screen readers announce the relationship.",
+			"Use the required prop to show an asterisk for required fields. Also mark the input itself required so assistive tech is informed. Keep labels short and put additional guidance in help text below the input."
+		],
+		"anatomy": {
+			"parts": [
+				{
+					"name": "Label",
+					"description": "The text element that names the form control."
+				},
+				{
+					"name": "Required mark",
+					"description": "Decorative asterisk shown when required prop is true. The control carries the actual semantics."
+				},
+				{
+					"name": "Associated control",
+					"description": "The form input or control bound via htmlFor/id."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<Label variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<Label className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<Label aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<Label /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<Label loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<Label>{data.value}</Label> // Crashes if data is undefined"
+			}
+		],
+		"props": [
+			{
+				"name": "required",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Append a required-field asterisk after the label text. The asterisk is decorative (aria-hidden) — also mark the control itself required."
+			},
+			{
+				"name": "htmlFor",
+				"type": "string",
+				"required": false,
+				"description": "The id of the form control this label is associated with."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Label text content."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply to the label."
+			},
+			{
+				"name": "...props",
+				"type": "React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>",
+				"required": false,
+				"description": "All Radix Label primitive props are supported."
+			}
+		]
+	},
 	"lineage": {
 		"origin": "migrated",
 		"authoredBy": "A1 component migration batch (2026-07)",

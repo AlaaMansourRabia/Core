@@ -47,5 +47,100 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use NotificationCenter to communicate important information, status updates, or feedback to users. This component is designed to draw attention to messages that require user awareness or action.",
+			"NotificationCenter works well for transient notifications, validation messages, and system status indicators. Avoid using it for content that should persist on the page or for non-critical information that doesn't require immediate attention."
+		],
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "notifications",
+				"type": "NotificationItem[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "changes",
+				"type": "ChangeEntry[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "view",
+				"type": "\"notifications\" | \"changes\"",
+				"required": false,
+				"description": "Which stream to show. The host drives this from its own top-bar buttons."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			}
+		],
+		"anatomy": {
+			"description": "NotificationCenter is composed of the following parts:",
+			"parts": [
+				{
+					"name": "NotificationCenter",
+					"description": "Root NotificationCenter element."
+				},
+				{
+					"name": "NotificationCenterContent",
+					"description": "Content area of the NotificationCenter."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use appropriate severity",
+				"description": "Match the alert variant to the message importance (info, warning, error).",
+				"example": "<NotificationCenter variant=\"error\">Action failed</NotificationCenter>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overuse error styling",
+				"description": "Reserve error variants for actual errors, not warnings or info.",
+				"example": "<NotificationCenter variant=\"error\">Welcome back</NotificationCenter>"
+			},
+			{
+				"type": "do",
+				"title": "Provide actionable messages",
+				"description": "Include clear next steps or resolution options.",
+				"example": "<NotificationCenter>Session expired. <NotificationCenterAction>Sign in</NotificationCenterAction></NotificationCenter>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't show vague messages",
+				"description": "Avoid generic messages without context or actions.",
+				"example": "<NotificationCenter>Something went wrong</NotificationCenter>"
+			},
+			{
+				"type": "do",
+				"title": "Allow dismissal when appropriate",
+				"description": "Let users dismiss non-critical alerts.",
+				"example": "<NotificationCenter dismissible>Info message</NotificationCenter>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't auto-dismiss important alerts",
+				"description": "Never auto-dismiss error messages or critical information.",
+				"example": "<NotificationCenter autoHide variant=\"error\">Critical error</NotificationCenter>"
+			}
+		]
 	}
 }

@@ -11,8 +11,22 @@
 		"import": "@corensystem/coren-ui/form-dialog",
 		"export": "FormDialog"
 	},
-	"subcomponents": ["FormDialogField", "FormDialogRow", "FormDialogNote", "FormDialogCaveat"],
-	"tags": ["form", "dialog", "modal", "create", "edit", "validation", "required-fields", "authoring"],
+	"subcomponents": [
+		"FormDialogField",
+		"FormDialogRow",
+		"FormDialogNote",
+		"FormDialogCaveat"
+	],
+	"tags": [
+		"form",
+		"dialog",
+		"modal",
+		"create",
+		"edit",
+		"validation",
+		"required-fields",
+		"authoring"
+	],
 	"intent": "Single-step create or edit modal carrying the house authoring contract: a submit that is never disabled, per-field errors that appear only after a refused submit, and a reset that runs on close as well as on success.",
 	"when": [
 		"Creating a new record from a handful of fields that fit one screen",
@@ -30,32 +44,66 @@
 			"because": "FormDialog owns the attempted flag, the never-disable rule, the hint/error footer swap, and reset-on-close — the four decisions every hand-assembled copy had to remember and several got subtly different."
 		}
 	],
-	"pairsWith": ["Input", "Combobox", "Textarea", "ToggleGroup", "Select"],
+	"pairsWith": [
+		"Input",
+		"Combobox",
+		"Textarea",
+		"ToggleGroup",
+		"Select"
+	],
 	"requiredProviders": [],
 	"dataContract": {
 		"input": {
-			"open": {"type": "boolean", "required": true, "note": "Controlled visibility."},
+			"open": {
+				"type": "boolean",
+				"required": true,
+				"note": "Controlled visibility."
+			},
 			"onOpenChange": {
 				"type": "(open: boolean) => void",
 				"required": true,
 				"note": "Fired on dismiss, on Escape, and after a successful submit."
 			},
-			"title": {"type": "ReactNode", "required": true, "note": "Dialog heading."},
+			"title": {
+				"type": "ReactNode",
+				"required": true,
+				"note": "Dialog heading."
+			},
 			"valid": {
 				"type": "boolean",
 				"required": true,
 				"note": "Whether a submit may succeed. The button stays enabled either way."
 			},
-			"submitLabel": {"type": "ReactNode", "required": true, "note": "Label of the confirming button."},
-			"onSubmit": {"type": "() => void", "required": true, "note": "Runs only when `valid` holds."},
+			"submitLabel": {
+				"type": "ReactNode",
+				"required": true,
+				"note": "Label of the confirming button."
+			},
+			"onSubmit": {
+				"type": "() => void",
+				"required": true,
+				"note": "Runs only when `valid` holds."
+			},
 			"onReset": {
 				"type": "() => void",
 				"required": false,
 				"note": "Clears the caller's field state. Runs on close AND after a successful submit."
 			},
-			"hint": {"type": "ReactNode", "required": false, "note": "Footer guidance shown until a submit is refused."},
-			"error": {"type": "ReactNode", "required": false, "note": "Replaces `hint` once a submit has been refused."},
-			"width": {"type": "number", "required": false, "note": "Max width in px. Defaults to 520."},
+			"hint": {
+				"type": "ReactNode",
+				"required": false,
+				"note": "Footer guidance shown until a submit is refused."
+			},
+			"error": {
+				"type": "ReactNode",
+				"required": false,
+				"note": "Replaces `hint` once a submit has been refused."
+			},
+			"width": {
+				"type": "number",
+				"required": false,
+				"note": "Max width in px. Defaults to 520."
+			},
 			"keepOpenOnSubmit": {
 				"type": "boolean",
 				"required": false,
@@ -63,18 +111,39 @@
 			}
 		},
 		"events": {
-			"onSubmit": {"payload": {}},
-			"onOpenChange": {"payload": {"open": "boolean"}}
+			"onSubmit": {
+				"payload": {}
+			},
+			"onOpenChange": {
+				"payload": {
+					"open": "boolean"
+				}
+			}
 		},
 		"rowIdentity": "Not a collection widget; the caller owns all field state and identity."
 	},
 	"configSchema": {
-		"width": {"type": "number", "default": 520},
-		"cancelLabel": {"type": "string", "default": "Cancel"},
-		"keepOpenOnSubmit": {"type": "boolean", "default": false}
+		"width": {
+			"type": "number",
+			"default": 520
+		},
+		"cancelLabel": {
+			"type": "string",
+			"default": "Cancel"
+		},
+		"keepOpenOnSubmit": {
+			"type": "boolean",
+			"default": false
+		}
 	},
 	"slots": {
-		"children": {"description": "The fields, as FormDialogField/FormDialogRow", "accepts": ["component", "widget"]}
+		"children": {
+			"description": "The fields, as FormDialogField/FormDialogRow",
+			"accepts": [
+				"component",
+				"widget"
+			]
+		}
 	},
 	"states": {
 		"default": "Fields at their initial values, footer showing `hint`, nothing painted invalid.",
@@ -82,9 +151,19 @@
 		"valid": "Submit runs `onSubmit`, then `onReset`, then closes.",
 		"reopened": "`onReset` having run on close, the next open starts empty rather than holding the last attempt."
 	},
-	"composedOf": ["Dialog", "Button"],
-	"allowedPlacement": ["anywhere a create or edit action is triggered", "list page toolbars", "detail page section actions"],
-	"forbiddenPlacement": ["nested inside another dialog", "as a non-modal page form"],
+	"composedOf": [
+		"Dialog",
+		"Button"
+	],
+	"allowedPlacement": [
+		"anywhere a create or edit action is triggered",
+		"list page toolbars",
+		"detail page section actions"
+	],
+	"forbiddenPlacement": [
+		"nested inside another dialog",
+		"as a non-modal page form"
+	],
 	"minimalExample": "import {FormDialog, FormDialogField} from \"@corensystem/coren-ui/form-dialog\";\n\n<FormDialog\n\topen={open}\n\tonOpenChange={setOpen}\n\ttitle=\"Create process\"\n\tvalid={name.trim().length > 0}\n\thint=\"Name it, then create.\"\n\terror=\"Name required.\"\n\tsubmitLabel=\"Create process\"\n\tonSubmit={() => onCreate({name: name.trim()})}\n\tonReset={() => setName(\"\")}\n>\n\t<FormDialogField label=\"Name\" invalid={name.trim().length === 0}>\n\t\t{({invalid}) => <Input value={name} aria-invalid={invalid} onChange={(e) => setName(e.target.value)} />}\n\t</FormDialogField>\n</FormDialog>",
 	"evaluationCriteria": [
 		"The submit button is never rendered disabled.",
@@ -114,6 +193,164 @@
 			"The invalid/showError split is deliberate: call sites pass validity, the widget owns timing.",
 			"Migrated first: wc3-process-list-view.tsx and wc3-pipeline-list-view.tsx.",
 			"pilot: true"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use FormDialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"FormDialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Dialog heading."
+			},
+			{
+				"name": "description",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Optional sub-heading under the title band."
+			},
+			{
+				"name": "width",
+				"type": "number",
+				"required": false,
+				"description": "Max width of the dialog in pixels. Defaults to `520` — the width of the narrowest shipped authoring dialog; widen only when a field row genuinely needs two columns."
+			},
+			{
+				"name": "valid",
+				"type": "boolean",
+				"required": true,
+				"description": "Whether the form may be submitted. The submit button stays enabled either way — this only decides whether a press succeeds or reveals the errors."
+			},
+			{
+				"name": "hint",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Footer guidance shown until a submit is refused, e.g. \"Name it, then create.\""
+			},
+			{
+				"name": "error",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Replaces `hint` once a submit has been refused. Say what is missing, not that something is."
+			},
+			{
+				"name": "submitLabel",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Label of the confirming button, e.g. \"Create process\"."
+			},
+			{
+				"name": "cancelLabel",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Label of the dismissing button. Defaults to \"Cancel\"."
+			},
+			{
+				"name": "submitVariant",
+				"type": "React.ComponentProps<typeof Button>[\"variant\"]",
+				"required": false,
+				"description": "Variant of the confirming button. Defaults to the primary `default`."
+			},
+			{
+				"name": "submitProps",
+				"type": "Omit<React.ComponentProps<typeof Button>, \"onClick\" | \"variant\" | \"children\">",
+				"required": false,
+				"description": "Extra props for the confirming button — test hooks, `data- ` attributes."
+			},
+			{
+				"name": "keepOpenOnSubmit",
+				"type": "boolean",
+				"required": false,
+				"description": "Keep the dialog open after a successful submit — for a form that stays up to add another."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "FormDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "FormDialogField",
+					"description": "The field element of the FormDialog."
+				},
+				{
+					"name": "FormDialogRow",
+					"description": "The row element of the FormDialog."
+				},
+				{
+					"name": "FormDialogNote",
+					"description": "The note element of the FormDialog."
+				},
+				{
+					"name": "FormDialogCaveat",
+					"description": "The caveat element of the FormDialog."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<FormDialog>\n  <FormDialogContent>\n    <button autoFocus>First action</button>\n  </FormDialogContent>\n</FormDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<FormDialog>\n  <FormDialog nested />\n</FormDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<FormDialogClose>×</FormDialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<FormDialogTitle>Confirm deletion</FormDialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
 		]
 	}
 }

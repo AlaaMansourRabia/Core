@@ -42,5 +42,88 @@
 		"notes": [
 			"authored during the develop merge reconciliation"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "floors",
+				"type": "BuildingModelFloor[]",
+				"required": true,
+				"description": "Floors ordered top → bottom (roof first). One extruded box is stacked per floor."
+			},
+			{
+				"name": "activeId",
+				"type": "string",
+				"required": false,
+				"description": "Id of the highlighted floor."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use BuildingModelPlaceholder to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"BuildingModelPlaceholder integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "BuildingModelPlaceholder is composed of the following parts:",
+			"parts": [
+				{
+					"name": "BuildingModelPlaceholder",
+					"description": "Root BuildingModelPlaceholder element."
+				},
+				{
+					"name": "BuildingModelPlaceholderContent",
+					"description": "Content area of the BuildingModelPlaceholder."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<BuildingModelPlaceholder variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<BuildingModelPlaceholder className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<BuildingModelPlaceholder aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<BuildingModelPlaceholder /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<BuildingModelPlaceholder loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<BuildingModelPlaceholder>{data.value}</BuildingModelPlaceholder> // Crashes if data is undefined"
+			}
+		]
 	}
 }

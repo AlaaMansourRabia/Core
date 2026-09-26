@@ -46,5 +46,95 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "date",
+				"type": "Date",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "placeholder",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			}
+		],
+		"usage": [
+			"Use DatePicker when you need to collect user input or allow users to make selections. This component provides a consistent interaction pattern that users will find familiar and accessible.",
+			"DatePicker should be used within forms or interactive interfaces where user data collection is required. Ensure proper labeling and validation feedback for accessibility. Avoid using this component for read-only or display-only content."
+		],
+		"anatomy": {
+			"description": "DatePicker is composed of the following parts:",
+			"parts": [
+				{
+					"name": "DatePicker",
+					"description": "Root DatePicker element."
+				},
+				{
+					"name": "DatePickerContent",
+					"description": "Content area of the DatePicker."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<DatePicker variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<DatePicker className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<DatePicker aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<DatePicker /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<DatePicker loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<DatePicker>{data.value}</DatePicker> // Crashes if data is undefined"
+			}
+		]
 	}
 }

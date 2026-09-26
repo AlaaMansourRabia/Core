@@ -53,5 +53,70 @@
 			"pilot: false",
 			"knowledgeRefs: [\"library-index.json#CoreChartRenderer\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use CoreChartRenderer to display structured data or visualizations. This component helps users understand and interact with complex information sets.",
+			"CoreChartRenderer is ideal for dashboards, reports, and data-heavy interfaces. Ensure data is presented clearly and consider responsive behavior for different screen sizes. Provide appropriate loading states for async data."
+		],
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "CoreChartRenderer is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CoreChartRenderer",
+					"description": "Root CoreChartRenderer element."
+				},
+				{
+					"name": "CoreChartRendererContent",
+					"description": "Content area of the CoreChartRenderer."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CoreChartRenderer variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CoreChartRenderer className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CoreChartRenderer aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CoreChartRenderer /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CoreChartRenderer loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CoreChartRenderer>{data.value}</CoreChartRenderer> // Crashes if data is undefined"
+			}
+		]
 	}
 }

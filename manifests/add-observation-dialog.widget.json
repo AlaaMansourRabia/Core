@@ -48,5 +48,133 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use AddObservationDialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"AddObservationDialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": false,
+				"description": "Controlled open state. Omit to let the dialog manage its own."
+			},
+			{
+				"name": "trigger",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Rendered inside DialogTrigger. Omit when driving `open` yourself."
+			},
+			{
+				"name": "zones",
+				"type": "AddObservationOption[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "categories",
+				"type": "AddObservationOption[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "workers",
+				"type": "AddObservationOption[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "defaultDate",
+				"type": "Date",
+				"required": false,
+				"description": "Seeds the Date field each time the dialog opens. Defaults to now."
+			},
+			{
+				"name": "descriptionMaxLength",
+				"type": "number",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			}
+		],
+		"anatomy": {
+			"description": "AddObservationDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "AddObservationDialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "AddObservationDialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "AddObservationDialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "AddObservationDialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<AddObservationDialog>\n  <AddObservationDialogContent>\n    <button autoFocus>First action</button>\n  </AddObservationDialogContent>\n</AddObservationDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<AddObservationDialog>\n  <AddObservationDialog nested />\n</AddObservationDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<AddObservationDialogClose>×</AddObservationDialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<AddObservationDialogTitle>Confirm deletion</AddObservationDialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
+		]
 	}
 }

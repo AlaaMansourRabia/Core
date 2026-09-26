@@ -40,5 +40,116 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "icon",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Branded app icon/logo — an `<img>`, an SVG, or a sized lucide icon."
+			},
+			{
+				"name": "name",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "App name. May be a string or a node (e.g. a search-highlighted fragment)."
+			},
+			{
+				"name": "description",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Short description. Clamped to `descriptionLines`."
+			},
+			{
+				"name": "badge",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Status shown at the top-right (e.g. an \"Installed\" `Badge`)."
+			},
+			{
+				"name": "actions",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Footer action row — typically two equal-width buttons (Details + Install). Wrapped in a flex row."
+			},
+			{
+				"name": "descriptionLines",
+				"type": "2 | 3 | 4",
+				"required": false,
+				"description": "How many lines of description before truncation. Defaults to 3, keeping card heights aligned."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use AppCard to structure and organize content within your interface. This component helps create visual hierarchy and consistent spacing throughout your application.",
+			"AppCard works well for arranging related content, creating responsive layouts, and maintaining visual consistency. Use it to group related elements and establish clear content boundaries."
+		],
+		"anatomy": {
+			"description": "AppCard is composed of the following parts:",
+			"parts": [
+				{
+					"name": "AppCard",
+					"description": "Root container for the card."
+				},
+				{
+					"name": "AppCardHeader",
+					"description": "Header section of the card."
+				},
+				{
+					"name": "AppCardContent",
+					"description": "Main content area of the card."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Maintain consistent structure",
+				"description": "Use the same card layout pattern throughout your application.",
+				"example": "<AppCard>\n  <AppCardHeader>Title</AppCardHeader>\n  <AppCardContent>Body</AppCardContent>\n</AppCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't mix card styles",
+				"description": "Avoid using different card structures for similar content types.",
+				"example": "// Inconsistent header/body placement"
+			},
+			{
+				"type": "do",
+				"title": "Use appropriate elevation",
+				"description": "Apply shadow/elevation that reflects the card's importance and context.",
+				"example": "<AppCard elevated>Important content</AppCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't over-elevate",
+				"description": "Avoid heavy shadows on every card, reserve for interactive or important items.",
+				"example": "// Heavy shadow on all cards"
+			},
+			{
+				"type": "do",
+				"title": "Keep content scannable",
+				"description": "Structure card content for quick scanning with clear hierarchy.",
+				"example": "<AppCard>\n  <AppCardTitle>Key info first</AppCardTitle>\n</AppCard>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't cram too much",
+				"description": "Avoid overloading cards with excessive content or actions.",
+				"example": "// 10+ action buttons in card"
+			}
+		]
 	}
 }

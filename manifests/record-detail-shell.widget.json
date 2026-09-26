@@ -135,5 +135,106 @@
 			"flush exists for wc3-process-detail's canvas section, which owns the page height.",
 			"pilot: true"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use RecordDetailShell to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"RecordDetailShell integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "title",
+				"type": "string",
+				"required": true,
+				"description": "Heading of the section rail — the record's TYPE, not its name. \"Object type\", \"Process\"."
+			},
+			{
+				"name": "sections",
+				"type": "SideMenuGroup[]",
+				"required": true,
+				"description": "The sections, grouped. Ids are what `activeSectionId` and `onSectionChange` speak in."
+			},
+			{
+				"name": "activeSectionId",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "flush",
+				"type": "boolean",
+				"required": false,
+				"description": "Render the content as a direct flex child instead of inside the padded, scrolling well — for a section that owns the page height itself, such as a full-bleed graph canvas. When this is set the section must manage its own padding, overflow and `min-h-0` chain."
+			},
+			{
+				"name": "contentClassName",
+				"type": "string",
+				"required": false,
+				"description": "Extra classes on the padded content well. Ignored when `flush`."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "RecordDetailShell is composed of the following parts:",
+			"parts": [
+				{
+					"name": "RecordDetailShell",
+					"description": "Root RecordDetailShell element."
+				},
+				{
+					"name": "RecordDetailShellContent",
+					"description": "Content area of the RecordDetailShell."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<RecordDetailShell variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<RecordDetailShell className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<RecordDetailShell aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<RecordDetailShell /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<RecordDetailShell loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<RecordDetailShell>{data.value}</RecordDetailShell> // Crashes if data is undefined"
+			}
+		]
 	}
 }

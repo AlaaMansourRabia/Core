@@ -127,5 +127,103 @@
 			"Promoted in group B of the missing-widgets template review.",
 			"pilot: true"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use RunActionDialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"RunActionDialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "actionType",
+				"type": "Wc3ActionType | null",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "actingUser",
+				"type": "{name: string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "RunActionDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "RunActionDialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "RunActionDialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "RunActionDialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "RunActionDialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use clear action labels",
+				"description": "Write button text that clearly describes the action, like 'Save changes' or 'Delete item'.",
+				"example": "<RunActionDialog>Save changes</RunActionDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Avoid vague labels",
+				"description": "Don't use generic text like 'Click here' or 'Submit' without context.",
+				"example": "<RunActionDialog>Click here</RunActionDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Use appropriate variants",
+				"description": "Choose button variants that match the action importance - primary for main actions, secondary for alternatives.",
+				"example": "<RunActionDialog variant=\"primary\">Confirm</RunActionDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overuse primary buttons",
+				"description": "Avoid having multiple primary buttons in the same view, which creates visual confusion.",
+				"example": "<RunActionDialog variant=\"primary\">Save</RunActionDialog>\n<RunActionDialog variant=\"primary\">Cancel</RunActionDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Handle loading states",
+				"description": "Show loading indicators when actions take time to complete.",
+				"example": "<RunActionDialog loading>Processing...</RunActionDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't block without feedback",
+				"description": "Never disable a button during processing without showing a loading state.",
+				"example": "<RunActionDialog disabled>Submit</RunActionDialog>"
+			}
+		]
 	}
 }

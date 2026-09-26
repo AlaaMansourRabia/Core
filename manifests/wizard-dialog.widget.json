@@ -11,7 +11,16 @@
 		"import": "@corensystem/coren-ui/wizard-dialog",
 		"export": "WizardDialog"
 	},
-	"tags": ["wizard", "stepper", "dialog", "modal", "multi-step", "create", "validation", "authoring"],
+	"tags": [
+		"wizard",
+		"stepper",
+		"dialog",
+		"modal",
+		"multi-step",
+		"create",
+		"validation",
+		"authoring"
+	],
 	"intent": "Multi-step authoring modal: a Stepper rail, one lazily mounted step at a time, and a Next that is never disabled but reveals the current step's errors rather than advancing past them.",
 	"when": [
 		"Authoring a record whose fields do not fit one screen",
@@ -33,12 +42,25 @@
 			"because": "Use FormDialog when the fields fit one screen; a wizard's cost is only worth paying when they do not."
 		}
 	],
-	"pairsWith": ["Stepper", "Input", "Combobox", "ToggleGroup", "PropertyList"],
+	"pairsWith": [
+		"Stepper",
+		"Input",
+		"Combobox",
+		"ToggleGroup",
+		"PropertyList"
+	],
 	"requiredProviders": [],
 	"dataContract": {
 		"input": {
-			"open": {"type": "boolean", "required": true, "note": "Controlled visibility."},
-			"onOpenChange": {"type": "(open: boolean) => void", "required": true},
+			"open": {
+				"type": "boolean",
+				"required": true,
+				"note": "Controlled visibility."
+			},
+			"onOpenChange": {
+				"type": "(open: boolean) => void",
+				"required": true
+			},
 			"title": {
 				"type": "ReactNode",
 				"required": true,
@@ -49,29 +71,67 @@
 				"required": true,
 				"note": "Each step declares its label, its own `valid`, and its content. Content may be a function of {attempted}."
 			},
-			"submitLabel": {"type": "ReactNode", "required": true, "note": "Shown in place of Next on the last step."},
-			"onSubmit": {"type": "() => void", "required": true, "note": "Runs on the last step when its `valid` holds."},
+			"submitLabel": {
+				"type": "ReactNode",
+				"required": true,
+				"note": "Shown in place of Next on the last step."
+			},
+			"onSubmit": {
+				"type": "() => void",
+				"required": true,
+				"note": "Runs on the last step when its `valid` holds."
+			},
 			"onReset": {
 				"type": "() => void",
 				"required": false,
 				"note": "Clears the caller's field state. Runs on close AND after a successful submit; step position resets too."
 			},
-			"width": {"type": "number", "required": false, "note": "Max width in px. Defaults to 720."},
-			"keepOpenOnSubmit": {"type": "boolean", "required": false}
+			"width": {
+				"type": "number",
+				"required": false,
+				"note": "Max width in px. Defaults to 720."
+			},
+			"keepOpenOnSubmit": {
+				"type": "boolean",
+				"required": false
+			}
 		},
 		"events": {
-			"onSubmit": {"payload": {}},
-			"onOpenChange": {"payload": {"open": "boolean"}}
+			"onSubmit": {
+				"payload": {}
+			},
+			"onOpenChange": {
+				"payload": {
+					"open": "boolean"
+				}
+			}
 		},
 		"rowIdentity": "Steps are identified by their `label`, which must therefore be unique within one wizard."
 	},
 	"configSchema": {
-		"width": {"type": "number", "default": 720},
-		"keepOpenOnSubmit": {"type": "boolean", "default": false}
+		"width": {
+			"type": "number",
+			"default": 720
+		},
+		"keepOpenOnSubmit": {
+			"type": "boolean",
+			"default": false
+		}
 	},
 	"slots": {
-		"steps[].content": {"description": "One step's fields", "accepts": ["component", "widget"]},
-		"steps[].nextLabel": {"description": "Per-step override of the Next button", "accepts": ["component"]}
+		"steps[].content": {
+			"description": "One step's fields",
+			"accepts": [
+				"component",
+				"widget"
+			]
+		},
+		"steps[].nextLabel": {
+			"description": "Per-step override of the Next button",
+			"accepts": [
+				"component"
+			]
+		}
 	},
 	"states": {
 		"default": "Opens on step 1; Back is absent rather than disabled.",
@@ -80,9 +140,20 @@
 		"last": "Next is replaced by the submit button; the same validity gate applies.",
 		"reopened": "Step position and `attempted` both reset, so the next open starts at step 1."
 	},
-	"composedOf": ["Dialog", "Stepper", "Button"],
-	"allowedPlacement": ["list page toolbars", "catalogue create actions", "install and provisioning flows"],
-	"forbiddenPlacement": ["nested inside another dialog", "as a page-level onboarding flow"],
+	"composedOf": [
+		"Dialog",
+		"Stepper",
+		"Button"
+	],
+	"allowedPlacement": [
+		"list page toolbars",
+		"catalogue create actions",
+		"install and provisioning flows"
+	],
+	"forbiddenPlacement": [
+		"nested inside another dialog",
+		"as a page-level onboarding flow"
+	],
 	"minimalExample": "import {WizardDialog} from \"@corensystem/coren-ui/wizard-dialog\";\n\n<WizardDialog\n\topen={open}\n\tonOpenChange={setOpen}\n\ttitle=\"New object type\"\n\tsteps={[\n\t\t{label: \"Metadata\", valid: name.trim().length > 0, content: ({attempted}) => <MetadataStep attempted={attempted} />},\n\t\t{label: \"Review\", content: <ReviewStep />},\n\t]}\n\tsubmitLabel=\"Create object type\"\n\tonSubmit={commit}\n\tonReset={reset}\n/>",
 	"evaluationCriteria": [
 		"Next is never rendered disabled.",
@@ -112,6 +183,97 @@
 			"wc3-product-install-dialog.tsx:280 carried the comment 'Wizard chrome (copied from object-type-wizard.tsx / wc3-action-type-wizard.tsx)' — this widget is what that comment was asking for.",
 			"Lazy step mounting keeps a derived Review step free until it is reached.",
 			"pilot: true"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use WizardDialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"WizardDialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Dialog heading. Stays fixed across steps; the Stepper communicates position."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			}
+		],
+		"anatomy": {
+			"description": "WizardDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "WizardDialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "WizardDialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "WizardDialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "WizardDialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<WizardDialog>\n  <WizardDialogContent>\n    <button autoFocus>First action</button>\n  </WizardDialogContent>\n</WizardDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<WizardDialog>\n  <WizardDialog nested />\n</WizardDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<WizardDialogClose>×</WizardDialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<WizardDialogTitle>Confirm deletion</WizardDialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
 		]
 	}
 }

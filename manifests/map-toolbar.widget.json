@@ -47,5 +47,132 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use MapToolbar to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"MapToolbar integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "splitMode",
+				"type": "SplitMode | null",
+				"required": false,
+				"description": "Active compare mode. Renders the split-view control when `onSplitModeChange` is set."
+			},
+			{
+				"name": "zoomLevel",
+				"type": "number",
+				"required": false,
+				"description": "Current zoom multiplier (1 = 100%), used to auto-derive the zoom buttons' enabled state."
+			},
+			{
+				"name": "minZoom",
+				"type": "number",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "maxZoom",
+				"type": "number",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "canZoomIn",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "canZoomOut",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "bearing",
+				"type": "number",
+				"required": false,
+				"description": "Current map bearing in degrees (0 = north) for the compass needle."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "MapToolbar is composed of the following parts:",
+			"parts": [
+				{
+					"name": "MapToolbar",
+					"description": "Root MapToolbar element."
+				},
+				{
+					"name": "MapToolbarContent",
+					"description": "Content area of the MapToolbar."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<MapToolbar variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<MapToolbar className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<MapToolbar aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<MapToolbar /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<MapToolbar loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<MapToolbar>{data.value}</MapToolbar> // Crashes if data is undefined"
+			}
+		]
 	}
 }

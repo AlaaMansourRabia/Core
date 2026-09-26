@@ -48,5 +48,216 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use CanvasNavigator to help users navigate through your application or content hierarchy. This component provides clear wayfinding and helps users understand their current location within the interface.",
+			"CanvasNavigator is ideal for multi-page applications, content-heavy interfaces, or any situation where users need to move between different sections. Keep navigation patterns consistent across your application for better user experience."
+		],
+		"props": [
+			{
+				"name": "nodes",
+				"type": "CanvasNavigatorNode[]",
+				"required": true,
+				"description": "Hierarchical nodes (branches + leaves) shown in the navigator."
+			},
+			{
+				"name": "value",
+				"type": "string",
+				"required": false,
+				"description": "Selected node id (controlled)."
+			},
+			{
+				"name": "defaultValue",
+				"type": "string",
+				"required": false,
+				"description": "Initial selected node id (uncontrolled). Defaults to the first (top-level) node."
+			},
+			{
+				"name": "expandedIds",
+				"type": "string[]",
+				"required": false,
+				"description": "Expanded branch ids in the full-tree (expanded) view. Defaults to every branch expanded."
+			},
+			{
+				"name": "defaultExpandedIds",
+				"type": "string[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "size",
+				"type": "CanvasNavigatorSize",
+				"required": false,
+				"description": "Panel size (controlled): collapse to a header, or expand to go big."
+			},
+			{
+				"name": "defaultSize",
+				"type": "CanvasNavigatorSize",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "expandable",
+				"type": "boolean",
+				"required": false,
+				"description": "Show the expand (\"go big\") control in the header. Default true. The collapse control always shows."
+			},
+			{
+				"name": "collapseIcon",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Icon for the header's collapse control. Defaults to a chevron-up. Override it (e.g. with a panel icon) when the navigator is docked as a sidebar and \"collapse\" reads as \"hide the panel\"."
+			},
+			{
+				"name": "title",
+				"type": "string",
+				"required": false,
+				"description": "Header title shown at the top level."
+			},
+			{
+				"name": "header",
+				"type": "boolean",
+				"required": false,
+				"description": "Render the header (with collapse + expand controls). Default true."
+			},
+			{
+				"name": "searchable",
+				"type": "boolean",
+				"required": false,
+				"description": "Show a search bar in the header. While searching, the tree is replaced by a flat list of matching locations, each shown as its full breadcrumb path (start-truncated to one line)."
+			},
+			{
+				"name": "searchPlaceholder",
+				"type": "string",
+				"required": false,
+				"description": "Placeholder for the search input. Default \"Search…\"."
+			},
+			{
+				"name": "emptyLabel",
+				"type": "string",
+				"required": false,
+				"description": "Message shown when a branch has no children (e.g. a level with nothing under it)."
+			},
+			{
+				"name": "truncate",
+				"type": "\"end\" | \"middle\" | \"clamp\"",
+				"required": false,
+				"description": "Long-name handling for rows. Omit for plain end truncation. `\"end\"` adds a hover tooltip with the full name when it's clipped; `\"middle\"` keeps the start + tail visible (good for filenames like `Plan_Rev3.svg`); `\"clamp\"` wraps the name onto up to `maxLines` lines before truncating. All add a tooltip with the full name."
+			},
+			{
+				"name": "tailChars",
+				"type": "number",
+				"required": false,
+				"description": "For `truncate=\"middle\"`, how many trailing characters to always keep visible. Default 7."
+			},
+			{
+				"name": "maxLines",
+				"type": "number",
+				"required": false,
+				"description": "For `truncate=\"clamp\"`, the maximum number of wrapped lines before truncating. Default 3."
+			},
+			{
+				"name": "compact",
+				"type": "boolean",
+				"required": false,
+				"description": "Compact density — 12px text on rows, header, search, and results, with tighter spacing. Default false."
+			},
+			{
+				"name": "loading",
+				"type": "boolean",
+				"required": false,
+				"description": "Show a loading bar docked to the bottom of the panel while locations are still loading. Default false."
+			},
+			{
+				"name": "loadingLabel",
+				"type": "string",
+				"required": false,
+				"description": "Text shown next to the spinner in the loading bar. Default \"Loading…\"."
+			},
+			{
+				"name": "shiftAfterLevel",
+				"type": "number",
+				"required": false,
+				"description": "Deep-tree horizontal shift. When set, expanding branches past this (1-based) level slides the default tree left by one indent step — the gap between level 1 and level 2 — for each level revealed beyond it, so the active deep path stays in view. Collapsing a level shifts it back. Omit to disable (the tree never shifts)."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "CanvasNavigator is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CanvasNavigator",
+					"description": "Root CanvasNavigator element."
+				},
+				{
+					"name": "CanvasNavigatorContent",
+					"description": "Content area of the CanvasNavigator."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CanvasNavigator variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CanvasNavigator className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CanvasNavigator aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CanvasNavigator /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CanvasNavigator loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CanvasNavigator>{data.value}</CanvasNavigator> // Crashes if data is undefined"
+			}
+		]
 	}
 }

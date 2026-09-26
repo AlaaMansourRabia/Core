@@ -52,5 +52,88 @@
 			"pilot: false",
 			"knowledgeRefs: [\"library-index.json#SetupStepsChecklist\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use SetupStepsChecklist to display structured data or visualizations. This component helps users understand and interact with complex information sets.",
+			"SetupStepsChecklist is ideal for dashboards, reports, and data-heavy interfaces. Ensure data is presented clearly and consider responsive behavior for different screen sizes. Provide appropriate loading states for async data."
+		],
+		"props": [
+			{
+				"name": "steps",
+				"type": "SetupStep[]",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "openIds",
+				"type": "string[]",
+				"required": false,
+				"description": "Controlled open ids."
+			},
+			{
+				"name": "defaultOpenIds",
+				"type": "string[]",
+				"required": false,
+				"description": "Initial open ids when uncontrolled."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "SetupStepsChecklist is composed of the following parts:",
+			"parts": [
+				{
+					"name": "SetupStepsChecklist",
+					"description": "Root container for the list."
+				},
+				{
+					"name": "SetupStepsChecklistItem",
+					"description": "Individual list item element."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use consistent item spacing",
+				"description": "Maintain uniform gaps between list items for visual rhythm.",
+				"example": "<SetupStepsChecklist gap=\"md\">\n  <SetupStepsChecklistItem>One</SetupStepsChecklistItem>\n  <SetupStepsChecklistItem>Two</SetupStepsChecklistItem>\n</SetupStepsChecklist>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't vary item spacing",
+				"description": "Avoid inconsistent gaps that create visual confusion.",
+				"example": "<SetupStepsChecklistItem className=\"mb-1\" />\n<SetupStepsChecklistItem className=\"mb-4\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide loading states",
+				"description": "Show skeleton loaders while list data is being fetched.",
+				"example": "<SetupStepsChecklist loading>\n  <SetupStepsChecklistSkeleton />\n</SetupStepsChecklist>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't show empty state unexpectedly",
+				"description": "Always indicate loading vs empty to avoid confusing users.",
+				"example": "// Blank list while loading"
+			},
+			{
+				"type": "do",
+				"title": "Support keyboard navigation",
+				"description": "Enable arrow key navigation through list items.",
+				"example": "<SetupStepsChecklist onKeyDown={handleArrowKeys}>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't break navigation flow",
+				"description": "Avoid interactive elements that trap focus within items.",
+				"example": "// Nested focusable causing tab trap"
+			}
+		]
 	}
 }

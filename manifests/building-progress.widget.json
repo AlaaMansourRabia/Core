@@ -47,5 +47,100 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use BuildingProgress to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"BuildingProgress integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "floors",
+				"type": "BuildingFloor[]",
+				"required": true,
+				"description": "Floors ordered top → bottom (roof first, base last), mirroring the building elevation."
+			},
+			{
+				"name": "activeId",
+				"type": "string",
+				"required": false,
+				"description": "Id of the highlighted (currently viewed) floor."
+			},
+			{
+				"name": "taperStep",
+				"type": "number",
+				"required": false,
+				"description": "Pixels each floor widens toward the base, giving the tapered building silhouette. Default 24."
+			},
+			{
+				"name": "size",
+				"type": "\"default\" | \"compact\"",
+				"required": false,
+				"description": "Density. `compact` shrinks the rows, bars and text. Default `default`."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"anatomy": {
+			"description": "BuildingProgress is composed of the following parts:",
+			"parts": [
+				{
+					"name": "BuildingProgress",
+					"description": "Root BuildingProgress element."
+				},
+				{
+					"name": "BuildingProgressContent",
+					"description": "Content area of the BuildingProgress."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<BuildingProgress variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<BuildingProgress className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<BuildingProgress aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<BuildingProgress /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<BuildingProgress loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<BuildingProgress>{data.value}</BuildingProgress> // Crashes if data is undefined"
+			}
+		]
 	}
 }

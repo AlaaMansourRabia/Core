@@ -1,0 +1,107 @@
+{
+	"id": "mega-menu",
+	"name": "MegaMenu",
+	"type": "component",
+	"source": {
+		"path": "packages/components/src/mega-menu.tsx",
+		"import": "@corensystem/coren-ui/mega-menu",
+		"export": "MegaMenu"
+	},
+	"docs": {
+		"summary": "MegaMenu component for building user interfaces.",
+		"usage": [
+			"Use MegaMenu to help users navigate through your application or content. This component provides clear wayfinding and helps users understand their current location.",
+			"MegaMenu is ideal for multi-page applications and content-heavy interfaces. Keep navigation patterns consistent across your application."
+		],
+		"anatomy": {
+			"description": "MegaMenu is composed of the following parts:",
+			"parts": [
+				{
+					"name": "MegaMenu",
+					"description": "Root MegaMenu element."
+				},
+				{
+					"name": "MegaMenuContent",
+					"description": "Content area of the MegaMenu."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<MegaMenu variant=\"primary\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override styles",
+				"description": "Avoid using className to override fundamental styling.",
+				"example": "<MegaMenu className=\"custom-bg\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<MegaMenu aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<MegaMenu /> without labels"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<MegaMenu loading={isLoading} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing.",
+				"example": "Unhandled undefined data"
+			}
+		],
+		"props": [
+			{
+				"name": "categories",
+				"type": "MegaMenuCategory[]",
+				"required": true,
+				"description": "Menu categories"
+			},
+			{
+				"name": "logo",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Logo or brand element"
+			},
+			{
+				"name": "actions",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Actions on the right side"
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		]
+	}
+}

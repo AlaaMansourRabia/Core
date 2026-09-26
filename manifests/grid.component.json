@@ -1,0 +1,88 @@
+{
+	"id": "grid",
+	"name": "Grid",
+	"type": "component",
+	"source": {
+		"path": "packages/components/src/grid.tsx",
+		"import": "@corensystem/coren-ui/grid",
+		"export": "Grid"
+	},
+	"docs": {
+		"summary": "Grid component for building user interfaces.",
+		"usage": [
+			"Use Grid to structure and organize content within your interface. This component helps create visual hierarchy and consistent spacing.",
+			"Grid works well for arranging related content and creating responsive layouts. Use it to maintain visual consistency throughout your application."
+		],
+		"anatomy": {
+			"description": "Grid is composed of the following parts:",
+			"parts": [
+				{
+					"name": "Grid",
+					"description": "Root Grid element."
+				},
+				{
+					"name": "GridContent",
+					"description": "Content area of the Grid."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Maintain consistent spacing",
+				"description": "Use uniform gaps and padding with grid.",
+				"example": "<Grid gap=\"md\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't vary spacing",
+				"description": "Avoid inconsistent gaps that create visual confusion.",
+				"example": "Mixed spacing values"
+			},
+			{
+				"type": "do",
+				"title": "Consider responsive behavior",
+				"description": "Ensure grid adapts to different screen sizes.",
+				"example": "<Grid responsive />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore breakpoints",
+				"description": "Fixed layouts can break on different devices.",
+				"example": "Fixed pixel widths"
+			},
+			{
+				"type": "do",
+				"title": "Use semantic structure",
+				"description": "Structure content logically within grid.",
+				"example": "Logical content hierarchy"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest deeply",
+				"description": "Avoid excessive nesting that complicates layout.",
+				"example": "Deeply nested containers"
+			}
+		],
+		"props": [
+			{
+				"name": "as",
+				"type": "React.ElementType",
+				"required": false,
+				"description": "Render as a different HTML element"
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		]
+	}
+}

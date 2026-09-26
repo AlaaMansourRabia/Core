@@ -41,5 +41,106 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "value",
+				"type": "number",
+				"required": true,
+				"description": "The score to plot. Clamped to `0..max`."
+			},
+			{
+				"name": "max",
+				"type": "number",
+				"required": false,
+				"description": "Top of the scale. Defaults to 100."
+			},
+			{
+				"name": "tone",
+				"type": "ScoreGaugeTone",
+				"required": false,
+				"description": "Colour of the filled arc and the score figure."
+			},
+			{
+				"name": "size",
+				"type": "number",
+				"required": false,
+				"description": "Diameter in px. Defaults to 120."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use ScoreGauge to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"ScoreGauge integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "ScoreGauge is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ScoreGauge",
+					"description": "Root ScoreGauge element."
+				},
+				{
+					"name": "ScoreGaugeContent",
+					"description": "Content area of the ScoreGauge."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ScoreGauge variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ScoreGauge className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ScoreGauge aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ScoreGauge /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ScoreGauge loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ScoreGauge>{data.value}</ScoreGauge> // Crashes if data is undefined"
+			}
+		]
 	}
 }

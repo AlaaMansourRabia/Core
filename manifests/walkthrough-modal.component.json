@@ -44,5 +44,90 @@
 		"notes": [
 			"authored during the develop merge reconciliation"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": true,
+				"description": "Whether the modal is open."
+			},
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Title shown in the header, e.g. `Capture 2 of 17 · Ground Floor · 10:05`."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"usage": [
+			"Use WalkthroughModal when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"WalkthroughModal should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"anatomy": {
+			"description": "WalkthroughModal is composed of the following parts:",
+			"parts": [
+				{
+					"name": "WalkthroughModalTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "WalkthroughModalContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "WalkthroughModalHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "WalkthroughModalFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<WalkthroughModal>\n  <WalkthroughModalContent>\n    <button autoFocus>First action</button>\n  </WalkthroughModalContent>\n</WalkthroughModal>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<WalkthroughModal>\n  <WalkthroughModal nested />\n</WalkthroughModal>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<WalkthroughModalClose>×</WalkthroughModalClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<WalkthroughModalTitle>Confirm deletion</WalkthroughModalTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
+		]
 	}
 }

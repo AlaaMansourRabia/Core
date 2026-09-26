@@ -11,7 +11,13 @@
 		"import": "@corensystem/coren-ui/toolbar-stats",
 		"export": "ToolbarStats"
 	},
-	"tags": ["analytics", "metrics", "toolbar", "stats", "kpi"],
+	"tags": [
+		"analytics",
+		"metrics",
+		"toolbar",
+		"stats",
+		"kpi"
+	],
 	"intent": "A compact full-width metric strip that groups labeled values into equal-width cells for dashboards, tables, and operational workspaces.",
 	"when": [
 		"Several related headline metrics need to share one compact horizontal region",
@@ -29,7 +35,11 @@
 			"because": "ToolbarStats owns equal-width metric layout, grouped dividers, compact density, and negative-value treatment."
 		}
 	],
-	"pairsWith": ["DataTable", "ContextToolbar", "PageContentHeader"],
+	"pairsWith": [
+		"DataTable",
+		"ContextToolbar",
+		"PageContentHeader"
+	],
 	"requiredProviders": [],
 	"dataContract": {
 		"input": {
@@ -58,9 +68,19 @@
 		"table": "A bare row of full-height cells separated by borders.",
 		"negative": "Metrics flagged negative use the destructive semantic text color."
 	},
-	"composedOf": ["Card"],
-	"allowedPlacement": ["dashboard summary band", "table toolbar", "operational workspace header"],
-	"forbiddenPlacement": ["inside a table cell", "as a route-level page", "for a single metric"],
+	"composedOf": [
+		"Card"
+	],
+	"allowedPlacement": [
+		"dashboard summary band",
+		"table toolbar",
+		"operational workspace header"
+	],
+	"forbiddenPlacement": [
+		"inside a table cell",
+		"as a route-level page",
+		"for a single metric"
+	],
 	"commonMistakes": [
 		{
 			"mistake": "Using ToolbarStats as a generic layout component",
@@ -86,13 +106,103 @@
 		"authoredBy": "ToolbarStats widget classification cleanup (2026-07-30)",
 		"derivedFrom": {
 			"source": "packages/components/src/toolbar-stats.tsx",
-			"extracted": ["grouped metric strip", "cards and table variants", "semantic negative state"]
+			"extracted": [
+				"grouped metric strip",
+				"cards and table variants",
+				"semantic negative state"
+			]
 		},
 		"status": "candidate",
 		"verifiedBy": null,
 		"confidence": "unset — no held-out eval yet",
 		"supersedes": null,
 		"lastValidated": "2026-07-30",
-		"notes": ["promotedFrom: component", "classification: widget"]
+		"notes": [
+			"promotedFrom: component",
+			"classification: widget"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use ToolbarStats to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"ToolbarStats integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "groups",
+				"type": "ToolbarStat[][]",
+				"required": true,
+				"description": "Groups of stat tiles. Tiles within a group sit side by side and share the row width equally; a vertical divider separates one group from the next (e.g. percentage metrics from currency ones)."
+			},
+			{
+				"name": "variant",
+				"type": "\"cards\" | \"table\"",
+				"required": false,
+				"description": "`cards` (default): each metric is its own bordered tile with gaps between them and a divider between groups. `table`: a bare row of full-height cells split by full-height internal dividers — no gaps, no per-tile borders, and no outer outline."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"anatomy": {
+			"description": "ToolbarStats is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ToolbarStats",
+					"description": "Root ToolbarStats element."
+				},
+				{
+					"name": "ToolbarStatsContent",
+					"description": "Content area of the ToolbarStats."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ToolbarStats variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ToolbarStats className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ToolbarStats aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ToolbarStats /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ToolbarStats loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ToolbarStats>{data.value}</ToolbarStats> // Crashes if data is undefined"
+			}
+		]
 	}
 }

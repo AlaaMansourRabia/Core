@@ -40,5 +40,76 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "value",
+				"type": "string",
+				"required": true,
+				"description": "String written to the clipboard when the button is clicked."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"usage": [
+			"Use CopyButton when you need to provide clear, actionable controls for users. This component signals interactive elements and helps users understand available actions.",
+			"CopyButton should be used for primary actions, secondary actions, or any clickable elements that trigger functionality. Ensure adequate spacing between action elements and use appropriate visual hierarchy to indicate action importance."
+		],
+		"anatomy": {
+			"description": "CopyButton is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CopyButton",
+					"description": "Root CopyButton element."
+				},
+				{
+					"name": "CopyButtonContent",
+					"description": "Content area of the CopyButton."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use clear action labels",
+				"description": "Write button text that clearly describes the action, like 'Save changes' or 'Delete item'.",
+				"example": "<CopyButton>Save changes</CopyButton>"
+			},
+			{
+				"type": "dont",
+				"title": "Avoid vague labels",
+				"description": "Don't use generic text like 'Click here' or 'Submit' without context.",
+				"example": "<CopyButton>Click here</CopyButton>"
+			},
+			{
+				"type": "do",
+				"title": "Use appropriate variants",
+				"description": "Choose button variants that match the action importance - primary for main actions, secondary for alternatives.",
+				"example": "<CopyButton variant=\"primary\">Confirm</CopyButton>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overuse primary buttons",
+				"description": "Avoid having multiple primary buttons in the same view, which creates visual confusion.",
+				"example": "<CopyButton variant=\"primary\">Save</CopyButton>\n<CopyButton variant=\"primary\">Cancel</CopyButton>"
+			},
+			{
+				"type": "do",
+				"title": "Handle loading states",
+				"description": "Show loading indicators when actions take time to complete.",
+				"example": "<CopyButton loading>Processing...</CopyButton>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't block without feedback",
+				"description": "Never disable a button during processing without showing a loading state.",
+				"example": "<CopyButton disabled>Submit</CopyButton>"
+			}
+		]
 	}
 }

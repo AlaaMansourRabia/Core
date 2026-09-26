@@ -48,5 +48,77 @@
 			"pilot: false",
 			"knowledgeRefs: [\"library-index.json#CoreChatInput\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use CoreChatInput when you need to collect user input or allow users to make selections. This component provides a consistent interaction pattern that users will find familiar and accessible.",
+			"CoreChatInput should be used within forms or interactive interfaces where user data collection is required. Ensure proper labeling and validation feedback for accessibility. Avoid using this component for read-only or display-only content."
+		],
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "CoreChatInput is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CoreChatInput",
+					"description": "Root CoreChatInput element."
+				},
+				{
+					"name": "CoreChatInputContent",
+					"description": "Content area of the CoreChatInput."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Always include labels",
+				"description": "Every input should have an associated label for accessibility.",
+				"example": "<Label htmlFor=\"email\">Email</Label>\n<CoreChatInput id=\"email\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't rely on placeholders alone",
+				"description": "Placeholders disappear when typing and shouldn't replace labels.",
+				"example": "<CoreChatInput placeholder=\"Enter email\" />"
+			},
+			{
+				"type": "do",
+				"title": "Show validation feedback",
+				"description": "Display clear error messages near the input when validation fails.",
+				"example": "<CoreChatInput aria-invalid=\"true\" />\n<span className=\"error\">Invalid email format</span>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't delay error feedback",
+				"description": "Show validation errors immediately, don't wait until form submission.",
+				"example": "// Validating only on submit"
+			},
+			{
+				"type": "do",
+				"title": "Use appropriate input types",
+				"description": "Use specialized input types (email, tel, number) for better mobile keyboards.",
+				"example": "<CoreChatInput type=\"email\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't use text type for everything",
+				"description": "Avoid using generic text inputs when a specialized type exists.",
+				"example": "<CoreChatInput type=\"text\" /> // for email"
+			}
+		]
 	}
 }

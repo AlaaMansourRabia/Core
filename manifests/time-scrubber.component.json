@@ -52,5 +52,234 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "start",
+				"type": "Date",
+				"required": true,
+				"description": "Range start (e.g. today 00:00)."
+			},
+			{
+				"name": "end",
+				"type": "Date",
+				"required": true,
+				"description": "Range end (e.g. today 24:00)."
+			},
+			{
+				"name": "variant",
+				"type": "TimeScrubberVariant",
+				"required": false,
+				"description": "How the data reads. Default \"barGraph\"."
+			},
+			{
+				"name": "data",
+				"type": "TimeSeriesPoint[]",
+				"required": false,
+				"description": "The series for bar/line tracks. For dots, points with `value > 0` become dots."
+			},
+			{
+				"name": "label",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Left row-label chip, e.g. \"Workers\"."
+			},
+			{
+				"name": "value",
+				"type": "Date",
+				"required": false,
+				"description": "Cursor position (controlled). Scrubbing is enabled when `onValueChange` is given."
+			},
+			{
+				"name": "rangeValue",
+				"type": "[Date, Date]",
+				"required": false,
+				"description": "Selected range (controlled). Providing it puts a second handle on the track: drag either end, and the band between them is the selection. `value` stays the playhead, so a range and a cursor can coexist. Use it when the surface reads a window of time rather than a single moment."
+			},
+			{
+				"name": "max",
+				"type": "Date",
+				"required": false,
+				"description": "Latest scrubbable/playable time — the cursor can't move past it (e.g. \"now\" on a live day)."
+			},
+			{
+				"name": "minorEveryMinutes",
+				"type": "number",
+				"required": false,
+				"description": "Minutes between minor ticks. Default 60."
+			},
+			{
+				"name": "majorEveryMinutes",
+				"type": "number",
+				"required": false,
+				"description": "Minutes between labelled major ticks. Default 180."
+			},
+			{
+				"name": "sectionLabel",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Header shown above the axis (e.g. the date). Ignored when `date` is set."
+			},
+			{
+				"name": "date",
+				"type": "Date",
+				"required": false,
+				"description": "The day the axis covers. When `onDateChange` is given, the header becomes a date picker."
+			},
+			{
+				"name": "maxDate",
+				"type": "Date",
+				"required": false,
+				"description": "Latest selectable day in the picker (future days are disabled). Default: today."
+			},
+			{
+				"name": "formatDate",
+				"type": "(d: Date) => string",
+				"required": false,
+				"description": "Format the header date. Default \"EEE, d MMM\"."
+			},
+			{
+				"name": "valueLabel",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Rendered next to the cursor time — e.g. the value at the cursor."
+			},
+			{
+				"name": "legend",
+				"type": "TimeScrubberLegendItem[]",
+				"required": false,
+				"description": "Swatch legend shown in the header, for reading a stacked `segments` track. Keep it to a handful of entries — the header is a single row and competes with the date, controls and cursor readout."
+			},
+			{
+				"name": "playing",
+				"type": "boolean",
+				"required": false,
+				"description": "Playing state (controlled); the cursor advances by `playSpeed`."
+			},
+			{
+				"name": "defaultCollapsed",
+				"type": "boolean",
+				"required": false,
+				"description": "Start the timeline collapsed to just the track (bars + cursor). Default false."
+			},
+			{
+				"name": "collapsed",
+				"type": "boolean",
+				"required": false,
+				"description": "Collapsed state (controlled). Pair with `onCollapsedChange` when the surrounding layout reacts to it."
+			},
+			{
+				"name": "playSpeed",
+				"type": "number",
+				"required": false,
+				"description": "Simulated minutes advanced per real second while playing. Default 120."
+			},
+			{
+				"name": "showControls",
+				"type": "boolean",
+				"required": false,
+				"description": "Show the play/pause control. Default true when scrubbing is enabled."
+			},
+			{
+				"name": "formatTick",
+				"type": "(t: Date) => string",
+				"required": false,
+				"description": "Format tick labels. Default HH:mm."
+			},
+			{
+				"name": "formatTime",
+				"type": "(t: Date) => string",
+				"required": false,
+				"description": "Format the cursor readout. Default HH:mm."
+			},
+			{
+				"name": "height",
+				"type": "number",
+				"required": false,
+				"description": "Track height in px. Default 44."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use TimeScrubber to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"TimeScrubber integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "TimeScrubber is composed of the following parts:",
+			"parts": [
+				{
+					"name": "TimeScrubber",
+					"description": "Root TimeScrubber element."
+				},
+				{
+					"name": "TimeScrubberContent",
+					"description": "Content area of the TimeScrubber."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<TimeScrubber variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<TimeScrubber className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<TimeScrubber aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<TimeScrubber /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<TimeScrubber loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<TimeScrubber>{data.value}</TimeScrubber> // Crashes if data is undefined"
+			}
+		]
 	}
 }

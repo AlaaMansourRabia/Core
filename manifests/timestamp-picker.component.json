@@ -40,5 +40,107 @@
 			"Stub by design: the intent is accurate, the data contract is not yet authored.",
 			"pilot: false"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "entries",
+				"type": "TimestampEntry[]",
+				"required": true,
+				"description": "All available captured timestamps across every date."
+			},
+			{
+				"name": "value",
+				"type": "Date",
+				"required": false,
+				"description": "The currently selected timestamp."
+			},
+			{
+				"name": "placeholder",
+				"type": "string",
+				"required": false,
+				"description": "Placeholder shown in the trigger when nothing is selected."
+			},
+			{
+				"name": "compact",
+				"type": "boolean",
+				"required": false,
+				"description": "Reduces the size of the trigger, calendar, and time list for dense layouts."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			}
+		],
+		"usage": [
+			"Use TimestampPicker when you need to collect user input or allow users to make selections. This component provides a consistent interaction pattern that users will find familiar and accessible.",
+			"TimestampPicker should be used within forms or interactive interfaces where user data collection is required. Ensure proper labeling and validation feedback for accessibility. Avoid using this component for read-only or display-only content."
+		],
+		"anatomy": {
+			"description": "TimestampPicker is composed of the following parts:",
+			"parts": [
+				{
+					"name": "TimestampPicker",
+					"description": "Root TimestampPicker element."
+				},
+				{
+					"name": "TimestampPickerContent",
+					"description": "Content area of the TimestampPicker."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<TimestampPicker variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<TimestampPicker className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<TimestampPicker aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<TimestampPicker /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<TimestampPicker loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<TimestampPicker>{data.value}</TimestampPicker> // Crashes if data is undefined"
+			}
+		]
 	}
 }

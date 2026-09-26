@@ -11,7 +11,15 @@
 		"import": "@corensystem/coren-ui/side-menu",
 		"export": "SideMenu"
 	},
-	"tags": ["navigation", "side-menu", "settings", "panel", "sub-navigation", "search", "grouped"],
+	"tags": [
+		"navigation",
+		"side-menu",
+		"settings",
+		"panel",
+		"sub-navigation",
+		"search",
+		"grouped"
+	],
 	"intent": "Vertical navigation panel for a content-area sub-surface (settings, integrations, filters): owns its own header (optional back button + icon + title), optional search, and grouped items with an active state.",
 	"when": [
 		"A content region needs its own left-hand navigation column, separate from the app shell sidebar",
@@ -28,37 +36,206 @@
 			"because": "SideMenu is a content-local sub-navigation panel; CoreAppSidebar owns the persistent app shell."
 		}
 	],
-	"pairsWith": ["Button", "Input", "PageContentHeader"],
+	"pairsWith": [
+		"Button",
+		"Input",
+		"PageContentHeader"
+	],
 	"requiredProviders": [],
-	"composedOf": ["Button", "Input"],
+	"composedOf": [
+		"Button",
+		"Input"
+	],
 	"configSchema": {
-		"title": {"type": "string", "required": true},
-		"icon": {"type": "ReactNode"},
-		"onBack": {"type": "() => void"},
-		"backLabel": {"type": "string", "default": "Back"},
-		"showSearch": {"type": "boolean", "default": true},
-		"searchPlaceholder": {"type": "string", "default": "Search..."},
-		"searchValue": {"type": "string"},
-		"onSearchChange": {"type": "(value: string) => void"},
-		"groups": {"type": "SideMenuGroup[]", "required": true},
-		"activeItemId": {"type": "string"},
-		"onItemSelect": {"type": "(id: string) => void"}
+		"title": {
+			"type": "string",
+			"required": true
+		},
+		"icon": {
+			"type": "ReactNode"
+		},
+		"onBack": {
+			"type": "() => void"
+		},
+		"backLabel": {
+			"type": "string",
+			"default": "Back"
+		},
+		"showSearch": {
+			"type": "boolean",
+			"default": true
+		},
+		"searchPlaceholder": {
+			"type": "string",
+			"default": "Search..."
+		},
+		"searchValue": {
+			"type": "string"
+		},
+		"onSearchChange": {
+			"type": "(value: string) => void"
+		},
+		"groups": {
+			"type": "SideMenuGroup[]",
+			"required": true
+		},
+		"activeItemId": {
+			"type": "string"
+		},
+		"onItemSelect": {
+			"type": "(id: string) => void"
+		}
 	},
-	"allowedPlacement": ["Left column of a content region, paired with a content panel on the right"],
-	"forbiddenPlacement": ["As the persistent application shell sidebar", "Inside a Card, Dialog, or table row"],
+	"allowedPlacement": [
+		"Left column of a content region, paired with a content panel on the right"
+	],
+	"forbiddenPlacement": [
+		"As the persistent application shell sidebar",
+		"Inside a Card, Dialog, or table row"
+	],
 	"minimalExample": "<SideMenu title=\"Settings\" onBack={goBack} groups={[{items: [{id: \"general\", label: \"General\"}]}, {label: \"Workspace\", items: [{id: \"members\", label: \"Members\"}]}]} activeItemId={active} onItemSelect={setActive} />",
 	"lineage": {
 		"origin": "authored",
 		"authoredBy": "Observation-Template branch (2026-07-19)",
 		"derivedFrom": {
 			"source": "Settings/integrations side-panel reference",
-			"extracted": ["titled header with back affordance", "search field", "grouped items with section labels and active state"]
+			"extracted": [
+				"titled header with back affordance",
+				"search field",
+				"grouped items with section labels and active state"
+			]
 		},
 		"status": "candidate",
 		"verifiedBy": null,
 		"confidence": "unset — no held-out eval yet",
 		"supersedes": null,
 		"lastValidated": "2026-07-19",
-		"notes": ["introduced with the Safety Manager Settings sub-surface"]
+		"notes": [
+			"introduced with the Safety Manager Settings sub-surface"
+		]
+	},
+	"docs": {
+		"usage": [
+			"Use SideMenu to help users navigate through your application or content hierarchy. This component provides clear wayfinding and helps users understand their current location within the interface.",
+			"SideMenu is ideal for multi-page applications, content-heavy interfaces, or any situation where users need to move between different sections. Keep navigation patterns consistent across your application for better user experience."
+		],
+		"props": [
+			{
+				"name": "title",
+				"type": "string",
+				"required": true,
+				"description": "Panel title shown in the header."
+			},
+			{
+				"name": "icon",
+				"type": "ReactNode",
+				"required": false,
+				"description": "Optional leading icon shown before the title."
+			},
+			{
+				"name": "backLabel",
+				"type": "string",
+				"required": false,
+				"description": "Accessible label for the back button. Defaults to \"Back\"."
+			},
+			{
+				"name": "showSearch",
+				"type": "boolean",
+				"required": false,
+				"description": "Show the search field. Defaults to `true`."
+			},
+			{
+				"name": "searchPlaceholder",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "searchValue",
+				"type": "string",
+				"required": false,
+				"description": "Controlled search value; pair with `onSearchChange`. Uncontrolled when omitted."
+			},
+			{
+				"name": "groups",
+				"type": "SideMenuGroup[]",
+				"required": true,
+				"description": "Grouped navigation entries."
+			},
+			{
+				"name": "activeItemId",
+				"type": "string",
+				"required": false,
+				"description": "Currently active item id — highlighted."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			}
+		],
+		"anatomy": {
+			"description": "SideMenu is composed of the following parts:",
+			"parts": [
+				{
+					"name": "SideMenuTrigger",
+					"description": "Element that opens the menu when activated."
+				},
+				{
+					"name": "SideMenuContent",
+					"description": "Container for menu items."
+				},
+				{
+					"name": "SideMenuItem",
+					"description": "Individual selectable menu item."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<SideMenu variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<SideMenu className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<SideMenu aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<SideMenu /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<SideMenu loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<SideMenu>{data.value}</SideMenu> // Crashes if data is undefined"
+			}
+		]
 	}
 }

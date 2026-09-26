@@ -42,5 +42,131 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "name",
+				"type": "string",
+				"required": true,
+				"description": "Function/tool name shown in the header (e.g. \"Read\", \"Bash\")."
+			},
+			{
+				"name": "args",
+				"type": "string",
+				"required": false,
+				"description": "Compact argument preview shown in the header — truncated to a single line."
+			},
+			{
+				"name": "status",
+				"type": "ToolCallStatus",
+				"required": false,
+				"description": "Drives the leading status icon and tone. Defaults to \"success\"."
+			},
+			{
+				"name": "summary",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Always-visible result summary line (e.g. \"Read 1 line\"). Shown in both closed and open states."
+			},
+			{
+				"name": "defaultOpen",
+				"type": "boolean",
+				"required": false,
+				"description": "Default open state (uncontrolled)."
+			},
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": false,
+				"description": "Controlled open state."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Output rendered inside the ScrollArea when open."
+			},
+			{
+				"name": "outputMaxHeight",
+				"type": "number | string",
+				"required": false,
+				"description": "Max height of the output ScrollArea. Defaults to 320. Pass a number (px) or any CSS length."
+			},
+			{
+				"name": "icon",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Override the default status icon (e.g. a function-specific glyph)."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			}
+		],
+		"usage": [
+			"Use ToolCall to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"ToolCall integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "ToolCall is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ToolCall",
+					"description": "Root ToolCall element."
+				},
+				{
+					"name": "ToolCallContent",
+					"description": "Content area of the ToolCall."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ToolCall variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ToolCall className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ToolCall aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ToolCall /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ToolCall loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ToolCall>{data.value}</ToolCall> // Crashes if data is undefined"
+			}
+		]
 	}
 }

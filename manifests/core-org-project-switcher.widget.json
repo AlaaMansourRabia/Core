@@ -54,5 +54,77 @@
 			"pilot: false",
 			"knowledgeRefs: [\"library-index.json#CoreOrgProjectSwitcher\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use CoreOrgProjectSwitcher when you need to collect user input or allow users to make selections. This component provides a consistent interaction pattern that users will find familiar and accessible.",
+			"CoreOrgProjectSwitcher should be used within forms or interactive interfaces where user data collection is required. Ensure proper labeling and validation feedback for accessibility. Avoid using this component for read-only or display-only content."
+		],
+		"props": [
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			}
+		],
+		"anatomy": {
+			"description": "CoreOrgProjectSwitcher is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CoreOrgProjectSwitcher",
+					"description": "Root CoreOrgProjectSwitcher element."
+				},
+				{
+					"name": "CoreOrgProjectSwitcherContent",
+					"description": "Content area of the CoreOrgProjectSwitcher."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CoreOrgProjectSwitcher variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CoreOrgProjectSwitcher className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CoreOrgProjectSwitcher aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CoreOrgProjectSwitcher /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CoreOrgProjectSwitcher loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CoreOrgProjectSwitcher>{data.value}</CoreOrgProjectSwitcher> // Crashes if data is undefined"
+			}
+		]
 	}
 }

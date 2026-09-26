@@ -55,5 +55,191 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "options",
+				"type": "ComboboxOption<TData>[]",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "value",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "placeholder",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "searchPlaceholder",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "emptyMessage",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "popoverClassName",
+				"type": "string",
+				"required": false,
+				"description": "Class applied to the popover content. Overrides the default 200px width."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "creatable",
+				"type": "boolean",
+				"required": false,
+				"description": "When true, typing a value not in the list offers a \"Create …\" action."
+			},
+			{
+				"name": "createLabel",
+				"type": "(input: string) => string",
+				"required": false,
+				"description": "Label for the create action; defaults to `Create \"<input>\"`."
+			},
+			{
+				"name": "filtering",
+				"type": "`options` is displayed exactly as given, // so the server's result set is what the user sees. /** Called with the debounced search term. Supplying it switches the combobox to async mode. */ onSearch?: (term: string) => void",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "searchDebounce",
+				"type": "number",
+				"required": false,
+				"description": "Debounce applied before `onSearch` fires. Default 300 ms; `0` fires on every keystroke."
+			},
+			{
+				"name": "shouldFilter",
+				"type": "boolean",
+				"required": false,
+				"description": "Client-side filtering. Defaults to off in async mode, on otherwise — set it to override."
+			},
+			{
+				"name": "loading",
+				"type": "boolean",
+				"required": false,
+				"description": "Renders a spinner in the list. Also gates `onLoadMore`, so paging cannot stack requests."
+			},
+			{
+				"name": "loadingMessage",
+				"type": "string",
+				"required": false,
+				"description": "Shown in place of `emptyMessage` while `loading` and the list is empty."
+			},
+			{
+				"name": "hasMore",
+				"type": "boolean",
+				"required": false,
+				"description": "Set false once the server has no further pages; stops `onLoadMore` firing. Default true."
+			},
+			{
+				"name": "selectedOption",
+				"type": "ComboboxOption<TData>",
+				"required": false,
+				"description": "The selected option, for when it is not in the current page of `options` — an async list that has been searched or paged past the selection would otherwise show the raw value on the trigger."
+			},
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": false,
+				"description": "Accessible name, when no visible label points at the trigger. /\n\t\"aria-label\"?: string;\n\t/  Id of the visible label naming this combobox. /\n\t\"aria-labelledby\"?: string;\n\t/  Id of the hint or error line describing this combobox. /\n\t\"aria-describedby\"?: string;\n\t/  Marks the trigger invalid to assistive tech. Pair it with the field's error text. /\n\t\"aria-invalid\"?: boolean;\n\n\t// ── Popover ─────────────────────────────────────────────────────────────────\n\n\t/   Controls the popover. Omit it and the combobox opens and closes itself, as before; pass it with `onOpenChange` and the caller owns the state — for a form that must keep the list open across a re-render, or a test that wants it open on mount."
+			},
+			{
+				"name": "modal",
+				"type": "boolean",
+				"required": false,
+				"description": "Makes the popover its own modal layer: it takes `pointer-events` from everything beneath and traps focus. Off by default. Inside a `Dialog` you should not need it — the popover already renders inside the dialog (see `container`) — so reach for it only for a popover that must sit above a non-Radix overlay of the host's own."
+			},
+			{
+				"name": "container",
+				"type": "HTMLElement | null",
+				"required": false,
+				"description": "Where the popover is portalled. Defaults to the enclosing `DialogContent` when there is one and `document.body` otherwise, which is what keeps the list clickable inside a dialog (issue #294). Pass an element to override that, or `null` to force `document.body`."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			}
+		],
+		"usage": [
+			"Use Combobox when you need to collect user input or allow users to make selections. This component provides a consistent interaction pattern that users will find familiar and accessible.",
+			"Combobox should be used within forms or interactive interfaces where user data collection is required. Ensure proper labeling and validation feedback for accessibility. Avoid using this component for read-only or display-only content."
+		],
+		"anatomy": {
+			"description": "Combobox is composed of the following parts:",
+			"parts": [
+				{
+					"name": "Combobox",
+					"description": "Root Combobox element."
+				},
+				{
+					"name": "ComboboxContent",
+					"description": "Content area of the Combobox."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<Combobox variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<Combobox className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<Combobox aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<Combobox /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<Combobox loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<Combobox>{data.value}</Combobox> // Crashes if data is undefined"
+			}
+		]
 	}
 }

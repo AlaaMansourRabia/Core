@@ -28,5 +28,106 @@
 			"library-index.json#ObjectDrawingToolbar"
 		],
 		"authoredBy": "object-drawing-toolbar authoring (2026-07)"
+	},
+	"docs": {
+		"usage": [
+			"Use ObjectDrawingToolbar to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"ObjectDrawingToolbar integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "defaultEditing",
+				"type": "boolean",
+				"required": false,
+				"description": "Canvas mode: `true` = Editing (draw/modify), `false` = Viewing (pan/zoom)."
+			},
+			{
+				"name": "defaultTool",
+				"type": "DrawingTool",
+				"required": false,
+				"description": "The active drawing tool."
+			},
+			{
+				"name": "defaultFillColor",
+				"type": "string",
+				"required": false,
+				"description": "Current fill color."
+			},
+			{
+				"name": "defaultStrokeColor",
+				"type": "string",
+				"required": false,
+				"description": "Current stroke color."
+			},
+			{
+				"name": "defaultOpacity",
+				"type": "number",
+				"required": false,
+				"description": "Object opacity, 0–100."
+			},
+			{
+				"name": "defaultAngleSnap",
+				"type": "boolean",
+				"required": false,
+				"description": "Snap-to-90° toggle."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "ObjectDrawingToolbar is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ObjectDrawingToolbar",
+					"description": "Root ObjectDrawingToolbar element."
+				},
+				{
+					"name": "ObjectDrawingToolbarContent",
+					"description": "Content area of the ObjectDrawingToolbar."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<ObjectDrawingToolbar variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<ObjectDrawingToolbar className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<ObjectDrawingToolbar aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<ObjectDrawingToolbar /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<ObjectDrawingToolbar loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<ObjectDrawingToolbar>{data.value}</ObjectDrawingToolbar> // Crashes if data is undefined"
+			}
+		]
 	}
 }

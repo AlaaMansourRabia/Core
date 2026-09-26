@@ -45,5 +45,100 @@
 		"notes": [
 			"authored during the develop merge reconciliation"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "left",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Left cluster — typically a `Breadcrumb`. Takes the free width and stays on a single line."
+			},
+			{
+				"name": "center",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Optional centered cluster (e.g. a title or a segmented control)."
+			},
+			{
+				"name": "right",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Right cluster actions (e.g. a full-screen `Button`), placed after the built-in `weekSelector`."
+			},
+			{
+				"name": "weekSelector",
+				"type": "WeekSelectorProps",
+				"required": false,
+				"description": "A built-in period selector at the start of the right cluster. Pass the WeekSelector's props; it renders `bare` so it sits flush in the bar. The canvas header and a period selector are paired frequently, so this composes them for you (override the layout with the `right` slot instead)."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLDivElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		],
+		"usage": [
+			"Use CanvasHeader to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"CanvasHeader integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "CanvasHeader is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CanvasHeader",
+					"description": "Root CanvasHeader element."
+				},
+				{
+					"name": "CanvasHeaderContent",
+					"description": "Content area of the CanvasHeader."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CanvasHeader variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CanvasHeader className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CanvasHeader aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CanvasHeader /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CanvasHeader loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CanvasHeader>{data.value}</CanvasHeader> // Crashes if data is undefined"
+			}
+		]
 	}
 }

@@ -29,10 +29,22 @@
 	"pairsWith": [],
 	"requiredProviders": [],
 	"configSchema": {
-		"tabs": {"type": "ViewTabItem[]", "required": true},
-		"activeTab": {"type": "string", "required": true},
-		"onTabChange": {"type": "(tab: string) => void", "required": true},
-		"surface": {"type": "transparent | card", "default": "transparent"}
+		"tabs": {
+			"type": "ViewTabItem[]",
+			"required": true
+		},
+		"activeTab": {
+			"type": "string",
+			"required": true
+		},
+		"onTabChange": {
+			"type": "(tab: string) => void",
+			"required": true
+		},
+		"surface": {
+			"type": "transparent | card",
+			"default": "transparent"
+		}
 	},
 	"commonMistakes": [
 		{
@@ -68,6 +80,129 @@
 		"lastValidated": "2026-07-05",
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
+		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "tabs",
+				"type": "readonly ViewTabItem<T>[]",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "activeTab",
+				"type": "T",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "variant",
+				"type": "ViewTabBarVariant",
+				"required": false,
+				"description": "Visual style. Default `underline`."
+			},
+			{
+				"name": "surface",
+				"type": "\"transparent\" | \"card\"",
+				"required": false,
+				"description": "`underline` only — background surface. Use `transparent` in page/route headers and `card` in contained panels."
+			},
+			{
+				"name": "fill",
+				"type": "boolean",
+				"required": false,
+				"description": "`underline` only — stretch each tab to the full height of the bar's container and vertically center its label. Use inside a fixed-height header row so the tab text lines up with the header's other text while the active underline drops to the container's bottom edge (the shared divider)."
+			},
+			{
+				"name": "weekSelector",
+				"type": "WeekSelectorProps",
+				"required": false,
+				"description": "`segmented` only — a WeekSelector rendered on the right of the toolbar (period navigation). Pass the WeekSelector's props; it renders `bare` by default so it sits flush in the bar (override with `bare`). The view switcher and the period selector are paired frequently, so this variant builds them together."
+			},
+			{
+				"name": "trailing",
+				"type": "ReactNode",
+				"required": false,
+				"description": "`segmented` only — extra content on the right of the toolbar (e.g. action buttons)."
+			},
+			{
+				"name": "labels",
+				"type": "\"show\" | \"hide\" | \"responsive\"",
+				"required": false,
+				"description": "How tab labels show alongside their icon: - `show` (default) — icon + text. - `hide` — icon only; the label moves to a hover tooltip (requires each tab to have an `icon`). - `responsive` — text hides below the `@5xl` container breakpoint (icon only when narrow), with a tooltip standing in. Use inside a `@container` header so it collapses as the header narrows."
+			},
+			{
+				"name": "wrap",
+				"type": "boolean",
+				"required": false,
+				"description": "`underline` only — let tabs wrap onto multiple lines instead of overflowing (never scrolls)."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"usage": [
+			"Use ViewTabBar to help users navigate through your application or content hierarchy. This component provides clear wayfinding and helps users understand their current location within the interface.",
+			"ViewTabBar is ideal for multi-page applications, content-heavy interfaces, or any situation where users need to move between different sections. Keep navigation patterns consistent across your application for better user experience."
+		],
+		"anatomy": {
+			"description": "ViewTabBar is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ViewTabBarList",
+					"description": "Container for tab triggers."
+				},
+				{
+					"name": "ViewTabBarTrigger",
+					"description": "Individual tab button."
+				},
+				{
+					"name": "ViewTabBarContent",
+					"description": "Content panel for active tab."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Keep tabs concise",
+				"description": "Use short, descriptive labels for tab triggers.",
+				"example": "<ViewTabBarTrigger>Overview</ViewTabBarTrigger>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't use long tab labels",
+				"description": "Avoid lengthy text that causes tabs to wrap or overflow.",
+				"example": "<ViewTabBarTrigger>Detailed Configuration Settings</ViewTabBarTrigger>"
+			},
+			{
+				"type": "do",
+				"title": "Maintain content relationship",
+				"description": "Ensure tab content is clearly related to the tab label.",
+				"example": "<ViewTabBarTrigger value=\"settings\">Settings</ViewTabBarTrigger>\n<ViewTabBarContent value=\"settings\">Settings panel</ViewTabBarContent>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't use for navigation",
+				"description": "Use proper navigation components for page-level routing.",
+				"example": "// Tabs for page navigation"
+			},
+			{
+				"type": "do",
+				"title": "Show active state clearly",
+				"description": "Make the selected tab visually distinct from others.",
+				"example": "<ViewTabBarTrigger active>Active tab</ViewTabBarTrigger>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't hide the active indicator",
+				"description": "Always show which tab is currently selected.",
+				"example": "// No visual active state"
+			}
 		]
 	}
 }

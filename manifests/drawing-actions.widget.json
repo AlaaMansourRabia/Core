@@ -49,5 +49,113 @@
 			"pilot: false",
 			"knowledgeRefs: [\"library-index.json#DrawingActions\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use DrawingActions when you need to provide clear, actionable controls for users. This component signals interactive elements and helps users understand available actions.",
+			"DrawingActions should be used for primary actions, secondary actions, or any clickable elements that trigger functionality. Ensure adequate spacing between action elements and use appropriate visual hierarchy to indicate action importance."
+		],
+		"props": [
+			{
+				"name": "activeTool",
+				"type": "DrawingToolId",
+				"required": false,
+				"description": "Currently active drawing tool."
+			},
+			{
+				"name": "shapeKind",
+				"type": "ShapeKind",
+				"required": false,
+				"description": "Selected sub-tool for the Shape group."
+			},
+			{
+				"name": "lineKind",
+				"type": "LineKind",
+				"required": false,
+				"description": "Selected sub-tool for the Line group."
+			},
+			{
+				"name": "pinKind",
+				"type": "PinKind",
+				"required": false,
+				"description": "Selected sub-tool for the Pin group."
+			},
+			{
+				"name": "canUndo",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "canRedo",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "DrawingActions is composed of the following parts:",
+			"parts": [
+				{
+					"name": "DrawingActions",
+					"description": "Root DrawingActions element."
+				},
+				{
+					"name": "DrawingActionsContent",
+					"description": "Content area of the DrawingActions."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use clear action labels",
+				"description": "Write button text that clearly describes the action, like 'Save changes' or 'Delete item'.",
+				"example": "<DrawingActions>Save changes</DrawingActions>"
+			},
+			{
+				"type": "dont",
+				"title": "Avoid vague labels",
+				"description": "Don't use generic text like 'Click here' or 'Submit' without context.",
+				"example": "<DrawingActions>Click here</DrawingActions>"
+			},
+			{
+				"type": "do",
+				"title": "Use appropriate variants",
+				"description": "Choose button variants that match the action importance - primary for main actions, secondary for alternatives.",
+				"example": "<DrawingActions variant=\"primary\">Confirm</DrawingActions>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overuse primary buttons",
+				"description": "Avoid having multiple primary buttons in the same view, which creates visual confusion.",
+				"example": "<DrawingActions variant=\"primary\">Save</DrawingActions>\n<DrawingActions variant=\"primary\">Cancel</DrawingActions>"
+			},
+			{
+				"type": "do",
+				"title": "Handle loading states",
+				"description": "Show loading indicators when actions take time to complete.",
+				"example": "<DrawingActions loading>Processing...</DrawingActions>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't block without feedback",
+				"description": "Never disable a button during processing without showing a loading state.",
+				"example": "<DrawingActions disabled>Submit</DrawingActions>"
+			}
+		]
 	}
 }

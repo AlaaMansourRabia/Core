@@ -1,0 +1,88 @@
+{
+	"id": "status-dot",
+	"name": "StatusDot",
+	"type": "component",
+	"source": {
+		"path": "packages/components/src/status-dot.tsx",
+		"import": "@corensystem/coren-ui/status-dot",
+		"export": "StatusDot"
+	},
+	"docs": {
+		"summary": "StatusDot component for building user interfaces.",
+		"usage": [
+			"Use StatusDot to communicate status or feedback to users. This component provides visual indicators that help users understand the current state or outcome.",
+			"StatusDot is effective for showing status, progress, or results. Use it consistently throughout your application to maintain clear communication patterns."
+		],
+		"anatomy": {
+			"description": "StatusDot is composed of the following parts:",
+			"parts": [
+				{
+					"name": "StatusDot",
+					"description": "Root StatusDot element."
+				},
+				{
+					"name": "StatusDotContent",
+					"description": "Content area of the StatusDot."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use appropriate severity",
+				"description": "Match the status-dot visual style to the message importance.",
+				"example": "<StatusDot variant=\"success\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overuse",
+				"description": "Avoid showing too many status-dot instances at once.",
+				"example": "Multiple instances stacked"
+			},
+			{
+				"type": "do",
+				"title": "Provide context",
+				"description": "Include clear, actionable information in the status-dot.",
+				"example": "<StatusDot>File saved successfully</StatusDot>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't hide critical info",
+				"description": "Never auto-dismiss important messages.",
+				"example": "Auto-hiding error messages"
+			},
+			{
+				"type": "do",
+				"title": "Maintain consistency",
+				"description": "Use the same patterns throughout your application.",
+				"example": "Consistent styling and placement"
+			},
+			{
+				"type": "dont",
+				"title": "Don't mix styles",
+				"description": "Avoid inconsistent visual treatments.",
+				"example": "Different colors for same severity"
+			}
+		],
+		"props": [
+			{
+				"name": "label",
+				"type": "string",
+				"required": false,
+				"description": "Accessible label describing the status"
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLSpanElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		]
+	}
+}

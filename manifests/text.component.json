@@ -1,0 +1,102 @@
+{
+	"id": "text",
+	"name": "Text",
+	"type": "component",
+	"source": {
+		"path": "packages/components/src/text.tsx",
+		"import": "@corensystem/coren-ui/text",
+		"export": "Text"
+	},
+	"docs": {
+		"summary": "Text component for building user interfaces.",
+		"usage": [
+			"Use Text to present information or content to users. This component helps display data in a clear, readable format.",
+			"Text is effective for rendering content, text, or data. Use it consistently to maintain a cohesive visual language."
+		],
+		"anatomy": {
+			"description": "Text is composed of the following parts:",
+			"parts": [
+				{
+					"name": "Text",
+					"description": "Root Text element."
+				},
+				{
+					"name": "TextContent",
+					"description": "Content area of the Text."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<Text variant=\"primary\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override styles",
+				"description": "Avoid using className to override fundamental styling.",
+				"example": "<Text className=\"custom-bg\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<Text aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<Text /> without labels"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<Text loading={isLoading} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing.",
+				"example": "Unhandled undefined data"
+			}
+		],
+		"props": [
+			{
+				"name": "variant",
+				"type": "\"default\" | \"muted\" | \"accent\" | \"error\" | \"success\"",
+				"default": "\"default\"",
+				"required": false,
+				"description": "Visual style variant."
+			},
+			{
+				"name": "size",
+				"type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+				"default": "\"md\"",
+				"required": false,
+				"description": "Size variant."
+			},
+			{
+				"name": "as",
+				"type": "\"p\" | \"span\" | \"div\" | \"label\"",
+				"required": false,
+				"description": "Render as a different HTML element"
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "...props",
+				"type": "React.HTMLAttributes<HTMLElement>",
+				"required": false,
+				"description": "All standard HTML attributes are supported."
+			}
+		]
+	}
+}

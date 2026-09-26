@@ -60,5 +60,112 @@
 			"pilot: false",
 			"knowledgeRefs: [\"library-index.json#CalendarView\"]"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use CalendarView to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"CalendarView integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"props": [
+			{
+				"name": "month",
+				"type": "Date",
+				"required": false,
+				"description": "Controls which month is visible. Pair with onMonthChange."
+			},
+			{
+				"name": "defaultMonth",
+				"type": "Date",
+				"required": false,
+				"description": "Initial month for uncontrolled use. Defaults to today's month."
+			},
+			{
+				"name": "today",
+				"type": "Date",
+				"required": false,
+				"description": "Day to highlight as \"today\". Defaults to new Date()."
+			},
+			{
+				"name": "weekStartsOn",
+				"type": "0 | 1 | 2 | 3 | 4 | 5 | 6",
+				"required": false,
+				"description": "Day-of-week the grid starts on. Defaults to Monday (1)."
+			},
+			{
+				"name": "events",
+				"type": "CalendarEvent[]",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "addItemLabel",
+				"type": "string",
+				"required": false,
+				"description": "Label for the add-item affordance. Defaults to \"Add work item\"."
+			},
+			{
+				"name": "headerActions",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Slot rendered on the right side of the header (next to \"Today\"). Use for an Options dropdown, view-mode switcher, etc."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"anatomy": {
+			"description": "CalendarView is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CalendarView",
+					"description": "Root CalendarView element."
+				},
+				{
+					"name": "CalendarViewContent",
+					"description": "Content area of the CalendarView."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CalendarView variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CalendarView className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CalendarView aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CalendarView /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CalendarView loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CalendarView>{data.value}</CalendarView> // Crashes if data is undefined"
+			}
+		]
 	}
 }

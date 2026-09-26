@@ -44,5 +44,112 @@
 		"notes": [
 			"authored during the develop merge reconciliation"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "plan",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "The whole floor-plan thumbnail. Fills the preview; drawn behind the route."
+			},
+			{
+				"name": "points",
+				"type": "CapturePoint[]",
+				"required": true,
+				"description": "The ordered capture points that make up the walk."
+			},
+			{
+				"name": "activeId",
+				"type": "string",
+				"required": false,
+				"description": "Id of the currently-open / highlighted point."
+			},
+			{
+				"name": "label",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Header label above the preview."
+			},
+			{
+				"name": "minWidth",
+				"type": "number",
+				"required": false,
+				"description": "Smallest / largest width (px) the viewer can be dragged to. Defaults 120 / 480."
+			},
+			{
+				"name": "maxWidth",
+				"type": "number",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "defaultCollapsed",
+				"type": "boolean",
+				"required": false,
+				"description": "Start collapsed to the map-icon button. Default false."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"usage": [
+			"Use CaptureRouteMinimap to enhance your user interface. This component provides a consistent, accessible, and well-designed solution for this use case.",
+			"CaptureRouteMinimap integrates seamlessly with other components in the design system. Follow the established patterns and guidelines to ensure consistency across your application."
+		],
+		"anatomy": {
+			"description": "CaptureRouteMinimap is composed of the following parts:",
+			"parts": [
+				{
+					"name": "CaptureRouteMinimap",
+					"description": "Root CaptureRouteMinimap element."
+				},
+				{
+					"name": "CaptureRouteMinimapContent",
+					"description": "Content area of the CaptureRouteMinimap."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<CaptureRouteMinimap variant=\"primary\" size=\"lg\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override core styles",
+				"description": "Avoid using className to override the component's fundamental styling.",
+				"example": "<CaptureRouteMinimap className=\"custom-bg-color\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<CaptureRouteMinimap aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<CaptureRouteMinimap /> // No aria-label"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<CaptureRouteMinimap loading={isLoading} error={error} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing or loading.",
+				"example": "<CaptureRouteMinimap>{data.value}</CaptureRouteMinimap> // Crashes if data is undefined"
+			}
+		]
 	}
 }

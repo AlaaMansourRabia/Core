@@ -45,5 +45,112 @@
 		"notes": [
 			"authored during the develop merge reconciliation"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "variant",
+				"type": "ProgressListItemVariant",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "title",
+				"type": "string",
+				"required": true,
+				"description": "Primary bold identifier — the level's name."
+			},
+			{
+				"name": "subtitle",
+				"type": "string",
+				"required": false,
+				"description": "Secondary muted text — the WBS code, shown beneath the name."
+			},
+			{
+				"name": "badge",
+				"type": "ProgressListItemBadge",
+				"required": false,
+				"description": "Schedule / status badge shown beside the identifier."
+			},
+			{
+				"name": "metrics",
+				"type": "ProgressMetric[]",
+				"required": false,
+				"description": "Earned-value metric strip (BAC / EV / PV / SV …)."
+			},
+			{
+				"name": "progress",
+				"type": "number",
+				"required": false,
+				"description": "Completion percentage → a progress bar + percentage on the right."
+			},
+			{
+				"name": "tools",
+				"type": "number",
+				"required": false,
+				"description": "Linked-tool count, shown with the tree icon."
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		],
+		"usage": [
+			"Use ProgressListItem to display structured data or visualizations. This component helps users understand and interact with complex information sets.",
+			"ProgressListItem is ideal for dashboards, reports, and data-heavy interfaces. Ensure data is presented clearly and consider responsive behavior for different screen sizes. Provide appropriate loading states for async data."
+		],
+		"anatomy": {
+			"description": "ProgressListItem is composed of the following parts:",
+			"parts": [
+				{
+					"name": "ProgressListItem",
+					"description": "Root container for the list."
+				},
+				{
+					"name": "ProgressListItemItem",
+					"description": "Individual list item element."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use consistent item spacing",
+				"description": "Maintain uniform gaps between list items for visual rhythm.",
+				"example": "<ProgressListItem gap=\"md\">\n  <ProgressListItemItem>One</ProgressListItemItem>\n  <ProgressListItemItem>Two</ProgressListItemItem>\n</ProgressListItem>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't vary item spacing",
+				"description": "Avoid inconsistent gaps that create visual confusion.",
+				"example": "<ProgressListItemItem className=\"mb-1\" />\n<ProgressListItemItem className=\"mb-4\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide loading states",
+				"description": "Show skeleton loaders while list data is being fetched.",
+				"example": "<ProgressListItem loading>\n  <ProgressListItemSkeleton />\n</ProgressListItem>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't show empty state unexpectedly",
+				"description": "Always indicate loading vs empty to avoid confusing users.",
+				"example": "// Blank list while loading"
+			},
+			{
+				"type": "do",
+				"title": "Support keyboard navigation",
+				"description": "Enable arrow key navigation through list items.",
+				"example": "<ProgressListItem onKeyDown={handleArrowKeys}>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't break navigation flow",
+				"description": "Avoid interactive elements that trap focus within items.",
+				"example": "// Nested focusable causing tab trap"
+			}
+		]
 	}
 }

@@ -144,5 +144,116 @@
 			"Already an exported component with a typed props interface and no fixture coupling — this manifest is the only thing that was missing.",
 			"pilot: true"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use NewActionTypeDialog when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions, confirmations, or supplementary information.",
+			"NewActionTypeDialog should be used sparingly as overlays interrupt the user's workflow. Reserve this component for important interactions that require user attention or action before continuing."
+		],
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "objectTypes",
+				"type": "{id: string",
+				"required": true,
+				"description": "Object types offered to objectRef parameters and to the object rules."
+			},
+			{
+				"name": "label",
+				"type": "string",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "asChild",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Render as child element, merging props and behavior."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "NewActionTypeDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "NewActionTypeDialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "NewActionTypeDialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "NewActionTypeDialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "NewActionTypeDialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use clear action labels",
+				"description": "Write button text that clearly describes the action, like 'Save changes' or 'Delete item'.",
+				"example": "<NewActionTypeDialog>Save changes</NewActionTypeDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Avoid vague labels",
+				"description": "Don't use generic text like 'Click here' or 'Submit' without context.",
+				"example": "<NewActionTypeDialog>Click here</NewActionTypeDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Use appropriate variants",
+				"description": "Choose button variants that match the action importance - primary for main actions, secondary for alternatives.",
+				"example": "<NewActionTypeDialog variant=\"primary\">Confirm</NewActionTypeDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overuse primary buttons",
+				"description": "Avoid having multiple primary buttons in the same view, which creates visual confusion.",
+				"example": "<NewActionTypeDialog variant=\"primary\">Save</NewActionTypeDialog>\n<NewActionTypeDialog variant=\"primary\">Cancel</NewActionTypeDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Handle loading states",
+				"description": "Show loading indicators when actions take time to complete.",
+				"example": "<NewActionTypeDialog loading>Processing...</NewActionTypeDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't block without feedback",
+				"description": "Never disable a button during processing without showing a loading state.",
+				"example": "<NewActionTypeDialog disabled>Submit</NewActionTypeDialog>"
+			}
+		]
 	}
 }

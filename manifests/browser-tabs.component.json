@@ -49,5 +49,105 @@
 		"notes": [
 			"migrated from library-index.json (hand-authored catalog entry)"
 		]
+	},
+	"docs": {
+		"props": [
+			{
+				"name": "tabs",
+				"type": "BrowserTabItem[]",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "activeId",
+				"type": "string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "closeable",
+				"type": "boolean",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "trailing",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"usage": [
+			"Use BrowserTabs to help users navigate through your application or content hierarchy. This component provides clear wayfinding and helps users understand their current location within the interface.",
+			"BrowserTabs is ideal for multi-page applications, content-heavy interfaces, or any situation where users need to move between different sections. Keep navigation patterns consistent across your application for better user experience."
+		],
+		"anatomy": {
+			"description": "BrowserTabs is composed of the following parts:",
+			"parts": [
+				{
+					"name": "BrowserTabsList",
+					"description": "Container for tab triggers."
+				},
+				{
+					"name": "BrowserTabsTrigger",
+					"description": "Individual tab button."
+				},
+				{
+					"name": "BrowserTabsContent",
+					"description": "Content panel for active tab."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Keep tabs concise",
+				"description": "Use short, descriptive labels for tab triggers.",
+				"example": "<BrowserTabsTrigger>Overview</BrowserTabsTrigger>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't use long tab labels",
+				"description": "Avoid lengthy text that causes tabs to wrap or overflow.",
+				"example": "<BrowserTabsTrigger>Detailed Configuration Settings</BrowserTabsTrigger>"
+			},
+			{
+				"type": "do",
+				"title": "Maintain content relationship",
+				"description": "Ensure tab content is clearly related to the tab label.",
+				"example": "<BrowserTabsTrigger value=\"settings\">Settings</BrowserTabsTrigger>\n<BrowserTabsContent value=\"settings\">Settings panel</BrowserTabsContent>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't use for navigation",
+				"description": "Use proper navigation components for page-level routing.",
+				"example": "// Tabs for page navigation"
+			},
+			{
+				"type": "do",
+				"title": "Show active state clearly",
+				"description": "Make the selected tab visually distinct from others.",
+				"example": "<BrowserTabsTrigger active>Active tab</BrowserTabsTrigger>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't hide the active indicator",
+				"description": "Always show which tab is currently selected.",
+				"example": "// No visual active state"
+			}
+		]
 	}
 }

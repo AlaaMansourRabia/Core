@@ -139,5 +139,121 @@
 			"Already an exported component with a typed props interface and no fixture coupling — this manifest is the only thing that was missing.",
 			"pilot: true"
 		]
+	},
+	"docs": {
+		"usage": [
+			"Use NewLinkTypeDialog to help users navigate through your application or content hierarchy. This component provides clear wayfinding and helps users understand their current location within the interface.",
+			"NewLinkTypeDialog is ideal for multi-page applications, content-heavy interfaces, or any situation where users need to move between different sections. Keep navigation patterns consistent across your application for better user experience."
+		],
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": true,
+				"description": ""
+			},
+			{
+				"name": "objectTypes",
+				"type": "LinkTypeObjectOption[]",
+				"required": true,
+				"description": "Object types selectable on either side. The first two seed the initial draft."
+			},
+			{
+				"name": "fkPropertiesFor",
+				"type": "(objectTypeId: string) => string[]",
+				"required": false,
+				"description": "Foreign-key candidates on side A. Given side A's id so the host can scope them."
+			},
+			{
+				"name": "targetPrimaryKeyFor",
+				"type": "(objectTypeId: string) => string",
+				"required": false,
+				"description": "Target primary key on side B, shown read-only next to the FK picker."
+			},
+			{
+				"name": "cardinalities",
+				"type": "{value: string",
+				"required": false,
+				"description": ""
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Child elements to render."
+			},
+			{
+				"name": "disabled",
+				"type": "boolean",
+				"default": "false",
+				"required": false,
+				"description": "Whether the component is disabled."
+			}
+		],
+		"anatomy": {
+			"description": "NewLinkTypeDialog is composed of the following parts:",
+			"parts": [
+				{
+					"name": "NewLinkTypeDialogTrigger",
+					"description": "Element that opens the dialog when activated."
+				},
+				{
+					"name": "NewLinkTypeDialogContent",
+					"description": "Container for the dialog content and overlay."
+				},
+				{
+					"name": "NewLinkTypeDialogHeader",
+					"description": "Header section containing title and description."
+				},
+				{
+					"name": "NewLinkTypeDialogFooter",
+					"description": "Footer section for action buttons."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Focus management",
+				"description": "Trap focus within the dialog and return focus when closed.",
+				"example": "<NewLinkTypeDialog>\n  <NewLinkTypeDialogContent>\n    <button autoFocus>First action</button>\n  </NewLinkTypeDialogContent>\n</NewLinkTypeDialog>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't nest dialogs",
+				"description": "Avoid opening dialogs from within dialogs, use sequential flow instead.",
+				"example": "<NewLinkTypeDialog>\n  <NewLinkTypeDialog nested />\n</NewLinkTypeDialog>"
+			},
+			{
+				"type": "do",
+				"title": "Provide clear exit",
+				"description": "Always include a visible close button and support Escape key.",
+				"example": "<NewLinkTypeDialogClose>×</NewLinkTypeDialogClose>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't trap users",
+				"description": "Never make dialogs impossible to close or require specific actions to dismiss.",
+				"example": "// No close button or escape handling"
+			},
+			{
+				"type": "do",
+				"title": "Keep content focused",
+				"description": "Limit dialog content to a single task or decision.",
+				"example": "<NewLinkTypeDialogTitle>Confirm deletion</NewLinkTypeDialogTitle>"
+			},
+			{
+				"type": "dont",
+				"title": "Don't overload dialogs",
+				"description": "Avoid putting complex forms or multiple tasks in a single dialog.",
+				"example": "// Multi-step form in dialog"
+			}
+		]
 	}
 }

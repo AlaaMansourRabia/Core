@@ -1,0 +1,112 @@
+{
+	"id": "bottom-sheet",
+	"name": "BottomSheet",
+	"type": "component",
+	"source": {
+		"path": "packages/components/src/bottom-sheet.tsx",
+		"import": "@corensystem/coren-ui/bottom-sheet",
+		"export": "BottomSheet"
+	},
+	"docs": {
+		"summary": "BottomSheet component for building user interfaces.",
+		"usage": [
+			"Use BottomSheet when you need to display content that temporarily overlays the main interface. This component is useful for focused interactions or supplementary information.",
+			"BottomSheet should be used sparingly as overlays interrupt the user's workflow. Reserve for important interactions that require user attention."
+		],
+		"anatomy": {
+			"description": "BottomSheet is composed of the following parts:",
+			"parts": [
+				{
+					"name": "BottomSheet",
+					"description": "Root BottomSheet element."
+				},
+				{
+					"name": "BottomSheetContent",
+					"description": "Content area of the BottomSheet."
+				}
+			]
+		},
+		"bestPractices": [
+			{
+				"type": "do",
+				"title": "Use semantic props",
+				"description": "Use the component's built-in props rather than className overrides.",
+				"example": "<BottomSheet variant=\"primary\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't override styles",
+				"description": "Avoid using className to override fundamental styling.",
+				"example": "<BottomSheet className=\"custom-bg\" />"
+			},
+			{
+				"type": "do",
+				"title": "Provide accessible labels",
+				"description": "Include proper ARIA labels for screen reader users.",
+				"example": "<BottomSheet aria-label=\"Description\" />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't skip accessibility",
+				"description": "Never omit accessibility attributes for interactive components.",
+				"example": "<BottomSheet /> without labels"
+			},
+			{
+				"type": "do",
+				"title": "Handle all states",
+				"description": "Account for loading, error, empty, and success states.",
+				"example": "<BottomSheet loading={isLoading} />"
+			},
+			{
+				"type": "dont",
+				"title": "Don't ignore edge cases",
+				"description": "Avoid showing broken UI when data is missing.",
+				"example": "Unhandled undefined data"
+			}
+		],
+		"props": [
+			{
+				"name": "open",
+				"type": "boolean",
+				"required": true,
+				"description": "Whether the bottom sheet is open"
+			},
+			{
+				"name": "children",
+				"type": "React.ReactNode",
+				"required": true,
+				"description": "Sheet content"
+			},
+			{
+				"name": "title",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Sheet title"
+			},
+			{
+				"name": "description",
+				"type": "React.ReactNode",
+				"required": false,
+				"description": "Sheet description"
+			},
+			{
+				"name": "height",
+				"type": "\"auto\" | \"full\" | \"half\" | \"third\"",
+				"required": false,
+				"description": "Height of the sheet - can be 'auto', 'full', or a percentage"
+			},
+			{
+				"name": "swipeable",
+				"type": "boolean",
+				"required": false,
+				"description": "Allow swipe to close"
+			},
+			{
+				"name": "className",
+				"type": "string",
+				"required": false,
+				"description": "Additional CSS classes to apply."
+			}
+		]
+	}
+}
