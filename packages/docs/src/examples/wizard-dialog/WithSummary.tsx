@@ -1,31 +1,39 @@
-import {Button} from "@corensystem/coren-ui/button";
 /**
- * Wizard with review step.
+ * Wizard with final summary step.
  */
-import {
-	WizardDialog,
-	WizardDialogTrigger,
-	WizardDialogContent,
-	WizardStep,
-	WizardSummary,
-} from "@corensystem/coren-ui/wizard-dialog";
+import type {WizardStep} from "@corensystem/coren-ui/wizard-dialog";
+
+import {Button} from "@corensystem/coren-ui/button";
+import {WizardDialog} from "@corensystem/coren-ui/wizard-dialog";
+import {useState} from "react";
+
+const steps: WizardStep[] = [
+	{label: "Details", content: <p>Enter your details.</p>},
+	{label: "Options", content: <p>Select your options.</p>},
+	{
+		label: "Summary",
+		content: (
+			<div>
+				<h4 className="wwc:font-medium">Summary</h4>
+				<p>Review your selections before completing.</p>
+			</div>
+		),
+	},
+];
 
 export function WithSummary() {
+	const [open, setOpen] = useState(false);
 	return (
-		<WizardDialog>
-			<WizardDialogTrigger asChild>
-				<Button>Configure</Button>
-			</WizardDialogTrigger>
-			<WizardDialogContent>
-				<WizardStep title="Settings">
-					<p>Configure your settings.</p>
-				</WizardStep>
-				<WizardStep title="Review">
-					<WizardSummary>
-						<p>Review your selections before confirming.</p>
-					</WizardSummary>
-				</WizardStep>
-			</WizardDialogContent>
-		</WizardDialog>
+		<>
+			<Button onClick={() => setOpen(true)}>Open Wizard</Button>
+			<WizardDialog
+				open={open}
+				onOpenChange={setOpen}
+				title="Configuration Wizard"
+				steps={steps}
+				submitLabel="Submit"
+				onSubmit={() => setOpen(false)}
+			/>
+		</>
 	);
 }

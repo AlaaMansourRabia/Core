@@ -1,33 +1,32 @@
-import {Button} from "@corensystem/coren-ui/button";
 /**
- * Wizard with progress indicator.
+ * Wizard dialog with progress indicator.
  */
-import {
-	WizardDialog,
-	WizardDialogTrigger,
-	WizardDialogContent,
-	WizardStep,
-	WizardProgress,
-} from "@corensystem/coren-ui/wizard-dialog";
+import type {WizardStep} from "@corensystem/coren-ui/wizard-dialog";
+
+import {Button} from "@corensystem/coren-ui/button";
+import {WizardDialog} from "@corensystem/coren-ui/wizard-dialog";
+import {useState} from "react";
+
+const steps: WizardStep[] = [
+	{label: "Account", content: <p>Set up your account details.</p>},
+	{label: "Profile", content: <p>Complete your profile information.</p>},
+	{label: "Preferences", content: <p>Configure your preferences.</p>},
+	{label: "Confirm", content: <p>Review and confirm your setup.</p>},
+];
 
 export function WithProgress() {
+	const [open, setOpen] = useState(false);
 	return (
-		<WizardDialog>
-			<WizardDialogTrigger asChild>
-				<Button>Setup Account</Button>
-			</WizardDialogTrigger>
-			<WizardDialogContent>
-				<WizardProgress />
-				<WizardStep title="Account">
-					<p>Enter your account details.</p>
-				</WizardStep>
-				<WizardStep title="Profile">
-					<p>Complete your profile.</p>
-				</WizardStep>
-				<WizardStep title="Preferences">
-					<p>Set your preferences.</p>
-				</WizardStep>
-			</WizardDialogContent>
-		</WizardDialog>
+		<>
+			<Button onClick={() => setOpen(true)}>Open Wizard</Button>
+			<WizardDialog
+				open={open}
+				onOpenChange={setOpen}
+				title="Account Setup"
+				steps={steps}
+				submitLabel="Submit"
+				onSubmit={() => setOpen(false)}
+			/>
+		</>
 	);
 }
