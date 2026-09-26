@@ -22,7 +22,9 @@ export function WithSorting() {
 			<DataTableHeader>
 				<DataTableRow>
 					<DataTableHead sortable>Name</DataTableHead>
-					<DataTableHead sortable sortDirection="desc">Sales</DataTableHead>
+					<DataTableHead sortable sortDirection="desc">
+						Sales
+					</DataTableHead>
 					<DataTableHead sortable>Date</DataTableHead>
 				</DataTableRow>
 			</DataTableHeader>

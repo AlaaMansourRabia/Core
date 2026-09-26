@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Icons inside buttons.
  */
 import {Icon} from "@corensystem/coren-ui/icon";
-import {Button} from "@corensystem/coren-ui/button";
 import {Plus, Download, Send} from "lucide-react";
 
 export function InButton() {

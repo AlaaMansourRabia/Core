@@ -1,7 +1,11 @@
 /**
  * Provide retry action on error.
  */
-import {BuildingModelPlaceholder, BuildingModelPlaceholderMessage, BuildingModelPlaceholderAction} from "@corensystem/coren-ui/building-model-placeholder";
+import {
+	BuildingModelPlaceholder,
+	BuildingModelPlaceholderMessage,
+	BuildingModelPlaceholderAction,
+} from "@corensystem/coren-ui/building-model-placeholder";
 
 export function ActionDo() {
 	return (

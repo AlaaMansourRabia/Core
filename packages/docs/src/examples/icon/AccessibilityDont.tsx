@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid icon-only buttons without labels.
  */
 import {Icon} from "@corensystem/coren-ui/icon";
-import {Button} from "@corensystem/coren-ui/button";
 import {Settings} from "lucide-react";
 
 export function AccessibilityDont() {

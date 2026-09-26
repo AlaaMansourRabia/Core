@@ -1,12 +1,7 @@
 /**
  * Avoid hiding all actions behind context menu only.
  */
-import {
-	ContextMenu,
-	ContextMenuContent,
-	ContextMenuItem,
-	ContextMenuTrigger,
-} from "@corensystem/coren-ui/context-menu";
+import {ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger} from "@corensystem/coren-ui/context-menu";
 
 export function DiscoverableDont() {
 	return (

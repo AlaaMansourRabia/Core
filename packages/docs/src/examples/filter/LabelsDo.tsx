@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Use clear, descriptive filter labels.
  */
 import {Filter, FilterTrigger, FilterContent, FilterOption} from "@corensystem/coren-ui/filter";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function LabelsDo() {
 	return (

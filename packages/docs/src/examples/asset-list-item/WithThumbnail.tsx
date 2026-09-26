@@ -1,7 +1,12 @@
 /**
  * Asset list item with image thumbnail.
  */
-import {AssetListItem, AssetListItemThumbnail, AssetListItemName, AssetListItemMeta} from "@corensystem/coren-ui/asset-list-item";
+import {
+	AssetListItem,
+	AssetListItemThumbnail,
+	AssetListItemName,
+	AssetListItemMeta,
+} from "@corensystem/coren-ui/asset-list-item";
 
 export function WithThumbnail() {
 	return (

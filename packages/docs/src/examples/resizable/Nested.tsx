@@ -1,18 +1,11 @@
 /**
  * Nested resizable panel groups.
  */
-import {
-	ResizableHandle,
-	ResizablePanel,
-	ResizablePanelGroup,
-} from "@corensystem/coren-ui/resizable";
+import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@corensystem/coren-ui/resizable";
 
 export function Nested() {
 	return (
-		<ResizablePanelGroup
-			direction="horizontal"
-			className="wwc:min-h-64 wwc:max-w-lg wwc:rounded-lg wwc:border"
-		>
+		<ResizablePanelGroup direction="horizontal" className="wwc:min-h-64 wwc:max-w-lg wwc:rounded-lg wwc:border">
 			<ResizablePanel defaultSize={25}>
 				<div className="wwc:flex wwc:h-full wwc:items-center wwc:justify-center wwc:p-4">
 					<span className="wwc:font-semibold">Sidebar</span>

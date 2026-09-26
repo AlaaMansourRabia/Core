@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Use clear trigger affordances for popovers.
  */
 import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
-import {Button} from "@corensystem/coren-ui/button";
 import {Info} from "lucide-react";
 
 export function TriggerDo() {

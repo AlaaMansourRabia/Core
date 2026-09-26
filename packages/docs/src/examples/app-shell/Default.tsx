@@ -9,12 +9,8 @@ export function Default() {
 			<AppShellHeader className="wwc:border-b wwc:p-4">
 				<span className="wwc:font-semibold">App Name</span>
 			</AppShellHeader>
-			<AppShellSidebar className="wwc:w-48 wwc:border-r wwc:p-4">
-				Navigation
-			</AppShellSidebar>
-			<AppShellMain className="wwc:p-4">
-				Main content area
-			</AppShellMain>
+			<AppShellSidebar className="wwc:w-48 wwc:border-r wwc:p-4">Navigation</AppShellSidebar>
+			<AppShellMain className="wwc:p-4">Main content area</AppShellMain>
 		</AppShell>
 	);
 }

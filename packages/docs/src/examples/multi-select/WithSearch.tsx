@@ -1,8 +1,8 @@
+import {MultiSelect} from "@corensystem/coren-ui/multi-select";
 /**
  * Multi-select with search filtering.
  */
 import * as React from "react";
-import {MultiSelect} from "@corensystem/coren-ui/multi-select";
 
 const countries = [
 	{label: "United States", value: "us"},

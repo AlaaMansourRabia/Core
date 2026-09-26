@@ -1,8 +1,8 @@
+import {Skeleton} from "@corensystem/coren-ui/skeleton";
 /**
  * Widget card in loading state.
  */
 import {WidgetCard, WidgetCardHeader, WidgetCardTitle, WidgetCardContent} from "@corensystem/coren-ui/widget-card";
-import {Skeleton} from "@corensystem/coren-ui/skeleton";
 
 export function Loading() {
 	return (

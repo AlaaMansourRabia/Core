@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Provide clear next steps.
  */
 import {ErrorPage} from "@corensystem/coren-ui/error-page";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function ActionsDo() {
 	return (

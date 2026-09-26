@@ -1,8 +1,13 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Default operations drawer for batch actions.
  */
-import {OperationsDrawer, OperationsDrawerTrigger, OperationsDrawerContent, OperationsDrawerAction} from "@corensystem/coren-ui/operations-drawer";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	OperationsDrawer,
+	OperationsDrawerTrigger,
+	OperationsDrawerContent,
+	OperationsDrawerAction,
+} from "@corensystem/coren-ui/operations-drawer";
 
 export function Default() {
 	return (

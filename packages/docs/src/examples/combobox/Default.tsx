@@ -1,8 +1,3 @@
-/**
- * Basic combobox with search and selection.
- */
-import * as React from "react";
-import {Check, ChevronsUpDown} from "lucide-react";
 import {Button} from "@corensystem/coren-ui/button";
 import {
 	Command,
@@ -13,6 +8,11 @@ import {
 	CommandList,
 } from "@corensystem/coren-ui/command";
 import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
+import {Check, ChevronsUpDown} from "lucide-react";
+/**
+ * Basic combobox with search and selection.
+ */
+import * as React from "react";
 
 const frameworks = [
 	{value: "next", label: "Next.js"},
@@ -29,15 +29,8 @@ export function Default() {
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
-				<Button
-					variant="outline"
-					role="combobox"
-					aria-expanded={open}
-					className="wwc:w-52 wwc:justify-between"
-				>
-					{value
-						? frameworks.find((f) => f.value === value)?.label
-						: "Select framework..."}
+				<Button variant="outline" role="combobox" aria-expanded={open} className="wwc:w-52 wwc:justify-between">
+					{value ? frameworks.find((f) => f.value === value)?.label : "Select framework..."}
 					<ChevronsUpDown className="wwc:ml-2 wwc:h-4 wwc:w-4 wwc:shrink-0 wwc:opacity-50" />
 				</Button>
 			</PopoverTrigger>

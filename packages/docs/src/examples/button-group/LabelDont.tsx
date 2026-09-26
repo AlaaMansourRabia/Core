@@ -7,7 +7,9 @@ import {Copy} from "lucide-react";
 export function LabelDont() {
 	return (
 		<ButtonGroup>
-			<ButtonGroupItem><Copy /></ButtonGroupItem>
+			<ButtonGroupItem>
+				<Copy />
+			</ButtonGroupItem>
 			<ButtonGroupItem>Cut text</ButtonGroupItem>
 			<ButtonGroupItem>P</ButtonGroupItem>
 		</ButtonGroup>

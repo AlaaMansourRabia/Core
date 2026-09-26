@@ -8,10 +8,7 @@ import {Label} from "@corensystem/coren-ui/label";
 export function DescriptionDo() {
 	return (
 		<FormLayout>
-			<FormSection
-				title="Notifications"
-				description="Choose how you want to receive updates and alerts."
-			>
+			<FormSection title="Notifications" description="Choose how you want to receive updates and alerts.">
 				<FormRow>
 					<Label htmlFor="form-desc-do-email">Email for notifications</Label>
 					<Input id="form-desc-do-email" type="email" />

@@ -1,14 +1,8 @@
+import {Card, CardContent} from "@corensystem/coren-ui/card";
 /**
  * Avoid hiding critical content in carousels.
  */
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
-} from "@corensystem/coren-ui/carousel";
-import {Card, CardContent} from "@corensystem/coren-ui/card";
+import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@corensystem/coren-ui/carousel";
 import {AlertTriangle} from "lucide-react";
 
 export function ContentDont() {

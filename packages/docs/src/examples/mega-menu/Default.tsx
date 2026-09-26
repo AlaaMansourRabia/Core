@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Basic mega menu navigation.
  */
-import {MegaMenu, MegaMenuTrigger, MegaMenuContent, MegaMenuSection, MegaMenuItem} from "@corensystem/coren-ui/mega-menu";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	MegaMenu,
+	MegaMenuTrigger,
+	MegaMenuContent,
+	MegaMenuSection,
+	MegaMenuItem,
+} from "@corensystem/coren-ui/mega-menu";
 
 export function Default() {
 	return (

@@ -1,7 +1,11 @@
 /**
  * Show operation progress.
  */
-import {OperationsDrawer, OperationsDrawerContent, OperationsDrawerProgress} from "@corensystem/coren-ui/operations-drawer";
+import {
+	OperationsDrawer,
+	OperationsDrawerContent,
+	OperationsDrawerProgress,
+} from "@corensystem/coren-ui/operations-drawer";
 
 export function FeedbackDo() {
 	return (

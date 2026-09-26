@@ -1,9 +1,9 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Show errors inline near the problematic field.
  */
 import {Input} from "@corensystem/coren-ui/input";
 import {Label} from "@corensystem/coren-ui/label";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function ErrorsDo() {
 	return (

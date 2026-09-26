@@ -1,11 +1,7 @@
 /**
  * Avoid hiding essential information only in hover cards.
  */
-import {
-	HoverCard,
-	HoverCardTrigger,
-	HoverCardContent,
-} from "@corensystem/coren-ui/hover-card";
+import {HoverCard, HoverCardTrigger, HoverCardContent} from "@corensystem/coren-ui/hover-card";
 import {Info} from "lucide-react";
 
 export function MobileDont() {

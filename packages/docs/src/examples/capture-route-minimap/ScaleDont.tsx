@@ -6,7 +6,13 @@ import {CaptureRouteMinimap, CaptureRouteMinimapPath} from "@corensystem/coren-u
 export function ScaleDont() {
 	return (
 		<CaptureRouteMinimap className="wwc:w-48 wwc:h-48 wwc:overflow-hidden">
-			<CaptureRouteMinimapPath points={[[0, 0], [150, 75], [200, 100]]} />
+			<CaptureRouteMinimapPath
+				points={[
+					[0, 0],
+					[150, 75],
+					[200, 100],
+				]}
+			/>
 		</CaptureRouteMinimap>
 	);
 }

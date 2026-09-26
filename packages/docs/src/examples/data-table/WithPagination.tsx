@@ -9,7 +9,14 @@ import {
 	DataTableHead,
 	DataTableCell,
 } from "@corensystem/coren-ui/data-table";
-import {Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationPrevious, PaginationNext} from "@corensystem/coren-ui/pagination";
+import {
+	Pagination,
+	PaginationContent,
+	PaginationItem,
+	PaginationLink,
+	PaginationPrevious,
+	PaginationNext,
+} from "@corensystem/coren-ui/pagination";
 
 const data = [
 	{id: 1, product: "Widget A", price: "$29.99", stock: 150},
@@ -46,7 +53,9 @@ export function WithPagination() {
 						<PaginationPrevious href="#" />
 					</PaginationItem>
 					<PaginationItem>
-						<PaginationLink href="#" isActive>1</PaginationLink>
+						<PaginationLink href="#" isActive>
+							1
+						</PaginationLink>
 					</PaginationItem>
 					<PaginationItem>
 						<PaginationLink href="#">2</PaginationLink>

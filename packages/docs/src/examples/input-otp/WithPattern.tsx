@@ -1,11 +1,7 @@
 /**
  * OTP input with alphanumeric pattern.
  */
-import {
-	InputOTP,
-	InputOTPGroup,
-	InputOTPSlot,
-} from "@corensystem/coren-ui/input-otp";
+import {InputOTP, InputOTPGroup, InputOTPSlot} from "@corensystem/coren-ui/input-otp";
 import {REGEXP_ONLY_DIGITS_AND_CHARS} from "input-otp";
 
 export function WithPattern() {
@@ -21,9 +17,7 @@ export function WithPattern() {
 					<InputOTPSlot index={5} />
 				</InputOTPGroup>
 			</InputOTP>
-			<p className="wwc:text-xs wwc:text-muted-foreground">
-				Letters and numbers allowed
-			</p>
+			<p className="wwc:text-xs wwc:text-muted-foreground">Letters and numbers allowed</p>
 		</div>
 	);
 }

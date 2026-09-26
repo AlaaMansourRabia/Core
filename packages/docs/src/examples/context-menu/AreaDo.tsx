@@ -1,12 +1,7 @@
 /**
  * Make the trigger area clear and appropriately sized.
  */
-import {
-	ContextMenu,
-	ContextMenuContent,
-	ContextMenuItem,
-	ContextMenuTrigger,
-} from "@corensystem/coren-ui/context-menu";
+import {ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger} from "@corensystem/coren-ui/context-menu";
 
 export function AreaDo() {
 	return (

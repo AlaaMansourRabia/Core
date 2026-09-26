@@ -1,13 +1,13 @@
+import {Button} from "@corensystem/coren-ui/button";
+import {Calendar} from "@corensystem/coren-ui/calendar";
+import {Label} from "@corensystem/coren-ui/label";
+import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
+import {format} from "date-fns";
+import {Calendar as CalendarIcon} from "lucide-react";
 /**
  * Include proper labels and keyboard support.
  */
 import * as React from "react";
-import {format} from "date-fns";
-import {Calendar as CalendarIcon} from "lucide-react";
-import {Button} from "@corensystem/coren-ui/button";
-import {Calendar} from "@corensystem/coren-ui/calendar";
-import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function A11yDo() {
 	const [date, setDate] = React.useState<Date>();
@@ -30,17 +30,10 @@ export function A11yDo() {
 					</Button>
 				</PopoverTrigger>
 				<PopoverContent className="wwc:w-auto wwc:p-0">
-					<Calendar
-						mode="single"
-						selected={date}
-						onSelect={setDate}
-						initialFocus
-					/>
+					<Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
 				</PopoverContent>
 			</Popover>
-			<p className="wwc:text-xs wwc:text-muted-foreground">
-				Use arrow keys to navigate calendar
-			</p>
+			<p className="wwc:text-xs wwc:text-muted-foreground">Use arrow keys to navigate calendar</p>
 		</div>
 	);
 }

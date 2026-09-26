@@ -28,7 +28,9 @@ export function WithEllipsis() {
 					<PaginationLink href="#">4</PaginationLink>
 				</PaginationItem>
 				<PaginationItem>
-					<PaginationLink href="#" isActive>5</PaginationLink>
+					<PaginationLink href="#" isActive>
+						5
+					</PaginationLink>
 				</PaginationItem>
 				<PaginationItem>
 					<PaginationLink href="#">6</PaginationLink>

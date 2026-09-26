@@ -1,7 +1,4 @@
-/**
- * Dropdown menu with checkable items.
- */
-import * as React from "react";
+import {Button} from "@corensystem/coren-ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -10,7 +7,10 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@corensystem/coren-ui/dropdown-menu";
-import {Button} from "@corensystem/coren-ui/button";
+/**
+ * Dropdown menu with checkable items.
+ */
+import * as React from "react";
 
 export function WithCheckbox() {
 	const [showStatusBar, setShowStatusBar] = React.useState(true);
@@ -24,16 +24,10 @@ export function WithCheckbox() {
 			<DropdownMenuContent className="wwc:w-56">
 				<DropdownMenuLabel>Appearance</DropdownMenuLabel>
 				<DropdownMenuSeparator />
-				<DropdownMenuCheckboxItem
-					checked={showStatusBar}
-					onCheckedChange={setShowStatusBar}
-				>
+				<DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>
 					Status Bar
 				</DropdownMenuCheckboxItem>
-				<DropdownMenuCheckboxItem
-					checked={showPanel}
-					onCheckedChange={setShowPanel}
-				>
+				<DropdownMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>
 					Activity Panel
 				</DropdownMenuCheckboxItem>
 			</DropdownMenuContent>

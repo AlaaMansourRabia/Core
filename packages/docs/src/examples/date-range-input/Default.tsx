@@ -4,9 +4,5 @@
 import {DateRangeInput} from "@corensystem/coren-ui/date-range-input";
 
 export function Default() {
-	return (
-		<DateRangeInput
-			placeholder="Select date range"
-		/>
-	);
+	return <DateRangeInput placeholder="Select date range" />;
 }

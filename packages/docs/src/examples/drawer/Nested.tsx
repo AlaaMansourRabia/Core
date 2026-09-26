@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Nested drawers for multi-step flows.
  */
@@ -11,7 +12,6 @@ import {
 	DrawerTrigger,
 	DrawerClose,
 } from "@corensystem/coren-ui/drawer";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Nested() {
 	return (

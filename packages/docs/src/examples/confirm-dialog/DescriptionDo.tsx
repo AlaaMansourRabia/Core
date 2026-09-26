@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Provide clear context in description.
  */
 import {ConfirmDialog, ConfirmDialogTrigger} from "@corensystem/coren-ui/confirm-dialog";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function DescriptionDo() {
 	return (

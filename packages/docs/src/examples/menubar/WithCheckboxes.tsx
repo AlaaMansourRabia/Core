@@ -1,7 +1,3 @@
-/**
- * Menubar with checkbox and radio items.
- */
-import * as React from "react";
 import {
 	Menubar,
 	MenubarCheckboxItem,
@@ -12,6 +8,10 @@ import {
 	MenubarSeparator,
 	MenubarTrigger,
 } from "@corensystem/coren-ui/menubar";
+/**
+ * Menubar with checkbox and radio items.
+ */
+import * as React from "react";
 
 export function WithCheckboxes() {
 	const [showBookmarks, setShowBookmarks] = React.useState(true);
@@ -23,16 +23,10 @@ export function WithCheckboxes() {
 			<MenubarMenu>
 				<MenubarTrigger>View</MenubarTrigger>
 				<MenubarContent>
-					<MenubarCheckboxItem
-						checked={showBookmarks}
-						onCheckedChange={setShowBookmarks}
-					>
+					<MenubarCheckboxItem checked={showBookmarks} onCheckedChange={setShowBookmarks}>
 						Show Bookmarks Bar
 					</MenubarCheckboxItem>
-					<MenubarCheckboxItem
-						checked={showHistory}
-						onCheckedChange={setShowHistory}
-					>
+					<MenubarCheckboxItem checked={showHistory} onCheckedChange={setShowHistory}>
 						Show History Panel
 					</MenubarCheckboxItem>
 					<MenubarSeparator />

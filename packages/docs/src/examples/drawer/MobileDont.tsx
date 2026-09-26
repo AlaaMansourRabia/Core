@@ -1,14 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid drawers for complex desktop workflows.
  */
-import {
-	Drawer,
-	DrawerContent,
-	DrawerHeader,
-	DrawerTitle,
-	DrawerTrigger,
-} from "@corensystem/coren-ui/drawer";
-import {Button} from "@corensystem/coren-ui/button";
+import {Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger} from "@corensystem/coren-ui/drawer";
 import {Input} from "@corensystem/coren-ui/input";
 
 export function MobileDont() {
@@ -25,9 +19,7 @@ export function MobileDont() {
 					<Input placeholder="Setting 1" />
 					<Input placeholder="Setting 2" />
 					<Input placeholder="Setting 3" />
-					<p className="wwc:text-muted-foreground">
-						Complex forms work better in a dialog or full page.
-					</p>
+					<p className="wwc:text-muted-foreground">Complex forms work better in a dialog or full page.</p>
 				</div>
 			</DrawerContent>
 		</Drawer>

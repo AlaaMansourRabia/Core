@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Show keyboard shortcuts for common actions.
  */
@@ -8,7 +9,6 @@ import {
 	DropdownMenuShortcut,
 	DropdownMenuTrigger,
 } from "@corensystem/coren-ui/dropdown-menu";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function ShortcutsDo() {
 	return (

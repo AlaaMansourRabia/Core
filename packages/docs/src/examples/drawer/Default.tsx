@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Basic drawer sliding from bottom.
  */
@@ -11,7 +12,6 @@ import {
 	DrawerTrigger,
 	DrawerClose,
 } from "@corensystem/coren-ui/drawer";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Default() {
 	return (
@@ -22,9 +22,7 @@ export function Default() {
 			<DrawerContent>
 				<DrawerHeader>
 					<DrawerTitle>Drawer Title</DrawerTitle>
-					<DrawerDescription>
-						This is a drawer component built on Vaul.
-					</DrawerDescription>
+					<DrawerDescription>This is a drawer component built on Vaul.</DrawerDescription>
 				</DrawerHeader>
 				<div className="wwc:p-4">
 					<p>Drawer content goes here.</p>

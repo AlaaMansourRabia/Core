@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Tooltip with custom delay.
  */
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@corensystem/coren-ui/tooltip";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function WithDelay() {
 	return (

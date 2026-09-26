@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Overlay with blur effect.
  */
 import {Overlay} from "@corensystem/coren-ui/overlay";
-import {Button} from "@corensystem/coren-ui/button";
 import {useState} from "react";
 
 export function Blur() {

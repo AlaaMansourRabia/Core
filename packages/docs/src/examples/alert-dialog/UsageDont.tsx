@@ -23,9 +23,7 @@ export function UsageDont() {
 			<AlertDialogContent>
 				<AlertDialogHeader>
 					<AlertDialogTitle>Save draft?</AlertDialogTitle>
-					<AlertDialogDescription>
-						Your draft will be saved.
-					</AlertDialogDescription>
+					<AlertDialogDescription>Your draft will be saved.</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
 					<AlertDialogCancel>Cancel</AlertDialogCancel>

@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Empty state with call-to-action button.
  */
 import {Empty} from "@corensystem/coren-ui/empty";
-import {Button} from "@corensystem/coren-ui/button";
 import {Inbox, Plus} from "lucide-react";
 
 export function WithAction() {

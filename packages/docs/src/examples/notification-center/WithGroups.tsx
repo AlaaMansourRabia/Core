@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Notification center with grouped notifications.
  */
-import {NotificationCenter, NotificationCenterTrigger, NotificationCenterContent, NotificationGroup, NotificationItem} from "@corensystem/coren-ui/notification-center";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	NotificationCenter,
+	NotificationCenterTrigger,
+	NotificationCenterContent,
+	NotificationGroup,
+	NotificationItem,
+} from "@corensystem/coren-ui/notification-center";
 import {Bell} from "lucide-react";
 
 export function WithGroups() {

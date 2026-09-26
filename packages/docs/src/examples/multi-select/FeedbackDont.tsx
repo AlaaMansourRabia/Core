@@ -18,9 +18,7 @@ export function FeedbackDont() {
 			{open && (
 				<div className="wwc:absolute wwc:top-full wwc:mt-1 wwc:w-full wwc:rounded-md wwc:border wwc:bg-popover wwc:p-1 wwc:shadow-md">
 					{/* Checkboxes hidden in dropdown - no count shown */}
-					<div className="wwc:text-sm wwc:p-2 wwc:text-muted-foreground">
-						3 items currently selected but not shown
-					</div>
+					<div className="wwc:text-sm wwc:p-2 wwc:text-muted-foreground">3 items currently selected but not shown</div>
 				</div>
 			)}
 		</div>

@@ -1,8 +1,3 @@
-/**
- * Combobox that allows creating new options.
- */
-import * as React from "react";
-import {Check, ChevronsUpDown, Plus} from "lucide-react";
 import {Button} from "@corensystem/coren-ui/button";
 import {
 	Command,
@@ -14,6 +9,11 @@ import {
 	CommandSeparator,
 } from "@corensystem/coren-ui/command";
 import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
+import {Check, ChevronsUpDown, Plus} from "lucide-react";
+/**
+ * Combobox that allows creating new options.
+ */
+import * as React from "react";
 
 export function Creatable() {
 	const [open, setOpen] = React.useState(false);
@@ -33,34 +33,21 @@ export function Creatable() {
 		setOpen(false);
 	};
 
-	const filteredTags = tags.filter((tag) =>
-		tag.label.toLowerCase().includes(search.toLowerCase())
-	);
+	const filteredTags = tags.filter((tag) => tag.label.toLowerCase().includes(search.toLowerCase()));
 
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
-				<Button
-					variant="outline"
-					role="combobox"
-					aria-expanded={open}
-					className="wwc:w-52 wwc:justify-between"
-				>
+				<Button variant="outline" role="combobox" aria-expanded={open} className="wwc:w-52 wwc:justify-between">
 					{value ? tags.find((t) => t.value === value)?.label : "Select tag..."}
 					<ChevronsUpDown className="wwc:ml-2 wwc:h-4 wwc:w-4 wwc:shrink-0 wwc:opacity-50" />
 				</Button>
 			</PopoverTrigger>
 			<PopoverContent className="wwc:w-52 wwc:p-0">
 				<Command>
-					<CommandInput
-						placeholder="Search or create..."
-						value={search}
-						onValueChange={setSearch}
-					/>
+					<CommandInput placeholder="Search or create..." value={search} onValueChange={setSearch} />
 					<CommandList>
-						{filteredTags.length === 0 && !search && (
-							<CommandEmpty>No tags found.</CommandEmpty>
-						)}
+						{filteredTags.length === 0 && !search && <CommandEmpty>No tags found.</CommandEmpty>}
 						<CommandGroup>
 							{filteredTags.map((tag) => (
 								<CommandItem
@@ -72,9 +59,7 @@ export function Creatable() {
 									}}
 								>
 									<Check
-										className={`wwc:mr-2 wwc:h-4 wwc:w-4 ${
-											value === tag.value ? "wwc:opacity-100" : "wwc:opacity-0"
-										}`}
+										className={`wwc:mr-2 wwc:h-4 wwc:w-4 ${value === tag.value ? "wwc:opacity-100" : "wwc:opacity-0"}`}
 									/>
 									{tag.label}
 								</CommandItem>

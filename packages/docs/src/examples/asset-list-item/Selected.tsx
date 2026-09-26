@@ -1,7 +1,12 @@
 /**
  * Selected asset list item state.
  */
-import {AssetListItem, AssetListItemIcon, AssetListItemName, AssetListItemMeta} from "@corensystem/coren-ui/asset-list-item";
+import {
+	AssetListItem,
+	AssetListItemIcon,
+	AssetListItemName,
+	AssetListItemMeta,
+} from "@corensystem/coren-ui/asset-list-item";
 import {Image} from "lucide-react";
 
 export function Selected() {

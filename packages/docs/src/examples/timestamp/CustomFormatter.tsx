@@ -8,11 +8,13 @@ export function CustomFormatter() {
 	return (
 		<Timestamp
 			date={date}
-			formatter={(d) => d.toLocaleDateString("en-US", {
-				weekday: "short",
-				month: "short",
-				day: "numeric",
-			})}
+			formatter={(d) =>
+				d.toLocaleDateString("en-US", {
+					weekday: "short",
+					month: "short",
+					day: "numeric",
+				})
+			}
 		/>
 	);
 }

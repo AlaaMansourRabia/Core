@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Use friendly, helpful language.
  */
 import {ErrorPage} from "@corensystem/coren-ui/error-page";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function MessageDo() {
 	return (

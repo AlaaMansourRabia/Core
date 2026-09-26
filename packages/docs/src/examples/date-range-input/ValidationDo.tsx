@@ -4,10 +4,5 @@
 import {DateRangeInput} from "@corensystem/coren-ui/date-range-input";
 
 export function ValidationDo() {
-	return (
-		<DateRangeInput
-			validateRange
-			onInvalidRange={() => console.log("End date must be after start date")}
-		/>
-	);
+	return <DateRangeInput validateRange onInvalidRange={() => console.log("End date must be after start date")} />;
 }

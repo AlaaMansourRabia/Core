@@ -8,15 +8,21 @@ export function WithIcons() {
 	return (
 		<BrowserTabs>
 			<BrowserTab active>
-				<BrowserTabIcon><Globe className="wwc:h-4 wwc:w-4" /></BrowserTabIcon>
+				<BrowserTabIcon>
+					<Globe className="wwc:h-4 wwc:w-4" />
+				</BrowserTabIcon>
 				Home
 			</BrowserTab>
 			<BrowserTab>
-				<BrowserTabIcon><FileText className="wwc:h-4 wwc:w-4" /></BrowserTabIcon>
+				<BrowserTabIcon>
+					<FileText className="wwc:h-4 wwc:w-4" />
+				</BrowserTabIcon>
 				Docs
 			</BrowserTab>
 			<BrowserTab>
-				<BrowserTabIcon><Settings className="wwc:h-4 wwc:w-4" /></BrowserTabIcon>
+				<BrowserTabIcon>
+					<Settings className="wwc:h-4 wwc:w-4" />
+				</BrowserTabIcon>
 				Settings
 			</BrowserTab>
 		</BrowserTabs>

@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Focus the primary input when dialog opens.
  */
@@ -9,7 +10,6 @@ import {
 	DialogFooter,
 	DialogTrigger,
 } from "@corensystem/coren-ui/dialog";
-import {Button} from "@corensystem/coren-ui/button";
 import {Input} from "@corensystem/coren-ui/input";
 
 export function FocusDo() {
@@ -22,11 +22,7 @@ export function FocusDo() {
 				<DialogHeader>
 					<DialogTitle>Search</DialogTitle>
 				</DialogHeader>
-				<Input
-					autoFocus
-					placeholder="Type to search..."
-					id="dialog-focus-search"
-				/>
+				<Input autoFocus placeholder="Type to search..." id="dialog-focus-search" />
 				<DialogFooter>
 					<Button>Search</Button>
 				</DialogFooter>

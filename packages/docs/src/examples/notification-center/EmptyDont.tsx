@@ -1,8 +1,12 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid blank empty states.
  */
-import {NotificationCenter, NotificationCenterTrigger, NotificationCenterContent} from "@corensystem/coren-ui/notification-center";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	NotificationCenter,
+	NotificationCenterTrigger,
+	NotificationCenterContent,
+} from "@corensystem/coren-ui/notification-center";
 import {Bell} from "lucide-react";
 
 export function EmptyDont() {

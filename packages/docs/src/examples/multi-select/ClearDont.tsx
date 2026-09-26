@@ -1,8 +1,8 @@
+import {Badge} from "@corensystem/coren-ui/badge";
 /**
  * Avoid selections that can't be easily removed.
  */
 import * as React from "react";
-import {Badge} from "@corensystem/coren-ui/badge";
 
 export function ClearDont() {
 	const selected = ["Option A", "Option B"];

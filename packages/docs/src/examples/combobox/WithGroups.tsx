@@ -1,8 +1,3 @@
-/**
- * Combobox with grouped options.
- */
-import * as React from "react";
-import {Check, ChevronsUpDown} from "lucide-react";
 import {Button} from "@corensystem/coren-ui/button";
 import {
 	Command,
@@ -14,11 +9,35 @@ import {
 	CommandSeparator,
 } from "@corensystem/coren-ui/command";
 import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
+import {Check, ChevronsUpDown} from "lucide-react";
+/**
+ * Combobox with grouped options.
+ */
+import * as React from "react";
 
 const regions = [
-	{group: "North America", items: [{value: "us", label: "United States"}, {value: "ca", label: "Canada"}]},
-	{group: "Europe", items: [{value: "uk", label: "United Kingdom"}, {value: "de", label: "Germany"}, {value: "fr", label: "France"}]},
-	{group: "Asia Pacific", items: [{value: "jp", label: "Japan"}, {value: "au", label: "Australia"}]},
+	{
+		group: "North America",
+		items: [
+			{value: "us", label: "United States"},
+			{value: "ca", label: "Canada"},
+		],
+	},
+	{
+		group: "Europe",
+		items: [
+			{value: "uk", label: "United Kingdom"},
+			{value: "de", label: "Germany"},
+			{value: "fr", label: "France"},
+		],
+	},
+	{
+		group: "Asia Pacific",
+		items: [
+			{value: "jp", label: "Japan"},
+			{value: "au", label: "Australia"},
+		],
+	},
 ];
 
 export function WithGroups() {
@@ -31,12 +50,7 @@ export function WithGroups() {
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
-				<Button
-					variant="outline"
-					role="combobox"
-					aria-expanded={open}
-					className="wwc:w-52 wwc:justify-between"
-				>
+				<Button variant="outline" role="combobox" aria-expanded={open} className="wwc:w-52 wwc:justify-between">
 					{selected?.label || "Select region..."}
 					<ChevronsUpDown className="wwc:ml-2 wwc:h-4 wwc:w-4 wwc:shrink-0 wwc:opacity-50" />
 				</Button>

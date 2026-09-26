@@ -4,11 +4,5 @@
 import {Thumbnail} from "@corensystem/coren-ui/thumbnail";
 
 export function WithFallback() {
-	return (
-		<Thumbnail
-			src="https://invalid-image-url.com/image.jpg"
-			alt="Image with fallback"
-			fallback="AB"
-		/>
-	);
+	return <Thumbnail src="https://invalid-image-url.com/image.jpg" alt="Image with fallback" fallback="AB" />;
 }

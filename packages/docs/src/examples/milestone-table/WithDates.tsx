@@ -1,7 +1,12 @@
 /**
  * Milestone table with date columns.
  */
-import {MilestoneTable, MilestoneTableHeader, MilestoneTableRow, MilestoneTableCell} from "@corensystem/coren-ui/milestone-table";
+import {
+	MilestoneTable,
+	MilestoneTableHeader,
+	MilestoneTableRow,
+	MilestoneTableCell,
+} from "@corensystem/coren-ui/milestone-table";
 
 export function WithDates() {
 	return (

@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid blank screens while loading.
  */
 import {Lightbox, LightboxTrigger, LightboxContent} from "@corensystem/coren-ui/lightbox";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function LoadingDont() {
 	return (
@@ -12,10 +12,7 @@ export function LoadingDont() {
 			</LightboxTrigger>
 			<LightboxContent>
 				{/* No loading indicator - blank screen while image loads */}
-				<img
-					src="https://slow-server.example.com/huge-image.jpg"
-					alt="Slow loading image"
-				/>
+				<img src="https://slow-server.example.com/huge-image.jpg" alt="Slow loading image" />
 			</LightboxContent>
 		</Lightbox>
 	);

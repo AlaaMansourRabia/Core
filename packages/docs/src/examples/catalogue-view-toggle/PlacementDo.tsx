@@ -9,8 +9,12 @@ export function PlacementDo() {
 		<div className="wwc:flex wwc:items-center wwc:gap-4">
 			<span className="wwc:text-sm wwc:text-muted-foreground">12 items</span>
 			<CatalogueViewToggle defaultValue="grid">
-				<CatalogueViewToggleItem value="grid"><Grid className="wwc:h-4 wwc:w-4" /></CatalogueViewToggleItem>
-				<CatalogueViewToggleItem value="list"><List className="wwc:h-4 wwc:w-4" /></CatalogueViewToggleItem>
+				<CatalogueViewToggleItem value="grid">
+					<Grid className="wwc:h-4 wwc:w-4" />
+				</CatalogueViewToggleItem>
+				<CatalogueViewToggleItem value="list">
+					<List className="wwc:h-4 wwc:w-4" />
+				</CatalogueViewToggleItem>
 			</CatalogueViewToggle>
 		</div>
 	);

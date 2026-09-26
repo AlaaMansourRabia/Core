@@ -1,8 +1,8 @@
+import {Badge} from "@corensystem/coren-ui/badge";
 /**
  * Basic overflow list with more button.
  */
 import {OverflowList, OverflowListItem, OverflowListMore} from "@corensystem/coren-ui/overflow-list";
-import {Badge} from "@corensystem/coren-ui/badge";
 
 const tags = ["React", "TypeScript", "JavaScript", "CSS", "HTML", "Node.js", "GraphQL", "REST"];
 
@@ -14,9 +14,7 @@ export function Default() {
 					<Badge variant="secondary">{tag}</Badge>
 				</OverflowListItem>
 			))}
-			<OverflowListMore>
-				{(count) => <Badge variant="outline">+{count} more</Badge>}
-			</OverflowListMore>
+			<OverflowListMore>{(count) => <Badge variant="outline">+{count} more</Badge>}</OverflowListMore>
 		</OverflowList>
 	);
 }

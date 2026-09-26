@@ -1,13 +1,13 @@
+import {Button} from "@corensystem/coren-ui/button";
+import {Calendar} from "@corensystem/coren-ui/calendar";
+import {Label} from "@corensystem/coren-ui/label";
+import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
+import {format} from "date-fns";
+import {Calendar as CalendarIcon} from "lucide-react";
 /**
  * Date picker integrated with form validation.
  */
 import * as React from "react";
-import {format} from "date-fns";
-import {Calendar as CalendarIcon} from "lucide-react";
-import {Button} from "@corensystem/coren-ui/button";
-import {Calendar} from "@corensystem/coren-ui/calendar";
-import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function WithForm() {
 	const [date, setDate] = React.useState<Date>();
@@ -39,17 +39,10 @@ export function WithForm() {
 					</Button>
 				</PopoverTrigger>
 				<PopoverContent className="wwc:w-auto wwc:p-0">
-					<Calendar
-						mode="single"
-						selected={date}
-						onSelect={handleSelect}
-						initialFocus
-					/>
+					<Calendar mode="single" selected={date} onSelect={handleSelect} initialFocus />
 				</PopoverContent>
 			</Popover>
-			{error && (
-				<p className="wwc:text-sm wwc:text-destructive">{error}</p>
-			)}
+			{error && <p className="wwc:text-sm wwc:text-destructive">{error}</p>}
 		</div>
 	);
 }

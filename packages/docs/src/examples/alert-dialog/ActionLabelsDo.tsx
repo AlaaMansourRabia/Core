@@ -23,9 +23,7 @@ export function ActionLabelsDo() {
 			<AlertDialogContent>
 				<AlertDialogHeader>
 					<AlertDialogTitle>Leave without saving?</AlertDialogTitle>
-					<AlertDialogDescription>
-						Your changes will be lost if you leave now.
-					</AlertDialogDescription>
+					<AlertDialogDescription>Your changes will be lost if you leave now.</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
 					<AlertDialogCancel>Stay on Page</AlertDialogCancel>

@@ -1,8 +1,8 @@
+import {MultiSelect} from "@corensystem/coren-ui/multi-select";
 /**
  * Multi-select with maximum selection limit.
  */
 import * as React from "react";
-import {MultiSelect} from "@corensystem/coren-ui/multi-select";
 
 const tags = [
 	{label: "Design", value: "design"},
@@ -25,9 +25,7 @@ export function WithMax() {
 				maxSelected={3}
 				className="wwc:w-80"
 			/>
-			<p className="wwc:text-xs wwc:text-muted-foreground">
-				{selected.length}/3 selected
-			</p>
+			<p className="wwc:text-xs wwc:text-muted-foreground">{selected.length}/3 selected</p>
 		</div>
 	);
 }

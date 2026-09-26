@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Popover with different placement positions.
  */
 import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Placement() {
 	return (

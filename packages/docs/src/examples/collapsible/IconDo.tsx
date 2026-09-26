@@ -1,11 +1,7 @@
 /**
  * Use clear expand/collapse icons that indicate state.
  */
-import {
-	Collapsible,
-	CollapsibleTrigger,
-	CollapsibleContent,
-} from "@corensystem/coren-ui/collapsible";
+import {Collapsible, CollapsibleTrigger, CollapsibleContent} from "@corensystem/coren-ui/collapsible";
 import {ChevronDown} from "lucide-react";
 
 export function IconDo() {

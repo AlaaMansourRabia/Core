@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Trap focus within panel.
  */
 import {PushPanel, PushPanelContent, PushPanelHeader} from "@corensystem/coren-ui/push-panel";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function FocusDo() {
 	return (

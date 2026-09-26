@@ -1,12 +1,7 @@
 /**
  * Avoid showing irrelevant actions in context menus.
  */
-import {
-	ContextMenu,
-	ContextMenuContent,
-	ContextMenuItem,
-	ContextMenuTrigger,
-} from "@corensystem/coren-ui/context-menu";
+import {ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger} from "@corensystem/coren-ui/context-menu";
 
 export function ContextualDont() {
 	return (

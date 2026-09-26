@@ -10,19 +10,11 @@ export function Default() {
 		<form className="wwc:w-full wwc:max-w-sm wwc:space-y-4">
 			<div className="wwc:space-y-2">
 				<Label htmlFor="form-default-email">Email</Label>
-				<Input
-					id="form-default-email"
-					type="email"
-					placeholder="Enter your email"
-				/>
+				<Input id="form-default-email" type="email" placeholder="Enter your email" />
 			</div>
 			<div className="wwc:space-y-2">
 				<Label htmlFor="form-default-password">Password</Label>
-				<Input
-					id="form-default-password"
-					type="password"
-					placeholder="Enter your password"
-				/>
+				<Input id="form-default-password" type="password" placeholder="Enter your password" />
 			</div>
 			<Button type="submit" className="wwc:w-full">
 				Sign In

@@ -1,8 +1,15 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Export dialog for multiple items.
  */
-import {ExportDialog, ExportDialogTrigger, ExportDialogContent, ExportDialogFormat, ExportDialogSummary, ExportDialogAction} from "@corensystem/coren-ui/export-dialog";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	ExportDialog,
+	ExportDialogTrigger,
+	ExportDialogContent,
+	ExportDialogFormat,
+	ExportDialogSummary,
+	ExportDialogAction,
+} from "@corensystem/coren-ui/export-dialog";
 
 export function Multiple() {
 	return (

@@ -1,7 +1,13 @@
 /**
  * Canvas file picker with thumbnail previews.
  */
-import {CanvasFilePicker, CanvasFilePickerTrigger, CanvasFilePickerContent, CanvasFilePickerItem, CanvasFilePickerPreview} from "@corensystem/coren-ui/canvas-file-picker";
+import {
+	CanvasFilePicker,
+	CanvasFilePickerTrigger,
+	CanvasFilePickerContent,
+	CanvasFilePickerItem,
+	CanvasFilePickerPreview,
+} from "@corensystem/coren-ui/canvas-file-picker";
 
 export function WithPreview() {
 	return (

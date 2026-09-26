@@ -1,11 +1,7 @@
 /**
  * Avoid OTP inputs without context or labels.
  */
-import {
-	InputOTP,
-	InputOTPGroup,
-	InputOTPSlot,
-} from "@corensystem/coren-ui/input-otp";
+import {InputOTP, InputOTPGroup, InputOTPSlot} from "@corensystem/coren-ui/input-otp";
 
 export function LabelDont() {
 	return (

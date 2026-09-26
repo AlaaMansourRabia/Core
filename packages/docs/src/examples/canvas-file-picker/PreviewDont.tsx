@@ -1,7 +1,12 @@
 /**
  * Avoid missing previews for visual files.
  */
-import {CanvasFilePicker, CanvasFilePickerTrigger, CanvasFilePickerContent, CanvasFilePickerItem} from "@corensystem/coren-ui/canvas-file-picker";
+import {
+	CanvasFilePicker,
+	CanvasFilePickerTrigger,
+	CanvasFilePickerContent,
+	CanvasFilePickerItem,
+} from "@corensystem/coren-ui/canvas-file-picker";
 
 export function PreviewDont() {
 	return (

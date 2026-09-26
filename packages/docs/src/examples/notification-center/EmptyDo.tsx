@@ -1,8 +1,13 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Show helpful empty state.
  */
-import {NotificationCenter, NotificationCenterTrigger, NotificationCenterContent, NotificationCenterEmpty} from "@corensystem/coren-ui/notification-center";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	NotificationCenter,
+	NotificationCenterTrigger,
+	NotificationCenterContent,
+	NotificationCenterEmpty,
+} from "@corensystem/coren-ui/notification-center";
 import {Bell, Inbox} from "lucide-react";
 
 export function EmptyDo() {

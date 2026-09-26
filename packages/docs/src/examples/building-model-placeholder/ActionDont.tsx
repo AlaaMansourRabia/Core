@@ -1,7 +1,10 @@
 /**
  * Avoid error states without recovery options.
  */
-import {BuildingModelPlaceholder, BuildingModelPlaceholderMessage} from "@corensystem/coren-ui/building-model-placeholder";
+import {
+	BuildingModelPlaceholder,
+	BuildingModelPlaceholderMessage,
+} from "@corensystem/coren-ui/building-model-placeholder";
 
 export function ActionDont() {
 	return (

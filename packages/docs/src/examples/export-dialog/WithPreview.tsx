@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Export dialog with file preview.
  */
-import {ExportDialog, ExportDialogTrigger, ExportDialogContent, ExportDialogPreview, ExportDialogAction} from "@corensystem/coren-ui/export-dialog";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	ExportDialog,
+	ExportDialogTrigger,
+	ExportDialogContent,
+	ExportDialogPreview,
+	ExportDialogAction,
+} from "@corensystem/coren-ui/export-dialog";
 
 export function WithPreview() {
 	return (

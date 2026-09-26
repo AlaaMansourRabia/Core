@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Basic error page layout.
  */
 import {ErrorPage} from "@corensystem/coren-ui/error-page";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Default() {
 	return (

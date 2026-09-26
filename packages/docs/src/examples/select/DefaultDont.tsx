@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Avoid forcing users to select when a sensible default exists.
  */
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@corensystem/coren-ui/select";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function DefaultDont() {
 	return (

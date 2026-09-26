@@ -1,8 +1,3 @@
-/**
- * Support full keyboard navigation.
- */
-import * as React from "react";
-import {Check, ChevronsUpDown} from "lucide-react";
 import {Button} from "@corensystem/coren-ui/button";
 import {
 	Command,
@@ -13,6 +8,11 @@ import {
 	CommandList,
 } from "@corensystem/coren-ui/command";
 import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
+import {Check, ChevronsUpDown} from "lucide-react";
+/**
+ * Support full keyboard navigation.
+ */
+import * as React from "react";
 
 const options = [
 	{value: "draft", label: "Draft"},
@@ -67,9 +67,7 @@ export function KeyboardDo() {
 					</Command>
 				</PopoverContent>
 			</Popover>
-			<p className="wwc:text-xs wwc:text-muted-foreground">
-				Press ↑↓ to navigate, Enter to select, Esc to close
-			</p>
+			<p className="wwc:text-xs wwc:text-muted-foreground">Press ↑↓ to navigate, Enter to select, Esc to close</p>
 		</div>
 	);
 }

@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid mismatched icon sizes.
  */
 import {Icon} from "@corensystem/coren-ui/icon";
-import {Button} from "@corensystem/coren-ui/button";
 import {Trash2} from "lucide-react";
 
 export function SizingDont() {

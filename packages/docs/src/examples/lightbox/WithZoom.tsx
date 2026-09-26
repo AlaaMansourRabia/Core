@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Lightbox with zoom controls.
  */
 import {Lightbox, LightboxTrigger, LightboxContent, LightboxZoomControls} from "@corensystem/coren-ui/lightbox";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function WithZoom() {
 	return (

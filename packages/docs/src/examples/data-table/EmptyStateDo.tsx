@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Show helpful empty states with clear actions.
  */
@@ -9,7 +10,6 @@ import {
 	DataTableHead,
 	DataTableCell,
 } from "@corensystem/coren-ui/data-table";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function EmptyStateDo() {
 	return (

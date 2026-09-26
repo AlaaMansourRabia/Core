@@ -7,7 +7,9 @@ import {FileSpreadsheet} from "lucide-react";
 export function IconDo() {
 	return (
 		<AssetListItem>
-			<AssetListItemIcon><FileSpreadsheet className="wwc:h-5 wwc:w-5" /></AssetListItemIcon>
+			<AssetListItemIcon>
+				<FileSpreadsheet className="wwc:h-5 wwc:w-5" />
+			</AssetListItemIcon>
 			<AssetListItemName>data.csv</AssetListItemName>
 		</AssetListItem>
 	);

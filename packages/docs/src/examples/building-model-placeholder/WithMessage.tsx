@@ -1,7 +1,10 @@
 /**
  * Building model placeholder with custom message.
  */
-import {BuildingModelPlaceholder, BuildingModelPlaceholderMessage} from "@corensystem/coren-ui/building-model-placeholder";
+import {
+	BuildingModelPlaceholder,
+	BuildingModelPlaceholderMessage,
+} from "@corensystem/coren-ui/building-model-placeholder";
 
 export function WithMessage() {
 	return (

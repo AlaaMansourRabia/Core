@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Make clearing filters easy.
  */
-import {SearchFilterBar, SearchInput, FilterGroup, ActiveFilters, ActiveFilterTag} from "@corensystem/coren-ui/search-filter-bar";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	SearchFilterBar,
+	SearchInput,
+	FilterGroup,
+	ActiveFilters,
+	ActiveFilterTag,
+} from "@corensystem/coren-ui/search-filter-bar";
 import {X} from "lucide-react";
 
 export function ClearDo() {
@@ -19,7 +25,9 @@ export function ClearDo() {
 			</SearchFilterBar>
 			<ActiveFilters>
 				<ActiveFilterTag onRemove={() => {}}>Category: Tech</ActiveFilterTag>
-				<Button variant="link" size="sm">Clear all filters</Button>
+				<Button variant="link" size="sm">
+					Clear all filters
+				</Button>
 			</ActiveFilters>
 		</div>
 	);

@@ -1,7 +1,12 @@
 /**
  * Walkthrough modal with image.
  */
-import {WalkthroughModal, WalkthroughModalStep, WalkthroughModalImage, WalkthroughModalContent} from "@corensystem/coren-ui/walkthrough-modal";
+import {
+	WalkthroughModal,
+	WalkthroughModalStep,
+	WalkthroughModalImage,
+	WalkthroughModalContent,
+} from "@corensystem/coren-ui/walkthrough-modal";
 
 export function WithImage() {
 	return (

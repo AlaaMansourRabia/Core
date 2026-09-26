@@ -1,9 +1,9 @@
+import {Button} from "@corensystem/coren-ui/button";
+import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
 /**
  * Controlled popover with external state.
  */
 import * as React from "react";
-import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Controlled() {
 	const [open, setOpen] = React.useState(false);
@@ -16,12 +16,7 @@ export function Controlled() {
 				</PopoverTrigger>
 				<PopoverContent>
 					<p className="wwc:text-sm">Controlled popover content.</p>
-					<Button
-						variant="outline"
-						size="sm"
-						className="wwc:mt-2"
-						onClick={() => setOpen(false)}
-					>
+					<Button variant="outline" size="sm" className="wwc:mt-2" onClick={() => setOpen(false)}>
 						Close
 					</Button>
 				</PopoverContent>

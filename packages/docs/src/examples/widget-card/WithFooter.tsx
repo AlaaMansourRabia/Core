@@ -1,8 +1,14 @@
+import {Link} from "@corensystem/coren-ui/link";
 /**
  * Widget card with footer link.
  */
-import {WidgetCard, WidgetCardHeader, WidgetCardTitle, WidgetCardContent, WidgetCardFooter} from "@corensystem/coren-ui/widget-card";
-import {Link} from "@corensystem/coren-ui/link";
+import {
+	WidgetCard,
+	WidgetCardHeader,
+	WidgetCardTitle,
+	WidgetCardContent,
+	WidgetCardFooter,
+} from "@corensystem/coren-ui/widget-card";
 
 export function WithFooter() {
 	return (

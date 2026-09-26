@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Tooltip on icon-only buttons.
  */
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@corensystem/coren-ui/tooltip";
-import {Button} from "@corensystem/coren-ui/button";
 import {Settings, HelpCircle, Bell} from "lucide-react";
 
 export function IconButton() {

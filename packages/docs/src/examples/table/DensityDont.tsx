@@ -1,14 +1,7 @@
 /**
  * Avoid cramming too much data into table cells.
  */
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from "@corensystem/coren-ui/table";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@corensystem/coren-ui/table";
 
 export function DensityDont() {
 	return (
@@ -23,8 +16,8 @@ export function DensityDont() {
 				<TableRow>
 					<TableCell>Alice</TableCell>
 					<TableCell className="wwc:text-xs">
-						alice@example.com | Active | Admin | Created: Jan 1, 2024 |
-						Last login: Today | 2FA: Enabled | Region: US-West
+						alice@example.com | Active | Admin | Created: Jan 1, 2024 | Last login: Today | 2FA: Enabled | Region:
+						US-West
 					</TableCell>
 				</TableRow>
 			</TableBody>

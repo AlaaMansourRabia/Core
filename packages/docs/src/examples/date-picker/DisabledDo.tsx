@@ -1,12 +1,12 @@
+import {Button} from "@corensystem/coren-ui/button";
+import {Calendar} from "@corensystem/coren-ui/calendar";
+import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
+import {format, addDays} from "date-fns";
+import {Calendar as CalendarIcon} from "lucide-react";
 /**
  * Disable invalid date ranges appropriately.
  */
 import * as React from "react";
-import {format, addDays} from "date-fns";
-import {Calendar as CalendarIcon} from "lucide-react";
-import {Button} from "@corensystem/coren-ui/button";
-import {Calendar} from "@corensystem/coren-ui/calendar";
-import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
 
 export function DisabledDo() {
 	const [date, setDate] = React.useState<Date>();
@@ -14,9 +14,7 @@ export function DisabledDo() {
 
 	return (
 		<div className="wwc:space-y-2">
-			<p className="wwc:text-sm wwc:text-muted-foreground">
-				Select appointment (next 30 days only)
-			</p>
+			<p className="wwc:text-sm wwc:text-muted-foreground">Select appointment (next 30 days only)</p>
 			<Popover>
 				<PopoverTrigger asChild>
 					<Button

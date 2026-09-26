@@ -1,11 +1,7 @@
 /**
  * Basic OTP input with 6 digits.
  */
-import {
-	InputOTP,
-	InputOTPGroup,
-	InputOTPSlot,
-} from "@corensystem/coren-ui/input-otp";
+import {InputOTP, InputOTPGroup, InputOTPSlot} from "@corensystem/coren-ui/input-otp";
 
 export function Default() {
 	return (

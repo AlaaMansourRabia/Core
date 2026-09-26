@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * 500 Server error page.
  */
 import {ErrorPage} from "@corensystem/coren-ui/error-page";
-import {Button} from "@corensystem/coren-ui/button";
 import {RefreshCw} from "lucide-react";
 
 export function ServerError() {

@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Validate time ranges appropriately.
  */
 import {TimeInput} from "@corensystem/coren-ui/time-input";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function ValidationDo() {
 	return (

@@ -1,7 +1,12 @@
 /**
  * Multi-step walkthrough modal.
  */
-import {WalkthroughModal, WalkthroughModalStep, WalkthroughModalContent, WalkthroughModalProgress} from "@corensystem/coren-ui/walkthrough-modal";
+import {
+	WalkthroughModal,
+	WalkthroughModalStep,
+	WalkthroughModalContent,
+	WalkthroughModalProgress,
+} from "@corensystem/coren-ui/walkthrough-modal";
 
 export function MultiStep() {
 	return (

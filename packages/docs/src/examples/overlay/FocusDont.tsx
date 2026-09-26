@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid breaking tab order.
  */
 import {Overlay, OverlayContent} from "@corensystem/coren-ui/overlay";
-import {Button} from "@corensystem/coren-ui/button";
 import {useState} from "react";
 
 export function FocusDont() {

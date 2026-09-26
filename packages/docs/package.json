@@ -2,13 +2,13 @@
 	"name": "@corensystem/coren-docs",
 	"version": "1.4.0",
 	"description": "Component documentation and examples for the Coren Design System",
+	"files": [
+		"dist"
+	],
 	"type": "module",
 	"sideEffects": false,
 	"main": "./dist/examples/badge/index.mjs",
 	"types": "./dist/examples/badge/index.d.mts",
-	"files": [
-		"dist"
-	],
 	"exports": {
 		"./index.json": "./dist/index.json",
 		"./docs/*": "./dist/docs/*",
@@ -638,12 +638,6 @@
 		"format": "oxfmt .",
 		"format:check": "oxfmt --check ."
 	},
-	"peerDependencies": {
-		"@corensystem/coren-ui": "^1.0.0",
-		"lucide-react": ">=0.400.0",
-		"react": "^18.0.0 || ^19.0.0",
-		"react-dom": "^18.0.0 || ^19.0.0"
-	},
 	"devDependencies": {
 		"@corensystem/coren-ui": "workspace:*",
 		"@types/react": "^19.0.0",
@@ -653,5 +647,11 @@
 		"react-dom": "^19.1.0",
 		"tsdown": "latest",
 		"typescript": "^5.9.0"
+	},
+	"peerDependencies": {
+		"@corensystem/coren-ui": "^1.0.0",
+		"lucide-react": ">=0.400.0",
+		"react": "^18.0.0 || ^19.0.0",
+		"react-dom": "^18.0.0 || ^19.0.0"
 	}
 }

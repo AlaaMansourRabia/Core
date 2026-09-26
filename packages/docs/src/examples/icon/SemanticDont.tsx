@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid misleading icon choices.
  */
 import {Icon} from "@corensystem/coren-ui/icon";
-import {Button} from "@corensystem/coren-ui/button";
 import {Heart, Star, Moon} from "lucide-react";
 
 export function SemanticDont() {

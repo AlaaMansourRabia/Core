@@ -4,7 +4,5 @@
 import {BuildingModelPlaceholder} from "@corensystem/coren-ui/building-model-placeholder";
 
 export function Loading() {
-	return (
-		<BuildingModelPlaceholder loading className="wwc:w-64 wwc:h-48" />
-	);
+	return <BuildingModelPlaceholder loading className="wwc:w-64 wwc:h-48" />;
 }

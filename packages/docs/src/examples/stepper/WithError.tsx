@@ -28,9 +28,7 @@ export function WithError() {
 				</StepperIndicator>
 				<div>
 					<StepperLabel className="wwc:text-destructive">Payment</StepperLabel>
-					<StepperDescription className="wwc:text-destructive">
-						Card declined
-					</StepperDescription>
+					<StepperDescription className="wwc:text-destructive">Card declined</StepperDescription>
 				</div>
 				<StepperSeparator />
 			</StepperItem>

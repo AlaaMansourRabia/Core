@@ -1,8 +1,13 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid absolute timestamps that require calculation.
  */
-import {NotificationCenter, NotificationCenterTrigger, NotificationCenterContent, NotificationItem} from "@corensystem/coren-ui/notification-center";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	NotificationCenter,
+	NotificationCenterTrigger,
+	NotificationCenterContent,
+	NotificationItem,
+} from "@corensystem/coren-ui/notification-center";
 import {Bell} from "lucide-react";
 
 export function TimestampsDont() {

@@ -12,7 +12,7 @@ export function DurationDont() {
 				onClick={() =>
 					toast(
 						"Your subscription will expire in 3 days. Please renew to avoid service interruption.",
-						{duration: 1000} // Too short for long message
+						{duration: 1000}, // Too short for long message
 					)
 				}
 			>
@@ -20,8 +20,8 @@ export function DurationDont() {
 			</Button>
 			<Button
 				variant="outline"
-				onClick={() =>
-					toast("Done!", {duration: 30000}) // Way too long for simple message
+				onClick={
+					() => toast("Done!", {duration: 30000}) // Way too long for simple message
 				}
 			>
 				Too Long

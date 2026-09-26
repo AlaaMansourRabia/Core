@@ -1,15 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Use consistent card structure with header, content, footer.
  */
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@corensystem/coren-ui/card";
-import {Button} from "@corensystem/coren-ui/button";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@corensystem/coren-ui/card";
 
 export function StructureDo() {
 	return (
@@ -21,9 +14,7 @@ export function StructureDo() {
 			<CardContent>
 				<div className="wwc:space-y-2">
 					<p className="wwc:text-2xl wwc:font-bold">Pro Plan</p>
-					<p className="wwc:text-sm wwc:text-muted-foreground">
-						5,000 / 10,000 API calls used
-					</p>
+					<p className="wwc:text-sm wwc:text-muted-foreground">5,000 / 10,000 API calls used</p>
 				</div>
 			</CardContent>
 			<CardFooter>

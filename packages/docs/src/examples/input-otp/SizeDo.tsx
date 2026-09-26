@@ -1,12 +1,7 @@
 /**
  * Use appropriately sized input slots.
  */
-import {
-	InputOTP,
-	InputOTPGroup,
-	InputOTPSlot,
-	InputOTPSeparator,
-} from "@corensystem/coren-ui/input-otp";
+import {InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator} from "@corensystem/coren-ui/input-otp";
 
 export function SizeDo() {
 	return (

@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Section with header actions.
  */
 import {Section} from "@corensystem/coren-ui/section";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function WithActions() {
 	return (

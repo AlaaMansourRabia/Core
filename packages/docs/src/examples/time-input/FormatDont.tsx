@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Avoid mixing time formats in the same form.
  */
 import {TimeInput} from "@corensystem/coren-ui/time-input";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function FormatDont() {
 	return (

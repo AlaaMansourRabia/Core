@@ -1,12 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid dialogs without title or description.
  */
-import {
-	Dialog,
-	DialogContent,
-	DialogTrigger,
-} from "@corensystem/coren-ui/dialog";
-import {Button} from "@corensystem/coren-ui/button";
+import {Dialog, DialogContent, DialogTrigger} from "@corensystem/coren-ui/dialog";
 
 export function AccessibleDont() {
 	return (

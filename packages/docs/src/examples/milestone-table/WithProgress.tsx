@@ -1,7 +1,12 @@
 /**
  * Milestone table with progress bars.
  */
-import {MilestoneTable, MilestoneTableRow, MilestoneTableCell, MilestoneTableProgress} from "@corensystem/coren-ui/milestone-table";
+import {
+	MilestoneTable,
+	MilestoneTableRow,
+	MilestoneTableCell,
+	MilestoneTableProgress,
+} from "@corensystem/coren-ui/milestone-table";
 
 export function WithProgress() {
 	return (

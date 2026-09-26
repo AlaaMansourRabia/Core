@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Basic confirmation dialog.
  */
 import {ConfirmDialog, ConfirmDialogTrigger} from "@corensystem/coren-ui/confirm-dialog";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Default() {
 	return (

@@ -1,7 +1,11 @@
 /**
  * Avoid ungrouped long lists.
  */
-import {OperationsDrawer, OperationsDrawerContent, OperationsDrawerAction} from "@corensystem/coren-ui/operations-drawer";
+import {
+	OperationsDrawer,
+	OperationsDrawerContent,
+	OperationsDrawerAction,
+} from "@corensystem/coren-ui/operations-drawer";
 
 export function GroupDont() {
 	return (

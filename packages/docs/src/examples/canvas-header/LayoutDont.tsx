@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid cluttered headers with too many actions.
  */
 import {CanvasHeader, CanvasHeaderTitle, CanvasHeaderActions} from "@corensystem/coren-ui/canvas-header";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function LayoutDont() {
 	return (

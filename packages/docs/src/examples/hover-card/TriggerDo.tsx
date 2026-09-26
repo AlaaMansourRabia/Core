@@ -1,11 +1,7 @@
 /**
  * Use inline text triggers that don't disrupt flow.
  */
-import {
-	HoverCard,
-	HoverCardTrigger,
-	HoverCardContent,
-} from "@corensystem/coren-ui/hover-card";
+import {HoverCard, HoverCardTrigger, HoverCardContent} from "@corensystem/coren-ui/hover-card";
 
 export function TriggerDo() {
 	return (
@@ -18,9 +14,7 @@ export function TriggerDo() {
 					</span>
 				</HoverCardTrigger>
 				<HoverCardContent className="wwc:w-64">
-					<p className="wwc:text-sm">
-						1,000 requests per minute for free tier, 10,000 for Pro.
-					</p>
+					<p className="wwc:text-sm">1,000 requests per minute for free tier, 10,000 for Pro.</p>
 				</HoverCardContent>
 			</HoverCard>{" "}
 			ensures fair usage across all users while maintaining system performance.

@@ -1,9 +1,14 @@
+import {Badge} from "@corensystem/coren-ui/badge";
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Notification center with unread count.
  */
-import {NotificationCenter, NotificationCenterTrigger, NotificationCenterContent, NotificationItem} from "@corensystem/coren-ui/notification-center";
-import {Button} from "@corensystem/coren-ui/button";
-import {Badge} from "@corensystem/coren-ui/badge";
+import {
+	NotificationCenter,
+	NotificationCenterTrigger,
+	NotificationCenterContent,
+	NotificationItem,
+} from "@corensystem/coren-ui/notification-center";
 import {Bell} from "lucide-react";
 
 export function WithBadge() {

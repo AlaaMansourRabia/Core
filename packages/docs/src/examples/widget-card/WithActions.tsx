@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Widget card with header actions.
  */
-import {WidgetCard, WidgetCardHeader, WidgetCardTitle, WidgetCardActions, WidgetCardContent} from "@corensystem/coren-ui/widget-card";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	WidgetCard,
+	WidgetCardHeader,
+	WidgetCardTitle,
+	WidgetCardActions,
+	WidgetCardContent,
+} from "@corensystem/coren-ui/widget-card";
 import {MoreHorizontal, RefreshCw} from "lucide-react";
 
 export function WithActions() {

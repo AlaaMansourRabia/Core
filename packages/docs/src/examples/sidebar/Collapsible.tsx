@@ -1,7 +1,3 @@
-/**
- * Collapsible sidebar with icon-only mode.
- */
-import * as React from "react";
 import {
 	Sidebar,
 	SidebarContent,
@@ -13,6 +9,10 @@ import {
 	SidebarTrigger,
 } from "@corensystem/coren-ui/sidebar";
 import {Home, FileText, Settings, Users, PanelLeft} from "lucide-react";
+/**
+ * Collapsible sidebar with icon-only mode.
+ */
+import * as React from "react";
 
 export function Collapsible() {
 	const [collapsed, setCollapsed] = React.useState(false);

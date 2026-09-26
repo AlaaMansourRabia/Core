@@ -1,13 +1,7 @@
 /**
  * Clearly indicate current progress and completion.
  */
-import {
-	Stepper,
-	StepperItem,
-	StepperIndicator,
-	StepperLabel,
-	StepperSeparator,
-} from "@corensystem/coren-ui/stepper";
+import {Stepper, StepperItem, StepperIndicator, StepperLabel, StepperSeparator} from "@corensystem/coren-ui/stepper";
 import {Check} from "lucide-react";
 
 export function ProgressDo() {

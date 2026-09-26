@@ -1,9 +1,16 @@
+import {Button} from "@corensystem/coren-ui/button";
+import {Checkbox} from "@corensystem/coren-ui/checkbox";
 /**
  * Export dialog with configuration options.
  */
-import {ExportDialog, ExportDialogTrigger, ExportDialogContent, ExportDialogFormat, ExportDialogOptions, ExportDialogAction} from "@corensystem/coren-ui/export-dialog";
-import {Button} from "@corensystem/coren-ui/button";
-import {Checkbox} from "@corensystem/coren-ui/checkbox";
+import {
+	ExportDialog,
+	ExportDialogTrigger,
+	ExportDialogContent,
+	ExportDialogFormat,
+	ExportDialogOptions,
+	ExportDialogAction,
+} from "@corensystem/coren-ui/export-dialog";
 
 export function WithOptions() {
 	return (

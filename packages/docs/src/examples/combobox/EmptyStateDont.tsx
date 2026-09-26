@@ -1,17 +1,11 @@
+import {Button} from "@corensystem/coren-ui/button";
+import {Command, CommandGroup, CommandInput, CommandItem, CommandList} from "@corensystem/coren-ui/command";
+import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
+import {ChevronsUpDown} from "lucide-react";
 /**
  * Avoid unhelpful or missing empty states.
  */
 import * as React from "react";
-import {ChevronsUpDown} from "lucide-react";
-import {Button} from "@corensystem/coren-ui/button";
-import {
-	Command,
-	CommandGroup,
-	CommandInput,
-	CommandItem,
-	CommandList,
-} from "@corensystem/coren-ui/command";
-import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
 
 const users = [
 	{value: "alice", label: "Alice Smith"},
@@ -22,9 +16,7 @@ export function EmptyStateDont() {
 	const [open, setOpen] = React.useState(false);
 	const [search, setSearch] = React.useState("xyz");
 
-	const filtered = users.filter((u) =>
-		u.label.toLowerCase().includes(search.toLowerCase())
-	);
+	const filtered = users.filter((u) => u.label.toLowerCase().includes(search.toLowerCase()));
 
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
@@ -36,11 +28,7 @@ export function EmptyStateDont() {
 			</PopoverTrigger>
 			<PopoverContent className="wwc:w-56 wwc:p-0">
 				<Command>
-					<CommandInput
-						placeholder="Search..."
-						value={search}
-						onValueChange={setSearch}
-					/>
+					<CommandInput placeholder="Search..." value={search} onValueChange={setSearch} />
 					<CommandList>
 						{/* Empty list with no feedback - confusing */}
 						<CommandGroup>

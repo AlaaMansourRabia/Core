@@ -1,13 +1,7 @@
 /**
  * Use consistent, recognizable icons for commands.
  */
-import {
-	Command,
-	CommandGroup,
-	CommandInput,
-	CommandItem,
-	CommandList,
-} from "@corensystem/coren-ui/command";
+import {Command, CommandGroup, CommandInput, CommandItem, CommandList} from "@corensystem/coren-ui/command";
 import {Home, FileText, Folder, Search, Bell, HelpCircle} from "lucide-react";
 
 export function IconsDo() {

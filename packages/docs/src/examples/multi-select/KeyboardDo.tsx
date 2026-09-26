@@ -1,8 +1,8 @@
+import {MultiSelect} from "@corensystem/coren-ui/multi-select";
 /**
  * Support keyboard navigation and selection.
  */
 import * as React from "react";
-import {MultiSelect} from "@corensystem/coren-ui/multi-select";
 
 const options = [
 	{label: "Apple", value: "apple"},
@@ -23,9 +23,7 @@ export function KeyboardDo() {
 				placeholder="Select fruits..."
 				className="wwc:w-80"
 			/>
-			<p className="wwc:text-xs wwc:text-muted-foreground">
-				↑↓ to navigate, Space to select, Backspace to remove last
-			</p>
+			<p className="wwc:text-xs wwc:text-muted-foreground">↑↓ to navigate, Space to select, Backspace to remove last</p>
 		</div>
 	);
 }

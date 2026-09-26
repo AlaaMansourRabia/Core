@@ -1,7 +1,12 @@
 /**
  * Default asset list item showing a file entry.
  */
-import {AssetListItem, AssetListItemIcon, AssetListItemName, AssetListItemMeta} from "@corensystem/coren-ui/asset-list-item";
+import {
+	AssetListItem,
+	AssetListItemIcon,
+	AssetListItemName,
+	AssetListItemMeta,
+} from "@corensystem/coren-ui/asset-list-item";
 import {FileText} from "lucide-react";
 
 export function Default() {

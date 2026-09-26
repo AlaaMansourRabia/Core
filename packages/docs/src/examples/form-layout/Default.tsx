@@ -1,10 +1,10 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Basic form layout with sections and rows.
  */
 import {FormLayout, FormSection, FormRow, FormActions} from "@corensystem/coren-ui/form-layout";
 import {Input} from "@corensystem/coren-ui/input";
 import {Label} from "@corensystem/coren-ui/label";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Default() {
 	return (

@@ -1,8 +1,8 @@
+import {Checkbox} from "@corensystem/coren-ui/checkbox";
 /**
  * Avoid mouse-only selection interfaces.
  */
 import * as React from "react";
-import {Checkbox} from "@corensystem/coren-ui/checkbox";
 
 export function KeyboardDont() {
 	return (

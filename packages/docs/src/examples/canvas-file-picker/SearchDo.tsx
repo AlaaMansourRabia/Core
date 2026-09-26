@@ -1,7 +1,13 @@
 /**
  * Include search for large file lists.
  */
-import {CanvasFilePicker, CanvasFilePickerTrigger, CanvasFilePickerContent, CanvasFilePickerSearch, CanvasFilePickerItem} from "@corensystem/coren-ui/canvas-file-picker";
+import {
+	CanvasFilePicker,
+	CanvasFilePickerTrigger,
+	CanvasFilePickerContent,
+	CanvasFilePickerSearch,
+	CanvasFilePickerItem,
+} from "@corensystem/coren-ui/canvas-file-picker";
 
 export function SearchDo() {
 	return (

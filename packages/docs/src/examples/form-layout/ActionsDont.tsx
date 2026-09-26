@@ -1,9 +1,9 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid placing actions inline with form fields.
  */
 import {Input} from "@corensystem/coren-ui/input";
 import {Label} from "@corensystem/coren-ui/label";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function ActionsDont() {
 	return (

@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Basic multi-step wizard dialog.
  */
 import {WizardDialog, WizardDialogTrigger, WizardDialogContent, WizardStep} from "@corensystem/coren-ui/wizard-dialog";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Default() {
 	return (

@@ -1,7 +1,12 @@
 /**
  * Expandable milestone rows with tasks.
  */
-import {MilestoneTable, MilestoneTableRow, MilestoneTableCell, MilestoneTableExpandable} from "@corensystem/coren-ui/milestone-table";
+import {
+	MilestoneTable,
+	MilestoneTableRow,
+	MilestoneTableCell,
+	MilestoneTableExpandable,
+} from "@corensystem/coren-ui/milestone-table";
 
 export function Expandable() {
 	return (

@@ -15,12 +15,12 @@ export function SelectionDont() {
 
 	return (
 		<div className="wwc:w-64 wwc:rounded-md wwc:border wwc:p-4">
-			<div className="wwc:mb-2 wwc:text-center wwc:font-medium">
-				January 2024
-			</div>
+			<div className="wwc:mb-2 wwc:text-center wwc:font-medium">January 2024</div>
 			<div className="wwc:grid wwc:grid-cols-7 wwc:gap-1 wwc:text-center wwc:text-sm">
 				{["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
-					<div key={i} className="wwc:p-1 wwc:text-muted-foreground">{d}</div>
+					<div key={i} className="wwc:p-1 wwc:text-muted-foreground">
+						{d}
+					</div>
 				))}
 				{days.map((day) => (
 					<div

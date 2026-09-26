@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Destructive confirmation dialog.
  */
 import {ConfirmDialog, ConfirmDialogTrigger} from "@corensystem/coren-ui/confirm-dialog";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Destructive() {
 	return (

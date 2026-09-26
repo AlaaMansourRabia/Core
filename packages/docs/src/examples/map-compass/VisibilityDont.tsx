@@ -4,7 +4,5 @@
 import {MapCompass} from "@corensystem/coren-ui/map-compass";
 
 export function VisibilityDont() {
-	return (
-		<MapCompass rotation={0} className="wwc:w-10 wwc:h-10" />
-	);
+	return <MapCompass rotation={0} className="wwc:w-10 wwc:h-10" />;
 }

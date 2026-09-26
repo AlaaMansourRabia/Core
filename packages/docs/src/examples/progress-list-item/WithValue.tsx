@@ -1,7 +1,12 @@
 /**
  * Progress list item with value display.
  */
-import {ProgressListItem, ProgressListItemLabel, ProgressListItemBar, ProgressListItemValue} from "@corensystem/coren-ui/progress-list-item";
+import {
+	ProgressListItem,
+	ProgressListItemLabel,
+	ProgressListItemBar,
+	ProgressListItemValue,
+} from "@corensystem/coren-ui/progress-list-item";
 
 export function WithValue() {
 	return (

@@ -1,7 +1,13 @@
 /**
  * Canvas file picker with grouped items.
  */
-import {CanvasFilePicker, CanvasFilePickerTrigger, CanvasFilePickerContent, CanvasFilePickerGroup, CanvasFilePickerItem} from "@corensystem/coren-ui/canvas-file-picker";
+import {
+	CanvasFilePicker,
+	CanvasFilePickerTrigger,
+	CanvasFilePickerContent,
+	CanvasFilePickerGroup,
+	CanvasFilePickerItem,
+} from "@corensystem/coren-ui/canvas-file-picker";
 
 export function Grouped() {
 	return (

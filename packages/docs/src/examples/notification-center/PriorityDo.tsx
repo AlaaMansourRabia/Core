@@ -1,8 +1,13 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Visually distinguish notification priority.
  */
-import {NotificationCenter, NotificationCenterTrigger, NotificationCenterContent, NotificationItem} from "@corensystem/coren-ui/notification-center";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	NotificationCenter,
+	NotificationCenterTrigger,
+	NotificationCenterContent,
+	NotificationItem,
+} from "@corensystem/coren-ui/notification-center";
 import {Bell, AlertCircle} from "lucide-react";
 
 export function PriorityDo() {
@@ -21,11 +26,7 @@ export function PriorityDo() {
 					description="Unusual login detected"
 					time="Just now"
 				/>
-				<NotificationItem
-					title="Reminder"
-					description="Meeting starts soon"
-					time="5 min ago"
-				/>
+				<NotificationItem title="Reminder" description="Meeting starts soon" time="5 min ago" />
 			</NotificationCenterContent>
 		</NotificationCenter>
 	);

@@ -1,11 +1,7 @@
 /**
  * Use hover cards for supplementary, non-essential information.
  */
-import {
-	HoverCard,
-	HoverCardTrigger,
-	HoverCardContent,
-} from "@corensystem/coren-ui/hover-card";
+import {HoverCard, HoverCardTrigger, HoverCardContent} from "@corensystem/coren-ui/hover-card";
 import {Link} from "@corensystem/coren-ui/link";
 import {ExternalLink} from "lucide-react";
 
@@ -25,9 +21,7 @@ export function ContentDo() {
 							Docs
 							<ExternalLink className="wwc:h-3 wwc:w-3" />
 						</h4>
-						<p className="wwc:text-sm wwc:text-muted-foreground">
-							Comprehensive guides, API references, and examples.
-						</p>
+						<p className="wwc:text-sm wwc:text-muted-foreground">Comprehensive guides, API references, and examples.</p>
 					</div>
 				</HoverCardContent>
 			</HoverCard>{" "}

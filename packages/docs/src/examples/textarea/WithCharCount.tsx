@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Textarea with character count indicator.
  */
 import {Textarea} from "@corensystem/coren-ui/textarea";
-import {Label} from "@corensystem/coren-ui/label";
 import * as React from "react";
 
 export function WithCharCount() {

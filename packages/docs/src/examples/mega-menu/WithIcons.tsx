@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Mega menu with icons.
  */
-import {MegaMenu, MegaMenuTrigger, MegaMenuContent, MegaMenuSection, MegaMenuItem} from "@corensystem/coren-ui/mega-menu";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	MegaMenu,
+	MegaMenuTrigger,
+	MegaMenuContent,
+	MegaMenuSection,
+	MegaMenuItem,
+} from "@corensystem/coren-ui/mega-menu";
 import {BarChart, Users, Mail, Settings, HelpCircle, Book} from "lucide-react";
 
 export function WithIcons() {

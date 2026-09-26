@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Use tooltips for supplementary information.
  */
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@corensystem/coren-ui/tooltip";
-import {Button} from "@corensystem/coren-ui/button";
 import {Copy} from "lucide-react";
 
 export function UsageDo() {

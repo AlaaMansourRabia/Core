@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Operations drawer with action groups.
  */
-import {OperationsDrawer, OperationsDrawerTrigger, OperationsDrawerContent, OperationsDrawerGroup, OperationsDrawerAction} from "@corensystem/coren-ui/operations-drawer";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	OperationsDrawer,
+	OperationsDrawerTrigger,
+	OperationsDrawerContent,
+	OperationsDrawerGroup,
+	OperationsDrawerAction,
+} from "@corensystem/coren-ui/operations-drawer";
 
 export function WithGroups() {
 	return (

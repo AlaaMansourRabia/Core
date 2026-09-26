@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Provide clear close affordance.
  */
 import {Lightbox, LightboxTrigger, LightboxContent, LightboxClose} from "@corensystem/coren-ui/lightbox";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function CloseDo() {
 	return (
@@ -12,10 +12,7 @@ export function CloseDo() {
 			</LightboxTrigger>
 			<LightboxContent>
 				<LightboxClose />
-				<img
-					src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1200"
-					alt="Ocean"
-				/>
+				<img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1200" alt="Ocean" />
 			</LightboxContent>
 		</Lightbox>
 	);

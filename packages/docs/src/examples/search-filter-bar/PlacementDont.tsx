@@ -11,9 +11,7 @@ export function PlacementDont() {
 					<SearchInput placeholder="Search..." className="wwc:text-xs" />
 				</SearchFilterBar>
 			</div>
-			<div className="wwc:flex-1 wwc:border wwc:rounded wwc:p-4 wwc:text-muted-foreground">
-				Content area
-			</div>
+			<div className="wwc:flex-1 wwc:border wwc:rounded wwc:p-4 wwc:text-muted-foreground">Content area</div>
 		</div>
 	);
 }

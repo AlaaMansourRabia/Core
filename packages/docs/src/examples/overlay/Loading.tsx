@@ -1,9 +1,9 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Overlay with loading spinner.
  */
 import {Overlay, OverlayContent} from "@corensystem/coren-ui/overlay";
 import {Spinner} from "@corensystem/coren-ui/spinner";
-import {Button} from "@corensystem/coren-ui/button";
 import {useState} from "react";
 
 export function Loading() {

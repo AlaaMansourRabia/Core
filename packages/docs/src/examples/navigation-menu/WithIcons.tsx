@@ -28,9 +28,7 @@ export function WithIcons() {
 										<Layers className="wwc:h-5 wwc:w-5 wwc:text-primary" />
 										<div>
 											<div className="wwc:text-sm wwc:font-medium">Components</div>
-											<p className="wwc:text-sm wwc:text-muted-foreground">
-												50+ accessible components
-											</p>
+											<p className="wwc:text-sm wwc:text-muted-foreground">50+ accessible components</p>
 										</div>
 									</a>
 								</NavigationMenuLink>
@@ -44,9 +42,7 @@ export function WithIcons() {
 										<Palette className="wwc:h-5 wwc:w-5 wwc:text-primary" />
 										<div>
 											<div className="wwc:text-sm wwc:font-medium">Theming</div>
-											<p className="wwc:text-sm wwc:text-muted-foreground">
-												Customizable design tokens
-											</p>
+											<p className="wwc:text-sm wwc:text-muted-foreground">Customizable design tokens</p>
 										</div>
 									</a>
 								</NavigationMenuLink>
@@ -60,9 +56,7 @@ export function WithIcons() {
 										<Zap className="wwc:h-5 wwc:w-5 wwc:text-primary" />
 										<div>
 											<div className="wwc:text-sm wwc:font-medium">Performance</div>
-											<p className="wwc:text-sm wwc:text-muted-foreground">
-												Optimized for speed
-											</p>
+											<p className="wwc:text-sm wwc:text-muted-foreground">Optimized for speed</p>
 										</div>
 									</a>
 								</NavigationMenuLink>

@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Select with accessible label.
  */
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@corensystem/coren-ui/select";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function WithLabel() {
 	return (

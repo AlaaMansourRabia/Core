@@ -1,8 +1,8 @@
+import {Calendar} from "@corensystem/coren-ui/calendar";
 /**
  * Calendar with disabled dates.
  */
 import * as React from "react";
-import {Calendar} from "@corensystem/coren-ui/calendar";
 
 export function WithDisabled() {
 	const [date, setDate] = React.useState<Date | undefined>();
@@ -22,9 +22,7 @@ export function WithDisabled() {
 				disabled={disabledDays}
 				className="wwc:rounded-md wwc:border"
 			/>
-			<p className="wwc:text-sm wwc:text-muted-foreground">
-				Weekends and past dates are disabled
-			</p>
+			<p className="wwc:text-sm wwc:text-muted-foreground">Weekends and past dates are disabled</p>
 		</div>
 	);
 }

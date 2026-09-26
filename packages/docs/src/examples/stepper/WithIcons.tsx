@@ -1,13 +1,7 @@
 /**
  * Stepper with icons instead of numbers.
  */
-import {
-	Stepper,
-	StepperItem,
-	StepperIndicator,
-	StepperLabel,
-	StepperSeparator,
-} from "@corensystem/coren-ui/stepper";
+import {Stepper, StepperItem, StepperIndicator, StepperLabel, StepperSeparator} from "@corensystem/coren-ui/stepper";
 import {User, CreditCard, Check, Package} from "lucide-react";
 
 export function WithIcons() {

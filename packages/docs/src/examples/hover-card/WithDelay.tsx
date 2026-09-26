@@ -1,12 +1,8 @@
+import {Badge} from "@corensystem/coren-ui/badge";
 /**
  * Hover card with custom open and close delays.
  */
-import {
-	HoverCard,
-	HoverCardTrigger,
-	HoverCardContent,
-} from "@corensystem/coren-ui/hover-card";
-import {Badge} from "@corensystem/coren-ui/badge";
+import {HoverCard, HoverCardTrigger, HoverCardContent} from "@corensystem/coren-ui/hover-card";
 import {Info} from "lucide-react";
 
 export function WithDelay() {
@@ -24,8 +20,8 @@ export function WithDelay() {
 					<div className="wwc:space-y-2">
 						<h4 className="wwc:font-semibold">Beta Feature</h4>
 						<p className="wwc:text-sm wwc:text-muted-foreground">
-							This feature is in beta testing. It may change or be removed in
-							future releases. Report issues to help us improve.
+							This feature is in beta testing. It may change or be removed in future releases. Report issues to help us
+							improve.
 						</p>
 					</div>
 				</HoverCardContent>

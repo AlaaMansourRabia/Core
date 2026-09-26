@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Keep tooltip content brief and scannable.
  */
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@corensystem/coren-ui/tooltip";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function ContentDo() {
 	return (

@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Dialog containing a form.
  */
@@ -11,7 +12,6 @@ import {
 	DialogTrigger,
 	DialogClose,
 } from "@corensystem/coren-ui/dialog";
-import {Button} from "@corensystem/coren-ui/button";
 import {Input} from "@corensystem/coren-ui/input";
 import {Label} from "@corensystem/coren-ui/label";
 

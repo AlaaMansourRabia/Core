@@ -1,9 +1,9 @@
+import {format} from "date-fns";
+import {Calendar as CalendarIcon} from "lucide-react";
 /**
  * Avoid date pickers without labels or keyboard support.
  */
 import * as React from "react";
-import {format} from "date-fns";
-import {Calendar as CalendarIcon} from "lucide-react";
 
 export function A11yDont() {
 	const [date, setDate] = React.useState<Date>();
@@ -17,16 +17,16 @@ export function A11yDont() {
 				onClick={() => setOpen(!open)}
 			>
 				<CalendarIcon className="wwc:mr-2 wwc:h-4 wwc:w-4" />
-				<span className={!date ? "wwc:text-muted-foreground" : ""}>
-					{date ? format(date, "PPP") : "Pick date"}
-				</span>
+				<span className={!date ? "wwc:text-muted-foreground" : ""}>{date ? format(date, "PPP") : "Pick date"}</span>
 			</div>
 			{open && (
 				<div className="wwc:absolute wwc:top-full wwc:mt-1 wwc:rounded-md wwc:border wwc:bg-popover wwc:p-2 wwc:shadow-md">
 					{/* Custom calendar without keyboard navigation */}
 					<div className="wwc:grid wwc:grid-cols-7 wwc:gap-1 wwc:text-center wwc:text-xs">
 						{["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
-							<div key={i} className="wwc:p-1 wwc:text-muted-foreground">{d}</div>
+							<div key={i} className="wwc:p-1 wwc:text-muted-foreground">
+								{d}
+							</div>
 						))}
 						{Array.from({length: 31}, (_, i) => (
 							<div

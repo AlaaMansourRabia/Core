@@ -1,7 +1,12 @@
 /**
  * Group related operations.
  */
-import {OperationsDrawer, OperationsDrawerContent, OperationsDrawerGroup, OperationsDrawerAction} from "@corensystem/coren-ui/operations-drawer";
+import {
+	OperationsDrawer,
+	OperationsDrawerContent,
+	OperationsDrawerGroup,
+	OperationsDrawerAction,
+} from "@corensystem/coren-ui/operations-drawer";
 
 export function GroupDo() {
 	return (

@@ -10,9 +10,7 @@ import {
 	DataTableCell,
 } from "@corensystem/coren-ui/data-table";
 
-const data = [
-	{id: 1, internalId: "USR-00001", createdAt: "2024-01-01", name: "Alice"},
-];
+const data = [{id: 1, internalId: "USR-00001", createdAt: "2024-01-01", name: "Alice"}];
 
 export function ColumnsDont() {
 	return (

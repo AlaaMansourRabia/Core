@@ -1,14 +1,9 @@
+import {InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator} from "@corensystem/coren-ui/input-otp";
+import {CheckCircle2, XCircle} from "lucide-react";
 /**
  * Show validation feedback clearly.
  */
 import * as React from "react";
-import {
-	InputOTP,
-	InputOTPGroup,
-	InputOTPSlot,
-	InputOTPSeparator,
-} from "@corensystem/coren-ui/input-otp";
-import {CheckCircle2, XCircle} from "lucide-react";
 
 export function FeedbackDo() {
 	const [value, setValue] = React.useState("123456");
@@ -31,7 +26,9 @@ export function FeedbackDo() {
 				</InputOTPGroup>
 			</InputOTP>
 			{isComplete && (
-				<div className={`wwc:flex wwc:items-center wwc:gap-2 wwc:text-sm ${isValid ? "wwc:text-green-600" : "wwc:text-destructive"}`}>
+				<div
+					className={`wwc:flex wwc:items-center wwc:gap-2 wwc:text-sm ${isValid ? "wwc:text-green-600" : "wwc:text-destructive"}`}
+				>
 					{isValid ? (
 						<>
 							<CheckCircle2 className="wwc:h-4 wwc:w-4" />

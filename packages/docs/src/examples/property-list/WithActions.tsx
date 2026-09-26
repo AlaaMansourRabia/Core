@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Property list with inline actions.
  */
 import {PropertyList, PropertyItem} from "@corensystem/coren-ui/property-list";
-import {Button} from "@corensystem/coren-ui/button";
 import {Copy, ExternalLink} from "lucide-react";
 
 export function WithActions() {

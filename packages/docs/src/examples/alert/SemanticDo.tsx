@@ -9,9 +9,7 @@ export function SemanticDo() {
 		<Alert variant="destructive">
 			<AlertCircle className="wwc:h-4 wwc:w-4" />
 			<AlertTitle>Payment Failed</AlertTitle>
-			<AlertDescription>
-				Your credit card was declined. Please update your payment method.
-			</AlertDescription>
+			<AlertDescription>Your credit card was declined. Please update your payment method.</AlertDescription>
 		</Alert>
 	);
 }

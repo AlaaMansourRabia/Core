@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid using tooltips for critical information.
  */
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@corensystem/coren-ui/tooltip";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function UsageDont() {
 	return (

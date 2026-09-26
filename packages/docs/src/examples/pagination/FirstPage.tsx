@@ -18,7 +18,9 @@ export function FirstPage() {
 					<PaginationPrevious href="#" aria-disabled="true" className="wwc:pointer-events-none wwc:opacity-50" />
 				</PaginationItem>
 				<PaginationItem>
-					<PaginationLink href="#" isActive>1</PaginationLink>
+					<PaginationLink href="#" isActive>
+						1
+					</PaginationLink>
 				</PaginationItem>
 				<PaginationItem>
 					<PaginationLink href="#">2</PaginationLink>

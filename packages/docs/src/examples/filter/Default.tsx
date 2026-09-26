@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Basic filter component.
  */
 import {Filter, FilterTrigger, FilterContent, FilterOption} from "@corensystem/coren-ui/filter";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Default() {
 	return (

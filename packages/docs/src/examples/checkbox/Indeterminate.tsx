@@ -9,7 +9,9 @@ export function Indeterminate() {
 		<div className="wwc:flex wwc:flex-col wwc:gap-3">
 			<div className="wwc:flex wwc:items-center wwc:gap-2">
 				<Checkbox id="checkbox-parent" checked="indeterminate" />
-				<Label htmlFor="checkbox-parent" className="wwc:font-medium">Select all</Label>
+				<Label htmlFor="checkbox-parent" className="wwc:font-medium">
+					Select all
+				</Label>
 			</div>
 			<div className="wwc:flex wwc:flex-col wwc:gap-2 wwc:ps-6">
 				<div className="wwc:flex wwc:items-center wwc:gap-2">

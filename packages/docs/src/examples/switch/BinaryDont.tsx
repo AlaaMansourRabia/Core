@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Avoid using switch for multi-state options (use Select or RadioGroup).
  */
 import {Switch} from "@corensystem/coren-ui/switch";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function BinaryDont() {
 	return (

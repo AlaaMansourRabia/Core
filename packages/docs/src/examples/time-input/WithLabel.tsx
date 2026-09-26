@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Time input with form label.
  */
 import {TimeInput} from "@corensystem/coren-ui/time-input";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function WithLabel() {
 	return (

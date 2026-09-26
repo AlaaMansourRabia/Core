@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid losing progress without warning.
  */
 import {WizardDialog, WizardDialogTrigger, WizardDialogContent, WizardStep} from "@corensystem/coren-ui/wizard-dialog";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function CancelDont() {
 	return (

@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Responsive overflow list that adapts to container.
  */
 import {OverflowList, OverflowListItem, OverflowListMore} from "@corensystem/coren-ui/overflow-list";
-import {Button} from "@corensystem/coren-ui/button";
 
 const actions = ["Edit", "Delete", "Archive", "Duplicate", "Share", "Export"];
 
@@ -12,11 +12,17 @@ export function Responsive() {
 			<OverflowList responsive>
 				{actions.map((action) => (
 					<OverflowListItem key={action}>
-						<Button variant="outline" size="sm">{action}</Button>
+						<Button variant="outline" size="sm">
+							{action}
+						</Button>
 					</OverflowListItem>
 				))}
 				<OverflowListMore>
-					{(count) => <Button variant="ghost" size="sm">+{count}</Button>}
+					{(count) => (
+						<Button variant="ghost" size="sm">
+							+{count}
+						</Button>
+					)}
 				</OverflowListMore>
 			</OverflowList>
 		</div>

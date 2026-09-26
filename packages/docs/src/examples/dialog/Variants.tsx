@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Dialog layout variants: banded and stacked.
  */
@@ -9,7 +10,6 @@ import {
 	DialogDescription,
 	DialogTrigger,
 } from "@corensystem/coren-ui/dialog";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Variants() {
 	return (

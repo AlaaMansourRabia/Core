@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Confirmation dialog with loading state.
  */
 import {ConfirmDialog, ConfirmDialogTrigger} from "@corensystem/coren-ui/confirm-dialog";
-import {Button} from "@corensystem/coren-ui/button";
 import {useState} from "react";
 
 export function WithLoading() {

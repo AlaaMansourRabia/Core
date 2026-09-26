@@ -1,12 +1,7 @@
 /**
  * Avoid deeply nested accordions.
  */
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "@corensystem/coren-ui/accordion";
+import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@corensystem/coren-ui/accordion";
 
 export function DepthDont() {
 	return (
@@ -17,9 +12,7 @@ export function DepthDont() {
 					<Accordion type="single" collapsible>
 						<AccordionItem value="nested-1">
 							<AccordionTrigger>Nested Level</AccordionTrigger>
-							<AccordionContent>
-								Nested accordions are confusing and hard to navigate.
-							</AccordionContent>
+							<AccordionContent>Nested accordions are confusing and hard to navigate.</AccordionContent>
 						</AccordionItem>
 					</Accordion>
 				</AccordionContent>

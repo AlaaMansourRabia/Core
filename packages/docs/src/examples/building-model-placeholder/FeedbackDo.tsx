@@ -1,7 +1,10 @@
 /**
  * Show loading progress when possible.
  */
-import {BuildingModelPlaceholder, BuildingModelPlaceholderProgress} from "@corensystem/coren-ui/building-model-placeholder";
+import {
+	BuildingModelPlaceholder,
+	BuildingModelPlaceholderProgress,
+} from "@corensystem/coren-ui/building-model-placeholder";
 
 export function FeedbackDo() {
 	return (

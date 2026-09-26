@@ -8,8 +8,7 @@ export function Default() {
 		<Markdown>
 			<h2>Getting Started</h2>
 			<p>
-				Welcome to the documentation. This guide will help you understand the
-				basics and get you up and running quickly.
+				Welcome to the documentation. This guide will help you understand the basics and get you up and running quickly.
 			</p>
 			<ul>
 				<li>Installation</li>

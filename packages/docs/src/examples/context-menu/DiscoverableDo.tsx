@@ -1,13 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Make primary actions also accessible via other UI elements.
  */
-import {
-	ContextMenu,
-	ContextMenuContent,
-	ContextMenuItem,
-	ContextMenuTrigger,
-} from "@corensystem/coren-ui/context-menu";
-import {Button} from "@corensystem/coren-ui/button";
+import {ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger} from "@corensystem/coren-ui/context-menu";
 import {MoreHorizontal} from "lucide-react";
 
 export function DiscoverableDo() {

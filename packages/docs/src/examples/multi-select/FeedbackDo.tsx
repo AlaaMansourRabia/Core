@@ -1,8 +1,8 @@
+import {MultiSelect} from "@corensystem/coren-ui/multi-select";
 /**
  * Show selection count and feedback.
  */
 import * as React from "react";
-import {MultiSelect} from "@corensystem/coren-ui/multi-select";
 
 const options = [
 	{label: "Item 1", value: "1"},

@@ -1,8 +1,8 @@
+import {MultiSelect} from "@corensystem/coren-ui/multi-select";
 /**
  * Multi-select with default selections.
  */
 import * as React from "react";
-import {MultiSelect} from "@corensystem/coren-ui/multi-select";
 
 const skills = [
 	{label: "JavaScript", value: "js"},

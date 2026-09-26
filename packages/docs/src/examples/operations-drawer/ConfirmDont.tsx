@@ -1,7 +1,11 @@
 /**
  * Avoid immediate destructive actions.
  */
-import {OperationsDrawer, OperationsDrawerContent, OperationsDrawerAction} from "@corensystem/coren-ui/operations-drawer";
+import {
+	OperationsDrawer,
+	OperationsDrawerContent,
+	OperationsDrawerAction,
+} from "@corensystem/coren-ui/operations-drawer";
 
 export function ConfirmDont() {
 	return (

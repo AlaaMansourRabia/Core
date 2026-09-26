@@ -7,9 +7,15 @@ import {Copy, Scissors, Clipboard} from "lucide-react";
 export function ActionsDo() {
 	return (
 		<ContextToolbar>
-			<ContextToolbarButton><Scissors className="wwc:h-4 wwc:w-4" /></ContextToolbarButton>
-			<ContextToolbarButton><Copy className="wwc:h-4 wwc:w-4" /></ContextToolbarButton>
-			<ContextToolbarButton><Clipboard className="wwc:h-4 wwc:w-4" /></ContextToolbarButton>
+			<ContextToolbarButton>
+				<Scissors className="wwc:h-4 wwc:w-4" />
+			</ContextToolbarButton>
+			<ContextToolbarButton>
+				<Copy className="wwc:h-4 wwc:w-4" />
+			</ContextToolbarButton>
+			<ContextToolbarButton>
+				<Clipboard className="wwc:h-4 wwc:w-4" />
+			</ContextToolbarButton>
 		</ContextToolbar>
 	);
 }

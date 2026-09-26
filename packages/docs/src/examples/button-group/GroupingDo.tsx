@@ -7,9 +7,15 @@ import {AlignLeft, AlignCenter, AlignRight} from "lucide-react";
 export function GroupingDo() {
 	return (
 		<ButtonGroup>
-			<ButtonGroupItem><AlignLeft /></ButtonGroupItem>
-			<ButtonGroupItem><AlignCenter /></ButtonGroupItem>
-			<ButtonGroupItem><AlignRight /></ButtonGroupItem>
+			<ButtonGroupItem>
+				<AlignLeft />
+			</ButtonGroupItem>
+			<ButtonGroupItem>
+				<AlignCenter />
+			</ButtonGroupItem>
+			<ButtonGroupItem>
+				<AlignRight />
+			</ButtonGroupItem>
 		</ButtonGroup>
 	);
 }

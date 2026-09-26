@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Notification center with action buttons.
  */
-import {NotificationCenter, NotificationCenterTrigger, NotificationCenterContent, NotificationItem, NotificationCenterHeader} from "@corensystem/coren-ui/notification-center";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	NotificationCenter,
+	NotificationCenterTrigger,
+	NotificationCenterContent,
+	NotificationItem,
+	NotificationCenterHeader,
+} from "@corensystem/coren-ui/notification-center";
 import {Bell} from "lucide-react";
 
 export function WithActions() {
@@ -16,7 +22,9 @@ export function WithActions() {
 			<NotificationCenterContent>
 				<NotificationCenterHeader>
 					<span className="wwc:font-semibold">Notifications</span>
-					<Button variant="ghost" size="sm">Mark all read</Button>
+					<Button variant="ghost" size="sm">
+						Mark all read
+					</Button>
 				</NotificationCenterHeader>
 				<NotificationItem
 					title="Invitation"
@@ -25,7 +33,9 @@ export function WithActions() {
 					actions={
 						<div className="wwc:flex wwc:gap-2">
 							<Button size="sm">Accept</Button>
-							<Button size="sm" variant="outline">Decline</Button>
+							<Button size="sm" variant="outline">
+								Decline
+							</Button>
 						</div>
 					}
 				/>

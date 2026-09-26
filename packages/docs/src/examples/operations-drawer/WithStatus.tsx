@@ -1,7 +1,11 @@
 /**
  * Operations drawer with running status.
  */
-import {OperationsDrawer, OperationsDrawerContent, OperationsDrawerStatus} from "@corensystem/coren-ui/operations-drawer";
+import {
+	OperationsDrawer,
+	OperationsDrawerContent,
+	OperationsDrawerStatus,
+} from "@corensystem/coren-ui/operations-drawer";
 
 export function WithStatus() {
 	return (

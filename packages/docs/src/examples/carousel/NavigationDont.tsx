@@ -1,12 +1,8 @@
+import {Card, CardContent} from "@corensystem/coren-ui/card";
 /**
  * Avoid carousels without visible navigation.
  */
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-} from "@corensystem/coren-ui/carousel";
-import {Card, CardContent} from "@corensystem/coren-ui/card";
+import {Carousel, CarouselContent, CarouselItem} from "@corensystem/coren-ui/carousel";
 
 export function NavigationDont() {
 	return (

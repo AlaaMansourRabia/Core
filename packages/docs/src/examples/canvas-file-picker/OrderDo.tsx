@@ -1,7 +1,13 @@
 /**
  * Show recent files first.
  */
-import {CanvasFilePicker, CanvasFilePickerTrigger, CanvasFilePickerContent, CanvasFilePickerGroup, CanvasFilePickerItem} from "@corensystem/coren-ui/canvas-file-picker";
+import {
+	CanvasFilePicker,
+	CanvasFilePickerTrigger,
+	CanvasFilePickerContent,
+	CanvasFilePickerGroup,
+	CanvasFilePickerItem,
+} from "@corensystem/coren-ui/canvas-file-picker";
 
 export function OrderDo() {
 	return (

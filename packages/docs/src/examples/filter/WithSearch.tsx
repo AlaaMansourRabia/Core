@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Filter with search input.
  */
 import {Filter, FilterTrigger, FilterContent, FilterSearch, FilterOption} from "@corensystem/coren-ui/filter";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function WithSearch() {
 	return (

@@ -1,17 +1,11 @@
+import {Button} from "@corensystem/coren-ui/button";
+import {Command, CommandGroup, CommandInput, CommandItem, CommandList} from "@corensystem/coren-ui/command";
+import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
+import {ChevronsUpDown} from "lucide-react";
 /**
  * Avoid generic or unhelpful placeholders.
  */
 import * as React from "react";
-import {ChevronsUpDown} from "lucide-react";
-import {Button} from "@corensystem/coren-ui/button";
-import {
-	Command,
-	CommandGroup,
-	CommandInput,
-	CommandItem,
-	CommandList,
-} from "@corensystem/coren-ui/command";
-import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
 
 const timezones = [
 	{value: "pst", label: "Pacific Time (PT)"},
@@ -24,11 +18,7 @@ export function PlaceholderDont() {
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
-				<Button
-					variant="outline"
-					role="combobox"
-					className="wwc:w-56 wwc:justify-between"
-				>
+				<Button variant="outline" role="combobox" className="wwc:w-56 wwc:justify-between">
 					{/* Generic placeholder - not helpful */}
 					Select...
 					<ChevronsUpDown className="wwc:ml-2 wwc:h-4 wwc:w-4 wwc:shrink-0 wwc:opacity-50" />

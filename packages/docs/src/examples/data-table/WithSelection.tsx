@@ -1,3 +1,4 @@
+import {Checkbox} from "@corensystem/coren-ui/checkbox";
 /**
  * Data table with row selection.
  */
@@ -9,7 +10,6 @@ import {
 	DataTableHead,
 	DataTableCell,
 } from "@corensystem/coren-ui/data-table";
-import {Checkbox} from "@corensystem/coren-ui/checkbox";
 
 const data = [
 	{id: 1, name: "Document.pdf", size: "2.4 MB", modified: "Jan 15, 2024"},

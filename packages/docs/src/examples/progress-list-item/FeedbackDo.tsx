@@ -1,7 +1,12 @@
 /**
  * Show progress values.
  */
-import {ProgressListItem, ProgressListItemLabel, ProgressListItemBar, ProgressListItemValue} from "@corensystem/coren-ui/progress-list-item";
+import {
+	ProgressListItem,
+	ProgressListItemLabel,
+	ProgressListItemBar,
+	ProgressListItemValue,
+} from "@corensystem/coren-ui/progress-list-item";
 
 export function FeedbackDo() {
 	return (

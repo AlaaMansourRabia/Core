@@ -1,11 +1,7 @@
 /**
  * Avoid resetting layout on every page load.
  */
-import {
-	ResizableHandle,
-	ResizablePanel,
-	ResizablePanelGroup,
-} from "@corensystem/coren-ui/resizable";
+import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@corensystem/coren-ui/resizable";
 
 export function PersistenceDont() {
 	return (

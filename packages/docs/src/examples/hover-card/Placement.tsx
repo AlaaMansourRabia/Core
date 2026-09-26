@@ -1,12 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Hover card with different placement positions.
  */
-import {
-	HoverCard,
-	HoverCardTrigger,
-	HoverCardContent,
-} from "@corensystem/coren-ui/hover-card";
-import {Button} from "@corensystem/coren-ui/button";
+import {HoverCard, HoverCardTrigger, HoverCardContent} from "@corensystem/coren-ui/hover-card";
 
 export function Placement() {
 	return (

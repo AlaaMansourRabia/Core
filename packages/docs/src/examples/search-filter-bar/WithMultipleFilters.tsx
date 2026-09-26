@@ -1,9 +1,9 @@
+import {Button} from "@corensystem/coren-ui/button";
+import {Filter, FilterTrigger, FilterContent, FilterOption} from "@corensystem/coren-ui/filter";
 /**
  * Search bar with multiple filter options.
  */
 import {SearchFilterBar, SearchInput, FilterGroup} from "@corensystem/coren-ui/search-filter-bar";
-import {Filter, FilterTrigger, FilterContent, FilterOption} from "@corensystem/coren-ui/filter";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function WithMultipleFilters() {
 	return (
@@ -12,7 +12,9 @@ export function WithMultipleFilters() {
 			<FilterGroup>
 				<Filter>
 					<FilterTrigger asChild>
-						<Button variant="outline" size="sm">Role</Button>
+						<Button variant="outline" size="sm">
+							Role
+						</Button>
 					</FilterTrigger>
 					<FilterContent>
 						<FilterOption value="admin">Admin</FilterOption>
@@ -22,7 +24,9 @@ export function WithMultipleFilters() {
 				</Filter>
 				<Filter>
 					<FilterTrigger asChild>
-						<Button variant="outline" size="sm">Status</Button>
+						<Button variant="outline" size="sm">
+							Status
+						</Button>
 					</FilterTrigger>
 					<FilterContent>
 						<FilterOption value="active">Active</FilterOption>
@@ -31,7 +35,9 @@ export function WithMultipleFilters() {
 				</Filter>
 				<Filter>
 					<FilterTrigger asChild>
-						<Button variant="outline" size="sm">Department</Button>
+						<Button variant="outline" size="sm">
+							Department
+						</Button>
 					</FilterTrigger>
 					<FilterContent>
 						<FilterOption value="eng">Engineering</FilterOption>

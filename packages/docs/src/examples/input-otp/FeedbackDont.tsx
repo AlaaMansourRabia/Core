@@ -1,12 +1,8 @@
+import {InputOTP, InputOTPGroup, InputOTPSlot} from "@corensystem/coren-ui/input-otp";
 /**
  * Avoid silent validation failures.
  */
 import * as React from "react";
-import {
-	InputOTP,
-	InputOTPGroup,
-	InputOTPSlot,
-} from "@corensystem/coren-ui/input-otp";
 
 export function FeedbackDont() {
 	const [value, setValue] = React.useState("654321");

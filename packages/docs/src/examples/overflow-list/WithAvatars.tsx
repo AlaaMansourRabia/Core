@@ -1,8 +1,8 @@
+import {Avatar, AvatarFallback} from "@corensystem/coren-ui/avatar";
 /**
  * Overflow list with avatar stack.
  */
 import {OverflowList, OverflowListItem, OverflowListMore} from "@corensystem/coren-ui/overflow-list";
-import {Avatar, AvatarFallback} from "@corensystem/coren-ui/avatar";
 
 const users = [
 	{name: "Alice", initials: "AC"},

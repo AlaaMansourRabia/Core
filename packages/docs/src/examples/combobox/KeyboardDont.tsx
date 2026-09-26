@@ -1,9 +1,9 @@
+import {Button} from "@corensystem/coren-ui/button";
+import {ChevronsUpDown} from "lucide-react";
 /**
  * Avoid custom dropdowns without proper keyboard support.
  */
 import * as React from "react";
-import {ChevronsUpDown} from "lucide-react";
-import {Button} from "@corensystem/coren-ui/button";
 
 const options = [
 	{value: "draft", label: "Draft"},
@@ -18,11 +18,7 @@ export function KeyboardDont() {
 	return (
 		<div className="wwc:relative wwc:w-48">
 			{/* Custom dropdown without ARIA or keyboard support */}
-			<Button
-				variant="outline"
-				className="wwc:w-full wwc:justify-between"
-				onClick={() => setOpen(!open)}
-			>
+			<Button variant="outline" className="wwc:w-full wwc:justify-between" onClick={() => setOpen(!open)}>
 				{value ? options.find((o) => o.value === value)?.label : "Select status..."}
 				<ChevronsUpDown className="wwc:ml-2 wwc:h-4 wwc:w-4 wwc:opacity-50" />
 			</Button>

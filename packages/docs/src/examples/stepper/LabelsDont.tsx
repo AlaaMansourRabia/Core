@@ -1,13 +1,7 @@
 /**
  * Avoid vague or numbered-only step labels.
  */
-import {
-	Stepper,
-	StepperItem,
-	StepperIndicator,
-	StepperLabel,
-	StepperSeparator,
-} from "@corensystem/coren-ui/stepper";
+import {Stepper, StepperItem, StepperIndicator, StepperLabel, StepperSeparator} from "@corensystem/coren-ui/stepper";
 
 export function LabelsDont() {
 	return (

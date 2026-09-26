@@ -1,8 +1,8 @@
+import {Calendar} from "@corensystem/coren-ui/calendar";
 /**
  * Provide clear month/year navigation.
  */
 import * as React from "react";
-import {Calendar} from "@corensystem/coren-ui/calendar";
 
 export function NavigationDo() {
 	const [date, setDate] = React.useState<Date | undefined>(new Date());

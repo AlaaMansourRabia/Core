@@ -1,7 +1,10 @@
 /**
  * Building model placeholder in error state.
  */
-import {BuildingModelPlaceholder, BuildingModelPlaceholderMessage} from "@corensystem/coren-ui/building-model-placeholder";
+import {
+	BuildingModelPlaceholder,
+	BuildingModelPlaceholderMessage,
+} from "@corensystem/coren-ui/building-model-placeholder";
 
 export function Error() {
 	return (

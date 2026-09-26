@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Multi-column mega menu layout.
  */
-import {MegaMenu, MegaMenuTrigger, MegaMenuContent, MegaMenuSection, MegaMenuItem} from "@corensystem/coren-ui/mega-menu";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	MegaMenu,
+	MegaMenuTrigger,
+	MegaMenuContent,
+	MegaMenuSection,
+	MegaMenuItem,
+} from "@corensystem/coren-ui/mega-menu";
 
 export function MultiColumn() {
 	return (

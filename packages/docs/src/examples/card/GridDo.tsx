@@ -1,12 +1,7 @@
 /**
  * Use consistent card sizes in grids.
  */
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from "@corensystem/coren-ui/card";
+import {Card, CardContent, CardHeader, CardTitle} from "@corensystem/coren-ui/card";
 
 export function GridDo() {
 	return (

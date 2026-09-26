@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Provide clear way to reset filters.
  */
 import {Filter, FilterTrigger, FilterContent, FilterOption, FilterClear} from "@corensystem/coren-ui/filter";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function ClearDo() {
 	return (

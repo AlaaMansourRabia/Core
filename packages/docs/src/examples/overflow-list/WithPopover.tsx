@@ -1,10 +1,10 @@
+import {Badge} from "@corensystem/coren-ui/badge";
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Overflow list with popover for hidden items.
  */
 import {OverflowList, OverflowListItem, OverflowListMore} from "@corensystem/coren-ui/overflow-list";
-import {Badge} from "@corensystem/coren-ui/badge";
 import {Popover, PopoverTrigger, PopoverContent} from "@corensystem/coren-ui/popover";
-import {Button} from "@corensystem/coren-ui/button";
 
 const items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"];
 
@@ -20,12 +20,12 @@ export function WithPopover() {
 				{(count, hiddenItems) => (
 					<Popover>
 						<PopoverTrigger asChild>
-							<Button variant="outline" size="sm">+{count} more</Button>
+							<Button variant="outline" size="sm">
+								+{count} more
+							</Button>
 						</PopoverTrigger>
 						<PopoverContent className="wwc:w-auto">
-							<div className="wwc:flex wwc:flex-wrap wwc:gap-1">
-								{hiddenItems}
-							</div>
+							<div className="wwc:flex wwc:flex-wrap wwc:gap-1">{hiddenItems}</div>
 						</PopoverContent>
 					</Popover>
 				)}

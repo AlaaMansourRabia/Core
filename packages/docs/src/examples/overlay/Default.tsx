@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Basic overlay backdrop.
  */
 import {Overlay} from "@corensystem/coren-ui/overlay";
-import {Button} from "@corensystem/coren-ui/button";
 import {useState} from "react";
 
 export function Default() {

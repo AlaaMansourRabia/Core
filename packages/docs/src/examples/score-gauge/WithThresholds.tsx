@@ -11,7 +11,7 @@ export function WithThresholds() {
 			thresholds={[
 				{max: 30, color: "destructive"},
 				{max: 70, color: "warning"},
-				{max: 100, color: "success"}
+				{max: 100, color: "success"},
 			]}
 		/>
 	);

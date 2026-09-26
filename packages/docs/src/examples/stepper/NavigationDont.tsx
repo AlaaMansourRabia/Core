@@ -1,13 +1,7 @@
 /**
  * Avoid trapping users without back navigation.
  */
-import {
-	Stepper,
-	StepperItem,
-	StepperIndicator,
-	StepperLabel,
-	StepperSeparator,
-} from "@corensystem/coren-ui/stepper";
+import {Stepper, StepperItem, StepperIndicator, StepperLabel, StepperSeparator} from "@corensystem/coren-ui/stepper";
 import {Check} from "lucide-react";
 
 export function NavigationDont() {
@@ -33,9 +27,7 @@ export function NavigationDont() {
 					<StepperLabel>Review</StepperLabel>
 				</StepperItem>
 			</Stepper>
-			<p className="wwc:text-xs wwc:text-muted-foreground">
-				No way to go back and edit previous steps
-			</p>
+			<p className="wwc:text-xs wwc:text-muted-foreground">No way to go back and edit previous steps</p>
 		</div>
 	);
 }

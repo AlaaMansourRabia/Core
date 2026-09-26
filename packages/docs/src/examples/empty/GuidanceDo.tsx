@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Provide clear guidance on what to do next.
  */
 import {Empty} from "@corensystem/coren-ui/empty";
-import {Button} from "@corensystem/coren-ui/button";
 import {FolderOpen, Upload, Link} from "lucide-react";
 
 export function GuidanceDo() {

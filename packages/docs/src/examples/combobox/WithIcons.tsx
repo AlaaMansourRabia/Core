@@ -1,8 +1,3 @@
-/**
- * Combobox with icons for each option.
- */
-import * as React from "react";
-import {Check, ChevronsUpDown, Code, MessageCircle, Users, Globe} from "lucide-react";
 import {Button} from "@corensystem/coren-ui/button";
 import {
 	Command,
@@ -13,6 +8,11 @@ import {
 	CommandList,
 } from "@corensystem/coren-ui/command";
 import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
+import {Check, ChevronsUpDown, Code, MessageCircle, Users, Globe} from "lucide-react";
+/**
+ * Combobox with icons for each option.
+ */
+import * as React from "react";
 
 const platforms = [
 	{value: "code", label: "Code", icon: Code},
@@ -31,12 +31,7 @@ export function WithIcons() {
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
-				<Button
-					variant="outline"
-					role="combobox"
-					aria-expanded={open}
-					className="wwc:w-52 wwc:justify-between"
-				>
+				<Button variant="outline" role="combobox" aria-expanded={open} className="wwc:w-52 wwc:justify-between">
 					<span className="wwc:flex wwc:items-center wwc:gap-2">
 						{SelectedIcon && <SelectedIcon className="wwc:h-4 wwc:w-4" />}
 						{selected?.label || "Select platform..."}

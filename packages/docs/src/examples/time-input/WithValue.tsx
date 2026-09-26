@@ -4,7 +4,5 @@
 import {TimeInput} from "@corensystem/coren-ui/time-input";
 
 export function WithValue() {
-	return (
-		<TimeInput defaultValue="09:30" />
-	);
+	return <TimeInput defaultValue="09:30" />;
 }

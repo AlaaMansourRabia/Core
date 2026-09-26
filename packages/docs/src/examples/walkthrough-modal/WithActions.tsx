@@ -1,8 +1,13 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Walkthrough modal with actions.
  */
-import {WalkthroughModal, WalkthroughModalStep, WalkthroughModalContent, WalkthroughModalActions} from "@corensystem/coren-ui/walkthrough-modal";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	WalkthroughModal,
+	WalkthroughModalStep,
+	WalkthroughModalContent,
+	WalkthroughModalActions,
+} from "@corensystem/coren-ui/walkthrough-modal";
 
 export function WithActions() {
 	return (

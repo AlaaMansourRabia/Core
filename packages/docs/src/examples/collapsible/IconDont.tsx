@@ -8,9 +8,7 @@ export function IconDont() {
 				More options
 				{/* No icon - user doesn't know this is expandable */}
 			</div>
-			<div className="wwc:hidden wwc:border-t wwc:p-4 wwc:text-sm">
-				Additional settings and preferences
-			</div>
+			<div className="wwc:hidden wwc:border-t wwc:p-4 wwc:text-sm">Additional settings and preferences</div>
 		</div>
 	);
 }

@@ -1,7 +1,12 @@
 /**
  * Map hover card with property details.
  */
-import {MapHoverCard, MapHoverCardTitle, MapHoverCardContent, MapHoverCardDetail} from "@corensystem/coren-ui/map-hover-card";
+import {
+	MapHoverCard,
+	MapHoverCardTitle,
+	MapHoverCardContent,
+	MapHoverCardDetail,
+} from "@corensystem/coren-ui/map-hover-card";
 
 export function WithDetails() {
 	return (

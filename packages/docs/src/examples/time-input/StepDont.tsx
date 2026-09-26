@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Avoid overly precise steps when not needed.
  */
 import {TimeInput} from "@corensystem/coren-ui/time-input";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function StepDont() {
 	return (

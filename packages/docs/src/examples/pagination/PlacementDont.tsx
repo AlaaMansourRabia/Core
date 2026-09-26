@@ -19,7 +19,9 @@ export function PlacementDont() {
 						<PaginationPrevious href="#" />
 					</PaginationItem>
 					<PaginationItem>
-						<PaginationLink href="#" isActive>1</PaginationLink>
+						<PaginationLink href="#" isActive>
+							1
+						</PaginationLink>
 					</PaginationItem>
 					<PaginationItem>
 						<PaginationNext href="#" />

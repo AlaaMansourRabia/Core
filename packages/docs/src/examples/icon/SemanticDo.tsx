@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Use icons that match the action.
  */
 import {Icon} from "@corensystem/coren-ui/icon";
-import {Button} from "@corensystem/coren-ui/button";
 import {Trash2, Save, Plus} from "lucide-react";
 
 export function SemanticDo() {

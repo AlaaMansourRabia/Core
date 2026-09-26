@@ -1,10 +1,10 @@
+import {Checkbox} from "@corensystem/coren-ui/checkbox";
 /**
  * Avoid sections without context for complex forms.
  */
 import {FormLayout, FormSection, FormRow} from "@corensystem/coren-ui/form-layout";
 import {Input} from "@corensystem/coren-ui/input";
 import {Label} from "@corensystem/coren-ui/label";
-import {Checkbox} from "@corensystem/coren-ui/checkbox";
 
 export function DescriptionDont() {
 	return (

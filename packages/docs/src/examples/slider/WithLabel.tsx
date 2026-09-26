@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Slider with label and value display.
  */
 import {Slider} from "@corensystem/coren-ui/slider";
-import {Label} from "@corensystem/coren-ui/label";
 import * as React from "react";
 
 export function WithLabel() {

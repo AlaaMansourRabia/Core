@@ -18,7 +18,9 @@ export function ContextDont() {
 					<PaginationPrevious href="#" />
 				</PaginationItem>
 				<PaginationItem>
-					<PaginationLink href="#" isActive>2</PaginationLink>
+					<PaginationLink href="#" isActive>
+						2
+					</PaginationLink>
 				</PaginationItem>
 				<PaginationItem>
 					<PaginationNext href="#" />

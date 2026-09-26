@@ -1,11 +1,7 @@
 /**
  * 4-digit OTP input (common for PIN codes).
  */
-import {
-	InputOTP,
-	InputOTPGroup,
-	InputOTPSlot,
-} from "@corensystem/coren-ui/input-otp";
+import {InputOTP, InputOTPGroup, InputOTPSlot} from "@corensystem/coren-ui/input-otp";
 
 export function FourDigits() {
 	return (

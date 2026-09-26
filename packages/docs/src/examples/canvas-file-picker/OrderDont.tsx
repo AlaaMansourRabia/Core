@@ -1,7 +1,12 @@
 /**
  * Avoid random file ordering.
  */
-import {CanvasFilePicker, CanvasFilePickerTrigger, CanvasFilePickerContent, CanvasFilePickerItem} from "@corensystem/coren-ui/canvas-file-picker";
+import {
+	CanvasFilePicker,
+	CanvasFilePickerTrigger,
+	CanvasFilePickerContent,
+	CanvasFilePickerItem,
+} from "@corensystem/coren-ui/canvas-file-picker";
 
 export function OrderDont() {
 	return (

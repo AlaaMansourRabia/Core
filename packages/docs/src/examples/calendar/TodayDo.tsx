@@ -1,8 +1,8 @@
+import {Calendar} from "@corensystem/coren-ui/calendar";
 /**
  * Clearly indicate today's date.
  */
 import * as React from "react";
-import {Calendar} from "@corensystem/coren-ui/calendar";
 
 export function TodayDo() {
 	const [date, setDate] = React.useState<Date | undefined>();
@@ -16,9 +16,7 @@ export function TodayDo() {
 				className="wwc:rounded-md wwc:border"
 				// Today is visually distinguished by default
 			/>
-			<p className="wwc:text-xs wwc:text-muted-foreground">
-				Today's date is highlighted
-			</p>
+			<p className="wwc:text-xs wwc:text-muted-foreground">Today's date is highlighted</p>
 		</div>
 	);
 }

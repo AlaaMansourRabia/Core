@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Prompt input with action buttons.
  */
 import {PromptInput, PromptInputActions} from "@corensystem/coren-ui/prompt-input";
-import {Button} from "@corensystem/coren-ui/button";
 import {Paperclip, Mic} from "lucide-react";
 
 export function WithActions() {

@@ -10,9 +10,7 @@ export function Default() {
 				<WidgetCardTitle>Recent Activity</WidgetCardTitle>
 			</WidgetCardHeader>
 			<WidgetCardContent>
-				<p className="wwc:text-sm wwc:text-muted-foreground">
-					No recent activity to display.
-				</p>
+				<p className="wwc:text-sm wwc:text-muted-foreground">No recent activity to display.</p>
 			</WidgetCardContent>
 		</WidgetCard>
 	);

@@ -1,12 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid using hover cards for critical actions or information.
  */
-import {
-	HoverCard,
-	HoverCardTrigger,
-	HoverCardContent,
-} from "@corensystem/coren-ui/hover-card";
-import {Button} from "@corensystem/coren-ui/button";
+import {HoverCard, HoverCardTrigger, HoverCardContent} from "@corensystem/coren-ui/hover-card";
 
 export function ContentDont() {
 	return (
@@ -17,9 +13,7 @@ export function ContentDont() {
 			<HoverCardContent className="wwc:w-72">
 				{/* Critical confirmation should use Dialog, not HoverCard */}
 				<div className="wwc:space-y-3">
-					<p className="wwc:text-sm">
-						Are you sure? This will permanently delete your account.
-					</p>
+					<p className="wwc:text-sm">Are you sure? This will permanently delete your account.</p>
 					<div className="wwc:flex wwc:gap-2">
 						<Button size="sm" variant="destructive">
 							Confirm Delete

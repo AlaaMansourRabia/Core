@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Allow going back to previous steps.
  */
-import {WizardDialog, WizardDialogTrigger, WizardDialogContent, WizardStep, WizardNavigation} from "@corensystem/coren-ui/wizard-dialog";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	WizardDialog,
+	WizardDialogTrigger,
+	WizardDialogContent,
+	WizardStep,
+	WizardNavigation,
+} from "@corensystem/coren-ui/wizard-dialog";
 
 export function NavigationDo() {
 	return (

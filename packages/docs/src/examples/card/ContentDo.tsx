@@ -1,12 +1,7 @@
 /**
  * Keep card content focused and scannable.
  */
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from "@corensystem/coren-ui/card";
+import {Card, CardContent, CardHeader, CardTitle} from "@corensystem/coren-ui/card";
 
 export function ContentDo() {
 	return (

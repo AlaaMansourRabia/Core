@@ -1,12 +1,7 @@
 /**
  * Basic context menu triggered by right-click.
  */
-import {
-	ContextMenu,
-	ContextMenuContent,
-	ContextMenuItem,
-	ContextMenuTrigger,
-} from "@corensystem/coren-ui/context-menu";
+import {ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger} from "@corensystem/coren-ui/context-menu";
 
 export function Default() {
 	return (

@@ -1,7 +1,13 @@
 /**
  * Avoid hover-only without keyboard support.
  */
-import {MegaMenu, MegaMenuTrigger, MegaMenuContent, MegaMenuSection, MegaMenuItem} from "@corensystem/coren-ui/mega-menu";
+import {
+	MegaMenu,
+	MegaMenuTrigger,
+	MegaMenuContent,
+	MegaMenuSection,
+	MegaMenuItem,
+} from "@corensystem/coren-ui/mega-menu";
 
 export function AccessibilityDont() {
 	return (

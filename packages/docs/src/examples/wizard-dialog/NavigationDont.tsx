@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid forcing users forward only.
  */
-import {WizardDialog, WizardDialogTrigger, WizardDialogContent, WizardStep, WizardNavigation} from "@corensystem/coren-ui/wizard-dialog";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	WizardDialog,
+	WizardDialogTrigger,
+	WizardDialogContent,
+	WizardStep,
+	WizardNavigation,
+} from "@corensystem/coren-ui/wizard-dialog";
 
 export function NavigationDont() {
 	return (

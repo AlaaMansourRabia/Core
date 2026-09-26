@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Include keyboard navigation support.
  */
-import {MegaMenu, MegaMenuTrigger, MegaMenuContent, MegaMenuSection, MegaMenuItem} from "@corensystem/coren-ui/mega-menu";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	MegaMenu,
+	MegaMenuTrigger,
+	MegaMenuContent,
+	MegaMenuSection,
+	MegaMenuItem,
+} from "@corensystem/coren-ui/mega-menu";
 
 export function AccessibilityDo() {
 	return (
@@ -14,8 +20,12 @@ export function AccessibilityDo() {
 			</MegaMenuTrigger>
 			<MegaMenuContent role="menu" aria-label="Products menu">
 				<MegaMenuSection title="Options">
-					<MegaMenuItem href="#" role="menuitem">Option 1</MegaMenuItem>
-					<MegaMenuItem href="#" role="menuitem">Option 2</MegaMenuItem>
+					<MegaMenuItem href="#" role="menuitem">
+						Option 1
+					</MegaMenuItem>
+					<MegaMenuItem href="#" role="menuitem">
+						Option 2
+					</MegaMenuItem>
 				</MegaMenuSection>
 			</MegaMenuContent>
 		</MegaMenu>

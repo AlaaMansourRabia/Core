@@ -1,12 +1,7 @@
 /**
  * OTP input with separator between groups.
  */
-import {
-	InputOTP,
-	InputOTPGroup,
-	InputOTPSlot,
-	InputOTPSeparator,
-} from "@corensystem/coren-ui/input-otp";
+import {InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator} from "@corensystem/coren-ui/input-otp";
 
 export function WithSeparator() {
 	return (

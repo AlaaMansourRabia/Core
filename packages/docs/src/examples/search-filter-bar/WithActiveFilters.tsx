@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Search bar showing active filter tags.
  */
-import {SearchFilterBar, SearchInput, FilterGroup, ActiveFilters, ActiveFilterTag} from "@corensystem/coren-ui/search-filter-bar";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	SearchFilterBar,
+	SearchInput,
+	FilterGroup,
+	ActiveFilters,
+	ActiveFilterTag,
+} from "@corensystem/coren-ui/search-filter-bar";
 
 export function WithActiveFilters() {
 	return (
@@ -10,13 +16,17 @@ export function WithActiveFilters() {
 			<SearchFilterBar>
 				<SearchInput placeholder="Search..." defaultValue="report" />
 				<FilterGroup>
-					<Button variant="outline" size="sm">Filters</Button>
+					<Button variant="outline" size="sm">
+						Filters
+					</Button>
 				</FilterGroup>
 			</SearchFilterBar>
 			<ActiveFilters>
 				<ActiveFilterTag onRemove={() => {}}>Status: Active</ActiveFilterTag>
 				<ActiveFilterTag onRemove={() => {}}>Type: Document</ActiveFilterTag>
-				<Button variant="ghost" size="sm">Clear all</Button>
+				<Button variant="ghost" size="sm">
+					Clear all
+				</Button>
 			</ActiveFilters>
 		</div>
 	);

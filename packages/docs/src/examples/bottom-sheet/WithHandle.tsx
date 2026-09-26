@@ -1,7 +1,12 @@
 /**
  * Bottom sheet with drag handle.
  */
-import {BottomSheet, BottomSheetTrigger, BottomSheetContent, BottomSheetHandle} from "@corensystem/coren-ui/bottom-sheet";
+import {
+	BottomSheet,
+	BottomSheetTrigger,
+	BottomSheetContent,
+	BottomSheetHandle,
+} from "@corensystem/coren-ui/bottom-sheet";
 import {Button} from "@corensystem/coren-ui/button";
 
 export function WithHandle() {

@@ -4,7 +4,5 @@
 import {HouseShape} from "@corensystem/coren-ui/house-shape";
 
 export function Default() {
-	return (
-		<HouseShape className="wwc:w-32 wwc:h-32" />
-	);
+	return <HouseShape className="wwc:w-32 wwc:h-32" />;
 }

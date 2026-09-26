@@ -10,9 +10,7 @@ import {
 	DataTableCell,
 } from "@corensystem/coren-ui/data-table";
 
-const data = [
-	{id: 1, name: "Alice", status: "Active", lastLogin: "Today"},
-];
+const data = [{id: 1, name: "Alice", status: "Active", lastLogin: "Today"}];
 
 export function ColumnsDo() {
 	return (

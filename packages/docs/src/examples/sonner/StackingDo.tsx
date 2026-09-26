@@ -10,9 +10,5 @@ export function StackingDo() {
 		toast.success("5 files uploaded successfully");
 	};
 
-	return (
-		<Button onClick={handleBatchAction}>
-			Upload 5 Files
-		</Button>
-	);
+	return <Button onClick={handleBatchAction}>Upload 5 Files</Button>;
 }

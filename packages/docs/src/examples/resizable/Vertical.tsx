@@ -1,18 +1,11 @@
 /**
  * Vertical resizable panels.
  */
-import {
-	ResizableHandle,
-	ResizablePanel,
-	ResizablePanelGroup,
-} from "@corensystem/coren-ui/resizable";
+import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@corensystem/coren-ui/resizable";
 
 export function Vertical() {
 	return (
-		<ResizablePanelGroup
-			direction="vertical"
-			className="wwc:min-h-64 wwc:max-w-md wwc:rounded-lg wwc:border"
-		>
+		<ResizablePanelGroup direction="vertical" className="wwc:min-h-64 wwc:max-w-md wwc:rounded-lg wwc:border">
 			<ResizablePanel defaultSize={25}>
 				<div className="wwc:flex wwc:h-full wwc:items-center wwc:justify-center wwc:p-6">
 					<span className="wwc:font-semibold">Header</span>

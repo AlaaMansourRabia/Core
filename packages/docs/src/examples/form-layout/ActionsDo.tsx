@@ -1,10 +1,10 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Place form actions at the end with clear primary action.
  */
 import {FormLayout, FormSection, FormRow, FormActions} from "@corensystem/coren-ui/form-layout";
 import {Input} from "@corensystem/coren-ui/input";
 import {Label} from "@corensystem/coren-ui/label";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function ActionsDo() {
 	return (

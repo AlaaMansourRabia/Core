@@ -1,12 +1,7 @@
 /**
  * Provide clear instructions for OTP input.
  */
-import {
-	InputOTP,
-	InputOTPGroup,
-	InputOTPSlot,
-	InputOTPSeparator,
-} from "@corensystem/coren-ui/input-otp";
+import {InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator} from "@corensystem/coren-ui/input-otp";
 import {Label} from "@corensystem/coren-ui/label";
 
 export function LabelDo() {
@@ -14,9 +9,7 @@ export function LabelDo() {
 		<div className="wwc:space-y-4">
 			<div className="wwc:space-y-2">
 				<Label htmlFor="otp-input">Verification Code</Label>
-				<p className="wwc:text-sm wwc:text-muted-foreground">
-					Enter the 6-digit code sent to your email
-				</p>
+				<p className="wwc:text-sm wwc:text-muted-foreground">Enter the 6-digit code sent to your email</p>
 			</div>
 			<InputOTP id="otp-input" maxLength={6}>
 				<InputOTPGroup>

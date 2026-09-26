@@ -1,8 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Avoid too many actions in the header.
  */
 import {Section} from "@corensystem/coren-ui/section";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function ActionsDont() {
 	return (

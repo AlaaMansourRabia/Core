@@ -1,12 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Collapsible starting in open state.
  */
-import {
-	Collapsible,
-	CollapsibleTrigger,
-	CollapsibleContent,
-} from "@corensystem/coren-ui/collapsible";
-import {Button} from "@corensystem/coren-ui/button";
+import {Collapsible, CollapsibleTrigger, CollapsibleContent} from "@corensystem/coren-ui/collapsible";
 import {ChevronsUpDown} from "lucide-react";
 
 export function DefaultOpen() {

@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Wizard with review step.
  */
-import {WizardDialog, WizardDialogTrigger, WizardDialogContent, WizardStep, WizardSummary} from "@corensystem/coren-ui/wizard-dialog";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	WizardDialog,
+	WizardDialogTrigger,
+	WizardDialogContent,
+	WizardStep,
+	WizardSummary,
+} from "@corensystem/coren-ui/wizard-dialog";
 
 export function WithSummary() {
 	return (

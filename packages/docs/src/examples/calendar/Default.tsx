@@ -1,18 +1,11 @@
+import {Calendar} from "@corensystem/coren-ui/calendar";
 /**
  * Basic calendar with single date selection.
  */
 import * as React from "react";
-import {Calendar} from "@corensystem/coren-ui/calendar";
 
 export function Default() {
 	const [date, setDate] = React.useState<Date | undefined>(new Date());
 
-	return (
-		<Calendar
-			mode="single"
-			selected={date}
-			onSelect={setDate}
-			className="wwc:rounded-md wwc:border"
-		/>
-	);
+	return <Calendar mode="single" selected={date} onSelect={setDate} className="wwc:rounded-md wwc:border" />;
 }

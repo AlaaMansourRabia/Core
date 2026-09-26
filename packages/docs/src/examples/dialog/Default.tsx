@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Basic dialog for modal content.
  */
@@ -11,7 +12,6 @@ import {
 	DialogTrigger,
 	DialogClose,
 } from "@corensystem/coren-ui/dialog";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Default() {
 	return (
@@ -22,9 +22,7 @@ export function Default() {
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Edit Profile</DialogTitle>
-					<DialogDescription>
-						Make changes to your profile here. Click save when done.
-					</DialogDescription>
+					<DialogDescription>Make changes to your profile here. Click save when done.</DialogDescription>
 				</DialogHeader>
 				<div className="wwc:py-4">
 					<p>Dialog content goes here.</p>

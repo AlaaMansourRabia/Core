@@ -1,12 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Collapsible with smooth animation.
  */
-import {
-	Collapsible,
-	CollapsibleTrigger,
-	CollapsibleContent,
-} from "@corensystem/coren-ui/collapsible";
-import {Button} from "@corensystem/coren-ui/button";
+import {Collapsible, CollapsibleTrigger, CollapsibleContent} from "@corensystem/coren-ui/collapsible";
 import {Plus, Minus} from "lucide-react";
 
 export function WithAnimation() {
@@ -23,8 +19,8 @@ export function WithAnimation() {
 			</div>
 			<CollapsibleContent className="wwc:data-[state=open]:wwc:animate-in wwc:data-[state=closed]:wwc:animate-out wwc:data-[state=closed]:wwc:fade-out-0 wwc:data-[state=open]:wwc:fade-in-0">
 				<p className="wwc:pt-4 wwc:text-sm wwc:text-muted-foreground">
-					We bill monthly based on your usage. You can upgrade, downgrade, or
-					cancel at any time. Unused credits roll over to the next month.
+					We bill monthly based on your usage. You can upgrade, downgrade, or cancel at any time. Unused credits roll
+					over to the next month.
 				</p>
 			</CollapsibleContent>
 		</Collapsible>

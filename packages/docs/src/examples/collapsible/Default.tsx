@@ -1,12 +1,8 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Basic collapsible section.
  */
-import {
-	Collapsible,
-	CollapsibleTrigger,
-	CollapsibleContent,
-} from "@corensystem/coren-ui/collapsible";
-import {Button} from "@corensystem/coren-ui/button";
+import {Collapsible, CollapsibleTrigger, CollapsibleContent} from "@corensystem/coren-ui/collapsible";
 import {ChevronsUpDown} from "lucide-react";
 
 export function Default() {
@@ -21,9 +17,7 @@ export function Default() {
 					</Button>
 				</CollapsibleTrigger>
 			</div>
-			<div className="wwc:rounded-md wwc:border wwc:px-4 wwc:py-3 wwc:font-mono wwc:text-sm">
-				@corensystem/coren-ui
-			</div>
+			<div className="wwc:rounded-md wwc:border wwc:px-4 wwc:py-3 wwc:font-mono wwc:text-sm">@corensystem/coren-ui</div>
 			<CollapsibleContent className="wwc:space-y-2">
 				<div className="wwc:rounded-md wwc:border wwc:px-4 wwc:py-3 wwc:font-mono wwc:text-sm">
 					@corensystem/coren-docs

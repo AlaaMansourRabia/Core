@@ -9,8 +9,12 @@ export function GroupDont() {
 	const [b, setB] = React.useState(false);
 	return (
 		<div className="wwc:flex wwc:gap-4">
-			<SelectableCard selected={a} onSelect={setA}>A</SelectableCard>
-			<SelectableCard selected={b} onSelect={setB}>B</SelectableCard>
+			<SelectableCard selected={a} onSelect={setA}>
+				A
+			</SelectableCard>
+			<SelectableCard selected={b} onSelect={setB}>
+				B
+			</SelectableCard>
 		</div>
 	);
 }

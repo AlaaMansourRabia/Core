@@ -1,7 +1,12 @@
 /**
  * Bottom sheet with action buttons.
  */
-import {BottomSheet, BottomSheetTrigger, BottomSheetContent, BottomSheetFooter} from "@corensystem/coren-ui/bottom-sheet";
+import {
+	BottomSheet,
+	BottomSheetTrigger,
+	BottomSheetContent,
+	BottomSheetFooter,
+} from "@corensystem/coren-ui/bottom-sheet";
 import {Button} from "@corensystem/coren-ui/button";
 
 export function WithActions() {
@@ -21,7 +26,9 @@ export function WithActions() {
 					</div>
 				</div>
 				<BottomSheetFooter>
-					<Button variant="ghost" className="wwc:w-full">Cancel</Button>
+					<Button variant="ghost" className="wwc:w-full">
+						Cancel
+					</Button>
 				</BottomSheetFooter>
 			</BottomSheetContent>
 		</BottomSheet>

@@ -1,11 +1,7 @@
 /**
  * Nested collapsible sections for hierarchical content.
  */
-import {
-	Collapsible,
-	CollapsibleTrigger,
-	CollapsibleContent,
-} from "@corensystem/coren-ui/collapsible";
+import {Collapsible, CollapsibleTrigger, CollapsibleContent} from "@corensystem/coren-ui/collapsible";
 import {ChevronRight} from "lucide-react";
 
 export function Nested() {

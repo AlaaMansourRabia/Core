@@ -1,3 +1,4 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Basic sheet panel sliding from the right.
  */
@@ -11,7 +12,6 @@ import {
 	SheetTrigger,
 	SheetClose,
 } from "@corensystem/coren-ui/sheet";
-import {Button} from "@corensystem/coren-ui/button";
 
 export function Default() {
 	return (
@@ -22,9 +22,7 @@ export function Default() {
 			<SheetContent>
 				<SheetHeader>
 					<SheetTitle>Edit Profile</SheetTitle>
-					<SheetDescription>
-						Make changes to your profile here.
-					</SheetDescription>
+					<SheetDescription>Make changes to your profile here.</SheetDescription>
 				</SheetHeader>
 				<div className="wwc:py-4">
 					<p>Sheet content goes here.</p>

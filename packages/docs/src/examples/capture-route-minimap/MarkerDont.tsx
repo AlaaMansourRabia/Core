@@ -6,7 +6,13 @@ import {CaptureRouteMinimap, CaptureRouteMinimapPath} from "@corensystem/coren-u
 export function MarkerDont() {
 	return (
 		<CaptureRouteMinimap className="wwc:w-48 wwc:h-48">
-			<CaptureRouteMinimapPath points={[[0, 0], [50, 25], [100, 50]]} />
+			<CaptureRouteMinimapPath
+				points={[
+					[0, 0],
+					[50, 25],
+					[100, 50],
+				]}
+			/>
 		</CaptureRouteMinimap>
 	);
 }

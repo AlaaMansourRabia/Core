@@ -1,8 +1,14 @@
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Show clear progress indication.
  */
-import {WizardDialog, WizardDialogTrigger, WizardDialogContent, WizardStep, WizardProgress} from "@corensystem/coren-ui/wizard-dialog";
-import {Button} from "@corensystem/coren-ui/button";
+import {
+	WizardDialog,
+	WizardDialogTrigger,
+	WizardDialogContent,
+	WizardStep,
+	WizardProgress,
+} from "@corensystem/coren-ui/wizard-dialog";
 
 export function ProgressDo() {
 	return (

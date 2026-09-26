@@ -10,8 +10,7 @@ export function SemanticDont() {
 			<Check className="wwc:h-4 wwc:w-4" />
 			<AlertTitle>Success!</AlertTitle>
 			<AlertDescription>
-				Your order was placed successfully. Using destructive style for success
-				is confusing.
+				Your order was placed successfully. Using destructive style for success is confusing.
 			</AlertDescription>
 		</Alert>
 	);

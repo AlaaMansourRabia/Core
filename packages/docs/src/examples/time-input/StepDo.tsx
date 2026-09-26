@@ -1,8 +1,8 @@
+import {Label} from "@corensystem/coren-ui/label";
 /**
  * Use appropriate step intervals for the context.
  */
 import {TimeInput} from "@corensystem/coren-ui/time-input";
-import {Label} from "@corensystem/coren-ui/label";
 
 export function StepDo() {
 	return (

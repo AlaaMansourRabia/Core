@@ -1,13 +1,13 @@
-/**
- * Date picker with preset date options.
- */
-import * as React from "react";
-import {addDays, format} from "date-fns";
-import {Calendar as CalendarIcon} from "lucide-react";
 import {Button} from "@corensystem/coren-ui/button";
 import {Calendar} from "@corensystem/coren-ui/calendar";
 import {Popover, PopoverContent, PopoverTrigger} from "@corensystem/coren-ui/popover";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@corensystem/coren-ui/select";
+import {addDays, format} from "date-fns";
+import {Calendar as CalendarIcon} from "lucide-react";
+/**
+ * Date picker with preset date options.
+ */
+import * as React from "react";
 
 export function WithPresets() {
 	const [date, setDate] = React.useState<Date>();
@@ -26,11 +26,7 @@ export function WithPresets() {
 				</Button>
 			</PopoverTrigger>
 			<PopoverContent className="wwc:flex wwc:w-auto wwc:flex-col wwc:space-y-2 wwc:p-2">
-				<Select
-					onValueChange={(value) =>
-						setDate(addDays(new Date(), parseInt(value)))
-					}
-				>
+				<Select onValueChange={(value) => setDate(addDays(new Date(), parseInt(value)))}>
 					<SelectTrigger>
 						<SelectValue placeholder="Select preset" />
 					</SelectTrigger>
@@ -42,11 +38,7 @@ export function WithPresets() {
 					</SelectContent>
 				</Select>
 				<div className="wwc:rounded-md wwc:border">
-					<Calendar
-						mode="single"
-						selected={date}
-						onSelect={setDate}
-					/>
+					<Calendar mode="single" selected={date} onSelect={setDate} />
 				</div>
 			</PopoverContent>
 		</Popover>

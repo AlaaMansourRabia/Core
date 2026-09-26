@@ -1,13 +1,9 @@
+import {Avatar} from "@corensystem/coren-ui/avatar";
+import {Button} from "@corensystem/coren-ui/button";
 /**
  * Basic hover card with user profile.
  */
-import {
-	HoverCard,
-	HoverCardTrigger,
-	HoverCardContent,
-} from "@corensystem/coren-ui/hover-card";
-import {Avatar} from "@corensystem/coren-ui/avatar";
-import {Button} from "@corensystem/coren-ui/button";
+import {HoverCard, HoverCardTrigger, HoverCardContent} from "@corensystem/coren-ui/hover-card";
 import {CalendarDays} from "lucide-react";
 
 export function Default() {
@@ -25,14 +21,10 @@ export function Default() {
 					</Avatar>
 					<div className="wwc:space-y-1">
 						<h4 className="wwc:text-sm wwc:font-semibold">@corensystem</h4>
-						<p className="wwc:text-sm">
-							The Coren Design System – open source component library for React.
-						</p>
+						<p className="wwc:text-sm">The Coren Design System – open source component library for React.</p>
 						<div className="wwc:flex wwc:items-center wwc:pt-2">
 							<CalendarDays className="wwc:mr-2 wwc:h-4 wwc:w-4 wwc:opacity-70" />
-							<span className="wwc:text-xs wwc:text-muted-foreground">
-								Joined December 2023
-							</span>
+							<span className="wwc:text-xs wwc:text-muted-foreground">Joined December 2023</span>
 						</div>
 					</div>
 				</div>

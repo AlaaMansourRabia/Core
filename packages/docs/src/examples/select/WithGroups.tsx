@@ -1,7 +1,15 @@
 /**
  * Select with grouped options.
  */
-import {Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue} from "@corensystem/coren-ui/select";
+import {
+	Select,
+	SelectContent,
+	SelectGroup,
+	SelectItem,
+	SelectLabel,
+	SelectTrigger,
+	SelectValue,
+} from "@corensystem/coren-ui/select";
 
 export function WithGroups() {
 	return (

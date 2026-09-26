@@ -1,11 +1,7 @@
 /**
  * Persist panel sizes across sessions.
  */
-import {
-	ResizableHandle,
-	ResizablePanel,
-	ResizablePanelGroup,
-} from "@corensystem/coren-ui/resizable";
+import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@corensystem/coren-ui/resizable";
 
 export function PersistenceDo() {
 	return (
