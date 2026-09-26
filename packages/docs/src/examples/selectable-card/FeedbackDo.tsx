@@ -1,0 +1,12 @@
+/**
+ * Show clear selection indicator.
+ */
+import {SelectableCard} from "@corensystem/coren-ui/selectable-card";
+
+export function FeedbackDo() {
+	return (
+		<SelectableCard className="wwc:w-[180px]" selected showCheckmark>
+			<div className="wwc:font-medium">Selected</div>
+		</SelectableCard>
+	);
+}

@@ -1,0 +1,657 @@
+{
+	"name": "@corensystem/coren-docs",
+	"version": "1.4.0",
+	"description": "Component documentation and examples for the Coren Design System",
+	"type": "module",
+	"sideEffects": false,
+	"main": "./dist/examples/badge/index.mjs",
+	"types": "./dist/examples/badge/index.d.mts",
+	"files": [
+		"dist"
+	],
+	"exports": {
+		"./index.json": "./dist/index.json",
+		"./docs/*": "./dist/docs/*",
+		"./examples/badge": {
+			"types": "./dist/examples/badge/index.d.mts",
+			"import": "./dist/examples/badge/index.mjs"
+		},
+		"./examples/button": {
+			"types": "./dist/examples/button/index.d.mts",
+			"import": "./dist/examples/button/index.mjs"
+		},
+		"./examples/checkbox": {
+			"types": "./dist/examples/checkbox/index.d.mts",
+			"import": "./dist/examples/checkbox/index.mjs"
+		},
+		"./examples/input": {
+			"types": "./dist/examples/input/index.d.mts",
+			"import": "./dist/examples/input/index.mjs"
+		},
+		"./examples/label": {
+			"types": "./dist/examples/label/index.d.mts",
+			"import": "./dist/examples/label/index.mjs"
+		},
+		"./examples/radio-group": {
+			"types": "./dist/examples/radio-group/index.d.mts",
+			"import": "./dist/examples/radio-group/index.mjs"
+		},
+		"./examples/select": {
+			"types": "./dist/examples/select/index.d.mts",
+			"import": "./dist/examples/select/index.mjs"
+		},
+		"./examples/switch": {
+			"types": "./dist/examples/switch/index.d.mts",
+			"import": "./dist/examples/switch/index.mjs"
+		},
+		"./examples/textarea": {
+			"types": "./dist/examples/textarea/index.d.mts",
+			"import": "./dist/examples/textarea/index.mjs"
+		},
+		"./examples/avatar": {
+			"types": "./dist/examples/avatar/index.d.mts",
+			"import": "./dist/examples/avatar/index.mjs"
+		},
+		"./examples/slider": {
+			"types": "./dist/examples/slider/index.d.mts",
+			"import": "./dist/examples/slider/index.mjs"
+		},
+		"./examples/toggle": {
+			"types": "./dist/examples/toggle/index.d.mts",
+			"import": "./dist/examples/toggle/index.mjs"
+		},
+		"./examples/toggle-group": {
+			"types": "./dist/examples/toggle-group/index.d.mts",
+			"import": "./dist/examples/toggle-group/index.mjs"
+		},
+		"./examples/progress": {
+			"types": "./dist/examples/progress/index.d.mts",
+			"import": "./dist/examples/progress/index.mjs"
+		},
+		"./examples/spinner": {
+			"types": "./dist/examples/spinner/index.d.mts",
+			"import": "./dist/examples/spinner/index.mjs"
+		},
+		"./examples/skeleton": {
+			"types": "./dist/examples/skeleton/index.d.mts",
+			"import": "./dist/examples/skeleton/index.mjs"
+		},
+		"./examples/separator": {
+			"types": "./dist/examples/separator/index.d.mts",
+			"import": "./dist/examples/separator/index.mjs"
+		},
+		"./examples/link": {
+			"types": "./dist/examples/link/index.d.mts",
+			"import": "./dist/examples/link/index.mjs"
+		},
+		"./examples/heading": {
+			"types": "./dist/examples/heading/index.d.mts",
+			"import": "./dist/examples/heading/index.mjs"
+		},
+		"./examples/text": {
+			"types": "./dist/examples/text/index.d.mts",
+			"import": "./dist/examples/text/index.mjs"
+		},
+		"./examples/kbd": {
+			"types": "./dist/examples/kbd/index.d.mts",
+			"import": "./dist/examples/kbd/index.mjs"
+		},
+		"./examples/code": {
+			"types": "./dist/examples/code/index.d.mts",
+			"import": "./dist/examples/code/index.mjs"
+		},
+		"./examples/chip": {
+			"types": "./dist/examples/chip/index.d.mts",
+			"import": "./dist/examples/chip/index.mjs"
+		},
+		"./examples/icon-button": {
+			"types": "./dist/examples/icon-button/index.d.mts",
+			"import": "./dist/examples/icon-button/index.mjs"
+		},
+		"./examples/copy-button": {
+			"types": "./dist/examples/copy-button/index.d.mts",
+			"import": "./dist/examples/copy-button/index.mjs"
+		},
+		"./examples/status-dot": {
+			"types": "./dist/examples/status-dot/index.d.mts",
+			"import": "./dist/examples/status-dot/index.mjs"
+		},
+		"./examples/divider": {
+			"types": "./dist/examples/divider/index.d.mts",
+			"import": "./dist/examples/divider/index.mjs"
+		},
+		"./examples/stack": {
+			"types": "./dist/examples/stack/index.d.mts",
+			"import": "./dist/examples/stack/index.mjs"
+		},
+		"./examples/grid": {
+			"types": "./dist/examples/grid/index.d.mts",
+			"import": "./dist/examples/grid/index.mjs"
+		},
+		"./examples/button-group": {
+			"types": "./dist/examples/button-group/index.d.mts",
+			"import": "./dist/examples/button-group/index.mjs"
+		},
+		"./examples/timestamp": {
+			"types": "./dist/examples/timestamp/index.d.mts",
+			"import": "./dist/examples/timestamp/index.mjs"
+		},
+		"./examples/tab-list": {
+			"types": "./dist/examples/tab-list/index.d.mts",
+			"import": "./dist/examples/tab-list/index.mjs"
+		},
+		"./examples/segmented-control": {
+			"types": "./dist/examples/segmented-control/index.d.mts",
+			"import": "./dist/examples/segmented-control/index.mjs"
+		},
+		"./examples/clickable-card": {
+			"types": "./dist/examples/clickable-card/index.d.mts",
+			"import": "./dist/examples/clickable-card/index.mjs"
+		},
+		"./examples/selectable-card": {
+			"types": "./dist/examples/selectable-card/index.d.mts",
+			"import": "./dist/examples/selectable-card/index.mjs"
+		},
+		"./examples/number-input": {
+			"types": "./dist/examples/number-input/index.d.mts",
+			"import": "./dist/examples/number-input/index.mjs"
+		},
+		"./examples/input-group": {
+			"types": "./dist/examples/input-group/index.d.mts",
+			"import": "./dist/examples/input-group/index.mjs"
+		},
+		"./examples/list": {
+			"types": "./dist/examples/list/index.d.mts",
+			"import": "./dist/examples/list/index.mjs"
+		},
+		"./examples/section": {
+			"types": "./dist/examples/section/index.d.mts",
+			"import": "./dist/examples/section/index.mjs"
+		},
+		"./examples/avatar-status-dot": {
+			"types": "./dist/examples/avatar-status-dot/index.d.mts",
+			"import": "./dist/examples/avatar-status-dot/index.mjs"
+		},
+		"./examples/citation": {
+			"types": "./dist/examples/citation/index.d.mts",
+			"import": "./dist/examples/citation/index.mjs"
+		},
+		"./examples/file-input": {
+			"types": "./dist/examples/file-input/index.d.mts",
+			"import": "./dist/examples/file-input/index.mjs"
+		},
+		"./examples/markdown": {
+			"types": "./dist/examples/markdown/index.d.mts",
+			"import": "./dist/examples/markdown/index.mjs"
+		},
+		"./examples/outline": {
+			"types": "./dist/examples/outline/index.d.mts",
+			"import": "./dist/examples/outline/index.mjs"
+		},
+		"./examples/form-layout": {
+			"types": "./dist/examples/form-layout/index.d.mts",
+			"import": "./dist/examples/form-layout/index.mjs"
+		},
+		"./examples/dialog": {
+			"types": "./dist/examples/dialog/index.d.mts",
+			"import": "./dist/examples/dialog/index.mjs"
+		},
+		"./examples/alert-dialog": {
+			"types": "./dist/examples/alert-dialog/index.d.mts",
+			"import": "./dist/examples/alert-dialog/index.mjs"
+		},
+		"./examples/sheet": {
+			"types": "./dist/examples/sheet/index.d.mts",
+			"import": "./dist/examples/sheet/index.mjs"
+		},
+		"./examples/drawer": {
+			"types": "./dist/examples/drawer/index.d.mts",
+			"import": "./dist/examples/drawer/index.mjs"
+		},
+		"./examples/popover": {
+			"types": "./dist/examples/popover/index.d.mts",
+			"import": "./dist/examples/popover/index.mjs"
+		},
+		"./examples/tooltip": {
+			"types": "./dist/examples/tooltip/index.d.mts",
+			"import": "./dist/examples/tooltip/index.mjs"
+		},
+		"./examples/dropdown-menu": {
+			"types": "./dist/examples/dropdown-menu/index.d.mts",
+			"import": "./dist/examples/dropdown-menu/index.mjs"
+		},
+		"./examples/context-menu": {
+			"types": "./dist/examples/context-menu/index.d.mts",
+			"import": "./dist/examples/context-menu/index.mjs"
+		},
+		"./examples/tabs": {
+			"types": "./dist/examples/tabs/index.d.mts",
+			"import": "./dist/examples/tabs/index.mjs"
+		},
+		"./examples/accordion": {
+			"types": "./dist/examples/accordion/index.d.mts",
+			"import": "./dist/examples/accordion/index.mjs"
+		},
+		"./examples/breadcrumb": {
+			"types": "./dist/examples/breadcrumb/index.d.mts",
+			"import": "./dist/examples/breadcrumb/index.mjs"
+		},
+		"./examples/card": {
+			"types": "./dist/examples/card/index.d.mts",
+			"import": "./dist/examples/card/index.mjs"
+		},
+		"./examples/alert": {
+			"types": "./dist/examples/alert/index.d.mts",
+			"import": "./dist/examples/alert/index.mjs"
+		},
+		"./examples/table": {
+			"types": "./dist/examples/table/index.d.mts",
+			"import": "./dist/examples/table/index.mjs"
+		},
+		"./examples/pagination": {
+			"types": "./dist/examples/pagination/index.d.mts",
+			"import": "./dist/examples/pagination/index.mjs"
+		},
+		"./examples/scroll-area": {
+			"types": "./dist/examples/scroll-area/index.d.mts",
+			"import": "./dist/examples/scroll-area/index.mjs"
+		},
+		"./examples/collapsible": {
+			"types": "./dist/examples/collapsible/index.d.mts",
+			"import": "./dist/examples/collapsible/index.mjs"
+		},
+		"./examples/hover-card": {
+			"types": "./dist/examples/hover-card/index.d.mts",
+			"import": "./dist/examples/hover-card/index.mjs"
+		},
+		"./examples/toast": {
+			"types": "./dist/examples/toast/index.d.mts",
+			"import": "./dist/examples/toast/index.mjs"
+		},
+		"./examples/combobox": {
+			"types": "./dist/examples/combobox/index.d.mts",
+			"import": "./dist/examples/combobox/index.mjs"
+		},
+		"./examples/command": {
+			"types": "./dist/examples/command/index.d.mts",
+			"import": "./dist/examples/command/index.mjs"
+		},
+		"./examples/date-picker": {
+			"types": "./dist/examples/date-picker/index.d.mts",
+			"import": "./dist/examples/date-picker/index.mjs"
+		},
+		"./examples/calendar": {
+			"types": "./dist/examples/calendar/index.d.mts",
+			"import": "./dist/examples/calendar/index.mjs"
+		},
+		"./examples/carousel": {
+			"types": "./dist/examples/carousel/index.d.mts",
+			"import": "./dist/examples/carousel/index.mjs"
+		},
+		"./examples/menubar": {
+			"types": "./dist/examples/menubar/index.d.mts",
+			"import": "./dist/examples/menubar/index.mjs"
+		},
+		"./examples/resizable": {
+			"types": "./dist/examples/resizable/index.d.mts",
+			"import": "./dist/examples/resizable/index.mjs"
+		},
+		"./examples/stepper": {
+			"types": "./dist/examples/stepper/index.d.mts",
+			"import": "./dist/examples/stepper/index.mjs"
+		},
+		"./examples/input-otp": {
+			"types": "./dist/examples/input-otp/index.d.mts",
+			"import": "./dist/examples/input-otp/index.mjs"
+		},
+		"./examples/navigation-menu": {
+			"types": "./dist/examples/navigation-menu/index.d.mts",
+			"import": "./dist/examples/navigation-menu/index.mjs"
+		},
+		"./examples/aspect-ratio": {
+			"types": "./dist/examples/aspect-ratio/index.d.mts",
+			"import": "./dist/examples/aspect-ratio/index.mjs"
+		},
+		"./examples/banner": {
+			"types": "./dist/examples/banner/index.d.mts",
+			"import": "./dist/examples/banner/index.mjs"
+		},
+		"./examples/form": {
+			"types": "./dist/examples/form/index.d.mts",
+			"import": "./dist/examples/form/index.mjs"
+		},
+		"./examples/empty": {
+			"types": "./dist/examples/empty/index.d.mts",
+			"import": "./dist/examples/empty/index.mjs"
+		},
+		"./examples/sidebar": {
+			"types": "./dist/examples/sidebar/index.d.mts",
+			"import": "./dist/examples/sidebar/index.mjs"
+		},
+		"./examples/toolbar": {
+			"types": "./dist/examples/toolbar/index.d.mts",
+			"import": "./dist/examples/toolbar/index.mjs"
+		},
+		"./examples/blockquote": {
+			"types": "./dist/examples/blockquote/index.d.mts",
+			"import": "./dist/examples/blockquote/index.mjs"
+		},
+		"./examples/multi-select": {
+			"types": "./dist/examples/multi-select/index.d.mts",
+			"import": "./dist/examples/multi-select/index.mjs"
+		},
+		"./examples/sonner": {
+			"types": "./dist/examples/sonner/index.d.mts",
+			"import": "./dist/examples/sonner/index.mjs"
+		},
+		"./examples/data-table": {
+			"types": "./dist/examples/data-table/index.d.mts",
+			"import": "./dist/examples/data-table/index.mjs"
+		},
+		"./examples/chart": {
+			"types": "./dist/examples/chart/index.d.mts",
+			"import": "./dist/examples/chart/index.mjs"
+		},
+		"./examples/time-input": {
+			"types": "./dist/examples/time-input/index.d.mts",
+			"import": "./dist/examples/time-input/index.mjs"
+		},
+		"./examples/thumbnail": {
+			"types": "./dist/examples/thumbnail/index.d.mts",
+			"import": "./dist/examples/thumbnail/index.mjs"
+		},
+		"./examples/widget-card": {
+			"types": "./dist/examples/widget-card/index.d.mts",
+			"import": "./dist/examples/widget-card/index.mjs"
+		},
+		"./examples/metric-card": {
+			"types": "./dist/examples/metric-card/index.d.mts",
+			"import": "./dist/examples/metric-card/index.mjs"
+		},
+		"./examples/lightbox": {
+			"types": "./dist/examples/lightbox/index.d.mts",
+			"import": "./dist/examples/lightbox/index.mjs"
+		},
+		"./examples/tree-list": {
+			"types": "./dist/examples/tree-list/index.d.mts",
+			"import": "./dist/examples/tree-list/index.mjs"
+		},
+		"./examples/confirm-dialog": {
+			"types": "./dist/examples/confirm-dialog/index.d.mts",
+			"import": "./dist/examples/confirm-dialog/index.mjs"
+		},
+		"./examples/filter": {
+			"types": "./dist/examples/filter/index.d.mts",
+			"import": "./dist/examples/filter/index.mjs"
+		},
+		"./examples/notification-center": {
+			"types": "./dist/examples/notification-center/index.d.mts",
+			"import": "./dist/examples/notification-center/index.mjs"
+		},
+		"./examples/image-zoom": {
+			"types": "./dist/examples/image-zoom/index.d.mts",
+			"import": "./dist/examples/image-zoom/index.mjs"
+		},
+		"./examples/mega-menu": {
+			"types": "./dist/examples/mega-menu/index.d.mts",
+			"import": "./dist/examples/mega-menu/index.mjs"
+		},
+		"./examples/field": {
+			"types": "./dist/examples/field/index.d.mts",
+			"import": "./dist/examples/field/index.mjs"
+		},
+		"./examples/search-filter-bar": {
+			"types": "./dist/examples/search-filter-bar/index.d.mts",
+			"import": "./dist/examples/search-filter-bar/index.mjs"
+		},
+		"./examples/icon": {
+			"types": "./dist/examples/icon/index.d.mts",
+			"import": "./dist/examples/icon/index.mjs"
+		},
+		"./examples/overflow-list": {
+			"types": "./dist/examples/overflow-list/index.d.mts",
+			"import": "./dist/examples/overflow-list/index.mjs"
+		},
+		"./examples/error-page": {
+			"types": "./dist/examples/error-page/index.d.mts",
+			"import": "./dist/examples/error-page/index.mjs"
+		},
+		"./examples/prompt-input": {
+			"types": "./dist/examples/prompt-input/index.d.mts",
+			"import": "./dist/examples/prompt-input/index.mjs"
+		},
+		"./examples/property-list": {
+			"types": "./dist/examples/property-list/index.d.mts",
+			"import": "./dist/examples/property-list/index.mjs"
+		},
+		"./examples/date-range-input": {
+			"types": "./dist/examples/date-range-input/index.d.mts",
+			"import": "./dist/examples/date-range-input/index.mjs"
+		},
+		"./examples/overlay": {
+			"types": "./dist/examples/overlay/index.d.mts",
+			"import": "./dist/examples/overlay/index.mjs"
+		},
+		"./examples/wizard-dialog": {
+			"types": "./dist/examples/wizard-dialog/index.d.mts",
+			"import": "./dist/examples/wizard-dialog/index.mjs"
+		},
+		"./examples/bottom-sheet": {
+			"types": "./dist/examples/bottom-sheet/index.d.mts",
+			"import": "./dist/examples/bottom-sheet/index.mjs"
+		},
+		"./examples/typography": {
+			"types": "./dist/examples/typography/index.d.mts",
+			"import": "./dist/examples/typography/index.mjs"
+		},
+		"./examples/app-shell": {
+			"types": "./dist/examples/app-shell/index.d.mts",
+			"import": "./dist/examples/app-shell/index.mjs"
+		},
+		"./examples/app-card": {
+			"types": "./dist/examples/app-card/index.d.mts",
+			"import": "./dist/examples/app-card/index.mjs"
+		},
+		"./examples/asset-list-item": {
+			"types": "./dist/examples/asset-list-item/index.d.mts",
+			"import": "./dist/examples/asset-list-item/index.mjs"
+		},
+		"./examples/blueprint-segment": {
+			"types": "./dist/examples/blueprint-segment/index.d.mts",
+			"import": "./dist/examples/blueprint-segment/index.mjs"
+		},
+		"./examples/browser-tabs": {
+			"types": "./dist/examples/browser-tabs/index.d.mts",
+			"import": "./dist/examples/browser-tabs/index.mjs"
+		},
+		"./examples/building-model-placeholder": {
+			"types": "./dist/examples/building-model-placeholder/index.d.mts",
+			"import": "./dist/examples/building-model-placeholder/index.mjs"
+		},
+		"./examples/canvas-file-picker": {
+			"types": "./dist/examples/canvas-file-picker/index.d.mts",
+			"import": "./dist/examples/canvas-file-picker/index.mjs"
+		},
+		"./examples/canvas-header": {
+			"types": "./dist/examples/canvas-header/index.d.mts",
+			"import": "./dist/examples/canvas-header/index.mjs"
+		},
+		"./examples/capture-route-minimap": {
+			"types": "./dist/examples/capture-route-minimap/index.d.mts",
+			"import": "./dist/examples/capture-route-minimap/index.mjs"
+		},
+		"./examples/catalogue-view-toggle": {
+			"types": "./dist/examples/catalogue-view-toggle/index.d.mts",
+			"import": "./dist/examples/catalogue-view-toggle/index.mjs"
+		},
+		"./examples/compare-bars": {
+			"types": "./dist/examples/compare-bars/index.d.mts",
+			"import": "./dist/examples/compare-bars/index.mjs"
+		},
+		"./examples/context-toolbar": {
+			"types": "./dist/examples/context-toolbar/index.d.mts",
+			"import": "./dist/examples/context-toolbar/index.mjs"
+		},
+		"./examples/export-dialog": {
+			"types": "./dist/examples/export-dialog/index.d.mts",
+			"import": "./dist/examples/export-dialog/index.mjs"
+		},
+		"./examples/floor-progress-bar": {
+			"types": "./dist/examples/floor-progress-bar/index.d.mts",
+			"import": "./dist/examples/floor-progress-bar/index.mjs"
+		},
+		"./examples/form-action-bar": {
+			"types": "./dist/examples/form-action-bar/index.d.mts",
+			"import": "./dist/examples/form-action-bar/index.mjs"
+		},
+		"./examples/house-shape": {
+			"types": "./dist/examples/house-shape/index.d.mts",
+			"import": "./dist/examples/house-shape/index.mjs"
+		},
+		"./examples/item": {
+			"types": "./dist/examples/item/index.d.mts",
+			"import": "./dist/examples/item/index.mjs"
+		},
+		"./examples/legend": {
+			"types": "./dist/examples/legend/index.d.mts",
+			"import": "./dist/examples/legend/index.mjs"
+		},
+		"./examples/map-compass": {
+			"types": "./dist/examples/map-compass/index.d.mts",
+			"import": "./dist/examples/map-compass/index.mjs"
+		},
+		"./examples/map-hover-card": {
+			"types": "./dist/examples/map-hover-card/index.d.mts",
+			"import": "./dist/examples/map-hover-card/index.mjs"
+		},
+		"./examples/map-minimap": {
+			"types": "./dist/examples/map-minimap/index.d.mts",
+			"import": "./dist/examples/map-minimap/index.mjs"
+		},
+		"./examples/milestone-table": {
+			"types": "./dist/examples/milestone-table/index.d.mts",
+			"import": "./dist/examples/milestone-table/index.mjs"
+		},
+		"./examples/minimap": {
+			"types": "./dist/examples/minimap/index.d.mts",
+			"import": "./dist/examples/minimap/index.mjs"
+		},
+		"./examples/operations-drawer": {
+			"types": "./dist/examples/operations-drawer/index.d.mts",
+			"import": "./dist/examples/operations-drawer/index.mjs"
+		},
+		"./examples/progress-list-item": {
+			"types": "./dist/examples/progress-list-item/index.d.mts",
+			"import": "./dist/examples/progress-list-item/index.mjs"
+		},
+		"./examples/progress-stat": {
+			"types": "./dist/examples/progress-stat/index.d.mts",
+			"import": "./dist/examples/progress-stat/index.mjs"
+		},
+		"./examples/push-panel": {
+			"types": "./dist/examples/push-panel/index.d.mts",
+			"import": "./dist/examples/push-panel/index.mjs"
+		},
+		"./examples/rule-row": {
+			"types": "./dist/examples/rule-row/index.d.mts",
+			"import": "./dist/examples/rule-row/index.mjs"
+		},
+		"./examples/score-gauge": {
+			"types": "./dist/examples/score-gauge/index.d.mts",
+			"import": "./dist/examples/score-gauge/index.mjs"
+		},
+		"./examples/section-header": {
+			"types": "./dist/examples/section-header/index.d.mts",
+			"import": "./dist/examples/section-header/index.mjs"
+		},
+		"./examples/thinking-pill": {
+			"types": "./dist/examples/thinking-pill/index.d.mts",
+			"import": "./dist/examples/thinking-pill/index.mjs"
+		},
+		"./examples/time-scrubber": {
+			"types": "./dist/examples/time-scrubber/index.d.mts",
+			"import": "./dist/examples/time-scrubber/index.mjs"
+		},
+		"./examples/timeline-range-selector": {
+			"types": "./dist/examples/timeline-range-selector/index.d.mts",
+			"import": "./dist/examples/timeline-range-selector/index.mjs"
+		},
+		"./examples/timestamp-picker": {
+			"types": "./dist/examples/timestamp-picker/index.d.mts",
+			"import": "./dist/examples/timestamp-picker/index.mjs"
+		},
+		"./examples/tool-call": {
+			"types": "./dist/examples/tool-call/index.d.mts",
+			"import": "./dist/examples/tool-call/index.mjs"
+		},
+		"./examples/toolbar-color-picker": {
+			"types": "./dist/examples/toolbar-color-picker/index.d.mts",
+			"import": "./dist/examples/toolbar-color-picker/index.mjs"
+		},
+		"./examples/toolbar-pager": {
+			"types": "./dist/examples/toolbar-pager/index.d.mts",
+			"import": "./dist/examples/toolbar-pager/index.mjs"
+		},
+		"./examples/tree-row": {
+			"types": "./dist/examples/tree-row/index.d.mts",
+			"import": "./dist/examples/tree-row/index.mjs"
+		},
+		"./examples/turn-timer": {
+			"types": "./dist/examples/turn-timer/index.d.mts",
+			"import": "./dist/examples/turn-timer/index.mjs"
+		},
+		"./examples/vertical-zoom-tools": {
+			"types": "./dist/examples/vertical-zoom-tools/index.d.mts",
+			"import": "./dist/examples/vertical-zoom-tools/index.mjs"
+		},
+		"./examples/view-tab-bar": {
+			"types": "./dist/examples/view-tab-bar/index.d.mts",
+			"import": "./dist/examples/view-tab-bar/index.mjs"
+		},
+		"./examples/violation-list": {
+			"types": "./dist/examples/violation-list/index.d.mts",
+			"import": "./dist/examples/violation-list/index.mjs"
+		},
+		"./examples/walkthrough-modal": {
+			"types": "./dist/examples/walkthrough-modal/index.d.mts",
+			"import": "./dist/examples/walkthrough-modal/index.mjs"
+		},
+		"./examples/week-selector": {
+			"types": "./dist/examples/week-selector/index.d.mts",
+			"import": "./dist/examples/week-selector/index.mjs"
+		},
+		"./examples/zoom-tools": {
+			"types": "./dist/examples/zoom-tools/index.d.mts",
+			"import": "./dist/examples/zoom-tools/index.mjs"
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "tsdown && node scripts/build-docs.mjs",
+		"build:examples": "tsdown",
+		"build:docs": "node scripts/build-docs.mjs",
+		"docs:check": "node scripts/check-docs.mjs",
+		"typecheck": "tsgo --noEmit",
+		"lint": "oxlint .",
+		"format": "oxfmt .",
+		"format:check": "oxfmt --check ."
+	},
+	"peerDependencies": {
+		"@corensystem/coren-ui": "^1.0.0",
+		"lucide-react": ">=0.400.0",
+		"react": "^18.0.0 || ^19.0.0",
+		"react-dom": "^18.0.0 || ^19.0.0"
+	},
+	"devDependencies": {
+		"@corensystem/coren-ui": "workspace:*",
+		"@types/react": "^19.0.0",
+		"lucide-react": "^0.511.0",
+		"react": "^19.1.0",
+		"react-docgen-typescript": "^2.4.0",
+		"react-dom": "^19.1.0",
+		"tsdown": "latest",
+		"typescript": "^5.9.0"
+	}
+}

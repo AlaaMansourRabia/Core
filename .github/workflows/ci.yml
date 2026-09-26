@@ -167,3 +167,11 @@ jobs:
         # (single source of truth): schema-checks manifests and fails on any drift or
         # un-regenerated catalog entry.
         run: pnpm validate:manifests
+
+      - name: Build docs package
+        run: pnpm --filter @corensystem/coren-docs build
+
+      - name: Docs integrity check
+        # Validates that all documented components have valid examples, descriptions,
+        # and no bundled dependencies.
+        run: pnpm --filter @corensystem/coren-docs docs:check

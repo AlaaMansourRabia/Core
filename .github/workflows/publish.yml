@@ -44,3 +44,8 @@ jobs:
         run: pnpm --filter @corensystem/coren-ui publish --no-git-checks || echo "Already published or error"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish docs
+        run: pnpm --filter @corensystem/coren-docs publish --no-git-checks || echo "Already published or error"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
