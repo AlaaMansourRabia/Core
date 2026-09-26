@@ -1,5 +1,6 @@
-import {createElement} from "react";
 import type {Preview} from "storybook/internal/types";
+
+import {createElement} from "react";
 
 import {AutodocsPage} from "../stories/_docs/ComponentKnowledge";
 import "./preview.css";

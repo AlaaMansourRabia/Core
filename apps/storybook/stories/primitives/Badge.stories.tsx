@@ -1,6 +1,5 @@
 import type {Meta, StoryObj} from "storybook/internal/types";
 
-import {Badge} from "@corensystem/coren-ui/badge";
 import {
 	AllVariants as AllVariantsExample,
 	CountBadge as CountBadgeExample,
@@ -15,6 +14,7 @@ import {
 	WhenNotToUse as WhenNotToUseExample,
 	WithIcon as WithIconExample,
 } from "@corensystem/coren-docs/examples/badge";
+import {Badge} from "@corensystem/coren-ui/badge";
 
 const meta = {
 	title: "Components/Primitives/Badge",
