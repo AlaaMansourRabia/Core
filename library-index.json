@@ -541,7 +541,15 @@
 					"default": "Neutral/primary",
 					"secondary": "Muted",
 					"destructive": "Error/critical",
-					"outline": "Subtle outline"
+					"outline": "Subtle outline",
+					"success": "Positive/completed state",
+					"warning": "Caution/pending state",
+					"info": "Informational/neutral highlight",
+					"successSoft": "Subtle positive indicator",
+					"warningSoft": "Subtle caution indicator",
+					"dangerSoft": "Subtle error/high-priority indicator",
+					"infoSoft": "Subtle informational indicator",
+					"neutralSoft": "Subtle neutral/draft indicator"
 				},
 				"avoid": [
 					"Use for an interactive filter — use Chip"

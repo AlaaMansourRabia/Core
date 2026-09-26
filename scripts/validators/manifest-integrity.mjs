@@ -77,6 +77,7 @@ const COMPONENT_ALLOWED = new Set([
 	"configSchema",
 	"states",
 	"ownership",
+	"docs", // documentation metadata for @corensystem/coren-docs
 ]);
 const LINEAGE_ALLOWED = new Set([
 	"origin",
@@ -215,7 +216,7 @@ const PATTERN_REQUIRED = [
 	"tags",
 	"lineage",
 ];
-const PATTERN_ALLOWED = new Set([...PATTERN_REQUIRED, "requiredProviders", "notes"]);
+const PATTERN_ALLOWED = new Set([...PATTERN_REQUIRED, "requiredProviders", "notes", "docs"]);
 const patternSources = loadPatternSources();
 const patternsByName = new Map((index.patterns ?? []).map((p) => [p.name, p]));
 for (const [name, m] of patternSources) {
